@@ -1,0 +1,41 @@
+# ============================================================
+# Academic Summary Pipeline - Git Ignore
+# ============================================================
+
+# Environment variables (TOKENS, SECRETS)
+.env
+.env.local
+.env.*.local
+scripts/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.log
