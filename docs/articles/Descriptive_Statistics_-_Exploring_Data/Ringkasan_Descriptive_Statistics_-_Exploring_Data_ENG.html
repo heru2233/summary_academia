@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descriptive Statistics   Exploring Data using Stata</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <style>
+        body { font-family: 'Times New Roman', serif; font-size: 12pt; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; }
+        h3 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 5px; }
+        h4 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .eq { background: #f8f9fa; padding: 10px; margin: 10px 0; border-radius: 4px; text-align: center; }
+        @media print { body { font-size: 12pt; } }
+    </style>
+</head>
+<body>
+<h3>Descriptive Statistics: Exploring Data using Stata</h3>
+
+<p>This article provides a comprehensive summary of the techniques covered in the Princeton University Research Guide “Descriptive Statistics – Exploring Data using Stata.” The guide walks users through a series of Stata commands that allow researchers to inspect the structure of a dataset, obtain summary statistics, examine variable definitions, and produce frequency and cross‑tabulation tables. Each section below mirrors the guide’s organization, highlights the key commands, explains the output, and offers practical tips for applying the tools to your own data.</p>
+
+<h4>1. Introduction</h4>
+<p>The guide begins by loading the built‑in <b>nlsw88</b> dataset, which contains information from the 1988 National Longitudinal Survey of Women. The command <code>sysuse nlsw88, clear</code> brings the data into memory and clears any previous dataset. Users are reminded that for personal analyses the dataset can be opened via <b>File → Open → your .dta file</b> or by using the <code>use</code> command with a file path.</p>
+<p>The purpose of the guide is to familiarize analysts with the essential descriptive tools in Stata: <code>describe</code>, <code>summarize</code> (or its abbreviation <code>su</code>), <code>codebook</code>, <code>tab</code> family, <code>tabstat</code>, and <code>table</code>. Mastery of these commands enables a quick yet thorough exploratory data analysis (EDA) before moving on to modelling or hypothesis testing.</p>
+
+<h4>2. Descriptive Statistics (<code>describe</code>)</h4>
+<p>The <code>describe</code> command provides a snapshot of the dataset’s dimensions, variable names, storage types, display formats, and variable labels. After loading <b>nlsw88</b>, typing <code>describe</code> yields a table similar to the one shown below.</p>
+
+<table>
+<tr><td><b>Contains data from</b></td><td>C:\Program Files\Stata18\ado\base/n/nlsw88.dta</td></tr>
+<tr><td><b>Observations</b></td><td>2,246 (NLSW, 1988 extract)</td></tr>
+<tr><td><b>Variables</b></td><td>17 (1 May 2022 22:52)</td></tr>
+<tr><td><b>Sorted by</b></td><td>idcode</td></tr>
+</table>
+
+<p>The subsequent variable list displays each column’s name, storage type, display format, value label (if any), and a longer variable label.</p>
+
+<table>
+<tr><th>Variable</th><th>Storage type</th><th>Display format</th><th>Value label</th><th>Variable label</th></tr>
+<tr><td>idcode</td><td>int</td><td>%8.0g</td><td></td><td>NLS ID</td></tr>
+<tr><td>age</td><td>byte</td><td>%8.0g</td><td></td><td>Age in current year</td></tr>
+<tr><td>race</td><td>byte</td><td>%8.0g</td><td>racelbl</td><td>Race</td></tr>
+<tr><td>married</td><td>byte</td><td>%8.0g</td><td>marlbl</td><td>Married</td></tr>
+<tr><td>never_married</td><td>byte</td><td>%16.0g</td><td>nev_mar</td><td>Never married</td></tr>
+<tr><td>grade</td><td>byte</td><td>%8.0g</td><td></td><td>Current grade completed</td></tr>
+<tr><td>collgrad</td><td>byte</td><td>%16.0g</td><td>gradlbl</td><td>College graduate</td></tr>
+<tr><td>south</td><td>byte</td><td>%9.0g</td><td>southlbl</td><td>Lives in the south</td></tr>
+<tr><td>smsa</td><td>byte</td><td>%9.0g</td><td>smsalbl</td><td>Lives in SMSA</td></tr>
+<tr><td>c_city</td><td>byte</td><td>%16.0g</td><td>ccitylbl</td><td>Lives in a central city</td></tr>
+<tr><td>industry</td><td>byte</td><td>%23.0g</td><td>indlbl</td><td>Industry</td></tr>
+<tr><td>occupation</td><td>byte</td><td>%22.0g</td><td>occlbl</td><td>Occupation</td></tr>
+<tr><td>union</td><td>byte</td><td>%8.0g</td><td>unionlbl</td><td>Union worker</td></tr>
+<tr><td>wage</td><td>float</td><td>%9.0g</td><td></td><td>Hourly wage</td></tr>
+<tr><td>hours</td><td>byte</td><td>%8.0g</td><td></td><td>Usual hours worked</td></tr>
+<tr><td>ttl_exp</td><td>float</td><td>%9.0g</td><td></td><td>Total work experience (years)</td></tr>
+<tr><td>tenure</td><td>float</td><td>%9.0g</td><td></td><td>Job tenure (years)</td></tr>
+</table>
+
+<p><b>Interpretation</b></p>
+<ul>
+<li><b>Observations (2,246)</b> – number of rows in the dataset.</li>
+<li><b>Variables (17)</b> – number of columns.</li>
+<li><b>Storage type</b> – indicates how Stata stores each variable internally (<code>int</code>, <code>byte</code>, <code>float</code>, etc.). Understanding storage type helps anticipate memory usage and the range of permissible values.</li>
+<li><b>Display format</b> – controls how values appear when printed or viewed. For example, <code>%9.0g</code> for <b>wage</b> means a total width of nine characters using a general format that adapts to the magnitude of the number.</li>
+<li><b>Value label</b> – attaches meaningful strings to numeric codes (e.g., <code>racelbl</code> maps 1→White, 2→Black, 3→Other).</li>
+</ul>
+
+<p>The guide emphasizes that <code>describe</code> is the first step in any EDA workflow because it reveals potential issues such as unexpected storage types, missing value labels, or variables that should be recoded.</p>
+
+<h4>3. Summary Statistics (<code>summarize</code>)</h4>
+<p>The <code>summarize</code> command (abbreviated <code>su</code>) produces basic univariate statistics: number of non‑missing observations, mean, standard deviation, minimum, and maximum. The guide demonstrates several variations.</p>
+
+<h5>3.1 Basic Summary</h5>
+<p>After loading the data, entering <code>su</code> yields the table below (truncated for brevity).</p>
+
+<table>
+<tr><th>Variable</th><th>Obs</th><th>Mean</th><th>Std. dev.</th><th>Min</th><th>Max</th></tr>
+<tr><td>idcode</td><td>2,246</td><td>2612.654</td><td>1480.864</td><td>1</td><td>5159</td></tr>
+<tr><td>age</td><td>2,246</td><td>39.15316</td><td>3.060002</td><td>34</td><td>46</td></tr>
+<tr><td>race</td><td>2,246</td><td>1.282725</td><td>.4754413</td><td>1</td><td>3</td></tr>
+<tr><td>married</td><td>2,246</td><td>.6420303</td><td>.4795099</td><td>0</td><td>1</td></tr>
+<tr><td>never_married</td><td>2,246</td><td>.1041852</td><td>.3055687</td><td>0</td><td>1</td></tr>
+<tr><td>grade</td><td>2,244</td><td>13.09893</td><td>2.521246</td><td>0</td><td>18</td></tr>
+<tr><td>collgrad</td><td>2,246</td><td>.2368655</td><td>.4252538</td><td>0</td><td>1</td></tr>
+<tr><td>south</td><td>2,246</td><td>.4194123</td><td>.4935728</td><td>0</td><td>1</td></tr>
+<tr><td>smsa</td><td>2,246</td><td>.7039181</td><td>.4566292</td><td>0</td><td>1</td></tr>
+<tr><td>c_city</td><td>2,246</td><td>.2916296</td><td>.4546139</td><td>0</td><td>1</td></tr>
+<tr><td>industry</td><td>2,232</td><td>8.189516</td><td>3.010875</td><td>1</td><td>12</td></tr>
+<tr><td>occupation</td><td>2,237</td><td>4.642825</td><td>3.408897</td><td>1</td><td>13</td></tr>
+<tr><td>union</td><td>1,878</td><td>.2454739</td><td>.4304825</td><td>0</td><td>1</td></tr>
+<tr><td>wage</td><td>2,246</td><td>7.766949</td><td>5.755523</td><td>1.004952</td><td>40.74659</td></tr>
+<tr><td>hours</td><td>2,242</td><td>37.21811</td><td>10.50914</td><td>1</td><td>80</td></tr>
+<tr><td>ttl_exp</td><td>2,246</td><td>12.53498</td><td>4.610208</td><td>.1153846</td><td>28.88461</td></tr>
+<tr><td>tenure</td><td>2,231</td><td>5.97785</td><td>5.510331</td><td>0</td><td>25.91667</td></tr>
+</table>
+
+<p><b>Interpretation</b></p>
+<ul>
+<li>The mean age is approximately 39.2 years with a standard deviation of 3.06, indicating relatively little spread around the mean.</li>
+<li>Variables such as <b>married</b>, <b>never_married</b>, <b>collgrad</b>, <b>south</b>, <b>smsa</b>, <b>c_city</b>, and <b>union</b> are dummy variables (0/1); their means represent the proportion of observations coded as 1 (e.g., 64.2% married).</li>
+<li>The wage variable shows a wide range from about $1.00 to $40.75 per hour, with a mean of $7.77 and a substantial standard deviation of $5.76.</li>
+</ul>
+
+<h5>3.2 Detailed Summary (<code>su, detail</code>)</h5>
+<p>Adding the <code>detail</code> option expands the output to include percentiles, variance, skewness, and kurtosis. The guide shows the detailed output for the first three variables (idcode, age, race).</p>
+
+<table>
+<tr><th>Statistic</th><th>idcode</th><th>age</th><th>race</th></tr>
+<tr><td>Mean</td><td>2612.654</td><td>39.15316</td><td>1.282725</td></tr>
+<tr><td>Std. dev.</td><td>1480.864</td><td>3.060002</td><td>.4754413</td></tr>
+<tr><td>Variance</td><td>2,192,957</td><td>9.363614</td><td>.2260444</td></tr>
+<tr><td>Skewness</td><td>-.0232308</td><td>.2003234</td><td>1.284394</td></tr>
+<tr><td>Kurtosis</td><td>1.828053</td><td>1.932389</td><td>3.409155</td></tr>
+<tr><td>P10</td><td>521</td><td>35</td><td>1</td></tr>
+<tr><td>P25</td><td>1366</td><td>36</td><td>1</td></tr>
+<tr><td>P50 (Median)</td><td>2614</td><td>39</td><td>1</td></tr>
+<tr><td>P75</td><td>3903</td><td>42</td><td>2</td></tr>
+<tr><td>P90</td><td>4651</td><td>44</td><td>2</td></tr>
+</table>
+
+<p><b>Interpretation</b></p>
+<ul>
+<li>Percentiles give a sense of distribution shape; for age, the median (39) is close to the mean (39.15), suggesting near symmetry.</li>
+<li>Positive skewness for race (1.28) indicates a longer tail toward higher values (more Black and Other respondents relative to Whites).</li>
+<li>Kurtosis values near 2 for age and idcode imply lighter tails than a normal distribution; race shows higher kurtosis (3.41), indicating heavier tails.</li>
+</ul>
+
+<h5>3.3 Conditional Summaries</h5>
+<p>The guide illustrates how to restrict summaries to subsets using the <code>if</code> qualifier. For example, <code>su age if married == 1</code> returns statistics for married individuals only.</p>
+
+<table>
+<tr><th>Variable</th><th>Obs</th><th>Mean</th><th>Std. dev.</th><th>Min</th><th>Max</th></tr>
+<tr><td>age</td><td>1,442</td><td>39.1165</td><td>3.066058</td><td>34</td><td>45</td></tr>
+</table>
+
+<p>The mean age of married respondents is 39.12 years, virtually identical to the overall mean, suggesting marriage is not strongly associated with age in this sample.</p>
+
+<h5>3.4 Summarizing Multiple Variables</h5>
+<p>To obtain summary statistics for a list of variables, simply list them after <code>su</code>. The guide shows <code>su age race occupation union wage</code>.</p>
+
+<table>
+<tr><th>Variable</th><th>Obs</th><th>Mean</th><th>Std. dev.</th><th>Min</th><th>Max</th></tr>
+<tr><td>age</td><td>2,246</td><td>39.15316</td><td>3.060002</td><td>34</td><td>46</td></tr>
+<tr><td>race</td><td>2,246</td><td>1.282725</td><td>.4754413</td><td>1</td><td>3</td></tr>
+<tr><td>occupation</td><td>2,237</td><td>4.642825</td><td>3.408897</td><td>1</td><td>13</td></tr>
+<tr><td>union</td><td>1,878</td><td>.2454739</td><td>.4304825</td><td>0</td><td>1</td></tr>
+<tr><td>wage</td><td>2,246</td><td>7.766949</td><td>5.755523</td><td>1.004952</td><td>40.74659</td></tr>
+</table>
+
+<p><b>Interpretation</b></p>
+<ul>
+<li>The occupation variable averages 4.64 (roughly between “Sales” and “Managers/Admin”) with a standard deviation of 3.41, indicating considerable diversity in job types.</li>
+<li>Union membership averages 0.245, meaning about 24.5% of the sampled workers are union members.</li>
+</ul>
+
+<h5>3.5 Range Summaries</h5>
+<p>The guide also shows how to summarize a consecutive block of variables using the dash notation, e.g., <code>su idcode-married</code>.</p>
+
+<table>
+<tr><th>Variable</th><th>Obs</th><th>Mean</th><th>Std. dev.</th><th>Min</th><th>Max</th></tr>
+<tr><td>idcode</td><td>2,246</td><td>2612.654</td><td>1480.864</td><td>1</td><td>5159</td></tr>
+<tr><td>age</td><td>2,246</td><td>39.15316</td><td>3.060002</td><td>34</td><td>46</td></tr>
+<tr><td>race</td><td>2,246</td><td>1.282725</td><td>.4754413</td><td>1</td><td>3</td></tr>
+<tr><td>married</td><td>2,246</td><td>.6420303</td><td>.4795099</td><td>0</td><td>1</td></tr>
+</table>
+
+<h5>3.6 Grouped Summaries (<code>by</code>)</h5>
+<p>To obtain statistics separately for categories of another variable, combine <code>by</code> with <code>summarize</code>. The example <code>by occupation, sort: summarize grade wage</code> produces a separate table for each occupation.</p>
+
+<p>A snippet for the “Professional/Technical” occupation is shown:</p>
+
+<table>
+<tr><th>Variable</th><th>Obs</th><th>Mean</th><th>Std. dev.</th><th>Min</th><th>Max</th></tr>
+<tr><td>grade</td><td>317</td><td>14.77603</td><td>2.132552</td><td>8</td><td>18</td></tr>
+<tr><td>wage</td><td>317</td><td>10.72362</td><td>6.351074</td><td>1.032247</td><td>40.19808</td></tr>
+</table>
+
+<p>Interpretation: Professionals have, on average, more education (≈14.8 years) and higher hourly wages ($10.72) than the overall sample.</p>
+
+<h4>4. Codebook of the Variables (<code>codebook</code>)</h4>
+<p>The <code>codebook</code> command offers a richer description than <code>describe</code>, including value labels, summary statistics, percentiles, and information about missing values.</p>
+
+<h5>4.1 Basic Codebook for a Single Variable</h5>
+<p>Running <code>codebook wage</code> yields:</p>
+
+<table>
+<tr><th>Attribute</th><th>Value</th></tr>
+<tr><td>Variable name</td><td>wage</td></tr>
+<tr><td>Label</td><td>Hourly wage</td></tr>
+<tr><td>Type</td><td>Numeric (float)</td></tr>
+<tr><td>Range</td><td>[1.0049518, 40.74659]</td></tr>
+<tr><td>Units</td><td>1.000e-07</td></tr>
+<tr><td>Unique values</td><td>967</td></tr>
+<tr><td>Missing .</td><td>0/2,246</td></tr>
+<tr><td>Mean</td><td>7.76695</td></tr>
+<tr><td>Std. dev.</td><td>5.75552</td></tr>
+<tr><td>Percentiles (10%,25%,50%,75%,90%)</td><td>3.22061, 4.25926, 6.27227, 9.59742, 12.7778</td></tr>
+</table>
+
+<p><b>Interpretation</b></p>
+<ul>
+<li>The wage variable contains 967 distinct values, indicating a fairly continuous distribution.</li>
+<li>No missing observations are present.</li>
+<li>The median wage is $6.27, while the mean is $7.77, reflecting a right‑skewed distribution (a few high earners pull the mean upward).</li>
+</ul>
+
+<h5>4.2 Conditional Codebook</h5>
+<p>To examine wage only for southern respondents, use <code>codebook wage if south == 1</code>.</p>
+
+<table>
+<tr><th>Attribute</th><th>Value (south==1)</th></tr>
+<tr><td>Mean</td><td>6.88748</td></tr>
+<tr><td>Std. dev.</td><td>5.28311</td></tr>
+<tr><td>Range</td><td>[1.1513683, 40.74659]</td></tr>
+<tr><td>Unique values</td><td>535</td></tr>
+<tr><td>Missing .</td><td>0/942</td></tr>
+<tr><td>Percentiles (10%,25%,50%,75%,90%)</td><td>2.89855, 3.94525, 5.5475, 8.05153, 11.4171</td></tr>
+</table>
+
+<p><b>Interpretation</b></p>
+<ul>
+<li>Southern workers earn less on average ($6.89 vs. $7.77 overall) and have a slightly narrower spread.</li>
+<li>The 10th‑percentile wage in the South is $2.90, compared to $3.22 for the full sample.</li>
+</ul>
+
+<h5>4.3 Compact Codebook</h5>
+<p>The option <code>codebook, compact</code> produces a one‑line summary for every variable, convenient for quick scanning.</p>
+
+<table>
+<tr><th>Variable</th><th>Obs</th><th>Unique</th><th>Mean</th><th>Min</th><th>Max</th><th>Label</th></tr>
+<tr><td>idcode</td><td>2246</td><td>2246</td><td>2612.654</td><td>1</td><td>5159</td><td>NLS ID</td></tr>
+<tr><td>age</td><td>2246</td><td>13</td><td>39.15316</td><td>34</td><td>46</td><td>Age in current year</td></tr>
+<tr><td>race</td><td>2246</td><td>3</td><td>1.282725</td><td>1</td><td>3</td><td>Race</td></tr>
+<tr><td>married</td><td>2246</td><td>2</td><td>.6420303</td><td>0</td><td>1</td><td>Married</td></tr>
+<tr><td>never_married</td><td>2246</td><td>2</td><td>.1041852</td><td>0</td><td>1</td><td>Never married</td></tr>
+<tr><td>grade</td><td>2244</td><td>16</td><td>13.09893</td><td>0</td><td>18</td><td>Current grade completed</td></tr>
+<tr><td>collgrad</td><td>2246</td><td>2</td><td>.2368655</td><td>0</td><td>1</td><td>College graduate</td></tr>
+<tr><td>south</td><td>2246</td><td>2</td><td>.4194123</td><td>0</td><td>1</td><td>Lives in the south</td></tr>
+<tr><td>smsa</td><td>2246</td><td>2</td><td>.7039181</td><td>0</td><td>1</td><td>Lives in SMSA</td></tr>
+<tr><td>c_city</td><td>2246</td><td>2</td><td>.2916296</td><td>0</td><td>1</td><td>Lives in a central city</td></tr>
+<tr><td>industry</td><td>2232</td><td>12</td><td>8.189516</td><td>1</td><td>12</td><td>Industry</td></tr>
+<tr><td>occupation</td><td>2237</td><td>13</td><td>4.642825</td><td>1</td><td>13</td><td>Occupation</td></tr>
+<tr><td>union</td><td>1878</td><td>2</td><td>.2454739</td><td>0</td><td>1</td><td>Union worker</td></tr>
+<tr><td>wage</td><td>2246</td><td>967</td><td>7.766949</td><td>1.004952</td><td>40.74659</td><td>Hourly wage</td></tr>
+<tr><td>hours</td><td>2242</td><td>62</td><td>37.21811</td><td>1</td><td>80</td><td>Usual hours worked</td></tr>
+<tr><td>ttl_exp</td><td>2246</td><td>1546</td><td>12.53498</td><td>.1153846</td><td>28.88461</td><td>Total work experience (years)</td></tr>
+<tr><td>tenure</td><td>2231</td><td>259</td><td>5.97785</td><td>0</td><td>25.91667</td><td>Job tenure (years)</td></tr>
+</table>
+
+<p><b>Interpretation</b></p>
+<ul>
+<li>The compact view confirms that most categorical variables have few unique values (e.g., race = 3, married = 2).</li>
+<li>Variables like <code>ttl_exp</code> and <code>occupation</code> have many unique values, reflecting their more continuous or finely graded nature.</li>
+</ul>
+
+<h4>5. Frequency Tables (<code>tab</code>, <code>tab1</code>, <code>crosstab</code>)</h4>
+<p>Frequency tables are essential for categorical data. The guide demonstrates one‑way tables (<code>tab</code>), multiple one‑way tables (<code>tab1</code>), and two‑way cross‑tabulations (<code>tab … , …</code>).</p>
+
+<h5>5.1 One‑Way Frequency Table</h5>
+<p>The command <code>tab married</code> produces:</p>
+
+<table>
+<tr><th>Married</th><th>Freq.</th><th>Percent</th><th>Cum.</th></tr>
+<tr><td>Single</td><td>804</td><td>35.80</td><td>35.80</td></tr>
+<tr><td>Married</td><td>1,442</td><td>64.20</td><td>100.00</td></tr>
+<tr><td>Total</td><td>2,246</td><td>100.00</td></tr>
+</table>
+
+<p><b>Interpretation</b></p>
+<ul>
+<li>64.2% of respondents are married; 35.8% are single.</li>
+</ul>
+
+<p>To see the underlying numeric codes (0/1) rather than value labels, add
+</body>
+</html>

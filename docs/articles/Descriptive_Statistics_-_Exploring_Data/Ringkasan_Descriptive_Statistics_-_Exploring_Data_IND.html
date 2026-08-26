@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descriptive Statistics   Exploring Data using Stata</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <style>
+        body { font-family: 'Times New Roman', serif; font-size: 12pt; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; }
+        h3 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 5px; }
+        h4 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .eq { background: #f8f9fa; padding: 10px; margin: 10px 0; border-radius: 4px; text-align: center; }
+        @media print { body { font-size: 12pt; } }
+    </style>
+</head>
+<body>
+<h3>Statistik Deskriptif: Menjelajahi Data menggunakan Stata</h3>
+
+<p>Artikel ini memberikan ringkasan komprehensif dari teknik-teknik yang dibahas dalam Panduan Penelitian Universitas Princeton “Descriptive Statistics – Exploring Data using Stata.” Panduan ini memandu pengguna melalui serangkaian perintah Stata yang memungkinkan peneliti untuk memeriksa struktur kumpulan data, mendapatkan statistik ringkasan, memeriksa definisi variabel, dan menghasilkan tabel frekuensi serta tabel silang. Setiap bagian di bawah ini mencerminkan organisasi panduan, menyoroti perintah kunci, menjelaskan output, dan memberikan tips praktis untuk menerapkan alat-alat ini pada data Anda sendiri.</p>
+
+<h4>1. Pendahuluan</h4>
+<p>Panduan ini dimulai dengan memuat kumpulan data bawaan <b>nlsw88</b>, yang berisi informasi dari Survei Longitudinal Nasional Wanita tahun 1988. Perintah <code>sysuse nlsw88, clear</code> membawa data ke memori dan menghapus kumpulan data sebelumnya. Pengguna diingatkan bahwa untuk analisis pribadi, kumpulan data dapat dibuka melalui <b>File → Open → file .dta Anda</b> atau dengan menggunakan perintah <code>use</code> dengan jalur file.</p>
+<p>Tujuan panduan ini adalah untuk mengamiliarkan analisis dengan alat deskriptif penting dalam Stata: <code>describe</code>, <code>summarize</code> (atau singkatannya <code>su</code>), <code>codebook</code>, keluarga <code>tab</code>, <code>tabstat</code>, dan <code>table</code>. Penguasaan perintah-perintah ini memungkinkan analisis data eksploratif (EDA) yang cepat namun menyeluruh sebelum beralih ke pemodelan atau pengujian hipoteza.</p>
+
+<h4>2. Statistik Deskriptif (<code>describe</code>)</h4>
+<p>Perintah <code>describe</code> memberikan gambaran singkat tentang dimensi kumpulan data, nama variabel, tipe penyimpanan, format tampilan, dan label variabel. Setelah memuat <b>nlsw88</b>, mengetik <code>describe</code> menghasilkan tabel yang serupa dengan yang ditunjukkan di bawah ini.</p>
+
+<table>
+<tr><td><b>Berisi data dari</b></td><td>C:\Program Files\Stata18\ado\base/n/nlsw88.dta</td></tr>
+<tr><td><b>Observasi</b></td><td>2,246 (NLSW, 1988 extract)</td></tr>
+<tr><td><b>Variabel</b></td><td>17 (1 Mei 2022 22:52)</td></tr>
+<tr><td><b>Diurutkan berdasarkan</b></td><td>idcode</td></tr>
+</table>
+
+<table>
+<tr><th>Variabel</th><th>Tipe penyimpanan</th><th>Format tampilan</th><th>Label nilai</th><th>Label variabel</th></tr>
+<tr><td>idcode</td><td>int</td><td>%8.0g</td><td></td><td>NLS ID</td></tr>
+<tr><td>age</td><td>byte</td><td>%8.0g</td><td></td><td>Umur tahun ini</td></tr>
+<tr><td>race</td><td>byte</td><td>%8.0g</td><td>racelbl</td><td>Ras</td></tr>
+<tr><td>married</td><td>byte</td><td>%8.0g</td><td>marlbl</td><td>Menikah</td></tr>
+<tr><td>never_married</td><td>byte</td><td>%16.0g</td><td>nev_mar</td><td>Tidak pernah menikah</td></tr>
+<tr><td>grade</td><td>byte</td><td>%8.0g</td><td></td><td>Kelas terakhir yang selesai</td></tr>
+<tr><td>collgrad</td><td>byte</td><td>%16.0g</td><td>gradlbl</td><td>Lulusan kuliah</td></tr>
+<tr><td>south</td><td>byte</td><td>%9.0g</td><td>southlbl</td><td>Tinggal di selatan</td></tr>
+<tr><td>smsa</td><td>byte</td><td>%9.0g</td><td>smsalbl</td><td>Tinggal di SMSA</td></tr>
+<tr><td>c_city</td><td>byte</td><td>%16.0g</td><td>ccitylbl</td><td>Tinggal di kota pusat</td></tr>
+<tr><td>industry</td><td>byte</td><td>%23.0g</td><td>indlbl</td><td>Industri</td></tr>
+<tr><td>occupation</td><td>byte</td><td>%22.0g</td><td>occlbl</td><td>Pekerjaan</td></tr>
+<tr><td>union</td><td>byte</td><td>%8.0g</td><td>unionlbl</td><td>Anggota union</td></tr>
+<tr><td>wage</td><td>float</td><td>%9.0g</td><td></td><td>Upah per jam</td></tr>
+<tr><td>hours</td><td>byte</td><td>%8.0g</td><td></td><td>Jam kerja biasa</td></tr>
+<tr><td>ttl_exp</td><td>float</td><td>%9.0g</td><td></td><td>Pengalaman kerja total (tahun)</td></tr>
+<tr><td>tenure</td><td>float</td><td>%9.0g</td><td></td><td>Masa kerja (tahun)</td></tr>
+</table>
+
+<p><b>Interpretasi</b></p>
+<ul>
+<li><b>Observasi (2,246)</b> – jumlah baris dalam kumpulan data.</li>
+<li><b>Variabel (17)</b> – jumlah kolom.</li>
+<li><b>Tipe penyimpanan</b> – menunjukkan cara Stata menyimpan setiap variabel secara internal (<code>int</code>, <code>byte</code>, <code>float</code>, dst.). Memahami tipe penyimpanan membantu memperkirakan penggunaan memori dan rentang nilai yang diperbolehkan.</li>
+<li><b>Format tampilan</b> – mengontrol cara nilai muncul saat dicetak atau dilihat. Sebagai contoh, <code>%9.0g</code> untuk <b>wage</b> berarti lebar total sembilan karakter menggunakan format umum yang menyesuaikan dengan magnitudo angka.</li>
+<li><b>Label nilai</b> – menambahkan string bermakna ke kode numerik (misalnya, <code>racelbl</code> memetakan 1→Putih, 2→Hitam, 3
+</body>
+</html>
