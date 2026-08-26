@@ -201,9 +201,30 @@ def generate_summary(text, title):
 
 
 def translate(html, lang):
-    if len(html) > 60000:
-        html = html[:60000]
-    return call_ai(PROMPT_TRANSLATE.format(lang=lang, html=html), max_tokens=10000)
+    """Translate HTML in chunks to avoid token limit."""
+    # Split by <h3> sections to keep structure
+    import re
+    sections = re.split(r'(<h3[^>]*>.*?</h3>)', html)
+    
+    translated_parts = []
+    current_chunk = ""
+    
+    for part in sections:
+        # If adding this part would exceed 40K chars, translate current chunk first
+        if len(current_chunk) + len(part) > 40000 and current_chunk:
+            result = call_ai(PROMPT_TRANSLATE.format(lang=lang, html=current_chunk), max_tokens=15000)
+            if result:
+                translated_parts.append(result)
+            current_chunk = ""
+        current_chunk += part
+    
+    # Translate remaining chunk
+    if current_chunk:
+        result = call_ai(PROMPT_TRANSLATE.format(lang=lang, html=current_chunk), max_tokens=15000)
+        if result:
+            translated_parts.append(result)
+    
+    return "\n".join(translated_parts) if translated_parts else None
 
 
 # ============================================
