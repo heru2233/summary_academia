@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ringkasan Coba</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <style>
+        body { font-family: 'Times New Roman', serif; font-size: 12pt; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; }
+        h3 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 5px; }
+        h4 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .eq { background: #f8f9fa; padding: 10px; margin: 10px 0; border-radius: 4px; text-align: center; overflow-x: auto; }
+        @media print { body { font-size: 12pt; } }
+    </style>
+</head>
+<body>
+<h3>Introduction</h3>
+<p>The paper entitled “Enterprise risk management, ESG disclosure and firm performance: evidence from the manufacturing sector in Vietnam” investigates how <strong>Enterprise Risk Management (ERM)</strong> and <strong>Environmental, Social, and Governance (ESG)</strong> disclosure jointly influence firm performance in an emerging‑market context. The authors focus on Vietnam’s manufacturing industry, a sector that contributes roughly 34‑35 % of GDP and is highly exposed to supply‑chain disruptions, energy price volatility, and evolving trade policies. By constructing a COSO‑2017‑based ERM index and an ESG disclosure index derived from the S&amp;P Global Corporate Sustainability Assessment (CSA), the study addresses four notable gaps in the existing literature: (1) inconsistent ERM‑performance findings in emerging markets; (2) scarce sector‑specific evidence for manufacturing in developing countries; (3) limited exploration of the ERM‑ESG interplay; and (4) reliance on outdated ERM proxies. The research questions are:</p>
+<ol>
+<li>How does ERM, measured according to the COSO 2017 framework, affect firm value (Tobin’s Q) and profitability (ROA) in Vietnam’s manufacturing sector?</li>
+<li>Does ESG performance moderate the relationship between ERM and corporate performance, thereby enhancing ERM’s effectiveness?</li>
+</ol>
+<p>To answer these questions, the authors employ a panel of 200 listed manufacturing firms observed from 2017 to 2022 (1,200 firm‑year observations) and apply a two‑stage regression with a control‑function approach to mitigate endogeneity. The ensuing sections provide a detailed summary of the theoretical background, hypothesis development, methodology, empirical results, discussion, and conclusions.</p>
+
+<h3>Literature Review</h3>
+<h4>Enterprise Risk Management (ERM)</h4>
+<p>ERM is defined by COSO (2004) as “a process, effected by an entity’s board of directors, management, and other personnel, applied in strategy setting and across the enterprise, designed to identify potential events … and provide reasonable assurance regarding the achievement of entity objectives.” Recent scholarship stresses that ERM should be viewed not merely as a defensive tool but as a strategic mechanism for identifying opportunities that enhance long‑term competitiveness (Lundqvist, 2015; Ogutu et al., 2018). This perspective shifts the focus from pure risk aversion to a proactive stance that fosters innovation, value creation, and strategic resilience. Through integrated risk thinking and the cultivation of a risk‑conscious culture, ERM supports long‑term stability in volatile business environments (Frigo and Anderson, 2011).</p>
+<h4>ESG Disclosure</h4>
+<p>Environmental, Social, and Governance (ESG) practices, formalised by the UN Global Compact in 2004, have become a cornerstone of corporate sustainability. ESG disclosure requires firms to communicate information on environmental performance, social responsibility, and governance quality. Investors rely on ESG data to assess non‑financial risks, evaluate long‑term viability, and identify firms with strong sustainability and governance practices. Prior evidence shows that robust ESG reporting yields enhanced legitimacy, improved stakeholder trust, and better access to capital (Friede et al., 2015; Aouadi and Marsat, 2018).</p>
+<h4>Complementarity of ERM and ESG</h4>
+<p>A growing body of research highlights the complementary nature of ERM and ESG. ERM offers a structured approach to risk oversight, while ESG introduces transparency and accountability mechanisms that reduce information asymmetry. When integrated, ERM and ESG can reinforce each other, improving firm performance through stronger governance, better risk anticipation, and enhanced stakeholder engagement (Callahan and Soileau, 2017; Chairani and Siregar, 2021). However, the magnitude of these benefits varies across institutional settings, and emerging markets such as Vietnam remain understudied.</p>
+<h4>Theoretical Foundations</h4>
+<p>The development of hypotheses draws on three major theories:</p>
+<ul>
+<li><strong>Agency Theory (Jensen and Meckling, 1976)</strong>: ERM increases transparency, reduces conflicts of interest between managers (agents) and shareholders (principals), and improves governance effectiveness, thereby enhancing firm performance.</li>
+<li><strong>Resource‑Based View (RBV) (Barney, 1991)</strong>: Implementing ERM consumes valuable resources (systems, personnel, training) that could otherwise be used for revenue‑generating activities, potentially harming short‑term profitability. However, when ERM is aligned with strategic objectives, it can become a source of competitive advantage.</li>
+<li><strong>Organizational Inertia Theory (Hannan and Freeman, 1984)</strong>: Formalised risk‑management frameworks may reduce organisational flexibility, hindering innovation and responsiveness to market changes, which can negatively affect short‑term performance indicators such as ROA.</li>
+</ul>
+<p>These theories jointly suggest that ERM may improve long‑term firm value (Tobin’s Q) while exerting a negative or neutral impact on short‑term accounting profitability (ROA), especially in contexts where ERM maturity is low and implementation costs are high.</p>
+
+<h3>Hypotheses Development</h3>
+<p>Building on the literature and theoretical lenses, the authors formulate two primary hypotheses:</p>
+<ol>
+<li><strong>H1:</strong> Enterprise Risk Management (ERM) has a positive impact on firm performance (both Tobin’s Q and ROA).</li>
+<li><strong>H2:</strong> ESG disclosure strengthens the positive relationship between ERM and firm performance (i.e., ESG acts as a moderator that amplifies ERM’s benefits).</li>
+</ol>
+<p>The justification for H2 rests on agency theory (ESG as a transparency tool that reduces agency costs), stakeholder theory (Freeman, 1984) (ESG helps meet broader stakeholder expectations, improving reputation and performance), and the resource‑based view (ESG provides complementary capabilities that make ERM more valuable, inimitable, and non‑substitutable). Prior mixed evidence from ASEAN‑5 countries (Chairani and Siregar, 2021), European CSR‑mediated studies (Resende et al., 2024), and nuanced findings showing negative moderation effects (Karina et al., 2023) motivate a rigorous empirical test in the Vietnamese manufacturing context.</p>
+
+<h3>Research Methodology</h3>
+<h4>Sample Selection</h3>
+<p>The sample comprises 200 listed companies operating in Vietnam’s manufacturing sector from 2017 to 2022. The initial pool included 572 manufacturing firms listed on HOSE, HNX, and UPCOM. The following filters were applied:</p>
+<ul>
+<li>Exclusion of firms with inadequate information in annual reports.</li>
+<li>Removal of firms that went public after the 2018 fiscal year to minimise listing‑age bias.</li>
+<li>Elimination of observations with variable values beyond the 5th or 95th percentiles to curb outliers.</li>
+</ul>
+<p>The final panel yields 1,200 firm‑year observations (200 firms × 6 years).</p>
+<h4>Variables Measurement</h4>
+<h5>Enterprise Risk Management (ERM) Index</h5>
+<p>Following the index‑based approach of Gordon et al. (2009) and others, the authors construct an ERM index based on 16 criteria explicitly derived from the COSO 2017 framework. The criteria capture two dimensions:</p>
+<ol>
+<li><strong>ERM Environment</strong> (governance foundation): presence of a risk strategy, clear risk communication, appointment of a Chief Risk Officer, existence of a risk committee, defined risk governance structure, stated risk appetite, and initiatives to cultivate a risk‑aware culture.</li>
+<li><strong>ERM Implementation</strong> (operationalisation): extent to which risks are identified, assessed, prioritised, mitigated, and formally monitored and reported.</li>
+</ol>
+<p>Each criterion is coded as a dummy variable (1 = disclosed in the annual report per Circular 155/2015/TT‑BTC, 0 = not disclosed). The ERM index equals the average score across the 16 items, ranging from 0 to 1 (reported as a percentage in the descriptive statistics). Two independent coders performed the extraction, with discrepancies resolved through discussion to enhance reliability.</p>
+<h5>ESG Disclosure Index</h5>
+<p>ESG disclosure is measured using the S&amp;P Global Corporate Sustainability Assessment (CSA) framework (2023). The authors derive 23 binary indicators: 8 environmental, 6 social, and 9 governance criteria. Each indicator equals 1 if the corresponding information appears in the firm’s annual or sustainability report, otherwise 0. The ESG index is the average of these 23 items (also expressed as a percentage). Double‑coding ensures consistency and minimises subjectivity.</p>
+<h5>Control Variables</h5>
+<p>The models include the following firm‑level controls:</p>
+<ul>
+<li><strong>Leverage (Lev)</strong>: total debt divided by total equity.</li>
+<li><strong>Firm Age (LnAge)</strong>: natural logarithm of years since establishment.</li>
+<li><strong>Firm Size (LnSales)</strong>: natural logarithm of total revenue.</li>
+<li><strong>Liquidity (Liquid)</strong>: current assets divided by current liabilities.</li>
+</ul>
+<p>These variables capture capital structure, maturity, scale, and short‑term financial stability, respectively.</p>
+<h4>Econometric Models</h4>
+<p>The baseline model examines the direct impact of ERM on performance:</p>
+<div class="eq">\[
+\text{Performance}_{it} = \beta_0 + \beta_1 \text{ERM}_{it} + \beta_2 \text{Lev}_{it} + \beta_3 \ln(\text{Age})_{it} + \beta_4 \ln(\text{Sales})_{it} + \beta_5 \text{Liquid}_{it} + \varepsilon_{it}
+\]</div>
+<p>where Performance is alternatively ROA or Tobin’s Q.</p>
+<p>The moderation model adds ESG and the interaction term:</p>
+<div class="eq">\[
+\text{Performance}_{it} = \beta_0 + \beta_1 \text{ERM}_{it} + \beta_2 \text{ESG}_{it} + \beta_3 (\text{ERM}_{it} \times \text{ESG}_{it}) + \beta_4 \text{Lev}_{it} + \beta_5 \ln(\text{Age})_{it} + \beta_6 \ln(\text{Sales})_{it} + \beta_7 \text{Liquid}_{it} + \varepsilon_{it}
+\]</div>
+<p>To address potential endogeneity (e.g., firms with better governance may simultaneously adopt higher ERM and enjoy superior performance), the authors employ a control‑function approach. The first‑stage regression for ERM uses three instruments:</p>
+<ol>
+<li>Environmental uncertainty (EU): aggregate of market, technological, and income volatility (coefficients of variation of sales, capex‑scaled, and pre‑tax income over a five‑year rolling window).</li>
+<li>Board monitoring (Boardm): ratio of board members to the natural logarithm of total assets.</li>
+<li>Industry‑average ERM (ERM_aver): mean ERM score of firms within the same Level‑3 (L3) Fiingroup sub‑industry.</li>
+</ol>
+<p>The first‑stage residuals (ERM_resi) and the interaction of these residuals with ESG (ESGERM_resi) are then included in the second‑stage regression to purge endogeneity from both ERM and the ERM × ESG interaction.</p>
+<h4>Estimation Procedure</h4>
+<p>The authors estimate the models separately for Tobin’s Q and ROA. All regressions are estimated using ordinary least squares (OLS) on the second‑stage equations, with robust standard errors to guard against heteroskedasticity. The significance of coefficients is assessed at the 1 %, 5 %, and 10 % levels.</p>
+
+<h3>Empirical Results</h3>
+<h4>Descriptive Statistics</h4>
+<p>Table 1 summarises the key variables for the 1,200 observations.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Mean</th>
+<th>Std. Dev.</th>
+<th>Min</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ROA (%)</td>
+<td>4.6</td>
+<td>3.2</td>
+<td>-2.1</td>
+<td>15.8</td>
+</tr>
+<tr>
+<td>Tobin’s Q</td>
+<td>0.91</td>
+<td>0.34</td>
+<td>0.40</td>
+<td>1.90</td>
+</tr>
+<tr>
+<td>ERM Index (%)</td>
+<td>14.5</td>
+<td>9.8</td>
+<td>0.0</td>
+<td>45.0</td>
+</tr>
+<tr>
+<td>ESG Index (%)</td>
+<td>20.6</td>
+<td>11.4</td>
+<td>0.0</td>
+<td>55.0</td>
+</tr>
+<tr>
+<td>Leverage</td>
+<td>0.42</td>
+<td>0.21</td>
+<td>0.05</td>
+<td>1.20</td>
+</tr>
+<tr>
+<td>LnAge</td>
+<td>2.85</td>
+<td>0.62</td>
+<td>1.10</td>
+<td>4.20</td>
+</tr>
+<tr>
+<td>LnSales</td>
+<td>12.3</td>
+<td>1.1</td>
+<td>9.5</td>
+<td>15.0</td>
+</tr>
+<tr>
+<td>Liquidity</td>
+<td>1.35</td>
+<td>0.48</td>
+<td>0.40</td>
+<td>3.20</td>
+</tr>
+</tbody>
+</table>
+<p>The low average ERM score (14.5 %) indicates limited adoption of formal risk‑management practices, whereas the moderate ESG score (20.6 %) reflects emerging sustainability reporting. Correlation analysis (Supplementary Table 4) shows no pairwise correlation exceeding 0.5, alleviating multicollinearity concerns.</p>
+<h4>Regression Results – Tobin’s Q</h4>
+<p>Supplementary Table 5 presents the control‑function estimates for Tobin’s Q.</p>
+<ul>
+<li><strong>Model 1 (baseline)</strong>: ERM exhibits a positive and statistically significant effect on Tobin’s Q (β₁ = 0.718, p < 0.01). This suggests that the market rewards firms with stronger risk‑management frameworks.</li>
+<li><strong>Model 2 (adding ESG and interaction)</strong>: The direct ERM effect shrinks but remains positive (β₁ = 0.121, p < 0.10). ESG shows a strong positive impact (β₂ = 1.961, p < 0.01), and the interaction term is positive and significant (β₃ = 0.352, p < 0.10), providing preliminary evidence that ESG amplifies ERM’s value‑enhancing effect.</li>
+<li><strong>Model 3 (first‑stage)</strong>: Board monitoring negatively predicts ERM adoption (β₂ = ‑0.226, p < 0.05), while industry‑average ERM is a strong positive predictor (β₃ = 0.813, p < 0.01), confirming peer effects.</li>
+<li><strong>Model 4 (second‑stage with controls)</strong>: After accounting for endogeneity, ERM retains a significant positive influence on Tobin’s Q (β₁ = 0.557, p < 0.01). The ESG‑ERM interaction is significantly positive (β₃ = 1.230, p < 0.01), and ESG itself remains positively associated with Tobin’s Q (β₂ = 1.602, p < 0.01). All control variables behave as expected: LnSales negative (‑0.035), leverage positive (0.022), LnAge positive (0.048), liquidity positive (0.009).</li>
+</ul>
+<p>These findings confirm H1 for market‑based performance and support H2: ESG strengthens the ERM‑Tobin’s Q relationship.</p>
+<h4>Regression Results – ROA</h4>
+<p>Supplementary Table 6 reports the analogous estimates for ROA.</p>
+<ul>
+<li><strong>Model 1</strong>: ERM has a negative and statistically significant impact on ROA (β₁ = ‑0.162, p < 0.01), indicating that formal risk‑management practices are associated with lower short‑term profitability.</li>
+<li><strong>Model 2</strong>: Introducing ESG and the interaction yields a persistently negative ERM coefficient (β₁ = ‑0.089, p < 0.10), a strong positive ESG main effect (β₂ = 0.842, p < 0.01), and a positive interaction term (β₃ = 0.198, p < 0.10).</li>
+<li><strong>Model 3 (first‑stage)</strong>: Mirrors the Tobin’s Q first‑stage results.</li>
+<li><strong>Model 4 (second‑stage)</strong>: After controlling for endogeneity, ERM’s negative effect on ROA remains (β₁ = ‑0.110, p < 0.05). The ESG‑ERM interaction is positive and significant at the 10 % level (β₃ = 0.198, p < 0.10), and ESG retains a strong positive direct effect on ROA (β₂ = 0.721, p < 0.01). Control variables: LnSales negative (‑0.028), leverage positive (0.015), LnAge positive (0.032), liquidity positive (0.006).</li>
+</ul>
+<p>Thus, while ERM alone depresses short‑term profitability, firms with higher ESG disclosure experience a mitigating effect: the positive interaction offsets part of the ERM‑induced ROA decline. This provides empirical support for H2 in the accounting‑performance dimension, albeit at a weaker significance level.</p>
+
+<h3>Discussion</h3>
+<p>The results reveal a clear temporal distinction in the impact of ERM. On the one hand, ERM enhances <strong>market‑based firm value</strong> (Tobin’s Q), signalling that investors perceive structured risk management as a credible indicator of long‑term resilience and governance quality. This aligns with prior work showing ERM’s value‑enhancing effect in diverse contexts (Gordon et al., 2009; Hoyt and Liebenberg, 2011; Anton and Nucu, 2020). The positive ESG‑ERM interaction further indicates that when firms couple risk management with robust sustainability disclosure, the market rewards them even more—likely because ESG reduces information asymmetry, strengthens stakeholder trust, and signals proactive management of non‑financial risks.</p>
+<p>On the other hand, ERM exerts a <strong>negative influence on short‑term accounting profitability</strong> (ROA). This outcome is consistent with the resource‑based view and organizational inertia arguments: establishing ERM systems demands considerable financial, human, and procedural resources that may divert attention from immediate profit‑generating activities. In Vietnam’s manufacturing sector, where many firms operate with thin margins and limited managerial capacity, these implementation costs are especially salient. The negative ERM‑ROA relationship echoes findings from Kommunuri et al. (2015) and contrasts with studies reporting neutral or positive effects in more mature ERM environments.</p>
+<p>The moderating role of ESG is pivotal. The positive and significant ERM × ESG coefficients for both Tobin’s Q and ROA demonstrate that ESG disclosure <strong>amplifies the value‑creating potential of ERM</strong> while simultaneously <strong>buffering its short‑term profitability costs</strong>. Mechanistically, ESG contributes through:</p>
+<ul>
+<li>Enhanced transparency and accountability, reducing agency costs.</li>
+<li>Improved stakeholder relations (customers, suppliers, regulators), which can translate into higher sales, better contract terms, and lower financing costs.</li>
+<li>Alignment with global supply‑chain expectations, particularly important for Vietnam’s export‑oriented manufacturing firms.</li>
+<li>Potential operational efficiencies (e.g., waste reduction, energy savings) that offset some ERM‑related expenses.</li>
+</ul>
+<p>The control‑function approach strengthens causal inference by addressing endogeneity that could otherwise bias the ERM‑performance estimates. The validity of the instruments (environmental uncertainty, board monitoring, industry‑average ERM) is supported by their strong first‑stage relationships and theoretical justification.</p>
+<p>From a theoretical standpoint, the findings refine <strong>agency theory</strong> by showing that governance mechanisms like ERM may improve market‑valued outcomes (through reduced managerial opportunism) without immediately boosting accounting profits, especially when governance reforms are costly. The results also extend the <strong>resource‑based view</strong> by positioning ERM and ESG as complementary strategic capabilities: ERM provides the risk‑governance backbone, while ESG supplies the legitimacy, reputational, and innovation‑enabling assets that make ERM’s benefits more durable and harder to imitate.</p>
+<p>Practically, the study advises managers to treat ERM as a <strong>long‑term strategic investment</strong> rather than a quick‑profit tool. Anticipating short‑term profitability pressures during ERM rollout, firms should concurrently strengthen ESG disclosure to legitimise risk‑management activities, attract sustainability‑focused investors, and realise operational synergies. Policymakers are encouraged to promote disclosure standards anchored in COSO 2017 and internationally recognised ESG frameworks (e.g., GRI, SASB) to enhance transparency and market discipline in emerging markets.</p>
+
+<h3>Conclusion</h3>
+<p>This paper delivers three core contributions. First, it provides nuanced evidence that ERM increases <strong>market‑based firm value (Tobin’s Q)** while decreasing <strong>short‑term accounting profitability (ROA)** in Vietnam’s manufacturing sector, highlighting a temporal trade‑off between long‑term resilience and immediate earnings. Second, it demonstrates that <strong>ESG disclosure acts as a significant moderator</strong>: firms with stronger ESG reporting experience a larger positive impact of ERM on Tobin’s Q and a mitigated negative impact on ROA. Third, by employing a control‑function approach that explicitly addresses endogeneity in both the main ERM effect and its interaction with ESG, the study offers more reliable estimates than prior work relying on simpler regression techniques.</p>
+<p>The findings have important implications for theory, practice, and policy. Theoretically, they enrich agency and resource‑based perspectives by illustrating asymmetric effects of governance mechanisms across performance dimensions and time horizons. Practically, they guide corporate leaders to integrate ESG into ERM frameworks to harness synergistic benefits, improve stakeholder trust, and achieve sustainable value creation. For policymakers, the results underscore the value of encouraging high‑quality ERM and ESG disclosure to strengthen market discipline and support the transition toward a more sustainable industrial base in Vietnam.</p>
+<p>Limitations include the reliance on narrative disclosures (which may not capture full internal practices), the concentration on a single sector (manufacturing), and the geographic focus (Vietnam). Future research could broaden the sample to multiple industries and countries, adopt alternative ERM/ESG measurement techniques (e.g., machine‑learning‑based textual analytics), and examine additional performance dimensions such as risk‑adjusted returns, innovation output, and long‑term earnings volatility.</p>
+
+<h3>References</h3>
+<p>(Only a selection is shown for brevity; the full reference list follows the original article.)</p>
+<ul>
+<li>Anh, N.T. and Hoa, T.P. (2021), “The impact of enterprise risk management and sustainability reporting on business performance of listed enterprises on Vietnam stock market”, VNU Journal of Economics and Business, Vol. 1 No. 4, doi: 10.57110/jeb.v1i5.4664.</li>
+<li>Anton, S.G. and Nucu, A.E.A. (2020), “Enterprise risk management: a literature review and agenda for future research”, Journal of Risk and Financial Management, Vol. 13 No. 11, p. 281, doi: 10.3390/jrfm13110281.</li>
+<li>Aouadi, A. and Marsat, S. (2018), “Do ESG controversies matter for firm value? Evidence from international data”, Journal of Business Ethics, Vol. 151 No. 4, pp. 1027-1047, doi: 10.1007/s10551-016-3213-8.</li>
+<li>Barney, J.B. (1991), “Firm resources and sustained competitive advantage”, Journal of Management, Vol. 17 No. 1, pp. 99-120, doi: 10.1177/014920639101700108.</li>
+<li>Callahan, C.M. and Soileau, J.S. (2017), “Does enterprise risk management enhance operating performance?”, Advances in Accounting, Vol. 37, pp. 122-139, doi: 10.1016/j.adiac.2017.01.001.</li>
+<li>Chairani, C. and Siregar, S.V. (2021), “The effect of enterprise risk management on financial performance and firm value: the role of environmental, social and governance performance”, Meditari Accountancy Research, Vol. 29 No. 3, pp. 647-670, doi: 10.1108/MEDAR-09-2019-0549.</li>
+<li>COSO (2004), “Enterprise risk management—integrated framework”, Executive Summary.</li>
+<li>COSO (2017), “Enterprise risk management—Integrating with strategy and performance (executive summary)”.</li>
+<li>Friede, G., Busch, T. and Bassen, A. (2015), “ESG and financial performance: aggregated evidence from more than 2000 empirical studies”, Journal of Sustainable Finance and Investment, Vol. 5 No. 4, pp. 210-233, doi: 10.1080/20430795.2015.1118917.</li>
+<li>Frigo, M.L. and Anderson, R.J. (2011), “Strategic risk management: a foundation for improving enterprise risk management and governance”, Journal of Corporate Accounting and Finance, Vol. 22 No. 3, pp. 81-88, doi: 10.1002/jcaf.20677.</li>
+<li>Gordon, L.A., Loeb, M.P. and Tseng, C.-Y. (2009), “Enterprise risk management and firm performance: a contingency perspective”, Journal of Accounting and Public Policy, Vol. 28 No. 4, pp. 301-327, doi: 10.1016/j.jaccpubpol.2009.06.006.</li>
+<li>Hoyt, R.E. and Liebenberg, A.P. (2011), “The value of enterprise risk management”, Journal of Risk and Insurance, Vol. 78 No. 4, pp. 795-822, doi: 10.1111/j.1539-6975.2011.01413.x.</li>
+<li>Jensen, M.C. and Meckling, W.H. (1976), “Theory of the firm: managerial behavior, agency costs and ownership structure”, Journal of Financial Economics, Vol. 3 No. 4, pp. 305-360, doi: 10.1016/0304-405x(76)90026-x.</li>
+<li>Karina, R., Lestari, F. and Ivone, I. (2023), “The effect of enterprise risk management on financial performance and firm value: the role of environmental, social and governance performance”, Global Financial Accounting Journal, Vol. 7 No. 2, pp. 213-229, doi: 10.37253/gfa.v7i2.8706.</li>
+<li>Kommunuri, J., Narayan, A., Wheaton, M. and Jandug, L. (2015), “Enterprise risk management and firm performance empirical evidence from Vietnam”.</li>
+<li>Lundqvist, S.A. (2015), “Why firms implement risk governance - stepping beyond traditional risk management to enterprise risk management”, Journal of Accounting and Public Policy, Vol. 34 No. 5, pp. 441-466, doi: 10.1016/j.jaccpubpol.2015.05.002.</li>
+<li>Modigliani, F. and Miller, M. (1958), “The cost of capital, corporation finance and the theory of investment”, American Economic Review, Vol. 48, pp. 261-297.</li>
+<li>Nguyen, Q.D., Nguyen, H.T., Vu, O.T.K., Tran, T.V. and Nguyen, H.T.T. (2025), “What drives firms towards digital transformation adoption: evidence from Vietnam”, Journal of International Economics and Management, Vol. 25 No. 3, pp. 184-201, doi: 10.1108/JIEM-05-2025-0028.</li>
+<li>Ogutu, J., Bennett, M.R. and Olawoyin, R. (2018), “Closing the gap: between traditional and enterprise risk management systems”, Professional Safety, Vol. 63 No. 04, pp. 42-47.</li>
+<li>Opler, T., Pinkowitz, L., Stulz, R. and Williamson, R. (1999), “The determinants and implications of corporate cash holdings”, Journal of Financial Economics, Vol. 52 No. 1, pp. 3-46, doi: 10.1016/S0304-405X(99)00003-3.</li>
+<li>Pagach, D. and Warr, R. (2011), “The characteristics of firms that hire chief risk officers: chief risk officers”, Journal of Risk and Insurance, Vol. 78 No. 1, pp. 185-211, doi: 10.1111/j.1539-6975.2010.01378.x.</li>
+<li>Pierce, E.M. and Goldstein, J. (2018), “ERM and strategic planning: a change in paradigm”, International Journal of Disclosure and Governance, Vol. 15 No. 1, pp. 51-59, doi: 10.1057/s41310-018-0033-3.</li>
+<li>Resende, S., Monje-Amor, A. and Calvo, N. (2024), “Enterprise risk management and firm performance: the mediating role of corporate social responsibility in the European Union region”, Corporate Social Responsibility and Environmental Management, Vol. 31 No. 4, pp. 2852-2864, doi: 10.1002/csr.2719.</li>
+<li>S&P Global (2023), Corporate Sustainability Assessment (CSA) Handbook.</li>
+<li>Standard &amp; Poor’s (2008), “Enterprise risk management: Standard &amp; Poor’s to apply enterprise risk analysis to corporate ratings”, New York: Standard &amp; Poor’s Ratings Services.</li>
+<li>Stasse, L.J.A., Hilhorst, C.A.R. and Rouwelaar, J.A.ten. (2025), “Enterprise risk management revisited: a study to identify the elements of ERM”, Journal of Risk Research, Vol. 28 No. 7, pp. 768-793, doi: 10.1080/13669877.2025.2553846.</li>
+<li>Tobin, J. (1969), “A general equilibrium approach to monetary policy
+</body>
+</html>
