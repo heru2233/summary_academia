@@ -6,6 +6,7 @@ Improvements:
 - Auto-detects title from PDF using AI
 - Language always "both" (English + Indonesian)
 - Full logging to file + console
+- Returns to main menu after processing
 
 Cara pakai:
     python telegram_bot.py
@@ -21,7 +22,6 @@ import time
 import logging
 from datetime import datetime
 from pathlib import Path
-from io import Bytes
 
 # Setup logging
 LOG_DIR = Path(__file__).parent / "logs"
@@ -209,6 +209,30 @@ class TelegramBot:
 
 
 # ============================================
+# MAIN MENU
+# ============================================
+
+def send_main_menu(bot, chat_id):
+    """Send main menu to user."""
+    bot.send_message(
+        chat_id,
+        "🤖 <b>Academic Summary Bot</b>\n\n"
+        "Kirim file PDF untuk diringkas otomatis.\n\n"
+        "<b>Cara pakai:</b>\n"
+        "1. Kirim file PDF\n"
+        "2. Pilih tipe (buku/artikel)\n"
+        "3. Tunggu proses selesai\n"
+        "4. Dapatkan link GitHub Pages\n\n"
+        "Judul & bahasa (ENG+IND) di-auto oleh AI.\n\n"
+        "<b>Commands:</b>\n"
+        "/start - Menu utama\n"
+        "/help - Bantuan\n"
+        "/cancel - Batalkan proses\n"
+        "/status - Status bot"
+    )
+
+
+# ============================================
 # PDF TEXT EXTRACTION (PyMuPDF)
 # ============================================
 
@@ -227,7 +251,7 @@ def extract_text_from_pdf(pdf_data):
             logger.warning(f"Extracted text too short ({len(text)} chars), PDF might be scanned")
             return None
         
-        logger.info(f"Extracted {len(text)} chars from PDF ({len(doc)} pages)")
+        logger.info(f"Extracted {len(text)} chars from PDF")
         return text.strip()
     except ImportError:
         logger.error("PyMuPDF not installed. Run: pip install PyMuPDF")
@@ -273,7 +297,6 @@ def call_openrouter(prompt, max_tokens=8000):
 
 def detect_title(text):
     """Auto-detect title from PDF text using AI."""
-    # Take first 2000 chars for title detection
     sample = text[:2000]
     prompt = PROMPT_DETECT_TITLE.format(text=sample)
     title = call_openrouter(prompt, max_tokens=100)
@@ -399,7 +422,7 @@ def process_pdf(chat_id, bot, pdf_data, filename, summary_type="auto"):
         text = extract_text_from_pdf(pdf_data)
         if not text:
             bot.send_message(chat_id, "❌ Gagal mengekstrak teks. PDF mungkin scanned/gambar.")
-            return
+            return False
 
         word_count = len(text.split())
         bot.send_message(chat_id, f"✅ Teks ter-ekstrak: {word_count:,} kata")
@@ -409,7 +432,6 @@ def process_pdf(chat_id, bot, pdf_data, filename, summary_type="auto"):
         bot.send_message(chat_id, "🔍 Mendeteksi judul...")
         title = detect_title(text)
         if not title:
-            # Fallback: use filename
             title = Path(filename).stem.replace("_", " ")
             bot.send_message(chat_id, f"⚠️ AI gagal deteksi judul, menggunakan: {title}")
         else:
@@ -461,12 +483,15 @@ def process_pdf(chat_id, bot, pdf_data, filename, summary_type="auto"):
 
             bot.send_message(chat_id, result_msg)
             logger.info(f"Process completed in {elapsed:.0f}s: {title}")
+            return True
         else:
             bot.send_message(chat_id, "❌ Tidak ada ringkasan yang berhasil dibuat.")
+            return False
 
     except Exception as e:
         logger.error(f"Process failed: {e}", exc_info=True)
         bot.send_message(chat_id, f"❌ Error: {str(e)[:200]}")
+        return False
 
 
 # ============================================
@@ -521,8 +546,11 @@ def main():
                                 "🚀 <b>Memulai proses...</b>\n"
                                 "Mohon tunggu beberapa menit..."
                             )
+                            # Process and return to main menu
                             process_pdf(chat_id, bot, p["pdf_data"], p["filename"], summary_type)
                             del pending_pdfs[chat_id]
+                            # Return to main menu
+                            send_main_menu(bot, chat_id)
 
                 # Handle text messages
                 elif "message" in update and "text" in update["message"]:
@@ -551,27 +579,15 @@ def main():
                             "🚀 <b>Memulai proses...</b>\n"
                             "Mohon tunggu beberapa menit..."
                         )
+                        # Process and return to main menu
                         process_pdf(chat_id, bot, p["pdf_data"], p["filename"], p["type"])
                         del pending_pdfs[chat_id]
+                        # Return to main menu
+                        send_main_menu(bot, chat_id)
 
                     # Handle /start and /help
                     elif text in ["/start", "/help"]:
-                        bot.send_message(
-                            chat_id,
-                            "🤖 <b>Academic Summary Bot</b>\n\n"
-                            "Kirim file PDF untuk diringkas otomatis.\n\n"
-                            "<b>Cara pakai:</b>\n"
-                            "1. Kirim file PDF\n"
-                            "2. Pilih tipe (buku/artikel)\n"
-                            "3. Tunggu proses selesai\n"
-                            "4. Dapatkan link GitHub Pages\n\n"
-                            "Judul & bahasa (ENG+IND) di-auto oleh AI.\n\n"
-                            "<b>Commands:</b>\n"
-                            "/start - Mulai\n"
-                            "/help - Bantuan\n"
-                            "/cancel - Batalkan proses\n"
-                            "/status - Status bot"
-                        )
+                        send_main_menu(bot, chat_id)
 
                     elif text == "/cancel":
                         if chat_id in pending_pdfs:
