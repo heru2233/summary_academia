@@ -1,7 +1,7 @@
 # PROJECT LOG - Academic Summary Pipeline
 
 > **Last updated**: 26 August 2026
-> **Current session**: Buffy (Freebuff) - Sesi 7: List & Delete Features
+> **Current session**: Buffy (Freebuff) - Sesi 8: Auto-Start Bot
 
 ---
 
@@ -105,6 +105,12 @@ D:\summary_msi\
 - [x] Added OpenRouter API key to `.env`
 - [x] Tested successfully with `nvidia/nemotron-3-super-120b-a12b:free`
 - [x] Generated Chapter 1 English summary as test
+
+### Session 8 (26 Aug 2026) - Auto-Start Bot
+- [x] Created `start_bot.bat` - Script untuk start bot
+- [x] Created `stop_bot.bat` - Script untuk stop bot
+- [x] Copy ke Windows Startup folder (auto-start saat boot)
+- [x] Bot jalan 24/7 seperti VPS
 
 ### Session 7 (26 Aug 2026) - List & Delete Features
 - [x] `/list` - Lihat semua ringkasan tersimpan (books & articles)
