@@ -1,7 +1,7 @@
 # PROJECT LOG - Academic Summary Pipeline
 
 > **Last updated**: 26 August 2026
-> **Current session**: Buffy (Freebuff) - Sesi 4: Auto-Summary Script
+> **Current session**: Buffy (Freebuff) - Sesi 5: Revisions & Telegram Bot Improvements
 
 ---
 
@@ -11,7 +11,7 @@ This project converts academic materials (PDF books & journal articles) into **H
 
 ### Workflow
 ```
-PDF → pdftotext → Text → AI Summarizes → HTML (IND + ENG) → GitHub Pages
+PDF → PyMuPDF (fitz) → Text → AI Summarizes → HTML (IND + ENG) → GitHub Pages
 ```
 
 ---
@@ -37,11 +37,14 @@ D:\summary_msi\
 │   └── PROMPT_TEMPLATE_ARTICLE.md
 │
 ├── scripts/                          # Python scripts
-│   ├── publish.py                    # Main publish script (parameterized)
+│   ├── publish.py                    # Publish script (parameterized)
+│   ├── auto_summary.py               # CLI auto-summary (PyMuPDF + OpenRouter)
+│   ├── telegram_bot.py               # Telegram bot (auto-detect title, lang both)
 │   ├── config.py                     # Config loader (reads .env)
-│   ├── requirements.txt
+│   ├── requirements.txt              # Python dependencies
+│   ├── logs/                         # Bot logs (NOT in git)
 │   ├── .env                          # Tokens (NOT in git)
-│   └── .env.example
+│   └── .env.example                  # Template without tokens
 │
 ├── docs/                             # GitHub Pages (IN git)
 │   ├── index.html                    # Main page (English)
@@ -103,6 +106,15 @@ D:\summary_msi\
 - [x] Tested successfully with `nvidia/nemotron-3-super-120b-a12b:free`
 - [x] Generated Chapter 1 English summary as test
 
+### Session 5 (26 Aug 2026) - Revisions & Telegram Bot Improvements
+- [x] **PyMuPDF** replaces pdftotext (more reliable PDF extraction)
+- [x] **Telegram bot**: Auto-detect title from PDF using AI
+- [x] **Telegram bot**: Language always "both" (no selection needed)
+- [x] **Telegram bot**: Full logging to `scripts/logs/`
+- [x] **Telegram bot**: Auto-detect type (book vs article) from content
+- [x] Updated `auto_summary.py` with PyMuPDF + logging
+- [x] Updated `requirements.txt` with PyMuPDF
+
 ---
 
 ## CONTENT STATUS
@@ -128,19 +140,16 @@ D:\summary_msi\
 - **Repository**: https://github.com/heru2233/summary_academia
 - **Source**: /docs folder on main branch
 
-### Telegram (Legacy - not actively used)
-- **Bot Token**: In `scripts/.env` (DO NOT commit)
-- **Chat ID**: In `scripts/.env` (DO NOT commit)
-
 ### OpenRouter API (Auto-Summary)
 - **API Key**: In `scripts/.env` (DO NOT commit)
 - **Model**: `nvidia/nemotron-3-super-120b-a12b:free` (free tier)
 - **Limits**: 50 requests/day, 20 req/min
 
-### Telegram Bot (Auto-Summary)
+### Telegram Bot
 - **Script**: `scripts/telegram_bot.py`
 - **Bot Token**: In `scripts/.env` (DO NOT commit)
-- **Flow**: Send PDF → Bot asks title/type/lang → AI summarize → Push to GitHub → Send link
+- **Logs**: `scripts/logs/bot_YYYYMMDD.log`
+- **Flow**: Send PDF → Bot auto-detect title → Choose type → AI summarize (both languages) → Push to GitHub → Send link
 
 ---
 
@@ -152,41 +161,43 @@ D:\summary_msi\
 
 ### HTML FORMAT
 - Font: Times New Roman 12pt
-- Math: MathJax v3 (inline `\(...\)`, display `\[...\]`)
-- Print: Toolbar with print button
+- Math: MathJax v3 (inline `\\(...\\)`, display `\\[...\\]`)
 - Responsive: Link to `css/responsive.css`
 
-### TEMPLATES
-- **Book chapters**: Use `templates/PROMPT_TEMPLATE_BOOK.md`
-- **Journal articles**: Use `templates/PROMPT_TEMPLATE_ARTICLE.md`
+### PDF EXTRACTION
+- **Primary**: PyMuPDF (`fitz`) - installed via `pip install PyMuPDF`
+- **Fallback**: pdftotext (if PyMuPDF fails)
+- PyMuPDF is more reliable for complex PDFs with tables/columns
 
 ### PUBLISHING
 1. Generate HTML using AI with template
 2. Save to `docs/{books|articles}/{title}/`
-3. Create index.html for navigation
-4. Push to GitHub: `git add docs/ && git commit && git push`
+3. Push to GitHub: `git add docs/ && git commit && git push`
+
+### TELEGRAM BOT WORKFLOW
+```
+1. Run: python telegram_bot.py
+2. Send PDF to bot on Telegram
+3. Bot auto-detects: title, type (book/article)
+4. User only selects: type (book/article)
+5. Bot generates: English + Indonesian summaries
+6. Bot pushes to GitHub Pages
+7. Bot sends link back to user
+```
 
 ### AUTO-SUMMARY (CLI)
 ```bash
 cd scripts
-python auto_summary.py --pdf "../sources/books/.../ch1.pdf" --title "Chapter Title" --type book --lang both
-```
-| Flag | Description |
-|------|-------------|
-| `--pdf` | Path to PDF file |
-| `--title` | Title of book/article |
-| `--type` | `book` or `article` |
-| `--lang` | `ind`, `eng`, or `both` |
-| `--dry-run` | Only extract text, don't call API |
 
-### TELEGRAM BOT (NEW)
-```bash
-cd scripts
-python telegram_bot.py
+# With auto-detection
+python auto_summary.py --pdf "../sources/books/.../ch1.pdf"
+
+# With manual title
+python auto_summary.py --pdf "../sources/books/.../ch1.pdf" --title "Chapter Title" --type book
+
+# Dry run (extract only)
+python auto_summary.py --pdf "../sources/books/.../ch1.pdf" --dry-run
 ```
-- Send PDF to bot → Bot asks title → Choose type (book/article) → Choose language → Auto-process
-- Bot will: extract text → AI summarize → save HTML → push to GitHub → send link
-- Commands: /start, /help, /cancel, /status
 
 ---
 
@@ -203,6 +214,8 @@ Baca file PROJECT_LOG.md di root proyek. Saya ingin melanjutkan [SPECIFY TASK].
 
 - [x] Auto-summary script with OpenRouter API
 - [x] Telegram bot for PDF upload → auto-summary
+- [x] PyMuPDF for reliable PDF extraction
+- [x] Auto-detect title/type from PDF
 - [ ] Batch process all 7 chapters (IND + ENG)
 - [ ] Process articles (Myers, McInnes) with auto-summary
 - [ ] Convert "What Theory is Not" from .docx to HTML

@@ -5,3 +5,4 @@ beautifulsoup4>=4.12.0
 requests>=2.31.0
 telegraph>=2.2.0
 python-dotenv>=1.0.0
+PyMuPDF>=1.24.0
