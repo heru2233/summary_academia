@@ -40,7 +40,7 @@ load_dotenv(Path(__file__).parent / ".env")
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "nvidia/nemotron-3-super-120b-a12b:free")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "z-ai/glm-5.2:free")
 
 PROJECT_ROOT = Path(__file__).parent.parent
 DOCS_DIR = PROJECT_ROOT / "docs"

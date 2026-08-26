@@ -43,7 +43,7 @@ import requests
 
 # Configuration
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "nvidia/nemotron-3-super-120b-a12b:free")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "z-ai/glm-5.2:free")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 # Project paths
