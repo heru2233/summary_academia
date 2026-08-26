@@ -59,10 +59,12 @@ SOURCES_DIR = PROJECT_ROOT / "sources"
 def extract_text_from_pdf(pdf_path: str) -> str:
     """Extract text from PDF using PyMuPDF (fitz) - much more reliable than pdftotext."""
     try:
-        import fitz  # PyMuPDF
-        doc = fitz.open(pdf_path)
+        import pymupdf  # New PyMuPDF API
+        doc = pymupdf.open(pdf_path)
+        page_count = len(doc)
         text = ""
-        for page_num, page in enumerate(doc):
+        for page_num in range(page_count):
+            page = doc.load_page(page_num)
             page_text = page.get_text()
             text += f"\n--- Page {page_num + 1} ---\n{page_text}"
         doc.close()
@@ -71,10 +73,10 @@ def extract_text_from_pdf(pdf_path: str) -> str:
             logger.warning(f"Extracted text too short ({len(text)} chars), PDF might be scanned/image-based")
             return None
         
-        logger.info(f"Extracted {len(text)} chars from {doc.page_count} pages")
+        logger.info(f"Extracted {len(text)} chars from {page_count} pages")
         return text.strip()
     except ImportError:
-        logger.error("PyMuPDF not installed. Run: pip install PyMuPDF")
+        logger.error("PyMuPDF not installed. Run: pip install pymupdf")
         sys.exit(1)
     except Exception as e:
         logger.error(f"PyMuPDF extraction failed: {e}")

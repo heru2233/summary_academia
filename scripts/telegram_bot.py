@@ -237,12 +237,14 @@ def send_main_menu(bot, chat_id):
 # ============================================
 
 def extract_text_from_pdf(pdf_data):
-    """Extract text from PDF using PyMuPDF (fitz) - much more reliable than pdftotext."""
+    """Extract text from PDF using PyMuPDF - much more reliable than pdftotext."""
     try:
-        import fitz  # PyMuPDF
-        doc = fitz.open(stream=pdf_data, filetype="pdf")
+        import pymupdf  # New PyMuPDF API
+        doc = pymupdf.open(stream=pdf_data, filetype="pdf")
+        page_count = len(doc)
         text = ""
-        for page_num, page in enumerate(doc):
+        for page_num in range(page_count):
+            page = doc.load_page(page_num)
             page_text = page.get_text()
             text += f"\n--- Page {page_num + 1} ---\n{page_text}"
         doc.close()
@@ -251,10 +253,10 @@ def extract_text_from_pdf(pdf_data):
             logger.warning(f"Extracted text too short ({len(text)} chars), PDF might be scanned")
             return None
         
-        logger.info(f"Extracted {len(text)} chars from PDF")
+        logger.info(f"Extracted {len(text)} chars from {page_count} pages")
         return text.strip()
     except ImportError:
-        logger.error("PyMuPDF not installed. Run: pip install PyMuPDF")
+        logger.error("PyMuPDF not installed. Run: pip install pymupdf")
         return None
     except Exception as e:
         logger.error(f"PyMuPDF extraction failed: {e}")
