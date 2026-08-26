@@ -56,17 +56,9 @@ import requests
 # PROMPTS
 # ============================================
 
-PROMPT_DETECT_TITLE = """Extract ONLY the title of this document. Return ONLY the title as a short phrase (max 10 words). Do NOT explain, do NOT add anything else.
+PROMPT_DETECT_TITLE = """What is the title of this paper? Answer with only the title, nothing else.
 
-Examples of correct output:
-- Enterprise Risk Management and Firm Performance
-- The Capital Structure Puzzle
-- Chapter 1: Why Are Financial Institutions Special?
-
-Document text:
-{text}
-
-Title:"""
+{text}"""
 
 PROMPT_BOOK = """You are an academic summarizer. Summarize this text into a well-structured HTML article.
 
@@ -334,33 +326,51 @@ def call_openrouter(prompt, max_tokens=8000):
 
 def detect_title(text):
     """Auto-detect title from PDF text using AI."""
-    # Take first 1500 chars for title detection (truncate before format)
-    sample = text[:1500]
-    # Remove page markers for cleaner detection
-    sample = sample.replace('--- Page', 'Page')
+    # Take first page only for title detection
+    # Find where first page ends
+    first_page_end = text.find('--- Page 2 ---')
+    if first_page_end > 0:
+        sample = text[:first_page_end]
+    else:
+        sample = text[:2000]
     
     prompt = PROMPT_DETECT_TITLE.format(text=sample)
-    title = call_openrouter(prompt, max_tokens=50)
+    title = call_openrouter(prompt, max_tokens=30)
     
     if not title:
-        logger.warning("Title detection failed, returning None")
+        logger.warning("Title detection failed")
         return None
     
-    # Clean up: remove quotes, extra text, limit length
-    title = title.strip().strip('"').strip("'").strip('.')
+    # Clean up aggressively
+    title = title.strip()
     
-    # If contains explanation or multiple lines, take first line only
-    lines = [l.strip() for l in title.split('\n') if l.strip()]
-    title = lines[0] if lines else title
+    # Remove quotes
+    title = title.strip('"').strip("'").strip('.')
     
-    # Remove common prefixes that AI might add
-    for prefix in ['Title:', 'The title is:', 'Title is:', 'Document title:']:
+    # Take first line only
+    title = title.split('\n')[0].strip()
+    
+    # Remove common prefixes
+    for prefix in ['Title:', 'Title is:', 'The title is:', 'Paper title:', 'Document title:', 'Answer:', 'The title:', 'This paper is titled:', 'This article is titled:']:
         if title.lower().startswith(prefix.lower()):
             title = title[len(prefix):].strip()
     
-    # Limit to 60 chars for folder name
-    if len(title) > 60:
-        title = title[:57] + '...'
+    # Remove trailing explanation after colon if too long
+    if ':' in title and len(title) > 50:
+        title = title.split(':')[0].strip()
+    
+    # Remove any remaining explanation - take first 8 words max
+    words = title.split()
+    if len(words) > 8:
+        title = ' '.join(words[:8])
+    
+    # Final sanitization - only alphanumeric, spaces, hyphens
+    title = ''.join(c for c in title if c.isalnum() or c in ' -_')
+    title = title.strip()
+    
+    if len(title) < 3:
+        logger.warning(f"Title too short: {title}")
+        return None
     
     logger.info(f"Detected title: {title}")
     return title
@@ -399,12 +409,21 @@ def generate_html(text, title, summary_type, lang):
 
 def save_html(html_content, title, summary_type, lang, category=None):
     """Save HTML to docs folder."""
-    # Sanitize title for filename (remove special chars, limit length)
+    # Sanitize title for filename - only safe characters
     clean_title = "".join(c for c in title if c.isalnum() or c in " -_").strip()
+    # Replace spaces with underscores
     clean_title = clean_title.replace(" ", "_")
-    # Limit filename length to 50 chars
-    if len(clean_title) > 50:
-        clean_title = clean_title[:47] + "..."
+    # Remove consecutive underscores
+    while "__" in clean_title:
+        clean_title = clean_title.replace("__", "_")
+    # Limit filename length to 40 chars (Windows safe)
+    if len(clean_title) > 40:
+        clean_title = clean_title[:40]
+    # Remove trailing underscores/dots
+    clean_title = clean_title.rstrip('_. ')
+    
+    if not clean_title:
+        clean_title = "untitled"
 
     lang_suffix = lang.upper()
 
