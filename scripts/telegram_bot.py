@@ -1,18 +1,17 @@
 """
 telegram_bot.py - Bot Telegram untuk Auto-Summary
 
-Improvements:
-- Uses PyMuPDF (fitz) for better PDF text extraction
-- Auto-detects title from PDF using AI
+Key changes:
+- NO AI title detection (unreliable with free models)
+- User inputs title via Telegram
 - Language always "both" (English + Indonesian)
 - Full logging to file + console
-- Returns to main menu after processing
 
 Cara pakai:
     python telegram_bot.py
 
 Requirements:
-    pip install python-dotenv requests PyMuPDF
+    pip install python-dotenv requests pymupdf
 """
 
 import os
@@ -55,10 +54,6 @@ import requests
 # ============================================
 # PROMPTS
 # ============================================
-
-PROMPT_DETECT_TITLE = """What is the title of this paper? Answer with only the title, nothing else.
-
-{text}"""
 
 PROMPT_BOOK = """You are an academic summarizer. Summarize this text into a well-structured HTML article.
 
@@ -215,13 +210,13 @@ def send_main_menu(bot, chat_id):
         "Kirim file PDF untuk diringkas otomatis.\n\n"
         "<b>Cara pakai:</b>\n"
         "1. Kirim file PDF\n"
-        "2. Pilih tipe (buku/artikel)\n"
-        "3. Tunggu proses selesai\n"
-        "4. Dapatkan link GitHub Pages\n\n"
-        "Judul & bahasa (ENG+IND) di-auto oleh AI.\n\n"
+        "2. Ketik judul ringkasan\n"
+        "3. Pilih tipe (buku/artikel)\n"
+        "4. Tunggu proses selesai\n"
+        "5. Dapatkan link GitHub Pages\n\n"
+        "Bahasa: English + Indonesia (auto)\n\n"
         "<b>Commands:</b>\n"
         "/start - Menu utama\n"
-        "/help - Bantuan\n"
         "/cancel - Batalkan proses\n"
         "/status - Status bot"
     )
@@ -232,9 +227,9 @@ def send_main_menu(bot, chat_id):
 # ============================================
 
 def extract_text_from_pdf(pdf_data):
-    """Extract text from PDF using PyMuPDF - much more reliable than pdftotext."""
+    """Extract text from PDF using PyMuPDF."""
     try:
-        import pymupdf  # New PyMuPDF API
+        import pymupdf
         doc = pymupdf.open(stream=pdf_data, filetype="pdf")
         page_count = len(doc)
         text = ""
@@ -245,7 +240,7 @@ def extract_text_from_pdf(pdf_data):
         doc.close()
         
         if len(text.strip()) < 100:
-            logger.warning(f"Extracted text too short ({len(text)} chars), PDF might be scanned")
+            logger.warning(f"Extracted text too short ({len(text)} chars)")
             return None
         
         logger.info(f"Extracted {len(text)} chars from {page_count} pages")
@@ -280,21 +275,14 @@ def call_openrouter(prompt, max_tokens=8000):
         logger.info(f"Calling OpenRouter API (model: {OPENROUTER_MODEL})")
         resp = requests.post(url, headers=headers, json=payload, timeout=600)
         
-        # Check for HTTP errors
         if resp.status_code != 200:
             logger.error(f"API error {resp.status_code}: {resp.text[:500]}")
             return None
         
-        # Parse JSON response
         data = resp.json()
         
-        # Validate response structure
-        if not isinstance(data, dict):
-            logger.error(f"API returned non-dict: {type(data)}")
-            return None
-        
-        if "choices" not in data:
-            logger.error(f"API response missing 'choices': {data}")
+        if not isinstance(data, dict) or "choices" not in data:
+            logger.error(f"Invalid API response: {data}")
             return None
         
         if not data["choices"] or len(data["choices"]) == 0:
@@ -310,70 +298,9 @@ def call_openrouter(prompt, max_tokens=8000):
         logger.info(f"API response: {len(content)} chars")
         return content.strip()
         
-    except requests.exceptions.Timeout:
-        logger.error("API request timed out")
-        return None
-    except requests.exceptions.RequestException as e:
-        logger.error(f"API request failed: {e}")
-        return None
-    except (KeyError, IndexError, TypeError) as e:
-        logger.error(f"API response parse error: {e}")
-        return None
     except Exception as e:
-        logger.error(f"Unexpected API error: {e}")
+        logger.error(f"API call failed: {e}")
         return None
-
-
-def detect_title(text):
-    """Auto-detect title from PDF text using AI."""
-    # Take first page only for title detection
-    # Find where first page ends
-    first_page_end = text.find('--- Page 2 ---')
-    if first_page_end > 0:
-        sample = text[:first_page_end]
-    else:
-        sample = text[:2000]
-    
-    prompt = PROMPT_DETECT_TITLE.format(text=sample)
-    title = call_openrouter(prompt, max_tokens=30)
-    
-    if not title:
-        logger.warning("Title detection failed")
-        return None
-    
-    # Clean up aggressively
-    title = title.strip()
-    
-    # Remove quotes
-    title = title.strip('"').strip("'").strip('.')
-    
-    # Take first line only
-    title = title.split('\n')[0].strip()
-    
-    # Remove common prefixes
-    for prefix in ['Title:', 'Title is:', 'The title is:', 'Paper title:', 'Document title:', 'Answer:', 'The title:', 'This paper is titled:', 'This article is titled:']:
-        if title.lower().startswith(prefix.lower()):
-            title = title[len(prefix):].strip()
-    
-    # Remove trailing explanation after colon if too long
-    if ':' in title and len(title) > 50:
-        title = title.split(':')[0].strip()
-    
-    # Remove any remaining explanation - take first 8 words max
-    words = title.split()
-    if len(words) > 8:
-        title = ' '.join(words[:8])
-    
-    # Final sanitization - only alphanumeric, spaces, hyphens
-    title = ''.join(c for c in title if c.isalnum() or c in ' -_')
-    title = title.strip()
-    
-    if len(title) < 3:
-        logger.warning(f"Title too short: {title}")
-        return None
-    
-    logger.info(f"Detected title: {title}")
-    return title
 
 
 def generate_html(text, title, summary_type, lang):
@@ -385,7 +312,7 @@ def generate_html(text, title, summary_type, lang):
     else:
         prompt = PROMPT_ARTICLE.format(lang_name=lang_name, title=title, text=text)
 
-    # Truncate if too long (keep first 60K chars to stay within context limit)
+    # Truncate if too long
     if len(text) > 60000:
         text = text[:60000]
         logger.info(f"Text truncated to {len(text)} chars")
@@ -407,36 +334,36 @@ def generate_html(text, title, summary_type, lang):
 # SAVE & PUSH
 # ============================================
 
-def save_html(html_content, title, summary_type, lang, category=None):
-    """Save HTML to docs folder."""
-    # Sanitize title for filename - only safe characters
-    clean_title = "".join(c for c in title if c.isalnum() or c in " -_").strip()
+def sanitize_filename(title):
+    """Sanitize title for use as filename/folder name."""
+    # Only keep alphanumeric, spaces, hyphens, underscores
+    clean = "".join(c for c in title if c.isalnum() or c in " -_").strip()
     # Replace spaces with underscores
-    clean_title = clean_title.replace(" ", "_")
+    clean = clean.replace(" ", "_")
     # Remove consecutive underscores
-    while "__" in clean_title:
-        clean_title = clean_title.replace("__", "_")
-    # Limit filename length to 40 chars (Windows safe)
-    if len(clean_title) > 40:
-        clean_title = clean_title[:40]
+    while "__" in clean:
+        clean = clean.replace("__", "_")
+    # Limit length (Windows max path consideration)
+    if len(clean) > 40:
+        clean = clean[:40]
     # Remove trailing underscores/dots
-    clean_title = clean_title.rstrip('_. ')
-    
-    if not clean_title:
-        clean_title = "untitled"
+    clean = clean.rstrip("_. ")
+    return clean if clean else "untitled"
 
+
+def save_html(html_content, title, summary_type, lang):
+    """Save HTML to docs folder."""
+    clean_title = sanitize_filename(title)
     lang_suffix = lang.upper()
 
     if summary_type == "book":
-        book_folder = category or "financial-institutions-management"
-        folder = DOCS_DIR / "books" / book_folder
-        filename = f"Ringkasan_{clean_title}_{lang_suffix}.html"
+        folder = DOCS_DIR / "books" / "financial-institutions-management"
     else:
-        article_folder = category or clean_title.lower().replace("_", "-")
+        article_folder = clean_title.lower().replace("_", "-")
         folder = DOCS_DIR / "articles" / article_folder
-        filename = f"Ringkasan_{clean_title}_{lang_suffix}.html"
 
     folder.mkdir(parents=True, exist_ok=True)
+    filename = f"Ringkasan_{clean_title}_{lang_suffix}.html"
     filepath = folder / filename
 
     full_html = f"""<!DOCTYPE html>
@@ -504,8 +431,8 @@ def get_github_pages_url(filepath):
 # MAIN PROCESSING
 # ============================================
 
-def process_pdf(chat_id, bot, pdf_data, filename, summary_type="auto"):
-    """Full pipeline: PDF -> extract -> detect title -> AI summarize -> save -> push."""
+def process_pdf(chat_id, bot, pdf_data, filename, title, summary_type):
+    """Full pipeline: PDF -> extract -> AI summarize -> save -> push."""
     start_time = time.time()
     bot.send_chat_action(chat_id, "typing")
 
@@ -520,28 +447,7 @@ def process_pdf(chat_id, bot, pdf_data, filename, summary_type="auto"):
         word_count = len(text.split())
         bot.send_message(chat_id, f"✅ Teks ter-ekstrak: {word_count:,} kata")
 
-        # Step 2: Auto-detect title
-        bot.send_chat_action(chat_id, "typing")
-        bot.send_message(chat_id, "🔍 Mendeteksi judul...")
-        title = detect_title(text)
-        if not title:
-            title = Path(filename).stem.replace("_", " ")
-            bot.send_message(chat_id, f"⚠️ AI gagal deteksi judul, menggunakan: {title}")
-        else:
-            bot.send_message(chat_id, f"📝 Judul: <b>{title}</b>")
-
-        # Step 3: Auto-detect type (book vs article) if not specified
-        if summary_type == "auto":
-            bot.send_chat_action(chat_id, "typing")
-            type_prompt = f"Is this text from a BOOK CHAPTER or a JOURNAL ARTICLE? Reply with only: book or article\n\nTitle: {title}\nFirst 500 chars: {text[:500]}"
-            type_result = call_openrouter(type_prompt, max_tokens=10)
-            if type_result and "article" in type_result.lower():
-                summary_type = "article"
-            else:
-                summary_type = "book"
-            bot.send_message(chat_id, f"📋 Tipe: <b>{summary_type.upper()}</b>")
-
-        # Step 4: Generate summaries in BOTH languages
+        # Step 2: Generate summaries in BOTH languages
         urls = []
         for lang in ["eng", "ind"]:
             lang_name = "English" if lang == "eng" else "Bahasa Indonesia"
@@ -558,7 +464,7 @@ def process_pdf(chat_id, bot, pdf_data, filename, summary_type="auto"):
             urls.append((lang, url, filepath.name))
             bot.send_message(chat_id, f"✅ {lang_name} selesai: {filepath.name}")
 
-        # Step 5: Push to GitHub
+        # Step 3: Push to GitHub
         if urls:
             bot.send_message(chat_id, "🚀 Pushing ke GitHub...")
             push_success = push_to_github()
@@ -607,6 +513,7 @@ def main():
     logger.info("Waiting for messages... (Ctrl+C to stop)")
 
     # Track pending PDFs per user
+    # Structure: {chat_id: {"pdf_data": bytes, "filename": str, "wait_for": str}}
     pending_pdfs = {}
 
     while True:
@@ -614,8 +521,6 @@ def main():
             updates = bot.get_updates()
 
             for update in updates:
-                update_id = update.get("update_id", "?")
-
                 # Handle callback queries (inline keyboard buttons)
                 if "callback_query" in update:
                     cq = update["callback_query"]
@@ -626,23 +531,26 @@ def main():
                     logger.info(f"[{user}] callback: {data}")
                     bot.answer_callback_query(cq["id"])
 
-                    if data.startswith("type_"):
-                        summary_type = data.replace("type_", "")
-                        if chat_id in pending_pdfs:
-                            pending_pdfs[chat_id]["type"] = summary_type
-                            # Start processing (language always both)
-                            p = pending_pdfs[chat_id]
+                    if chat_id in pending_pdfs:
+                        p = pending_pdfs[chat_id]
+                        
+                        # Handle type selection
+                        if data.startswith("type_"):
+                            summary_type = data.replace("type_", "")
+                            p["type"] = summary_type
+                            p["wait_for"] = None
+                            
+                            # Start processing
                             bot.edit_message(
                                 chat_id, cq["message"]["message_id"],
                                 f"📄 Tipe: <b>{summary_type.upper()}</b>\n"
+                                f"📝 Judul: <b>{p['title']}</b>\n"
                                 f"🌐 Bahasa: <b>BOTH</b>\n\n"
                                 "🚀 <b>Memulai proses...</b>\n"
                                 "Mohon tunggu beberapa menit..."
                             )
-                            # Process and return to main menu
-                            process_pdf(chat_id, bot, p["pdf_data"], p["filename"], summary_type)
+                            process_pdf(chat_id, bot, p["pdf_data"], p["filename"], p["title"], summary_type)
                             del pending_pdfs[chat_id]
-                            # Return to main menu
                             send_main_menu(bot, chat_id)
 
                 # Handle text messages
@@ -654,32 +562,27 @@ def main():
 
                     logger.info(f"[{user}] text: {text}")
 
-                    # Check if waiting for type selection
-                    if chat_id in pending_pdfs and pending_pdfs[chat_id].get("wait_for") == "type":
-                        # User typed instead of clicking button
-                        if text.lower() in ["book", "buku"]:
-                            pending_pdfs[chat_id]["type"] = "book"
-                        elif text.lower() in ["article", "artikel"]:
-                            pending_pdfs[chat_id]["type"] = "article"
-                        else:
-                            bot.send_message(chat_id, "Pilih: <b>book</b> atau <b>article</b>")
-                            continue
-
-                        pending_pdfs[chat_id]["wait_for"] = None
+                    # Check if waiting for title input
+                    if chat_id in pending_pdfs and pending_pdfs[chat_id].get("wait_for") == "title":
                         p = pending_pdfs[chat_id]
+                        p["title"] = text.strip()
+                        p["wait_for"] = "type"
+                        
                         bot.send_message(
                             chat_id,
-                            "🚀 <b>Memulai proses...</b>\n"
-                            "Mohon tunggu beberapa menit..."
+                            f"📝 Judul: <b>{text}</b>\n\n"
+                            "Pilih tipe ringkasan:",
+                            reply_markup={
+                                "inline_keyboard": [
+                                    [{"text": "📚 Buku (Book Chapter)", "callback_data": "type_book"}],
+                                    [{"text": "📄 Artikel Jurnal (Journal Article)", "callback_data": "type_article"}]
+                                ]
+                            }
                         )
-                        # Process and return to main menu
-                        process_pdf(chat_id, bot, p["pdf_data"], p["filename"], p["type"])
-                        del pending_pdfs[chat_id]
-                        # Return to main menu
-                        send_main_menu(bot, chat_id)
+                        continue
 
                     # Handle /start and /help
-                    elif text in ["/start", "/help"]:
+                    if text in ["/start", "/help"]:
                         send_main_menu(bot, chat_id)
 
                     elif text == "/cancel":
@@ -726,24 +629,18 @@ def main():
                         bot.send_message(chat_id, "❌ Gagal download file.")
                         continue
 
-                    # Store PDF and ask for type (title & language auto-detected)
+                    # Store PDF and ask for title
                     pending_pdfs[chat_id] = {
                         "pdf_data": pdf_data,
                         "filename": doc["file_name"],
-                        "wait_for": "type"
+                        "wait_for": "title"
                     }
 
                     bot.send_message(
                         chat_id,
                         f"✅ File diterima: <b>{doc['file_name']}</b> ({len(pdf_data) / 1024:.1f} KB)\n\n"
-                        "Judul & bahasa akan di-auto oleh AI.\n"
-                        "Pilih tipe ringkasan:",
-                        reply_markup={
-                            "inline_keyboard": [
-                                [{"text": "📚 Buku (Book Chapter)", "callback_data": "type_book"}],
-                                [{"text": "📄 Artikel Jurnal (Journal Article)", "callback_data": "type_article"}]
-                            ]
-                        }
+                        "Ketik judul ringkasan:\n"
+                        "(contoh: Enterprise Risk Management and Firm Performance)"
                     )
 
         except KeyboardInterrupt:
