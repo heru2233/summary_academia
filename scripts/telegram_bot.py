@@ -68,12 +68,9 @@ Text:
 
 HTML:"""
 
-PROMPT_TRANSLATE = """Translate this HTML to {lang}. Keep all HTML tags. Only translate text content.
+PROMPT_TRANSLATE = """Translate the following HTML content to {lang}. OUTPUT ONLY THE TRANSLATED HTML. Do NOT explain, do NOT show your thinking, do NOT add comments. Just output the translated HTML.
 
-HTML:
-{text}
-
-Translated:"""
+{html}"""
 
 
 # ============================================
@@ -206,7 +203,7 @@ def generate_summary(text, title):
 def translate(html, lang):
     if len(html) > 60000:
         html = html[:60000]
-    return call_ai(PROMPT_TRANSLATE.format(lang=lang, text=html), max_tokens=10000)
+    return call_ai(PROMPT_TRANSLATE.format(lang=lang, html=html), max_tokens=10000)
 
 
 # ============================================
