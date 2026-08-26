@@ -137,6 +137,11 @@ D:\summary_msi\
 - **Model**: `nvidia/nemotron-3-super-120b-a12b:free` (free tier)
 - **Limits**: 50 requests/day, 20 req/min
 
+### Telegram Bot (Auto-Summary)
+- **Script**: `scripts/telegram_bot.py`
+- **Bot Token**: In `scripts/.env` (DO NOT commit)
+- **Flow**: Send PDF → Bot asks title/type/lang → AI summarize → Push to GitHub → Send link
+
 ---
 
 ## RULES & CONVENTIONS
@@ -161,7 +166,7 @@ D:\summary_msi\
 3. Create index.html for navigation
 4. Push to GitHub: `git add docs/ && git commit && git push`
 
-### AUTO-SUMMARY (NEW)
+### AUTO-SUMMARY (CLI)
 ```bash
 cd scripts
 python auto_summary.py --pdf "../sources/books/.../ch1.pdf" --title "Chapter Title" --type book --lang both
@@ -173,6 +178,15 @@ python auto_summary.py --pdf "../sources/books/.../ch1.pdf" --title "Chapter Tit
 | `--type` | `book` or `article` |
 | `--lang` | `ind`, `eng`, or `both` |
 | `--dry-run` | Only extract text, don't call API |
+
+### TELEGRAM BOT (NEW)
+```bash
+cd scripts
+python telegram_bot.py
+```
+- Send PDF to bot → Bot asks title → Choose type (book/article) → Choose language → Auto-process
+- Bot will: extract text → AI summarize → save HTML → push to GitHub → send link
+- Commands: /start, /help, /cancel, /status
 
 ---
 
@@ -188,10 +202,10 @@ Baca file PROJECT_LOG.md di root proyek. Saya ingin melanjutkan [SPECIFY TASK].
 ## TODO / NEXT STEPS
 
 - [x] Auto-summary script with OpenRouter API
+- [x] Telegram bot for PDF upload → auto-summary
 - [ ] Batch process all 7 chapters (IND + ENG)
 - [ ] Process articles (Myers, McInnes) with auto-summary
 - [ ] Convert "What Theory is Not" from .docx to HTML
-- [ ] Optional: Set up Telegram bot for PDF upload → auto-summary
 - [ ] Optional: Add search functionality to the website
 
 ---
