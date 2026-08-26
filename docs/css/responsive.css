@@ -1,0 +1,140 @@
+/* Responsive CSS - Academic Summaries */
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 16px !important;
+    font-size: 15px !important;
+  }
+
+  h1 { font-size: 22px !important; }
+  h2 { font-size: 18px !important; }
+  h3 { font-size: 16px !important; }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* Cards */
+  .nav-card, .book-card, .article-card, .lang-card {
+    padding: 16px 20px !important;
+  }
+
+  .nav-card .title,
+  .book-card .title,
+  .article-card .title {
+    font-size: 16px !important;
+  }
+
+  .nav-card .icon,
+  .lang-card .flag {
+    font-size: 28px !important;
+  }
+
+  /* Tables - horizontal scroll on mobile */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th, td {
+    padding: 4px 6px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 12px !important;
+    font-size: 14px !important;
+  }
+
+  h1 {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  h2 { font-size: 16px !important; }
+  h3 { font-size: 15px !important; }
+
+  /* Stack cards vertically, full width */
+  .nav-card, .book-card, .article-card, .lang-card {
+    padding: 14px 16px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .nav-card .icon,
+  .lang-card .flag {
+    font-size: 24px !important;
+    margin-right: 12px !important;
+  }
+
+  .nav-card .title,
+  .book-card .title,
+  .article-card .title {
+    font-size: 15px !important;
+  }
+
+  .nav-card .desc,
+  .book-card .meta,
+  .article-card .meta,
+  .lang-card .desc {
+    font-size: 12px !important;
+  }
+
+  .nav-card .arrow,
+  .book-card .arrow,
+  .article-card .arrow,
+  .lang-card .arrow {
+    font-size: 20px !important;
+  }
+
+  /* Chapter list */
+  .chapter-list a {
+    padding: 12px 14px !important;
+    font-size: 14px !important;
+  }
+
+  .chapter-num {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Tables - mobile friendly */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 8px 0 !important;
+  }
+
+  th, td {
+    padding: 4px 6px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+  }
+
+  /* Content pages (chapter/article) */
+  .toolbar button {
+    padding: 8px 14px !important;
+    font-size: 14px !important;
+  }
+
+  .note {
+    font-size: 12px !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .toolbar { display: none !important; }
+  body { padding: 0 !important; }
+  .nav-card, .book-card, .article-card, .lang-card,
+  .chapter-list, .back, .footer {
+    break-inside: avoid;
+  }
+}

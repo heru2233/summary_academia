@@ -218,6 +218,7 @@ def generate_github_index(html_files: list[dict], title: str, output_dir: str):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/responsive.css">
 <title>{title} - Ringkasan</title>
 <style>
   body {{
