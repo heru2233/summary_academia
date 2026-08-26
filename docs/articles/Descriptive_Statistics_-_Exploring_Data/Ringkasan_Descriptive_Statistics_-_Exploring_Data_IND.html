@@ -21,51 +21,241 @@
     </style>
 </head>
 <body>
-<h3>Statistik Deskriptif: Menjelajahi Data menggunakan Stata</h3>
+<h3>Pendahuluan</h3>
+<p>Panduan ini memberikan walkthrough langkah demi langkah tentang cara menjelajah dan meringkas data menggunakan <b>Stata</b>. Fokusnya adalah statistik deskriptif, yang memungkinkan peneliti untuk memahami bentuk, tendensi pusat, penyebaran, dan hubungan antar variabel sebelum beralih ke analisis inferensial. Tutorial ini menggunakan kumpulan data bawaan <code>nlsw88</code> (ekstrak National Longitudinal Survey of Women, 1988) dan menunjukkan serangkaian perintah Stata: <b>describe</b>, <b>summarize</b> (atau singkatannya <b>su</b>), <b>codebook</b>, perintah frekuensi (<b>tab</b>, <b>tab1</b>, <b>crosstab</b>), dan dua perintah tabel khusus (<b>tabstat</b> dan <b>table</b>). Setiap bagian menjelaskan tujuan perintah, menampilkan sintaks yang tepat, menyajikan output yang dikembalikan Stata, dan memberikan interpretasi hasilnya. Dengan mengikuti contoh, pengguna dapat mereplikasi analisis pada kumpulan data mereka sendiri yang disimpan sebagai file <code>.dta</code>.</p>
 
-<p>Artikel ini memberikan ringkasan komprehensif dari teknik-teknik yang dibahas dalam Panduan Penelitian Universitas Princeton “Descriptive Statistics – Exploring Data using Stata.” Panduan ini memandu pengguna melalui serangkaian perintah Stata yang memungkinkan peneliti untuk memeriksa struktur kumpulan data, mendapatkan statistik ringkasan, memeriksa definisi variabel, dan menghasilkan tabel frekuensi serta tabel silang. Setiap bagian di bawah ini mencerminkan organisasi panduan, menyoroti perintah kunci, menjelaskan output, dan memberikan tips praktis untuk menerapkan alat-alat ini pada data Anda sendiri.</p>
-
-<h4>1. Pendahuluan</h4>
-<p>Panduan ini dimulai dengan memuat kumpulan data bawaan <b>nlsw88</b>, yang berisi informasi dari Survei Longitudinal Nasional Wanita tahun 1988. Perintah <code>sysuse nlsw88, clear</code> membawa data ke memori dan menghapus kumpulan data sebelumnya. Pengguna diingatkan bahwa untuk analisis pribadi, kumpulan data dapat dibuka melalui <b>File → Open → file .dta Anda</b> atau dengan menggunakan perintah <code>use</code> dengan jalur file.</p>
-<p>Tujuan panduan ini adalah untuk mengamiliarkan analisis dengan alat deskriptif penting dalam Stata: <code>describe</code>, <code>summarize</code> (atau singkatannya <code>su</code>), <code>codebook</code>, keluarga <code>tab</code>, <code>tabstat</code>, dan <code>table</code>. Penguasaan perintah-perintah ini memungkinkan analisis data eksploratif (EDA) yang cepat namun menyeluruh sebelum beralih ke pemodelan atau pengujian hipoteza.</p>
-
-<h4>2. Statistik Deskriptif (<code>describe</code>)</h4>
-<p>Perintah <code>describe</code> memberikan gambaran singkat tentang dimensi kumpulan data, nama variabel, tipe penyimpanan, format tampilan, dan label variabel. Setelah memuat <b>nlsw88</b>, mengetik <code>describe</code> menghasilkan tabel yang serupa dengan yang ditunjukkan di bawah ini.</p>
-
+<h3>Statistik Deskriptif (describe)</h3>
+<h4>Gambaran Umum</h4>
+<p>Perintah <b>describe</b> memberikan gambaran singkat tentang struktur kumpulan data: jumlah observasi, jumlah variabel, tipe penyimpanan, format tampilan, dan label variabel untuk setiap kolom. Informasi ini penting untuk memastikan bahwa data telah diimpor dengan benar dan untuk merencanakan manipulasi selanjutnya.</p>
+<p>Untuk memuat data contoh dan menjalankan <b>describe</b>, pengguna mengetik:</p>
+<pre>sysuse nlsw88, clear
+describe</pre>
+<p>Stata mengembalikan tabel berikut (dipotong untuk keterbacaan):</p>
 <table>
-<tr><td><b>Berisi data dari</b></td><td>C:\Program Files\Stata18\ado\base/n/nlsw88.dta</td></tr>
-<tr><td><b>Observasi</b></td><td>2,246 (NLSW, 1988 extract)</td></tr>
-<tr><td><b>Variabel</b></td><td>17 (1 Mei 2022 22:52)</td></tr>
-<tr><td><b>Diurutkan berdasarkan</b></td><td>idcode</td></tr>
-</table>
-
-<table>
-<tr><th>Variabel</th><th>Tipe penyimpanan</th><th>Format tampilan</th><th>Label nilai</th><th>Label variabel</th></tr>
+<thead>
+<tr><th>Variabel</th><th>Tipe Penyimpanan</th><th>Format Tampilan</th><th>Label Nilai</th><th>Label Variabel</th></tr>
+</thead>
+<tbody>
 <tr><td>idcode</td><td>int</td><td>%8.0g</td><td></td><td>NLS ID</td></tr>
-<tr><td>age</td><td>byte</td><td>%8.0g</td><td></td><td>Umur tahun ini</td></tr>
-<tr><td>race</td><td>byte</td><td>%8.0g</td><td>racelbl</td><td>Ras</td></tr>
-<tr><td>married</td><td>byte</td><td>%8.0g</td><td>marlbl</td><td>Menikah</td></tr>
-<tr><td>never_married</td><td>byte</td><td>%16.0g</td><td>nev_mar</td><td>Tidak pernah menikah</td></tr>
-<tr><td>grade</td><td>byte</td><td>%8.0g</td><td></td><td>Kelas terakhir yang selesai</td></tr>
-<tr><td>collgrad</td><td>byte</td><td>%16.0g</td><td>gradlbl</td><td>Lulusan kuliah</td></tr>
-<tr><td>south</td><td>byte</td><td>%9.0g</td><td>southlbl</td><td>Tinggal di selatan</td></tr>
-<tr><td>smsa</td><td>byte</td><td>%9.0g</td><td>smsalbl</td><td>Tinggal di SMSA</td></tr>
-<tr><td>c_city</td><td>byte</td><td>%16.0g</td><td>ccitylbl</td><td>Tinggal di kota pusat</td></tr>
-<tr><td>industry</td><td>byte</td><td>%23.0g</td><td>indlbl</td><td>Industri</td></tr>
-<tr><td>occupation</td><td>byte</td><td>%22.0g</td><td>occlbl</td><td>Pekerjaan</td></tr>
-<tr><td>union</td><td>byte</td><td>%8.0g</td><td>unionlbl</td><td>Anggota union</td></tr>
-<tr><td>wage</td><td>float</td><td>%9.0g</td><td></td><td>Upah per jam</td></tr>
-<tr><td>hours</td><td>byte</td><td>%8.0g</td><td></td><td>Jam kerja biasa</td></tr>
-<tr><td>ttl_exp</td><td>float</td><td>%9.0g</td><td></td><td>Pengalaman kerja total (tahun)</td></tr>
-<tr><td>tenure</td><td>float</td><td>%9.0g</td><td></td><td>Masa kerja (tahun)</td></tr>
+<tr><td>age</td><td>byte</td><td>%8.0g</td><td></td><td>Age in current year</td></tr>
+<tr><td>race</td><td>byte</td><td>%8.0g</td><td>racelbl</td><td>Race</td></tr>
+<tr><td>married</td><td>byte</td><td>%8.0g</td><td>marlbl</td><td>Married</td></tr>
+<tr><td>never_married</td><td>byte</td><td>%16.0g</td><td>nev_mar</td><td>Never married</td></tr>
+<tr><td>grade</td><td>byte</td><td>%8.0g</td><td></td><td>Current grade completed</td></tr>
+<tr><td>collgrad</td><td>byte</td><td>%16.0g</td><td>gradlbl</td><td>College graduate</td></tr>
+<tr><td>south</td><td>byte</td><td>%9.0g</td><td>southlbl</td><td>Lives in the south</td></tr>
+<tr><td>smsa</td><td>byte</td><td>%9.0g</td><td>smsalbl</td><td>Lives in SMSA</td></tr>
+<tr><td>c_city</td><td>byte</td><td>%16.0g</td><td>ccitylbl</td><td>Lives in a central city</td></tr>
+<tr><td>industry</td><td>byte</td><td>%23.0g</td><td>indlbl</td><td>Industry</td></tr>
+<tr><td>occupation</td><td>byte</td><td>%22.0g</td><td>occlbl</td><td>Occupation</td></tr>
+<tr><td>union</td><td>byte</td><td>%8.0g</td><td>unionlbl</td><td>Union worker</td></tr>
+<tr><td>wage</td><td>float</td><td>%9.0g</td><td></td><td>Hourly wage</td></tr>
+<tr><td>hours</td><td>byte</td><td>%8.0g</td><td></td><td>Usual hours worked</td></tr>
+<tr><td>ttl_exp</td><td>float</td><td>%9.0g</td><td></td><td>Total work experience (years)</td></tr>
+<tr><td>tenure</td><td>float</td><td>%9.0g</td><td></td><td>Job tenure (years)</td></tr>
+</tbody>
 </table>
+<h4>Interpretasi Tipe Penyimpanan dan Format Tampilan</h4>
+<p>Output menunjukkan bahwa kumpulan data berisi <b>2.246 observasi</b> dan <b>17 variabel</b>. Tipe penyimpanan mengungkap format data dasar: <code>int</code> untuk ID bilangan bulat, <code>byte</code> untuk variabel kategorikal bilangan bulat kecil (misalnya, <code>race</code>, <code>married</code>), dan <code>float</code> untuk variabel kontinu dengan presisi desimal (misalnya, <code>wage</code>, <code>ttl_exp</code>, <code>tenure</code>). Format tampilan (misalnya, <code>%9.0g</code>) mengendalikan cara Stata menampilkan nilai numerik di jendela output; lebar sembilan karakter dengan format umum memastikan keterbacaan tanpa nol berakhir yang tidak diperlukan. Label nilai (misalnya, <code>racelbl</code>, <code>marlbl</code>) memetakan kode numerik menjadi kategori yang bermakna, yang sangat penting untuk menginterpretasi tabulasi dan grafik.</p>
 
-<p><b>Interpretasi</b></p>
-<ul>
-<li><b>Observasi (2,246)</b> – jumlah baris dalam kumpulan data.</li>
-<li><b>Variabel (17)</b> – jumlah kolom.</li>
-<li><b>Tipe penyimpanan</b> – menunjukkan cara Stata menyimpan setiap variabel secara internal (<code>int</code>, <code>byte</code>, <code>float</code>, dst.). Memahami tipe penyimpanan membantu memperkirakan penggunaan memori dan rentang nilai yang diperbolehkan.</li>
-<li><b>Format tampilan</b> – mengontrol cara nilai muncul saat dicetak atau dilihat. Sebagai contoh, <code>%9.0g</code> untuk <b>wage</b> berarti lebar total sembilan karakter menggunakan format umum yang menyesuaikan dengan magnitudo angka.</li>
-<li><b>Label nilai</b> – menambahkan string bermakna ke kode numerik (misalnya, <code>racelbl</code> memetakan 1→Putih, 2→Hitam, 3
+<h3>Statistik Ringkasan (summarize)</h3>
+<h4>Ringkasan Dasar</h4>
+<p>Perintah <b>summarize</b> (disingkat <b>su</b>) menghitung statistik univariat: jumlah observasi yang tidak hilang, rata‑rata, simpangan baku, minimum, dan maksimum. Ini memberikan profil numerik cepat untuk setiap variabel.</p>
+<p>Setelah memuat data, pengguna mengetik:</p>
+<pre>su</pre>
+<p>Stata menghasilkan tabel ringkasan berikut (baris yang dipilih ditampilkan):</p>
+<table>
+<thead>
+<tr><th>Variabel</th><th>Jumlah Observasi</th><th>Rata‑rata</th><th>Simp. Baku</th><th>Min</th><th>Maks</th></tr>
+</thead>
+<tbody>
+<tr><td>idcode</td><td>2,246</td><td>2612.654</td><td>1480.864</td><td>1</td><td>5159</td></tr>
+<tr><td>age</td><td>2,246</td><td>39.15316</td><td>3.060002</td><td>34</td><td>46</td></tr>
+<tr><td>race</td><td>2,246</td><td>1.282725</td><td>0.4754413</td><td>1</td><td>3</td></tr>
+<tr><td>married</td><td>2,246</td><td>0.6420303</td><td>0.4795099</td><td>0</td><td>1</td></tr>
+<tr><td>never_married</td><td>2,246</td><td>0.1041852</td><td>0.3055687</td><td>0</td><td>1</td></tr>
+<tr><td>grade</td><td>2,244</td><td>13.09893</td><td>2.521246</td><td>0</td><td>18</td></tr>
+<tr><td>collgrad</td><td>2,246</td><td>0.2368655</td><td>0.4252538</td><td>0</td><td>1</td></tr>
+<tr><td>south</td><td>2,246</td><td>0.4194123</td><td>0.4935728</td><td>0</td><td>1</td></tr>
+<tr><td>smsa</td><td>2,246</td><td>0.7039181</td><td>0.4566292</td><td>0</td><td>1</td></tr>
+<tr><td>c_city</td><td>2,246</td><td>0.2916296</td><td>0.4546139</td><td>0</td><td>1</td></tr>
+<tr><td>industry</td><td>2,232</td><td>8.189516</td><td>3.010875</td><td>1</td><td>12</td></tr>
+<tr><td>occupation</td><td>2,237</td><td>4.642825</td><td>3.408897</td><td>1</td><td>13</td></tr>
+<tr><td>union</td><td>1,878</td><td>0.2454739</td><td>0.4304825</td><td>0</td><td>1</td></tr>
+<tr><td>wage</td><td>2,246</td><td>7.766949</td><td>5.755523</td><td>1.004952</td><td>40.74659</td></tr>
+<tr><td>hours</td><td>2,242</td><td>37.21811</td><td>10.50914</td><td>1</td><td>80</td></tr>
+<tr><td>ttl_exp</td><td>2,246</td><td>12.53498</td><td>4.610208</td><td>0.1153846</td><td>28.88461</td></tr>
+<tr><td>tenure</td><td>2,231</td><td>5.97785</td><td>5.510331</td><td>0</td><td>25.91667</td></tr>
+</tbody>
+</table>
+<h4>Interpretasi</h4>
+<p>Tabel menunjukkan bahwa rata‑rata usia responden sekitar 39,2 tahun dengan penyebaran yang modest (SD ≈ 3,06). Variabel wage menunjukkan variabilitas yang cukup besar, berkisar dari sekitar $1,00 hingga $40,75 per jam, dengan rata‑rata $7,77 dan simpangan baku $5,76. Variabel biner seperti <code>married</code> dan <code>union</code> memiliki rata‑rata yang langsung mewakili proporsi responden yang dikodekan sebagai 1 (misalnya, 64,2 % menikah, 24,5 % adalah anggota serikat).</p>
+<h4>Ringkasan Detail (su, detail)</h4>
+<p>Untuk tampilan yang lebih komprehensif—termasuk persentil, variansi, skewness, dan kurtosis—pengguna dapat menambahkan opsi <b>detail</b>:</p>
+<pre>su, detail</pre>
+<p>Stata mengembalikan output yang diperluas untuk setiap variabel. Di bawah ini adalah output detail untuk tiga variabel pertama (idcode, age, race).</p>
+<table>
+<thead>
+<tr><th>Statistik</th><th>idcode</th><th>age</th><th>race</th></tr>
+</thead>
+<tbody>
+<tr><td>Rata‑rata</td><td>2612.654</td><td>39.15316</td><td>1.282725</td></tr>
+<tr><td>Simp. Baku</td><td>1480.864</td><td>3.060002</td><td>0.4754413</td></tr>
+<tr><td>Variansi</td><td>2,192,957</td><td>9.363614</td><td>0.2260444</td></tr>
+<tr><td>Skewness</td><td>-0.0232308</td><td>0.2003234</td><td>1.284394</td></tr>
+<tr><td>Kurtosis</td><td>1.828053</td><td>1.932389</td><td>3.409155</td></tr>
+<tr><td>P1</td><td>45</td><td>34</td><td>1</td></tr>
+<tr><td>P5</td><td>269</td><td>35</td><td>1</td></tr>
+<tr><td>P10</td><td>521</td><td>35</td><td>1</td></tr>
+<tr><td>P25</td><td>1366</td><td>36</td><td>1</td></tr>
+<tr><td>P50 (median)</td><td>2614</td><td>39</td><td>1</td></tr>
+<tr><td>P75</td><td>3903</td><td>42</td><td>2</td></tr>
+<tr><td>P90</td><td>4651</td><td>44</td><td>2</td></tr>
+<tr><td>P95</td><td>4925</td><td>44</td><td>2</td></tr>
+<tr><td>P99</td><td>5104</td><td>45</td><td>3</td></tr>
+</tbody>
+</table>
+<h4>Interpretasi Output Detail</h4>
+<p>Kolom persentil menunjukkan bentuk distribusi. Untuk <code>age</code>, median (39) berada dekat dengan rata‑rata (39,15), menunjukkan kecondongan simetri; skewness positif 0,20 menunjukkan ekor kanan yang sedikit. Untuk <code>race</code>, distribusi sangat miring ke nilai 1 (Putih), seperti yang ditunjukkan oleh skewness positif besar (1,28) dan kurtosis yang melebihi 3.</p>
+<h4>Ringkasan Bersyarat</h4>
+<p>Pengguna dapat membatasi perhitungan pada subset observasi menggunakan qualifier <code>if</code>. Sebagai contoh, untuk mendapatkan statistik ringkasan untuk usia antara individu yang menikah:</p>
+<pre>su age if married == 1</pre>
+<p>Stata mengembalikan:</p>
+<table>
+<thead>
+<tr><th>Variabel</th><th>Jumlah Observasi</th><th>Rata‑rata</th><th>Simp. Baku</th><th>Min</th><th>Maks</th></tr>
+</thead>
+<tbody>
+<tr><td>age</td><td>1,442</td><td>39.1165</td><td>3.066058</td><td>34</td><td>45</td></tr>
+</tbody>
+</table>
+<p>Rata‑rata usia responden yang menikah hampir sama dengan rata‑rata keseluruhan, menunjukkan bahwa status perkawinan tidak berhubungan kuat dengan usia dalam sampel ini.</p>
+<h4>Merangkum Daftar atau Rentang Variabel</h4>
+<p>Untuk mendapatkan statistik untuk beberapa variabel sekaligus, cantumkan variabel setelah <b>su</b>. Untuk rentang yang berurutan, gunakan notasi tanda hubung:</p>
+<pre>su age race occupation union wage</pre>
+<p>atau</p>
+<pre>su idcode-married</pre>
+<p>Kedua perintah menghasilkan tabel kompak dengan variabel yang diminta.</p>
+<h4>Ringkasan Kelompokkan</h4>
+<p>Awalan <b>by</b> memungkinkan ringkasan terpisah untuk setiap tingkat variabel kategorikal. Sebagai contoh, untuk mengeksplorasi grade dan wage di seluruh pekerjaan:</p>
+<pre>by occupation, sort: summarize grade wage</pre>
+<p>Stata mengulangi setiap kategori pekerjaan, menghasilkan blok statistik untuk masing‑masing. Sebuah fragmen output ditunjukkan di bawah ini:</p>
+<table>
+<thead>
+<tr><th>Pekerjaan</th><th>Variabel</th><th>Jumlah Observasi</th><th>Rata‑rata</th><th>Simp. Baku</th><th>Min</th><th>Maks</th></tr>
+</thead>
+<tbody>
+<tr><td>Professional/Technical</td><td>grade</td><td>317</td><td>14.77603</td><td>2.132552</td><td>8</td><td>18</td></tr>
+<tr><td>Professional/Technical</td><td>wage</td><td>317</td><td>10.72362</td><td>6.351074</td><td>1.032247</td><td>40.19808</td></tr>
+<tr><td>Managers/Admin</td><td>grade</td><td>263</td><td>13.4943</td><td>2.283146</td><td>7</td><td>18</td></tr>
+<tr><td>Managers/Admin</td><td>wage</td><td>264</td><td>10.89978</td><td>7.521588</td><td>2.415459</td><td>40.19808</td></tr>
+<tr><td>Sales</td><td>grade</td><td>726</td><td>12.78237</td><td>1.777101</td><td>0</td><td>18</td></tr>
+<tr><td>Sales</td><td>wage</td><td>726</td><td>7.154489</td><td>5.042757</td><td>1.571983</td><td>40.74659</td></tr>
+</tbody>
+</table>
+<p>Hasil ini menunjukkan bahwa pekerja dalam pekerjaan profesional/teknikal memiliki, secara rata‑rata, pencapaian pendidikan yang lebih tinggi dan gaji yang lebih tinggi dibandingkan dengan yang bekerja dalam penjualan.</p>
+
+<h3>Codebook Variabel (codebook)</h3>
+<h4>Codebook Dasar</h4>
+<p>Perintah <b>codebook</b> memberikan deskripsi detail tentang satu variabel, termasuk tipe, rentang, jumlah nilai unik, nilai yang hilang, rata‑rata, simpangan baku, dan persentil yang dipilih. Untuk memeriksa variabel <code>wage</code>:</p>
+<pre>codebook wage</pre>
+<p>Stata mengembalikan:</p>
+<table>
+<thead>
+<tr><th>Item</th><th>Nilai</th></tr>
+</thead>
+<tbody>
+<tr><td>Type</td><td>Numeric (float)</td></tr>
+<tr><td>Range</td><td>[1.0049518, 40.74659]</td></tr>
+<tr><td>Units</td><td>1.000e-07</td></tr>
+<tr><td>Unique values</td><td>967</td></tr>
+<tr><td>Missing .</td><td>0/2,246</td></tr>
+<tr><td>Mean</td><td>7.76695</td></tr>
+<tr><td>Std. dev.</td><td>5.75552</td></tr>
+<tr><td>Percentiles</td><td>10%: 3.22061; 25%: 4.25926; 50%: 6.27227; 75%: 9.59742; 90%: 12.7778</td></tr>
+</tbody>
+</table>
+<h4>Codebook Bersyarat</h4>
+<p>Untuk memeriksa wage hanya untuk responden yang tinggal di selatan:</p>
+<pre>codebook wage if south == 1</pre>
+<p>Output:</p>
+<table>
+<thead>
+<tr><th>Item</th><th>Nilai</th></tr>
+</thead>
+<tbody>
+<tr><td>Type</td><td>Numeric (float)</td></tr>
+<tr><td>Range</td><td>[1.1513683, 40.74659]</td></tr>
+<tr><td>Units</td><td>1.000e-07</td></tr>
+<tr><td>Unique values</td><td>535</td></tr>
+<tr><td>Missing .</td><td>0/942</td></tr>
+<tr><td>Mean</td><td>6.88748</td></tr>
+<tr><td>Std. dev.</td><td>5.28311</td></tr>
+<tr><td>Percentiles</td><td>10%: 2.89855; 25%: 3.94525; 50%: 5.5475; 75%: 8.05153; 90%: 11.4171</td></tr>
+</tbody>
+</table>
+<p>Subsampel selatan memiliki rata‑rata wage yang lebih rendah ($6,89) dan rentang yang sedikit lebih sempit.</p>
+<h4>Codebook Kompak</h4>
+<p>Untuk gambaran keseluruhan variabel, opsi <b>compact</b> memberikan ringkasan yang mirip spreadsheet:</p>
+<pre>codebook, compact</pre>
+<p>Hasil (dipotong):</p>
+<table>
+<thead>
+<tr><th>Variabel</th><th>Jumlah Observasi</th><th>Nilai Unik</th><th>Rata‑rata</th><th>Min</th><th>Maks</th><th>Label</th></tr>
+</thead>
+<tbody>
+<tr><td>idcode</td><td>2246</td><td>2246</td><td>2612.654</td><td>1</td><td>5159</td><td>NLS ID</td></tr>
+<tr><td>age</td><td>2246</td><td>13</td><td>39.15316</td><td>34</td><td>46</td><td>Age in current year</td></tr>
+<tr><td>race</td><td>2246</td><td>3</td><td>1.282725</td><td>1</td><td>3</td><td>Race</td></tr>
+<tr><td>married</td><td>2246</td><td>2</td><td>0.6420303</td><td>0</td><td>1</td><td>Married</td></tr>
+<tr><td>never_married</td><td>2246</td><td>2</td><td>0.1041852</td><td>0</td><td>1</td><td>Never married</td></tr>
+<tr><td>grade</td><td>2244</td><td>16</td><td>13.09893</td><td>0</td><td>18</td><td>Current grade completed</td></tr>
+<tr><td>collgrad</td><td>2246</td><td>2</td><td>0.2368655</td><td>0</td><td>1</td><td>College graduate</td></tr>
+<tr><td>south</td><td>2246</td><td>2</td><td>0.4194123</td><td>0</td><td>1</td><td>Lives in the south</td></tr>
+<tr><td>smsa</td><td>2246</td><td>2</td><td>0.7039181</td><td>0</td><td>1</td><td>Lives in SMSA</td></tr>
+<tr><td>c_city</td><td>2246</td><td>2</td><td>0.2916296</td><td>0</td><td>1</td><td>Lives in a central city</td></tr>
+<tr><td>industry</td><td>2232</td><td>12</td><td>8.189516</td><td>1</td><td>12</td><td>Industry</td></tr>
+<tr><td>occupation</td><td>2237</td><td>13</td><td>4.642825</td><td>1</td><td>13</td><td>Occupation</td></tr>
+<tr><td>union</td><td>1878</td><td>2</td><td>0.2454739</td><td>0</td><td>1</td><td>Union worker</td></tr>
+<tr><td>wage</td><td>2246</td><td>967</td><td>7.766949</td><td>1.004952</td><td>40.74659</td><td>Hourly wage</td></tr>
+<tr><td>hours</td><td>2242</td><td>62</td><td>37.21811</td><td>1</td><td>80</td><td>Usual hours worked</td></tr>
+<tr><td>ttl_exp</td><td>2246</td><td>1546</td><td>12.53498</td><td>0.1153846</td><td>28.88461</td><td>Total work experience (years)</td></tr>
+<tr><td>tenure</td><td>2231</td><td>259</td><td>5.97785</td><td>0</td><td>25.91667</td><td>Job tenure (years)</td></tr>
+</tbody>
+</table>
+<p>Tampilan kompakt ini sangat berguna untuk memeriksa kelengkapan data dengan cepat dan mengidentifikasi variabel dengan banyak nilai unik (potensial kontinu) versus yang memiliki sedikit kategori (potensial kategorikal).</p>
+
+<h3>Tabel Frekuensi (tab, tab1, crosstab)</h3>
+<h4>Tabel Frekuensi Satu Arah</h4>
+<p>Perintah <b>tab</b> membuat distribusi frekuensi untuk variabel kategorikal. Untuk variabel status perkawinan:</p>
+<pre>tab married</pre>
+<p>Stata mengembalikan:</p>
+<table>
+<thead>
+<tr><th>Status Perkawinan</th><th>Frekuensi</th><th>Persen</th><th>Kum.</th></tr>
+</thead>
+<tbody>
+<tr><td>Single</td><td>804</td><td>35.80</td><td>35.80</td></tr>
+<tr><td>Married</td><td>1,442</td><td>64.20</td><td>100.00</td></tr>
+<tr><td>Total</td><td>2,246</td><td>100.00</td><td></td></tr>
+</tbody>
+</table>
+<p>Demikian, 64,2 % sampel adalah menikah. Menambahkan opsi <b>nolabel</b> menunjukkan kode numerik dasar (0 = single, 1 = married).</p>
+<h4>Tab dengan Plot dan Pengurutan</h4>
+<p>Untuk memvisualisasikan distribusi pekerjaan dengan plot batang dan mengurutkan kategori berdasarkan frekuensi:</p>
+<pre>tab occupation, plot sort</pre>
+<p>Stata menghasilkan tabel di mana setiap pekerjaan disertai dengan bar berupa histogram yang dibuat dari bintang‑bintang. Pekerjaan yang paling sering adalah <b>Sales</b> (726 observasi), diikuti oleh <b>Professional/Technical</b> (317) dan <b>Laborers</b> (286). Bantuan visual membantu pengguna melihat kategori dominan dengan cepat.</p>
+<h4>Tab1 untuk Beberapa Variabel</h4>
+<p>Ketika peneliti membutuhkan frekuensi untuk beberapa variabel sekaligus, <b>tab1</b> mengotomatisasi proses:</p>
+<pre>tab1 married south race</pre>
+<p>Stata mengeluarkan tiga tabel terpisah, satu untuk setiap variabel. Untuk <code>race</code> tabelnya adalah:</p>
+<table>
+<thead>
+<tr><th>Ras</th><th>Frekuensi</th><th>Persen</th><th>Kum.</th></tr>
+</thead>
+<tbody>
+<tr><td>White</td><td>1,637</td><td>72.89</td><td>72.89</td></tr>
+<tr><td>Black</td><td>583</td><td>25.96</td><td>98.84</td></tr>
+<tr>
 </body>
 </html>
