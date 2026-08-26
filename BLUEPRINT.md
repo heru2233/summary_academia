@@ -1,239 +1,234 @@
-# BLUEPRINT PROYEK: Academic Summary Pipeline
+# BLUEPRINT - Academic Summary Pipeline
 
-> **Versi**: 2.0 | **Diperbarui**: 26 Agustus 2026
-
----
-
-## 1. APA PROYEK INI?
-
-Proyek ini mengubah **materi akademik (PDF)** menjadi **ringkasan HTML** yang rapi, lalu dipublikasikan agar bisa dibaca kapan saja di gadget.
-
-### Jawaban atas pertanyaan umum
-
-**Q: AI apa yang merangkumnya?**
-A: **Anda** (manusia) yang memberikan instruksi ke AI (seperti Freebuff/ChatGPT/Claude). AI membaca PDF lalu membuat file HTML. **Tidak ada otomasi** dari PDF → HTML. Ini proses manual di chat AI.
-
-**Q: Apakah summary AI dan send to Telegram itu 2 hal berbeda?**
-A: **YA, terpisah total:**
-```
-TAHAP 1: AI Summary (Manual - di chat AI)
-  Anda chat ke AI → AI baca PDF → AI buat file HTML
-  
-TAHAP 2: Publish (Semi-otomatis - di terminal)
-  Python script baca file HTML → upload Telegraph → kirim link ke Telegram
-```
+> **Version**: 3.0 | **Updated**: 26 August 2026
 
 ---
 
-## 2. ALUR KERJA SAAT INI (v1.0) — BANYAK MASALAH
+## 1. PROJECT OVERVIEW
+
+This project converts **academic materials (PDF)** into **HTML summaries** in two languages (Indonesian & English), published to **GitHub Pages** for reading on any device.
+
+### How It Works
 
 ```
-PDF ──[MANUAL]──→ AI merangkum ──→ HTML disimpan
-                                        │
-                                   [MANUAL]
-                                   Edit script.py
-                                   (ubah FOLDER_HTML)
-                                        │
-                                        ▼
-                              send_to_telegram.py
-                                        │
-                                   upload Telegraph
-                                   (format rusak ❌)
-                                        │
-                                   kirim ke Telegram
-                                   (link telegra.ph ❌)
+You (human) → Chat with AI → AI reads PDF → AI creates HTML → Save to docs/ → Push to GitHub
 ```
 
-### Masalah:
-1. ❌ **Folder @1, @2, @3** → tidak jelas isinya apa
-2. ❌ **Hardcoded path** di script → harus edit manual tiap pindah folder
-3. ❌ **Telegraph merusak format** → tabel, rumus, heading hilang
-4. ❌ **Tidak ada otomasi** dari PDF → HTML (semua manual di chat AI)
-5. ❌ **Tidak ada standarisasi** penamaan file antar folder
+**Important**: There is NO automation from PDF to HTML. You manually chat with AI (Freebuff/ChatGPT/Claude) to create the summaries.
 
 ---
 
-## 3. ALUR KERJA YANG DISARANKAN (v2.0)
+## 2. CURRENT WORKFLOW (v3.0)
 
 ```
-TAHAP 1: PERSIAPAN
-  Siapkan PDF di folder sumber
+TAHAP 1: PREPARATION
+  Place PDF in sources/{books|articles}/{title}/
         ↓
-TAHAP 2: AI SUMMARY (di chat AI)
-  Copy-paste prompt template yang sesuai (buku/artikel)
-  AI baca PDF → AI buat 2 file HTML (IND + ENG)
-  Simpan langsung di folder yang benar
+TAHAP 2: AI SUMMARY (manual - in chat AI)
+  Use prompt template from templates/
+  AI reads PDF → Creates 2 HTML files (IND + ENG)
+  Save directly to docs/{books|articles}/{title}/
         ↓
-TAHAP 3: PUBLISH (otomatis via script)
-  Jalankan: python publish.py --folder @2/buku --title "Judul Buku"
-  Script otomatis:
-    a) Baca semua HTML di folder
-    b) Upload ke Telegraph
-    c) Kirim menu ke Telegram
+TAHAP 3: NAVIGATION (manual)
+  Create/update index.html files for navigation
+  Ensure responsive.css is linked
         ↓
-TAHAP 4: BACA (di gadget)
-  Buka Telegram → klik tombol → baca ringkasan
+TAHAP 4: PUBLISH (git push)
+  git add docs/ && git commit && git push
+  GitHub Pages auto-deploys
+        ↓
+TAHAP 5: READ (on any device)
+  Open https://heru2233.github.io/summary_academia/
 ```
 
 ---
 
-## 4. STRUKTUR FOLDER YANG DISARANKAN
+## 3. FOLDER STRUCTURE (v3.0 - IMPLEMENTED)
 
 ```
-D:\summary_msi\                          ← ROOT PROYEK
+D:\summary_msi\
 │
-├── BLUEPRINT.md                         ← File ini
-├── PROJECT_LOG.md                       ← Log status proyek
+├── sources/                          # Original PDFs (NOT in git)
+│   ├── books/
+│   │   └── financial-institutions-management/
+│   │       └── ch1-ch7.pdf
+│   └── articles/
+│       ├── myers-1984/
+│       ├── mcinnes-1982/
+│       └── what-theory-is-not/
 │
-├── sources/                             ← 📁 PDF sumber (jangan diubah)
-│   ├── buku-01-financial-inst-mgmt/     ← Folder per judul buku
-│   │   ├── ch1.pdf ... ch7.pdf
-│   │   └── README.md                    ← Info: judul, penulis, edisi
-│   │
-│   ├── artikel-01-myers-1984/
-│   │   ├── paper.pdf
-│   │   └── README.md
-│   │
-│   └── artikel-02-mcinnes-1982/
-│       ├── paper.pdf
-│       └── README.md
+├── templates/                        # Prompt templates (NOT in git)
+│   ├── PROMPT_TEMPLATE_BOOK.md
+│   └── PROMPT_TEMPLATE_ARTICLE.md
 │
-├── summaries/                           ← 📁 Output HTML ringkasan
-│   ├── buku-01-financial-inst-mgmt/     ← 1 per sumber
-│   │   ├── Ringkasan_Chapter_1_IND.html
-│   │   ├── Ringkasan_Chapter_1_ENG.html
-│   │   ├── ...
-│   │   └── Ringkasan_Chapter_7_ENG.html
-│   │
-│   ├── artikel-01-myers-1984/
-│   │   ├── Ringkasan_Myers_1984_IND.html
-│   │   └── Ringkasan_Myers_1984_ENG.html
-│   │
-│   └── artikel-02-mcinnes-1982/
-│       ├── Ringkasan_McInnes_1982_IND.html
-│       └── Ringkasan_McInnes_1982_ENG.html
+├── scripts/                          # Python scripts
+│   ├── publish.py
+│   ├── config.py
+│   ├── requirements.txt
+│   └── .env (NOT in git)
 │
-├── templates/                           ← 📁 Prompt template
-│   ├── PROMPT_TEMPLATE_BOOK.md          ← Untuk chapter buku
-│   ├── PROMPT_TEMPLATE_ARTICLE.md       ← Untuk artikel jurnal
-│   └── Template.docx                    ← Template Word (opsional)
+├── docs/                             # GitHub Pages (IN git) ✅ LIVE
+│   ├── index.html                    # Main page (English)
+│   ├── css/responsive.css            # Mobile/tablet support
+│   ├── books/
+│   │   ├── index.html
+│   │   └── financial-inst-mgmt/
+│   │       ├── index.html            # ENG/IND selection
+│   │       ├── chapters-eng.html
+│   │       ├── chapters-ind.html
+│   │       └── Ringkasan_Chapter_*.html (14 files)
+│   └── articles/
+│       ├── index.html
+│       ├── myers-1984/
+│       │   ├── index.html
+│       │   └── Ringkasan_Myers_1984_*.html (2 files)
+│       └── mcinnes-1982/
+│           ├── index.html
+│           └── Ringkasan_McInnes_1982_*.html (2 files)
 │
-└── scripts/                             ← 📁 Script Python
-    ├── publish.py                       ← Script utama (upload + kirim)
-    ├── requirements.txt                 ← Dependensi Python
-    └── config.py                        ← Token & konfigurasi
-```
-
-### Penamaan Folder
-| Pola | Keterangan | Contoh |
-|------|-----------|--------|
-| `buku-NN-nama-pendek` | Buku, nomor urut + nama | `buku-01-financial-inst-mgmt` |
-| `artikel-NN-nama-penulis-tahun` | Artikel jurnal | `artikel-01-myers-1984` |
-
-### Penamaan File HTML
-| Jenis | Pola | Contoh |
-|-------|------|--------|
-| Chapter buku (IND) | `Ringkasan_Chapter_[N]_IND.html` | `Ringkasan_Chapter_1_IND.html` |
-| Chapter buku (ENG) | `Ringkasan_Chapter_[N]_ENG.html` | `Ringkasan_Chapter_1_ENG.html` |
-| Artikel (IND) | `Ringkasan_[Nama]_[Tahun]_IND.html` | `Ringkasan_Myers_1984_IND.html` |
-| Artikel (ENG) | `Ringkasan_[Nama]_[Tahun]_ENG.html` | `Ringkasan_Myers_1984_ENG.html` |
-
----
-
-## 5. REKOMENDASI: GITHUB PAGES
-
-**Kenapa GitHub Pages?**
-- ✅ **GRATIS** selamanya
-- ✅ HTML tampil **SEMPURNA** (tabel, rumus, styling semua jalan)
-- ✅ Akses dari **gadget** via browser
-- ✅ Punya **version history** (git)
-- ✅ Bisa di-share ke orang lain
-
-### Cara Kerja:
-```
-Push HTML ke GitHub repo
-        ↓
-GitHub Pages aktif (gratis)
-        ↓
-Dapat URL: https://username.github.io/summaries/
-        ↓
-Buka di browser gadget → format sempurna ✅
-```
-
-### Tampilan di Telegram:
-```
-📚 RINGKASAN BUKU
-Financial Institutions Management
-
-Klik untuk membaca:
-📖 Ch 1 - https://username.github.io/summaries/buku-01/ch1-ind.html
-📖 Ch 2 - https://username.github.io/summaries/buku-01/ch2-ind.html
-...
+├── .gitignore
+├── BLUEPRINT.md                      # This file
+└── PROJECT_LOG.md                    # Session log
 ```
 
 ---
 
-## 6. REVISI SCRIPT: publish.py
+## 4. NAVIGATION FLOW
 
-Script baru harus:
-1. **Parameterisasi** — tidak hardcode path
-2. **Otomatis deteksi** — baca semua HTML di folder
-3. **Pilihan publish** — Telegraph ATAU GitHub (atau keduanya)
-4. **Lebih robust** — error handling lebih baik
-
-### Design Script Baru:
-
-```python
-# publish.py — Versi baru (blueprint)
-
-# Fitur:
-# 1. Baca folder HTML dari argumen command line
-# 2. Upload ke Telegraph (opsional)
-# 3. Generate file index.html untuk GitHub Pages
-# 4. Kirim menu ke Telegram
-
-# Contoh penggunaan:
-# python publish.py --source summaries/buku-01 --title "Financial Institutions Management" --mode github
-# python publish.py --source summaries/buku-01 --title "Financial Institutions Management" --mode telegraph
+```
+Main Page (EN)
+├── 📚 Books
+│   └── Financial Institutions Management
+│       ├── 🇬🇧 English → 7 Chapters
+│       └── 🇮🇩 Bahasa Indonesia → 7 Bab
+│
+└── 📄 Journal Articles
+    ├── Myers (1984) - The Capital Structure Puzzle
+    │   ├── 🇬🇧 English
+    │   └── 🇮🇩 Bahasa Indonesia
+    └── McInnes (1982) - Financial Control
+        ├── 🇬🇧 English
+        └── 🇮🇩 Bahasa Indonesia
 ```
 
 ---
 
-## 7. PROMPT TEMPLATE — PERUBAHAN
+## 5. RESPONSIVE DESIGN
 
-### Untuk Chapter Buku:
-Saat ini sudah bagus. Tidak perlu banyak perubahan. Cuma:
-- Lokasi file di prompt harus sesuai struktur baru (`sources/` dan `summaries/`)
+| Device | Breakpoint | Behavior |
+|--------|------------|----------|
+| Desktop | >768px | Normal layout, max-width 600px |
+| Tablet | 481-768px | Reduced padding, adapted fonts |
+| Mobile | <480px | Minimal padding, full-width cards, horizontal scroll tables |
 
-### Untuk Artikel Jurnal:
-Sama, cuma update path di prompt.
-
----
-
-## 8. CHECKLIST MIGRASI
-
-Migrasi dari v1.0 → v2.0:
-
-- [ ] Buat folder `sources/` dan pindahkan PDF
-- [ ] Buat folder `summaries/` dan pindahkan HTML
-- [ ] Buat folder `templates/` dan pindahkan prompt template
-- [ ] Buat folder `scripts/` dan tulis script baru
-- [ ] Update `PROJECT_LOG.md`
-- [ ] Setup GitHub Pages
-- [ ] Publish pertama kali
-- [ ] Kirim link ke Telegram
+**File**: `docs/css/responsive.css`
 
 ---
 
-## 9. NAMA PROYEK YANG DISARANKAN
+## 6. FILE NAMING CONVENTIONS
 
-| Sekarang | Disarankan | Alasan |
-|----------|-----------|--------|
-| `summary_msi` | `akademia-ringkas` | Lebih deskriptif, mudah diingat |
-| `@1`, `@2`, `@3` | `buku-01-*`, `artikel-01-*` | Jelas isinya |
-| `send_to_telegram.py` | `publish.py` | Lebih umum, bisa multi-target |
-| `summary_tele/` | `scripts/` | Standar proyek Python |
+### HTML Files
+| Type | Pattern | Example |
+|------|---------|---------|
+| Book chapter (IND) | `Ringkasan_Chapter_[N]_IND.html` | `Ringkasan_Chapter_1_IND.html` |
+| Book chapter (ENG) | `Ringkasan_Chapter_[N]_ENG.html` | `Ringkasan_Chapter_1_ENG.html` |
+| Article (IND) | `Ringkasan_[LastName]_[Year]_IND.html` | `Ringkasan_Myers_1984_IND.html` |
+| Article (ENG) | `Ringkasan_[LastName]_[Year]_ENG.html` | `Ringkasan_Myers_1984_ENG.html` |
+
+### Index Files
+| Level | File | Purpose |
+|-------|------|---------|
+| Root | `docs/index.html` | Main page |
+| Category | `docs/books/index.html` | List all books |
+| Book | `docs/books/{title}/index.html` | ENG/IND selection |
+| Chapters | `docs/books/{title}/chapters-{lang}.html` | Chapter list |
 
 ---
 
-*Blueprint ini dibuat oleh Buffy (Freebuff) — 26 Agustus 2026*
+## 7. HTML FORMAT TEMPLATE
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <title>Chapter Summary - Title (English)</title>
+  <style>
+    /* Times New Roman 12pt, A4, justify */
+  </style>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <div class="toolbar">
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+  <h1>Summary: Title</h1>
+  <p class="meta">Author, Source, Year</p>
+  <!-- Content -->
+  <p class="note">Note: This is a self-study summary...</p>
+</body>
+</html>
+```
+
+---
+
+## 8. GITHUB PAGES
+
+- **URL**: https://heru2233.github.io/summary_academia/
+- **Repository**: https://github.com/heru2233/summary_academia
+- **Source**: /docs folder on main branch
+- **Deploy**: Automatic on git push
+
+### Security
+- ✅ Only HTML summaries are public (no copyrighted PDFs)
+- ✅ Tokens in .env (not committed)
+- ✅ sources/ and templates/ in .gitignore
+
+---
+
+## 9. ADDING NEW CONTENT
+
+### Steps:
+1. Place PDF in `sources/{books|articles}/{new-title}/`
+2. Create folder `docs/{books|articles}/{new-title}/`
+3. Chat with AI using appropriate template from `templates/`
+4. AI creates `Ringkasan_*_IND.html` and `Ringkasan_*_ENG.html`
+5. Create `index.html` for ENG/IND selection
+6. Update parent `index.html` to include new item
+7. Push to GitHub
+
+### Book Template
+Use `templates/PROMPT_TEMPLATE_BOOK.md`
+- Length: 5,000-8,000 words per language
+- Style: Formal academic
+- Structure: Follow book section order
+- Include: All formulas, tables, examples
+
+### Article Template
+Use `templates/PROMPT_TEMPLATE_ARTICLE.md`
+- Length: 2,000-4,000 words per language
+- Style: Flowing, readable
+- Structure: Follow argument flow
+- Include: Essential formulas and key tables only
+
+---
+
+## 10. LEGACY (v1.0 - DEPRECATED)
+
+The old system used:
+- `@1/`, `@2/`, `@3/` folders (unclear naming)
+- `send_to_telegram.py` (hardcoded paths)
+- Telegraph publishing (format broken)
+
+**Status**: Deprecated. All content migrated to new structure.
+
+---
+
+*Blueprint maintained by Buffy (Freebuff). Updated after each major session.*

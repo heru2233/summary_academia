@@ -83,3 +83,12 @@ dmypy.json
 
 # Ruff
 .ruff_cache/
+
+# Source files (PDFs, original documents) - NOT for public repo
+sources/
+templates/
+@1/
+@2/
+@3/
+summary_tele/
+Template/

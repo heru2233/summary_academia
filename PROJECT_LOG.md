@@ -1,230 +1,172 @@
-# PROJECT LOG - Ringkasan Akademik ke HTML → Telegraph → Telegram
+# PROJECT LOG - Academic Summary Pipeline
 
-> **Terakhir diperbarui**: 26 Agustus 2026  
-> **Sesi terakhir**: Buffy (Freebuff) - Sesi pertama membuat log
-
----
-
-## 🎯 RINGKASAN PROYEK
-
-Proyek ini mengubah materi akademik (PDF buku & artikel jurnal) menjadi **ringkasan HTML** dalam dua bahasa (Indonesia & Inggris), lalu dipublikasikan ke **Telegraph** dan dikirim ke **Telegram** sebagai menu navigasi.
-
-### Alur Kerja (Pipeline)
-```
-PDF → pdftotext → Teks → AI Merangkum → HTML (IND + ENG) → Telegraph → Telegram
-```
+> **Last updated**: 26 August 2026
+> **Current session**: Buffy (Freebuff) - Sesi 3: Responsive Design + Migration
 
 ---
 
-## 📁 STRUKTUR FOLDER
+## PROJECT SUMMARY
+
+This project converts academic materials (PDF books & journal articles) into **HTML summaries** in two languages (Indonesian & English), then publishes them to **GitHub Pages** for reading on any device.
+
+### Workflow
+```
+PDF → pdftotext → Text → AI Summarizes → HTML (IND + ENG) → GitHub Pages
+```
+
+---
+
+## FOLDER STRUCTURE
 
 ```
 D:\summary_msi\
-├── summary_tele/                    # Script & config
-│   ├── send_to_telegram.py         # Script utama: upload HTML ke Telegraph + kirim Telegram
-│   ├── Untitled-1.txt              # Backup config (token Telegram)
-│   └── venv/                       # Virtual environment Python
+├── sources/                          # Original PDFs (NOT in git)
+│   ├── books/
+│   │   └── financial-institutions-management/
+│   │       └── ch1-ch7.pdf
+│   └── articles/
+│       ├── myers-1984/
+│       │   └── Myers_1984.pdf
+│       ├── mcinnes-1982/
+│       │   └── McInnes_1982.pdf
+│       └── what-theory-is-not/
+│           └── What_theory_is_not.pdf
 │
-├── Template/
-│   └── Talent management.docx      # Template Word (belum dipakai aktif)
+├── templates/                        # Prompt templates (NOT in git)
+│   ├── PROMPT_TEMPLATE_BOOK.md
+│   └── PROMPT_TEMPLATE_ARTICLE.md
 │
-├── @1/                              # Artikel jurnal ringkas
-│   ├── What_theory_is_not.pdf      # PDF asli
-│   ├── Ringkasan_What_Theory_is_Not.docx
-│   └── Ringkasan_What_Theory_is_Not_v2.docx
+├── scripts/                          # Python scripts
+│   ├── publish.py                    # Main publish script (parameterized)
+│   ├── config.py                     # Config loader (reads .env)
+│   ├── requirements.txt
+│   ├── .env                          # Tokens (NOT in git)
+│   └── .env.example
 │
-├── @2/                              # Buku teks: Financial Institutions Management
-│   └── Financial_Institutions_Management,_A_Risk_Management_Approach,_11e/
-│       ├── ch1.pdf s/d ch7.pdf     # PDF per chapter
-│       └── summary_html/           # OUTPUT ringkasan HTML
-│           ├── PROMPT_TEMPLATE.md  # Template prompt untuk chapter buku
-│           ├── Ringkasan_Chapter_[1-7]_IND.html  ✅ SELESAI
-│           └── Ringkasan_Chapter_[1-7]_ENG.html  ✅ SELESAI
+├── docs/                             # GitHub Pages (IN git)
+│   ├── index.html                    # Main page (English)
+│   ├── css/
+│   │   └── responsive.css            # Mobile/tablet support
+│   ├── books/
+│   │   ├── index.html                # Book listing
+│   │   └── financial-inst-mgmt/
+│   │       ├── index.html            # ENG/IND selection
+│   │       ├── chapters-eng.html     # English chapters
+│   │       ├── chapters-ind.html     # Indonesian chapters
+│   │       └── Ringkasan_Chapter_*.html (14 files)
+│   └── articles/
+│       ├── index.html                # Article listing
+│       ├── myers-1984/
+│       │   ├── index.html            # ENG/IND selection
+│       │   └── Ringkasan_Myers_1984_*.html (2 files)
+│       └── mcinnes-1982/
+│           ├── index.html            # ENG/IND selection
+│           └── Ringkasan_McInnes_1982_*.html (2 files)
 │
-├── @3/                              # Artikel jurnal
-│   ├── 1_Myers-FinanceTheoryFinancial-1984.pdf
-│   ├── 1_McInnes-TheoryModelsImplementation-1982.pdf
-│   ├── PROMPT_TEMPLATE_ARTICLE.md  # Template prompt untuk artikel jurnal
-│   ├── Ringkasan_Myers_1984_IND.html    ✅ SELESAI
-│   ├── Ringkasan_Myers_1984_ENG.html    ✅ SELESAI
-│   ├── Ringkasan_McInnes_1982_IND.html  ✅ SELESAI
-│   └── Ringkasan_McInnes_1982_ENG.html  ✅ SELESAI
-│
-└── @4/ (dst.)                       # Folder masa depan untuk materi baru
+├── .gitignore
+├── BLUEPRINT.md
+└── PROJECT_LOG.md                    # This file
 ```
 
 ---
 
-## ✅ STATUS PENGERJAAN
+## WORK COMPLETED
 
-### @1 - Artikel "What Theory is Not"
-| File | Status |
-|------|--------|
-| Ringkasan_What_Theory_is_Not.docx | ✅ Ada (dalam .docx, belum HTML) |
-| Ringkasan_What_Theory_is_Not_v2.docx | ✅ Ada (v2, belum HTML) |
-| **Catatan** | Perlu dikonversi ke HTML atau buat ulang dalam format HTML |
+### Session 1 (26 Aug 2026) - Initial Setup
+- [x] Read and understood project structure
+- [x] Created PROJECT_LOG.md
+- [x] Created BLUEPRINT.md
 
-### @2 - Financial Institutions Management (Saunders & Cornett, Ed. 11)
-| Chapter | File PDF | IND HTML | ENG HTML |
-|---------|----------|----------|----------|
-| Ch 1 - Why Are Financial Institutions Special? | ✅ ch1.pdf | ✅ | ✅ |
-| Ch 2 | ✅ ch2.pdf | ✅ | ✅ |
-| Ch 3 | ✅ ch3.pdf | ✅ | ✅ |
-| Ch 4 | ✅ ch4.pdf | ✅ | ✅ |
-| Ch 5 | ✅ ch5.pdf | ✅ | ✅ |
-| Ch 6 | ✅ ch6.pdf | ✅ | ✅ |
-| Ch 7 | ✅ ch7.pdf | ✅ | ✅ |
-| **Total 14 file HTML** | | **7 IND** | **7 ENG** |
+### Session 2 (26 Aug 2026) - Script + GitHub Pages
+- [x] Created `scripts/publish.py` (parameterized, no hardcoded paths)
+- [x] Created `scripts/config.py` (reads from .env)
+- [x] Moved Telegram token from config.py to .env (security)
+- [x] Created `.gitignore` (excludes .env, sources/, etc.)
+- [x] Set up GitHub repository: `heru2233/summary_academia`
+- [x] Enabled GitHub Pages (source: /docs)
+- [x] Generated docs/ for all 18 HTML files (7 chapters x 2 lang + 2 articles x 2 lang)
+- [x] Created navigation index pages
 
-### @3 - Artikel Jurnal
-| Artikel | File PDF | IND HTML | ENG HTML |
-|---------|----------|----------|----------|
-| Myers (1984) - Finance Theory and Financial Strategy | ✅ | ✅ | ✅ |
-| McInnes & Carleton (1982) - Theory, Models and Implementation | ✅ | ✅ | ✅ |
-| **Total 4 file HTML** | | **2 IND** | **2 ENG** |
-
-### Script Publish (summary_tele)
-| Komponen | Status |
-|----------|--------|
-| send_to_telegram.py | ✅ Aktif, sudah diuji |
-| Telegraph upload | ✅ Berfungsi dengan retry & flood control |
-| Telegram menu | ✅ Kirim inline keyboard per chapter |
+### Session 3 (26 Aug 2026) - Responsive + Migration
+- [x] Created `docs/css/responsive.css` (mobile/tablet/desktop)
+- [x] Updated all 28 HTML files with responsive CSS link
+- [x] Reorganized navigation: Main → Books/Articles → Select Title → ENG/IND → Content
+- [x] Migrated @1/@2/@3 to `sources/` with clean naming
+- [x] Migrated templates to `templates/`
+- [x] Updated .gitignore to exclude sources/, templates/, @1/@2/@3
+- [x] Updated publish.py template for future responsive files
 
 ---
 
-## ⚙️ KONFIGURASI SCRIPT
+## CONTENT STATUS
 
-### Telegram
-- **Bot Token**: `8914264852:AAEKoG6dEcBYISvbk4Y5uGwY2_U-M4OJqmw`
-- **Chat ID**: `8960371977`
+### Books
+| Book | Chapters | IND | ENG | GitHub Pages |
+|------|----------|-----|-----|--------------|
+| Financial Institutions Management (Saunders & Cornett, 11e) | 7 | 7 | 7 | https://heru2233.github.io/summary_academia/books/financial-inst-mgmt/ |
 
-### Script: `send_to_telegram.py`
-- **Library**: `requests`, `beautifulsoup4`, `telegraph`
-- **Fitur**:
-  - Membaca semua file `.html` dari folder yang dikonfigurasi
-  - Sanitasi HTML agar sesuai whitelist Telegraph
-  - Upload ke Telegraph dengan retry (handle Flood Control)
-  - Kirim menu inline keyboard ke Telegram (batch 50 chapter per pesan)
-  - Jeda 2 detik antar request untuk hindari rate limit
-- **Cara pakai**: 
-  1. Edit variabel `FOLDER_HTML` dan `book_title` di script
-  2. Jalankan: `python send_to_telegram.py`
+### Articles
+| Article | IND | ENG | GitHub Pages |
+|---------|-----|-----|--------------|
+| Myers (1984) - The Capital Structure Puzzle | ✅ | ✅ | https://heru2233.github.io/summary_academia/articles/myers-1984/ |
+| McInnes (1982) - Financial Control as an Aid to Management | ✅ | ✅ | https://heru2233.github.io/summary_academia/articles/mcinnes-1982/ |
+| What Theory is Not | ❌ | ❌ | Not yet (only .docx draft) |
 
 ---
 
-## 📝 ATURAN & KONVENSI PROYEK
+## CONFIGURATION
 
-### ATURAN UTAMA
+### GitHub Pages
+- **URL**: https://heru2233.github.io/summary_academia/
+- **Repository**: https://github.com/heru2233/summary_academia
+- **Source**: /docs folder on main branch
 
-1. **Dua template berbeda** tergantung jenis materi:
-   - **Chapter Buku** → pakai `@2/.../summary_html/PROMPT_TEMPLATE.md`
-   - **Artikel Jurnal** → pakai `@3/PROMPT_TEMPLATE_ARTICLE.md`
+### Telegram (Legacy - not actively used)
+- **Bot Token**: In `scripts/.env` (DO NOT commit)
+- **Chat ID**: In `scripts/.env` (DO NOT commit)
 
-2. **Selalu 2 versi bahasa**: Setiap ringkasan WAJIB punya versi IND dan ENG sebagai file HTML terpisah.
+---
 
-3. **Penamaan file**:
-   - Chapter buku: `Ringkasan_Chapter_[N]_[IND/ENG].html`
-   - Artikel jurnal: `Ringkasan_[NamaSingkat]_[Tahun]_[IND/ENG].html`
+## RULES & CONVENTIONS
 
-4. **Proses PDF extraction**: Gunakan `pdftotext -layout [file].pdf [output].txt`
+### FILE NAMING
+- Book chapters: `Ringkasan_Chapter_[N]_[IND/ENG].html`
+- Journal articles: `Ringkasan_[LastName]_[Year]_[IND/ENG].html`
 
-5. **Hapus file .txt sementara** setelah selesai membuat HTML
+### HTML FORMAT
+- Font: Times New Roman 12pt
+- Math: MathJax v3 (inline `\(...\)`, display `\[...\]`)
+- Print: Toolbar with print button
+- Responsive: Link to `css/responsive.css`
 
-### PERBEDAAN KRITIS: Chapter Buku vs Artikel Jurnal
+### TEMPLATES
+- **Book chapters**: Use `templates/PROMPT_TEMPLATE_BOOK.md`
+- **Journal articles**: Use `templates/PROMPT_TEMPLATE_ARTICLE.md`
 
-| Aspek | Chapter Buku | Artikel Jurnal |
-|-------|-------------|----------------|
-| **Panjang** | 5.000-8.000 kata/bahasa | 2.000-4.000 kata/bahasa |
-| **Gaya bahasa** | Formal akademis kaku | Mengalir, mudah dibaca |
-| **Struktur** | Ikuti urutan section buku | Ikuti alur argumentasi artikel |
-| **Detail** | Sangat detail, semua bagian | Fokus ide utama & kontribusi |
-| **Rumus** | Semua rumus dipertahankan | Hanya rumus esensial |
-| **Tabel** | Semua tabel dipertahankan | Tabel penting saja |
-| **Contoh** | Semua contoh disertakan | Contoh representatif |
-| **Heading** | h2 = section, h3 = sub, h4 = contoh | h2 = bagian argumen |
+### PUBLISHING
+1. Generate HTML using AI with template
+2. Save to `docs/{books|articles}/{title}/`
+3. Create index.html for navigation
+4. Push to GitHub: `git add docs/ && git commit && git push`
 
-### FORMAT HTML WAIB (kedua template)
+---
 
-```html
-<!-- Head essentials -->
-<meta charset="UTF-8">
-<style>/* Times New Roman 12pt, A4, justify */</style>
-<script>window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+## CONTINUATION PROMPT
 
-<!-- Body structure -->
-<div class="toolbar"><button onclick="window.print()">Cetak / Simpan sebagai PDF</button></div>
-<h1>Ringkasan: [Judul]</h1>
-<p class="meta">Penulis, Sumber, Tahun</p>
-<!-- Isi ringkasan -->
-<p class="note">Catatan: Dokumen ini adalah ringkasan belajar mandiri...</p>
+When starting a new session, use this prompt:
 ```
-
-### ATURAN PENULISAN
-
-1. **Istilah asing**: Dimiringkan `<i>...</i>` saat pertama kali muncul
-2. **Rumus**: MathJax format `\\[ ... \\]` display, `\\( ... \\)` inline
-3. **Tabel**: Format `<table>` dengan `<th>` background `#eee`
-4. **Equation class**: Gunakan `<div class="eq">` untuk display equation
-5. **Em-dash/en-dash**: JANGAN gunakan karakter `—` atau `–`
-6. **Referensi**: Sertakan sumber di bagian atas dan catatan di bawah
-
-### ATURAN PUBLISH
-
-1. **Edit `FOLDER_HTML`** di `send_to_telegram.py` sebelum menjalankan
-2. **Edit `book_title`** sesuai judul buku/artikel
-3. **Jalankan script** dari folder `summary_tele/` dengan virtual environment aktif
-4. **Telegram limit**: Maksimal 50 tombol inline per pesan (otomatis di-batch)
-5. **Telegraph limit**: Script otomatis handle flood control dengan retry
-
----
-
-## 🚀 CATATAN UNTUK SESI MENDATANG
-
-### Yang Sudah Selesai
-- [x] Ringkasan Chapter 1-7 buku Financial Institutions Management (IND+ENG)
-- [x] Ringkasan Artikel Myers 1984 & McInnes 1982 (IND+ENG)
-- [x] Script publish ke Telegraph + Telegram
-
-### Yang Belum / Potensi Lanjutan
-- [ ] Konversi ringkasan @1 (What Theory is Not) dari .docx ke HTML
-- [ ] Publish @3 (Myers & McInnes) ke Telegraph + Telegram (jika belum)
-- [ ] Publish @1 ke Telegraph + Telegram
-- [ ] Tambah materi baru ke folder @4, @5, dst.
-- [ ] Buat script otomatis pipeline: PDF → HTML (mungkin pakai AI API)
-- [ ] Backup / arsipkan Telegraph URLs yang sudah di-publish
-
-### Prompt untuk Melanjutkan Sesi
-Ketika memulai sesi baru, gunakan prompt ini:
-```
-Baca file PROJECT_LOG.md di root proyek. Saya ingin melanjutkan proyek ringkasan akademik.
-[SPEKSIKASI YANG INGIN DILANJUTKAN]
+Baca file PROJECT_LOG.md di root proyek. Saya ingin melanjutkan [SPECIFY TASK].
 ```
 
 ---
 
-## 🔧 TROUBLESHOOTING
+## TODO / NEXT STEPS
 
-| Masalah | Solusi |
-|---------|--------|
-| `pdftotext` tidak ditemukan | Install: `choco install poppler` atau download dari https://github.com/oschwartz10612/poppler-windows |
-| Telegraph Flood Control | Script otomatis retry, tunggu sesuai pesan error |
-| HTML tidak tampil rumus | Pastikan MathJax CDN bisa diakses (butuh internet) |
-| Telegram tidak terkirim | Cek token & chat ID di `send_to_telegram.py` |
-| Folder salah | Edit variabel `FOLDER_HTML` di script sesuai path folder target |
-| Virtual environment error | Aktifkan: `summary_tele/venv/Scripts/activate` |
+- [ ] Convert "What Theory is Not" from .docx to HTML
+- [ ] Add more books/articles to the library
+- [ ] Optional: Set up Telegraph + Telegram integration for notifications
+- [ ] Optional: Add search functionality to the website
 
 ---
 
-## 📚 REFERENSI CEPAT
-
-| File | Fungsi |
-|------|--------|
-| `@2/.../summary_html/PROMPT_TEMPLATE.md` | Template prompt untuk merangkum chapter buku |
-| `@3/PROMPT_TEMPLATE_ARTICLE.md` | Template prompt untuk merangkum artikel jurnal |
-| `summary_tele/send_to_telegram.py` | Script publish HTML → Telegraph → Telegram |
-| `Template/Talent management.docx` | Template Word (belum aktif dipakai) |
-
----
-
-*Log ini dibuat oleh Buffy (Freebuff) pada sesi 26 Agustus 2026. Perbarui bagian status setiap kali ada pengerjaan baru.*
+*Log maintained by Buffy (Freebuff). Update after each session.*
