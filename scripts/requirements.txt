@@ -1,6 +1,7 @@
-# Academic Summary Publisher - Dependencies
+# Academic Summary Pipeline - Dependencies
 # Install: pip install -r requirements.txt
 
 beautifulsoup4>=4.12.0
 requests>=2.31.0
 telegraph>=2.2.0
+python-dotenv>=1.0.0

@@ -1,7 +1,7 @@
 # PROJECT LOG - Academic Summary Pipeline
 
 > **Last updated**: 26 August 2026
-> **Current session**: Buffy (Freebuff) - Sesi 3: Responsive Design + Migration
+> **Current session**: Buffy (Freebuff) - Sesi 4: Auto-Summary Script
 
 ---
 
@@ -96,6 +96,13 @@ D:\summary_msi\
 - [x] Updated .gitignore to exclude sources/, templates/, @1/@2/@3
 - [x] Updated publish.py template for future responsive files
 
+### Session 4 (26 Aug 2026) - Auto-Summary Script
+- [x] Created `scripts/auto_summary.py` (PDF → HTML via OpenRouter API)
+- [x] Integrated OpenRouter API with free models
+- [x] Added OpenRouter API key to `.env`
+- [x] Tested successfully with `nvidia/nemotron-3-super-120b-a12b:free`
+- [x] Generated Chapter 1 English summary as test
+
 ---
 
 ## CONTENT STATUS
@@ -125,6 +132,11 @@ D:\summary_msi\
 - **Bot Token**: In `scripts/.env` (DO NOT commit)
 - **Chat ID**: In `scripts/.env` (DO NOT commit)
 
+### OpenRouter API (Auto-Summary)
+- **API Key**: In `scripts/.env` (DO NOT commit)
+- **Model**: `nvidia/nemotron-3-super-120b-a12b:free` (free tier)
+- **Limits**: 50 requests/day, 20 req/min
+
 ---
 
 ## RULES & CONVENTIONS
@@ -149,6 +161,19 @@ D:\summary_msi\
 3. Create index.html for navigation
 4. Push to GitHub: `git add docs/ && git commit && git push`
 
+### AUTO-SUMMARY (NEW)
+```bash
+cd scripts
+python auto_summary.py --pdf "../sources/books/.../ch1.pdf" --title "Chapter Title" --type book --lang both
+```
+| Flag | Description |
+|------|-------------|
+| `--pdf` | Path to PDF file |
+| `--title` | Title of book/article |
+| `--type` | `book` or `article` |
+| `--lang` | `ind`, `eng`, or `both` |
+| `--dry-run` | Only extract text, don't call API |
+
 ---
 
 ## CONTINUATION PROMPT
@@ -162,9 +187,11 @@ Baca file PROJECT_LOG.md di root proyek. Saya ingin melanjutkan [SPECIFY TASK].
 
 ## TODO / NEXT STEPS
 
+- [x] Auto-summary script with OpenRouter API
+- [ ] Batch process all 7 chapters (IND + ENG)
+- [ ] Process articles (Myers, McInnes) with auto-summary
 - [ ] Convert "What Theory is Not" from .docx to HTML
-- [ ] Add more books/articles to the library
-- [ ] Optional: Set up Telegraph + Telegram integration for notifications
+- [ ] Optional: Set up Telegram bot for PDF upload → auto-summary
 - [ ] Optional: Add search functionality to the website
 
 ---
