@@ -1,7 +1,7 @@
 # PROJECT LOG - Academic Summary Pipeline
 
 > **Last updated**: 26 August 2026
-> **Current session**: Buffy (Freebuff) - Sesi 5: Revisions & Telegram Bot Improvements
+> **Current session**: Buffy (Freebuff) - Sesi 6: Switch to GLM 5.2
 
 ---
 
@@ -106,6 +106,11 @@ D:\summary_msi\
 - [x] Tested successfully with `nvidia/nemotron-3-super-120b-a12b:free`
 - [x] Generated Chapter 1 English summary as test
 
+### Session 6 (26 Aug 2026) - Switch AI Model
+- [x] Switched from `nvidia/nemotron-3-super-120b-a12b:free` to `z-ai/glm-5.2:free`
+- [x] GLM 5.2 has quality score 83 (highest among free models)
+- [x] Updated .env, telegram_bot.py, auto_summary.py
+
 ### Session 5 (26 Aug 2026) - Revisions & Telegram Bot Improvements
 - [x] **PyMuPDF** replaces pdftotext (more reliable PDF extraction)
 - [x] **Telegram bot**: Auto-detect title from PDF using AI
@@ -142,8 +147,8 @@ D:\summary_msi\
 
 ### OpenRouter API (Auto-Summary)
 - **API Key**: In `scripts/.env` (DO NOT commit)
-- **Model**: `nvidia/nemotron-3-super-120b-a12b:free` (free tier)
-- **Limits**: 50 requests/day, 20 req/min
+- **Model**: `z-ai/glm-5.2:free` (free tier, quality score 83)
+- **Limits**: 200 requests/day, 20 req/min
 
 ### Telegram Bot
 - **Script**: `scripts/telegram_bot.py`
