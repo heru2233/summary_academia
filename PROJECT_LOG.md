@@ -1,7 +1,7 @@
 # PROJECT LOG - Academic Summary Pipeline
 
 > **Last updated**: 26 August 2026
-> **Current session**: Buffy (Freebuff) - Sesi 6: Switch to GLM 5.2
+> **Current session**: Buffy (Freebuff) - Sesi 7: List & Delete Features
 
 ---
 
@@ -105,6 +105,13 @@ D:\summary_msi\
 - [x] Added OpenRouter API key to `.env`
 - [x] Tested successfully with `nvidia/nemotron-3-super-120b-a12b:free`
 - [x] Generated Chapter 1 English summary as test
+
+### Session 7 (26 Aug 2026) - List & Delete Features
+- [x] `/list` - Lihat semua ringkasan tersimpan (books & articles)
+- [x] `/delete [nomor]` - Hapus ringkasan berdasarkan nomor
+- [x] Auto-update `articles/index.html` saat delete
+- [x] Auto-push ke GitHub setelah delete
+- [x] `/status` sekarang tampilkan jumlah ringkasan
 
 ### Session 6 (26 Aug 2026) - Switch AI Model
 - [x] Switched from `nvidia/nemotron-3-super-120b-a12b:free` to `z-ai/glm-5.2:free`

@@ -372,6 +372,91 @@ def get_url(filepath):
 
 
 # ============================================
+# LIST & DELETE
+# ============================================
+
+def list_summaries():
+    """List all saved summaries in docs/"""
+    items = []
+    for section in ["books", "articles"]:
+        section_dir = DOCS_DIR / section
+        if not section_dir.exists():
+            continue
+        for folder in sorted(section_dir.iterdir()):
+            if not folder.is_dir() or folder.name.startswith("."):
+                continue
+            # Find ENG and IND files
+            eng_files = list(folder.glob("*_ENG.html"))
+            ind_files = list(folder.glob("*_IND.html"))
+            if eng_files or ind_files:
+                # Get title from folder name
+                title = folder.name.replace("_", " ").replace("-", " ").title()
+                items.append({
+                    "folder": folder.name,
+                    "section": section,
+                    "title": title,
+                    "has_eng": bool(eng_files),
+                    "has_ind": bool(ind_files),
+                    "path": folder
+                })
+    return items
+
+
+def delete_summary(section, folder_name):
+    """Delete a summary folder and its contents."""
+    folder = DOCS_DIR / section / folder_name
+    if not folder.exists():
+        return False, "Folder not found"
+    
+    # Delete all files in folder
+    for f in folder.iterdir():
+        if f.is_file():
+            f.unlink()
+    # Delete folder
+    folder.rmdir()
+    
+    # Update listing (articles/index.html)
+    if section == "articles":
+        _remove_from_listing(folder_name)
+    
+    return True, "Deleted"
+
+
+def _remove_from_listing(folder_name):
+    """Remove article from articles/index.html"""
+    articles_index = DOCS_DIR / "articles" / "index.html"
+    if not articles_index.exists():
+        return
+    content = articles_index.read_text(encoding="utf-8")
+    # Remove the card block for this folder
+    import re
+    pattern = rf'\s*<a href="{re.escape(folder_name)}/index\.html".*?</a>'
+    content = re.sub(pattern, "", content, flags=re.DOTALL)
+    articles_index.write_text(content, encoding="utf-8")
+
+
+def format_list(items):
+    """Format items list for display."""
+    if not items:
+        return "📭 Tidak ada ringkasan tersimpan."
+    
+    msg = f"📚 <b>Ringkasan Tersimpan</b> ({len(items)} item)\n\n"
+    for i, item in enumerate(items, 1):
+        flags = ""
+        if item["has_eng"]:
+            flags += "🇬🇧"
+        if item["has_ind"]:
+            flags += "🇮🇩"
+        section_label = "Buku" if item["section"] == "books" else "Artikel"
+        msg += f"{i}. {flags} <b>{item['title']}</b>\n"
+        msg += f"   📂 {item['section']}/{item['folder']}\n"
+        msg += f"   🏷️ {section_label}\n\n"
+    
+    msg += "Untuk hapus: /delete [nomor]"
+    return msg
+
+
+# ============================================
 # MAIN PROCESS
 # ============================================
 
@@ -458,7 +543,12 @@ def main():
     MENU = ("🤖 <b>Academic Summary Bot</b>\n\n"
             "Kirim PDF, pilih tipe, selesai.\n"
             "Bahasa: English + Indonesia (auto)\n\n"
-            "/start - Menu | /cancel - Batal | /status - Status")
+            "<b>Commands:</b>\n"
+            "/start - Menu\n"
+            "/list - Lihat semua ringkasan\n"
+            "/delete [nomor] - Hapus ringkasan\n"
+            "/cancel - Batal proses\n"
+            "/status - Status bot")
     
     while True:
         try:
@@ -487,14 +577,46 @@ def main():
                     
                     if text in ["/start", "/help"]:
                         bot.send_message(cid, MENU)
+                    
+                    elif text == "/list":
+                        items = list_summaries()
+                        bot.send_message(cid, format_list(items))
+                    
+                    elif text.startswith("/delete"):
+                        parts = text.split()
+                        if len(parts) < 2:
+                            bot.send_message(cid, "Format: /delete [nomor]\nLihat nomor di /list")
+                        else:
+                            try:
+                                idx = int(parts[1]) - 1
+                                items = list_summaries()
+                                if 0 <= idx < len(items):
+                                    item = items[idx]
+                                    ok, msg = delete_summary(item["section"], item["folder"])
+                                    if ok:
+                                        bot.send_message(cid, f"🗑️ Dihapus: {item['title']}")
+                                        # Push to GitHub
+                                        push_to_github()
+                                        bot.send_message(cid, "🚀 Updated ke GitHub.")
+                                    else:
+                                        bot.send_message(cid, f"❌ {msg}")
+                                else:
+                                    bot.send_message(cid, "❌ Nomor tidak valid.")
+                            except ValueError:
+                                bot.send_message(cid, "Format: /delete [nomor]")
+                    
                     elif text == "/cancel":
                         if cid in pending:
                             del pending[cid]
                             bot.send_message(cid, "❌ Dibatalkan.")
                         else:
                             bot.send_message(cid, "Tidak ada proses.")
+                    
                     elif text == "/status":
-                        bot.send_message(cid, f"📊 Model: {OPENROUTER_MODEL}\nPending: {len(pending)}")
+                        items = list_summaries()
+                        bot.send_message(cid, f"📊 Model: {OPENROUTER_MODEL}\n"
+                                       f"📁 Ringkasan: {len(items)}\n"
+                                       f"⏳ Pending: {len(pending)}")
                 
                 # Document (PDF)
                 elif "message" in update and "document" in update["message"]:
