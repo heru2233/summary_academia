@@ -287,37 +287,82 @@ def call_openrouter(prompt, max_tokens=8000):
     try:
         logger.info(f"Calling OpenRouter API (model: {OPENROUTER_MODEL})")
         resp = requests.post(url, headers=headers, json=payload, timeout=600)
-        if resp.status_code == 200:
-            data = resp.json()
-            content = data["choices"][0]["message"]["content"]
-            logger.info(f"API response: {len(content)} chars")
-            return content
-        else:
+        
+        # Check for HTTP errors
+        if resp.status_code != 200:
             logger.error(f"API error {resp.status_code}: {resp.text[:500]}")
             return None
+        
+        # Parse JSON response
+        data = resp.json()
+        
+        # Validate response structure
+        if not isinstance(data, dict):
+            logger.error(f"API returned non-dict: {type(data)}")
+            return None
+        
+        if "choices" not in data:
+            logger.error(f"API response missing 'choices': {data}")
+            return None
+        
+        if not data["choices"] or len(data["choices"]) == 0:
+            logger.error("API returned empty choices")
+            return None
+        
+        content = data["choices"][0]["message"]["content"]
+        
+        if not content:
+            logger.error("API returned empty content")
+            return None
+            
+        logger.info(f"API response: {len(content)} chars")
+        return content.strip()
+        
+    except requests.exceptions.Timeout:
+        logger.error("API request timed out")
+        return None
+    except requests.exceptions.RequestException as e:
+        logger.error(f"API request failed: {e}")
+        return None
+    except (KeyError, IndexError, TypeError) as e:
+        logger.error(f"API response parse error: {e}")
+        return None
     except Exception as e:
-        logger.error(f"API call failed: {e}")
+        logger.error(f"Unexpected API error: {e}")
         return None
 
 
 def detect_title(text):
     """Auto-detect title from PDF text using AI."""
-    # Take text after page marker (skip headers/footers)
-    sample = text[:3000]
+    # Take first 2000 chars for title detection
+    sample = text[:2000]
     # Remove page markers for cleaner detection
     sample = sample.replace('--- Page', 'Page')
     
     prompt = PROMPT_DETECT_TITLE.format(text=sample)
     title = call_openrouter(prompt, max_tokens=50)
-    if title:
-        # Clean up: remove quotes, extra text, limit length
-        title = title.strip().strip('"').strip("'").strip('.')
-        # If title is too long or contains explanation, take first line only
-        title = title.split('\n')[0].strip()
-        # Limit to 60 chars for folder name
-        if len(title) > 60:
-            title = title[:57] + '...'
-        logger.info(f"Detected title: {title}")
+    
+    if not title:
+        logger.warning("Title detection failed, returning None")
+        return None
+    
+    # Clean up: remove quotes, extra text, limit length
+    title = title.strip().strip('"').strip("'").strip('.')
+    
+    # If contains explanation or multiple lines, take first line only
+    lines = [l.strip() for l in title.split('\n') if l.strip()]
+    title = lines[0] if lines else title
+    
+    # Remove common prefixes that AI might add
+    for prefix in ['Title:', 'The title is:', 'Title is:', 'Document title:']:
+        if title.lower().startswith(prefix.lower()):
+            title = title[len(prefix):].strip()
+    
+    # Limit to 60 chars for folder name
+    if len(title) > 60:
+        title = title[:57] + '...'
+    
+    logger.info(f"Detected title: {title}")
     return title
 
 
@@ -330,12 +375,22 @@ def generate_html(text, title, summary_type, lang):
     else:
         prompt = PROMPT_ARTICLE.format(lang_name=lang_name, title=title, text=text)
 
-    # Truncate if too long (keep first 80K chars)
-    if len(text) > 80000:
-        text = text[:80000] + "\n\n[TEXT TRUNCATED]"
-        prompt = prompt.replace(text[:80000], text)
+    # Truncate if too long (keep first 60K chars to stay within context limit)
+    if len(text) > 60000:
+        text = text[:60000]
+        logger.info(f"Text truncated to {len(text)} chars")
 
-    return call_openrouter(prompt, max_tokens=8000)
+    result = call_openrouter(prompt, max_tokens=8000)
+    
+    # Clean up markdown code blocks if present
+    if result and result.startswith("```html"):
+        result = result[7:]
+    if result and result.startswith("```"):
+        result = result[3:]
+    if result and result.endswith("```"):
+        result = result[:-3]
+    
+    return result
 
 
 # ============================================
