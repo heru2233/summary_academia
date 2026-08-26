@@ -263,10 +263,13 @@ def main():
     title = args.title
     if not title:
         logger.info("STEP 2: Auto-detecting title...")
-        title_prompt = f"Extract the main title from this academic text. Return ONLY the title.\n\nText (first 2000 chars):\n{text[:2000]}\n\nTitle:"
-        title = call_openrouter(title_prompt, max_tokens=100)
+        title_prompt = f"Extract ONLY the title of this document. Return as a short phrase (max 10 words). Do not explain.\n\nExamples: Enterprise Risk Management and Firm Performance, The Capital Structure Puzzle\n\nText:\n{text[:1500]}\n\nTitle (short phrase only):"
+        title = call_openrouter(title_prompt, max_tokens=50)
         if title:
-            title = title.strip().strip('"').strip("'")
+            title = title.strip().strip('"').strip("'").strip('.')
+            title = title.split('\n')[0].strip()  # Take first line only
+            if len(title) > 60:
+                title = title[:57] + '...'
         else:
             title = pdf_path.stem.replace("_", " ").replace("-", " ")
         logger.info(f"Detected title: {title}")
@@ -327,6 +330,8 @@ def main():
         # Generate filename
         clean_title = "".join(c for c in title if c.isalnum() or c in " -_").strip()
         clean_title = clean_title.replace(" ", "_")
+        if len(clean_title) > 50:
+            clean_title = clean_title[:47] + "..."
         filename = f"Ringkasan_{clean_title}_{lang_code.upper()}.html"
 
         output_path = output_dir / filename

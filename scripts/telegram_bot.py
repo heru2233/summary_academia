@@ -56,14 +56,17 @@ import requests
 # PROMPTS
 # ============================================
 
-PROMPT_DETECT_TITLE = """Extract the main title from this academic text.
-Return ONLY the title, nothing else. If it's a book chapter, return the chapter title.
-If it's a journal article, return the article title.
+PROMPT_DETECT_TITLE = """Extract ONLY the title of this document. Return the title as a short phrase (max 10 words). Do not explain, do not add anything else.
 
-Text (first 2000 chars):
-{text}
+Examples of correct answers:
+- Enterprise Risk Management and Firm Performance
+- The Capital Structure Puzzle
+- Chapter 1: Why Are Financial Institutions Special?
 
-Title:"""
+Document text:
+{text[:1500]}
+
+Title (short phrase only):"""
 
 PROMPT_BOOK = """You are an academic summarizer. Summarize this text into a well-structured HTML article.
 
@@ -299,11 +302,21 @@ def call_openrouter(prompt, max_tokens=8000):
 
 def detect_title(text):
     """Auto-detect title from PDF text using AI."""
-    sample = text[:2000]
+    # Take text after page marker (skip headers/footers)
+    sample = text[:3000]
+    # Remove page markers for cleaner detection
+    sample = sample.replace('--- Page', 'Page')
+    
     prompt = PROMPT_DETECT_TITLE.format(text=sample)
-    title = call_openrouter(prompt, max_tokens=100)
+    title = call_openrouter(prompt, max_tokens=50)
     if title:
-        title = title.strip().strip('"').strip("'")
+        # Clean up: remove quotes, extra text, limit length
+        title = title.strip().strip('"').strip("'").strip('.')
+        # If title is too long or contains explanation, take first line only
+        title = title.split('\n')[0].strip()
+        # Limit to 60 chars for folder name
+        if len(title) > 60:
+            title = title[:57] + '...'
         logger.info(f"Detected title: {title}")
     return title
 
@@ -331,8 +344,12 @@ def generate_html(text, title, summary_type, lang):
 
 def save_html(html_content, title, summary_type, lang, category=None):
     """Save HTML to docs folder."""
+    # Sanitize title for filename (remove special chars, limit length)
     clean_title = "".join(c for c in title if c.isalnum() or c in " -_").strip()
     clean_title = clean_title.replace(" ", "_")
+    # Limit filename length to 50 chars
+    if len(clean_title) > 50:
+        clean_title = clean_title[:47] + "..."
 
     lang_suffix = lang.upper()
 
