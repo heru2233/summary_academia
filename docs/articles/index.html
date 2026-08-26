@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academic Summaries</title>
+  <title>Journal Articles - Academic Summaries</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -16,23 +16,21 @@
       align-items: center;
       padding: 40px 20px;
     }
-    .container {
-      max-width: 600px;
-      width: 100%;
+    .container { max-width: 600px; width: 100%; }
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 15px;
     }
+    .back:hover { text-decoration: underline; }
     h1 {
-      font-size: 28px;
-      text-align: center;
-      margin-bottom: 10px;
+      font-size: 26px;
+      margin-bottom: 24px;
       color: #1a1a1a;
     }
-    .subtitle {
-      text-align: center;
-      color: #666;
-      margin-bottom: 40px;
-      font-size: 16px;
-    }
-    .nav-card {
+    .article-card {
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -45,64 +43,48 @@
       justify-content: space-between;
       transition: box-shadow 0.2s, transform 0.2s;
     }
-    .nav-card:hover {
+    .article-card:hover {
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transform: translateY(-2px);
     }
-    .nav-card .icon {
-      font-size: 32px;
-      margin-right: 16px;
-    }
-    .nav-card .info {
-      flex: 1;
-    }
-    .nav-card .title {
-      font-size: 20px;
+    .article-card .info { flex: 1; }
+    .article-card .title {
+      font-size: 17px;
       font-weight: bold;
       margin-bottom: 4px;
     }
-    .nav-card .desc {
-      font-size: 14px;
+    .article-card .meta {
+      font-size: 13px;
       color: #666;
     }
-    .nav-card .arrow {
+    .article-card .arrow {
       font-size: 24px;
       color: #999;
-    }
-    .footer {
-      margin-top: 40px;
-      text-align: center;
-      color: #999;
-      font-size: 13px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Academic Summaries</h1>
-    <p class="subtitle">Book and journal article summaries for quick reference</p>
+    <a href="../index.html" class="back">&larr; Back to Home</a>
+    <h1>📄 Journal Articles</h1>
 
-    <a href="books/index.html" class="nav-card">
-      <span class="icon">📚</span>
+    <a href="myers-1984/index.html" class="article-card">
       <div class="info">
-        <div class="title">Books</div>
-        <div class="desc">Textbook chapter summaries</div>
+        <div class="title">Myers (1984) - The Capital Structure Puzzle</div>
+        <div class="meta">Journal of Finance &bull; 1984</div>
       </div>
       <span class="arrow">&rsaquo;</span>
     </a>
 
-    <a href="articles/index.html" class="nav-card">
-      <span class="icon">📄</span>
+    <a href="mcinnes-1982/index.html" class="article-card">
       <div class="info">
-        <div class="title">Journal Articles</div>
-        <div class="desc">Academic paper summaries</div>
+        <div class="title">McInnes (1982) - Financial Control as an Aid to Management</div>
+        <div class="meta">Management Accounting (UK) &bull; 1982</div>
       </div>
       <span class="arrow">&rsaquo;</span>
     </a>
 
-    <div class="footer">
-      <p>Heru's Academic Library &bull; Updated 2026</p>
-    </div>
+    <!-- Tambahkan artikel baru di sini -->
   </div>
 </body>
 </html>

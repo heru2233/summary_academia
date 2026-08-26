@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books - Academic Summaries</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Times New Roman', serif;
+      background: #f5f5f5;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .container { max-width: 600px; width: 100%; }
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .back:hover { text-decoration: underline; }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+    .book-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 24px 30px;
+      margin-bottom: 16px;
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .book-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+    .book-card .info { flex: 1; }
+    .book-card .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .book-card .meta {
+      font-size: 14px;
+      color: #666;
+    }
+    .book-card .arrow {
+      font-size: 24px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back">&larr; Back to Home</a>
+    <h1>📚 Books</h1>
+
+    <a href="financial-inst-mgmt/index.html" class="book-card">
+      <div class="info">
+        <div class="title">Financial Institutions Management</div>
+        <div class="meta">A Risk Management Approach, 11th Edition &bull; 7 Chapters</div>
+      </div>
+      <span class="arrow">&rsaquo;</span>
+    </a>
+
+    <!-- Tambahkan buku baru di sini -->
+  </div>
+</body>
+</html>
