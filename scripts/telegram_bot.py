@@ -56,17 +56,17 @@ import requests
 # PROMPTS
 # ============================================
 
-PROMPT_DETECT_TITLE = """Extract ONLY the title of this document. Return the title as a short phrase (max 10 words). Do not explain, do not add anything else.
+PROMPT_DETECT_TITLE = """Extract ONLY the title of this document. Return ONLY the title as a short phrase (max 10 words). Do NOT explain, do NOT add anything else.
 
-Examples of correct answers:
+Examples of correct output:
 - Enterprise Risk Management and Firm Performance
 - The Capital Structure Puzzle
 - Chapter 1: Why Are Financial Institutions Special?
 
 Document text:
-{text[:1500]}
+{text}
 
-Title (short phrase only):"""
+Title:"""
 
 PROMPT_BOOK = """You are an academic summarizer. Summarize this text into a well-structured HTML article.
 
@@ -334,8 +334,8 @@ def call_openrouter(prompt, max_tokens=8000):
 
 def detect_title(text):
     """Auto-detect title from PDF text using AI."""
-    # Take first 2000 chars for title detection
-    sample = text[:2000]
+    # Take first 1500 chars for title detection (truncate before format)
+    sample = text[:1500]
     # Remove page markers for cleaner detection
     sample = sample.replace('--- Page', 'Page')
     
