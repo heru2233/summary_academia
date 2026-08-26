@@ -350,6 +350,92 @@ def sanitize_filename(title):
     return clean if clean else "untitled"
 
 
+def create_article_index(folder, title, clean_title):
+    """Create index.html for article folder and update articles/index.html."""
+    article_folder = folder.name
+    
+    # Create index.html for this article
+    index_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} - Academic Summaries</title>
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <style>
+    * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+    body {{
+      font-family: 'Times New Roman', serif;
+      background: #f5f5f5;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }}
+    @media screen and (max-width: 768px) {{ body {{ padding: 20px 16px; }} }}
+    @media screen and (max-width: 480px) {{ body {{ padding: 16px 12px; }} }}
+    .container {{ max-width: 600px; width: 100%; }}
+    .back {{ display: inline-block; margin-bottom: 20px; color: #1a73e8; text-decoration: none; font-size: 15px; }}
+    .back:hover {{ text-decoration: underline; }}
+    h1 {{ font-size: 22px; margin-bottom: 8px; color: #1a1a1a; }}
+    .subtitle {{ color: #666; font-size: 14px; margin-bottom: 30px; }}
+    .lang-card {{ background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 28px 30px; margin-bottom: 16px; text-decoration: none; color: #333; display: flex; align-items: center; justify-content: space-between; transition: box-shadow 0.2s, transform 0.2s; }}
+    .lang-card:hover {{ box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }}
+    .lang-card .flag {{ font-size: 36px; margin-right: 16px; }}
+    .lang-card .info {{ flex: 1; }}
+    .lang-card .title {{ font-size: 20px; font-weight: bold; margin-bottom: 4px; }}
+    .lang-card .desc {{ font-size: 14px; color: #666; }}
+    .lang-card .arrow {{ font-size: 24px; color: #999; }}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back">&larr; Back to Articles</a>
+    <h1>{title}</h1>
+    <a href="Ringkasan_{clean_title}_ENG.html" class="lang-card">
+      <span class="flag">🇬🇧</span>
+      <div class="info">
+        <div class="title">English</div>
+        <div class="desc">Summary in English</div>
+      </div>
+      <span class="arrow">&rsaquo;</span>
+    </a>
+    <a href="Ringkasan_{clean_title}_IND.html" class="lang-card">
+      <span class="flag">🇮🇩</span>
+      <div class="info">
+        <div class="title">Bahasa Indonesia</div>
+        <div class="desc">Ringkasan dalam Bahasa Indonesia</div>
+      </div>
+      <span class="arrow">&rsaquo;</span>
+    </a>
+  </div>
+</body>
+</html>"""
+    
+    (folder / "index.html").write_text(index_html, encoding="utf-8")
+    logger.info(f"Created article index: {folder / 'index.html'}")
+    
+    # Update articles/index.html if this article is not listed
+    articles_index = DOCS_DIR / "articles" / "index.html"
+    if articles_index.exists():
+        content = articles_index.read_text(encoding="utf-8")
+        if article_folder not in content:
+            # Add new article card before closing </div>
+            new_card = f"""
+    <a href="{article_folder}/index.html" class="article-card">
+      <div class="info">
+        <div class="title">{title}</div>
+        <div class="meta">Auto-generated &bull; 2026</div>
+      </div>
+      <span class="arrow">&rsaquo;</span>
+    </a>"""
+            content = content.replace("\n  </div>", f"{new_card}\n\n  </div>")
+            articles_index.write_text(content, encoding="utf-8")
+            logger.info(f"Updated articles/index.html with {article_folder}")
+
+
 def save_html(html_content, title, summary_type, lang):
     """Save HTML to docs folder."""
     clean_title = sanitize_filename(title)
@@ -360,6 +446,9 @@ def save_html(html_content, title, summary_type, lang):
     else:
         article_folder = clean_title.lower().replace("_", "-")
         folder = DOCS_DIR / "articles" / article_folder
+        # Create index.html for new article folders
+        if not (folder / "index.html").exists():
+            create_article_index(folder, title, clean_title)
 
     folder.mkdir(parents=True, exist_ok=True)
     filename = f"Ringkasan_{clean_title}_{lang_suffix}.html"
