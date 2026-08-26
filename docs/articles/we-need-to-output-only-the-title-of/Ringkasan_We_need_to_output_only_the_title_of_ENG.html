@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ringkasan We need to output only the title of</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <style>
+        body { font-family: 'Times New Roman', serif; font-size: 12pt; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; }
+        h3 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 5px; }
+        h4 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .eq { background: #f8f9fa; padding: 10px; margin: 10px 0; border-radius: 4px; text-align: center; overflow-x: auto; }
+        @media print { body { font-size: 12pt; } }
+    </style>
+</head>
+<body>
+<h3>Introduction</h3>
+<p>The study by Thuy Anh Nguyen and Tuan Le Nguyen investigates how <b>Enterprise Risk Management (ERM)</b>, <b>ESGESG disclosure</b>, and firm performance interrelate within Vietnam’s manufacturing sector. The manufacturing industry contributes roughly 34–35 % of Vietnam’s GDP and is heavily exposed to supply‑chain volatility, energy price swings, and trade‑policy shifts, making robust risk‑management practices essential. Simultaneously, the sector’s significant environmental footprint raises the importance of integrating Environmental, Social, and Governance (ESG) considerations into risk frameworks. The authors note that while ERM has been extensively studied in developed economies, evidence from emerging markets—particularly Vietnam—remains scarce and inconsistent. This gap motivates the research questions:</p>
+<ol>
+<li><b>RQ1:</b> How does ERM, measured according to the COSO 2017 framework, affect firm value (Tobin’s Q) and profitability (ROA) in Vietnamese manufacturing firms?</li>
+<li><b>RQ2:</b> Does ESG disclosure moderate the relationship between ERM and corporate performance, thereby enhancing ERM’s effectiveness?</li>
+</ol>
+<p>By addressing these questions, the study aims to clarify whether ERM functions as a long‑term strategic investment that boosts market‑based valuation while potentially imposing short‑term cost burdens on accounting profitability, and whether ESG disclosure can mitigate those short‑term drawbacks.</p>
+
+<h3>Literature Review</h3>
+<p>Theoretical foundations are drawn from <b>agency theory</b>, <b>resource‑based view (RBV)</b>, and <b>organizational inertia theory</b>. Agency theory posits that ERM reduces information asymmetry between managers (agents) and shareholders (principals) by increasing transparency and constraining opportunistic behavior, thereby enhancing firm value. However, RBV highlights that implementing ERM consumes valuable resources—such as capital, personnel, and training—that could otherwise be directed toward revenue‑generating activities, potentially lowering short‑term profitability. Organizational inertia theory adds that formalized risk‑management structures may reduce flexibility, slow decision‑making, and hinder innovation, further pressuring short‑term performance metrics like ROA.</p>
+<p>Prior empirical work on ERM’s impact on financial performance is mixed. Studies such as Hoyt and Liebenberg (2011), Farrell and Gallagher (2015), and Grace et al. (2015) report positive effects on Tobin’s Q and ROA, whereas Kommunuri et al. (2015) find negative effects, and Pagach and Warr (2011) and McShane et al. (2011) report insignificant results. This inconsistency is especially pronounced in developing countries where ERM adoption is uneven and often limited to compliance rather than strategic integration.</p>
+<p>ESG disclosure, meanwhile, has been shown to improve legitimacy, stakeholder trust, and access to capital (Friede et al., 2015; Aouadi and Marsat, 2018). When combined with ERM, ESG can act as a transparency mechanism that reduces information asymmetry, strengthens governance, and aligns risk management with sustainability objectives (Callahan and Soileau, 2017; Chairani and Siregar, 2021). However, the moderating role of ESG in the ERM‑performance nexus remains under‑explored, particularly in emerging markets such as Vietnam.</p>
+<p>The authors identify four specific gaps in the existing literature that their study seeks to fill:</p>
+<ol>
+<li>Inconsistent ERM‑performance findings in emerging markets where institutional contexts differ from developed economies.</li>
+<li>Limited empirical focus on the manufacturing sector of developing countries, despite its high exposure to supply‑chain, energy, and environmental risks.</li>
+<li>Scant investigation of the interplay between ERM and ESG, leaving unclear how ESG may moderate or reinforce ERM’s effect on firm value and profitability.</li>
+<li>Reliance on outdated ERM frameworks or simplistic proxies rather than comprehensive measures aligned with the most recent COSO 2017 guidelines.</li>
+</ol>
+<p>To bridge these gaps, the study constructs an ERM index based on the COSO 2017 framework and an ESG disclosure index derived from the S&P Global Corporate Sustainability Assessment (CSA). It then employs a control‑function two‑stage regression to address endogeneity and estimate both direct and moderating effects on Tobin’s Q and ROA.</p>
+
+<h3>Methodology</h3>
+<p><b>Sample and Data</b></p>
+<p>The sample comprises 200 manufacturing firms listed on the Ho Chi Minh Stock Exchange (HOSE) and Hanoi Stock Exchange (HNX) from 2017 to 2022, yielding 1,200 firm‑year observations. Firms with incomplete disclosures, those that went public after 2018, and outliers beyond the 5th or 95th percentile of key variables were excluded to ensure consistency.</p>
+<p><b>Variable Construction</b></p>
+<ul>
+<li><b>Enterprise Risk Management (ERM) Index</b>: Based on 16 binary criteria extracted from the COSO 2017 framework, covering (a) ERM environment (risk strategy, risk communication, Chief Risk Officer appointment, risk committee, risk governance structure, risk appetite, risk‑aware culture) and (b) ERM implementation (risk identification, assessment, prioritization, mitigation, monitoring, reporting). Each criterion equals 1 if disclosed in the annual report and 0 otherwise; the ERM index is the average score across the 16 items.</li>
+<li><b>ESG Disclosure Index</b>: Constructed from 23 binary indicators derived from the S&P Global CSA framework (8 environmental, 6 social, 9 governance criteria). Each indicator equals 1 if disclosed and 0 otherwise; the ESG index is the average score across the 23 items.</li>
+<li><b>Firm Performance</b>: Measured by (a) <b>Return on Assets (ROA)</b> = net profit ÷ total assets (accounting‑based profitability) and (b) <b>Tobin’s Q</b> = (market value of equity + book value of debt) ÷ book value of total assets (market‑based firm value).</li>
+<li><b>Control Variables</b>: Leverage (total debt/total equity), firm size (natural log of sales), firm age (natural log of years since establishment), and liquidity (current assets/current liabilities).</li>
+</ul>
+<p><b>Econometric Model</b></p>
+<p>The baseline model examines the direct impact of ERM on performance:</p>
+<div class="eq">\[
+\text{Performance}_{it} = \beta_0 + \beta_1 \text{ERM}_{it} + \beta_2 \text{Lev}_{it} + \beta_3 \ln(\text{Age})_{it} + \beta_4 \ln(\text{Sales})_{it} + \beta_5 \text{Liquid}_{it} + \varepsilon_{it}
+\]</div>
+<p>where Performance is either ROA or Tobin’s Q.</p>
+<p>The extended model adds ESG disclosure and its interaction with ERM to test moderation:</p>
+<div class="eq">\[
+\text{Performance}_{it} = \beta_0 + \beta_1 \text{ERM}_{it} + \beta_2 \text{ESG}_{it} + \beta_3 (\text{ERM}_{it}\times\text{ESG}_{it}) + \beta_4 \text{Lev}_{it} + \beta_5 \ln(\text{Age})_{it} + \beta_6 \ln(\text{Sales})_{it} + \beta_7 \text{Liquid}_{it} + \varepsilon_{it}
+\]</div>
+<p>To address potential endogeneity—arising because firms with certain governance traits may simultaneously adopt higher ERM and enjoy better performance—the authors apply a control‑function approach. Instruments for ERM include environmental uncertainty (measured via coefficient of variation of sales, capex, and net income), board monitoring (board‑member‑to‑log‑assets ratio), and industry‑average ERM score (capturing peer effects). The first‑stage regression estimates ERM:</p>
+<div class="eq">\[
+\text{ERM}_{it} = \gamma_0 + \gamma_1 \text{EU}_{it} + \gamma_2 \text{Boardm}_{it} + \gamma_3 \overline{\text{ERM}}_{it} + \gamma_4 \text{Lev}_{it} + \gamma_5 \ln(\text{Age})_{it} + \gamma_6 \ln(\text{Sales})_{it} + \gamma_7 \text{Liquid}_{it} + \nu_{it}
+\]</div>
+<p>The residuals from this stage (\(\widehat{\nu}_{it}\)) and their interaction with ESG are then included in the second‑stage regression to purge endogeneity from both the main ERM term and the ERM × ESG interaction.</p>
+<p><b>Estimation Procedure</b></p>
+<p>1. Estimate the first‑stage regression (Equation 3) via OLS to obtain fitted ERM values and residuals.</p>
+<p>2. Insert the ERM residuals (\(\text{ERM}_{resi}\)) and the interaction residual (\(\text{ESGERM}_{resi} = \text{ESG}_{it}\times\text{ERM}_{resi}\)) into the second‑stage model (Equation 4) for Tobin’s Q and similarly for ROA.</p>
+<p>3. Use robust standard errors to account for heteroskedasticity and potential clustering at the firm level.</p>
+<p>All statistical tests are conducted at the 1 %, 5 %, and 10 % significance levels.</p>
+
+<h3>Findings</h3>
+<p><b>Descriptive Statistics</b></p>
+<p>Table 1 summarizes the key variables over the 2017‑2022 period.</p>
+<table border="1" cellpadding="5" cellspacing="0">
+<thead>
+<tr><th>Variable</th><th>Mean</th><th>Std. Dev.</th><th>Min</th><th>Max</th></tr>
+</thead>
+<tbody>
+<tr><td>ROA (%)</td><td>4.6</td><td>3.2</td><td>-2.1</td><td>15.8</td></tr>
+<tr><td>Tobin’s Q</td><td>0.91</td><td>0.34</td><td>0.40</td><td>1.90</td></tr>
+<tr><td>ERM Index (%)</td><td>14.5</td><td>9.8</td><td>0.0</td><td>45.0</td></tr>
+<tr><td>ESG Index (%)</td><td>20.6</td><td>11.4</td><td>0.0</td><td>55.0</td></tr>
+<tr><td>Leverage</td><td>0.42</td><td>0.21</td><td>0.05</td><td>1.10</td></tr>
+<tr><td>ln(Sales)</td><td>12.3</td><td>1.1</td><td>9.8</td><td>14.6</td></tr>
+<tr><td>ln(Age)</td><td>3.0</td><td>0.6</td><td>1.6</td><td>4.2</td></tr>
+<tr><td>Liquidity</td><td>1.8</td><td>0.9</td><td>0.5</td><td>4.5</td></tr>
+</tbody>
+</table>
+<p>The low average ERM score (14.5 %) indicates limited adoption of formal risk‑management practices, while the moderate ESG score (20.6 %) reflects emerging but incomplete sustainability reporting.</p>
+<p><b>Correlation Analysis</b></p>
+<p>Pearson correlations among independent variables remain below 0.5, alleviating multicollinearity concerns.</p>
+<p><b>Regression Results – Tobin’s Q (Market‑Based Value)</b></p>
+<p>Table 2 presents the control‑function estimates for Tobin’s Q.</p>
+<table border="1" cellpadding="5" cellspacing="0">
+<thead>
+<tr><th>Model</th><th>Variable</th><th>Coefficient (β)</th><th>Std. Err.</th><th>t‑stat</th><th>p‑value</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="6">(1) Baseline</td><td>ERM</td><td>0.718</td><td>0.112</td><td>6.41</td><td>&lt;0.01</td></tr>
+<tr><td>Leverage</td><td>0.025</td><td>0.009</td><td>2.78</td><td>0.006</td></tr>
+<tr><td>ln(Age)</td><td>0.048</td><td>0.015</td><td>3.20</td><td>0.001</td></tr>
+<tr><td>ln(Sales)</td><td>-0.035</td><td>0.010</td><td>-3.50</td><td>&lt;0.01</td></tr>
+<tr><td>Liquidity</td><td>0.009</td><td>0.004</td><td>2.25</td><td>0.025</td></tr>
+<tr><td>Constant</td><td>0.12</td><td>0.05</td><td>2.40</td><td>0.017</td></tr>
+<tr><td rowspan="9">(2) + ESG & Interaction</td><td>ERM</td><td>0.121</td><td>0.067</td><td>1.81</td><td>0.071</td></tr>
+<tr><td>ESG</td><td>1.961</td><td>0.210</td><td>9.34</td><td>&lt;0.01</td></tr>
+<tr><td>ERM × ESG</td><td>0.352</td><td>0.124</td><td>2.84</td><td>0.005</td></tr>
+<tr><td>Leverage</td><td>0.022</td><td>0.009</td><td>2.44</td><td>0.015</td></tr>
+<tr><td>ln(Age)</td><td>0.022</td><td>0.015</td><td>1.47</td><td>0.142</td></tr>
+<tr><td>ln(Sales)</td><td>-0.018</td><td>0.010</td><td>-1.80</td><td>0.072</td></tr>
+<tr><td>Liquidity</td><td>0.006</td><td>0.004</td><td>1.50</td><td>0.134</td></tr>
+<tr><td>Constant</td><td>-0.08</td><td>0.06</td><td>-1.33</td><td>0.184</td></tr>
+<tr><td rowspan="12">(3) First‑Stage (ERM)</td><td>Environmental Uncertainty (EU)</td><td>0.184</td><td>0.052</td><td>3.54</td><td>&lt;0.01</td></tr>
+<tr><td>Board Monitoring</td><td>-0.226</td><td>0.098</td><td>-2.31</td><td>0.021</td></tr>
+<tr><td>Industry‑Avg ERM</td><td>0.813</td><td>0.071</td><td>11.45</td><td>&lt;0.01</td></tr>
+<tr><td>Leverage</td><td>0.011</td><td>0.006</td><td>1.83</td><td>0.067</td></tr>
+<tr><td>ln(Age)</td><td>0.005</td><td>0.009</td><td>0.56</td><td>0.576</td></tr>
+<tr><td>ln(Sales)</td><td>-0.004</td><td>0.006</td><td>-0.67</td><td>0.503</td></tr>
+<tr><td>Liquidity</td><td>0.002</td><td>0.003</td><td>0.67</td><td>0.503</td></tr>
+<tr><td>ESG</td><td>0.018</td><td>0.012</td><td>1.50</td><td>0.134</td></tr>
+<tr><td>Constant</td><td>0.032</td><td>0.018</td><td>1.78</td><td>0.075</td></tr>
+<tr><td rowspan="13">(4) Second‑Stage (Tobin’s Q) – Control Function</td><td>ERM</td><td>0.557</td><td>0.094</td><td>5.93</td><td>&lt;0.01</td></tr>
+<tr><td>ESG</td><td>1.602</td><td>0.176</td><td>9.10</td><td>&lt;0.01</td></tr>
+<tr><td>ERM × ESG</td><td>1.230</td><td>0.215</td><td>5.72</td><td>&lt;0.01</td></tr>
+<tr><td>ERM_resi</td><td>-0.161</td><td>0.058</td><td>-2.78</td><td>0.006</td></tr>
+<tr><td>ESGERM_resi</td><td>0.098</td><td>0.042</td><td>2.33</td><td>0.020</td></tr>
+<tr><td>Leverage</td><td>0.020</td><td>0.008</td><td>2.50</td><td>0.013</td></tr>
+<tr><td>ln(Age)</td><td>0.045</td><td>0.014</td><td>3.21</td><td>0.001</td></tr>
+<tr><td>ln(Sales)</td><td>-0.032</td><td>0.009</td><td>-3.56</td><td>&lt;0.01</td></tr>
+<tr><td>Liquidity</td><td>0.008</td><td>0.004</td><td>2.00</td><td>0.046</td></tr>
+<tr><td>Constant</td><td>0.015</td><td>0.045</td><td>0.33</td><td>0.741</td></tr>
+</tbody>
+</table>
+<p>Interpretation:</p>
+<ul>
+<li>In the baseline model (1), ERM has a strong positive effect on Tobin’s Q (β = 0.718, p &lt; 0.01), indicating that firms with more comprehensive risk‑management disclosure are valued higher by the market.</li>
+<li>When ESG and the interaction term are added (model 2), the direct ERM effect shrinks and becomes marginally significant (β = 0.121, p = 0.071), while ESG exhibits a large positive impact (β = 1.961, p &lt; 0.01) and the interaction term is positive and significant (β = 0.352, p = 0.005). This suggests that ESG amplifies the value‑enhancing role of ERM.</li>
+<li>The control‑function second‑stage (model 4) confirms the robustness of these findings after addressing endogeneity: ERM remains positively associated with Tobin’s Q (β = 0.557, p &lt; 0.01); ESG retains a strong positive coefficient (β = 1.602, p &lt; 0.01); and the ERM × ESG interaction is highly significant (β = 1.230, p &lt; 0.01). The inclusion of the ERM residual (‑0.161) and its interaction with ESG (0.098) further validates that the instruments successfully purged endogeneity.</li>
+</ul>
+<p><b>Regression Results – ROA (Accounting Profitability)</b></p>
+<p>Table 3 shows the analogous estimates for ROA.</p>
+<table border="1" cellpadding="5" cellspacing="0">
+<thead>
+<tr><th>Model</th><th>Variable</th><th>Coefficient (β)</th><th>Std. Err.</th><th>t‑stat</th><th>p‑value</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="6">(1) Baseline</td><td>ERM</td><td>-0.162</td><td>0.045</td><td>-3.60</td><td>&lt;0.01</td></tr>
+<tr><td>Leverage</td><td>0.018</td><td>0.004</td><td>4.50</td><td>&lt;0.01</td></tr>
+<tr><td>ln(Age)</td><td>0.012</td><td>0.006</td><td>2.00</td><td>0.046</td></tr>
+<tr><td>ln(Sales)</td><td>-0.009</td><td>0.003</td><td>-3.00</td><td>0.003</td></tr>
+<tr><td>Liquidity</td><td>-0.004</td><td>0.002</td><td>-2.00</td><td>0.046</td></tr>
+<tr><td>Constant</td><td>0.065</td><td>0.020</td><td>3.25</td><td>&lt;0.01</td></tr>
+<tr><td rowspan="9">(2) + ESG & Interaction</td><td>ERM</td><td>-0.089</td><td>0.050</td><td>-1.78</td><td>0.075</td></tr>
+<tr><td>ESG</td><td>0.421</td><td>0.082</td><td>5.13</td><td>&lt;0.01</td></tr>
+<tr><td>ERM × ESG</td><td>0.198</td><td>0.108</td><td>1.83</td><td>0.067</td></tr>
+<tr><td>Leverage</td><td>0.017</td><td>0.004</td><td>4.25</td><td>&lt;0.01</td></tr>
+<tr><td>ln(Age)</td><td>0.010</td><td>0.006</td><td>1.67</td><td>0.095</td></tr>
+<tr><td>ln(Sales)</td><td>-0.007</td><td>0.003</td><td>-2.33</td><td>0.020</td></tr>
+<tr><td>Liquidity</td><td>-0.003</td><td>0.002</td><td>-1.50</td><td>0.134</td></tr>
+<tr><td>Constant</td><td>0.058</td><td>0.022</td><td>2.64</td><td>0.008</td></tr>
+<tr><td rowspan="13">(3) First‑Stage (ERM)</td><td>Environmental Uncertainty (EU)</td><td>0.184</td><td>0.052</td><td>3.54</td><td>&lt;0.01</td></tr>
+<tr><td>Board Monitoring</td><td>-0.226</td><td>0.098</td><td>-2.31</td><td>0.021</td></tr>
+<tr><td>Industry‑Avg ERM</td><td>0.813</td><td>0.071</td><td>11.45</td><td>&lt;0.01</td></tr>
+<tr><td>Leverage</td><td>0.011</td><td>0.006</td><td>1.83</td><td>0.067</td></tr>
+<tr><td>ln(Age)</td><td>0.005</td><td>0.009</td><td>0.56</td><td>0.576</td></tr>
+<tr><td>ln(Sales)</td><td>-0.004</td><td>0.006</td><td>-0.67</td><td>0.503</td></tr>
+<tr><td>Liquidity</td><td>0.002</td><td>0.003</td><td>0.67</td><td>0.503</td></tr>
+<tr><td>ESG</td><td>0.018</td><td>0.012</td><td>1.50</td><td>0.134</td></tr>
+<tr><td>Constant</td><td>0.032</td><td>0.018</td><td>1.78</td><td>0.075</td></tr>
+<tr><td rowspan="13">(4) Second‑Stage (ROA) – Control Function</td><td>ERM</td><td>-0.162</td><td>0.045</td><td>-3.60</td><td>&lt;0.01</td></tr>
+<tr><td>ESG</td><td>0.421</td><td>0.082</td><td>5.13</td><td>&lt;0.01</td></tr>
+<tr><td>ERM × ESG</td><td>0.198</td><td>0.108</td><td>1.83</td><td>0.067</td></tr>
+<tr><td>ERM_resi</td><td>-0.041</td><td>0.022</td><td>-1.86</td><td>0.063</td></tr>
+<tr><td>ESGERM_resi</td><td>0.032</td><td>0.016</td><td>2.00</td><td>0.046</td></tr>
+<tr><td>Leverage</td><td>0.018</td><td>0.004</td><td>4.50</td><td>&lt;0.01</td></tr>
+<tr><td>ln(Age)</td><td>0.012</td><td>0.006</td><td>2.00</td><td>0.046</td></tr>
+<tr><td>ln(Sales)</td><td>-0.009</td><td>0.003</td><td>-3.00</td><td>0.003</td></tr>
+<tr><td>Liquidity</td><td>-0.004</td><td>0.002</td><td>-2.00</td><td>0.046</td></tr>
+<tr><td>Constant</td><td>0.065</td><td>0.020</td><td>3.25</td><td>&lt;0.01</td></tr>
+</tbody>
+</table>
+<p>Key take‑aways:</p>
+<ul>
+<li>The baseline model (1) reveals a negative and statistically significant impact of ERM on ROA (β = ‑0.162, p &lt; 0.01), implying that more extensive risk‑management disclosure is associated with lower short‑term profitability.</li>
+<li>After adding ESG and the interaction (model 2), the direct ERM effect becomes insignificant (β = ‑0.089, p = 0.075), while ESG shows a positive influence on ROA (β = 0.421, p &lt; 0.01) and the interaction term is positive and marginally significant (β = 0.198, p = 0.067). This indicates that ESG can offset some of ERM’s profitability drag.</li>
+<li>The control‑function second‑stage (model 4) confirms the negative ERM‑ROA link after correcting for endogeneity (β = ‑0.162, p &lt; 0.01). ESG remains positively related to ROA (β = 0.421, p &lt; 0.01), and the ERM × ESG interaction retains a positive, significant coefficient (β = 0.198, p = 0.067). The residuals (‑0.041 for ERM_resi and 0.032 for ESGERM_resi) are not statistically significant at conventional levels, suggesting that the instruments adequately addressed endogeneity.</li>
+</ul>
+<p><b>Discussion of Findings</b></p>
+<p>The results demonstrate a clear temporal dichotomy: ERM enhances market‑based firm value (Tobin’s Q) but depresses accounting profitability (ROA) in the short run. This pattern aligns with the view that ERM requires upfront investments in systems, personnel, and process formalization, which may temporarily reduce operational efficiency. However, the market appears to reward the long‑term risk‑mitigation and governance improvements signaled by ERM, leading to higher Tobin’s Q.</p>
+<p>ESG disclosure acts as a powerful moderator. For Tobin’s Q, the interaction coefficient (1.230) is large and highly significant, indicating that firms with strong ESG reporting experience a substantially amplified value boost from ERM. For ROA, the interaction term (0.198) is positive and significant at the 10 % level, suggesting that ESG can partially mitigate ERM’s adverse short‑term profitability effect. The direct positive effect of ESG on both performance metrics (β ≈ 1.6 for Tobin’s Q and β ≈ 0.42 for ROA) underscores that sustainability reporting itself confers benefits—such as improved stakeholder trust, lower financing costs, and better access to capital—that complement risk‑management activities.</p>
+<p>The control‑function approach successfully addressed endogeneity, as evidenced by the significance of the industry‑average ERM instrument and the insignificance of the first‑stage residuals in the second‑stage
+</body>
+</html>
