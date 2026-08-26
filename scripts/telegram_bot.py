@@ -55,10 +55,9 @@ import requests
 # PROMPTS
 # ============================================
 
-PROMPT_BOOK = """You are an academic summarizer. Summarize this text into a well-structured HTML article.
+PROMPT_SUMMARY = """You are an academic summarizer. Summarize this text into a well-structured HTML article.
 
 IMPORTANT RULES:
-- Write everything in {lang_name}
 - Use proper HTML5 structure
 - Use <h3> for main sections, <h4> for subsections
 - Use <p> for paragraphs
@@ -78,27 +77,12 @@ TEXT:
 
 Generate the HTML summary now:"""
 
-PROMPT_ARTICLE = """You are an academic summarizer. Summarize this journal article into a well-structured HTML article.
+PROMPT_TRANSLATE = """Translate this HTML content to {lang_name}. Keep ALL HTML tags exactly as they are. Only translate the text content, not the HTML structure.
 
-IMPORTANT RULES:
-- Write everything in {lang_name}
-- Use proper HTML5 structure
-- Use <h3> for sections (Introduction, Literature Review, Methodology, Findings, Conclusion)
-- Use <p> for paragraphs
-- Use <b> for emphasis
-- Use <table> for data/results
-- For equations, use: <div class="eq">\\[equation\\]</div>
-- Length: 2000-4000 words
-- Cover: research question, methodology, key findings, implications
-- Do NOT include <html>, <head>, <body>, or <style> tags
-- Do NOT use MathJax scripts
+HTML CONTENT:
+{html}
 
-TITLE: {title}
-
-TEXT:
-{text}
-
-Generate the HTML summary now:"""
+Translated HTML:"""
 
 
 # ============================================
@@ -303,14 +287,9 @@ def call_openrouter(prompt, max_tokens=8000):
         return None
 
 
-def generate_html(text, title, summary_type, lang):
-    """Generate HTML summary using AI."""
-    lang_name = "Bahasa Indonesia" if lang == "ind" else "English"
-
-    if summary_type == "book":
-        prompt = PROMPT_BOOK.format(lang_name=lang_name, title=title, text=text)
-    else:
-        prompt = PROMPT_ARTICLE.format(lang_name=lang_name, title=title, text=text)
+def generate_summary(text, title):
+    """Generate HTML summary in English using AI."""
+    prompt = PROMPT_SUMMARY.format(title=title, text=text)
 
     # Truncate if too long
     if len(text) > 60000:
@@ -318,6 +297,26 @@ def generate_html(text, title, summary_type, lang):
         logger.info(f"Text truncated to {len(text)} chars")
 
     result = call_openrouter(prompt, max_tokens=8000)
+    
+    # Clean up markdown code blocks if present
+    if result and result.startswith("```html"):
+        result = result[7:]
+    if result and result.startswith("```"):
+        result = result[3:]
+    if result and result.endswith("```"):
+        result = result[:-3]
+    
+    return result
+
+
+def translate_summary(html_content, lang_name):
+    """Translate HTML summary to target language."""
+    # Truncate if too long
+    if len(html_content) > 60000:
+        html_content = html_content[:60000]
+    
+    prompt = PROMPT_TRANSLATE.format(lang_name=lang_name, html=html_content)
+    result = call_openrouter(prompt, max_tokens=10000)
     
     # Clean up markdown code blocks if present
     if result and result.startswith("```html"):
@@ -432,7 +431,7 @@ def get_github_pages_url(filepath):
 # ============================================
 
 def process_pdf(chat_id, bot, pdf_data, filename, title, summary_type):
-    """Full pipeline: PDF -> extract -> AI summarize -> save -> push."""
+    """Full pipeline: PDF -> extract -> generate English -> translate to Indonesian -> save -> push."""
     start_time = time.time()
     bot.send_chat_action(chat_id, "typing")
 
@@ -447,45 +446,52 @@ def process_pdf(chat_id, bot, pdf_data, filename, title, summary_type):
         word_count = len(text.split())
         bot.send_message(chat_id, f"✅ Teks ter-ekstrak: {word_count:,} kata")
 
-        # Step 2: Generate summaries in BOTH languages
-        urls = []
-        for lang in ["eng", "ind"]:
-            lang_name = "English" if lang == "eng" else "Bahasa Indonesia"
-            bot.send_chat_action(chat_id, "typing")
-            bot.send_message(chat_id, f"🤖 Generating {lang_name} summary... mohon tunggu 1-2 menit...")
+        # Step 2: Generate English summary FIRST
+        bot.send_chat_action(chat_id, "typing")
+        bot.send_message(chat_id, "🤖 Generating English summary... mohon tunggu 1-2 menit...")
 
-            html = generate_html(text, title, summary_type, lang)
-            if not html:
-                bot.send_message(chat_id, f"❌ Gagal generate ringkasan {lang_name}")
-                continue
-
-            filepath = save_html(html, title, summary_type, lang)
-            url = get_github_pages_url(filepath)
-            urls.append((lang, url, filepath.name))
-            bot.send_message(chat_id, f"✅ {lang_name} selesai: {filepath.name}")
-
-        # Step 3: Push to GitHub
-        if urls:
-            bot.send_message(chat_id, "🚀 Pushing ke GitHub...")
-            push_success = push_to_github()
-
-            elapsed = time.time() - start_time
-            result_msg = f"✅ <b>Selesai!</b> ({elapsed:.0f} detik)\n\n"
-            for lang, url, fname in urls:
-                lang_name = "English" if lang == "eng" else "Indonesia"
-                result_msg += f"📖 {lang_name}: {url}\n\n"
-
-            if push_success:
-                result_msg += "🔗 GitHub Pages akan update dalam 1-2 menit."
-            else:
-                result_msg += "⚠️ Push gagal. Coba push manual: git push"
-
-            bot.send_message(chat_id, result_msg)
-            logger.info(f"Process completed in {elapsed:.0f}s: {title}")
-            return True
-        else:
-            bot.send_message(chat_id, "❌ Tidak ada ringkasan yang berhasil dibuat.")
+        eng_html = generate_summary(text, title)
+        if not eng_html:
+            bot.send_message(chat_id, "❌ Gagal generate English summary")
             return False
+
+        # Save English version
+        eng_path = save_html(eng_html, title, summary_type, "eng")
+        bot.send_message(chat_id, f"✅ English selesai: {eng_path.name}")
+
+        # Step 3: Translate to Indonesian
+        bot.send_chat_action(chat_id, "typing")
+        bot.send_message(chat_id, "🤖 Translating to Bahasa Indonesia... mohon tunggu 1 menit...")
+
+        ind_html = translate_summary(eng_html, "Bahasa Indonesia")
+        if not ind_html:
+            bot.send_message(chat_id, "⚠️ Gagal translate, hanya English yang tersedia")
+            ind_html = eng_html
+
+        # Save Indonesian version
+        ind_path = save_html(ind_html, title, summary_type, "ind")
+        bot.send_message(chat_id, f"✅ Indonesia selesai: {ind_path.name}")
+
+        # Step 4: Push to GitHub
+        bot.send_message(chat_id, "🚀 Pushing ke GitHub...")
+        push_success = push_to_github()
+
+        elapsed = time.time() - start_time
+        eng_url = get_github_pages_url(eng_path)
+        ind_url = get_github_pages_url(ind_path)
+        
+        result_msg = f"✅ <b>Selesai!</b> ({elapsed:.0f} detik)\n\n"
+        result_msg += f"📖 English: {eng_url}\n\n"
+        result_msg += f"📖 Indonesia: {ind_url}\n\n"
+
+        if push_success:
+            result_msg += "🔗 GitHub Pages akan update dalam 1-2 menit."
+        else:
+            result_msg += "⚠️ Push gagal. Coba push manual: git push"
+
+        bot.send_message(chat_id, result_msg)
+        logger.info(f"Process completed in {elapsed:.0f}s: {title}")
+        return True
 
     except Exception as e:
         logger.error(f"Process failed: {e}", exc_info=True)
