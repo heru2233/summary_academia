@@ -1,5 +1,22 @@
 /* Responsive CSS - Academic Summaries */
 
+/* Colored boxes - base styles */
+.interpretation, .formula-box, .example, .analogy, .insight, .key-takeaway, .toc {
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+}
+
+.formula-box .formula {
+  font-size: 18px;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #e0e0e0;
+  margin: 30px 0;
+}
+
 /* Tablet */
 @media screen and (max-width: 768px) {
   body {
@@ -10,6 +27,14 @@
   h1 { font-size: 22px !important; }
   h2 { font-size: 18px !important; }
   h3 { font-size: 16px !important; }
+
+  .container {
+    padding: 20px !important;
+  }
+
+  .formula-box .formula {
+    font-size: 16px !important;
+  }
 
   .container {
     max-width: 100% !important;
@@ -53,6 +78,11 @@
     font-size: 14px !important;
   }
 
+  .container {
+    padding: 15px !important;
+    border-radius: 8px !important;
+  }
+
   h1 {
     font-size: 20px !important;
     margin-bottom: 12px !important;
@@ -60,6 +90,23 @@
 
   h2 { font-size: 16px !important; }
   h3 { font-size: 15px !important; }
+
+  .interpretation, .formula-box, .example, .analogy, .insight, .key-takeaway, .toc {
+    padding: 12px !important;
+    margin: 12px 0 !important;
+  }
+
+  .formula-box .formula {
+    font-size: 14px !important;
+  }
+
+  .toc li {
+    padding: 4px 0 !important;
+  }
+
+  .toc a {
+    font-size: 13px !important;
+  }
 
   /* Stack cards vertically, full width */
   .nav-card, .book-card, .article-card, .lang-card {
