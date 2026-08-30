@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jfrc 04 2025 0093en</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        h4 {
+            color: #7d3c98;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        .formula-box {
+            background: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+        }
+        .formula-box .label {
+            font-weight: bold;
+            color: #e74c3c;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .formula {
+            font-size: 18px;
+            color: #2c3e50;
+        }
+        .interpretation {
+            background: #e8f8f5;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .interpretation h4 {
+            color: #16a085;
+            margin-top: 0;
+        }
+        .example {
+            background: #fdf2e9;
+            border-left: 4px solid #e67e22;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .example h4 {
+            color: #d35400;
+            margin-top: 0;
+        }
+        .analogy {
+            background: #f4ecf7;
+            border-left: 4px solid #8e44ad;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .analogy h4 {
+            color: #7d3c98;
+            margin-top: 0;
+        }
+        .insight {
+            background: #d6eaf8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .insight h4 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+        .key-takeaway {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .key-takeaway h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        .toc li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        tr:hover {
+            background: #e8f4f8;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, monospace;
+            color: #e74c3c;
+        }
+        .highlight {
+            background: #ffeaa7;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 12px;
+        }
+        /* Mobile Mode Toggle */
+        .mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        .mode-toggle:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        /* Mobile Mode Styles */
+        body.mobile-mode {
+            padding: 10px !important;
+            background: white !important;
+        }
+        body.mobile-mode .container {
+            padding: 15px !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            max-width: 100% !important;
+        }
+        body.mobile-mode h1 {
+            font-size: 20px !important;
+            padding-bottom: 8px !important;
+        }
+        body.mobile-mode h2 {
+            font-size: 17px !important;
+            margin-top: 20px !important;
+        }
+        body.mobile-mode h3 {
+            font-size: 15px !important;
+        }
+        body.mobile-mode .interpretation,
+        body.mobile-mode .formula-box,
+        body.mobile-mode .example,
+        body.mobile-mode .analogy,
+        body.mobile-mode .insight,
+        body.mobile-mode .key-takeaway,
+        body.mobile-mode .toc {
+            padding: 12px !important;
+            margin: 10px 0 !important;
+        }
+        body.mobile-mode .formula-box .formula {
+            font-size: 14px !important;
+            word-wrap: break-word;
+        }
+        body.mobile-mode table {
+            font-size: 12px !important;
+        }
+        body.mobile-mode th, body.mobile-mode td {
+            padding: 6px 8px !important;
+        }
+        body.mobile-mode .toc li {
+            padding: 4px 0 !important;
+        }
+        body.mobile-mode .toc a {
+            font-size: 14px !important;
+        }
+        
+        @media print { body { font-size: 12pt; } .mode-toggle { display: none; } }
+    </style>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        
+        // Load saved mode
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" style="display:inline-block;margin-bottom:20px;color:#1a73e8;text-decoration:none;font-size:15px;">← Back to Index</a>
+        <h1>jfrc 04 2025 0093en</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comprehensive Summary: A Review of Literature on Compliance Function Post-Basel III</title>
+<style>
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: #f4f4f9;
+    color: #1a1a2e;
+    line-height: 1.7;
+    margin: 20px;
+    padding: 20px;
+  }
+  .toc {
+    background-color: #fff;
+    border-left: 6px solid #005a8b;
+    padding: 20px 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .toc h3 {
+    margin-top: 0;
+    color: #005a8b;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+  }
+  .toc ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .toc ul li {
+    margin-bottom: 6px;
+  }
+  .toc ul li a {
+    text-decoration: none;
+    color: #005a8b;
+    font-weight: bold;
+  }
+  .toc ul li a:hover {
+    text-decoration: underline;
+  }
+  h2 {
+    background-color: #005a8b;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-top: 60px;
+    border-left: 8px solid #003d5b;
+  }
+  h2 a {
+    color: white;
+    text-decoration: none;
+  }
+  h2 a:hover {
+    text-decoration: underline;
+  }
+  h3 {
+    color: #003d5b;
+    margin-top: 30px;
+    border-bottom: 2px solid #005a8b;
+    padding-bottom: 5px;
+  }
+  h4 {
+    color: #005a8b;
+    margin-bottom: 8px;
+  }
+  .interpretation {
+    background-color: #e8f4f8;
+    border-left: 6px solid #2a9df4;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+  }
+  .formula-box {
+    background-color: #fffbea;
+    border: 2px solid #f4a261;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .formula-box .label {
+    display: block;
+    font-weight: bold;
+    color: #b06e2d;
+    margin-bottom: 10px;
+  }
+  .formula-box .formula {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #6d1a00;
+  }
+  .example {
+    background-color: #f0f8e8;
+    border-left: 6px solid #6db33f;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+  }
+  .analogy {
+    background-color: #fdf3e7;
+    border-left: 6px solid #e67e22;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+  }
+  .insight {
+    background-color: #f9ebff;
+    border-left: 6px solid #9b59b6;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+  }
+  .key-takeaway {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 30px;
+    margin: 30px 0;
+    border-radius: 8px;
+  }
+  .key-takeaway h4 {
+    color: #f1c40f;
+    border-bottom: 1px solid #34495e;
+    padding-bottom: 8px;
+  }
+  .key-takeaway ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  .key-takeaway li {
+    margin-bottom: 8px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+  }
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #005a8b;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+</style>
+</head>
+<body>
+
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction: Background and Motivation</a></li>
+    <li><a href="#section2">2. A Dual-Methodology Approach</a></li>
+    <li><a href="#section3">3. From Cluster Descriptions to Discussion: An Exploratory Analysis</a></li>
+    <li><a href="#section3-1">3.1 Detailed Feature Profiles</a></li>
+    <li><a href="#section3-2">3.2 Clusters Analysis: Organisation, Interpretation and Discussion</a></li>
+    <li><a href="#section3-2-1">3.2.1 Cluster 1: Effect of Regulatory Frameworks on Compliance</a></li>
+    <li><a href="#section3-2-2">3.2.2 Cluster 2: Crisis Management, Governance and Compliance Dynamics</a></li>
+    <li><a href="#section3-2-3">3.2.3 Cluster 3: Aspects and Nuances of a Compliance Function</a></li>
+    <li><a href="#section3-2-4">3.2.4 Cluster 4: Internal Control Functions — AML/CFT Compliance</a></li>
+    <li><a href="#section3-2-5">3.2.5 Cluster 5: Compliance Activities — Ex Ante and Ex Post Actions</a></li>
+    <li><a href="#section3-2-6">3.2.6 Cluster 6: FinTech and RegTech — Innovation and Challenges</a></li>
+    <li><a href="#section4">4. Conclusions and Limitations</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Introduction: Background and Motivation</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>The article begins by situating its research within the evolution of the Basel Accords, which represent the cornerstone of international banking regulation. Basel I (1988) introduced minimum capital requirements; Basel II (2004) introduced risk-sensitive weightings; Basel III (2010) responded to the 2007–2008 financial crisis with stricter capital and liquidity measures; and Basel IV (2024) consolidates prior reforms. The study aims to understand how post-Basel III regulatory changes have reshaped the Compliance Function (CF) in financial institutions, with a primary focus on banks but extending to investment firms, insurance companies, and FinTech entities. The authors argue that the CF has evolved from a mere control mechanism to a strategic pillar within financial institutions, requiring a diversified team with legal and economic-financial competencies. The paper builds on earlier literature reviews (Edwards &amp; Wolfe, 2005; Ibáñez Zapata, 2017) and extends them by considering recent regulatory developments like the CRD, CRR, BRRD, AMLD, SFDR, CSRD, EU Taxonomy, and emerging technologies like RegTech and SupTech. The regulatory landscape has become increasingly complex, creating new responsibilities for management and establishing new internal control functions (e.g., ICT function per EBA/GL/2019/04). The study addresses a gap in the literature by focusing specifically on the post-Basel III era and by covering a broader range of financial intermediaries beyond just banks.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Key Research Question</span>
+  <div class="formula">How have post-Basel III regulatory changes shaped the role of the Compliance Function (CF) in financial institutions?</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The introduction of the Capital Requirements Regulation (CRR) and Capital Requirements Directive (CRD) in the EU created new demands for compliance teams in banks. For example, the CRR's detailed reporting requirements require banks to allocate substantial internal resources to ensure data accuracy and timely submission. The EU Taxonomy Regulation requires banks to produce a Green Asset Ratio, demanding collaboration between compliance, sustainability, and risk departments. These regulatory developments have effectively expanded the CF's responsibilities from purely legal/regulatory tasks to include sustainability reporting, data governance, and technology oversight.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>The Basel Accords can be imagined as a set of building codes for the "house" of global banking. Basel I was the first basic safety code, Basel II refined the engineering standards, Basel III added earthquake-resistant designs after the 2008 house collapse, and Basel IV is the ongoing renovation to make the house future-proof. The compliance function is the "building inspector" who ensures every room, wire, and beam meets the evolving safety codes, and who increasingly advises the architects (bank management) on how to design better, safer structures.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>Regulatory change is the primary exogenous driver of CF evolution. The paper reveals a growing tension between the increasing complexity of regulations and the compliance burden placed on financial institutions, which paradoxically can lead to "compliance fatigue" and even regulatory arbitrage as institutions seek alternative, less-regulated activities. The introduction of Basel III, followed by Europe's Single Rulebook and the Single Supervisory Mechanism (SSM), was intended to harmonise banking regulation across the EU, making the role of the CF more standardised yet more demanding.</p>
+</div>
+
+<h2 id="section2">2. A Dual-Methodology Approach</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>The study employs a dual methodology: a systematic literature review (SLR) using the PRISMA framework, combined with content analysis. The PRISMA approach ensures methodological rigour, transparency, and reproducibility. The data collection process started with keyword searches in Scopus and Google Scholar, covering the period from 2010 to 2024. The initial sample of 11,779 articles was reduced to 454 after applying inclusion/exclusion criteria (EU and UK focus, English language, peer-reviewed, relevance to compliance function). A second phase used Rayyan.ai software for manual screening based on title, abstract, and keywords, excluding 303 studies and removing 37 duplicates. A final phase of full-text reading reduced the corpus to 78 articles published in 59 scientific journals. Following selection, the authors conducted content analysis informed by the methodology of Šerić and Šerić (2021) and Murè et al. (2025). The papers were read in full and coded into six thematic clusters, which were defined a priori based on the authors' expertise. This coding process allowed for a structured synthesis of the literature, with results visually represented in a PRISMA flow diagram and publication trend graphs. The authors also used VOSviewer software to analyse co-authorship networks and keyword co-occurrence patterns, providing bibliometric evidence that corroborates the qualitative cluster analysis.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">PRISMA Selection Process</span>
+  <div class="formula">Initial (11,779) → Inclusion/Exclusion Criteria (454) → Manual Screening + Duplicate Removal (114) → Full-Text Read (78 Final Articles)</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>To understand the screening process concretely, consider that the keyword string included combinations such as "Financial institutions AND Compliance Function," "Banks AND Internal governance," "Basel Committee AND Regulatory Compliance," "RegTech AND SupTech." These keywords had to appear in the title, abstract, or keywords field. A paper like "FinTech and RegTech: Impact on Regulators and Banks" by Anagnostopoulos (2018) would be selected because it matches several of the search terms and fits the geographical scope. Another paper focusing on US community banks' lending behaviour without any connection to Basel III or EU regulation would be excluded. After full-text reading, 36 more papers were excluded for being out of scope (e.g., focusing purely on monetary policy transmission rather than compliance), yielding the final 78-article corpus.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Applying the PRISMA methodology is like panning for gold: you start with a mountain of gravel (11,779 articles), use a sieve to filter out the rocks (inclusion/exclusion criteria), then carefully wash the remaining material to reveal gold flakes (relevant articles), and finally categorise the gold flakes by their quality and size (content analysis into clusters).</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>One of the study's defining features is its focus on the EU and UK jurisdictions, justified by the centrality of Basel III and the Single Rulebook in the European regulatory architecture. However, the authors deliberately retained a few studies from the US and Brazil to provide comparative perspectives, acknowledging that while these are outside the primary geographic focus, they enrich the analysis by showing how similar regulations are implemented in different cultural and regulatory environments.</p>
+</div>
+
+<h2 id="section3">3. From Cluster Descriptions to Discussion: An Exploratory Analysis</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>This section presents the core results of the content analysis, introducing the six thematic clusters that categorise the 78 selected articles. The clusters are grouped into two broad categories: exogenous factors (Clusters 1 and 2) and endogenous factors (Clusters 3, 4, 5, and 6). Cluster 1, "Effect of Regulatory Frameworks on Compliance," addresses how external regulation (e.g., Basel III, BCBS 239, EU directives) shapes compliance practices. Cluster 2, "Crisis Management, Governance and Compliance Dynamics," explores the role of the CF in times of financial crisis and the interaction between corporate governance structures and compliance. Cluster 3, "Aspects and Nuances of a Compliance Function," examines internal organisational dimensions, including compliance culture, strategic integration, drivers of compliance, remuneration policies, and compliance management. Cluster 4 focuses specifically on the AML/CFT compliance function. Cluster 5 addresses compliance activities from an ex ante and ex post perspective, which the authors note is the least investigated area. Cluster 6, the most recent in terms of growth, deals with FinTech and RegTech's impact on compliance and regulatory supervision. The authors note that publications have steadily increased from 2014 to 2024, signalling growing interest in compliance as a research topic. They also observe that Cluster 1 has been consistently relevant, Cluster 2 shows periodic peaks aligned with crisis cycles, and Cluster 6 has surged recently, reflecting the increasing importance of technology. Notably, the authors find that no academic contribution in their sample systematically addresses the effectiveness of the compliance annual plan or ex ante/ex post compliance activities—a significant research gap.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Six Thematic Clusters</span>
+  <div class="formula">C1: Regulatory Frameworks · C2: Crisis &amp; Governance · C3: CF Aspects &amp; Nuances · C4: AML/CFT · C5: Ex Ante/Ex Post Activities · C6: FinTech &amp; RegTech</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The publication trend analysis shows that Cluster 6 (FinTech/RegTech) saw a sharp increase in academic contributions around 2019-2024, mirroring the industry's growing adoption of RegTech solutions. For instance, a paper by Anagnostopoulos (2018) on the impact of FinTech and RegTech on regulators and banks has 321 citations, highlighting its profound influence on the literature. The keyword co-occurrence analysis revealed that "compliance," "regulation," "risk management," "AML," "RegTech," "Corporate Governance," and "internal controls" frequently co-occur, confirming the alignment between scholarly focus areas and the six clusters defined a priori.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Think of the six clusters as different windows of a house, each offering a distinct view of the same garden: the compliance function. Cluster 1 looks at the garden from the perspective of the external weather (regulatory climate), Cluster 2 from the perspective of storms and floods (crises), Cluster 3 from the perspective of the internal architecture of the house (organisational structure), Cluster 4 from the perspective of a specific security alarm system (AML/CFT), Cluster 5 from the perspective of the daily watering routine (routine compliance activities), and Cluster 6 from the perspective of modern automated irrigation systems (RegTech/SupTech). Each window reveals different but interconnected dimensions of the same landscape.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The emergence of six distinct clusters underscores the multi-faceted nature of the compliance function post-Basel III. The literature has moved away from treating compliance as purely a legal/regulatory issue and now recognises it as a strategic function intertwined with governance, technology, culture, and crisis management. However, the underrepresentation of Cluster 5 (ex ante and ex post compliance activities) suggests that researchers have not yet paid sufficient attention to the operational, day-to-day processes through which compliance is actually carried out—a critical gap that merits future research.</p>
+</div>
+
+<h3 id="section3-1">3.1 Detailed Feature Profiles</h3>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>The 78 selected articles were distributed across 59 scientific journals, showcasing the multidisciplinary nature of compliance research. The journals cover law, finance, management, and technology fields. The 'European Business Organization Law Review' leads with 4 contributions, followed by 'Banks and Bank Systems' and 'Crime, Law and Social Change' with 3 each, and the 'Journal of Financial Stability', 'Journal of Banking Regulation', and 'Journal of Financial Regulation and Compliance' with 2 each. The authors interpret this dispersion not as fragmentation but as evidence of the CF's complex and multidimensional character. The varying journal rankings (ABS 1 to 3) and disciplinary orientations highlight the broad appeal of compliance research. The most-cited articles in the sample focus primarily on technology applications: Anagnostopoulos (2018) on FinTech and RegTech's impact on regulators and banks (321 citations), Bauer et al. (2017) on information security awareness programs in banks (92 citations), Coombs (2016) on algorithms and high-frequency trading regulation (58 citations), Lee (2020) on AI regulation in financial services (54 citations), and Ayadi et al. (2016) on Basel compliance and bank performance (52 citations). These citation counts underscore the growing relevance of technology-driven compliance research. The co-authorship analysis using VOSviewer identified 73 distinct clusters among 183 authors, with most clusters being small (around 5 authors). No dominant author bridges these groups, indicating that the research community is dispersed across the globe and across disciplines. This fragmentation suggests opportunities for more cross-institutional and cross-country collaborations in the future.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Sample Composition</span>
+  <div class="formula">78 Articles | 59 Journals | EU/UK Focus | 2010–2024 | PRISMA-SLR + VOSviewer</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>To illustrate the interdisciplinary nature of the sample, consider three representative articles from different journals. A study in the 'Journal of Financial Stability' might use quantitative methods to assess how Basel III capital buffers affect bank lending. An article in the 'European Business Organization Law Review' might take a legal-doctrinal approach, analysing the Corporate Sustainability Reporting Directive's implications for the compliance function's governance role. A paper in 'Crime, Law and Social Change' might use case studies to investigate how compliance failures in AML/CFT enabled financial crimes. These diverse methodological and disciplinary approaches all fall under the umbrella of "compliance function research," illustrating the richness and breadth of the field.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>If you were to build a library dedicated to compliance research post-Basel III, the bookshelf would contain law statutes, financial economics monographs, management case studies, IT security manuals, and even criminology texts. Each section of the library speaks a different language, yet all are necessary to fully understand the role of the compliance officer. The dispersion of articles across journals is akin to this interdisciplinary library—seemingly chaotic at first glance but actually reflecting the complexity of the subject matter.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The bibliometric findings confirm that the compliance function is no longer the exclusive domain of legal scholars. The field is methodologically diverse, incorporating normative legal analysis, empirical quantitative studies, qualitative case studies, and conceptual policy-oriented reflections. The strong citation count of technology-related articles suggests that the intersection of compliance and technology (RegTech/AI/blockchain) is becoming a central research frontier. The co-authorship fragmentation also suggests that the field is still maturing; as it grows, we can expect to see the emergence of larger, more interconnected research communities.</p>
+</div>
+
+<h3 id="section3-2">3.2 Clusters Analysis: Organisation, Interpretation and Discussion</h3>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>The cluster analysis results are presented, with a clear correspondence between the qualitative clusters and the keyword co-occurrence network generated by VOSviewer. This triangulation lends credibility to the cluster taxonomy and demonstrates that the authors' a priori categories reflect actual thematic groupings in the literature. The six clusters are colour-coded in the paper's visualisations and are described in detailed subsections below.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Cluster Structure</span>
+  <div class="formula">C1–C2 = Exogenous Factors | C3–C6 = Endogenous Factors</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>As an example of how the keyword co-occurrence analysis validates the qualitative clusters, the keyword "AML" appears frequently and is grouped near keywords such as "privacy," "beneficial ownership," and "financial crime." These keywords correspond to the topics covered in Cluster 4 (AML/CFT Compliance Function). Similarly, the keywords "RegTech," "FinTech," "AI," and "blockchain" co-occur and correspond directly to Cluster 6. The concordance between the software-driven and author-driven analyses strengthens the overall credibility of the study's findings.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>This dual analysis is comparable to using both GPS navigation and physical street signs to arrive at the same destination. The GPS (keyword co-occurrence) provides a calculated, algorithmic route, while the street signs (author-based a priori coding) represent the grounded, experience-driven path. When both agree on the route, you can be highly confident you are heading in the right direction.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The study's methodological triangulation—combining PRISMA-based systematic review, content analysis, and bibliometric VOSviewer analysis—provides a robust framework for classifying the literature and identifying research trajectories. However, the relative scarcity of keywords related to Cluster 5 (ex ante/ex post compliance activities) in the co-occurrence network reveals a notable gap between the theory and empirical exploration of operational compliance processes.</p>
+</div>
+
+<h2 id="section3-2-1">3.2.1 Cluster 1: Effect of Regulatory Frameworks on Compliance</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Cluster 1 is the most established and consistently relevant cluster in the literature, exploring how international banking regulation influences compliance practices. It is divided into four sub-clusters. Sub-cluster 1.1 (Regulatory Compliance Practices) examines the challenges inherent in enforcing non-binding international standards. Quaglia (2019) shows that jurisdictions often fail to fully implement Basel standards due to conflicts between domestic and international interests. Bischof et al. (2022) demonstrate that strict risk disclosure rules reduce information asymmetry and benefit banks, but only if supervisors are adequately resourced. Chronopoulos et al. (2023) found that reduced supervision in the US led to lower compliance costs and higher profitability but increased portfolio risk, highlighting a trade-off between efficiency and risk. Nienaber et al. (2014) stress that regulation alone cannot restore trust; consumers' perceptions are shaped by compliance, personal experience, and third-party opinions. Colaert (2020) discusses how MiFID II product governance rules improve investor protection but can restrict access to financial products and increase redress costs. Financial education is also highlighted (Fort et al., 2016) as a complement to regulation in enhancing household security and market stability. Ayadi et al. (2016) analyse compliance with the Basel Core Principles (BCP) and find that strict enforcement may hinder resource allocation in emerging markets, underscoring the need for context-specific regulation. Garcia and De Mendonça (2023) show that banking efficiency and independence from government influence are positively correlated with BCP compliance. Sub-cluster 1.2 (Capital Requirements and Regulatory Impact) focuses on how capital adequacy regulations affect bank behaviour. Bouheni (2014) highlights the balance between risk and regulation, noting that stricter capital requirements can push banks into riskier compensatory behaviours. Baros et al. (2023) document banks' deleveraging and de-risking strategies, with large banks investing in securities and smaller banks increasing retail lending. Deli and Hasan (2017) find that stricter capital regulations negatively impact loan growth only for banks with very low capital levels; moderately capitalized banks are better able to mitigate adverse effects. Case studies from Ukraine (Ramskyi et al., 2017; Khudoliy &amp; Bronin, 2019) show that Basel III implementation improved financial stability but required restrictive measures. Novokmet and Pavić (2021) analyse the Croatian banking system and conclude that regulations improve stability and profitability but reduce Return on Equity for shareholders and may raise loan interest rates for customers. Sub-cluster 1.3 (BCBS 239 Principles and Compliance Challenges) centres on the data governance challenges introduced by BCBS 239. Orgeldinger (2018) finds that many banks struggle to meet compliance deadlines for data architecture, accuracy, and adaptability. Martins et al. (2022) propose a six-step action plan to help banks improve risk-critical data management and comply with BCBS 239, calling for integrated governance and strategic alignment between IT and business functions. Sub-cluster 1.4 (Disclosure Requirements and Regulatory Alignment) addresses the growing demands for financial and non-financial (ESG) disclosure. Dinh et al. (2023) find that European banks adopt ESG disclosure practices, but there is a gap with Hungarian banks (Tőzsér et al., 2024). The EU Taxonomy aims to direct capital toward sustainable activities (La Torre et al., 2024) but introduces significant implementation difficulties, such as the requirement to calculate the Green Asset Ratio (Garcia-Torea et al., 2024). Regulatory uncertainty hampers technical compliance and forces banks to revise their organisational structures. Pillar 3 of Basel aims to improve transparency (Mandzila &amp; Zéghal, 2016), but effective disclosure requires standardised templates and relevant content (Pilková et al., 2021). Moreno and Caminero (2022) use text mining to show an annual increase in climate-related disclosures by Spanish banks. Makarenko et al. (2020) develop a Q&amp;C BMR index, finding an average compliance score of 61.2% for Ukrainian banks. Poshakwale et al. (2020) show that greater disclosure requirements in auditing may inadvertently incentivise increased risk-taking among large banks due to the disclosure of complex off-balance-sheet transactions.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Cluster 1 Core Finding</span>
+  <div class="formula">Regulation–Efficiency–Trust Triangle: Balancing regulatory stringency, operational efficiency, and stakeholder trust is complex and context-dependent.</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>To illustrate sub-cluster 1.4, consider how a European bank must now publish both its Tier 1 capital ratio (under CRR) and its Green Asset Ratio (under EU Taxonomy). The compliance team must aggregate data from the treasury department (for capital calculation) and from the lending department (to determine which loans qualify as green). This requires complex IT systems, interdepartmental collaboration, and careful interpretation of regulatory definitions. If the bank fails to produce accurate figures, it risks regulatory penalties and reputational damage. This example shows how disclosure requirements have expanded the compliance function's scope well beyond financial reporting.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>International banking regulation is like an international aviation code. Airlines from different countries agree to meet safety standards, but each country's civil aviation authority may enforce them slightly differently. A small regional airline might find it burdensome to meet the same safety standards as a global carrier, even though the standards are designed to apply equally. Similarly, a small rural bank in an emerging market may find Basel III's capital requirements disproportionately costly, potentially hindering its ability to lend to local communities—just as a small airline might cancel routes to remote airports if the cost of upgrading its fleet is too high.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>A central tension in Cluster 1 is the trade-off between regulatory strictness and bank efficiency. While high standards enhance systemic stability, they impose costs on shareholders and customers, and may even incentivise banks to take on additional risk to recoup lost returns. Effective regulation requires not only well-designed rules but also adequate supervisory resources, consistent enforcement, and adaptation to local market conditions.</p>
+</div>
+
+<h2 id="section3-2-2">3.2.2 Cluster 2: Crisis Management, Governance and Compliance Dynamics</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Cluster 2 investigates how the compliance function adapts and operates during crises, and how governance structures interact with compliance and corporate social responsibility (CSR). Sub-cluster 2.1 (The Role of Banks) emphasises that banks are substantial intermediaries that reduce information asymmetries and ensure liquidity. In the post-crisis regulatory environment, operational resilience has become a hallmark of successful banks, requiring proactive strategies to comply with rigorous ECB and SSM requirements while remaining innovative. Sub-cluster 2.2 (Dynamics of Compliance Outsourcing) explores the tendency of financial institutions to outsource compliance services. Burdon and Harvey (2016) argue that over-reliance on external consulting may undermine long-term compliance capability and that a vicious cycle can develop where more regulatory demand leads to more outsourcing, which in turn increases future regulation and costs. Michael et al. (2021) observe that financial institutions outsource compliance services because external consultants are more productive, but this creates dependency and reduces in-house expertise. Sub-cluster 2.3 (Compliance Function from a Corporate Governance Perspective) discusses corporate governance as a mechanism for aligning stakeholder interests through transparency, accountability, and honesty. The Sarbanes-Oxley Act (2002) is a landmark example, with Nazarova et al. (2020) highlighting its methodology for identifying control weaknesses. Marc et al. (2018) question the practical value of Enterprise Risk Management but find that prolonged use enhances corporate value. Li et al. (2022) show that Chief Risk Officers (CROs) reduce corporate risk and enhance operational efficiency, especially in high-pressure environments. Deliu (2020) demonstrates that compliance with CG codes is not sufficient to reduce risks in Romanian banks; it must be accompanied by better risk management and stakeholder communication. Malik (2024) discusses how proactive integration of the compliance function can mitigate the need for regulatory adjustments (RAs) imposed by regulators. Sub-cluster 2.4 (CG, CSR and Crisis Management: Interconnected Dimensions of Organisational Strategy?) examines the nexus of governance, social responsibility, and crisis resilience. Ahmad et al. (2023) show that non-compliance with the UK Corporate Governance Code negatively impacts shareholder value during crises. Arrigoni and Restelli (2024) analyse the importance of depositor confidence, citing the Silicon Valley Bank collapse as an example of how even solid banks can fail if customers lose confidence. Singh (2015) advocates for centralised supervisory policies to manage medium-sized bank crises. Culpepper and Tesche (2020) highlight the European Banking Union's role in reducing national policymakers' scope while fostering sector consolidation. Yankovska et al. (2022) examine the Ukrainian "cleansing process" (2014–2016), where numerous banks were liquidated due to liquidity losses, fraud, and mismanagement, thereby strengthening long-term stability but causing short-term financial and social losses. Portna et al. (2024) analyse social responsibility of Systemically Important Banks in Ukraine, showing that social responsibility improves banks' image, transparency, and competitiveness. Carletti et al. (2021) argue that a centralised supervisory system (e.g., the SSM) harmonises practices, reduces regulatory disparities, and improves stakeholder protection.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Crisis-Compliance-Governance Nexus</span>
+  <div class="formula">Effective Compliance + Sound Governance + Strong CSR = Enhanced Resilience during Financial Crises</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The Silicon Valley Bank (SVB) collapse in 2023 serves as an instructive example for this cluster. SVB's business model relied heavily on depositor confidence and a very specific set of clients (start-ups). When interest rates rose, the bank's bond portfolio lost value, causing solvency concerns. Depositors lost confidence and initiated a bank run on an unprecedented scale. An effective compliance function, working within a sound corporate governance framework, could have flagged the interest rate risk concentration and prompted corrective action earlier. Furthermore, better CSR and transparent communication might have helped maintain depositor trust during the initial turbulence, illustrating the interconnection between governance, compliance, and crisis management.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Corporate governance is like the ship's navigation system; compliance is the lookout in the crow's nest, and CSR is the lighthouse that guides the ship along the coast. In normal times, the navigation system and lookout keep the ship on course. In a storm (crisis), the lookout may be the first to spot rocks, the navigation system may fail, and the lighthouse (CSR) helps the ship steer clear of the shore. Without all three, the risk of running aground (bank collapse) increases dramatically. Outsourcing compliance is akin to hiring temporary lookouts—useful in a storm if your regular lookout is overwhelmed, but risky if you never train your own crew.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>This cluster reveals that compliance functions are not just about rule-application; they are strategic buffers that protect institutional resilience during crises. The relationship between compliance and corporate governance is two-way: effective governance structures support compliance, but compliance failures can have severe governance consequences, including loss of shareholder value, supervisory sanctions, and systemic risk. The outsourcing debate highlights a fundamental strategic question: should compliance be a core competency developed internally or a service that can be procured externally? Most evidence suggests that over-reliance on external consultants can create long-term vulnerabilities.</p>
+</div>
+
+<h2 id="section3-2-3">3.2.3 Cluster 3: Aspects and Nuances of a Compliance Function</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Cluster 3, representing endogenous organisational aspects of the CF, is subdivided into five sub-clusters. Sub-cluster 3.1 (Strategic Integration of Compliance in Organisations) focuses on how compliance is integrated into organisational strategy. Pelei and Benedek (2024) note that new banking products, increased government oversight, and greater compliance requirements have led to more comprehensive and complex rules. Kashyap and Iveroth (2021) describe regulatory implementation as a complex, reflexively interactive process influenced by external and intra-organisational dynamics. Velez et al. (2020) argue that post-2008 reforms, such as mandatory capital requirements and stress tests, prompted banks to reorient their strategies and internal processes, making compliance a benchmark for guiding organisational decisions. Cernisevs et al. (2023) highlight that adopting KPI-based risk indicators transforms the organisational structure into a more resilient and proactive system. Sub-cluster 3.2 (Compliance Culture) examines the cultural dimensions of compliance. Kenny (2014) discusses the phenomenon of "dependency corruption" and how compliance officers are often perceived as "obstacles" within organisations; she advocates for practices that protect whistleblowers and counter a culture of silence. Burdon and Sorour (2020) conceptualise compliance culture as a dynamic process shaped by coercive, regulatory, and mimetic institutional pressures (institutional theory). Hopt (2021) draws attention to the need for a cultural change in banking governance, echoing the ECB's 2024 "Draft guide on governance and risk culture," which emphasises that governance and risk culture are essential for any organisation's good functioning. Sub-cluster 3.3 (Drivers of Compliance) is somewhat cut off in the provided text, but the context suggests it deals with the factors that motivate or drive compliance behaviour—both internal (e.g., tone from the top, incentives) and external (e.g., regulation, market discipline). Sub-cluster 3.4 (Compliance Management and Risk Qualification) presumably addresses how compliance integrates with risk management frameworks and how compliance risks are identified, assessed, and reported. Sub-cluster 3.5 (Remuneration Policies) focuses on how compensation structures can either support or undermine compliance objectives, such as avoiding excessive risk-taking and encouraging ethical behaviour.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Compliance Integration Model</span>
+  <div class="formula">Compliance Culture + Strategic Integration + Aligned Remuneration = Effective Compliance Management</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Consider a large European bank that decides to reposition itself as a sustainable finance leader. The compliance function must now work with the business units to ensure that every new green product (e.g., green bonds, sustainability-linked loans) meets the EU Taxonomy criteria. This integration requires the compliance team to develop new expertise, create new approval processes, and foster a culture where sustainability is viewed not as an optional extra but as a core business objective. Meanwhile, remuneration policies must be adjusted so that relationship managers are rewarded for meeting sustainability targets, not just for overall loan volume. This example demonstrates the interconnectedness of the five sub-clusters: strategy, culture, drivers, management, and remuneration.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Integrating compliance into an organisation is like incorporating physical fitness into one's lifestyle. You cannot simply buy a gym membership (external regulation) and expect to be fit; you need a personal trainer (compliance officer) to design a programme that fits your goals, a healthy diet (remuneration policy) to support your efforts, a supportive community (compliance culture) to keep you motivated, and a daily routine (compliance management processes) to make it all sustainable. Without all these elements, the commitment to fitness quickly fades.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>Real compliance effectiveness hinges on cultural embedding and strategic alignment. Compliance is more than following rules; it is a reflexively dynamic process shaped by the interplay of regulation, organisational culture, stakeholder pressures, and leadership commitment. When compliance officers are perceived as "obstacles" rather than strategic partners, compliance culture degenerates into "tick-box" exercises, and the organisation remains vulnerable to misconduct. The emerging regulatory emphasis on "risk culture" (ECB 2024) reinforces this view, pushing financial institutions to internalise compliance as a core value rather than an external imposition.</p>
+</div>
+
+<h2 id="section3-2-4">3.2.4 Cluster 4: Internal Control Functions — A Focus on the AML/CFT Compliance Function</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Cluster 4 focuses specifically on Anti-Money Laundering and Countering the Financing of Terrorism (AML/CFT) compliance, which has become one of the most operationally demanding areas of the compliance function. The abstract and text provided do not give extensive detail on the individual papers within this cluster, but the cluster's existence underscores the substantial scholarly attention given to AML/CFT. The literature in this cluster is likely to address topics such as the evolving AML/CFT regulatory framework (e.g., the AMLD in Europe, the Wire Transfer Regulation), the risk-based approach to customer due diligence (CDD), suspicious transaction monitoring, the use of technology in AML compliance, and the challenges of enforcing AML/CFT rules in an era of cryptocurrencies and FinTech. The frequency of the keyword "AML" in the VOSviewer keyword co-occurrence analysis confirms the prominence of AML/CFT in compliance research. The "privacy" keyword co-occurring with AML suggests a focus on the balance between AML transparency requirements and data protection obligations, such as those imposed by the General Data Protection Regulation (GDPR).</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">AML/CFT Compliance Core</span>
+  <div class="formula">CDD + Ongoing Monitoring + Suspicious Activity Reporting + Regulatory Filings = AML/CFT Framework</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Imagine a European bank that receives €10 million in a series of complex, rapid transactions from an offshore shell company that has no apparent business purpose. The AML/CFT compliance function must decide whether to file a Suspicious Activity Report (SAR) with the Financial Intelligence Unit (FIU). The compliance team starts with customer due diligence (CDD) to understand the customer's source of funds, then uses transaction monitoring systems to flag the unusual pattern, and finally assesses whether the case merits a SAR. The tension between privacy (GDPR) and transparency (AML) arises when the bank must decide how much customer data to include in the SAR, balancing the obligation to report potential money laundering with the customer's right to data protection.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>AML/CFT compliance is like airport security screening for financial flows. Just as airports screen each passenger for weapons and explosives using a combination of human judgment and technology, AML/CFT functions screen financial transactions for signs of money laundering and terrorist financing. The x-ray machine (transaction monitoring software) flags suspicious patterns, the security officer (compliance analyst) investigates further, and the decision to call the police (filing an SAR) is made when there is reasonable suspicion. And just as airport security faces the tension between passenger privacy and safety, AML/CFT compliance faces the tension between customer privacy and financial system integrity.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The AML/CFT compliance function is an especially critical area because it is directly connected to broader societal goals (preventing crime, terrorism financing, and financial system corruption). The literature highlights the growing complexity of AML/CFT in the digital age, where cryptocurrencies, cross-border payment systems, and new FinTech business models pose novel money laundering risks. The interplay between AML/CFT obligations and data privacy represents a persistent regulatory challenge.</p>
+</div>
+
+<h2 id="section3-2-5">3.2.5 Cluster 5: Compliance Activities — Ex Ante and Ex Post Actions</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Cluster 5 addresses the actual activities performed by the compliance function, classified by their temporal orientation relative to the regulatory decision point. Ex ante activities occur before a new regulation or product is introduced and include regulatory impact assessments, legal opinions, and verification activities set out in the Compliance Plan approved by the institution's governing bodies. These are designed to prevent compliance breaches before they happen. Ex post activities occur after a regulation is implemented or after a potential breach is detected, and include monitoring, surveillance, internal investigations, corrective actions, and remediation plans. The authors specifically note that no academic contribution in their sample systematically addressed the effectiveness of the compliance annual plan or the specific activities of the function from an ex ante and ex post perspective. This means Cluster 5 is more of a conceptual gap in the literature than a well-developed body of research. The scarcity of keywords related to this cluster in the VOSviewer analysis further confirms that this is an under-researched area.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Compliance Activity Cycle</span>
+  <div class="formula">Ex Ante (Risk Assessment, Legal Opinions, Policy Design) → Implementation → Ex Post (Monitoring, Surveillance, Investigation, Remediation)</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>A compliance function's annual plan typically includes both ex ante and ex post activities. Ex ante: before the bank launches a new digital banking app, the CF signs off on the product's compliance by reviewing the proposed privacy notices (for GDPR), checking the anti-money laundering controls integrated into the onboarding flow, and ensuring the product documentation is MiFID II-compliant. Ex post: after the app is launched, the CF runs automated monitoring tools to detect suspicious transactions, regularly audits customer files to ensure CDD documentation is up-to-date, and investigates customer complaints to determine whether any miss-selling occurred. The challenge is that most of the academic literature deals with the high-level legal and institutional framework of compliance but rarely examines these day-to-day operational tasks in detail.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Ex ante compliance is like getting a medical check-up and arranging health insurance before you go on a risky expedition; ex post compliance is like treating injuries and rehabilitating after an accident. Both are essential for long-term health, and one reduces the need for the other. Yet most medical research focuses on dramatic surgical procedures (ex post) or advanced vaccines (ex ante), while the "daily routine of handwashing and balanced diet" (routine compliance processes) is often overlooked, even though it is the most effective and commonly used health-preserving behaviour.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The underrepresentation of Cluster 5 in the literature represents a significant gap. While the regulatory frameworks (Cluster 1), governance structures (Cluster 2), organisational dimensions (Cluster 3), and specific domains like AML/CFT (Cluster 4) have received ample attention, the actual mechanics of compliance work—the detailed processes, tools, and day-to-day practices that make compliance effective or ineffective—remain under-theorised. This gap hinders the development of evidence-based best practices for compliance management. The authors call for more research on the effectiveness of compliance annual plans and on the operational activities of compliance functions from both an ex ante and an ex post perspective.</p>
+</div>
+
+<h2 id="section3-2-6">3.2.6 Cluster 6: FinTech and RegTech — Innovation and Challenges in Banking Regulation</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Cluster 6, which represents the most recent and dynamic area of research, explores the application of technology to compliance. FinTech (Financial Technology) refers to new technologies applied to financial services; RegTech (Regulatory Technology) refers to the application of technology specifically to regulatory compliance and reporting; and SupTech (Supervisory Technology) describes the use of technology by supervisors to monitor and supervise financial institutions. The literature in this cluster examines how technologies like artificial intelligence (AI), blockchain, and automation are transforming compliance. Anagnostopoulos (2018), the most cited paper in the sample, explores the impact of FinTech and RegTech on both regulators and banks. Coombs (2016) discusses the challenge of algorithmic regulation in high-frequency trading. Lee (2020) analyses access to finance for AI regulation in financial services. The growth of this cluster in recent years is tied to the broader digital transformation of financial services. The VOSviewer keyword analysis confirmed that "RegTech," "FinTech," "AI," and "blockchain" co-occur frequently, demonstrating a robust body of research linking compliance with technology. The wider adoption of RegTech solutions is seen as a way to improve efficiency in regulatory monitoring and risk management. However, this technological shift brings new risks, such as algorithmic bias, lack of transparency (the "black box" problem), and cybersecurity vulnerabilities. The compliance function in the FinTech era must potentially contend with AI-driven decision-making, smart contracts, and decentralised finance (DeFi), all of which create new regulatory grey zones.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">RegTech Triad</span>
+  <div class="formula">FinTech (Innovation) + RegTech (Compliance Automation) + SupTech (Supervisory Automation) = Digital Regulatory Ecosystem</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>A concrete example of RegTech application in banking: a European bank is required to submit more than 50 regulatory reports each year (COREP, FINREP, Levy, etc.), which require substantial manual effort and are prone to errors. Implementing a RegTech solution involves automated data extraction from the bank's core banking system, re-mapping the data to the regulatory report templates, running automated validation checks, and submitting the reports to the supervisory authority in the required XBRL format. The bank also uses AI-powered surveillance tools for conduct risk: e.g., monitoring staff communications (emails, chat) to detect potential market manipulation. These examples demonstrate how RegTech improves efficiency but also requires banks to manage risks related to data accuracy, model validation, and cybersecurity.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>If regulations are the speed limits on a road, then traditional compliance is the police officer with a radar gun, and RegTech is the automated speed camera system connected to a central monitoring station. The camera system can catch speeders at all times of day and night without manual intervention, processes thousands of cars per hour, and delivers real-time data to the central supervisory station (SupTech). However, the camera system requires careful calibration (data quality), can be fooled by obscured number plates (sameness), and raises privacy concerns among drivers. Just as cameras do not replace police officers entirely, RegTech does not replace human compliance professionals entirely but rather augments and shifts their focus to more complex, judgment-based tasks.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>Technology is revolutionising compliance, offering opportunities for enhanced efficiency, real-time monitoring, and lower costs. Yet it also introduces new risks and challenges, including algorithmic opacity, data privacy dilemmas, and regulatory uncertainty around how to govern AI-driven decision-making. The literature suggests a growing convergence between finance, regulation, and technology, requiring compliance professionals to develop digital fluency and RegTech vendors to understand the nuances of financial regulation. The CF of the future will be a technology-enabled function, but human judgment remains essential for interpreting complex regulatory contexts, ethical decision-making, and maintaining trust with stakeholders.</p>
+</div>
+
+<h2 id="section4">4. Conclusions and Limitations</h2>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>The study concludes that the compliance function has evolved into a central, strategic player within financial institutions. It confirms the centrality of the CF in a dynamic environment, enhancing the organisation's strategic resources. The six clusters identified—regulatory frameworks, crisis management/governance, organisational aspects, AML/CFT, ex ante/ex post activities, and FinTech/RegTech—illustrate the multi-dimensional nature of the CF. The practical implications of this research are significant for both financial institutions and regulatory authorities. The findings contribute to implementing best practices for the CF, thereby achieving efficiency, resilience, profitability, and stability across all financial institutions. Socially, the CF serves as a critical safeguard against banking crises by ensuring adherence to regulatory frameworks and fostering sound risk management practices. A robust compliance culture mitigates systemic and idiosyncratic risks, reducing the likelihood of misconduct and financial malfeasance that could lead to widespread economic consequences. The authors note that the paper highlights which aspects of CF are most investigated in the literature, outlines a clear path of its activities, and clearly recognises the strategic role of the CF in organisations. However, the study's primary limitation is its focus on European institutions, making the results less applicable to other contexts with different financial systems and regulations. Global compliance challenges, especially in emerging markets or less harmonised systems, may not be fully represented. The authors acknowledge that global compliance challenges, particularly in emerging markets, are not fully represented. Another implication is the need for more research on under-explored areas, especially Cluster 5 (operational compliance activities), to bridge the gap between conceptual frameworks and operational practice. The study also recognises that the compliance field is evolving rapidly, and future research should continue to track emerging regulatory trends (e.g., Sustainable Finance, Crypto-Assets Regulation — MiCA, DORA) and technological innovations.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Core Conclusion</span>
+  <div class="formula">Compliance Function = Strategic Enabler + Risk Mitigator + Trust Guardian in Post-Basel III Financial Landscape</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>To give a concrete example reflecting the conclusion: consider the journey of a Head of Compliance at a mid-sized European bank. In 2005, their role might have been to ensure the bank followed basic AML rules and consumer protection laws. In 2024, the same role involves overseeing ESG reporting, managing BCBS 239 data governance requirements, integrating AI-driven compliance tools, coordinating with the CRO on stress test submissions, managing the AML/CFT framework for new digital products, and advising the board on risk culture. This dramatic expansion of responsibilities and its recognition in academic literature demonstrates the CF's transformation into a strategic pillar.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>In the same way a human body's immune system does more than just fight serious infections (it continually monitors for anomalies, repairs damaged cells, and remembers past pathogens), the CF in a financial institution is now recognised as a system-wide immune response—not just a crisis reaction unit but an everyday guardian of organisational health. Recognition of this fact is the central message of the study.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The study's most important insight is that the CF's role has shifted from a cost centre focused on rule-ticking to a value-adding strategic partner in organisational governance. The CF provides critical support for sustainable growth, operational resilience, and stakeholder trust. Additionally, the authors identify a clear research gap concerning operational compliance processes, and they argue that more empirical work is needed to fully understand how compliance activities are performed, measured, and improved.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The Compliance Function (CF) in financial institutions has evolved significantly in the post-Basel III era, transitioning from a reactive control mechanism to a proactive, strategic partner.</li>
+    <li>Six thematic clusters dominate the literature: (1) Regulatory Frameworks, (2) Crisis Management &amp; Governance, (3) Organisational Aspects of CF, (4) AML/CFT Compliance, (5) Ex Ante/Ex Post Compliance Activities, and (6) FinTech/RegTech.</li>
+    <li>The study uses a rigorous dual methodology: a PRISMA-based systematic literature review of 78 articles and a content analysis coded into thematic clusters, supplemented by VOSviewer bibliometric analysis.</li>
+    <li>There is a trade-off between regulatory stringency and bank efficiency; well-designed regulations improve stability but can impose significant costs on shareholders, customers, and smaller institutions.</li>
+    <li>Effective compliance requires a robust compliance culture, strategic integration, aligned remuneration policies, and sound corporate governance—not merely formal adherence to rules.</li>
+    <li>AML/CFT compliance remains a critical and challenging area, particularly with the growth of cryptocurrencies, digital payments, and privacy/data protection obligations.</li>
+    <li>FinTech and RegTech are transforming compliance, offering efficiency gains but introducing new risks such as algorithmic opacity, cybersecurity vulnerabilities, and data privacy challenges.</li>
+    <li>Academic research has largely neglected the operational (ex ante and ex post) activities of the compliance function, presenting a major opportunity for future studies.</li>
+    <li>The study's geographical focus on Europe limits the generalisability of its findings to emerging markets and less harmonised regulatory systems.</li>
+    <li>Practical implications include the need for financial institutions to invest in compliance culture, technology-enabled compliance processes, and continuous professional development of compliance teams.</li>
+    <li>The CF serves as a vital safeguard against banking crises by fostering robust risk management, protecting depositor confidence, and mitigating systemic risks.</li>
+  </ul>
+</div>
+
+</body>
+</html>
+    </div>
+</body>
+</html>
