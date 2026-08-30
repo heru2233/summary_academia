@@ -60,7 +60,7 @@ describe</pre>
 
 <h3>Summary Statistics (summarize)</h3>
 <h4>Basic summarize</h4>
-<p>The <b>summarize</b> command (abbreviated <b>su</b>) computes univariate statistics: number of non‑missing observations, mean, standard deviation, minimum, and maximum. This provides a quick numerical profile of each variable.</p>
+<p>The <b>summarize</b> command (abbreviated <b>su</b>) computes univariate statistics: number of non‑missing observations, mean, <i>standard deviation</i>, minimum, and maximum. This provides a quick numerical profile of each variable.</p>
 <p>After loading the data, the user enters:</p>
 <pre>su</pre>
 <p>Stata produces the following summary table (selected rows shown):</p>
@@ -89,9 +89,9 @@ describe</pre>
 </tbody>
 </table>
 <h4>Interpretation</h4>
-<p>The table reveals that the average age of respondents is about 39.2 years with a modest spread (SD ≈ 3.06). The wage variable shows considerable variability, ranging from roughly $1.00 to $40.75 per hour, with a mean of $7.77 and a standard deviation of $5.76. Binary variables such as <code>married</code> and <code>union</code> have means that directly represent the proportion of respondents coded as 1 (e.g., 64.2 % are married, 24.5 % are union members).</p>
+<p>The table reveals that the average age of respondents is about 39.2 years with a modest spread (SD ≈ 3.06). The wage variable shows considerable variability, ranging from roughly $1.00 to $40.75 per hour, with a mean of $7.77 and a <i>standard deviation</i> of $5.76. Binary variables such as <code>married</code> and <code>union</code> have means that directly represent the proportion of respondents coded as 1 (e.g., 64.2 % are married, 24.5 % are union members).</p>
 <h4>Detailed summarize (su, detail)</h4>
-<p>For a more comprehensive view—including percentiles, variance, skewness, and kurtosis—users can add the <b>detail</b> option:</p>
+<p>For a more comprehensive view—including percentiles, <i>variance</i>, skewness, and kurtosis—users can add the <b>detail</b> option:</p>
 <pre>su, detail</pre>
 <p>Stata returns an expanded output for each variable. Below is the detailed output for the first three variables (idcode, age, race).</p>
 <table>
@@ -101,7 +101,7 @@ describe</pre>
 <tbody>
 <tr><td>Mean</td><td>2612.654</td><td>39.15316</td><td>1.282725</td></tr>
 <tr><td>Std. dev.</td><td>1480.864</td><td>3.060002</td><td>0.4754413</td></tr>
-<tr><td>Variance</td><td>2,192,957</td><td>9.363614</td><td>0.2260444</td></tr>
+<tr><td><i>Variance</i></td><td>2,192,957</td><td>9.363614</td><td>0.2260444</td></tr>
 <tr><td>Skewness</td><td>-0.0232308</td><td>0.2003234</td><td>1.284394</td></tr>
 <tr><td>Kurtosis</td><td>1.828053</td><td>1.932389</td><td>3.409155</td></tr>
 <tr><td>P1</td><td>45</td><td>34</td><td>1</td></tr>
@@ -157,7 +157,7 @@ describe</pre>
 
 <h3>Codebook of the Variables (codebook)</h3>
 <h4>Basic codebook</h4>
-<p>The <b>codebook</b> command offers a detailed description of a single variable, including its type, range, number of unique values, missing values, mean, standard deviation, and selected percentiles. To examine the variable <code>wage</code>:</p>
+<p>The <b>codebook</b> command offers a detailed description of a single variable, including its type, range, number of unique values, missing values, mean, <i>standard deviation</i>, and selected percentiles. To examine the variable <code>wage</code>:</p>
 <pre>codebook wage</pre>
 <p>Stata returns:</p>
 <table>

@@ -98,8 +98,9 @@ Create a COMPREHENSIVE summary of this academic text in English.
 
 ## STRICT RULES:
 1. OUTPUT PURE HTML ONLY - NO markdown (##, **, ```)
-2. Use <h2 id="..."> for main sections
-3. Use <h3> for subsections
+2. DO NOT include <h1> tag - title is added automatically by template
+3. Use <h2 id="..."> for main sections
+4. Use <h3> for subsections
 4. Each section MUST have: interpretation, formula (if applicable), example, analogy, insight
 5. Complete content - do NOT truncate or abbreviate
 6. Length: 8000-15000 words (comprehensive)
@@ -124,12 +125,12 @@ PROMPT_TRANSLATE = """Translate the following HTML content to {lang}.
 6. If content is long, translate in FULL - do NOT stop mid-sentence
 
 ## FOREIGN TERMS RULE (VERY IMPORTANT):
-Keep these terms in their ORIGINAL English form (do NOT translate):
-- Academic/technical terms: agency costs, principal, agent, perquisites, residual loss, monitoring costs, bonding costs, property rights, free cash flow, adverse selection, moral hazard, transaction costs, asset substitution, underinvestment, debt overhang, bankruptcy costs, human capital, motivation, skill-enhancing, opportunity-enhancing
-- Model names: CAPM, APT, Black-Scholes, Markowitz, Sharpe ratio, Modigliani-Miller, AMO model
+Keep these terms in their ORIGINAL English form and WRAP with <i> tag (italic):
+- Academic/technical terms: <i>agency costs</i>, <i>principal</i>, <i>agent</i>, <i>perquisites</i>, <i>residual loss</i>, <i>monitoring costs</i>, <i>bonding costs</i>, <i>property rights</i>, <i>free cash flow</i>, <i>adverse selection</i>, <i>moral hazard</i>, <i>transaction costs</i>, <i>asset substitution</i>, <i>underinvestment</i>, <i>debt overhang</i>, <i>bankruptcy costs</i>, <i>human capital</i>, <i>motivation</i>, <i>skill-enhancing</i>, <i>opportunity-enhancing</i>
+- Model names: <i>CAPM</i>, <i>APT</i>, <i>Black-Scholes</i>, <i>Markowitz</i>, <i>Sharpe ratio</i>, <i>Modigliani-Miller</i>, <i>AMO model</i>
 - Mathematical symbols and formulas
 - Company names, author names, journal names
-- Statistical terms: regression, correlation, variance, standard deviation, R-squared, meta-analysis, SEM
+- Statistical terms: <i>regression</i>, <i>correlation</i>, <i>variance</i>, <i>standard deviation</i>, <i>R-squared</i>, <i>meta-analysis</i>, <i>SEM</i>
 
 For general text, translate naturally to {lang}.
 
@@ -644,6 +645,8 @@ def save_and_create_index(folder, filename, html, title, lang):
 <body>
     <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
     <div class="container">
+        <a href="index.html" style="display:inline-block;margin-bottom:20px;color:#1a73e8;text-decoration:none;font-size:15px;">← Back to Index</a>
+        <h1>{title}</h1>
 {html}
     </div>
 </body>
@@ -726,6 +729,27 @@ def update_articles_listing(folder_name, title):
     content = content.replace("\n  </div>", f"{new_card}\n\n  </div>")
     articles_index.write_text(content, encoding="utf-8")
     logger.info(f"Updated articles/index.html")
+
+
+def update_books_listing(folder_name, title):
+    """Add new book to books/index.html if not already listed."""
+    books_index = DOCS_DIR / "books" / "index.html"
+    if not books_index.exists():
+        return
+    content = books_index.read_text(encoding="utf-8")
+    if folder_name in content:
+        return
+    new_card = f"""
+    <a href="{folder_name}/index.html" class="book-card">
+      <div class="info">
+        <div class="title">{title}</div>
+        <div class="meta">Auto-generated &bull; 2026</div>
+      </div>
+      <span class="arrow">&rsaquo;</span>
+    </a>"""
+    content = content.replace("\n    <!-- Tambahkan buku baru di sini -->", f"{new_card}\n\n    <!-- Tambahkan buku baru di sini -->")
+    books_index.write_text(content, encoding="utf-8")
+    logger.info(f"Updated books/index.html")
 
 
 def push_to_github():
@@ -878,6 +902,8 @@ def process_pdf(chat_id, bot, pdf_data, filename, summary_type):
     save_and_create_index(folder, f"Ringkasan_{folder_name}_ENG.html", eng, title, "en")
     if summary_type == "article":
         update_articles_listing(folder_name, title)
+    elif summary_type == "book":
+        update_books_listing(folder_name, title)
     eng_words = len(eng.split())
     bot.send_message(chat_id, f"✅ <b>[2/4]</b> English selesai ({eng_words:,} kata)")
     

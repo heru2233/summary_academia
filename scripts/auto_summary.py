@@ -213,7 +213,10 @@ def save_html(content: str, output_path: Path, title: str, lang_code: str):
     </style>
 </head>
 <body>
+    <div style="max-width:800px;margin:0 auto;padding:20px;">
+        <h1>{title}</h1>
 {content}
+    </div>
 </body>
 </html>"""
 
