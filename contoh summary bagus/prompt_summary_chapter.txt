@@ -1,0 +1,179 @@
+================================================================================
+PROMPT TEMPLATE: MEMBUAT SUMMARY CHAPTER BUKU INVESTASI
+================================================================================
+
+Copy paste prompt di bawah ini dan ganti variabel dalam tanda kurung []
+
+--------------------------------------------------------------------------------
+
+Buatkan saya summary lengkap Chapter [NAMA CHAPTER] dari buku [NAMA BUKU] dengan persyaratan berikut:
+
+## FORMAT OUTPUT
+1. Buat dalam format HTML yang profesional dan responsive
+2. Simpan file di [LOKASI_FOLDER]
+3. Gunakan [NAMA_FILE] sebagai nama file
+
+## STRUKTUR SUMMARY
+Summary harus memiliki struktur berikut:
+
+### 1. Daftar Isi (Table of Contents)
+- Link ke setiap section utama
+- Klik langsung menuju bagian yang dipilih
+
+### 2. Setiap Section Utama Harus Memiliki:
+
+#### a. INTERPRETASI (Kotak Hijau)
+- Penjelasan mendalam tentang KONSEP
+- Mengapa konsep ini PENTING
+- Kapan dan bagaimana konsep ini DIGUNAKAN
+- Hubungan dengan konsep lain dalam buku
+
+#### b. RUMUS (Kotak Merah)
+- Rumus matematika lengkap
+- Keterangan setiap variabel dalam rumus
+- Bentuk alternatif rumus (jika ada)
+
+#### c. CONTOH (Kotak Oranye)
+- Perhitungan langkah demi langkah
+- Data yang digunakan
+- Hasil perhitungan
+- INTERPRETASI HASIL - apa arti angka yang didapat
+
+#### d. ANALOGI (Kotak Ungu)
+- Analogi sederhana dari kehidupan sehari-hari
+- Mudah dipahami oleh pemula
+- Menghubungkan konsep abstrak dengan situasi nyata
+
+#### e. INSIGHT (Kotak Biru)
+- Poin-poin penting yang harus diingat
+- Kesimpulan kunci
+- Hubungan dengan praktik investasi nyata
+
+### 3. Tabel Perbandingan
+- Bandingkan berbagai konsep
+- Tampilkan kelebihan dan kekurangan
+- Contoh penggunaan
+
+### 4. Contoh Penerapan di Excel
+- Rumus Excel yang bisa langsung dicopy
+- Template perhitungan
+- Penjelasan setiap sel
+
+### 5. Cheat Sheet (Kotak Gradient)
+- Kumpulan rumus penting
+- Ringkasan dalam satu tabel
+- Mudah diakses untuk review
+
+### 6. Key Takeaways (Kotak Kuning)
+- 5-7 kesimpulan utama
+- Poin yang harus diingat untuk ujian
+- Hubungan antar konsep
+
+### 7. Daftar Pustaka
+- Referensi dari buku utama
+- Referensi tambahan yang relevan
+
+## STYLING
+Gunakan CSS styling berikut:
+
+Body:
+- Font: Segoe UI, Tahoma, Geneva, Verdana, sans-serif
+- Line-height: 1.8
+- Max-width: 1000px
+- Background: #f5f5f5
+
+Container:
+- Background: white
+- Padding: 30px
+- Border-radius: 10px
+- Box-shadow: 0 2px 10px rgba(0,0,0,0.1)
+
+Kotak Interpretasi (Hijau):
+- Background: #e8f8f5
+- Border-left: 4px solid #1abc9c
+
+Kotak Rumus (Merah):
+- Background: #ecf0f1
+- Border-left: 4px solid #e74c3c
+
+Kotak Contoh (Oranye):
+- Background: #fdf2e9
+- Border-left: 4px solid #e67e22
+
+Kotak Analogi (Ungu):
+- Background: #f4ecf7
+- Border-left: 4px solid #8e44ad
+
+Kotak Insight (Biru):
+- Background: #d6eaf8
+- Border-left: 4px solid #3498db
+
+Kotak Key Takeaways (Kuning):
+- Background: #fff3cd
+- Border-left: 4px solid #ffc107
+
+Tabel:
+- Header: Background #3498db, Color white
+- Odd rows: Background white
+- Even rows: Background #f8f9fa
+- Hover: Background #e8f4f8
+
+Cheat Sheet:
+- Background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+- Color: white
+
+## CONTOH PENULISAN
+
+INTERPRETASI:
+"Expected Return adalah rata-rata return yang diharapkan akan diterima investor dari suatu investasi di masa depan. Ini bukan return yang DIPASTIKAN akan diterima, melainkan return rata-rata tertimbang dari semua kemungkinan hasil yang bisa terjadi."
+
+MENGAPA PENTING:
+"Investor menggunakan expected return sebagai dasar untuk membandingkan investasi. Jika saham A punya E(R) = 15% dan saham B punya E(R) = 10%, maka secara rata-rata, saham A lebih menarik. Namun, ini belum mempertimbangkan RISIKO."
+
+ANALOGI:
+"Bayangkan Anda memiliki 2 keranjang buah:
+- Keranjang A: 60% apel (rasa manis 15)
+- Keranjang B: 40% jeruk (rasa manis 12)
+Rasa manis rata-rata = (0.60 × 15) + (0.40 × 12) = 13.8
+Anda tidak akan dapat rasa lebih manis dari apel (15) atau lebih asam dari jeruk (12)."
+
+INSIGHT:
+"Expected Return portfolio SELALU berada DI ANTARA return terendah dan return tertinggi dari aset-aset dalam portofolio. Anda TIDAK BISA mendapat return lebih tinggi dari aset terbaik atau lebih rendah dari aset terburuk hanya dengan diversifikasi."
+
+## TAMBAHAN (OPSIONAL)
+- Jika ada rumus Excel, berikan rumus yang bisa langsung dicopy
+- Jika ada tabel perbandingan, tampilkan dalam format tabel yang rapi
+- Berikan contoh angka konkret untuk setiap konsep
+- Hubungkan setiap konsep dengan praktik investasi nyata
+
+================================================================================
+VARIABEL YANG BISA DIGANTI:
+================================================================================
+
+[NAMA CHAPTER]    = Nama chapter yang akan dibuat summary
+[NAMA BUKU]       = Judul buku sumber
+[LOKASI_FOLDER]   = Path folder penyimpanan
+[NAMA_FILE]       = Nama file output
+
+================================================================================
+CONTOH PROMPT YANG SUDAH DIISI:
+================================================================================
+
+Buatkan saya summary lengkap Chapter "The Characteristics of the Opportunity Set under Risk" dari buku "Modern Portfolio Theory and Investment Analysis" dengan persyaratan berikut:
+
+1. Buat dalam format HTML yang profesional dan responsive
+2. Simpan file di D:\MSI\Semester_2\portofolio\chapters
+3. Gunakan summary_ch4_opportunity_set.html sebagai nama file
+
+[...sisa prompt sama seperti di atas...]
+
+================================================================================
+TAMBAHAN PROMPT (OPSIONAL):
+================================================================================
+
+Tambahkan 5 soal latihan di akhir summary dengan pilihan ganda dan kunci jawaban
+Tambahkan mind map dalam format teks yang menunjukkan hubungan antar konsep
+Rekomendasikan 2-3 video YouTube yang menjelaskan konsep serupa
+Buatkan template Excel lengkap dengan semua rumus yang dibahas
+
+================================================================================

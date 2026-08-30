@@ -1,8 +1,12 @@
 @echo off
-title Academic Summary Bot
+title Academic Summary Bot (Auto-Restart)
 cd /d D:\summary_msi\scripts
-echo Starting Academic Summary Bot...
-echo Press Ctrl+C to stop.
+echo ========================================
+echo   Academic Summary Bot (Auto-Restart)
+echo ========================================
 echo.
-python telegram_bot.py
+echo Bot akan otomatis restart jika crash.
+echo Tekan Ctrl+C untuk berhenti.
+echo.
+python auto_restart.py
 pause

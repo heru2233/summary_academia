@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Template: Membuat Summary Chapter Buku Investasi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .prompt-box {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .prompt-box .highlight {
+            color: #f1c40f;
+            font-weight: bold;
+        }
+        .prompt-box .comment {
+            color: #95a5a6;
+            font-style: italic;
+        }
+        .prompt-box .variable {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .section {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #3498db;
+            color: white;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .tip {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, monospace;
+            color: #e74c3c;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Prompt Template: Membuat Summary Chapter Buku Investasi</h1>
+        <p><strong>Gunakan prompt di bawah ini untuk membuat summary chapter buku investasi dengan penjelasan lengkap, contoh Excel, dan format HTML yang profesional.</strong></p>
+
+        <!-- ================================================================== -->
+        <!-- PROMPT UTAMA -->
+        <!-- ================================================================== -->
+        <h2>🎯 PROMPT UTAMA (Copy & Paste)</h2>
+
+        <div class="prompt-box">
+<span class="comment">## PROMPT UNTUK MEMBUAT SUMMARY CHAPTER BUKU INVESTASI</span>
+
+<span class="highlight">Buatkan saya summary lengkap Chapter [NAMA CHAPTER] dari buku [NAMA BUKU]</span> dengan persyaratan berikut:
+
+<span class="comment">## FORMAT OUTPUT</span>
+1. Buat dalam format <span class="variable">HTML</span> yang profesional dan responsive
+2. Simpan file di <span class="variable">[LOKASI_FOLDER]</span>
+3. Gunakan <span class="variable">[NAMA_FILE]</span> sebagai nama file
+
+<span class="comment">## STRUKTUR SUMMARY</span>
+Summary harus memiliki struktur berikut:
+
+### 1. Daftar Isi (Table of Contents)
+- Link ke setiap section utama
+- Klik langsung menuju bagian yang dipilih
+
+### 2. Setiap Section Utama Harus Memiliki:
+
+#### a. <span class="highlight">INTERPRETASI (Kotak Hijau)</span>
+- Penjelasan mendalam tentang KONSEP
+- Mengapa konsep ini PENTING
+- Kapan dan bagaimana konsep ini DIGUNAKAN
+- Hubungan dengan konsep lain dalam buku
+
+#### b. <span class="highlight">RUMUS (Kotak Merah)</span>
+- Rumus matematika lengkap
+- Keterangan setiap variabel dalam rumus
+- Bentuk alternatif rumus (jika ada)
+
+#### c. <span class="highlight">CONTOH (Kotak Oranye)</span>
+- Perhitungan langkah demi langkah
+- Data yang digunakan
+- Hasil perhitungan
+- **INTERPRETASI HASIL** - apa arti angka yang didapat
+
+#### d. <span class="highlight">ANALOGI (Kotak Ungu)</span>
+- Analogi sederhana dari kehidupan sehari-hari
+- Mudah dipahami oleh pemula
+- Menghubungkan konsep abstrak dengan situasi nyata
+
+#### e. <span class="highlight">INSIGHT (Kotak Biru)</span>
+- Poin-poin penting yang harus diingat
+- Kesimpulan kunci
+- Hubungan dengan praktik investasi nyata
+
+### 3. Tabel Perbandingan
+- Bandingkan berbagai konsep
+- Tampilkan kelebihan dan kekurangan
+- Contoh penggunaan
+
+### 4. Contoh Penerapan di Excel
+- Rumus Excel yang bisa langsung dicopy
+- Template perhitungan
+- Penjelasan setiap sel
+
+### 5. Cheat Sheet (Kotak Gradient)
+- Kumpulan rumus penting
+- Ringkasan dalam satu tabel
+- Mudah diakses untuk review
+
+### 6. Key Takeaways (Kotak Kuning)
+- 5-7 kesimpulan utama
+- Poin yang harus diingat untuk ujian
+- Hubungan antar konsep
+
+### 7. Daftar Pustaka
+- Referensi dari buku utama
+- Referensi tambahan yang relevan
+
+<span class="comment">## STYLING</span>
+Gunakan CSS styling berikut:
+
+<span class="variable">Body:</span>
+- Font: Segoe UI, Tahoma, Geneva, Verdana, sans-serif
+- Line-height: 1.8
+- Max-width: 1000px
+- Background: #f5f5f5
+
+<span class="variable">Container:</span>
+- Background: white
+- Padding: 30px
+- Border-radius: 10px
+- Box-shadow: 0 2px 10px rgba(0,0,0,0.1)
+
+<span class="variable">Kotak Interpretasi (Hijau):</span>
+- Background: #e8f8f5
+- Border-left: 4px solid #1abc9c
+
+<span class="variable">Kotak Rumus (Merah):</span>
+- Background: #ecf0f1
+- Border-left: 4px solid #e74c3c
+
+<span class="variable">Kotak Contoh (Oranye):</span>
+- Background: #fdf2e9
+- Border-left: 4px solid #e67e22
+
+<span class="variable">Kotak Analogi (Ungu):</span>
+- Background: #f4ecf7
+- Border-left: 4px solid #8e44ad
+
+<span class="variable">Kotak Insight (Biru):</span>
+- Background: #d6eaf8
+- Border-left: 4px solid #3498db
+
+<span class="variable">Kotak Key Takeaways (Kuning):</span>
+- Background: #fff3cd
+- Border-left: 4px solid #ffc107
+
+<span class="variable">Tabel:</span>
+- Header: Background #3498db, Color white
+- Odd rows: Background white
+- Even rows: Background #f8f9fa
+- Hover: Background #e8f4f8
+
+<span class="variable">Cheat Sheet:</span>
+- Background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+- Color: white
+
+<span class="comment">## CONTOH PENULISAN</span>
+
+<span class="highlight">## Interpretasi:</span>
+"<span class="variable">Expected Return</span> adalah rata-rata return yang diharapkan akan diterima investor dari suatu investasi di masa depan. Ini bukan return yang DIPASTIKAN akan diterima, melainkan return rata-rata tertimbang dari semua kemungkinan hasil yang bisa terjadi."
+
+<span class="highlight">## Mengapa Penting:</span>
+"Investor menggunakan expected return sebagai dasar untuk membandingkan investasi. Jika saham A punya E(R) = 15% dan saham B punya E(R) = 10%, maka secara rata-rata, saham A lebih menarik. Namun, ini belum mempertimbangkan RISIKO."
+
+<span class="highlight">## Analogi:</span>
+"Bayangkan Anda memiliki 2 keranjang buah:
+- Keranjang A: 60% apel (rasa manis 15)
+- Keranjang B: 40% jeruk (rasa manis 12)
+Rasa manis rata-rata = (0.60 × 15) + (0.40 × 12) = 13.8
+Anda tidak akan dapat rasa lebih manis dari apel (15) atau lebih asam dari jeruk (12)."
+
+<span class="highlight">## Insight:</span>
+"Expected Return portfolio SELALU berada DI ANTARA return terendah dan return tertinggi dari aset-aset dalam portofolio. Anda TIDAK BISA mendapat return lebih tinggi dari aset terbaik atau lebih rendah dari aset terburuk hanya dengan diversifikasi."
+
+<span class="comment">## TAMBAHAN</span>
+- Jika ada rumus Excel, berikan rumus yang bisa langsung dicopy
+- Jika ada tabel perbandingan, tampilkan dalam format tabel yang rapi
+- Berikan contoh angka konkret untuk setiap konsep
+- Hubungkan setiap konsep dengan praktik investasi nyata
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- VARIABEL YANG BISA DIGANTI -->
+        <!-- ================================================================== -->
+        <h2>🔧 Variabel yang Bisa Diganti</h2>
+
+        <div class="section">
+            <h3>Daftar Variabel</h3>
+            <table>
+                <tr>
+                    <th>Variabel</th>
+                    <th>Deskripsi</th>
+                    <th>Contoh</th>
+                </tr>
+                <tr>
+                    <td><code>[NAMA CHAPTER]</code></td>
+                    <td>Nama chapter yang akan dibuat summary</td>
+                    <td>The Characteristics of the Opportunity Set under Risk</td>
+                </tr>
+                <tr>
+                    <td><code>[NAMA BUKU]</code></td>
+                    <td>Judul buku sumber</td>
+                    <td>Modern Portfolio Theory and Investment Analysis</td>
+                </tr>
+                <tr>
+                    <td><code>[LOKASI_FOLDER]</code></td>
+                    <td>Path folder penyimpanan</td>
+                    <td>D:\MSI\Semester_2\portofolio\chapters</td>
+                </tr>
+                <tr>
+                    <td><code>[NAMA_FILE]</code></td>
+                    <td>Nama file output</td>
+                    <td>summary_ch4_opportunity_set.html</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- CONTOH PROMPT YANG SUDAH DIISI -->
+        <!-- ================================================================== -->
+        <h2>📋 Contoh Prompt yang Sudah Diisi</h2>
+
+        <div class="prompt-box">
+<span class="comment">## CONTOH 1: Chapter 5</span>
+
+Buatkan saya summary lengkap Chapter <span class="variable">Delineating Efficient Portfolios</span> dari buku <span class="variable">Modern Portfolio Theory and Investment Analysis</span> dengan persyaratan berikut:
+
+1. Buat dalam format <span class="variable">HTML</span> yang profesional dan responsive
+2. Simpan file di <span class="variable">D:\MSI\Semester_2\portofolio\chapters</span>
+3. Gunakan <span class="variable">summary_ch5_efficient_portfolios.html</span> sebagai nama file
+
+[...sisa prompt sama seperti di atas...]
+
+<span class="comment">## CONTOH 2: Chapter 13</span>
+
+Buatkan saya summary lengkap Chapter <span class="variable">The Standard Capital Asset Pricing Model</span> dari buku <span class="variable">Modern Portfolio Theory and Investment Analysis</span> dengan persyaratan berikut:
+
+1. Buat dalam format <span class="variable">HTML</span> yang profesional dan responsive
+2. Simpan file di <span class="variable">D:\MSI\Semester_2\portofolio\chapters</span>
+3. Gunakan <span class="variable">summary_ch13_capm.html</span> sebagai nama file
+
+[...sisa prompt sama seperti di atas...]
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- CONTOH OUTPUT YANG DIHARAPKAN -->
+        <!-- ================================================================== -->
+        <h2>📊 Contoh Output yang Diharapkan</h2>
+
+        <div class="section">
+            <h3>Setiap Section Harus Memiliki:</h3>
+            
+            <div style="background: #e8f8f5; border-left: 4px solid #1abc9c; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <h4 style="color: #16a085; margin-top: 0;">🎯 Interpretasi</h4>
+                <p>Penjelasan mendalam tentang konsep, mengapa penting, kapan digunakan, hubungan dengan konsep lain.</p>
+            </div>
+
+            <div style="background: #ecf0f1; border-left: 4px solid #e74c3c; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <h4 style="color: #e74c3c; margin-top: 0;">📐 Rumus</h4>
+                <p>Rumus matematika lengkap dengan keterangan variabel.</p>
+            </div>
+
+            <div style="background: #fdf2e9; border-left: 4px solid #e67e22; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <h4 style="color: #d35400; margin-top: 0;">📝 Contoh</h4>
+                <p>Perhitungan langkah demi langkah dengan interpretasi hasil.</p>
+            </div>
+
+            <div style="background: #f4ecf7; border-left: 4px solid #8e44ad; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <h4 style="color: #7d3c98; margin-top: 0;">🧊 Analogi</h4>
+                <p>Analogi sederhana dari kehidupan sehari-hari.</p>
+            </div>
+
+            <div style="background: #d6eaf8; border-left: 4px solid #3498db; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <h4 style="color: #2980b9; margin-top: 0;">💡 Insight</h4>
+                <p>Poin-poin penting yang harus diingat.</p>
+            </div>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- TIPS PENGGUNAAN -->
+        <!-- ================================================================== -->
+        <h2>💡 Tips Penggunaan</h2>
+
+        <div class="tip">
+            <h4>✅ Yang Harus Dilakukan:</h4>
+            <ol>
+                <li>Ganti variabel <code>[NAMA CHAPTER]</code>, <code>[NAMA BUKU]</code>, <code>[LOKASI_FOLDER]</code>, dan <code>[NAMA_FILE]</code> sesuai kebutuhan</li>
+                <li>Pastikan file buku sudah ada di komputer atau AI bisa mengaksesnya</li>
+                <li>Jika ingin hasil lebih spesifik, tambahkan instruksi tambahan di akhir prompt</li>
+                <li>Review hasil output dan minta perbaikan jika ada yang kurang</li>
+            </ol>
+        </div>
+
+        <div class="note">
+            <h4>⚠️ Yang Harus Diperhatikan:</h4>
+            <ol>
+                <li>Pastikan AI memiliki akses ke file buku untuk membaca kontennya</li>
+                <li>Beberapa AI mungkin memerlukan waktu lama untuk summary yang sangat detail</li>
+                <li>Periksa rumus matematika setelah output dibuat (kadang ada typo)</li>
+                <li>Sesuaikan contoh angka dengan data yang relevan dengan studi Anda</li>
+            </ol>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- PROMPT TAMBAHAN -->
+        <!-- ================================================================== -->
+        <h2>➕ Prompt Tambahan (Opsional)</h2>
+
+        <div class="prompt-box">
+<span class="comment">## Jika ingin menambahkan fitur tertentu:</span>
+
+<span class="comment">### Fitur Quiz:</span>
+Tambahkan <span class="variable">5 soal latihan</span> di akhir summary dengan:
+- Pilihan ganda (A, B, C, D, E)
+- Kunci jawaban
+- Penjelasan untuk setiap jawaban
+
+<span class="comment">### Fitur Cheat Sheet Tambahan:</span>
+Tambahkan <span class="variable">Cheat Sheet</span> dalam format yang bisa dicetak (print-friendly)
+
+<span class="comment">### Fitur Perbandingan Chapter:</span>
+Buatkan <span class="variable">tabel perbandingan</span> antara Chapter ini dengan chapter lain yang relevan
+
+<span class="comment">### Fitur Mind Map:</span>
+Tambahkan <span class="variable">mind map</span> dalam format teks yang menunjukkan hubungan antar konsep
+
+<span class="comment">### Fitur Rumus Excel Lengkap:</span>
+Buatkan <span class="variable">template Excel</span> lengkap dengan semua rumus yang dibahas di chapter ini
+
+<span class="comment">### Fitur Video Reference:</span>
+Rekomendasikan <span class="variable">video YouTube</span> yang menjelaskan konsep serupa
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- CONTOH PROMPT LENGKAP DENGAN TAMBAHAN -->
+        <!-- ================================================================== -->
+        <h2>📋 Contoh Prompt Lengkap dengan Fitur Tambahan</h2>
+
+        <div class="prompt-box">
+Buatkan saya summary lengkap Chapter <span class="variable">[NAMA CHAPTER]</span> dari buku <span class="variable">[NAMA BUKU]</span> dengan persyaratan berikut:
+
+<span class="comment">## FORMAT OUTPUT</span>
+1. Buat dalam format <span class="variable">HTML</span> yang profesional dan responsive
+2. Simpan file di <span class="variable">[LOKASI_FOLDER]</span>
+3. Gunakan <span class="variable">[NAMA_FILE]</span> sebagai nama file
+
+<span class="comment">## STRUKTUR SUMMARY</span>
+[...struktur utama seperti di atas...]
+
+<span class="comment">## FITUR TAMBAHAN</span>
+4. Tambahkan <span class="variable">5 soal latihan</span> di akhir summary dengan pilihan ganda dan kunci jawaban
+5. Tambahkan <span class="variable">mind map</span> dalam format teks yang menunjukkan hubungan antar konsep
+6. Rekomendasikan <span class="variable">2-3 video YouTube</span> yang menjelaskan konsep serupa
+7. Buatkan <span class="variable">template Excel</span> lengkap dengan semua rumus yang dibahas
+
+<span class="comment">## CATATAN TAMBAHAN</span>
+[...catatan spesifik untuk chapter ini...]
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- DAFTAR CHAPTER YANG BISA DIBUAT -->
+        <!-- ================================================================== -->
+        <h2>📚 Daftar Chapter yang Bisa Dibuat Summary</h2>
+
+        <div class="section">
+            <table>
+                <tr>
+                    <th>Chapter</th>
+                    <th>Judul</th>
+                    <th>Konsep Utama</th>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>The Characteristics of the Opportunity Set under Risk</td>
+                    <td>Expected Return, Variance, Covariance, Portfolio Variance</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Delineating Efficient Portfolios</td>
+                    <td>Efficient Frontier, Minimum Variance Portfolio</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Techniques for Calculating the Efficient Frontier</td>
+                    <td>Markowitz Algorithm, Constrained Optimization</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>The Correlation Structure of Security Returns—the Single-Index Model</td>
+                    <td>Single-Index Model, Beta, Market Model</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>The Standard Capital Asset Pricing Model</td>
+                    <td>CAPM, Security Market Line, Beta</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>The Arbitrage Pricing Model (APT)</td>
+                    <td>Multi-Factor Model, Arbitrage Pricing Theory</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>Interest Rate Theory and the Pricing of Bonds</td>
+                    <td>Yield to Maturity, Duration, Convexity</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>Option Pricing Theory</td>
+                    <td>Black-Scholes, Put-Call Parity, Greeks</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- PENUTUP -->
+        <!-- ================================================================== -->
+        <h2>🎯 Kesimpulan</h2>
+
+        <div class="tip">
+            <h4>Gunakan prompt ini untuk:</h4>
+            <ul>
+                <li>Membuat summary chapter buku investasi dengan cepat dan konsisten</li>
+                <li>Memastikan setiap summary memiliki interpretasi, contoh, dan analogi</li>
+                <li>Membuat materi belajar yang mudah dipahami untuk mahasiswa</li>
+                <li>Menyimpan semua summary dalam format HTML yang profesional</li>
+            </ul>
+        </div>
+
+        <p style="text-align: center; color: #7f8c8d; font-size: 12px; margin-top: 30px;">
+            Template dibuat pada 27 Agustus 2026 | Untuk pembuatan summary chapter buku investasi
+        </p>
+    </div>
+</body>
+</html>

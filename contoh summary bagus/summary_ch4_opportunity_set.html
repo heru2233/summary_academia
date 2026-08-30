@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Chapter 4: The Characteristics of the Opportunity Set under Risk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        h4 {
+            color: #7d3c98;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        .formula-box {
+            background: #ecf0f1;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+        }
+        .formula-box .label {
+            font-weight: bold;
+            color: #e74c3c;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .formula {
+            font-size: 18px;
+            color: #2c3e50;
+        }
+        .interpretation {
+            background: #e8f8f5;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .interpretation h4 {
+            color: #16a085;
+            margin-top: 0;
+        }
+        .example {
+            background: #fdf2e9;
+            border-left: 4px solid #e67e22;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .example h4 {
+            color: #d35400;
+            margin-top: 0;
+        }
+        .analogy {
+            background: #f4ecf7;
+            border-left: 4px solid #8e44ad;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .analogy h4 {
+            color: #7d3c98;
+            margin-top: 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .insight {
+            background: #d6eaf8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .insight h4 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        tr:hover {
+            background: #e8f4f8;
+        }
+        .excel-example {
+            background: #d5e8d4;
+            border: 2px solid #82b366;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .excel-example h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        .excel-formula {
+            background: #fff;
+            padding: 8px 12px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, monospace;
+            border: 1px solid #ccc;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .key-takeaway {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .key-takeaway h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        .cheat-sheet {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .cheat-sheet h3 {
+            color: white;
+            margin-top: 0;
+        }
+        .cheat-sheet table {
+            background: rgba(255,255,255,0.1);
+        }
+        .cheat-sheet th {
+            background: rgba(255,255,255,0.2);
+        }
+        .cheat-sheet td {
+            border-color: rgba(255,255,255,0.3);
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, monospace;
+            color: #e74c3c;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        .toc li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 12px;
+        }
+        .highlight {
+            background: #ffeaa7;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Chapter 4: The Characteristics of the Opportunity Set under Risk</h1>
+        <p><strong>Sumber:</strong> Modern Portfolio Theory and Investment Analysis (Elton, Gruber, Brown, & Goetzmann)</p>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>📋 Daftar Isi</h3>
+            <ul>
+                <li><a href="#expected-return">1. Expected Return (Rata-rata Tertimbang)</a></li>
+                <li><a href="#dispersion">2. Measures of Dispersion (Variance & Standard Deviation)</a></li>
+                <li><a href="#covariance">3. Covariance dan Correlation</a></li>
+                <li><a href="#portfolio-variance">4. Portfolio Variance (2 Aset)</a></li>
+                <li><a href="#matrix-form">5. Portfolio Variance (N Aset - Matrix Form)</a></li>
+                <li><a href="#opportunity-set">6. The Opportunity Set</a></li>
+                <li><a href="#efficient-frontier">7. The Efficient Frontier</a></li>
+                <li><a href="#diversification">8. Diversification Effects</a></li>
+                <li><a href="#excel-examples">9. Contoh Penerapan di Excel</a></li>
+                <li><a href="#cheat-sheet">10. Rumus Penting (Cheat Sheet)</a></li>
+            </ul>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 1. Expected Return -->
+        <!-- ================================================================== -->
+        <h2 id="expected-return">1. Expected Return (Rata-rata Tertimbang)</h2>
+
+        <div class="interpretation">
+            <h4>🎯 Apa itu Expected Return?</h4>
+            <p><strong>Expected Return</strong> adalah <span class="highlight">rata-rata return yang diharapkan akan diterima investor dari suatu investasi di masa depan</span>. Ini bukan return yang DIPASTIKAN akan diterima, melainkan <strong>return rata-rata tertimbang</strong> dari semua kemungkinan hasil (outcome) yang bisa terjadi.</p>
+            <p><strong>Mengapa penting?</strong> Investor menggunakan expected return sebagai dasar untuk membandingkan investasi. Jika saham A punya E(R) = 15% dan saham B punya E(R) = 10%, maka secara rata-rata, saham A lebih menarik. Namun, ini belum mempertimbangkan RISIKO.</p>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 1: Expected Return per Saham</span>
+            <div class="formula">
+                E(Rᵢ) = Σ Pₛ × Rᵢₛ
+            </div>
+        </div>
+
+        <p><strong>Keterangan:</strong></p>
+        <ul>
+            <li><code>E(Rᵢ)</code> = Expected return saham i</li>
+            <li><code>Pₛ</code> = Probabilitas kejadian s (total semua probabilitas = 1 atau 100%)</li>
+            <li><code>Rᵢₛ</code> = Return saham i pada kejadian s</li>
+        </ul>
+
+        <div class="example">
+            <h4>📝 Contoh Penerapan:</h4>
+            <p>Misalkan Anda memiliki 3 skenario ekonomi untuk saham XYZ:</p>
+            <table>
+                <tr>
+                    <th>Skenario Ekonomi</th>
+                    <th>Probabilitas (Pₛ)</th>
+                    <th>Return (Rₛ)</th>
+                </tr>
+                <tr>
+                    <td>Ekonomi Booming</td>
+                    <td>25% (0.25)</td>
+                    <td>+20%</td>
+                </tr>
+                <tr>
+                    <td>Ekonomi Normal</td>
+                    <td>50% (0.50)</td>
+                    <td>+10%</td>
+                </tr>
+                <tr>
+                    <td>Ekonomi Recession</td>
+                    <td>25% (0.25)</td>
+                    <td>-5%</td>
+                </tr>
+            </table>
+            <p><strong>Perhitungan:</strong></p>
+            <p>E(R) = (0.25 × 20%) + (0.50 × 10%) + (0.25 × -5%)</p>
+            <p>E(R) = 5% + 5% + (-1.25%) = <strong>8.75%</strong></p>
+            <p><strong>Interpretasi:</strong> Jika Anda berinvestasi di saham XYZ, secara rata-rata Anda diharapkan mendapat return 8.75%. Namun, actual return bisa lebih tinggi (20%) atau lebih rendah (-5%) tergantung kondisi ekonomi.</p>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 2: Expected Return Portfolio (2 Aset)</span>
+            <div class="formula">
+                E(Rp) = w₁ × E(R₁) + w₂ × E(R₂)
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 3: Expected Return Portfolio (N Aset)</span>
+            <div class="formula">
+                E(Rp) = Σ wᵢ × E(Rᵢ)
+            </div>
+        </div>
+
+        <p><strong>Keterangan:</strong></p>
+        <ul>
+            <li><code>wᵢ</code> = Bobot saham i dalam portfolio (proporsi dana yang diinvestasikan)</li>
+            <li><code>E(Rᵢ)</code> = Expected return saham i</li>
+            <li><code>Σ wᵢ = 1</code> (total bobot harus 100%, artinya seluruh dana teralokasi)</li>
+        </ul>
+
+        <div class="interpretation">
+            <h4>🎯 Interpretasi Expected Return Portfolio</h4>
+            <p>Expected Return Portfolio adalah <span class="highlight">rata-rata tertimbang dari return masing-masing aset dalam portofolio</span>. Bobot (w) menunjukkan proporsi dana yang dialokasikan ke setiap aset.</p>
+            <p><strong>Misalnya:</strong> Jika Anda menginvestasikan 60% dana ke ASII (E(R)=15%) dan 40% ke BBCA (E(R)=12%), maka:</p>
+            <p>E(Rp) = (0.60 × 15%) + (0.40 × 12%) = 9% + 4.8% = <strong>13.8%</strong></p>
+            <p><strong>Insight Penting:</strong> Expected Return portfolio SELALU berada DI ANTARA return terendah dan return tertinggi dari aset-aset dalam portofolio. Anda TIDAK BISA mendapat return lebih tinggi dari aset terbaik atau lebih rendah dari aset terburuk hanya dengan diversifikasi.</p>
+        </div>
+
+        <div class="analogy">
+            <h4>🧊 Analogi Sederhana</h4>
+            <p>Bayangkan Anda punya 2 keranjang buah:</p>
+            <ul>
+                <li><strong>Keranjang A:</strong> 60% apel (rasa manis 15)</li>
+                <li><strong>Keranjang B:</strong> 40% jeruk (rasa manis 12)</li>
+            </ul>
+            <p>Rasa manis rata-rata campuran buah = (0.60 × 15) + (0.40 × 12) = <strong>13.8</strong></p>
+            <p>Anda tidak akan dapat rasa lebih manis dari apel (15) atau lebih asam dari jeruk (12). Campuran selalu di tengah-tengah.</p>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 2. Measures of Dispersion -->
+        <!-- ================================================================== -->
+        <h2 id="dispersion">2. Measures of Dispersion (Ukuran Penyebaran)</h2>
+
+        <div class="interpretation">
+            <h4>🎯 Apa itu Variance dan Standard Deviation?</h4>
+            <p><strong>Variance (σ²)</strong> dan <strong>Standard Deviation (σ)</strong> adalah ukuran <span class="highlight">seberapa jauh return aktual bisa menyimpang dari expected return</span>. Ini adalah ukuran RISIKO dalam teori portofolio.</p>
+            <p><strong>Mengapa penting?</strong> Dua investasi bisa punya expected return yang sama, tapi risiko yang sangat berbeda. Misalnya:</p>
+            <ul>
+                <li>Saham A: E(R) = 10%, σ = 5% → return relatif stabil</li>
+                <li>Saham B: E(R) = 10%, σ = 30% → return sangat fluktuatif</li>
+            </ul>
+            <p>Investor yang <strong>risk-averse</strong> (menghindari risiko) akan memilih Saham A karena lebih stabil.</p>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 4: Variance</span>
+            <div class="formula">
+                σ² = Σ Pₛ × [Rₛ - E(R)]²
+            </div>
+        </div>
+
+        <div class="interpretation">
+            <h4>🎯 Interpretasi Variance</h4>
+            <p>Variance mengukur <span class="highlight">rata-rata kuadrat selisih antara return aktual dan expected return</span>.</p>
+            <ul>
+                <li><strong>Variance besar</strong> → return tersebar jauh dari rata-rata → <strong>RISIKO TINGGI</strong></li>
+                <li><strong>Variance kecil</strong> → return dekat dengan rata-rata → <strong>risiko rendah</strong></li>
+            </ul>
+            <p><strong>Mengapa dikuadratkan?</strong> Karena selisih negatif dan positif keduanya merupakan risiko. Jika tidak dikuadratkan, selisih negatif dan positif akan saling meniadakan (total = 0). Dengan dikuadratkan, semua selisih menjadi positif.</p>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 5: Standard Deviation</span>
+            <div class="formula">
+                σ = √σ² = √(Σ Pₛ × [Rₛ - E(R)]²)
+            </div>
+        </div>
+
+        <div class="interpretation">
+            <h4>🎯 Interpretasi Standard Deviation</h4>
+            <p>Standard Deviation adalah <span class="highlight">akar kuadrat dari variance</span>, yang mengembalikan satuan ke satuan yang sama dengan return (persentase).</p>
+            <p><strong>Interpretasi Praktis:</strong></p>
+            <ul>
+                <li>Jika E(R) = 10% dan σ = 5%, maka sekitar <strong>68%</strong> kemungkinan return berada di antara <strong>5% - 15%</strong> (E(R) ± 1σ)</li>
+                <li>Sekitar <strong>95%</strong> kemungkinan return berada di antara <strong>0% - 20%</strong> (E(R) ± 2σ)</li>
+                <li>Sekitar <strong>99.7%</strong> kemungkinan return berada di antara <strong>-5% - 25%</strong> (E(R) ± 3σ)</li>
+            </ul>
+            <p><strong>Ini asumsi distribusi normal (bell curve).</strong></p>
+        </div>
+
+        <div class="example">
+            <h4>📝 Contoh Perhitungan Variance & Std Dev</h4>
+            <p>Menggunakan data saham XYZ dari contoh sebelumnya:</p>
+            <table>
+                <tr>
+                    <th>Skenario</th>
+                    <th>Pₛ</th>
+                    <th>Rₛ</th>
+                    <th>Rₛ - E(R)</th>
+                    <th>[Rₛ - E(R)]²</th>
+                    <th>Pₛ × [Rₛ - E(R)]²</th>
+                </tr>
+                <tr>
+                    <td>Booming</td>
+                    <td>0.25</td>
+                    <td>20%</td>
+                    <td>20% - 8.75% = 11.25%</td>
+                    <td>0.01266</td>
+                    <td>0.00316</td>
+                </tr>
+                <tr>
+                    <td>Normal</td>
+                    <td>0.50</td>
+                    <td>10%</td>
+                    <td>10% - 8.75% = 1.25%</td>
+                    <td>0.00016</td>
+                    <td>0.00008</td>
+                </tr>
+                <tr>
+                    <td>Recession</td>
+                    <td>0.25</td>
+                    <td>-5%</td>
+                    <td>-5% - 8.75% = -13.75%</td>
+                    <td>0.01891</td>
+                    <td>0.00473</td>
+                </tr>
+                <tr style="background: #d4edda;">
+                    <td colspan="5"><strong>Total (Variance)</strong></td>
+                    <td><strong>0.00797</strong></td>
+                </tr>
+            </table>
+            <p><strong>σ²</strong> = 0.00797</p>
+            <p><strong>σ</strong> = √0.00797 = <strong>8.93%</strong></p>
+            <p><strong>Interpretasi:</strong> Return saham XYZ diharapkan 8.75% dengan risiko (volatilitas) 8.93%. Artinya, return bisa berfluktuasi sekitar ±8.93% dari nilai harapan.</p>
+        </div>
+
+        <div class="analogy">
+            <h4>🧊 Analogi Sederhana</h4>
+            <p>Bayangkan Anda melempar anak panah ke target:</p>
+            <ul>
+                <li><strong>Sigma kecil</strong> = anak panah berkumpul rapat di dekat pusat target → <strong>AKURAT</strong></li>
+                <li><strong>Sigma besar</strong> = anak panah tersebar ke mana-mana → <strong>TIDAK AKURAT</strong></li>
+            </ul>
+            <p>Dalam investasi: sigma kecil = return KONSISTEN, sigma besar = return TIDAK PREDIKTABEL.</p>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 3. Covariance & Correlation -->
+        <!-- ================================================================== -->
+        <h2 id="covariance">3. Covariance dan Correlation</h2>
+
+        <div class="interpretation">
+            <h4>🎯 Apa itu Covariance dan Correlation?</h4>
+            <p><strong>Covariance</strong> dan <strong>Correlation</strong> mengukur <span class="highlight">seberapa kuat hubungan antara return dua aset berbeda</span>. Ini adalah KUNCI dari diversifikasi.</p>
+            <p><strong>Mengapa penting?</strong> Jika dua aset bergerak berlawanan arah (korelasi negatif), ketika satu rugi, yang lain untung → risiko portfolio BERKURANG. Inilah dasar diversifikasi.</p>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 6: Covariance</span>
+            <div class="formula">
+                Cov(Rᵢ, Rⱼ) = Σ Pₛ × [Rᵢₛ - E(Rᵢ)] × [Rⱼₛ - E(Rⱼ)]
+            </div>
+        </div>
+
+        <div class="interpretation">
+            <h4>🎯 Interpretasi Covariance</h4>
+            <p>Covariance mengukur <span class="highlight">arah dan kekuatan hubungan linear antara return dua aset</span>:</p>
+            <ul>
+                <li><strong>Covariance POSITIF (+)</strong> → Kedua aset cenderung bergerak <strong>SEARAH</strong> (keduanya naik atau keduanya turun)</li>
+                <li><strong>Covariance NEGATIF (-)</strong> → Kedua aset cenderung bergerak <strong>BERLAWANAN</strong> (satu naik, satu turun)</li>
+                <li><strong>Covariance = 0</strong> → Tidak ada hubungan linear antara kedua aset</li>
+            </ul>
+            <p><strong>Kelemahan Covariance:</strong> Nilainya dalam satuan "persen kuadrat" (misal: 0.0045), sehingga sulit diinterpretasikan secara langsung. Untuk itu, kita gunakan <strong>Correlation Coefficient</strong>.</p>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 7: Correlation Coefficient</span>
+            <div class="formula">
+                ρᵢⱼ = Cov(Rᵢ, Rⱼ) / (σᵢ × σⱼ)
+            </div>
+        </div>
+
+        <div class="interpretation">
+            <h4>🎯 Interpretasi Correlation Coefficient</h4>
+            <p>Correlation Coefficient (ρ) adalah <span class="highlight">covariance yang sudah dinormalisasi</strong> sehingga nilainya selalu antara <strong>-1 sampai +1</strong>. Ini jauh lebih mudah diinterpretasikan.</p>
+            <table>
+                <tr>
+                    <th>Nilai ρ</th>
+                    <th>Interpretasi</th>
+                    <th>Efek Diversifikasi</th>
+                    <th>Contoh di Dunia Nyata</th>
+                </tr>
+                <tr>
+                    <td><strong>+1.0</strong></td>
+                    <td>Perfect positive correlation</td>
+                    <td>❌ TIDAK ADA efek diversifikasi</td>
+                    <td>Saham dalam satu industri (BBCA & BMRI)</td>
+                </tr>
+                <tr>
+                    <td><strong>+0.5</strong></td>
+                    <td>Moderate positive correlation</td>
+                    <td>⚠️ Efek diversifikasi sedang</td>
+                    <td>Saham teknologi & saham konsumer</td>
+                </tr>
+                <tr>
+                    <td><strong>0.0</strong></td>
+                    <td>No correlation</td>
+                    <td>✅ Efek diversifikasi optimal</td>
+                    <td>Saham & Emas (kadang)</td>
+                </tr>
+                <tr>
+                    <td><strong>-0.5</strong></td>
+                    <td>Moderate negative correlation</td>
+                    <td>✅ Efek diversifikasi tinggi</td>
+                    <td>Saham & Obligasi Pemerintah</td>
+                </tr>
+                <tr>
+                    <td><strong>-1.0</strong></td>
+                    <td>Perfect negative correlation</td>
+                    <td>✅ ELIMINASI risiko sepenuhnya</td>
+                    <td>Sangat jarang ditemukan</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="insight">
+            <h4>💡 Insight Penting</h4>
+            <p><strong>Diversifikasi paling efektif</strong> ketika korelasi antar aset <strong>rendah atau negatif</strong>. Inilah mengapa:</p>
+            <ul>
+                <li>Investor disarankan untuk diversifikasi ke <strong>berbagai sektor</strong> (korelasi antar sektor biasanya lebih rendah)</li>
+                <li>Investor disarankan untuk diversifikasi ke <strong>berbagai negara</strong> (korelasi antar negara biasanya lebih rendah)</li>
+                <li>Investor disarankan untuk mencampur <strong>saham dan obligasi</strong> (korelasi sering negatif)</li>
+            </ul>
+        </div>
+
+        <div class="example">
+            <h4>📝 Contoh Korelasi dalam Portofolio</h4>
+            <p>Misalkan Anda memiliki portofolio dengan 2 saham:</p>
+            <table>
+                <tr>
+                    <th>Saham</th>
+                    <th>E(R)</th>
+                    <th>σ</th>
+                </tr>
+                <tr>
+                    <td>Bank (BBCA)</td>
+                    <td>12%</td>
+                    <td>18%</td>
+                </tr>
+                <tr>
+                    <td>Mining (ADRO)</td>
+                    <td>15%</td>
+                    <td>25%</td>
+                </tr>
+            </table>
+            <p><strong>Skenario 1: Korelasi ρ = +0.8 (tinggi)</strong></p>
+            <p>→ Saham cenderung bergerak searah → diversifikasi TIDAK efektif</p>
+            <p><strong>Skenario 2: Korelasi ρ = +0.2 (rendah)</strong></p>
+            <p>→ Saham tidak selalu bergerak searah → diversifikasi LEBIH efektif</p>
+            <p><strong>Skenario 3: Korelasi ρ = -0.3 (negatif)</strong></p>
+            <p>→ Saham cenderung berlawanan arah → diversifikasi PALING efektif</p>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 4. Portfolio Variance (2 Assets) -->
+        <!-- ================================================================== -->
+        <h2 id="portfolio-variance">4. Portfolio Variance (2 Aset)</h2>
+
+        <div class="interpretation">
+            <h4>🎯 Mengapa Portfolio Variance Berbeda dari Variance Rata-rata?</h4>
+            <p>Hal PALING PENTING dalam teori portofolio adalah: <span class="highlight">risiko portfolio BUKAN rata-rata dari risiko masing-masing aset</span>. Risiko portfolio bisa LEBIH RENDAH dari rata-rata risiko aset-asetnya, tergantung korelasi antar aset.</p>
+            <p><strong>Inilah mengapa diversifikasi bekerja:</strong></p>
+            <ul>
+                <li>Jika ρ &lt; +1.0, maka σp &lt; w₁σ₁ + w₂σ₂ (risiko portfolio lebih rendah dari rata-rata tertimbang)</li>
+                <li>Semakin rendah korelasi, semakin besar pengurangan risiko</li>
+            </ul>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 8: Portfolio Variance (2 Aset) - Bentuk Kovarian</span>
+            <div class="formula">
+                σ²p = w₁²σ₁² + w₂²σ₂² + 2w₁w₂σ₁₂
+            </div>
+        </div>
+
+        <div class="interpretation">
+            <h4>🎯 Interpretasi Rumus Portfolio Variance</h4>
+            <p>Rumus ini memiliki <strong>3 komponen</strong>:</p>
+            <ol>
+                <li><code>w₁²σ₁²</code> = Kontribusi risiko dari <strong>Saham 1</strong> (variance saham 1 yang dikuadratkan bobotnya)</li>
+                <li><code>w₂²σ₂²</code> = Kontribusi risiko dari <strong>Saham 2</strong> (variance saham 2 yang dikuadratkan bobotnya)</li>
+                <li><code>2w₁w₂σ₁₂</code> = <strong>Efek diversifikasi</strong> (kovarian antara kedua saham)</li>
+            </ol>
+            <p><strong>Insight Kunci:</strong></p>
+            <ul>
+                <li>Jika <code>σ₁₂</code> <strong>negatif</strong> → komponen ketiga negatif → risiko portfolio <strong>BERKURANG</strong></li>
+                <li>Jika <code>σ₁₂</code> = 0 → komponen ketiga = 0 → risiko portfolio hanya dari variance individual</li>
+                <li>Jika <code>σ₁₂</code> <strong>positif</strong> → komponen ketiga positif → risiko portfolio <strong>MENINGKAT</strong></li>
+            </ul>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 9: Portfolio Variance dengan Korelasi</span>
+            <div class="formula">
+                σ²p = w₁²σ₁² + w₂²σ₂² + 2w₁w₂ρ₁₂σ₁σ₂
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 10: Portfolio Standard Deviation (2 Aset)</span>
+            <div class="formula">
+                σp = √(w₁²σ₁² + w₂²σ₂² + 2w₁w₂ρ₁₂σ₁σ₂)
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>📝 Contoh Perhitungan Portfolio Variance</h4>
+            <p>Anda memiliki portofolio 60% ASII dan 40% BBCA:</p>
+            <table>
+                <tr>
+                    <th>Saham</th>
+                    <th>σ²</th>
+                    <th>σ</th>
+                    <th>Bobot</th>
+                </tr>
+                <tr>
+                    <td>ASII</td>
+                    <td>0.04</td>
+                    <td>20%</td>
+                    <td>60%</td>
+                </tr>
+                <tr>
+                    <td>BBCA</td>
+                    <td>0.025</td>
+                    <td>15.81%</td>
+                    <td>40%</td>
+                </tr>
+                <tr>
+                    <td><strong>Korelasi (ρ)</strong></td>
+                    <td colspan="3"><strong>0.30</strong></td>
+                </tr>
+            </table>
+            <p><strong>Langkah 1: Hitung kovarian</strong></p>
+            <p>σ₁₂ = ρ₁₂ × σ₁ × σ₂ = 0.30 × 0.20 × 0.1581 = 0.00949</p>
+            <p><strong>Langkah 2: Hitung portfolio variance</strong></p>
+            <p>σ²p = (0.60)²(0.04) + (0.40)²(0.025) + 2(0.60)(0.40)(0.00949)</p>
+            <p>σ²p = 0.0144 + 0.004 + 0.00456 = 0.02296</p>
+            <p><strong>Langkah 3: Hitung portfolio std dev</strong></p>
+            <p>σp = √0.02296 = <strong>15.15%</strong></p>
+            <p><strong>Interpretasi:</strong></p>
+            <ul>
+                <li>Risiko rata-rata tertimbang = (0.60 × 20%) + (0.40 × 15.81%) = 18.32%</li>
+                <li>Risiko portfolio = <strong>15.15%</strong></li>
+                <li><strong>Pengurangan risiko = 18.32% - 15.15% = 3.17%</strong></li>
+                <li>Ini terjadi KARENA korelasi positif (0.3) yang rendah</li>
+            </ul>
+        </div>
+
+        <div class="insight">
+            <h4>💡 Kesimpulan Penting</h4>
+            <p><strong>Diversifikasi mengurangi risiko TANPA mengurangi expected return</strong>. Dalam contoh di atas, expected return tetap 13.8%, tapi risiko turun dari 18.32% ke 15.15%. Ini adalah "free lunch" dalam investasi!</p>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 5. Matrix Form -->
+        <!-- ================================================================== -->
+        <h2 id="matrix-form">5. Portfolio Variance (N Aset - Matrix Form)</h2>
+
+        <div class="interpretation">
+            <h4>🎯 Mengapa Perlu Bentuk Matriks?</h4>
+            <p>Ketika portofolio memiliki <strong>lebih dari 2 aset</strong>, perhitungan menjadi kompleks. Rumus matriks memudahkan perhitungan dengan menggabungkan semua variance dan kovarian dalam satu operasi.</p>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 11: General Portfolio Variance</span>
+            <div class="formula">
+                σ²p = Σᵢ Σⱼ wᵢ wⱼ σᵢⱼ
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Dalam Bentuk Matriks:</span>
+            <div class="formula">
+                σ²p = w' × Σ × w
+            </div>
+            <p style="margin-top: 10px; font-size: 14px;">
+                Dimana:<br>
+                • <code>w</code> = [w₁, w₂, ..., wₙ]' (vektor bobot, transpose)<br>
+                • <code>Σ</code> = matriks kovarian (N × N)<br>
+                • <code>w'</code> = transpose dari vektor bobot
+            </p>
+        </div>
+
+        <div class="interpretation">
+            <h4>🎯 Interpretasi Matriks Kovarian</h4>
+            <p><strong>Diagonal matriks</strong> (σ₁₁, σ₂₂, ..., σₙₙ) = <span class="highlight">variance masing-masing saham</span></p>
+            <p><strong>Di luar diagonal</strong> (σ₁₂, σ₁₃, ..., σₙ₋₁,ₙ) = <span class="highlight">kovarian antar pasangan saham</span></p>
+            <p><strong>Sifat matriks kovarian:</strong></p>
+            <ul>
+                <li><strong>Simetris:</strong> σᵢⱼ = σⱼᵢ (kovarian A ke B = kovarian B ke A)</li>
+                <li><strong>Diagonal utama:</strong> σᵢᵢ = σᵢ² (kovarian suatu saham dengan dirinya sendiri = variance)</li>
+                <li><strong>Positif definite:</strong> Semua eigenvalue positif (syarat matematis untuk variance valid)</li>
+            </ul>
+        </div>
+
+        <div class="example">
+            <h4>📝 Contoh Matriks Kovarian (3 Saham)</h4>
+            <p>Misalkan Anda memiliki portofolio dengan 3 saham: ASII, BBCA, TLKM</p>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>ASII</th>
+                    <th>BBCA</th>
+                    <th>TLKM</th>
+                </tr>
+                <tr>
+                    <td><strong>ASII</strong></td>
+                    <td>0.00206 (σ²ASII)</td>
+                    <td>-0.00045</td>
+                    <td>0.00012</td>
+                </tr>
+                <tr>
+                    <td><strong>BBCA</strong></td>
+                    <td>-0.00045</td>
+                    <td>0.00202 (σ²BBCA)</td>
+                    <td>-0.00038</td>
+                </tr>
+                <tr>
+                    <td><strong>TLKM</strong></td>
+                    <td>0.00012</td>
+                    <td>-0.00038</td>
+                    <td>0.00174 (σ²TLKM)</td>
+                </tr>
+            </table>
+            <p><strong>Bobot:</strong> w = [0.40, 0.35, 0.25]'</p>
+            <p><strong>Perhitungan:</strong></p>
+            <p>σ²p = w' × Σ × w</p>
+            <p>= [0.40, 0.35, 0.25] × Σ × [0.40, 0.35, 0.25]'</p>
+            <p>= <strong>0.00098</strong></p>
+            <p>σp = √0.00098 = <strong>3.13%</strong></p>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 6. Opportunity Set -->
+        <!-- ================================================================== -->
+        <h2 id="opportunity-set">6. The Opportunity Set</h2>
+
+        <div class="interpretation">
+            <h4>🎯 Apa itu Opportunity Set?</h4>
+            <p><strong>Opportunity Set</strong> adalah <span class="highlight">kumpulan SEMUA portofolio yang mungkin dapat dibentuk dari sekumpulan aset yang tersedia</span>. Ini adalah "menu" semua pilihan investasi yang bisa Anda buat.</p>
+            <p><strong>Misalnya:</strong> Jika Anda punya 10 saham, opportunity set mencakup:</p>
+            <ul>
+                <li>Semua portofolio dengan 1 saham (10 portofolio)</li>
+                <li>Semua portofolio dengan 2 saham (45 portofolio)</li>
+                <li>Semua portofolio dengan 3 saham (120 portofolio)</li>
+                <li>... dst sampai portofolio dengan 10 saham (1 portofolio)</li>
+                <li>Total: 2¹⁰ - 1 = <strong>1,023 portofolio</strong></li>
+            </ul>
+        </div>
+
+        <div class="success">
+            <strong>Karakteristik Opportunity Set:</strong>
+            <ol>
+                <li><strong>Bentuk bulan sabit (crescent-shaped)</strong> di ruang risk-return</li>
+                <li><strong>Minimum Variance Frontier</strong> = batas kiri dari opportunity set (portofolio dengan risiko terendah untuk setiap level return)</li>
+                <li><strong>Global Minimum Variance Portfolio</strong> = titik paling kiri (portofolio dengan risiko ABSOLUT terendah)</li>
+                <li><strong>Efficient Frontier</strong> = bagian ATAS dari minimum variance frontier (portofolio yang layak dipilih)</li>
+            </ol>
+        </div>
+
+        <div class="interpretation">
+            <h4>🎯 Mengapa Opportunity Set Berbentuk Bulan Sabit?</h4>
+            <p>Bentuk bulan sabit terjadi karena <span class="highlight">efek diversifikasi</span>. Ketika aset-aset dengan korelasi &lt; +1.0 digabungkan, risiko portfolio bisa lebih rendah dari rata-rata risiko aset-asetnya. Semakin rendah korelasi, semakin "melengkung" opportunity set ke kiri.</p>
+            <p><strong>Jika korelasi semua aset = +1.0:</strong> Opportunity set berupa garis lurus (tidak ada efek diversifikasi)</p>
+            <p><strong>Jika korelasi &lt; +1.0:</strong> Opportunity set melengkung ke kiri (ada efek diversifikasi)</p>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 7. Efficient Frontier -->
+        <!-- ================================================================== -->
+        <h2 id="efficient-frontier">7. The Efficient Frontier</h2>
+
+        <div class="interpretation">
+            <h4>🎯 Apa itu Efficient Frontier?</h4>
+            <p><strong>Efficient Frontier</strong> adalah <span class="highlight">kumpulan portofolio yang memberikan return TERTINGGI untuk setiap tingkat risiko, ATAU risiko TERENDAH untuk setiap tingkat return</span>.</p>
+            <p><strong>Mengapa penting?</strong> Investor rational TIDAK AKAN memilih portofolio yang TIDAK efisien. Jika ada portofolio lain yang memberikan return lebih tinggi untuk risiko yang sama, mengapa memilih yang rendah?</p>
+        </div>
+
+        <div class="success">
+            <strong>Kriteria Efisiensi (Markowitz):</strong>
+            <p>Sebuah portofolio <strong>TIDAK efisien</strong> jika:</p>
+            <ol>
+                <li>Ada portofolio lain dengan return <strong>lebih tinggi</strong> untuk risiko yang <strong>sama</strong>, ATAU</li>
+                <li>Ada portofolio lain dengan risiko <strong>lebih rendah</strong> untuk return yang <strong>sama</strong></li>
+            </ol>
+        </div>
+
+        <div class="interpretation">
+            <h4>🎯 Interpretasi Efficient Frontier</h4>
+            <p><strong>Setiap titik di efficient frontier</strong> mewakili portofolio OPTIMAL untuk level risiko tertentu:</p>
+            <ul>
+                <li><strong>Titik kiri</strong> (Minimum Variance Portfolio) = risiko terendah, return terendah</li>
+                <li><strong>Titik kanan</strong> = risiko tertinggi, return tertinggi</li>
+                <li><strong>Titik tengah</strong> = keseimbangan risiko-return</li>
+            </ul>
+            <p><strong>Di bawah efficient frontier</strong> = portofolia TIDAK efisien (return terlalu rendah untuk risikonya)</p>
+            <p><strong>Di atas efficient frontier</strong> = TIDAK MUNGKIN dicapai dengan kombinasi aset yang ada</p>
+        </div>
+
+        <div class="insight">
+            <h4>💡 Insight: efficient Frontier untuk Setiap Investor</h4>
+            <p><strong>Semua investor rational</strong> akan memilih portofolio DI efficient frontier, tergantung toleransi risiko mereka:</p>
+            <ul>
+                <li><strong>Investor risk-averse</strong> → memilih portofolio di kiri efficient frontier (risiko rendah, return rendah)</li>
+                <li><strong>Investor risk-neutral</strong> → memilih portofolio di tengah efficient frontier</li>
+                <li><strong>Investor risk-seeking</strong> → memilih portofolio di kanan efficient frontier (risiko tinggi, return tinggi)</li>
+            </ul>
+            <p><strong>Ini adalah konsep "segitiga pembatas" (separating theorem) yang menjadi dasar CAPM.</strong></p>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 8. Diversification -->
+        <!-- ================================================================== -->
+        <h2 id="diversification">8. Diversification Effects</h2>
+
+        <div class="interpretation">
+            <h4>🎯 Apa itu Diversification?</h4>
+            <p><strong>Diversifikasi</strong> adalah <span class="highlight">strategi menggabungkan berbagai aset dalam portofolio untuk mengurangi risiko TANPA mengurangi expected return</span>. Ini adalah satu-satunya "free lunch" dalam investasi (Markowitz, 1952).</p>
+        </div>
+
+        <div class="formula-box">
+            <span class="label">Rumus 12: Risk Reduction via Diversification</span>
+            <div class="formula">
+                σ²p = (1/N)σ̄² + ((N-1)/N)Cov̄
+            </div>
+            <p style="margin-top: 10px; font-size: 14px;">
+                Untuk <strong>equal-weighted portfolio</strong> (N saham, masing-masing bobot 1/N)
+            </p>
+        </div>
+
+        <p><strong>Keterangan:</strong></p>
+        <ul>
+            <li><code>σ̄²</code> = Rata-rata variance semua saham</li>
+            <li><code>Cov̄</code> = Rata-rata kovarian semua pasangan saham</li>
+            <li><code>N</code> = Jumlah saham</li>
+        </ul>
+
+        <div class="interpretation">
+            <h4>🎯 Interpretasi Rumus Diversification</h4>
+            <p>Rumus ini memiliki <strong>2 komponen</strong>:</p>
+            <ol>
+                <li><code>(1/N)σ̄²</code> = <span class="highlight">Risiko spesifik (unsystematic risk)</span> yang BISA dihilangkan dengan diversifikasi</li>
+                <li><code>((N-1)/N)Cov̄</code> = <span class="highlight">Risiko sistematis (systematic risk)</span> yang TIDAK BISA dihilangkan</li>
+            </ol>
+            <p><strong>Ketika N → ∞:</strong></p>
+            <ul>
+                <li><code>(1/N)σ̄² → 0</code> (risiko spesifik hilang)</li>
+                <li><code>((N-1)/N)Cov̄ → Cov̄</code> (risiko sistematis tetap ada)</li>
+            </ul>
+            <p><strong>Artinya:</strong> Diversifikasi hanya bisa menghilangkan risiko yang spesifik pada satu saham (misal: manajemen buruk, skandal, dll), tapi TIDAK BISA menghilangkan risiko pasar secara keseluruhan (misal: resesi global, pandemi, krisis keuangan).</p>
+        </div>
+
+        <div class="insight">
+            <h4>💡 Dua Jenis Risiko</h4>
+            <table>
+                <tr>
+                    <th>Risiko</th>
+                    <th>Definisi</th>
+                    <th>Bisa Diversifikasi?</th>
+                    <th>Contoh</th>
+                </tr>
+                <tr>
+                    <td><strong>Unsystematic Risk</strong> (Spesifik/Idiosyncratic)</td>
+                    <td>Risiko yang spesifik pada satu perusahaan atau sektor</td>
+                    <td>✅ YA</td>
+                    <td>Kebangkrutan, skandal, manajemen buruk</td>
+                </tr>
+                <tr>
+                    <td><strong>Systematic Risk</strong> (Market/Wide)</td>
+                    <td>Risiko yang mempengaruhi SELURUH pasar</td>
+                    <td>❌ TIDAK</td>
+                    <td>Resesi, inflasi, kenaikan suku bunga, pandemi</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="example">
+            <h4>📝 Contoh Efek Diversifikasi</h4>
+            <p>Data: Rata-rata variance (σ̄²) = 0.035, Rata-rata kovarian (Cov̄) = 0.01</p>
+            <table>
+                <tr>
+                    <th>N (Jumlah Saham)</th>
+                    <th>σ²p</th>
+                    <th>σp</th>
+                    <th>Risk Reduction</th>
+                    <th>Interpretasi</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0.035</td>
+                    <td>18.71%</td>
+                    <td>0%</td>
+                    <td>Tanpa diversifikasi</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>0.0225</td>
+                    <td>15.00%</td>
+                    <td>19.8%</td>
+                    <td>Pengurangan signifikan</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>0.015</td>
+                    <td>12.25%</td>
+                    <td>34.6%</td>
+                    <td>Diversifikasi cukup baik</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>0.0125</td>
+                    <td>11.18%</td>
+                    <td>40.2%</td>
+                    <td>Diversifikasi optimal untuk banyak investor</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>0.01125</td>
+                    <td>10.61%</td>
+                    <td>43.3%</td>
+                    <td>Pengurangan mulai melambat</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td>0.0105</td>
+                    <td>10.25%</td>
+                    <td>45.2%</td>
+                    <td>Hampir mencapai batas</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>0.01025</td>
+                    <td>10.12%</td>
+                    <td>45.9%</td>
+                    <td>Hampir tidak ada pengurangan lagi</td>
+                </tr>
+                <tr style="background: #d4edda;">
+                    <td><strong>∞</strong></td>
+                    <td><strong>0.01</strong></td>
+                    <td><strong>10.00%</strong></td>
+                    <td><strong>46.5%</strong></td>
+                    <td><strong>Batas maksimum diversifikasi</strong></td>
+                </tr>
+            </table>
+            <p><strong>Interpretasi:</strong></p>
+            <ul>
+                <li>Dari 1 saham ke 10 saham: risiko turun 40.2% (pengurangan BESAR)</li>
+                <li>Dari 10 saham ke 100 saham: risiko turun hanya 5.7% (pengurangan KECIL)</li>
+                <li><strong>Kesimpulan:</strong> Diversifikasi paling efektif di awal (1-10 saham). Setelah itu, manfaatnya semakin berkurang.</li>
+            </ul>
+        </div>
+
+        <div class="analogy">
+            <h4>🧊 Analogi Sederhana</h4>
+            <p>Bayangkan Anda membawa payung untuk melindungi dari hujan:</p>
+            <ul>
+                <li><strong>1 payung</strong> = melindungi dari hujan lokal (risiko spesifik)</li>
+                <li><strong>10 payung</strong> = tetap basah saat hujan deras di seluruh kota (risiko sistematis)</li>
+            </ul>
+            <p>Diversifikasi seperti membawa banyak payung: melindungi dari hujan lokal, tapi tidak dari hujan di seluruh kota.</p>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 9. Excel Examples -->
+        <!-- ================================================================== -->
+        <h2 id="excel-examples">9. Contoh Penerapan di Excel</h2>
+
+        <h3>Contoh 1: Expected Return Portfolio (2 Saham)</h3>
+
+        <div class="excel-example">
+            <h4>📊 Data:</h4>
+            <table>
+                <tr>
+                    <th>Saham</th>
+                    <th>Expected Return</th>
+                    <th>Bobot</th>
+                </tr>
+                <tr>
+                    <td>Astra (ASII)</td>
+                    <td>15%</td>
+                    <td>60%</td>
+                </tr>
+                <tr>
+                    <td>BCA (BBCA)</td>
+                    <td>12%</td>
+                    <td>40%</td>
+                </tr>
+            </table>
+
+            <h4>📝 Perhitungan Manual:</h4>
+            <p>E(Rp) = w₁ × E(R₁) + w₂ × E(R₂)</p>
+            <p>E(Rp) = 0.60 × 15% + 0.40 × 12%</p>
+            <p>E(Rp) = 9% + 4.8% = <strong>13.8%</strong></p>
+
+            <h4>💻 Rumus Excel:</h4>
+            <div class="excel-formula">=0.60*0.15 + 0.40*0.12</div>
+            <p><strong>Hasil: 13.8%</strong></p>
+            <p><strong>Interpretasi:</strong> Jika Anda menginvestasikan 60% ke ASII dan 40% ke BBCA, return yang diharapkan adalah 13.8% per tahun.</p>
+        </div>
+
+        <h3>Contoh 2: Portfolio Variance & Standard Deviation (2 Saham)</h3>
+
+        <div class="excel-example">
+            <h4>📊 Data:</h4>
+            <table>
+                <tr>
+                    <th>Saham</th>
+                    <th>σ² (Variance)</th>
+                    <th>σ (Std Dev)</th>
+                </tr>
+                <tr>
+                    <td>ASII</td>
+                    <td>0.04</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>BBCA</td>
+                    <td>0.025</td>
+                    <td>15.81%</td>
+                </tr>
+                <tr>
+                    <td><strong>Korelasi (ρ)</strong></td>
+                    <td colspan="2"><strong>0.30</strong></td>
+                </tr>
+            </table>
+
+            <h4>📝 Perhitungan Manual:</h4>
+            <p>σ²p = w₁²σ₁² + w₂²σ₂² + 2w₁w₂ρ₁₂σ₁σ₂</p>
+            <p>σ²p = (0.60)²(0.04) + (0.40)²(0.025) + 2(0.60)(0.40)(0.3)(0.20)(0.1581)</p>
+            <p>σ²p = 0.0144 + 0.004 + 0.00456 = <strong>0.02296</strong></p>
+            <p>σp = √0.02296 = <strong>15.15%</strong></p>
+
+            <h4>💻 Rumus Excel:</h4>
+            <p>Variance:</p>
+            <div class="excel-formula">=(0.6^2*0.04)+(0.4^2*0.025)+2*0.6*0.4*0.3*0.2*0.1581</div>
+            <p>Standard Deviation:</p>
+            <div class="excel-formula">=SQRT((0.6^2*0.04)+(0.4^2*0.025)+2*0.6*0.4*0.3*0.2*0.1581)</div>
+            <p><strong>Hasil: σp = 15.15%</strong></p>
+            <p><strong>Interpretasi:</strong> Risiko portfolio (15.15%) LEBIH RENDAH dari rata-rata risiko aset (18.32%). Ini membuktikan diversifikasi bekerja karena korelasi positif yang rendah (0.3).</p>
+        </div>
+
+        <h3>Contoh 3: Minimum Variance Portfolio (2 Saham)</h3>
+
+        <div class="excel-example">
+            <h4>📝 Rumus Bobot Optimal:</h4>
+            <div class="formula-box">
+                <div class="formula">
+                    w₁* = (σ₂² - σ₁₂) / (σ₁² + σ₂² - 2σ₁₂)<br>
+                    w₂* = 1 - w₁*
+                </div>
+            </div>
+
+            <h4>📝 Perhitungan:</h4>
+            <p>w₁* = (0.025 - (-0.00045)) / (0.04 + 0.025 - 2(-0.00045))</p>
+            <p>w₁* = 0.02545 / 0.0659 = <strong>38.62%</strong></p>
+            <p>w₂* = 1 - 0.3862 = <strong>61.38%</strong></p>
+
+            <h4>💻 Rumus Excel:</h4>
+            <div class="excel-formula">=(0.025-(-0.00045))/(0.04+0.025-2*(-0.00045))</div>
+            <p><strong>Hasil: w₁* = 38.62%, w₂* = 61.38%</strong></p>
+            <p><strong>Interpretasi:</strong> Untuk mencapai risiko TERENDAH, Anda harus mengalokasikan 38.62% ke ASII dan 61.38% ke BBCA. Portofolio ini memiliki risiko lebih rendah dari kedua aset secara individual.</p>
+        </div>
+
+        <h3>Contoh 4: Efficient Frontier (Multiple Portfolios)</h3>
+
+        <div class="excel-example">
+            <h4>📊 Tabel Bobot & Hasil:</h4>
+            <table>
+                <tr>
+                    <th>Portfolio</th>
+                    <th>w(ASII)</th>
+                    <th>w(BBCA)</th>
+                    <th>E(Rp)</th>
+                    <th>σp</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>100%</td>
+                    <td>0%</td>
+                    <td>15.00%</td>
+                    <td>20.00%</td>
+                    <td>Efficient</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>80%</td>
+                    <td>20%</td>
+                    <td>14.40%</td>
+                    <td>16.85%</td>
+                    <td>Efficient</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>60%</td>
+                    <td>40%</td>
+                    <td>13.80%</td>
+                    <td>15.15%</td>
+                    <td>Efficient</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>40%</td>
+                    <td>60%</td>
+                    <td>13.20%</td>
+                    <td>14.98%</td>
+                    <td>Efficient</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>20%</td>
+                    <td>80%</td>
+                    <td>12.60%</td>
+                    <td>15.85%</td>
+                    <td>Efficient</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>0%</td>
+                    <td>100%</td>
+                    <td>12.00%</td>
+                    <td>15.81%</td>
+                    <td>Efficient</td>
+                </tr>
+                <tr style="background: #d4edda;">
+                    <td><strong>MVP</strong></td>
+                    <td><strong>38.62%</strong></td>
+                    <td><strong>61.38%</strong></td>
+                    <td><strong>13.16%</strong></td>
+                    <td><strong>14.95%</strong></td>
+                    <td><strong>Min Variance</strong></td>
+                </tr>
+            </table>
+
+            <h4>💻 Rumus Excel untuk Tabel:</h4>
+            <p>E(Rp):</p>
+            <div class="excel-formula">=w1*0.15 + w2*0.12</div>
+            <p>σp:</p>
+            <div class="excel-formula">=SQRT(w1^2*0.04 + w2^2*0.025 + 2*w1*w2*(-0.00045))</div>
+            <p><strong>Interpretasi:</strong></p>
+            <ul>
+                <li><strong>Portfolio 1-4</strong> berada di efficient frontier (risiko turun sementara return masih cukup tinggi)</li>
+                <li><strong>Portfolio 5-6</strong> mulai tidak efisien (risiko naik sementara return turun)</li>
+                <li><strong>MVP</strong> adalah portofolio dengan risiko absolut terendah (14.95%)</li>
+            </ul>
+        </div>
+
+        <h3>Contoh 5: Diversification Effect</h3>
+
+        <div class="excel-example">
+            <h4>📊 Data 5 Saham:</h4>
+            <table>
+                <tr>
+                    <th>Saham</th>
+                    <th>σ²</th>
+                    <th>σ</th>
+                </tr>
+                <tr>
+                    <td>Saham 1</td>
+                    <td>0.04</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>Saham 2</td>
+                    <td>0.03</td>
+                    <td>17.32%</td>
+                </tr>
+                <tr>
+                    <td>Saham 3</td>
+                    <td>0.05</td>
+                    <td>22.36%</td>
+                </tr>
+                <tr>
+                    <td>Saham 4</td>
+                    <td>0.02</td>
+                    <td>14.14%</td>
+                </tr>
+                <tr>
+                    <td>Saham 5</td>
+                    <td>0.035</td>
+                    <td>18.71%</td>
+                </tr>
+            </table>
+
+            <h4>📝 Perhitungan untuk Berbagai N:</h4>
+            <table>
+                <tr>
+                    <th>N (Jumlah Saham)</th>
+                    <th>σ²p</th>
+                    <th>σp</th>
+                    <th>Risk Reduction</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0.035</td>
+                    <td>18.71%</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>0.0225</td>
+                    <td>15.00%</td>
+                    <td>19.8%</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>0.015</td>
+                    <td>12.25%</td>
+                    <td>34.6%</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>0.0125</td>
+                    <td>11.18%</td>
+                    <td>40.2%</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td>0.0107</td>
+                    <td>10.34%</td>
+                    <td>44.7%</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>0.01035</td>
+                    <td>10.17%</td>
+                    <td>45.6%</td>
+                </tr>
+                <tr>
+                    <td>∞</td>
+                    <td>0.01</td>
+                    <td>10.00%</td>
+                    <td>46.5%</td>
+                </tr>
+            </table>
+
+            <h4>💻 Rumus Excel:</h4>
+            <div class="excel-formula">=(1/N)*0.035 + ((N-1)/N)*0.01</div>
+            <p><strong>Interpretasi:</strong></p>
+            <ul>
+                <li>Dari 1 ke 5 saham: risiko turun 34.6% (manfaat BESAR)</li>
+                <li>Dari 5 ke 100 saham: risiko turun hanya 11.9% (manfaat MENGECIL)</li>
+                <li><strong>Pelajaran:</strong> Diversifikasi paling efektif di awal (1-10 saham). Setelah itu, manfaatnya berkurang drastis.</li>
+            </ul>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- 10. Cheat Sheet -->
+        <!-- ================================================================== -->
+        <h2 id="cheat-sheet">10. Rumus Penting (Cheat Sheet)</h2>
+
+        <div class="cheat-sheet">
+            <h3>🎯 8 Rumus Utama Chapter 4</h3>
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th>Rumus</th>
+                    <th>Kegunaan</th>
+                    <th>Interpretasi Singkat</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>E(Rp) = Σ wᵢ E(Rᵢ)</td>
+                    <td>Expected Return Portfolio</td>
+                    <td>Rata-rata tertimbang return</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>σ² = Σ Pₛ [Rₛ - E(R)]²</td>
+                    <td>Variance</td>
+                    <td>Rata-rata kuadrat selisih dari mean</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>σ = √σ²</td>
+                    <td>Standard Deviation</td>
+                    <td>Risiko dalam satuan yang sama dengan return</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Cov(Rᵢ, Rⱼ) = Σ Pₛ [Rᵢₛ - E(Rᵢ)][Rⱼₛ - E(Rⱼ)]</td>
+                    <td>Covariance</td>
+                    <td>Arah hubungan antar return</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>ρᵢⱼ = Cov(Rᵢ, Rⱼ) / (σᵢ × σⱼ)</td>
+                    <td>Correlation Coefficient</td>
+                    <td>Kekuatan hubungan (-1 sampai +1)</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>σ²p = w₁²σ₁² + w₂²σ₂² + 2w₁w₂ρ₁₂σ₁σ₂</td>
+                    <td>Portfolio Variance (2 aset)</td>
+                    <td>Risiko portfolio dengan efek diversifikasi</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>σ²p = Σᵢ Σⱼ wᵢ wⱼ σᵢⱼ</td>
+                    <td>Portfolio Variance (N aset)</td>
+                    <td>Risiko portfolio multi-aset</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>σ²p = (1/N)σ̄² + ((N-1)/N)Cov̄</td>
+                    <td>Diversification Effect</td>
+                    <td>Pengurangan risiko via diversifikasi</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Key Takeaways -->
+        <div class="key-takeaway">
+            <h4>💡 Key Takeaways (Kesimpulan Utama)</h4>
+            <ol>
+                <li><strong>Expected Return</strong> adalah rata-rata tertimbang dari return individual — tidak bisa melebihi return aset terbaik</li>
+                <li><strong>Risk (σ)</strong> mengukur penyebaran return dari expected value — semakin tinggi σ, semakin tidak pasti hasilnya</li>
+                <li><strong>Covariance/Correlation</strong> mengukur hubungan antar return — korelasi rendah = diversifikasi efektif</li>
+                <li><strong>Diversification</strong> mengurangi risiko TANPA mengurangi expected return — ini "free lunch" dalam investasi</li>
+                <li><strong>Efficient Frontier</strong> adalah kumpulan portofolio optimal — investor rational hanya memilih dari sini</li>
+                <li><strong>Minimum Variance Portfolio</strong> adalah portofolio dengan risiko terendah — titik paling kiri di efficient frontier</li>
+                <li><strong>Risiko spesifik</strong> bisa dihilangkan dengan diversifikasi, <strong>risiko sistematis</strong> tidak bisa</li>
+            </ol>
+        </div>
+
+        <!-- References -->
+        <h2>📚 Daftar Pustaka</h2>
+        <ol>
+            <li>Elton, E.J., Gruber, M.J., Brown, S.J., & Goetzmann, W.N. (2014). <em>Modern Portfolio Theory and Investment Analysis</em>, 9th Edition. Wiley.</li>
+            <li>Markowitz, H. (1952). Portfolio Selection. <em>Journal of Finance</em>, 7(1), 77-91.</li>
+            <li>Sharpe, W.F. (1964). Capital Asset Prices. <em>Journal of Finance</em>, 19(3), 425-442.</li>
+        </ol>
+
+        <hr style="margin-top: 30px;">
+        <p style="text-align: center; color: #7f8c8d; font-size: 12px;">
+            Summary dibuat pada 27 Agustus 2026 | Sumber: Chapter 4, Modern Portfolio Theory and Investment Analysis
+        </p>
+    </div>
+</body>
+</html>
