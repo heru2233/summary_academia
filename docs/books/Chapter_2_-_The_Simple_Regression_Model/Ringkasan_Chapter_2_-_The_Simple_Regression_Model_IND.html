@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2   The Simple Regression Model</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 2   The Simple Regression Model</h1>
+<div class="container">
+
+<div class="toc">
+  <h3>Daftar Isi</h3>
+  <ul>
+    <li><a href="#section1">1. Definisi Model Regresi Sederhana</a></li>
+    <li><a href="#section2">2. Menurunkan Estimasi Ordinary Least Squares</a></li>
+    <li><a href="#section3">3. Sifat-sifat OLS pada Sampel Data Manapun</a></li>
+    <li><a href="#section4">4. Satuan Pengukuran dan Bentuk Fungsional</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Definisi Model Regresi Sederhana</h2>
+
+<h3>1.1 Model Populasi</h3>
+
+<div class="interpretation">
+  <p>Model regresi sederhana adalah titik awal untuk analisis ekonomi empiris. Model ini mencoba menjelaskan satu variabel, \(y\), menggunakan variabel lain, \(x\). Premis intinya adalah bahwa \(y\) dan \(x\) adalah dua variabel yang menggambarkan suatu populasi, dan peneliti tertarik untuk menjelaskan \(y\) dalam kaitannya dengan \(x\), atau mempelajari bagaimana \(y\) berubah ketika \(x\) berubah. Model ini disebut <i>simple</i>, <i>two-variable</i>, atau <i>bivariate</i> linear regression karena hanya menghubungkan dua variabel, \(x\) dan \(y\).</p>
+  <p>Menuliskan model seperti ini memaksa peneliti untuk menghadapi tiga masalah. Pertama, tidak ada hubungan yang eksak antara dua variabel dalam ilmu sosial, sehingga model harus memungkinkan faktor-faktor lain untuk mempengaruhi \(y\). Kedua, hubungan fungsional antara \(y\) dan \(x\) harus ditentukan. Ketiga, peneliti harus memutuskan apakah model tersebut dapat mengungkap hubungan <i>ceteris paribus</i>, yaitu efek dari \(x\) terhadap \(y\) dengan menahan semua faktor relevan lainnya tetap konstan.</p>
+  <p>Model regresi linier sederhana memecahkan masalah-masalah ini dengan menuliskan \(y\) sebagai fungsi linier dari \(x\) ditambah dengan <i>error term</i>. <i>Error term</i> \(u\) mengumpulkan semua faktor selain \(x\) yang mempengaruhi \(y\). Karena faktor-faktor tersebut tidak teramati, <i>error term</i> sering dianggap mewakili "tidak teramati." Koefisien \(\beta_1\) adalah parameter <i>slope</i> dan mengukur efek dari \(x\) terhadap \(y\) ketika faktor-faktor lain dalam \(u\) ditahan tetap konstan. Koefisien \(\beta_0\) adalah <i>intercept</i>, atau <i>constant term</i>, dan menentukan nilai \(y\) ketika \(x = 0\) dan rata-rata faktor yang tidak teramati adalah nol.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model Regresi Linier Sederhana</span>
+  <div class="formula">\[ y = \beta_0 + \beta_1 x + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Asumsi linearitas berarti bahwa jika faktor-faktor lain dalam \(u\) ditahan tetap konstan, sehingga \(\Delta u = 0\), maka perubahan satu unit pada \(x\) berhubungan dengan perubahan sebesar \(\beta_1\) pada \(y\). Hal ini dinyatakan sebagai \(\Delta y = \beta_1 \Delta x\). Ini adalah efek marjinal yang konstan: efek dari peningkatan satu unit pada \(x\) adalah sama tanpa memandang nilai awal \(x\). Untuk banyak hubungan ekonomi, hal ini tidak realistis. Sebagai contoh, tambahan satu tahun pendidikan mungkin memiliki efek yang lebih besar pada upah bagi seseorang yang berpendidikan rendah dibandingkan bagi seseorang yang telah memiliki banyak tahun pendidikan. Nantinya, transformasi logaritmik diperkenalkan untuk memungkinkan efek persentase konstan sebagai pengganti efek unit konstan.</p>
+  <p>Istilah "regresi" memiliki asal-usul historis yang tidak penting untuk praktik modern, tetapi kerangka kerja ini tetap menjadi pusat ekonometrika terapan. Poin utamanya adalah bahwa \(u\) mewakili semua faktor yang dihilangkan, dan \(\beta_1\) mewakili efek <i>ceteris paribus</i> dari \(x\) terhadap \(y\). Namun, interpretasi itu hanya valid jika \(u\) secara tepat tidak berhubungan dengan \(x\). Tanpa batasan tentang bagaimana \(u\) dan \(x\) terkait, model tidak dapat mengidentifikasi efek kausal dari \(x\) terhadap \(y\).</p>
+</div>
+
+<h3>1.2 Terminologi</h3>
+
+<div class="interpretation">
+  <p>Variabel \(y\) memiliki banyak nama: <i>dependent variable</i>, <i>explained variable</i>, <i>response variable</i>, <i>predicted variable</i>, dan <i>regressand</i>. Variabel \(x\) disebut <i>independent variable</i>, <i>explanatory variable</i>, <i>control variable</i>, <i>predictor variable</i>, dan <i>regressor</i>. Istilah "<i>covariate</i>" juga digunakan untuk \(x\). Nama-nama ini digunakan secara bergantian dalam ekonometrika, meskipun "dijelaskan" dan "penjelas" adalah yang paling deskriptif. Penting untuk dicatat bahwa "independen" dalam konteks ini tidak berarti independen secara statistik dari \(y\); ini hanya merujuk pada peran variabel dalam persamaan regresi.</p>
+</div>
+
+<table class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>\(y\)</th><th>\(x\)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Variabel dependen</td><td>Variabel independen</td></tr>
+      <tr><td>Variabel yang dijelaskan</td><td>Variabel penjelas</td></tr>
+      <tr><td>Variabel respons</td><td>Variabel kontrol</td></tr>
+      <tr><td>Variabel yang diprediksi</td><td>Variabel prediktor</td></tr>
+      <tr><td>Regressand</td><td>Regressor</td></tr>
+    </tbody>
+  </table>
+</table>
+
+<div class="formula-box">
+  <span class="label">Efek Ceteris Paribus</span>
+  <div class="formula">\[ \Delta y = \beta_1 \Delta x \quad \text{if} \quad \Delta u = 0 \]</div>
+</div>
+
+<h3>1.3 Asumsi Tentang Error Term</h3>
+
+<div class="interpretation">
+  <p>Karena \(u\) dan \(x\) adalah <i>random variables</i>, hubungan di antara keduanya harus dijelaskan secara probabilistik. Satu asumsi selalu dapat dibuat tanpa kehilangan sifat umum jika <i>intercept</i> disertakan: nilai rata-rata \(u\) dalam populasi adalah nol, \(E(u) = 0\). Ini tidak membatasi hubungan antara \(u\) dan \(x\); ini hanya menormalkan rata-rata faktor yang tidak teramati menjadi nol.</p>
+  <p>Asumsi yang krusial adalah bahwa nilai rata-rata \(u\) tidak bergantung pada \(x\). Ini disebut <i>mean independence</i>, ditulis \(E(u|x) = E(u)\). Dikombinasikan dengan \(E(u) = 0\), ini memberikan <i>zero conditional mean assumption</i> \(E(u|x) = 0\). Asumsi ini jauh lebih kuat daripada mengatakan bahwa \(u\) dan \(x\) tidak berkorelasi. Korelasi hanya menangkap hubungan linier, sehingga mungkin saja \(u\) tidak berkorelasi dengan \(x\) tetapi masih terkait dengan fungsi-fungsi dari \(x\), seperti \(x^2\). Asumsi <i>zero conditional mean</i> menyingkirkan semua ketergantungan semacam itu dan diperlukan untuk interpretasi kausal dari regresi.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Asumsi Zero Conditional Mean</span>
+  <div class="formula">\[ E(u|x) = 0 \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Di bawah asumsi <i>zero conditional mean</i>, fungsi regresi populasi (PRF) adalah linier: \(E(y|x) = \beta_0 + \beta_1 x\). Ini memberi tahu kita bagaimana nilai <i>rata-rata</i> dari \(y\) berubah dengan \(x\), bukan bagaimana setiap individu \(y\) berubah. Sebagai contoh, jika \(E(colGPA | hsGPA) = 1.5 + 0.5 hsGPA\), maka siswa dengan IPK sekolah menengah atas 3.6 memiliki IPK perguruan tinggi rata-rata 3.3, tetapi IPK perguruan tinggi individu bisa di atas atau di bawah nilai tersebut tergantung pada faktor-faktor yang tidak teramati.</p>
+  <p>Asumsi <i>zero conditional mean</i> tidak secara otomatis terpenuhi. Dalam persamaan upah, jika kemampuan bawaan adalah bagian dari \(u\), maka \(E(u|x) = 0\) mensyaratkan bahwa tingkat kemampuan rata-rata adalah sama untuk semua tingkat pendidikan. Jika orang yang lebih mampu cenderung memperoleh lebih banyak pendidikan, asumsi tersebut gagal. Demikian pula, dalam contoh pupuk, jika petani menerapkan lebih banyak pupuk pada lahan dengan kualitas lebih tinggi, maka kualitas lahan rata-rata berubah seiring dengan pupuk, melanggar \(E(u|x) = 0\). Apakah asumsi ini berlaku pada akhirnya adalah pertanyaan empiris dan konseptual yang tidak dapat diselesaikan hanya dengan data.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>Hasil panen kedelai dan pupuk.</strong> Misalkan \(y = hasil panen\) dan \(x = pupuk\). Modelnya adalah \(hasil panen = \beta_0 + \beta_1 pupuk + u\). <i>Error term</i> \(u\) mengandung kualitas lahan, curah hujan, dan karakteristik petak lainnya. Koefisien \(\beta_1\) mengukur efek pupuk terhadap hasil panen dengan menahan faktor-faktor lain tersebut tetap konstan. Jika jumlah pupuk dipilih secara independen dari kualitas lahan, maka \(E(u|x) = 0\) berlaku. Tetapi jika petani memberikan lebih banyak pupuk pada lahan yang lebih baik, kualitas lahan yang tidak teramati secara rata-rata berubah seiring dengan pupuk dan asumsi tersebut gagal.</p>
+  <p><strong>Upah dan pendidikan.</strong> Misalkan \(y = upah\) dalam dolar per jam dan \(x = educ\) dalam tahun. Modelnya adalah \(upah = \beta_0 + \beta_1 educ + u\). <i>Slope</i> \(\beta_1\) mengukur perubahan upah per jam dari satu tahun tambahan pendidikan, dengan menahan pengalaman kerja, kemampuan, masa kerja, etos kerja, dan faktor-faktor lainnya tetap konstan. Asumsi <i>zero conditional mean</i> mensyaratkan bahwa kemampuan rata-rata adalah sama di semua tingkat pendidikan, yang mungkin salah jika orang dengan kemampuan lebih memilih lebih banyak pendidikan.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Bayangkan model regresi sederhana sebagai sebuah resep. Variabel dependen \(y\) adalah hidangan akhir. Variabel penjelas \(x\) adalah bahan utama yang menjadi fokus resep, dan \(u\) adalah semua bahan lain, kondisi memasak, dan keterampilan koki yang juga mempengaruhi hidangan akhir. Koefisien \(\beta_1\) memberi tahu Anda seberapa banyak hidangan akhir berubah ketika Anda menambahkan satu unit lagi dari bahan utama sambil menjaga semua hal lainnya tetap konstan. Asumsi <i>zero conditional mean</i> seperti mensyaratkan bahwa "bahan-bahan lain" tidak berubah secara sistematis ketika bahan utama berubah. Jika orang yang menambahkan lebih banyak gula juga cenderung menambahkan lebih banyak garam, maka Anda tidak dapat mengisolasi efek murni dari gula.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>Seluruh interpretasi kausal dari model regresi sederhana bertumpu pada asumsi <i>zero conditional mean</i> \(E(u|x) = 0\). <strong>Tanpa asumsi ini, OLS hanya menggambarkan korelasi, bukan kausalitas.</strong> Asumsi ini tidak dapat diuji secara langsung karena \(u\) tidak teramati; asumsi ini harus dibenarkan oleh penalaran ekonomi atau oleh desain proses pengumpulan data.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Model regresi sederhana adalah \(y = \beta_0 + \beta_1 x + u\), di mana \(u\) mengandung semua faktor selain \(x\) yang mempengaruhi \(y\).</li>
+    <li><i>Slope</i> \(\beta_1\) mengukur efek <i>ceteris paribus</i> dari \(x\) terhadap \(y\): peningkatan satu unit pada \(x\) mengubah \(y\) sebesar \(\beta_1\), dengan menahan faktor-faktor lain tetap konstan.</li>
+    <li>Asumsi <i>zero conditional mean</i> \(E(u|x) = 0\) sangat penting untuk menginterpretasikan \(\beta_1\) sebagai efek kausal.</li>
+    <li>Di bawah asumsi ini, fungsi regresi populasi adalah \(E(y|x) = \beta_0 + \beta_1 x\).</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Menurunkan Estimasi Ordinary Least Squares</h2>
+
+<h3>2.1 Momen Populasi dan Padanan Sampel</h3>
+
+<div class="interpretation">
+  <p>Untuk mengestimasi \(\beta_0\) dan \(\beta_1\), kita memerlukan sampel acak berukuran \(n\) dari populasi: \(\{(x_i, y_i): i = 1, \ldots, n\}\). Untuk setiap observasi, model populasi menyiratkan \(y_i = \beta_0 + \beta_1 x_i + u_i\). <i>Error term</i> \(u_i\) mengandung semua faktor yang tidak teramati yang mempengaruhi \(y_i\) untuk observasi \(i\).</p>
+  <p>Asumsi <i>zero conditional mean</i> menyiratkan dua kondisi momen populasi: \(E(u) = 0\) dan \(Cov(x, u) = E(xu) = 0\). Kondisi pertama mengatakan bahwa rata-rata faktor yang tidak teramati adalah nol; kondisi kedua mengatakan bahwa faktor yang tidak teramati tidak berkorelasi dengan variabel penjelas. Dalam kaitannya dengan variabel yang dapat diamati dan parameter yang tidak diketahui, ini menjadi \(E(y - \beta_0 - \beta_1 x) = 0\) dan \(E[x(y - \beta_0 - \beta_1 x)] = 0\).</p>
+  <p>Pendekatan <i>method of moments</i> menggantikan ekspektasi populasi dengan rata-rata sampel. Estimator \(\hat{\beta}_0\) dan \(\hat{\beta}_1\) dipilih untuk memenuhi versi sampel dari dua persamaan ini. Menyelesaikan persamaan-persamaan tersebut menghasilkan estimasi <i>ordinary least squares</i>.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Kondisi Momen Sampel</span>
+  <div class="formula">\[ n^{-1} \sum_{i=1}^n \left(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i\right) = 0 \]</div>
+  <div class="formula">\[ n^{-1} \sum_{i=1}^n x_i \left(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i\right) = 0 \]</div>
+</div>
+
+<h3>2.2 Rumus OLS</h3>
+
+<div class="interpretation">
+  <p>Kondisi momen sampel pertama dapat ditulis ulang menggunakan rata-rata sampel. Jika \(\bar{y}\) dan \(\bar{x}\) adalah rata-rata sampel dari \(y_i\) dan \(x_i\), maka \(\bar{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x}\). Ini berarti garis regresi OLS melewati rata-rata sampel dari data. Penataan ulang memberikan \(\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}\), sehingga <i>intercept</i> ditentukan setelah <i>slope</i> diketahui.</p>
+  <p>Mensubstitusikan ekspresi ini ke dalam kondisi momen sampel kedua dan menggunakan aljabar penjumlahan memberikan rumus untuk \(\hat{\beta}_1\): <i>sample covariance</i> antara \(x_i\) dan \(y_i\) dibagi dengan <i>sample variance</i> dari \(x_i\). Rumus ini mensyaratkan bahwa \(\sum (x_i - \bar{x})^2 > 0\), yang hanya gagal jika semua \(x_i\) identik. Jika semua observasi memiliki nilai \(x\) yang sama, tidak ada variasi dalam \(x\) yang dapat digunakan untuk menjelaskan variasi dalam \(y\), sehingga OLS tidak dapat dihitung.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Estimasi Slope dan Intercept OLS</span>
+  <div class="formula">\[ \hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} \]</div>
+  <div class="formula">\[ \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Ekspresi alternatif untuk <i>slope</i> OLS adalah \(\hat{\beta}_1 = \hat{r}_{xy} \cdot (s_x / s_y)\), di mana \(\hat{r}_{xy}\) adalah <i>sample correlation</i> antara \(x_i\) dan \(y_i\), dan \(s_x\), \(s_y\) adalah <i>sample standard deviations</i>. Ini menunjukkan bahwa tanda dari \(\hat{\beta}_1\) sama dengan tanda dari <i>sample correlation</i>. Jika \(x\) dan \(y\) berkorelasi positif dalam sampel, \(\hat{\beta}_1 > 0\); jika berkorelasi negatif, \(\hat{\beta}_1 < 0\). Ini juga menyoroti bahwa regresi sederhana pada dasarnya adalah analisis korelasi antara dua variabel. Tanpa data eksperimental atau asumsi tambahan, seseorang harus berhati-hati sebelum memberikan interpretasi kausal pada \(\hat{\beta}_1\).</p>
+</div>
+
+<h3>2.3 Nilai Fitted, Residual, dan Least Squares</h3>
+
+<div class="interpretation">
+  <p>Untuk suatu <i>intercept</i> dan <i>slope</i> tertentu, nilai prediksi dari \(y\) ketika \(x = x_i\) adalah nilai <i>fitted</i> \(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\). <i>Residual</i> adalah selisih antara nilai aktual dan nilai <i>fitted</i>: \(\hat{u}_i = y_i - \hat{y}_i\). <i>Residual</i> tidak sama dengan <i>error</i> populasi \(u_i\); <i>residual</i> adalah kuantitas berbasis sampel yang bergantung pada parameter yang diestimasi.</p>
+  <p>Estimasi OLS didefinisikan sebagai nilai-nilai \(\hat{\beta}_0\) dan \(\hat{\beta}_1\) yang meminimumkan jumlah kuadrat <i>residual</i>, \(\sum_{i=1}^n \hat{u}_i^2\). Kondisi orde pertama untuk minimalisasi ini persis sama dengan kondisi momen sampel di atas. Nama "<i>ordinary least squares</i>" berasal dari fakta bahwa estimasi ini meminimumkan jumlah kuadrat <i>residual</i>. Meminimumkan fungsi lain dari <i>residual</i>, seperti jumlah nilai absolut, terkadang berguna tetapi memiliki kelemahan: tidak ada rumus bentuk tertutup yang eksis, dan teori statistiknya jauh lebih rumit.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Nilai Fitted dan Residual</span>
+  <div class="formula">\[ \hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i \]</div>
+  <div class="formula">\[ \hat{u}_i = y_i - \hat{y}_i = y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i \]</div>
+</div>
+
+<div class="formula-box">
+  <span class="label">Jumlah Kuadrat Residual</span>
+  <div class="formula">\[ \min_{\hat{\beta}_0, \hat{\beta}_1} \sum_{i=1}^n \left(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i\right)^2 \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Setelah menghitung estimasi OLS, garis regresi OLS adalah \(\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x\). Ini juga disebut <i>sample regression function</i> (SRF) karena ini adalah versi estimasi dari fungsi regresi populasi \(E(y|x) = \beta_0 + \beta_1 x\). PRF adalah tetap tetapi tidak diketahui; SRF berubah dari sampel ke sampel. Estimasi <i>slope</i> \(\hat{\beta}_1\) memberi tahu kita perubahan prediksi dalam \(y\) untuk peningkatan satu unit pada \(x\): \(\Delta \hat{y} = \hat{\beta}_1 \Delta x\).</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>Gaji CEO dan return on equity.</strong> Untuk 209 CEO, misalkan \(salary\) adalah gaji tahunan dalam ribuan dolar dan \(roe\) adalah rata-rata <i>return on equity</i> sebagai persentase. Regresi yang diestimasi adalah \(\widehat{salary} = 963.191 + 18.501 \, roe\), \(n = 209\), \(R^2 = 0.0132\). Jika \(roe = 0\), gaji yang diprediksi adalah $963,191. Jika \(roe\) meningkat satu poin persentase, gaji yang diprediksi meningkat sebesar $18,501. Ini adalah perubahan prediksi yang sama tanpa memandang tingkat awal \(roe\) karena modelnya linier.</p>
+  <p><strong>Upah dan pendidikan.</strong> Untuk 526 pekerja pada tahun 1976, persamaan yang diestimasi adalah \(\widehat{wage} = -0.90 + 0.54 \, educ\), \(n = 526\). <i>Intercept</i> negatif secara harfiah adalah upah yang diprediksi untuk nol tahun pendidikan, yaitu -90 sen per jam. Ini tidak bermakna secara ekonomi, tetapi hanya 18 orang dalam sampel yang memiliki pendidikan kurang dari delapan tahun, sehingga garis regresi tidak boleh dipercaya pada tingkat pendidikan yang sangat rendah. <i>Slope</i> menyiratkan bahwa satu tahun tambahan pendidikan menaikkan upah per jam yang diprediksi sebesar 54 sen.</p>
+  <p><strong>Hasil pemungutan suara dan pengeluaran kampanye.</strong> Untuk 173 pemilihan DPR AS, misalkan \(voteA\) adalah persentase suara yang diterima oleh Kandidat A dan \(shareA\) adalah persentase Kandidat A dari total pengeluaran kampanye. Persamaan yang diestimasi adalah \(\widehat{voteA} = 26.81 + 0.464 \, shareA\), \(n = 173\), \(R^2 = 0.856\). Peningkatan satu poin persentase dalam pangsa pengeluaran berhubungan dengan peningkatan 0.464 poin persentase dalam pangsa suara. Ketika \(shareA = 50\), pangsa suara yang diprediksi adalah sekitar 50 persen.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Bayangkan menggambar <i>scatterplot</i> titik-titik pada grafik dan mencoba menempatkan garis lurus melalui kumpulan titik-titik tersebut. OLS seperti memilih garis yang meminimumkan jumlah kuadrat jarak vertikal dari setiap titik ke garis. Jika Anda meminimumkan jarak vertikal absolut, garis akan lebih sulit dihitung dengan tangan dan memiliki sifat statistik yang kurang nyaman. Garis OLS adalah garis "paling cocok" dalam arti <i>least squares</i>, mirip dengan menemukan garis yang menyeimbangkan total kesalahan kuadrat sekecil mungkin.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>Estimasi OLS mudah dihitung dan memiliki sifat aljabar yang sangat berguna, tetapi interpretasi kausalnya bergantung pada asumsi model populasi. <strong>Regresi sederhana saja pada dasarnya adalah analisis korelasi, dan \(\hat{\beta}_1\) tidak boleh diinterpretasikan sebagai efek kausal kecuali asumsi <i>zero conditional mean</i> dapat dibenarkan.</strong></p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Estimasi OLS menyelesaikan kondisi momen sampel yang diturunkan dari \(E(u) = 0\) dan \(Cov(x,u) = 0\).</li>
+    <li><i>Slope</i> OLS adalah <i>sample covariance</i> dari \(x\) dan \(y\) dibagi dengan <i>sample variance</i> dari \(x\).</li>
+    <li><i>Intercept</i> OLS membuat garis regresi melewati rata-rata sampel: \(\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}\).</li>
+    <li>OLS meminimumkan jumlah kuadrat <i>residual</i>, menghasilkan nilai <i>fitted</i> dan <i>residual</i> untuk setiap observasi.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Sifat-sifat OLS pada Sampel Data Manapun</h2>
+
+<h3>3.1 Nilai Fitted dan Residual</h3>
+
+<div class="interpretation">
+  <p>Setelah estimasi OLS diperoleh, setiap observasi memiliki nilai <i>fitted</i> \(\hat{y}_i\) dan <i>residual</i> \(\hat{u}_i\). Nilai <i>fitted</i> terletak pada garis regresi OLS. Jika <i>residual</i> positif, garis regresi memprediksi \(y_i\) terlalu rendah; jika <i>residual</i> negatif, garis memprediksi \(y_i\) terlalu tinggi. Di sebagian besar kumpulan data, tidak ada observasi yang terletak tepat pada garis; <i>residual</i> mewakili jarak vertikal dari titik-titik ke garis yang dipasang.</p>
+  <p>Setiap \(y_i\) dapat didekomposisi menjadi nilai <i>fitted</i> ditambah <i>residual</i>: \(y_i = \hat{y}_i + \hat{u}_i\). Dekomposisi ini penting untuk memahami bagaimana OLS memisahkan variasi dalam \(y\) menjadi bagian yang dijelaskan dan bagian yang tidak dijelaskan.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Dekomposisi \(y_i\)</span>
+  <div class="formula">\[ y_i = \hat{y}_i + \hat{u}_i \]</div>
+</div>
+
+<h3>3.2 Tiga Sifat Aljabar</h3>
+
+<div class="interpretation">
+  <p>Estimasi OLS dikonstruksi untuk memenuhi beberapa sifat aljabar yang berlaku untuk setiap sampel data. Sifat-sifat ini bukanlah asumsi statistik; sifat-sifat ini adalah konsekuensi matematis dari cara estimasi OLS dihitung. Sifat-sifat ini berlaku secara konstruksi, terlepas dari apakah model populasi dispesifikasikan dengan benar.</p>
+  <p>Sifat pertama adalah bahwa jumlah <i>residual</i> OLS adalah nol. Ini mengikuti dari kondisi orde pertama \(\sum (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) = 0\). Konsekuensinya, rata-rata sampel dari <i>residual</i> juga nol. Sifat kedua adalah bahwa <i>sample covariance</i> antara variabel penjelas \(x_i\) dan <i>residual</i> \(\hat{u}_i\) adalah nol. Ini mengikuti dari kondisi orde pertama kedua \(\sum x_i \hat{u}_i = 0\). Ini berarti <i>residual</i> tidak mengandung hubungan linier dengan \(x\). Sifat ketiga adalah bahwa titik \((\bar{x}, \bar{y})\) selalu berada pada garis regresi OLS, yang mengikuti dari \(\bar{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x}\).</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Sifat Aljabar OLS</span>
+  <div class="formula">\[ \sum_{i=1}^n \hat{u}_i = 0 \]</div>
+  <div class="formula">\[ \sum_{i=1}^n x_i \hat{u}_i = 0 \]</div>
+  <div class="formula">\[ \bar{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x} \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Dengan menggunakan sifat-sifat ini, seseorang juga dapat menunjukkan bahwa <i>sample covariance</i> antara nilai <i>fitted</i> \(\hat{y}_i\) dan <i>residual</i> \(\hat{u}_i\) adalah nol. Dengan demikian, OLS membagi setiap \(y_i\) menjadi bagian yang terkait dengan \(x\) dan bagian yang tidak terkait dengan \(x\). Dekomposisi ini adalah fondasi untuk mengukur seberapa baik regresi menjelaskan variasi dalam \(y\).</p>
+</div>
+
+<h3>3.3 Goodness-of-Fit: SST, SSE, dan SSR</h3>
+
+<div class="interpretation">
+  <p>Untuk mengukur seberapa baik variabel penjelas menjelaskan variabel dependen, didefinisikan tiga jumlah kuadrat. <i>Total sum of squares</i> (SST) mengukur total variasi sampel dalam \(y_i\) di sekitar rata-ratanya. <i>Explained sum of squares</i> (SSE) mengukur variasi sampel dalam nilai <i>fitted</i> \(\hat{y}_i\) di sekitar rata-ratanya. <i>Residual sum of squares</i> (SSR) mengukur variasi sampel dalam <i>residual</i> \(\hat{u}_i\).</p>
+  <p>Karena nilai <i>fitted</i> dan <i>residual</i> tidak berkorelasi dalam sampel, total variasi dapat dipecah menjadi variasi yang dijelaskan dan tidak dijelaskan: \(SST = SSE + SSR\). Dekomposisi ini berlaku tepat untuk setiap sampel ketika suatu <i>intercept</i> disertakan dalam regresi.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Jumlah Kuadrat Total, Dijelaskan, dan Residual</span>
+  <div class="formula">\[ SST = \sum_{i=1}^n (y_i - \bar{y})^2 \]</div>
+  <div class="formula">\[ SSE = \sum_{i=1}^n (\hat{y}_i - \bar{y})^2 \]</div>
+  <div class="formula">\[ SSR = \sum_{i=1}^n \hat{u}_i^2 \]</div>
+  <div class="formula">\[ SST = SSE + SSR \]</div>
+</div>
+
+<div class="interpretation">
+  <p>\(R\)-squared, atau <i>coefficient of determination</i>, didefinisikan sebagai rasio dari jumlah kuadrat yang dijelaskan terhadap jumlah kuadrat total: \(R^2 = SSE/SST = 1 - SSR/SST\). Karena \(SSE\) tidak dapat melebihi \(SST\), \(R^2\) selalu berada di antara nol dan satu. Mengalikan dengan 100 memberikan persentase variasi sampel dalam \(y\) yang dijelaskan oleh \(x\). Dapat ditunjukkan bahwa \(R^2\) sama dengan kuadrat dari <i>sample correlation</i> antara \(y_i\) dan nilai <i>fitted</i> \(\hat{y}_i\).</p>
+  <p>\(R^2\) yang rendah tidak berarti regresi tersebut tidak berguna. Dalam data <i>cross-sectional</i>, terutama dalam ilmu sosial, nilai \(R^2\) yang rendah adalah hal yang umum. Estimasi OLS dari hubungan <i>ceteris paribus</i> masih dapat bernilai bahkan jika \(x\) hanya menjelaskan sebagian kecil dari variasi dalam \(y\). Sebaliknya, \(R^2\) yang tinggi tidak membuktikan kausalitas. Mahasiswa sering kali terlalu menekankan \(R^2\) ketika mengevaluasi persamaan regresi; tanda dan besaran estimasi <i>slope</i> serta plausibilitas asumsi <i>zero conditional mean</i> biasanya lebih penting.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>Regresi gaji CEO.</strong> Persamaan yang diestimasi \(\widehat{salary} = 963.191 + 18.501 \, roe\) memiliki \(n = 209\) dan \(R^2 = 0.0132\). Dengan demikian, <i>return on equity</i> hanya menjelaskan 1.3 persen dari variasi gaji CEO. 98.7 persen lainnya dari variasi gaji tidak dijelaskan oleh regresi sederhana ini, yang tidak mengejutkan karena banyak faktor yang mempengaruhi kompensasi CEO.</p>
+  <p><strong>Regresi hasil pemungutan suara.</strong> Persamaan yang diestimasi \(\widehat{voteA} = 26.81 + 0.464 \, shareA\) memiliki \(n = 173\) dan \(R^2 = 0.856\). Di sini, pangsa pengeluaran kampanye menjelaskan lebih dari 85 persen variasi dalam hasil pemilihan. Ini adalah \(R^2\) yang besar untuk data <i>cross-sectional</i>.</p>
+  <p><strong>Nilai fitted dan residual untuk CEO.</strong> Untuk CEO pertama dalam sampel, \(roe = 14.1\) dan \(salary = 1095\) (dalam ribuan). Nilai <i>fitted</i> adalah \(\hat{salary} = 963.191 + 18.501(14.1) = 1224.058\). <i>Residual</i> adalah \(1095 - 1224.058 = -129.058\), yang berarti CEO tersebut memperoleh penghasilan lebih rendah dari yang diprediksi berdasarkan <i>return on equity</i> perusahaan. <i>Residual</i> positif menunjukkan CEO yang memperoleh penghasilan lebih tinggi dari yang diprediksi.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Bayangkan \(SST\) sebagai jumlah total "sebaran" dalam nilai-nilai \(y\), seperti penyebaran nilai ujian di sekitar rata-rata kelas. Nilai <i>fitted</i> \(\hat{y}_i\) mewakili bagian dari sebaran yang dapat diprediksi dari \(x\), sementara <i>residual</i> mewakili bagian yang tidak dapat diprediksi. \(R^2\) adalah fraksi dari total sebaran yang diperhitungkan oleh garis regresi. Jika \(R^2 = 0.85\), garis tersebut menjelaskan 85 persen variasi, mirip dengan ramalan cuaca yang secara tepat mengantisipasi sebagian besar perubahan suhu dari hari ke hari.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>\(R^2\) yang rendah tidak berarti regresi tidak berguna, dan \(R^2\) yang tinggi tidak berarti regresi tersebut valid secara kausal.</strong> Penggunaan \(R^2\) yang tepat adalah sebagai ukuran deskriptif dari kekuatan penjelas, bukan sebagai kriteria utama untuk menilai suatu analisis ekonometrika.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li><i>Residual</i> OLS berjumlah nol, tidak berkorelasi dengan \(x\), dan garis regresi selalu melewati rata-rata sampel dari \(x\) dan \(y\).</li>
+    <li>Total variasi dalam \(y\) dapat didekomposisi sebagai \(SST = SSE + SSR\).</li>
+    <li>\(R^2 = SSE/SST = 1 - SSR/SST\) mengukur fraksi variasi sampel dalam \(y\) yang dijelaskan oleh \(x\).</li>
+    <li>\(R^2\) tidak berubah terhadap perubahan satuan pengukuran dan tidak boleh terlalu ditekankan dalam mengevaluasi hasil regresi.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Satuan Pengukuran dan Bentuk Fungsional</h2>
+
+<h3>4.1 Mengubah Satuan Pengukuran</h3>
+
+<div class="interpretation">
+  <p>Dalam ekonomi terapan, variabel sering diukur dalam satuan yang berbeda: dolar versus ribuan dolar, persentase versus desimal, atau jam versus menit. Penting untuk mengetahui bagaimana estimasi OLS berubah ketika satuan pengukuran berubah. Kabar baiknya adalah bahwa perubahannya sepenuhnya dapat diprediksi dan tidak memerlukan estimasi ulang model.</p>
+  <p>Jika variabel dependen dikalikan dengan konstanta \(c\), maka estimasi <i>intercept</i> dan <i>slope</i> OLS keduanya dikalikan dengan \(c\). Sebagai contoh, jika gaji diukur dalam ribuan dolar dan estimasi <i>slope</i> adalah \(18.501\), maka mengukur gaji dalam dolar memerlukan pengalian baik <i>intercept</i> maupun <i>slope</i> dengan \(1,000\). Persamaan yang dihasilkan memiliki interpretasi ekonomi yang persis sama. Jika variabel independen dibagi atau dikalikan dengan konstanta \(c\), <i>slope</i> OLS masing-masing dikalikan atau dibagi dengan \(c\). <i>Intercept</i> tidak terpengaruh oleh penskalaan variabel independen karena \(x = 0\) tetap \(x = 0\) setelah penskalaan tersebut.</p>
+  <p>Ukuran <i>goodness-of-fit</i> \(R^2\) tidak berubah terhadap perubahan satuan pengukuran baik \(y\) maupun \(x\). Secara intuitif, fraksi variasi yang dijelaskan seharusnya tidak bergantung pada apakah suatu variabel diukur dalam dolar atau sen. Secara matematis, <i>correlation</i> antara \(y\) dan \(\hat{y}\) tidak terpengaruh oleh penskalaan linier.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Efek Penskalaan Ulang Variabel Dependen</span>
+  <div class="formula">\[ \text{Jika } y^* = c y, \text{ maka } \hat{\beta}_0^* = c \hat{\beta}_0 \text{ dan } \hat{\beta}_1^* = c \hat{\beta}_1 \]</div>
+</div>
+
+<div class="formula-box">
+  <span class="label">Efek Penskalaan Ulang Variabel Independen</span>
+  <div class="formula">\[ \text{Jika } x^* = c x, \text{ maka } \hat{\beta}_1^* = \hat{\beta}_1 / c \]</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>Gaji CEO diukur dalam dolar.</strong> Regresi awal adalah \(\widehat{salary} = 963.191 + 18.501 \, roe\), di mana \(salary\) dalam ribuan dolar. Misalkan \(salardol = 1000 \cdot salary\) adalah gaji dalam dolar. Maka persamaan yang diestimasi menjadi \(\widehat{salardol} = 963{,}191 + 18{,}501 \, roe\). Jika \(roe = 0\), gaji yang diprediksi adalah $963,191. Jika \(roe\) meningkat satu poin persentase, gaji yang diprediksi meningkat sebesar $18,501. Kedua persamaan tersebut ekuivalen.</p>
+  <p><strong>Return on equity sebagai desimal.</strong> Misalkan \(roedec = roe/100\). Regresi dari \(salary\) pada \(roedec\) memberikan \(\widehat{salary} = 963.191 + 1{,}850.1 \, roedec\). <i>Slope</i> 100 kali lebih besar karena \(roedec\) 100 kali lebih kecil dari \(roe\). Perubahan satu poin persentase dalam \(roe\) adalah \(0.01\) dalam bentuk desimal, sehingga perubahan gaji yang diprediksi adalah \(1850.1(0.01) = 18.501\), persis seperti sebelumnya.</p>
+  <p><strong>Gaji diukur dalam ratusan dolar.</strong> Jika \(salarhun = 10 \cdot salary\), <i>intercept</i> menjadi \(9{,}631.91\) dan <i>slope</i> menjadi \(185.01\). Ini mempertahankan interpretasi dalam ratusan dolar.</p>
+</div>
+
+<h3>4.2 Bentuk Fungsional Logaritmik</h3>
+
+<div class="interpretation">
+  <p>Model linier memberlakukan efek marjinal yang konstan: perubahan satu unit pada \(x\) mengubah \(y\) dengan jumlah yang sama di mana pun. Untuk banyak hubungan ekonomi, efek persentase konstan lebih masuk akal. Sebagai contoh, setiap tahun tambahan pendidikan dapat meningkatkan upah dengan persentase konstan, bukan dengan jumlah dolar yang konstan. Logaritma natural digunakan untuk mengubah efek persentase konstan menjadi model linier.</p>
+  <p>Pertimbangkan model \(\log(wage) = \beta_0 + \beta_1 educ + u\). Ketika \(\Delta u = 0\), satu tahun tambahan pendidikan mengubah \(\log(wage)\) sebesar \(\beta_1\). Mengalikan dengan 100 memberikan perkiraan persentase perubahan upah: \(\%\Delta wage \approx 100 \cdot \beta_1 \Delta educ\). Model ini menyiratkan bahwa peningkatan upah dalam dolar menjadi lebih besar seiring dengan meningkatnya pendidikan, karena persentase konstan dari basis upah yang lebih besar adalah jumlah dolar yang lebih besar. Ini sering kali merupakan karakterisasi yang lebih realistis daripada model linier.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model Efek Persentase Konstan</span>
+  <div class="formula">\[ \log(wage) = \beta_0 + \beta_1 educ + u \]</div>
+  <div class="formula">\[ \%\Delta wage \approx (100 \cdot \beta_1) \Delta educ \]</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>Persamaan log upah.</strong> Menggunakan data upah yang sama dengan persamaan upah linier, persamaan log upah yang diestimasi adalah \(\widehat{\log(wage)} = 0.584 + 0.083 \, educ\), \(n = 526\), \(R^2 = 0.186\). <i>Slope</i> \(0.083\) berarti bahwa setiap tahun tambahan pendidikan berhubungan dengan peningkatan sekitar 8.3 persen dalam upah per jam. Ini adalah efek persentase konstan: satu tahun tambahan pendidikan menaikkan upah sekitar 8.3 persen baik pekerja tersebut saat ini memiliki 6 atau 16 tahun pendidikan. Namun, dalam istilah dolar, peningkatannya lebih besar untuk pekerja bergaji tinggi daripada pekerja bergaji rendah.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Bayangkan sebuah rekening tabungan yang menghasilkan bunga majemuk. Model linier akan mengatakan bahwa rekening tersebut tumbuh dengan jumlah dolar yang sama setiap tahun. Model log-linier mengatakan bahwa rekening tersebut tumbuh dengan persentase yang sama setiap tahun, sehingga peningkatan dolar tumbuh seiring waktu seiring dengan pertumbuhan saldo. Model log upah memperlakukan pendidikan seperti investasi dengan tingkat pengembalian persentase konstan, yang biasanya lebih alami untuk <i>human capital</i>.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>Mengubah satuan pengukuran hanya menskala ulang koefisien dan tidak mempengaruhi \(R^2\). Menggunakan transformasi logaritmik mengubah interpretasi ekonomi dari efek unit konstan menjadi efek persentase konstan. <strong>Pilihan bentuk fungsional bukanlah detail teknis; ia menentukan jenis hubungan ekonomi apa yang sedang diestimasi.</strong></p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Mengalikan variabel dependen dengan \(c\) mengalikan kedua koefisien OLS dengan \(c\); mengalikan variabel independen dengan \(c\) membagi <i>slope</i> OLS dengan \(c\).</li>
+    <li>\(R^2\) tidak berubah terhadap perubahan satuan pengukuran \(y\) dan \(x\).</li>
+    <li>Model dengan variabel dependen-log mendekati efek persentase konstan: \(\%\Delta y \approx 100 \beta_1 \Delta x\).</li>
+    <li>Model log upah menyiratkan peningkatan pengembalian dolar terhadap pendidikan meskipun persentase pengembaliannya konstan.</li>
+  </ul>
+</div>
+
+</div>
+    </div>
+</body>
+</html>

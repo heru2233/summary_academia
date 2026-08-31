@@ -1,187 +1,370 @@
-/* Responsive CSS - Academic Summaries */
+/* ============================================================
+   Academic Summaries - Unified Responsive CSS
+   ============================================================ */
 
-/* Colored boxes - base styles */
-.interpretation, .formula-box, .example, .analogy, .insight, .key-takeaway, .toc {
-  padding: 15px;
-  margin: 15px 0;
-  border-radius: 5px;
+/* ---- Base Typography ---- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    color: #333;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f5f5;
 }
 
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ---- Headings ---- */
+h1 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 4px solid #3498db;
+}
+h3 {
+    color: #2980b9;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h4 {
+    color: #7d3c98;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+/* ---- Paragraphs & Lists ---- */
+p { margin-bottom: 12px; }
+ul, ol { margin-left: 20px; margin-bottom: 15px; }
+li { margin-bottom: 8px; }
+
+/* ---- Colored Boxes (Content Blocks) ---- */
+.interpretation {
+    background: #e8f8f5;
+    border-left: 4px solid #1abc9c;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+.interpretation h4 { color: #16a085; margin-top: 0; }
+
+.formula-box {
+    background: #ecf0f1;
+    border-left: 4px solid #e74c3c;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-family: 'Cambria Math', 'Times New Roman', serif;
+    text-align: center;
+}
+.formula-box .label {
+    font-weight: bold;
+    color: #e74c3c;
+    display: block;
+    margin-bottom: 5px;
+}
 .formula-box .formula {
-  font-size: 18px;
+    font-size: 18px;
+    color: #2c3e50;
+    background: #faf5ee;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+}
+
+.example {
+    background: #fdf2e9;
+    border-left: 4px solid #e67e22;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+.example h4 { color: #d35400; margin-top: 0; }
+
+.analogy {
+    background: #f4ecf7;
+    border-left: 4px solid #8e44ad;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+.analogy h4 { color: #7d3c98; margin-top: 0; }
+
+.insight {
+    background: #d6eaf8;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+.insight h4 { color: #2980b9; margin-top: 0; }
+
+.key-takeaway {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+.key-takeaway h4 { color: #856404; margin-bottom: 10px; }
+
+/* ---- Table of Contents ---- */
+.toc {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border: 1px solid #e9ecef;
+}
+.toc h3 { margin-top: 0; color: #2c3e50; }
+.toc ul { list-style: none; margin-left: 0; }
+.toc li { padding: 5px 0; }
+.toc a { color: #3498db; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+/* ---- Tables ---- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background: white;
+}
+th, td {
+    border: 1px solid #bdc3c7;
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+}
+tr:nth-child(even) { background: #f8f9fa; }
+tr:hover { background: #e8f4f8; }
+
+.table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+/* ---- Code & Highlight ---- */
+code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, monospace;
+    color: #e74c3c;
+}
+.highlight {
+    background: #ffeaa7;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* ---- Notes ---- */
+.note {
+    background: #fff4e0;
+    padding: 12px 18px;
+    border-radius: 6px;
+    border-left: 4px solid #e8a030;
+    margin: 15px 0;
+    font-size: 10pt;
+    font-style: italic;
+    color: #333;
 }
 
 hr {
-  border: none;
-  border-top: 2px solid #e0e0e0;
-  margin: 30px 0;
+    border: none;
+    border-top: 2px solid #e0e0e0;
+    margin: 30px 0;
 }
+
+/* ---- Navigation Cards ---- */
+.nav-card, .book-card, .article-card, .lang-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 24px 30px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.nav-card:hover, .book-card:hover, .article-card:hover, .lang-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+.nav-card .icon, .lang-card .flag { font-size: 32px; margin-right: 16px; }
+.nav-card .info, .book-card .info, .article-card .info, .lang-card .info { flex: 1; }
+.nav-card .title, .book-card .title, .article-card .title, .lang-card .title {
+    font-size: 18px; font-weight: bold; margin-bottom: 4px;
+}
+.nav-card .desc, .book-card .meta, .article-card .meta, .lang-card .desc {
+    font-size: 14px; color: #666;
+}
+.nav-card .arrow, .book-card .arrow, .article-card .arrow, .lang-card .arrow {
+    font-size: 24px; color: #999;
+}
+
+/* ---- Back Link ---- */
+.back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-size: 15px;
+}
+.back:hover { text-decoration: underline; }
+
+/* ---- Mobile Mode Toggle Button ---- */
+.mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+.mode-toggle:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* ---- Mobile Mode Styles ---- */
+body.mobile-mode {
+    padding: 10px !important;
+    background: white !important;
+}
+body.mobile-mode .container {
+    padding: 15px !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+}
+body.mobile-mode h1 { font-size: 20px !important; padding-bottom: 8px !important; }
+body.mobile-mode h2 { font-size: 17px !important; margin-top: 20px !important; }
+body.mobile-mode h3 { font-size: 15px !important; }
+body.mobile-mode .interpretation,
+body.mobile-mode .formula-box,
+body.mobile-mode .example,
+body.mobile-mode .analogy,
+body.mobile-mode .insight,
+body.mobile-mode .key-takeaway,
+body.mobile-mode .toc {
+    padding: 12px !important;
+    margin: 10px 0 !important;
+}
+body.mobile-mode .formula-box .formula {
+    font-size: 14px !important;
+    word-wrap: break-word;
+}
+body.mobile-mode table { font-size: 12px !important; }
+body.mobile-mode th, body.mobile-mode td { padding: 6px 8px !important; }
+body.mobile-mode .toc li { padding: 4px 0 !important; }
+body.mobile-mode .toc a { font-size: 14px !important; }
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
 
 /* Tablet */
 @media screen and (max-width: 768px) {
-  body {
-    padding: 16px !important;
-    font-size: 15px !important;
-  }
+    body {
+        padding: 16px !important;
+        font-size: 15px !important;
+    }
+    h1 { font-size: 22px !important; }
+    h2 { font-size: 18px !important; }
+    h3 { font-size: 16px !important; }
+    .container { padding: 20px !important; max-width: 100% !important; }
+    .formula-box .formula { font-size: 16px !important; }
+    .toc ul { columns: 1; }
 
-  h1 { font-size: 22px !important; }
-  h2 { font-size: 18px !important; }
-  h3 { font-size: 16px !important; }
+    .nav-card, .book-card, .article-card, .lang-card { padding: 16px 20px !important; }
+    .nav-card .title, .book-card .title, .article-card .title { font-size: 16px !important; }
+    .nav-card .icon, .lang-card .flag { font-size: 28px !important; }
 
-  .container {
-    padding: 20px !important;
-  }
-
-  .formula-box .formula {
-    font-size: 16px !important;
-  }
-
-  .container {
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-
-  /* Cards */
-  .nav-card, .book-card, .article-card, .lang-card {
-    padding: 16px 20px !important;
-  }
-
-  .nav-card .title,
-  .book-card .title,
-  .article-card .title {
-    font-size: 16px !important;
-  }
-
-  .nav-card .icon,
-  .lang-card .flag {
-    font-size: 28px !important;
-  }
-
-  /* Tables - horizontal scroll on mobile */
-  table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  th, td {
-    padding: 4px 6px !important;
-    font-size: 12px !important;
-    white-space: nowrap;
-  }
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    th, td { padding: 4px 6px !important; font-size: 12px !important; white-space: nowrap; }
 }
 
 /* Mobile */
 @media screen and (max-width: 480px) {
-  body {
-    padding: 12px !important;
-    font-size: 14px !important;
-  }
+    body {
+        padding: 12px !important;
+        font-size: 14px !important;
+    }
+    .container { padding: 15px !important; border-radius: 8px !important; }
+    h1 { font-size: 20px !important; margin-bottom: 12px !important; }
+    h2 { font-size: 16px !important; }
+    h3 { font-size: 15px !important; }
 
-  .container {
-    padding: 15px !important;
-    border-radius: 8px !important;
-  }
+    .interpretation, .formula-box, .example, .analogy, .insight, .key-takeaway, .toc {
+        padding: 12px !important;
+        margin: 12px 0 !important;
+    }
+    .formula-box .formula { font-size: 14px !important; }
+    .toc li { padding: 4px 0 !important; }
+    .toc a { font-size: 13px !important; }
 
-  h1 {
-    font-size: 20px !important;
-    margin-bottom: 12px !important;
-  }
+    .nav-card, .book-card, .article-card, .lang-card {
+        padding: 14px 16px !important;
+        margin-bottom: 12px !important;
+    }
+    .nav-card .icon, .lang-card .flag { font-size: 24px !important; margin-right: 12px !important; }
+    .nav-card .title, .book-card .title, .article-card .title { font-size: 15px !important; }
+    .nav-card .desc, .book-card .meta, .article-card .meta, .lang-card .desc { font-size: 12px !important; }
+    .nav-card .arrow, .book-card .arrow, .article-card .arrow, .lang-card .arrow { font-size: 20px !important; }
 
-  h2 { font-size: 16px !important; }
-  h3 { font-size: 15px !important; }
+    .chapter-list a { padding: 12px 14px !important; font-size: 14px !important; }
+    .chapter-num { display: block; margin-bottom: 4px; }
 
-  .interpretation, .formula-box, .example, .analogy, .insight, .key-takeaway, .toc {
-    padding: 12px !important;
-    margin: 12px 0 !important;
-  }
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 8px 0 !important;
+    }
+    th, td { padding: 4px 6px !important; font-size: 11px !important; white-space: nowrap; }
 
-  .formula-box .formula {
-    font-size: 14px !important;
-  }
-
-  .toc li {
-    padding: 4px 0 !important;
-  }
-
-  .toc a {
-    font-size: 13px !important;
-  }
-
-  /* Stack cards vertically, full width */
-  .nav-card, .book-card, .article-card, .lang-card {
-    padding: 14px 16px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .nav-card .icon,
-  .lang-card .flag {
-    font-size: 24px !important;
-    margin-right: 12px !important;
-  }
-
-  .nav-card .title,
-  .book-card .title,
-  .article-card .title {
-    font-size: 15px !important;
-  }
-
-  .nav-card .desc,
-  .book-card .meta,
-  .article-card .meta,
-  .lang-card .desc {
-    font-size: 12px !important;
-  }
-
-  .nav-card .arrow,
-  .book-card .arrow,
-  .article-card .arrow,
-  .lang-card .arrow {
-    font-size: 20px !important;
-  }
-
-  /* Chapter list */
-  .chapter-list a {
-    padding: 12px 14px !important;
-    font-size: 14px !important;
-  }
-
-  .chapter-num {
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  /* Tables - mobile friendly */
-  table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 8px 0 !important;
-  }
-
-  th, td {
-    padding: 4px 6px !important;
-    font-size: 11px !important;
-    white-space: nowrap;
-  }
-
-  /* Content pages (chapter/article) */
-  .toolbar button {
-    padding: 8px 14px !important;
-    font-size: 14px !important;
-  }
-
-  .note {
-    font-size: 12px !important;
-  }
+    .toolbar button { padding: 8px 14px !important; font-size: 14px !important; }
+    .note { font-size: 12px !important; }
 }
 
 /* Print styles */
 @media print {
-  .toolbar { display: none !important; }
-  body { padding: 0 !important; }
-  .nav-card, .book-card, .article-card, .lang-card,
-  .chapter-list, .back, .footer {
-    break-inside: avoid;
-  }
+    .toolbar, .mode-toggle { display: none !important; }
+    body { padding: 0 !important; }
+    .container { box-shadow: none !important; border-radius: 0 !important; }
+    .nav-card, .book-card, .article-card, .lang-card,
+    .chapter-list, .back, .footer { break-inside: avoid; }
 }
