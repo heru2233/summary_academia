@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3   Multiple Regression Analysis Estimation</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 3   Multiple Regression Analysis Estimation</h1>
+<div class="container">
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction to Multiple Regression Analysis</a></li>
+    <li><a href="#section2">2. The Multiple Regression Model</a></li>
+    <li><a href="#section3">3. Mechanics and Interpretation of Ordinary Least Squares</a></li>
+    <li><a href="#section4">4. Statistical Properties of OLS Estimators</a></li>
+    <li><a href="#section5">5. Omitted Variable Bias</a></li>
+    <li><a href="#section6">6. Practical Cautions and Common Errors</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Introduction to Multiple Regression Analysis</h2>
+
+<div class="interpretation">
+  <p>Multiple regression analysis is a statistical method that extends simple regression to allow for multiple explanatory variables to affect a dependent variable simultaneously. Its primary advantage over simple regression is that it enables <i>ceteris paribus</i> (all else equal) analysis by explicitly controlling for other factors that influence the dependent variable. In simple regression, the key assumption that all other factors are uncorrelated with the independent variable is often unrealistic, making causal inference difficult. Multiple regression directly addresses this limitation by including those other factors as regressors.</p>
+  <p>The method is widely used in economics and social sciences for testing theories and evaluating policy effects using nonexperimental data. By incorporating multiple explanatory variables that may be correlated with one another, researchers can hope to infer causality where simple regression would be misleading. Additionally, multiple regression can explain more variation in the dependent variable and accommodate flexible functional forms, such as quadratics and logarithms, within a linear-in-parameters framework.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Consider a wage equation: <i>wage</i> = β<sub>0</sub> + β<sub>1</sub><i>educ</i> + β<sub>2</sub><i>exper</i> + u. By including experience explicitly, we can estimate the effect of education on wage while holding experience fixed. In simple regression, experience would be in the error term, and we would need to assume that experience is uncorrelated with education — a tenuous assumption.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Simple regression is like trying to isolate the effect of fertilizer on crop yield without controlling for rainfall, soil quality, and sunlight. Multiple regression is like a controlled experiment where we measure and adjust for these other factors simultaneously, even though we did not physically control them in the data collection.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Multiple regression provides a way to mimic controlled laboratory conditions using nonexperimental data.</strong> By including observable confounding factors directly in the model, we can isolate the partial effect of each variable, though causality still requires the zero conditional mean assumption to hold.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Multiple regression enables <i>ceteris paribus</i> analysis by controlling for multiple factors simultaneously.</li>
+    <li>It is essential for causal inference when using nonexperimental data.</li>
+    <li>It allows for flexible functional forms while remaining linear in parameters.</li>
+    <li>More variation in the dependent variable can be explained by including additional relevant factors.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. The Multiple Regression Model</h2>
+
+<h3>2.1 The Model with Two Independent Variables</h3>
+
+<div class="interpretation">
+  <p>The multiple regression model with two independent variables is written as:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Two-Variable Multiple Regression Model</span>
+  <div class="formula">\[
+  y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + u
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here, <i>y</i> is the dependent variable (explained variable, response variable, regressand). <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> are the independent variables (explanatory variables, control variables, predictors, regressors). β<sub>0</sub> is the intercept parameter. β<sub>1</sub> measures the change in <i>y</i> with respect to a one-unit change in <i>x</i><sub>1</sub>, holding <i>x</i><sub>2</sub> fixed (the partial effect or <i>ceteris paribus</i> effect of <i>x</i><sub>1</sub> on <i>y</i>). β<sub>2</sub> measures the change in <i>y</i> with respect to a one-unit change in <i>x</i><sub>2</sub>, holding <i>x</i><sub>1</sub> fixed. The term <i>u</i> is the error term or disturbance, containing all unobserved factors that affect <i>y</i>.</p>
+  <p>The key assumption for the model is the zero conditional mean condition:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Zero Conditional Mean Assumption (Two Variables)</span>
+  <div class="formula">\[
+  E(u \mid x_1, x_2) = 0
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>This means that for any values of <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> in the population, the average of the unobserved factors is zero. The important part is that the expected value of <i>u</i> is the same for all combinations of <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> — that this common value is zero is not restrictive as long as the intercept is included. In the wage example, this implies that other factors affecting wage (such as innate ability) are not related on average to education and experience.</p>
+  <p><strong>Practical use:</strong> This assumption is required for the OLS estimators to be unbiased. When assessing whether OLS will produce unbiased estimates, researchers must ask whether average ability levels are the same across all combinations of education and experience in the population.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>For the model <i>avgscore</i> = β<sub>0</sub> + β<sub>1</sub><i>expend</i> + β<sub>2</sub><i>avginc</i> + u, the zero conditional mean assumption requires that other factors affecting test scores are, on average, unrelated to per-student spending and average family income. This is likely to be violated if, for example, unobserved school quality is correlated with spending.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The zero conditional mean assumption is the core requirement for causal interpretation of OLS estimates.</strong> If it fails, the OLS estimators are biased, and the estimated coefficients do not represent true causal effects. This assumption is stronger than simply requiring that <i>u</i> is uncorrelated with each <i>x</i> — it requires that the conditional mean of <i>u</i> is zero for all values of the regressors.</p>
+</div>
+
+<h3>2.2 The Model with <i>k</i> Independent Variables</h3>
+
+<div class="interpretation">
+  <p>The general multiple linear regression (MLR) model extends the two-variable case to include <i>k</i> independent variables. It is written as:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">General Multiple Linear Regression Model</span>
+  <div class="formula">\[
+  y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \cdots + \beta_k x_k + u
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>β<sub>0</sub> is the intercept. β<sub>1</sub>, β<sub>2</sub>, …, β<sub>k</sub> are the slope parameters (though they may not be literal slopes when nonlinear functions of variables are used). The model contains <i>k</i> + 1 unknown population parameters. The error term <i>u</i> contains all factors other than <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, …, <i>x</i><sub>k</sub> that affect <i>y</i>.</p>
+  <p>The key assumption for the general model is:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Zero Conditional Mean Assumption (General)</span>
+  <div class="formula">\[
+  E(u \mid x_1, x_2, \ldots, x_k) = 0
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>This requires that all factors in the unobserved error term be uncorrelated with the explanatory variables, and that the functional relationships between the explained and explanatory variables have been correctly specified. Any problem that causes <i>u</i> to be correlated with any independent variable causes this assumption to fail. The "linear" in "multiple linear regression" refers to linearity in the parameters β<sub>j</sub>, not necessarily linearity in the variables themselves. For example, <i>log(salary)</i> = β<sub>0</sub> + β<sub>1</sub><i>log(sales)</i> + β<sub>2</sub><i>ceoten</i> + β<sub>3</sub><i>ceoten</i><sup>2</sup> + u is a linear model in the parameters, even though it contains logarithms and a quadratic.</p>
+  <p><strong>Interpretation of β<sub>1</sub> in a log-log model:</strong> β<sub>1</sub> is the <i>ceteris paribus</i> elasticity of <i>y</i> with respect to <i>x</i><sub>1</sub>. For example, if β<sub>1</sub> = 0.092, a 1% increase in <i>x</i><sub>1</sub> is associated with a 0.092% increase in <i>y</i>.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Consider the CEO salary model: <i>log(salary)</i> = β<sub>0</sub> + β<sub>1</sub><i>log(sales)</i> + β<sub>2</sub><i>ceoten</i> + β<sub>3</sub><i>ceoten</i><sup>2</sup> + u. Here, <i>y</i> = <i>log(salary)</i>, <i>x</i><sub>1</sub> = <i>log(sales)</i>, <i>x</i><sub>2</sub> = <i>ceoten</i>, and <i>x</i><sub>3</sub> = <i>ceoten</i><sup>2</sup>. This model has <i>k</i> = 3 independent variables. β<sub>1</sub> is the elasticity of salary with respect to sales. If β<sub>3</sub> = 0, then 100β<sub>2</sub> is approximately the percentage increase in salary when tenure increases by one year. If β<sub>3</sub> ≠ 0, the effect of tenure on salary is more complex and depends on the level of tenure.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Think of the multiple regression model as a recipe. The dependent variable <i>y</i> is the final dish. The independent variables <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, …, <i>x</i><sub>k</sub> are the ingredients. The coefficients β<sub>1</sub>, β<sub>2</sub>, …, β<sub>k</sub> tell us how much each ingredient contributes to the final dish, assuming we hold all other ingredients constant. The error term <i>u</i> represents the cook's skill, kitchen conditions, and other unmeasured factors that affect the outcome.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The term "linear" in multiple linear regression refers to linearity in the parameters, not in the variables.</strong> This allows for great flexibility through transformations like logarithms, squares, and interactions, while keeping the estimation procedure simple and unified. The zero conditional mean assumption is the linchpin for unbiased estimation — if it fails, OLS estimates are biased and cannot be interpreted as causal effects.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The general MLR model is <i>y</i> = β<sub>0</sub> + β<sub>1</sub><i>x</i><sub>1</sub> + … + β<sub>k</sub><i>x</i><sub>k</sub> + u, with <i>k</i> + 1 parameters.</li>
+    <li>The zero conditional mean assumption E(<i>u</i> | <i>x</i><sub>1</sub>, …, <i>x</i><sub>k</sub>) = 0 is required for unbiasedness.</li>
+    <li>The model is linear in parameters but can capture nonlinear relationships through variable transformations.</li>
+    <li>Each coefficient β<sub>j</sub> measures the partial effect of <i>x</i><sub>j</sub> on <i>y</i>, holding all other variables fixed.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Mechanics and Interpretation of Ordinary Least Squares</h2>
+
+<h3>3.1 Obtaining the OLS Estimates</h3>
+
+<div class="interpretation">
+  <p>Ordinary Least Squares (OLS) is the method used to estimate the parameters of the multiple regression model. The OLS estimates are chosen to minimize the sum of squared residuals. For a model with two independent variables and <i>n</i> observations, the estimated OLS equation is:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">OLS Regression Line (Two Variables)</span>
+  <div class="formula">\[
+  \hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>where \(\hat{\beta}_0\) is the estimate of β<sub>0</sub> (the intercept), \(\hat{\beta}_1\) is the estimate of β<sub>1</sub> (the slope on <i>x</i><sub>1</sub>), and \(\hat{\beta}_2\) is the estimate of β<sub>2</sub> (the slope on <i>x</i><sub>2</sub>). The estimates are chosen to minimize:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Sum of Squared Residuals (Minimization Objective)</span>
+  <div class="formula">\[
+  \sum_{i=1}^{n} (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{i1} - \hat{\beta}_2 x_{i2})^2
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here, <i>i</i> indexes the observation number (from 1 to <i>n</i>). The second subscript on <i>x</i> distinguishes between different independent variables: <i>x</i><sub>i1</sub> is the value of the first independent variable for observation <i>i</i>, and <i>x</i><sub>i2</sub> is the value of the second independent variable for observation <i>i</i>. In the wage example, <i>x</i><sub>i1</sub> = <i>educ</i><sub>i</sub> (education of person <i>i</i>) and <i>x</i><sub>i2</sub> = <i>exper</i><sub>i</sub> (experience of person <i>i</i>).</p>
+  <p>For the general case with <i>k</i> independent variables, the OLS estimates are chosen to minimize:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">General OLS Minimization Problem</span>
+  <div class="formula">\[
+  \sum_{i=1}^{n} (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{i1} - \cdots - \hat{\beta}_k x_{ik})^2
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>This minimization problem yields <i>k</i> + 1 linear equations in <i>k</i> + 1 unknowns, called the OLS first-order conditions:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">OLS First-Order Conditions</span>
+  <div class="formula">\[
+  \begin{aligned}
+  \sum_{i=1}^{n} (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{i1} - \cdots - \hat{\beta}_k x_{ik}) &= 0 \\
+  \sum_{i=1}^{n} x_{i1} (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{i1} - \cdots - \hat{\beta}_k x_{ik}) &= 0 \\
+  &\vdots \\
+  \sum_{i=1}^{n} x_{ik} (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{i1} - \cdots - \hat{\beta}_k x_{ik}) &= 0
+  \end{aligned}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>These equations are the sample counterparts of the population moment conditions E(<i>u</i>) = 0 and E(<i>x</i><sub>j</sub><i>u</i>) = 0 for <i>j</i> = 1, …, <i>k</i>. The first condition says that the sum of residuals is zero, and the remaining conditions say that each independent variable has zero sample covariance with the residuals. For these equations to have a unique solution, we need Assumption MLR.3 (no perfect collinearity).</p>
+  <p><strong>Practical use:</strong> In practice, these equations are solved by computer software. The researcher does not compute them by hand. However, understanding the first-order conditions is crucial for understanding the properties of OLS and for diagnosing problems.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>In the GPA example with <i>colGPA</i> = 1.29 + 0.453<i>hsGPA</i> + 0.0094<i>ACT</i> (<i>n</i> = 141), the estimates were obtained by solving the three first-order conditions (one for the intercept, one for <i>hsGPA</i>, and one for <i>ACT</i>). The intercept 1.29 is the predicted college GPA when both <i>hsGPA</i> and <i>ACT</i> are zero. The coefficient 0.453 on <i>hsGPA</i> means that holding <i>ACT</i> fixed, a one-point increase in high school GPA is associated with a 0.453-point increase in predicted college GPA.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The OLS first-order conditions are derived from the method of moments.</strong> Under the zero conditional mean assumption, the population moments E(<i>u</i>) = 0 and E(<i>x</i><sub>j</sub><i>u</i>) = 0 hold. The OLS estimator replaces these population moments with their sample analogs, yielding a system of equations that can be solved uniquely (provided no perfect collinearity exists).</p>
+</div>
+
+<h3>3.2 Interpreting the OLS Regression Equation</h3>
+
+<div class="interpretation">
+  <p>The OLS regression line is interpreted as a prediction equation. The intercept \(\hat{\beta}_0\) is the predicted value of <i>y</i> when all independent variables are set to zero. The slope coefficients have <i>ceteris paribus</i> (partial effect) interpretations: \(\hat{\beta}_1\) measures the change in the predicted <i>y</i> for a one-unit increase in <i>x</i><sub>1</sub>, holding all other independent variables fixed. This is the key advantage of multiple regression: it provides estimates of partial effects even when the data were not collected in a controlled experimental setting.</p>
+  <p>From the estimated equation, the predicted change in <i>y</i> given changes in the independent variables is:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Predicted Change in <i>y</i></span>
+  <div class="formula">\[
+  \Delta \hat{y} = \hat{\beta}_1 \Delta x_1 + \hat{\beta}_2 \Delta x_2 + \cdots + \hat{\beta}_k \Delta x_k
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>When only <i>x</i><sub>1</sub> changes (\(\Delta x_2 = \cdots = \Delta x_k = 0\)), we have \(\Delta \hat{y} = \hat{\beta}_1 \Delta x_1\). The intercept does not affect changes in <i>y</i> — it only affects the level. This decomposition allows us to isolate the effect of each variable while controlling for others.</p>
+  <p><strong>Practical use:</strong> In Example 3.2, the estimated log-wage equation is <i>log(wage)</i> = 0.284 + 0.092<i>educ</i> + 0.0041<i>exper</i> + 0.022<i>tenure</i>. The coefficient 0.092 means that, holding experience and tenure fixed, another year of education is predicted to increase <i>log(wage)</i> by 0.092, which translates to approximately a 9.2% increase in wage. This is the estimated <i>ceteris paribus</i> return to education.</p>
+</div>
+
+<div class="example">
+  <h4>Example 3.1: Determinants of College GPA</h4>
+  <p>Estimated equation: <i>colGPA</i> = 1.29 + 0.453<i>hsGPA</i> + 0.0094<i>ACT</i>, <i>n</i> = 141, <i>R</i><sup>2</sup> = 0.176.</p>
+  <p><strong>Interpretation:</strong> Holding ACT fixed, a one-point increase in high school GPA is associated with a 0.453-point increase in predicted college GPA. The coefficient on ACT is small: a 10-point increase in ACT (a very large change) is associated with only a 0.094-point increase in college GPA, holding hsGPA fixed. This suggests that once high school GPA is accounted for, ACT score is not a strong predictor of college GPA.</p>
+  <p><strong>Comparison with simple regression:</strong> Simple regression of colGPA on ACT alone gives <i>colGPA</i> = 2.40 + 0.0271<i>ACT</i>, where the coefficient on ACT is almost three times larger. This difference arises because the simple regression does not control for hsGPA, which is correlated with both ACT and colGPA.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Simple regression coefficients can be misleading when relevant variables are omitted.</strong> The coefficient on ACT in the simple regression is larger because it picks up the effect of hsGPA (which is positively correlated with both ACT and colGPA). Multiple regression removes this confounding by including hsGPA directly in the model. This is why multiple regression is essential for credible causal inference.</p>
+</div>
+
+<h3>3.3 The Meaning of "Holding Other Factors Fixed"</h3>
+
+<div class="interpretation">
+  <p>The partial effect interpretation of slope coefficients in multiple regression can cause confusion. The key point is that multiple regression provides <i>ceteris paribus</i> interpretations even though the data were not collected in a <i>ceteris paribus</i> fashion. In Example 3.1, the coefficient on ACT measures the predicted difference in college GPA for two students with the same high school GPA but different ACT scores. This interpretation is valid even though the sample contains students with varying high school GPAs and ACT scores — we did not restrict the sample to students with identical high school GPAs.</p>
+  <p>The power of multiple regression is that it allows us to do in nonexperimental environments what natural scientists do in a controlled laboratory: keep other factors fixed. The method effectively "partials out" the effects of the control variables from the variable of interest, allowing us to estimate the partial effect.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Imagine you want to know how a new teaching method affects test scores. In a lab experiment, you would assign students with the same background to treatment and control groups. In the real world, students differ. Multiple regression is like a statistical matching machine: it compares students who are similar on observed characteristics (like prior GPA) but differ on the variable of interest (like teaching method), effectively creating virtual control groups.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Multiple regression does not require that we actually observe individuals with identical values of the control variables.</strong> The method mathematically adjusts for differences in the control variables, providing estimates of what the relationship would be if those variables were held constant. This is the source of its power and also the source of its assumptions — the adjustment is only valid if the model is correctly specified.</p>
+</div>
+
+<h3>3.4 Changing More Than One Independent Variable Simultaneously</h3>
+
+<div class="interpretation">
+  <p>Sometimes, we want to change more than one independent variable at the same time to find the resulting effect on the dependent variable. This is straightforward using the predicted change formula. For example, in the wage equation (3.19), if an individual stays at the same firm for another year, both experience and tenure increase by one year. The total estimated effect on log(wage), holding education fixed, is:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Total Effect of Simultaneous Changes</span>
+  <div class="formula">\[
+  \Delta \widehat{\log(wage)} = 0.0041 \times \Delta exper + 0.022 \times \Delta tenure = 0.0041 + 0.022 = 0.0261
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>This corresponds to approximately a 2.6% increase in wage. The total effect is simply the sum of the individual coefficients multiplied by their respective changes. This additive property holds because the model is linear in parameters.</p>
+  <p><strong>Practical use:</strong> This approach is useful for scenarios where multiple variables naturally change together, such as when a worker gains a year of experience and tenure simultaneously, or when a policy intervention affects multiple inputs at once.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>When multiple variables change simultaneously, the total predicted effect is the sum of the individual partial effects weighted by the respective changes.</strong> This linear combination property is a direct consequence of the linear-in-parameters structure of the model. It allows researchers to compute the net effect of complex, multi-dimensional changes.</p>
+</div>
+
+<h3>3.5 OLS Fitted Values and Residuals</h3>
+
+<div class="interpretation">
+  <p>After obtaining the OLS regression line, we can compute a fitted value (predicted value) for each observation by plugging the values of the independent variables into the estimated equation:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Fitted Value for Observation <i>i</i></span>
+  <div class="formula">\[
+  \hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \hat{\beta}_2 x_{i2} + \cdots + \hat{\beta}_k x_{ik}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>The residual for observation <i>i</i> is the difference between the actual value and the fitted value:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Residual for Observation <i>i</i></span>
+  <div class="formula">\[
+  \hat{u}_i = y_i - \hat{y}_i
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>If \(\hat{u}_i > 0\), the actual value is above the predicted value (underprediction). If \(\hat{u}_i < 0\), the actual value is below the predicted value (overprediction). The OLS fitted values and residuals have three important properties:</p>
+  <ol>
+    <li><strong>Zero mean of residuals:</strong> The sample average of the residuals is zero, so \(\bar{y} = \bar{\hat{y}}\).</li>
+    <li><strong>Zero covariance between residuals and each independent variable:</strong> \(\sum_{i=1}^{n} x_{ij} \hat{u}_i = 0\) for each <i>j</i>. Consequently, the sample covariance between the fitted values and the residuals is also zero.</li>
+    <li><strong>The point of means lies on the regression line:</strong> \(\bar{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x}_1 + \cdots + \hat{\beta}_k \bar{x}_k\).</li>
+  </ol>
+  <p>These properties are direct consequences of the OLS first-order conditions. Property (1) follows from the first equation in (3.13). Property (2) follows from the remaining equations. Property (3) follows from property (1).</p>
+  <p><strong>Practical use:</strong> Property (2) is particularly important for diagnostic checking: if we compute the correlation between residuals and any independent variable and find it to be nonzero, this indicates a computational error or a violation of the OLS assumptions (e.g., misspecification).</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>In the GPA example, for a student with <i>hsGPA</i> = 3.5 and <i>ACT</i> = 24, the fitted value is <i>colGPA</i> = 1.29 + 0.453(3.5) + 0.0094(24) = 3.101. If the student's actual college GPA is 3.25, the residual is 3.25 - 3.101 = 0.149, meaning the model underpredicted this student's GPA by 0.149 points.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The OLS residuals are guaranteed to have zero sample mean and zero correlation with each independent variable by construction.</strong> These are algebraic properties of the OLS estimator, not assumptions. They hold for any OLS regression, regardless of whether the model is correctly specified. This is why residual analysis is useful for model checking — patterns in residuals can reveal specification errors.</p>
+</div>
+
+<h3>3.6 A "Partialling Out" Interpretation of Multiple Regression</h3>
+
+<div class="interpretation">
+  <p>For the case with two independent variables, the OLS estimate \(\hat{\beta}_1\) can be expressed in a revealing form:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Partialling Out Formula for \(\hat{\beta}_1\)</span>
+  <div class="formula">\[
+  \hat{\beta}_1 = \frac{\sum_{i=1}^{n} \hat{r}_{i1} y_i}{\sum_{i=1}^{n} \hat{r}_{i1}^2}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here, \(\hat{r}_{i1}\) are the OLS residuals from a simple regression of <i>x</i><sub>1</sub> on <i>x</i><sub>2</sub> (using the same sample). These residuals represent the part of <i>x</i><sub>1</sub> that is uncorrelated with <i>x</i><sub>2</sub> — i.e., <i>x</i><sub>1</sub> after the effects of <i>x</i><sub>2</sub> have been "partialled out" or "netted out." Equation (3.22) says that \(\hat{\beta}_1\) can be obtained by a simple regression of <i>y</i> on these residuals \(\hat{r}_1\).</p>
+  <p>This representation gives another demonstration of \(\hat{\beta}_1\)'s partial effect interpretation: \(\hat{\beta}_1\) measures the sample relationship between <i>y</i> and <i>x</i><sub>1</sub> after <i>x</i><sub>2</sub> has been partialled out. In the general model with <i>k</i> explanatory variables, the same formula holds, but the residuals \(\hat{r}_{i1}\) come from the regression of <i>x</i><sub>1</sub> on <i>x</i><sub>2</sub>, …, <i>x</i><sub>k</sub>. This general result is known as the <b>Frisch-Waugh theorem</b>.</p>
+  <p><strong>Practical use:</strong> The partialling out interpretation clarifies that multiple regression can be understood as a two-step procedure: (1) regress the variable of interest on all other control variables and obtain residuals; (2) regress the dependent variable on those residuals. The coefficient from step (2) is the same as the coefficient from the full multiple regression. This is rarely done in practice (since software handles it directly), but it is a powerful conceptual tool.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>In the wage equation, to obtain the coefficient on <i>educ</i> while controlling for <i>exper</i> and <i>tenure</i>, one could: (1) regress <i>educ</i> on <i>exper</i> and <i>tenure</i> and obtain residuals; (2) regress <i>log(wage)</i> on those residuals. The coefficient from step (2) would equal 0.092, the same as in the full multiple regression. This shows that the coefficient on <i>educ</i> reflects the variation in <i>educ</i> that is not explained by <i>exper</i> and <i>tenure</i>.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The partialling out interpretation reveals that multiple regression uses only the variation in each independent variable that is not shared with the other independent variables.</strong> This is why correlation among regressors is allowed (and common) but perfect collinearity is not — if one variable is perfectly explained by the others, there is no remaining variation to identify its coefficient.</p>
+</div>
+
+<h3>3.7 Comparison of Simple and Multiple Regression Estimates</h3>
+
+<div class="interpretation">
+  <p>There is a simple relationship between the simple regression coefficient of <i>y</i> on <i>x</i><sub>1</sub> (denoted \(\tilde{\beta}_1\)) and the multiple regression coefficient of <i>y</i> on <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> (denoted \(\hat{\beta}_1\)):</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Relationship Between Simple and Multiple Regression Coefficients</span>
+  <div class="formula">\[
+  \tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_2 \tilde{\delta}_1
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here, \(\tilde{\delta}_1\) is the slope coefficient from the simple regression of <i>x</i><sub>2</sub> on <i>x</i><sub>1</sub>. This equation shows that the simple regression coefficient equals the multiple regression coefficient plus a confounding term: the partial effect of <i>x</i><sub>2</sub> on <i>y</i> (\(\hat{\beta}_2\)) times the slope in the sample regression of <i>x</i><sub>2</sub> on <i>x</i><sub>1</sub> (\(\tilde{\delta}_1\)). The simple and multiple regression estimates are equal in two special cases:</p>
+  <ol>
+    <li><strong>\(\hat{\beta}_2 = 0\):</strong> The partial effect of <i>x</i><sub>2</sub> on <i>y</i> is zero in the sample.</li>
+    <li><strong>\(\tilde{\delta}_1 = 0\):</strong> <i>x</i><sub>1</sub> and <i>x</i><sub>2</sub> are uncorrelated in the sample.</li>
+  </ol>
+  <p>In practice, these conditions rarely hold exactly, so simple and multiple regression estimates typically differ. The formula shows that the difference between simple and multiple regression estimates depends on both the correlation between the regressors and the importance of the omitted variable.</p>
+  <p><strong>Practical use:</strong> This formula is useful for understanding why estimates change when variables are added or dropped. If a variable is added to a regression and the coefficient on the original variable changes substantially, it indicates that the added variable is (a) correlated with the original variable and (b) has a nontrivial partial effect on <i>y</i>.</p>
+</div>
+
+<div class="example">
+  <h4>Example 3.3: Participation in 401(k) Pension Plans</h4>
+  <p>Multiple regression: <i>prate</i> = 80.12 + 5.52<i>mrate</i> + 0.243<i>age</i>, <i>n</i> = 1,534.</p>
+  <p>Simple regression: <i>prate</i> = 83.08 + 5.86<i>mrate</i>.</p>
+  <p>The simple regression estimate (5.86) is about 6.2% larger than the multiple regression estimate (5.52). The difference is modest because the sample correlation between <i>mrate</i> and <i>age</i> is only 0.12. If the correlation were higher, the discrepancy would be larger.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Think of simple regression as a rough measurement and multiple regression as a refined measurement. Simple regression gives you the "gross" relationship between <i>y</i> and <i>x</i><sub>1</sub>, which includes the indirect effect through <i>x</i><sub>2</sub>. Multiple regression gives you the "net" relationship after removing the influence of <i>x</i><sub>2</sub>. The difference between the two tells you how much of the gross relationship is actually due to <i>x</i><sub>2</sub>.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The difference between simple and multiple regression estimates is a measure of omitted variable bias.</strong> If the simple regression estimate differs substantially from the multiple regression estimate, it suggests that the omitted variable(s) are both correlated with the included variable and have a meaningful effect on the outcome. This is why reporting multiple regression results is essential for credible analysis.</p>
+</div>
+
+<h3>3.8 Goodness-of-Fit</h3>
+
+<div class="interpretation">
+  <p>As with simple regression, we can decompose the total variation in the dependent variable into explained and unexplained components. Define:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Sum of Squares Decomposition</span>
+  <div class="formula">\[
+  \begin{aligned}
+  \text{SST} &= \sum_{i=1}^{n} (y_i - \bar{y})^2 \quad \text{(Total Sum of Squares)} \\
+  \text{SSE} &= \sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2 \quad \text{(Explained Sum of Squares)} \\
+  \text{SSR} &= \sum_{i=1}^{n} \hat{u}_i^2 \quad \text{(Residual Sum of Squares / Sum of Squared Residuals)}
+  \end{aligned}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>These satisfy the identity:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">SST = SSE + SSR</span>
+  <div class="formula">\[
+  \text{SST} = \text{SSE} + \text{SSR}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>The <i>R</i>-squared (<i>R</i><sup>2</sup>) is defined as the proportion of the sample variation in <i>y</i> that is explained by the OLS regression line:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">R-Squared</span>
+  <div class="formula">\[
+  R^2 = \frac{\text{SSE}}{\text{SST}} = 1 - \frac{\text{SSR}}{\text{SST}}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>By definition, <i>R</i><sup>2</sup> is between 0 and 1. It can also be shown to equal the squared correlation coefficient between the actual <i>y</i><sub>i</sub> and the fitted values \(\hat{y}_i\):</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">R-Squared as Squared Correlation</span>
+  <div class="formula">\[
+  R^2 = \frac{\left[ \sum_{i=1}^{n} (y_i - \bar{y})(\hat{y}_i - \bar{\hat{y}}) \right]^2}{\left[ \sum_{i=1}^{n} (y_i - \bar{y})^2 \right] \left[ \sum_{i=1}^{n} (\hat{y}_i - \bar{\hat{y}})^2 \right]}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>An important algebraic fact is that <i>R</i><sup>2</sup> never decreases, and usually increases, when another independent variable is added to a regression (using the same set of observations). This is because SSR never increases when additional regressors are added. However, this makes <i>R</i><sup>2</sup> a poor tool for deciding whether to add variables — the decision should be based on whether the variable has a nonzero partial effect on <i>y</i> in the population, which is tested using statistical inference (Chapter 4).</p>
+  <p><strong>Practical use:</strong> <i>R</i><sup>2</sup> is useful as a descriptive measure of how well the model fits the data, but it should not be used as the primary criterion for model selection. A low <i>R</i><sup>2</sup> does not necessarily mean the model is useless — the OLS estimates can still be reliable estimates of <i>ceteris paribus</i> effects even if the model explains little of the individual variation in <i>y</i>.</p>
+</div>
+
+<div class="example">
+  <h4>Example 3.4: Determinants of College GPA</h4>
+  <p><i>colGPA</i> = 1.29 + 0.453<i>hsGPA</i> + 0.0094<i>ACT</i>, <i>n</i> = 141, <i>R</i><sup>2</sup> = 0.176.</p>
+  <p>This means that hsGPA and ACT together explain about 17.6% of the variation in college GPA. This is not a high percentage, but there are many other factors (family background, personality, quality of high school education, affinity for college) that contribute to college performance. A low <i>R</i><sup>2</sup> here is expected — individual behavior is difficult to predict.</p>
+</div>
+
+<div class="example">
+  <h4>Example 3.5: Explaining Arrest Records</h4>
+  <p>In the model explaining arrests (<i>narr86</i>), adding <i>avgsen</i> to a model with <i>pcnv</i>, <i>ptime86</i>, and <i>qemp86</i> increased <i>R</i><sup>2</sup> from 0.0413 to 0.0422 — a practically small effect. The four variables together explain only about 4.2% of the variation in arrests. This low <i>R</i><sup>2</sup> reflects the difficulty of predicting individual criminal behavior, but it does not mean the estimates of the <i>ceteris paribus</i> effects are unreliable. A low <i>R</i><sup>2</sup> indicates that it is hard to predict individual outcomes, not that the model is invalid for estimating partial effects.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>A low <i>R</i><sup>2</sup> does not invalidate the OLS estimates of <i>ceteris paribus</i> effects.</strong> The reliability of OLS estimates depends on the zero conditional mean assumption, not on the proportion of variance explained. A model with a low <i>R</i><sup>2</sup> can still provide unbiased and precise estimates of the partial effects of the included variables. The <i>R</i><sup>2</sup> is a measure of predictive power, not a measure of causal validity.</p>
+</div>
+
+<h3>3.9 Regression through the Origin</h3>
+
+<div class="interpretation">
+  <p>Sometimes, economic theory suggests that the intercept should be zero. In such cases, we may estimate a model without an intercept:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Regression through the Origin</span>
+  <div class="formula">\[
+  \tilde{y} = \tilde{\beta}_1 x_1 + \tilde{\beta}_2 x_2 + \cdots + \tilde{\beta}_k x_k
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here, the symbol "~" distinguishes these estimates from OLS estimates obtained with an intercept. When all independent variables are zero, the predicted value is zero. The estimates minimize the sum of squared residuals subject to the intercept being zero.</p>
+  <p><strong>Important warnings:</strong></p>
+  <ol>
+    <li>The OLS residuals no longer have a zero sample average.</li>
+    <li>The <i>R</i><sup>2</sup> defined as 1 - SSR/SST can be negative, meaning that the sample average <i>y</i> explains more variation than the model. Some economists prefer to compute <i>R</i><sup>2</sup> as the squared correlation between actual and fitted values.</li>
+    <li>If the population intercept β<sub>0</sub> is nonzero, the slope estimators will be biased — sometimes severely.</li>
+    <li>Estimating an intercept when β<sub>0</sub> = 0 is harmless but increases the variance of the slope estimators.</li>
+  </ol>
+  <p><strong>Practical use:</strong> Regression through the origin is rarely used in practice. It is generally safer to include an intercept unless there is a very strong theoretical justification for omitting it. The cost of including an unnecessary intercept is only a loss of efficiency (larger variances), whereas the cost of omitting a necessary intercept is bias.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Regression through the origin is risky and should be avoided unless the researcher has strong theoretical justification that the intercept is exactly zero.</strong> The standard properties of OLS (zero mean residuals, unbiasedness, nonnegative <i>R</i><sup>2</sup>) do not hold for regression through the origin. Including an intercept is the default and recommended practice.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>OLS estimates minimize the sum of squared residuals and satisfy the first-order conditions (3.13).</li>
+    <li>Each slope coefficient has a <i>ceteris paribus</i> interpretation: it measures the change in predicted <i>y</i> for a one-unit change in that variable, holding all others fixed.</li>
+    <li>Fitted values and residuals satisfy important algebraic properties: zero mean of residuals, zero covariance between residuals and each independent variable, and the point of means lies on the regression line.</li>
+    <li>The partialling out interpretation (Frisch-Waugh theorem) shows that each coefficient uses only the variation in the corresponding variable that is not explained by the other regressors.</li>
+    <li>Simple and multiple regression estimates differ by a confounding term that depends on the correlation between regressors and the importance of the omitted variable.</li>
+    <li><i>R</i><sup>2</sup> measures the proportion of variance explained but is not a measure of causal validity. A low <i>R</i><sup>2</sup> does not imply that the model is useless.</li>
+    <li>Regression through the origin is generally not recommended due to potential bias and loss of standard properties.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Statistical Properties of OLS Estimators</h2>
+
+<h3>4.1 Assumptions for Unbiasedness (MLR.1–MLR.4)</h3>
+
+<div class="interpretation">
+  <p>The OLS estimators have desirable statistical properties (unbiasedness, efficiency) under a set of assumptions. These are extensions of the simple regression assumptions to the multiple regression context. Four assumptions are required for unbiasedness:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Assumption MLR.1: Linear in Parameters</span>
+  <div class="formula">\[
+  y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k + u
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>The population model is linear in the parameters β<sub>0</sub>, β<sub>1</sub>, …, β<sub>k</sub>. This is the definition of the multiple linear regression model. The model can be nonlinear in variables (e.g., logarithms, squares) as long as it is linear in parameters.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Assumption MLR.2: Random Sampling</span>
+  <div class="formula">\[
+  \{(x_{i1}, x_{i2}, \ldots, x_{ik}, y_i) : i = 1, 2, \ldots, n\}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>We have a random sample of <i>n</i> observations from the population described by the model in MLR.1. This ensures that each observation is independently and identically distributed (i.i.d.) according to the population model. For each observation <i>i</i>, we can write:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model for Observation <i>i</i></span>
+  <div class="formula">\[
+  y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + u_i
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>This assumption is typically satisfied by survey data collected using probability sampling. It is violated in cases of nonrandom sampling or when observations are correlated (e.g., time series data with autocorrelation, though different assumptions are used for those settings).</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Assumption MLR.3: No Perfect Collinearity</span>
+  <div class="formula">\[
+  \text{No exact linear relationship among the independent variables}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>In the sample (and therefore in the population), none of the independent variables is constant, and there are no exact linear relationships among the independent variables. If an independent variable is an exact linear combination of the others, the model suffers from <i>perfect collinearity</i> and cannot be estimated by OLS.</p>
+  <p><strong>Important nuances:</strong></p>
+  <ul>
+    <li>Assumption MLR.3 allows independent variables to be correlated — it only rules out <i>perfect</i> correlation. Correlation among regressors is expected and the primary motivation for using multiple regression.</li>
+    <li>Perfect collinearity can arise from including the same variable measured in different units (e.g., income in dollars and income in thousands of dollars).</li>
+    <li>It can also arise from including a variable that is an exact linear function of others (e.g., including <i>totexpend</i> = <i>expendA</i> + <i>expendB</i> along with <i>expendA</i> and <i>expendB</i>).</li>
+    <li>Including a variable and its square does <i>not</i> violate MLR.3 because <i>x</i><sup>2</sup> is not an exact linear function of <i>x</i>.</li>
+    <li>Including <i>log(x)</i> and <i>log(x<sup>2</sup>)</i> <i>does</i> violate MLR.3 because <i>log(x<sup>2</sup>)</i> = 2·<i>log(x)</i>, which is an exact linear function.</li>
+  </ul>
+</div>
+
+<div class="formula-box">
+  <span class="label">Assumption MLR.4: Zero Conditional Mean</span>
+  <div class="formula">\[
+  E(u \mid x_1, x_2, \ldots, x_k) = 0
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>The error term <i>u</i> has an expected value of zero given any values of the independent variables. This is the key assumption for unbiasedness. It requires that all factors in the unobserved error term be uncorrelated with the explanatory variables <i>and</i> that the functional relationships have been correctly specified. When this assumption holds, we say that the independent variables are <i>exogenous</i>. When it fails, we say that the independent variables are <i>endogenous</i>.</p>
+  <p><strong>Practical implications:</strong> MLR.4 fails if:</p>
+  <ul>
+    <li>An important variable is omitted from the model and is correlated with any included variable.</li>
+    <li>The functional form is misspecified (e.g., using a linear model when the true relationship is quadratic).</li>
+    <li>There is measurement error in the independent variables that is correlated with <i>u</i>.</li>
+    <li>There is simultaneity (reverse causality) between <i>y</i> and one or more <i>x</i> variables.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <h4>Example: Perfect Collinearity</h4>
+  <p>Consider the model <i>voteA</i> = β<sub>0</sub> + β<sub>1</sub><i>expendA</i> + β<sub>2</sub><i>expendB</i> + β<sub>3</sub><i>totexpend</i> + u, where <i>totexpend</i> = <i>expendA</i> + <i>expendB</i>. This violates MLR.3 because <i>totexpend</i> is an exact linear combination of <i>expendA</i> and <i>expendB</i>. The OLS software cannot estimate this model — it will typically drop one of the variables or report an error.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Assumptions MLR.1–MLR.4 are sufficient for the OLS estimators to be unbiased.</strong> MLR.4 (zero conditional mean) is the most critical and the most likely to be violated in practice. The other assumptions are typically easier to satisfy: MLR.1 is a modeling choice, MLR.2 is usually satisfied by proper sampling, and MLR.3 can be checked directly from the data.</p>
+</div>
+
+<h3>4.2 Unbiasedness of OLS</h3>
+
+<div class="interpretation">
+  <p>Under Assumptions MLR.1 through MLR.4, the OLS estimators are unbiased for the population parameters:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Unbiasedness of OLS Estimators</span>
+  <div class="formula">\[
+  E(\hat{\beta}_j) = \beta_j, \quad j = 0, 1, \ldots, k
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>This means that, across repeated random sampling, the average of the OLS estimates equals the true population parameter. The unbiasedness property holds for each coefficient individually, including the intercept. The proof relies on the zero conditional mean assumption (MLR.4) and the linearity of the estimator in the dependent variable.</p>
+  <p><strong>Important caveat:</strong> Unbiasedness is a property of the sampling distribution of the estimator, not a property of a single estimate. It does not guarantee that any particular estimate from a single sample is close to the true value. It means that the estimator is "correct on average" over many hypothetical samples.</p>
+  <p><strong>Practical use:</strong> Unbiasedness is a desirable property because it means that the estimation method does not systematically overestimate or underestimate the true parameters. However, unbiasedness alone does not guarantee that the estimator is precise — we also care about the variance of the estimator (efficiency), which is addressed in Section 3-4 of the source.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Unbiasedness is a property of the estimator, not the estimate.</strong> When we say "OLS is unbiased under MLR.1–MLR.4," we mean that if we were to repeatedly draw random samples and compute OLS estimates each time, the average of those estimates would converge to the true population parameters. This is a statement about the reliability of the method across repeated sampling, not about any single estimate.</p>
+</div>
+
+<h3>4.3 Omitted Variable Bias</h3>
+
+<div class="interpretation">
+  <p>One of the most important violations of MLR.4 is <i>omitted variable bias</i>. This occurs when a variable that should be in the model (because it affects <i>y</i>) is omitted and is correlated with one or more included variables. The OLS estimators of the included variables then become biased, and the direction of bias can be analyzed.</p>
+  <p>Consider the true model with two explanatory variables:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">True Model (with Two Variables)</span>
+  <div class="formula">\[
+  y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + u
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Suppose we estimate the misspecified model that omits <i>x</i><sub>2</sub>:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Misspecified Model (Omitted <i>x</i><sub>2</sub>)</span>
+  <div class="formula">\[
+  \tilde{y} = \tilde{\beta}_0 + \tilde{\beta}_1 x_1
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>The expected value of the OLS estimator from the misspecified model is:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Expected Value of OLS Estimator under Omitted Variable</span>
+  <div class="formula">\[
+  E(\tilde{\beta}_1) = \beta_1 + \beta_2 \delta_1
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>where δ<sub>1</sub> is the slope coefficient from the population regression of <i>x</i><sub>2</sub> on <i>x</i><sub>1</sub> (i.e., <i>x</i><sub>2</sub> = δ<sub>0</sub> + δ<sub>1</sub><i>x</i><sub>1</sub> + <i>v</i>). The bias in \(\tilde{\beta}_1\) is β<sub>2</sub>δ<sub>1</sub>. The sign of the bias depends on the signs of β<sub>2</sub> (the partial effect of the omitted variable on <i>y</i>) and δ<sub>1</sub> (the relationship between the omitted variable and the included variable).</p>
+  <p><strong>Direction of bias:</strong></p>
+  <ul>
+    <li>If β<sub>2</sub> > 0 and δ<sub>1</sub> > 0, the bias is positive (upward bias).</li>
+    <li>If β<sub>2</sub> > 0 and δ<sub>1</sub> < 0, the bias is negative (downward bias).</li>
+    <li>If β<sub>2</sub> < 0 and δ<sub>1</sub> > 0, the bias is negative.</li>
+    <li>If β<sub>2</sub> < 0 and δ<sub>1</sub> < 0, the bias is positive.</li>
+    <li>If either β<sub>2</sub> = 0 or δ<sub>1</sub> = 0, there is no bias.</li>
+  </ul>
+  <p><strong>Practical use:</strong> This formula is crucial for understanding the sensitivity of results to omitted variables. Even if the omitted variable is not observable, the researcher can often sign the likely bias based on economic theory. For example, in a wage equation, if ability is omitted from the model and is positively correlated with education (δ<sub>1</sub> > 0) and has a positive effect on wages (β<sub>2</sub> > 0), then the OLS estimate of the return to education is biased upward. This means that the estimated return to education overstates the true causal effect.</p>
+</div>
+
+<div class="example">
+  <h4>Example: Omitted Variable Bias in Wage Equation</h4>
+  <p>True model: <i>log(wage)</i> = β<sub>0</sub> + β<sub>1</sub><i>educ</i> + β<sub>2</sub><i>abil</i> + u, where <i>abil</i> is innate ability. If we estimate <i>log(wage)</i> = β<sub>0</sub> + β<sub>1</sub><i>educ</i> + u (omitting ability), the expected value of the OLS estimator of β<sub>1</sub> is β<sub>1</sub> + β<sub>2</sub>δ<sub>1</sub>, where δ<sub>1</sub> is from the regression of <i>abil</i> on <i>educ</i>. Since ability is likely positively correlated with education (δ<sub>1</sub> > 0) and has a positive effect on wages (β<sub>2</sub> > 0), the bias is positive. Thus, the simple regression overestimates the return to education.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Omitted variable bias is one of the most serious threats to causal inference in regression analysis.</strong> The bias formula shows that the direction and magnitude of bias depend on the relationship between the omitted variable and the included variable(s) and the importance of the omitted variable. The solution is to include relevant control variables, use proxy variables, or employ instrumental variables methods (Chapter 15).</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Under MLR.1–MLR.4, the OLS estimators are unbiased: E(\(\hat{\beta}_j\)) = β<sub>j</sub> for all <i>j</i>.</li>
+    <li>MLR.4 (zero conditional mean) is the most critical assumption for unbiasedness.</li>
+    <li>MLR.3 (no perfect collinearity) ensures that the OLS estimates can be uniquely computed.</li>
+    <li>Omitted variable bias occurs when a relevant variable is omitted and is correlated with included variables.</li>
+    <li>The bias formula is E(\(\tilde{\beta}_1\)) = β<sub>1</sub> + β<sub>2</sub>δ<sub>1</sub>, where δ<sub>1</sub> measures the relationship between the omitted and included variables.</li>
+    <li>Unbiasedness is a property of the estimator across repeated sampling, not a property of a single estimate.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. Omitted Variable Bias</h2>
+
+<div class="interpretation">
+  <p>Omitted variable bias is a fundamental concern in multiple regression analysis. It occurs when a variable that belongs in the population model (i.e., has a nonzero partial effect on <i>y</i>) is omitted from the estimated regression and is correlated with one or more of the included explanatory variables. The consequence is that the OLS estimators of the included variables are biased and inconsistent.</p>
+  <p>The bias formula for the case of omitting <i>x</i><sub>2</sub> from a model with two explanatory variables is:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Omitted Variable Bias Formula</span>
+  <div class="formula">\[
+  E(\tilde{\beta}_1) = \beta_1 + \beta_2 \delta_1
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>where \(\tilde{\beta}_1\) is the OLS estimator from the misspecified model (omitting <i>x</i><sub>2</sub>), β<sub>1</sub> is the true partial effect of <i>x</i><sub>1</sub> on <i>y</i>, β<sub>2</sub> is the true partial effect of the omitted variable <i>x</i><sub>2</sub> on <i>y</i>, and δ<sub>1</sub> is the slope coefficient from the population regression of <i>x</i><sub>2</sub> on <i>x</i><sub>1</sub> (i.e., <i>x</i><sub>2</sub> = δ<sub>0</sub> + δ<sub>1</sub><i>x</i><sub>1</sub> + <i>v</i>).</p>
+  <p>The bias in \(\tilde{\beta}_1\) is β<sub>2</sub>δ<sub>1</sub>. This bias does not diminish as the sample size increases — it is a systematic bias, not a small-sample issue. Even with an infinite sample, the estimator would converge to β<sub>1</sub> + β<sub>2</sub>δ<sub>1</sub> rather than to β<sub>1</sub>.</p>
+  <p><strong>Key insights from the bias formula:</strong></p>
+  <ul>
+    <li>If the omitted variable has no partial effect on <i>y</i> (β<sub>2</sub> = 0), there is no bias, even if the omitted variable is correlated with the included variable.</li>
+    <li>If the omitted variable is uncorrelated with the included variable (δ<sub>1</sub> = 0), there is no bias, even if the omitted variable has a large effect on <i>y</i>.</li>
+    <li>Both conditions must be violated for bias to occur: the omitted variable must affect <i>y</i> and be correlated with the included variable.</li>
+  </ul>
+  <p><strong>Direction of bias:</strong> The sign of the bias is the product of the signs of β<sub>2</sub> and δ<sub>1</sub>. If both are positive, the bias is positive (the estimator overstates the true effect). If β<sub>2</sub> is positive and δ<sub>1</sub> is negative, the bias is negative (the estimator understates the true effect). If the signs differ, the bias can be in either direction.</p>
+  <p><strong>Practical use:</strong> The bias formula is used to assess the likely direction and magnitude of bias when an important variable cannot be measured. For example, in estimating the effect of education on wages, researchers know that ability is likely positively correlated with education (δ<sub>1</sub> > 0) and positively affects wages (β<sub>2</sub> > 0), so the bias is positive. This means that OLS estimates of the return to education are likely overestimates of the true causal effect. This is why researchers often use instrumental variables, fixed effects, or other methods to address omitted variable bias.</p>
+</div>
+
+<div class="example">
+  <h4>Example: Omitted Variable Bias in the GPA Model</h4>
+  <p>In Example 3.1, the simple regression of <i>colGPA</i> on <i>ACT</i> gives a coefficient of 0.0271, while the multiple regression controlling for <i>hsGPA</i> gives a coefficient of 0.0094 on <i>ACT</i>. The difference can be understood using the omitted variable bias formula. If we omit <i>hsGPA</i> from the model, the bias in the OLS estimator of the coefficient on <i>ACT</i> is β<sub>hsGPA</sub> × δ<sub>ACT</sub>, where β<sub>hsGPA</sub> is the partial effect of <i>hsGPA</i> on <i>colGPA</i> (0.453) and δ<sub>ACT</sub> is the slope from the regression of <i>hsGPA</i> on <i>ACT</i> (which is positive, since <i>hsGPA</i> and <i>ACT</i> are positively correlated). The positive bias explains why the simple regression coefficient (0.0271) is larger than the multiple regression coefficient (0.0094).</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Omitted variable bias is like trying to measure the effect of a new fertilizer on crop yield while ignoring the fact that the fields receiving the fertilizer also received more water. The estimated effect of fertilizer is "contaminated" by the effect of water. The bias formula tells us exactly how much contamination to expect, given the relationship between fertilizer and water and the effect of water on yield.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Omitted variable bias is a violation of the zero conditional mean assumption (MLR.4).</strong> When a relevant variable is omitted, the error term effectively includes that variable. If the omitted variable is correlated with any included variable, then E(<i>u</i> | <i>x</i><sub>1</sub>, …, <i>x</i><sub>k</sub>) ≠ 0, and the OLS estimators are biased. The bias does not disappear with large samples — it is a permanent feature of the misspecified model.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Omitted variable bias occurs when a relevant variable is omitted from the model and is correlated with included variables.</li>
+    <li>The bias formula is E(\(\tilde{\beta}_1\)) = β<sub>1</sub> + β<sub>2</sub>δ<sub>1</sub>, where δ<sub>1</sub> is from the regression of the omitted variable on the included variable.</li>
+    <li>The bias can be positive or negative, depending on the signs of β<sub>2</sub> and δ<sub>1</sub>.</li>
+    <li>The bias does not vanish with large sample size — it is a systematic bias.</li>
+    <li>If either β<sub>2</sub> = 0 (the omitted variable does not affect <i>y</i>) or δ<sub>1</sub> = 0 (the omitted variable is uncorrelated with the included variable), there is no bias.</li>
+    <li>Researchers should use economic theory to sign the likely bias and assess the sensitivity of results.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Practical Cautions and Common Errors</h2>
+
+<div class="interpretation">
+  <p>Multiple regression analysis is a powerful tool, but it is subject to several common mistakes and limitations. The following cautions are essential for proper application and interpretation.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Common Mistakes and Cautions</span>
+  <div class="formula">\[
+  \text{Be aware of: interpretation, causality, assumptions, measurement, specification}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>1. Incorrect interpretation of coefficients:</strong> The coefficient \(\hat{\beta}_j\) measures the change in the predicted value of <i>y</i> for a one-unit change in <i>x</i><sub>j</sub>, holding all other independent variables fixed. It does <i>not</i> measure the total effect of <i>x</i><sub>j</sub> on <i>y</i> if other variables are allowed to change in response. For example, in the quadratic model <i>cons</i> = β<sub>0</sub> + β<sub>1</sub><i>inc</i> + β<sub>2</sub><i>inc</i><sup>2</sup> + u, it makes no sense to interpret β<sub>1</sub> as the effect of income while holding <i>inc</i><sup>2</sup> fixed, because if income changes, so does its square. The marginal effect of income on consumption is β<sub>1</sub> + 2β<sub>2</sub><i>inc</i>, which depends on the level of income.</p>
+  <p><strong>2. Confusing prediction with causality:</strong> Obtaining a nonzero coefficient does <i>not</i> establish that <i>x</i><sub>j</sub> causes <i>y</i>. The zero conditional mean assumption (MLR.4) is required for causal interpretation, and this assumption is not guaranteed by the data. Correlation does not imply causation, and multiple regression does not change this fundamental principle — it only controls for observed confounders.</p>
+  <p><strong>3. Ignoring model assumptions:</strong> The unbiasedness of OLS depends on MLR.1–MLR.4. If these assumptions are violated, the estimates may be biased and inconsistent. Common violations include omitted variable bias, measurement error, simultaneity, and misspecification of functional form.</p>
+  <p><strong>4. Misinterpreting the intercept:</strong> The intercept is the predicted value of <i>y</i> when <i>all</i> independent variables are zero. This may not be a meaningful scenario in many applications. For example, in the GPA model, setting <i>hsGPA</i> = 0 and <i>ACT</i> = 0 is not realistic for college students. The intercept is still needed for prediction, but its value should not be interpreted out of context.</p>
+  <p><strong>5. Ignoring units of measurement:</strong> The magnitude of a coefficient depends on the units of measurement of both the independent and dependent variables. Changing the units (e.g., from dollars to thousands of dollars) changes the coefficient proportionally. Always interpret coefficients in terms of the actual units used in the model.</p>
+  <p><strong>6. Confusing error and residual:</strong> The error term <i>u</i> is the unobserved disturbance in the population model. The residual \(\hat{u}\) is the observed difference between the actual and fitted values in the sample. The residuals are estimates of the errors, but they are not the same thing. The properties of the residuals (zero mean, zero correlation with <i>x</i> variables) are algebraic properties of OLS, not assumptions about the errors.</p>
+  <p><strong>7. Relying too heavily on <i>R</i><sup>2</sup>:</strong> <i>R</i><sup>2</sup> always increases when variables are added, so it is a poor criterion for model selection. A high <i>R</i><sup>2</sup> does not imply a good model, and a low <i>R</i><sup>2</sup> does not imply a bad model. The <i>R</i><sup>2</sup> measures explained variation, not causal validity.</p>
+  <p><strong>8. Omitted-variable problems:</strong> The most common and serious threat to validity is omitting a variable that is correlated with both the dependent variable and one or more included independent variables. The bias formula (Section 5) should be used to assess the likely direction and magnitude of bias.</p>
+  <p><strong>9. Perfect collinearity:</strong> Including variables that are exact linear combinations of each other makes estimation impossible. Common examples: including the same variable in different units, including total and its components, or including <i>log(x)</i> and <i>log(x</i><sup>2</sup><i>)</i>.</p>
+  <p><strong>10. Regression through the origin:</strong> Omitting the intercept when the true intercept is nonzero introduces bias. The standard properties of OLS (zero mean residuals, nonnegative <i>R</i><sup>2</
+    </div>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3   Multiple Regression Analysis Estimation</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 3   Multiple Regression Analysis Estimation</h1>
+<div class="interpretation">
+  <p>Kadang kala, teori ekonomi menyarankan bahwa <i>intercept</i> seharusnya bernilai nol. Dalam kasus seperti ini, kita dapat mengestimasi model tanpa <i>intercept</i>:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Regresi melalui Titik Asal (<i>Regression through the Origin</i>)</span>
+  <div class="formula">\[
+  \tilde{y} = \tilde{\beta}_1 x_1 + \tilde{\beta}_2 x_2 + \cdots + \tilde{\beta}_k x_k
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Di sini, simbol "~" membedakan estimasi ini dari estimasi <i>OLS</i> yang diperoleh dengan <i>intercept</i>. Ketika semua variabel independen bernilai nol, nilai prediksi adalah nol. Estimasi ini meminimumkan jumlah kuadrat <i>residual</i> dengan kendala bahwa <i>intercept</i> adalah nol.</p>
+  <p><strong>Peringatan penting:</strong></p>
+  <ol>
+    <li>Rata-rata sampel <i>residual</i> <i>OLS</i> tidak lagi bernilai nol.</li>
+    <li><i>R</i><sup>2</sup> yang didefinisikan sebagai 1 - SSR/SST dapat bernilai negatif, yang berarti rata-rata sampel <i>y</i> menjelaskan lebih banyak variasi daripada model. Beberapa ekonom lebih memilih untuk menghitung <i>R</i><sup>2</sup> sebagai korelasi kuadrat antara nilai aktual dan nilai <i>fitted</i>.</li>
+    <li>Jika <i>intercept</i> populasi β<sub>0</sub> tidak nol, penduga <i>slope</i> akan menjadi bias — terkadang secara serius.</li>
+    <li>Mengestimasi <i>intercept</i> ketika β<sub>0</sub> = 0 tidak berbahaya tetapi meningkatkan varians dari penduga <i>slope</i>.</li>
+  </ol>
+  <p><strong>Penggunaan praktis:</strong> Regresi melalui titik asal jarang digunakan dalam praktik. Secara umum, lebih aman untuk menyertakan <i>intercept</i> kecuali ada justifikasi teoritis yang sangat kuat untuk menghilangkannya. Biaya dari menyertakan <i>intercept</i> yang tidak diperlukan hanyalah hilangnya efisiensi (varians yang lebih besar), sedangkan biaya dari menghilangkan <i>intercept</i> yang diperlukan adalah bias.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Regresi melalui titik asal berisiko dan harus dihindari kecuali peneliti memiliki justifikasi teoritis yang kuat bahwa <i>intercept</i> benar-benar nol.</strong> Sifat standar <i>OLS</i> (rata-rata <i>residual</i> nol, ketidakbiasan, <i>R</i><sup>2</sup> nonnegatif) tidak berlaku untuk regresi melalui titik asal. Menyertakan <i>intercept</i> adalah praktik standar dan yang direkomendasikan.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Estimasi <i>OLS</i> meminimumkan jumlah kuadrat <i>residual</i> dan memenuhi kondisi orde pertama (3.13).</li>
+    <li>Setiap koefisien <i>slope</i> memiliki interpretasi <i>ceteris paribus</i>: koefisien tersebut mengukur perubahan dalam prediksi <i>y</i> untuk perubahan satu unit pada variabel tersebut, dengan asumsi semua variabel lain tetap konstan.</li>
+    <li>Nilai <i>fitted</i> dan <i>residual</i> memenuhi sifat aljabar penting: rata-rata <i>residual</i> nol, kovarian nol antara <i>residual</i> dan setiap variabel independen, dan titik rata-rata terletak pada garis regresi.</li>
+    <li>Interpretasi <i>partialling out</i> (teorema Frisch-Waugh) menunjukkan bahwa setiap koefisien hanya menggunakan variasi dari variabel yang bersangkutan yang tidak dijelaskan oleh <i>regressor</i> lainnya.</li>
+    <li>Estimasi regresi sederhana dan berganda berbeda karena adanya <i>confounding term</i> yang bergantung pada korelasi antar <i>regressor</i> dan pentingnya variabel yang dihilangkan.</li>
+    <li><i>R</i><sup>2</sup> mengukur proporsi varians yang dijelaskan tetapi bukan merupakan ukuran validitas kausal. <i>R</i><sup>2</sup> yang rendah tidak berarti bahwa model tersebut tidak berguna.</li>
+    <li>Regresi melalui titik asal umumnya tidak direkomendasikan karena potensi bias dan hilangnya sifat standar.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Sifat Statistik dari Penduga OLS</h2>
+
+<h3>4.1 Asumsi untuk Ketidakbiasan (MLR.1–MLR.4)</h3>
+
+<div class="interpretation">
+  <p>Penduga <i>OLS</i> memiliki sifat statistik yang diinginkan (ketidakbiasan, efisiensi) di bawah serangkaian asumsi. Ini adalah perluasan dari asumsi regresi sederhana ke konteks regresi berganda. Empat asumsi diperlukan untuk ketidakbiasan:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Asumsi MLR.1: Linear dalam Parameter</span>
+  <div class="formula">\[
+  y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k + u
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Model populasi adalah linear dalam parameter β<sub>0</sub>, β<sub>1</sub>, …, β<sub>k</sub>. Ini adalah definisi dari model regresi linear berganda. Model dapat bersifat nonlinear dalam variabel (misalnya, logaritma, kuadrat) selama model tersebut linear dalam parameter.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Asumsi MLR.2: Pengambilan Sampel Acak (<i>Random Sampling</i>)</span>
+  <div class="formula">\[
+  \{(x_{i1}, x_{i2}, \ldots, x_{ik}, y_i) : i = 1, 2, \ldots, n\}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Kita memiliki sampel acak dari <i>n</i> observasi dari populasi yang dijelaskan oleh model dalam MLR.1. Ini memastikan bahwa setiap observasi terdistribusi secara independen dan identik (i.i.d.) sesuai dengan model populasi. Untuk setiap observasi <i>i</i>, kita dapat menulis:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model untuk Observasi <i>i</i></span>
+  <div class="formula">\[
+  y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \beta_k x_{ik} + u_i
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Asumsi ini biasanya dipenuhi oleh data survei yang dikumpulkan menggunakan <i>probability sampling</i>. Asumsi ini dilanggar dalam kasus <i>nonrandom sampling</i> atau ketika observasi berkorelasi (misalnya, data deret waktu dengan autokorelasi, meskipun asumsi yang berbeda digunakan untuk pengaturan tersebut).</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Asumsi MLR.3: Tidak Ada <i>Perfect Collinearity</i></span>
+  <div class="formula">\[
+  \text{Tidak ada hubungan linear eksak di antara variabel independen}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Dalam sampel (dan oleh karena itu dalam populasi), tidak ada satupun variabel independen yang konstan, dan tidak ada hubungan linear eksak di antara variabel independen. Jika suatu variabel independen merupakan kombinasi linear eksak dari variabel lainnya, model tersebut mengalami <i>perfect collinearity</i> dan tidak dapat diestimasi oleh <i>OLS</i>.</p>
+  <p><strong>Nuansa penting:</strong></p>
+  <ul>
+    <li>Asumsi MLR.3 memungkinkan variabel independen untuk berkorelasi — asumsi ini hanya melarang korelasi <i>sempurna</i>. Korelasi antar <i>regressor</i> adalah hal yang diharapkan dan merupakan motivasi utama untuk menggunakan regresi berganda.</li>
+    <li><i>Perfect collinearity</i> dapat muncul dari menyertakan variabel yang sama yang diukur dalam unit yang berbeda (misalnya, pendapatan dalam dolar dan pendapatan dalam ribuan dolar).</li>
+    <li>Hal ini juga dapat muncul dari menyertakan variabel yang merupakan fungsi linear eksak dari variabel lain (misalnya, menyertakan <i>totexpend</i> = <i>expendA</i> + <i>expendB</i> bersama dengan <i>expendA</i> dan <i>expendB</i>).</li>
+    <li>Menyertakan suatu variabel dan kuadratnya <i>tidak</i> melanggar MLR.3 karena <i>x</i><sup>2</sup> bukanlah fungsi linear eksak dari <i>x</i>.</li>
+    <li>Menyertakan <i>log(x)</i> dan <i>log(x<sup>2</sup>)</i> <i>akan</i> melanggar MLR.3 karena <i>log(x<sup>2</sup>)</i> = 2·<i>log(x)</i>, yang merupakan fungsi linear eksak.</li>
+  </ul>
+</div>
+
+<div class="formula-box">
+  <span class="label">Asumsi MLR.4: <i>Zero Conditional Mean</i></span>
+  <div class="formula">\[
+  E(u \mid x_1, x_2, \ldots, x_k) = 0
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Galat (<i>error term</i>) <i>u</i> memiliki nilai harapan nol untuk setiap nilai tertentu dari variabel independen. Ini adalah asumsi kunci untuk ketidakbiasan. Asumsi ini mensyaratkan bahwa semua faktor dalam galat yang tidak teramati tidak berkorelasi dengan variabel penjelas <i>dan</i> bahwa hubungan fungsional telah dispesifikasikan dengan benar. Ketika asumsi ini berlaku, kita mengatakan bahwa variabel independen bersifat <i>exogenous</i>. Ketika asumsi ini gagal, kita mengatakan bahwa variabel independen bersifat <i>endogenous</i>.</p>
+  <p><strong>Implikasi praktis:</strong> MLR.4 gagal jika:</p>
+  <ul>
+    <li>Suatu variabel penting dihilangkan dari model dan berkorelasi dengan variabel yang disertakan.</li>
+    <li>Bentuk fungsional salah spesifikasi (misalnya, menggunakan model linear ketika hubungan sebenarnya adalah kuadratik).</li>
+    <li>Terdapat <i>measurement error</i> pada variabel independen yang berkorelasi dengan <i>u</i>.</li>
+    <li>Terdapat simultanitas (kausalitas terbalik) antara <i>y</i> dan satu atau lebih variabel <i>x</i>.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <h4>Example: Perfect Collinearity</h4>
+  <p>Pertimbangkan model <i>voteA</i> = β<sub>0</sub> + β<sub>1</sub><i>expendA</i> + β<sub>2</sub><i>expendB</i> + β<sub>3</sub><i>totexpend</i> + u, di mana <i>totexpend</i> = <i>expendA</i> + <i>expendB</i>. Ini melanggar MLR.3 karena <i>totexpend</i> adalah kombinasi linear eksak dari <i>expendA</i> dan <i>expendB</i>. Perangkat lunak <i>OLS</i> tidak dapat mengestimasi model ini — biasanya akan menghilangkan salah satu variabel atau melaporkan kesalahan.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Asumsi MLR.1–MLR.4 cukup agar penduga <i>OLS</i> menjadi tidak bias.</strong> MLR.4 (<i>zero conditional mean</i>) adalah yang paling kritis dan paling mungkin dilanggar dalam praktik. Asumsi-asumsi lainnya biasanya lebih mudah dipenuhi: MLR.1 adalah pilihan pemodelan, MLR.2 biasanya dipenuhi oleh <i>sampling</i> yang tepat, dan MLR.3 dapat diperiksa langsung dari data.</p>
+</div>
+
+<h3>4.2 Ketidakbiasan OLS</h3>
+
+<div class="interpretation">
+  <p>Di bawah Asumsi MLR.1 hingga MLR.4, penduga <i>OLS</i> tidak bias untuk parameter populasi:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Ketidakbiasan Penduga OLS</span>
+  <div class="formula">\[
+  E(\hat{\beta}_j) = \beta_j, \quad j = 0, 1, \ldots, k
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Ini berarti bahwa, di seluruh pengambilan sampel acak berulang, rata-rata estimasi <i>OLS</i> sama dengan parameter populasi yang sebenarnya. Sifat ketidakbiasan berlaku untuk setiap koefisien secara individual, termasuk <i>intercept</i>. Pembuktiannya bergantung pada asumsi <i>zero conditional mean</i> (MLR.4) dan linearitas penduga dalam variabel dependen.</p>
+  <p><strong>Peringatan penting:</strong> Ketidakbiasan adalah sifat dari distribusi <i>sampling</i> penduga, bukan sifat dari suatu estimasi tunggal. Ini tidak menjamin bahwa estimasi tertentu dari satu sampel mendekati nilai sebenarnya. Ini berarti bahwa penduga tersebut "benar secara rata-rata" di banyak sampel hipotetis.</p>
+  <p><strong>Penggunaan praktis:</strong> Ketidakbiasan adalah sifat yang diinginkan karena berarti bahwa metode estimasi tidak secara sistematis melebih-lebihkan atau meremehkan parameter yang sebenarnya. Namun, ketidakbiasan saja tidak menjamin bahwa penduga tersebut presisi — kita juga peduli dengan varians penduga (efisiensi), yang dibahas di Bagian 3-4 dari sumber.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Ketidakbiasan adalah sifat dari penduga, bukan sifat dari estimasi.</strong> Ketika kita mengatakan "<i>OLS</i> tidak bias di bawah MLR.1–MLR.4," yang kita maksud adalah bahwa jika kita berulang kali mengambil sampel acak dan menghitung estimasi <i>OLS</i> setiap kali, rata-rata dari estimasi tersebut akan konvergen ke parameter populasi yang sebenarnya. Ini adalah pernyataan tentang keandalan metode di seluruh <i>sampling</i> berulang, bukan tentang estimasi tunggal mana pun.</p>
+</div>
+
+<h3>4.3 <i>Omitted Variable Bias</i></h3>
+
+<div class="interpretation">
+  <p>Salah satu pelanggaran paling penting terhadap MLR.4 adalah <i>omitted variable bias</i>. Ini terjadi ketika suatu variabel yang seharusnya ada dalam model (karena mempengaruhi <i>y</i>) dihilangkan dan berkorelasi dengan satu atau lebih variabel yang disertakan. Penduga <i>OLS</i> dari variabel yang disertakan kemudian menjadi bias, dan arah bias dapat dianalisis.</p>
+  <p>Pertimbangkan model sebenarnya dengan dua variabel penjelas:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model Sebenarnya (dengan Dua Variabel)</span>
+  <div class="formula">\[
+  y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + u
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Misalkan kita mengestimasi model yang salah spesifikasi yang menghilangkan <i>x</i><sub>2</sub>:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model Salah Spesifikasi (<i>x</i><sub>2</sub> Dihilangkan)</span>
+  <div class="formula">\[
+  \tilde{y} = \tilde{\beta}_0 + \tilde{\beta}_1 x_1
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Nilai harapan dari penduga <i>OLS</i> dari model yang salah spesifikasi adalah:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Nilai Harapan Penduga OLS dengan Variabel yang Dihilangkan</span>
+  <div class="formula">\[
+  E(\tilde{\beta}_1) = \beta_1 + \beta_2 \delta_1
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>dimana δ<sub>1</sub> adalah koefisien <i>slope</i> dari regresi populasi <i>x</i><sub>2</sub> pada <i>x</i><sub>1</sub> (yaitu, <i>x</i><sub>2</sub> = δ<sub>0</sub> + δ<sub>1</sub><i>x</i><sub>1</sub> + <i>v</i>). Bias dalam \(\tilde{\beta}_1\) adalah β<sub>2</sub>δ<sub>1</sub>. Tanda dari bias tergantung pada tanda β<sub>2</sub> (efek parsial dari variabel yang dihilangkan pada <i>y</i>) dan δ<sub>1</sub> (hubungan antara variabel yang dihilangkan dan variabel yang disertakan).</p>
+  <p><strong>Arah bias:</strong></p>
+  <ul>
+    <li>Jika β<sub>2</sub> > 0 dan δ<sub>1</sub> > 0, biasnya positif (bias ke atas).</li>
+    <li>Jika β<sub>2</sub> > 0 dan δ<sub>1</sub> < 0, biasnya negatif (bias ke bawah).</li>
+    <li>Jika β<sub>2</sub> < 0 dan δ<sub>1</sub> > 0, biasnya negatif.</li>
+    <li>Jika β<sub>2</sub> < 0 dan δ<sub>1</sub> < 0, biasnya positif.</li>
+    <li>Jika salah satu β<sub>2</sub> = 0 atau δ<sub>1</sub> = 0, tidak ada bias.</li>
+  </ul>
+  <p><strong>Penggunaan praktis:</strong> Rumus ini sangat penting untuk memahami sensitivitas hasil terhadap variabel yang dihilangkan. Bahkan jika variabel yang dihilangkan tidak dapat diamati, peneliti seringkali dapat menentukan tanda kemungkinan bias berdasarkan teori ekonomi. Sebagai contoh, dalam persamaan upah, jika kemampuan dihilangkan dari model dan berkorelasi positif dengan pendidikan (δ<sub>1</sub> > 0) dan memiliki efek positif pada upah (β<sub>2</sub> > 0), maka estimasi <i>OLS</i> dari tingkat pengembalian pendidikan menjadi bias ke atas. Ini berarti bahwa estimasi tingkat pengembalian pendidikan melebih-lebihkan efek kausal yang sebenarnya.</p>
+</div>
+
+<div class="example">
+  <h4>Example: Omitted Variable Bias dalam Persamaan Upah</h4>
+  <p>Model sebenarnya: <i>log(wage)</i> = β<sub>0</sub> + β<sub>1</sub><i>educ</i> + β<sub>2</sub><i>abil</i> + u, di mana <i>abil</i> adalah kemampuan bawaan. Jika kita mengestimasi <i>log(wage)</i> = β<sub>0</sub> + β<sub>1</sub><i>educ</i> + u (menghilangkan kemampuan), nilai harapan dari penduga <i>OLS</i> untuk β<sub>1</sub> adalah β<sub>1</sub> + β<sub>2</sub>δ<sub>1</sub>, di mana δ<sub>1</sub> berasal dari regresi <i>abil</i> pada <i>educ</i>. Karena kemampuan kemungkinan besar berkorelasi positif dengan pendidikan (δ<sub>1</sub> > 0) dan memiliki efek positif pada upah (β<sub>2</sub> > 0), biasnya positif. Dengan demikian, regresi sederhana melebih-lebihkan tingkat pengembalian pendidikan.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Omitted variable bias</i> adalah salah satu ancaman paling serius terhadap inferensi kausal dalam analisis regresi.</strong> Rumus bias menunjukkan bahwa arah dan besarnya bias tergantung pada hubungan antara variabel yang dihilangkan dan variabel yang disertakan serta pentingnya variabel yang dihilangkan. Solusinya adalah dengan menyertakan variabel kontrol yang relevan, menggunakan variabel proksi, atau menggunakan metode <i>instrumental variables</i> (Bab 15).</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Di bawah MLR.1–MLR.4, penduga <i>OLS</i> tidak bias: E(\(\hat{\beta}_j\)) = β<sub>j</sub> untuk semua <i>j</i>.</li>
+    <li>MLR.4 (<i>zero conditional mean</i>) adalah asumsi yang paling kritis untuk ketidakbiasan.</li>
+    <li>MLR.3 (tidak ada <i>perfect collinearity</i>) memastikan bahwa estimasi <i>OLS</i> dapat dihitung secara unik.</li>
+    <li><i>Omitted variable bias</i> terjadi ketika suatu variabel yang relevan dihilangkan dan berkorelasi dengan variabel yang disertakan.</li>
+    <li>Rumus bias adalah E(\(\tilde{\beta}_1\)) = β<sub>1</sub> + β<sub>2</sub>δ<sub>1</sub>, di mana δ<sub>1</sub> mengukur hubungan antara variabel yang dihilangkan dan yang disertakan.</li>
+    <li>Ketidakbiasan adalah sifat dari penduga di seluruh <i>sampling</i> berulang, bukan sifat dari suatu estimasi tunggal.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. <i>Omitted Variable Bias</i></h2>
+
+<div class="interpretation">
+  <p><i>Omitted variable bias</i> adalah perhatian mendasar dalam analisis regresi berganda. Ini terjadi ketika suatu variabel yang seharusnya ada dalam model populasi (yaitu, memiliki efek parsial tidak nol pada <i>y</i>) dihilangkan dari estimasi regresi dan berkorelasi dengan satu atau lebih variabel penjelas yang disertakan. Konsekuensinya adalah bahwa penduga <i>OLS</i> dari variabel yang disertakan menjadi bias dan tidak konsisten.</p>
+  <p>Rumus bias untuk kasus menghilangkan <i>x</i><sub>2</sub> dari model dengan dua variabel penjelas adalah:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Rumus <i>Omitted Variable Bias</i></span>
+  <div class="formula">\[
+  E(\tilde{\beta}_1) = \beta_1 + \beta_2 \delta_1
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p>di mana \(\tilde{\beta}_1\) adalah penduga <i>OLS</i> dari model yang salah spesifikasi (menghilangkan <i>x</i><sub>2</sub>), β<sub>1</sub> adalah efek parsial sebenarnya dari <i>x</i><sub>1</sub> pada <i>y</i>, β<sub>2</sub> adalah efek parsial sebenarnya dari variabel yang dihilangkan <i>x</i><sub>2</sub> pada <i>y</i>, dan δ<sub>1</sub> adalah koefisien <i>slope</i> dari regresi populasi <i>x</i><sub>2</sub> pada <i>x</i><sub>1</sub> (yaitu, <i>x</i><sub>2</sub> = δ<sub>0</sub> + δ<sub>1</sub><i>x</i><sub>1</sub> + <i>v</i>).</p>
+  <p>Bias dalam \(\tilde{\beta}_1\) adalah β<sub>2</sub>δ<sub>1</sub>. Bias ini tidak berkurang seiring bertambahnya ukuran sampel — ini adalah bias sistematis, bukan masalah sampel kecil. Bahkan dengan sampel tak terhingga, penduga akan konvergen ke β<sub>1</sub> + β<sub>2</sub>δ<sub>1</sub> daripada ke β<sub>1</sub>.</p>
+  <p><strong>Wawasan kunci dari rumus bias:</strong></p>
+  <ul>
+    <li>Jika variabel yang dihilangkan tidak memiliki efek parsial pada <i>y</i> (β<sub>2</sub> = 0), tidak ada bias, bahkan jika variabel yang dihilangkan berkorelasi dengan variabel yang disertakan.</li>
+    <li>Jika variabel yang dihilangkan tidak berkorelasi dengan variabel yang disertakan (δ<sub>1</sub> = 0), tidak ada bias, bahkan jika variabel yang dihilangkan memiliki efek besar pada <i>y</i>.</li>
+    <li>Kedua kondisi harus dilanggar agar bias terjadi: variabel yang dihilangkan harus mempengaruhi <i>y</i> dan berkorelasi dengan variabel yang disertakan.</li>
+  </ul>
+  <p><strong>Arah bias:</strong> Tanda bias adalah produk dari tanda β<sub>2</sub> dan δ<sub>1</sub>. Jika keduanya positif, biasnya positif (penduga melebih-lebihkan efek sebenarnya). Jika β<sub>2</sub> positif dan δ<sub>1</sub> negatif, biasnya negatif (penduga meremehkan efek sebenarnya). Jika tandanya berbeda, bias dapat terjadi di kedua arah.</p>
+  <p><strong>Penggunaan praktis:</strong> Rumus bias digunakan untuk menilai kemungkinan arah dan besarnya bias ketika suatu variabel penting tidak dapat diukur. Sebagai contoh, dalam mengestimasi efek pendidikan terhadap upah, peneliti mengetahui bahwa kemampuan kemungkinan besar berkorelasi positif dengan pendidikan (δ<sub>1</sub> > 0) dan secara positif mempengaruhi upah (β<sub>2</sub> > 0), sehingga biasnya positif. Ini berarti bahwa estimasi <i>OLS</i> dari tingkat pengembalian pendidikan kemungkinan besar merupakan estimasi yang berlebihan dari efek kausal yang sebenarnya. Inilah sebabnya mengapa peneliti sering menggunakan <i>instrumental variables</i>, <i>fixed effects</i>, atau metode lain untuk mengatasi <i>omitted variable bias</i>.</p>
+</div>
+
+<div class="example">
+  <h4>Example: Omitted Variable Bias dalam Model GPA</h4>
+  <p>Dalam Contoh 3.1, regresi sederhana dari <i>colGPA</i> pada <i>ACT</i> memberikan koefisien sebesar 0.0271, sementara regresi berganda yang mengontrol <i>hsGPA</i> memberikan koefisien sebesar 0.0094 pada <i>ACT</i>. Perbedaan ini dapat dipahami menggunakan rumus <i>omitted variable bias</i>. Jika kita menghilangkan <i>hsGPA</i> dari model, bias dalam penduga <i>OLS</i> dari koefisien pada <i>ACT</i> adalah β<sub>hsGPA</sub> × δ<sub>ACT</sub>, di mana β<sub>hsGPA</sub> adalah efek parsial dari <i>hsGPA</i> pada <i>colGPA</i> (0.453) dan δ<sub>ACT</sub> adalah <i>slope</i> dari regresi <i>hsGPA</i> pada <i>ACT</i> (yang positif, karena <i>hsGPA</i> dan <i>ACT</i> berkorelasi positif). Bias positif menjelaskan mengapa koefisien regresi sederhana (0.0271) lebih besar daripada koefisien regresi berganda (0.0094).</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p><i>Omitted variable bias</i> seperti mencoba mengukur efek pupuk baru pada hasil panen sambil mengabaikan fakta bahwa ladang yang menerima pupuk juga menerima lebih banyak air. Efek estimasi dari pupuk "terkontaminasi" oleh efek air. Rumus bias memberi tahu kita secara tepat seberapa banyak kontaminasi yang diharapkan, mengingat hubungan antara pupuk dan air serta efek air terhadap hasil panen.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Omitted variable bias</i> adalah pelanggaran terhadap asumsi <i>zero conditional mean</i> (MLR.4).</strong> Ketika suatu variabel yang relevan dihilangkan, galat (<i>error term</i>) secara efektif menyertakan variabel tersebut. Jika variabel yang dihilangkan berkorelasi dengan variabel yang disertakan, maka E(<i>u</i> | <i>x</i><sub>1</sub>, …, <i>x</i><sub>k</sub>) ≠ 0, dan penduga <i>OLS</i> menjadi bias. Bias tidak hilang dengan sampel besar — ini adalah fitur permanen dari model yang salah spesifikasi.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li><i>Omitted variable bias</i> terjadi ketika suatu variabel yang relevan dihilangkan dari model dan berkorelasi dengan variabel yang disertakan.</li>
+    <li>Rumus bias adalah E(\(\tilde{\beta}_1\)) = β<sub>1</sub> + β<sub>2</sub>δ<sub>1</sub>, di mana δ<sub>1</sub> berasal dari regresi variabel yang dihilangkan pada variabel yang disertakan.</li>
+    <li>Bias dapat positif atau negatif, tergantung pada tanda β<sub>2</sub> dan δ<sub>1</sub>.</li>
+    <li>Bias tidak hilang dengan ukuran sampel yang besar — ini adalah bias sistematis.</li>
+    <li>Jika β<sub>2</sub> = 0 (variabel yang dihilangkan tidak mempengaruhi <i>y</i>) atau δ<sub>1</sub> = 0 (variabel yang dihilangkan tidak berkorelasi dengan variabel yang disertakan), tidak ada bias.</li>
+    <li>Peneliti harus menggunakan teori ekonomi untuk menentukan tanda kemungkinan bias dan menilai sensitivitas hasil.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Kewaspadaan Praktis dan Kesalahan Umum</h2>
+
+<div class="interpretation">
+  <p>Analisis regresi berganda adalah alat yang ampuh, tetapi rentan terhadap beberapa kesalahan umum dan keterbatasan. Kewaspadaan berikut ini penting untuk penerapan dan interpretasi yang tepat.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Kesalahan Umum dan Kewaspadaan</span>
+  <div class="formula">\[
+  \text{Waspadai: interpretasi, kausalitas, asumsi, pengukuran, spesifikasi}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>1. Interpretasi koefisien yang salah:</strong> Koefisien \(\hat{\beta}_j\) mengukur perubahan nilai prediksi <i>y</i> untuk perubahan satu unit pada <i>x</i><sub>j</sub>, dengan asumsi semua variabel independen lainnya tetap konstan. Koefisien ini <i>tidak</i> mengukur efek total dari <i>x</i><sub>j</sub> pada <i>y</i> jika variabel lain diizinkan untuk berubah sebagai respons. Sebagai contoh, dalam model kuadratik <i>cons</i> = β<sub>0</sub> + β<sub>1</sub><i>inc</i> + β<sub>2</sub><i>inc</i><sup>2</sup> + u, tidak masuk akal untuk menafsirkan β<sub>1</sub> sebagai efek pendapatan sambil menahan <i>inc</i><sup>2</sup> tetap konstan, karena jika pendapatan berubah, kuadratnya juga berubah. Efek marjinal pendapatan terhadap konsumsi adalah β<sub>1</sub> + 2β<sub>2</sub><i>inc</i>, yang tergantung pada tingkat pendapatan.</p>
+  <p><strong>2. Mencampuradukkan prediksi dengan kausalitas:</strong> Memperoleh koefisien tidak nol <i>tidak</i> menetapkan bahwa <i>x</i><sub>j</sub> menyebabkan <i>y</i>. Asumsi <i>zero conditional mean</i> (MLR.4) diperlukan untuk interpretasi kausal, dan asumsi ini tidak dijamin oleh data. Korelasi tidak berarti kausalitas, dan regresi berganda tidak mengubah prinsip fundamental ini — ia hanya mengontrol <i>confounder</i> yang teramati.</p>
+  <p><strong>3. Mengabaikan asumsi model:</strong> Ketidakbiasan <i>OLS</i> bergantung pada MLR.1–MLR.4. Jika asumsi-asumsi ini dilanggar, estimasi mungkin menjadi bias dan tidak konsisten. Pelanggaran umum termasuk <i>omitted variable bias</i>, <i>measurement error</i>, simultanitas, dan kesalahan spesifikasi bentuk fungsional.</p>
+  <p><strong>4. Interpretasi yang salah terhadap <i>intercept</i>:</strong> <i>Intercept</i> adalah nilai prediksi dari <i>y</i> ketika <i>semua</i> variabel independen bernilai nol. Ini mungkin bukan skenario yang bermakna dalam banyak aplikasi. Sebagai contoh, dalam model GPA, menetapkan <i>hsGPA</i> = 0 dan <i>ACT</i> = 0 tidak realistis untuk mahasiswa. <i>Intercept</i> tetap diperlukan untuk prediksi, tetapi nilainya tidak boleh ditafsirkan di luar konteks.</p>
+  <p><strong>5. Mengabaikan unit pengukuran:</strong> Besarnya suatu koefisien tergantung pada unit pengukuran dari variabel independen dan dependen. Mengubah unit (misalnya, dari dolar ke ribuan dolar) mengubah koefisien secara proporsional. Selalu tafsirkan koefisien dalam unit aktual yang digunakan dalam model.</p>
+  <p><strong>6. Mencampuradukkan galat dan <i>residual</i>:</strong> Galat (<i>error term</i>) <i>u</i> adalah gangguan yang tidak teramati dalam model populasi. <i>Residual</i> \(\hat{u}\) adalah perbedaan yang teramati antara nilai aktual dan nilai <i>fitted</i> dalam sampel. <i>Residual</i> adalah estimasi dari galat, tetapi keduanya bukanlah hal yang sama. Sifat-sifat <i>residual</i> (rata-rata nol, korelasi nol dengan variabel <i>x</i>) adalah sifat aljabar dari <i>OLS</i>, bukan asumsi tentang galat.</p>
+  <p><strong>7. Terlalu mengandalkan <i>R</i><sup>2</sup>:</strong> <i>R</i><sup>2</sup> selalu meningkat ketika variabel ditambahkan, sehingga ini adalah kriteria yang buruk untuk pemilihan model. <i>R</i><sup>2</sup> yang tinggi tidak berarti model yang baik, dan <i>R</i><sup>2</sup> yang rendah tidak berarti model yang buruk. <i>R</i><sup>2</sup> mengukur variasi yang dijelaskan, bukan validitas kausal.</p>
+  <p><strong>8. Masalah variabel yang dihilangkan (<i>omitted-variable problems</i>):</strong> Ancaman paling umum dan serius terhadap validitas adalah menghilangkan variabel yang berkorelasi dengan variabel dependen dan satu atau lebih variabel independen yang disertakan. Rumus bias (Bagian 5) harus digunakan untuk menilai kemungkinan arah dan besarnya bias.</p>
+  <p><strong>9. <i>Perfect collinearity</i>:</strong> Menyertakan variabel yang merupakan kombinasi linear eksak satu sama lain membuat estimasi menjadi tidak mungkin. Contoh umum: menyertakan variabel yang sama dalam unit yang berbeda, menyertakan total dan komponennya, atau menyertakan <i>log(x)</i> dan <i>log(x</i><sup>2</sup><i>)</i>.</p>
+  <p><strong>10. Regresi melalui titik asal:</strong> Menghilangkan <i>intercept</i> ketika <i>intercept</i> sebenarnya tidak nol akan menimbulkan bias. Sifat standar <i>OLS</i> (rata-rata <i>residual</i> nol, <i>R</i><sup>2</sup> nonnegatif) tidak berlaku untuk regresi melalui titik asal. Menyertakan <i>intercept</i> adalah praktik standar dan yang direkomendasikan.</p>
+</div>
+    </div>
+</body>
+</html>
