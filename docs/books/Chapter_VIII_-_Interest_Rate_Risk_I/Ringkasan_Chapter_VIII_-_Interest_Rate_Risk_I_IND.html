@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter VIII   Interest Rate Risk I</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter VIII   Interest Rate Risk I</h1>
+<div class="toc">
+  <h3>Daftar Isi</h3>
+  <ul>
+    <li><a href="#section1">1. Pengenalan Risiko Suku Bunga</a></li>
+    <li><a href="#section2">2. Tingkat dan Pergerakan Suku Bunga</a></li>
+    <li><a href="#section3">3. Model Repricing</a></li>
+    <li><a href="#section4">4. Kelemahan Model Repricing</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Pengenalan Risiko Suku Bunga</h2>
+
+<h3>1.1 Fungsi Transformasi Aset dan Risiko Suku Bunga</h3>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Lembaga keuangan (LK) menjalankan fungsi transformasi aset yang krusial dalam perekonomian: mereka meminjam dana jangka pendek (liabilitas) dan meminjamkan dana jangka panjang (aset). Ketidaksesuaian jatuh tempo ini bukanlah kebetulan—melainkan mekanisme utama yang memungkinkan LK memperoleh laba. Dengan menerima simpanan dan liabilitas jangka pendek lainnya dengan suku bunga yang relatif rendah dan meminjamkan dana tersebut pada jatuh tempo yang lebih panjang dengan suku bunga yang lebih tinggi, LK memperoleh <i>spread</i>. Namun, model bisnis fundamental ini menciptakan kerentanan yang melekat: ketika suku bunga bergerak, nilai dan pendapatan yang dihasilkan oleh sisi aset serta biaya sisi liabilitas merespons secara berbeda, sehingga mengekspos LK pada <i>risiko suku bunga</i>.</p>
+  <p>Bab 7 menetapkan bahwa eksposur ini muncul secara alami dari ketidaksesuaian jatuh tempo yang tertanam dalam fungsi transformasi aset. Ketika suatu LK memiliki aset dengan jatuh tempo lebih panjang daripada liabilitasnya, kenaikan suku bunga akan mengurangi nilai pasar asetnya lebih besar daripada nilai pasar liabilitasnya, sehingga mengikis kekayaan bersih LK tersebut. Sebaliknya, ketika suku bunga turun, LK mungkin menghadapi <i>risiko reinvestasi</i>—risiko bahwa dana yang jatuh tempo harus diinvestasikan kembali pada tingkat yang lebih rendah. Oleh karena itu, pengukuran dan pengelolaan risiko ini menjadi pusat kelangsungan hidup dan profitabilitas LK mana pun. Bab ini dan Bab 9 menyajikan teknik-teknik utama yang digunakan LK untuk mengukur eksposur risiko suku bunga. Metode-metode tersebut berkisar dari model <i>repricing gap</i> yang sederhana (pendekatan akuntansi nilai buku) hingga model jatuh tempo dan <i>duration</i> yang lebih canggih yang menggabungkan nilai pasar.</p>
+  <p>Pilihan model pengukuran sangatlah penting. Lembaga penyimpanan yang lebih kecil, yang merupakan mayoritas besar bank di Amerika Serikat, secara historis mengandalkan model <i>repricing</i> karena kesederhanaan dan daya tarik intuitifnya. Bank-bank besar, yang memegang mayoritas besar total aset industri perbankan, telah mengadopsi model berbasis nilai pasar yang lebih komprehensif seperti model <i>duration gap</i>. Regulator, khususnya melalui Bank for International Settlements (BIS), telah mendorong adopsi model yang lebih komprehensif. Memahami kekuatan dan kelemahan masing-masing pendekatan sangat penting bagi siapa pun yang mengelola atau mengatur lembaga keuangan.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Pertimbangkan sebuah bank komunitas yang menerima simpanan $100 juta dalam bentuk sertifikat deposito (CD) satu tahun dengan bunga 2% dan meminjamkan uang tersebut sebagai hipotek suku bunga tetap 30 tahun dengan bunga 5%. Bank memperoleh <i>spread</i> sebesar 3%—atau $3 juta per tahun—dari transformasi ini. Namun, jika suku bunga naik dan CD tersebut jatuh tempo, bank harus menggantinya dengan CD baru, katakanlah, 4%, sehingga menekan <i>spread</i> menjadi hanya 1% ($1 juta). Jika suku bunga naik lebih jauh, <i>spread</i> bisa menjadi negatif. Skenario sederhana ini menggambarkan bagaimana ketidaksesuaian jatuh tempo yang menjadi inti transformasi aset menciptakan risiko suku bunga. Pendapatan bunga bersih (NII) bank—selisih antara pendapatan bunga yang diperoleh dari aset dan beban bunga yang dibayarkan atas liabilitas—adalah variabel laba yang paling langsung terpengaruh oleh risiko ini.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Anggaplah sebuah LK sebagai pedagang buah yang membeli jeruk dalam jumlah besar dengan harga grosir setiap pagi dan menjualnya sepanjang hari dengan harga eceran. Laba pedagang bergantung pada membeli murah dan menjual mahal. Jika harga grosir naik secara tidak terduga (suku bunga liabilitas meningkat), margin laba pedagang menyusut kecuali harga eceran dapat disesuaikan segera (suku bunga aset mengalami repricing). Tetapi jika pedagang telah berkomitmen untuk menjual beberapa jeruk dengan harga tetap selama seminggu (aset jangka panjang dengan suku bunga tetap), margin dapat tertekan parah. Pedagang terekspos pada "risiko harga" sama seperti LK terekspos pada risiko suku bunga—masalah intinya adalah ketidaksesuaian antara waktu perubahan biaya dan waktu perubahan pendapatan.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Model bisnis LK itu sendiri—meminjam pendek dan meminjamkan panjang—menjamin eksposur terhadap risiko suku bunga. Ini bukanlah bug melainkan fitur dari intermediasi keuangan; tantangannya terletak pada mengukur dan mengelola risiko tersebut daripada menghilangkannya.</b> Bank yang secara sempurna mencocokkan jatuh tempo aset dan liabilitas akan menghilangkan risiko suku bunga tetapi juga kemungkinan besar akan menghilangkan margin labanya, karena suku bunga jangka panjang biasanya melebihi suku bunga jangka pendek. LK karena itu harus mencapai keseimbangan yang rumit antara profitabilitas dan risiko.</p>
+</div>
+
+<h3>1.2 Kebijakan Moneter Federal Reserve dan Risiko Suku Bunga</h3>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Federal Reserve (the Fed) adalah bank sentral Amerika Serikat, dan keputusan kebijakan moneternya merupakan determinan eksternal tunggal terpenting dari tingkat dan pergerakan suku bunga. Melalui <i>operasi pasar terbuka</i> harian—membeli dan menjual surat berharga Treasury—the Fed memengaruhi jumlah uang beredar, inflasi, dan khususnya suku bunga jangka pendek. Suku bunga dana federal, yaitu tingkat di mana bank saling meminjamkan cadangan secara bermalam, adalah target kebijakan utama the Fed. Perubahan pada target ini bergema di seluruh struktur jatuh tempo suku bunga, memengaruhi segala hal mulai dari imbal hasil Treasury bill tiga bulan hingga suku bunga hipotek 30 tahun.</p>
+  <p>Selama periode 2008–2015, the Fed mengambil tindakan luar biasa untuk mengatasi krisis keuangan terburuk sejak Depresi Besar. The Fed menurunkan target suku bunga dana federalnya ke kisaran antara nol dan 0,25% dan menurunkan tingkat <i>discount window</i>-nya menjadi 0,5% (hingga 2010) dan kemudian 0,75% (hingga 2015). Yang kritis, the Fed mengomunikasikan bahwa pihaknya bermaksud mempertahankan suku bunga pada tingkat yang sangat rendah ini untuk periode yang panjang saat ekonomi pulih. <i>Forward guidance</i> ini mengurangi ketidakpastian tentang pergerakan suku bunga di masa depan, yang pada gilirannya mengurangi tingkat risiko suku bunga yang dihadapi LK selama periode ini. Ketika suku bunga stabil dan diperkirakan tetap demikian, kesenjangan antara kapan aset dan liabilitas melakukan repricing menjadi kurang penting karena suku bunga pada saat repricing tidak diperkirakan akan berubah secara dramatis.</p>
+  <p>Namun, risiko suku bunga tidak pernah hilang—risiko tersebut hanya ditunda atau dikompresi. Ketika ekonomi pulih dan tekanan inflasi meningkat, the Fed terdorong untuk menaikkan suku bunga. Memang, the Fed menaikkan suku bunga targetnya tujuh kali antara Desember 2015 dan Juni 2018. Pertanyaan kritis bagi para manajer LK bukanlah <i>apakah</i> the Fed akan bertindak melainkan <i>kapan</i> dan <i>seberapa besar</i>. Ketidakpastian ini sendiri adalah esensi dari risiko suku bunga. Selain itu, pengaruh the Fed melampaui batas-batas AS. Bank of Japan, Bank Sentral Eropa, dan beberapa bank sentral Eropa yang lebih kecil bahkan telah menjelajah ke wilayah suku bunga negatif, di mana pemberi pinjaman membayar peminjam—sebuah skenario yang dulunya tidak terpikirkan yang semakin memperumit pengelolaan risiko suku bunga secara global.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Hubungan Suku Bunga Dana Federal vs. Suku Bunga Diskonto</span>
+  <div class="formula">\[ \text{Target Suku Bunga Dana Federal (Des 2008 – 2015)} = 0\% \text{ hingga } 0,25\% \]</div>
+  <div class="formula">\[ \text{Tingkat Discount Window (2008–2010)} = 0,50\% \]</div>
+  <div class="formula">\[ \text{Tingkat Discount Window (2010–2015)} = 0,75\% \]</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Pada Desember 2008, dengan ekonomi AS yang jatuh bebas, the Fed mengumumkan pengurangan bersejarah target suku bunga dana federalnya ke kisaran 0% hingga 0,25%. Ini adalah tingkat terendah sejak tahun 1940-an. Sebuah bank komunitas kecil dengan <i>repricing gap</i> satu tahun negatif (lebih banyak liabilitas yang mengalami repricing daripada aset) mungkin memperkirakan akan menderita ketika suku bunga turun. Namun, karena pengumuman the Fed menandakan bahwa suku bunga akan tetap mendekati nol selama bertahun-tahun, bank dapat merencanakan dengan percaya diri: bank mengetahui biaya liabilitasnya akan tetap rendah, dan meskipun imbal hasil asetnya juga rendah, stabilitas lingkungan berarti lebih sedikit ketidakpastian tentang pendapatan bunga bersih di masa depan. Risiko ditunda hingga saat the Fed memberi sinyal perubahan kebijakan. Pada Desember 2015, ketika the Fed menaikkan suku bunga untuk pertama kalinya dalam satu dekade, bank-bank yang menjadi lengah selama lingkungan suku bunga rendah tiba-tiba menghadapi prospek biaya liabilitas yang meningkat dan imbal hasil aset yang berpotensi kaku—sebuah skenario <i>repricing risk</i> klasik.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Bayangkan seorang pelaut yang mengarungi kapal melalui pelabuhan yang tenang. Kebijakan suku bunga rendah the Fed seperti periode cuaca tenang yang berkepanjangan—pelaut tahu kondisi tidak akan berubah drastis, sehingga risiko kapal terbalik rendah. Tetapi pelaut harus terus-menerus mengawasi cakrawala untuk badai. Ketika the Fed memberi sinyal kenaikan suku bunga, itu seperti awan gelap muncul—badai mungkin tidak tiba segera, tetapi pelaut harus bersiap. Periode tenang tidak menghilangkan kebutuhan akan keterampilan navigasi; itu hanya menunda saat ketika keterampilan tersebut akan diuji. Demikian pula, suku bunga yang rendah dan stabil tidak menghilangkan risiko suku bunga—mereka mengompresnya ke masa depan, ketika suku bunga akhirnya bergerak.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Suku bunga yang stabil tidak berarti risiko suku bunga nol—itu berarti risiko suku bunga yang ditunda. Manajer LK yang memperlakukan lingkungan suku bunga rendah sebagai periode bebas risiko hanyalah mengakumulasi eksposur yang lebih besar yang akan terwujud ketika the Fed akhirnya mengubah arah.</b> Siklus kenaikan suku bunga 2015–2018 menunjukkan bahwa transisi dari lingkungan suku bunga rendah ke lingkungan suku bunga naik adalah saat yang tepat di mana <i>repricing gaps</i>, ketidaksesuaian <i>duration</i>, dan eksposur risiko suku bunga lainnya menjadi paling konsekuensial.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>LK menciptakan risiko suku bunga melalui fungsi transformasi aset: meminjam jangka pendek dan meminjamkan jangka panjang menciptakan ketidaksesuaian jatuh tempo yang melekat.</li>
+    <li>Kebijakan moneter Federal Reserve adalah pendorong eksternal utama tingkat dan pergerakan suku bunga, memengaruhi suku bunga jangka pendek secara langsung dan suku bunga jangka panjang melalui struktur jatuh tempo.</li>
+    <li>Periode 2008–2015 dengan suku bunga mendekati nol mengurangi tetapi tidak menghilangkan risiko suku bunga; kenaikan suku bunga 2015–2018 menunjukkan munculnya kembali risiko ini.</li>
+    <li>Model <i>repricing</i> (bab ini), model jatuh tempo (Lampiran 8A), dan model <i>duration</i> (Bab 9) adalah tiga pendekatan utama untuk mengukur eksposur risiko suku bunga.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Tingkat dan Pergerakan Suku Bunga</h2>
+
+<h3>2.1 Operasi Pasar Terbuka Federal Reserve</h3>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>The Fed menjalankan kebijakan moneter terutama melalui <i>operasi pasar terbuka</i> harian—pembelian dan penjualan obligasi Treasury dan Treasury bill. Ketika the Fed membeli surat berharga, ia menyuntikkan cadangan ke dalam sistem perbankan, meningkatkan jumlah uang beredar dan memberikan tekanan ke bawah pada suku bunga jangka pendek. Ketika menjual surat berharga, ia menarik cadangan, mengurangi jumlah uang beredar dan mendorong suku bunga naik. Operasi-operasi ini menargetkan suku bunga dana federal, yang merupakan tingkat pinjaman bermalam antar bank. Perubahan suku bunga dana federal ditransmisikan melalui sistem keuangan untuk memengaruhi berbagai macam suku bunga: imbal hasil Treasury, suku bunga obligasi korporasi, suku bunga hipotek, suku bunga CD, dan suku bunga <i>commercial paper</i>.</p>
+  <p>Strategi kebijakan moneter the Fed berosilasi di antara dua kutub: <i>pengetatan</i> dan <i>pelonggaran</i>. Ketika the Fed mengetatkan, ia menaikkan suku bunga untuk memperlambat ekonomi yang terlalu panas, mengekang inflasi, dan mengurangi pinjaman serta belanja yang berlebihan. Hasil normalnya adalah penurunan belanja bisnis dan rumah tangga, terutama belanja yang dibiayai kredit. Sebaliknya, ketika the Fed melonggarkan (kebijakan ekspansif), ia menurunkan suku bunga untuk merangsang pinjaman, investasi, dan konsumsi. Keputusan Desember 2008 untuk memangkas suku bunga hingga mendekati nol adalah contoh dramatis dari kebijakan ekspansif sebagai respons terhadap resesi parah. Pilihan antara pengetatan dan pelonggaran adalah tindakan penyeimbangan yang konstan: mengetatkan terlalu banyak dan ekonomi macet; melonggarkan terlalu banyak dan inflasi berakselerasi.</p>
+  <p>Yang penting, meskipun tindakan the Fed menargetkan suku bunga jangka pendek—terutama suku bunga dana federal—perubahan suku bunga jangka pendek biasanya merambat ke seluruh struktur jatuh tempo suku bunga. Keterkaitan antara suku bunga jangka pendek dan jangka panjang dijelaskan oleh teori-teori struktur jatuh tempo (hipotesis ekspektasi, teori premi likuiditas, dan teori segmentasi pasar), yang dieksplorasi dalam Lampiran 8B. Mekanisme transmisi ini berarti bahwa keputusan kebijakan the Fed memengaruhi seluruh kurva imbal hasil, dengan konsekuensi bagi biaya dana dan pengembalian aset setiap LK. Memahami mekanisme transmisi ini sangat penting bagi manajer LK yang harus memperkirakan pergerakan suku bunga sebagai bagian dari proses manajemen risiko mereka.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Mekanisme Transmisi Kebijakan Moneter</span>
+  <div class="formula">\[ \text{Operasi Pasar Terbuka Fed} \rightarrow \text{Jumlah Uang Beredar} \rightarrow \text{Suku Bunga Dana Federal} \rightarrow \text{Struktur Jatuh Tempo Suku Bunga} \rightarrow \text{Keputusan Ekonomi (Konsumsi vs. Menabung)} \]</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Pertimbangkan periode dari 1965 hingga 2021, yang menyaksikan fluktuasi dramatis dalam suku bunga Treasury bill tiga bulan. Pada akhir 1970-an dan awal 1980-an, the Fed, di bawah Gubernur Paul Volcker, menaikkan suku bunga dana federal ke tingkat dua digit untuk mematahkan inflasi dua digit. Suku bunga T-bill tiga bulan mencapai puncaknya di atas 16% pada awal 1980-an. Sebaliknya, setelah krisis keuangan 2008, suku bunga T-bill turun mendekati nol dan tetap di bawah 1% selama bertahun-tahun. Bagi sebuah LK, fluktuasi ini memiliki implikasi yang mendalam. Dalam lingkungan suku bunga tinggi di awal 1980-an, sebuah LK dengan <i>repricing gap</i> positif (lebih banyak aset yang mengalami repricing daripada liabilitas) akan melihat pendapatan bunga bersih melonjak karena aset mengalami repricing ke atas lebih cepat daripada liabilitas. Sebaliknya, sebuah LK dengan <i>gap</i> negatif akan melihat biaya pendanaannya meledak relatif terhadap imbal hasil asetnya. Dinamika sebaliknya terjadi di lingkungan suku bunga nol pasca-2008.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Anggaplah the Fed sebagai konduktor orkestra. Suku bunga dana federal adalah tongkat konduktor. Ketika konduktor menurunkan tongkatnya (memangkas suku bunga), seksi string (suku bunga jangka pendek) merespons segera, dan seksi brass serta perkusi (suku bunga jangka panjang) mengikuti dengan sedikit penundaan dan variasi. Suara keseluruhan orkestra—seperti struktur jatuh tempo suku bunga—dibentuk oleh isyarat konduktor, tetapi setiap seksi memiliki karakteristik dan waktu tersendiri. Demikian pula, tindakan kebijakan the Fed menentukan nada untuk seluruh lingkungan suku bunga, tetapi dampak persisnya pada setiap segmen jatuh tempo bergantung pada mekanisme transmisi yang kompleks yang harus dipahami oleh manajer LK untuk memperkirakan eksposur institusi mereka sendiri.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Risiko suku bunga secara fundamental didorong oleh ketidakpastian tindakan kebijakan the Fed. Arah, waktu, besaran, dan kecepatan perubahan suku bunga the Fed semuanya penting bagi profitabilitas LK, dan pergerakan relatif suku bunga jangka pendek versus jangka panjang (bentuk kurva imbal hasil) sama pentingnya dengan tingkat suku bunga itu sendiri.</b> LK karena itu harus menganalisis tidak hanya lingkungan suku bunga saat ini tetapi juga mengantisipasi lintasan kebijakan the Fed di masa depan, yang mengharuskan pemantauan data ekonomi, pernyataan the Fed, dan sinyal kebijakan yang tertanam dalam kurva imbal hasil.</p>
+</div>
+
+<h3>2.2 Integrasi Pasar Keuangan dan Transmisi Suku Bunga Global</h3>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Selama beberapa dekade terakhir, pasar keuangan di seluruh dunia menjadi semakin terintegrasi. Kemajuan teknologi, deregulasi, pertumbuhan perbankan multinasional, dan proliferasi instrumen keuangan yang kompleks telah menghubungkan pasar nasional lebih erat dari sebelumnya. Integrasi ini memiliki implikasi yang mendalam bagi manajemen risiko suku bunga. Ketika pasar tersegmentasi, the Fed dapat mengendalikan suku bunga AS secara relatif langsung karena arus modal antar negara terbatas. Namun, saat ini, integrasi pasar keuangan meningkatkan kecepatan di mana perubahan suku bunga dan volatilitas terkait ditransmisikan antar negara, membuat pengendalian suku bunga AS oleh Federal Reserve menjadi lebih sulit dan kurang pasti.</p>
+  <p>Pertimbangkan pasar obligasi global. Ketika the Fed memberi sinyal akan menaikkan suku bunga AS, investor global menyeimbangkan kembali portofolio mereka, menjual obligasi di negara lain dan membeli surat berharga Treasury AS. Arus modal ini memengaruhi suku bunga di seluruh dunia: imbal hasil di negara lain naik ketika harga obligasi turun, sementara dolar menguat. Sebaliknya, ketika bank sentral asing melonggarkan kebijakan, efeknya meluber ke pasar AS. Keterhubungan ini berarti bahwa seorang manajer LK di Amerika Serikat harus memahami tidak hanya tindakan the Fed tetapi juga kebijakan Bank Sentral Eropa, Bank of Japan, dan bank sentral besar lainnya. Bahkan pernyataan oleh ketua the Fed di depan Kongres—hanya sedikit isyarat perubahan kebijakan—dapat memiliki efek besar pada suku bunga dunia, nilai tukar mata uang asing, dan harga saham internasional.</p>
+  <p>Globalisasi pasar keuangan telah menjadikan pengukuran dan pengelolaan risiko suku bunga sebagai perhatian yang menonjol bagi manajer LK modern. Sebuah bank regional AS mungkin menemukan biaya pendanaannya dipengaruhi oleh krisis utang berdaulat di Eropa, pergeseran kebijakan oleh Bank of Japan, atau pergerakan suku bunga tak terduga oleh Bank Sentral Eropa. BIS, menyadari kompleksitas ini, mewajibkan lembaga penyimpanan untuk memelihara sistem pengukuran risiko suku bunga yang menilai efek perubahan suku bunga pada pendapatan dan nilai ekonomi, dan untuk mengidentifikasi eksposur berlebihan yang mungkin timbul. Hari-hari ketika seorang manajer LK dapat fokus hanya pada suku bunga domestik sudah berakhir.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Transmisi Suku Bunga Global</span>
+  <div class="formula">\[ \text{Perubahan Kebijakan di Satu Negara} \rightarrow \text{Arus Modal} \rightarrow \text{Penyesuaian Nilai Tukar} \rightarrow \text{Perubahan Suku Bunga di Seluruh Dunia} \rightarrow \text{Biaya Dana dan Pengembalian LK Terpengaruh} \]</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Pada Maret 2020, ketika pandemi COVID-19 melanda ekonomi global, the Fed memangkas suku bunga dana federal ke kisaran target 0% hingga 0,25%. Tindakan ini tidak terjadi secara terpisah. Bank Sentral Eropa, Bank of England, dan bank sentral besar lainnya secara bersamaan menerapkan pemotongan suku bunga darurat dan program <i>quantitative easing</i> mereka sendiri. Suku bunga CD tiga bulan di Amerika Serikat merosot sebagai responsnya. Bagi bank global dengan operasi di banyak negara, pelonggaran yang tersinkronisasi berarti imbal hasil aset dan biaya liabilitas turun di semua pasar secara bersamaan—meskipun tidak harus pada kecepatan yang sama. Sebuah LK yang memegang aset dalam euro dan liabilitas dalam dolar akan mengalami penyesuaian suku bunga yang berbeda di setiap sisi neracanya, menggambarkan kompleksitas tambahan dari risiko suku bunga dalam sistem keuangan yang terintegrasi secara global. Demikian pula, ketika the Fed di bawah Gubernur Jerome Powell memberi sinyal potensi perubahan suku bunga di depan Kongres, reaksi langsung di pasar obligasi global dapat diamati dalam hitungan menit, menunjukkan seberapa cepat sinyal kebijakan ditransmisikan melintasi batas negara.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Anggaplah sistem keuangan global sebagai jaringan kolam renang yang saling terhubung. Di masa lalu, setiap kolam (negara) memiliki pasokan dan saluran pembuangan air sendiri, dan tingkat air (suku bunga) di setiap kolam dikendalikan secara lokal. Saat ini, kolam-kolam tersebut dihubungkan oleh pipa-pipa (arus modal), sehingga ketika the Fed menambahkan air ke kolam AS, sebagian air tersebut mengalir ke kolam lain, menaikkan tingkat mereka juga. Sebuah LK seperti perenang dengan satu kaki di masing-masing dari dua kolam yang terhubung—ketika tingkat air berubah di satu kolam, itu memengaruhi keseimbangan perenang, tetapi efek pastinya bergantung pada ukuran pipa penghubung, tekanan di setiap kolam, dan kecepatan air mencapai keseimbangan. Manajer LK harus memantau tidak hanya kolam lokal tetapi seluruh jaringan.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Integrasi pasar keuangan telah mengubah risiko suku bunga dari masalah domestik menjadi masalah global. Kemampuan the Fed untuk mengendalikan suku bunga AS kini dibatasi oleh arus modal global, dan manajer LK harus melacak perkembangan kebijakan moneter internasional untuk memahami cakupan penuh dari eksposur risiko suku bunga mereka.</b> Persyaratan BIS untuk sistem pengukuran risiko suku bunga mencerminkan realitas ini: LK modern membutuhkan sistem yang dapat menangkap dampak pergerakan suku bunga global pada pendapatan dan nilai ekonomi.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The Fed memengaruhi suku bunga terutama melalui operasi pasar terbuka yang menargetkan suku bunga dana federal, dengan efek yang ditransmisikan melalui struktur jatuh tempo untuk memengaruhi semua jatuh tempo.</li>
+    <li>Kebijakan moneter dapat bersifat ekspansif (menurunkan suku bunga untuk merangsang pinjaman dan belanja) atau kontraktif (menaikkan suku bunga untuk memperlambat ekonomi dan mengekang inflasi).</li>
+    <li>Integrasi pasar keuangan telah meningkatkan kecepatan dan tingkat di mana perubahan suku bunga dan volatilitas ditransmisikan antar negara, membuat pengendalian suku bunga domestik menjadi lebih sulit.</li>
+    <li>Faktor-faktor global—termasuk kebijakan bank sentral asing dan arus modal internasional—sekarang memainkan peran substansial dalam menentukan suku bunga domestik dan risiko suku bunga LK.</li>
+    <li>BIS mewajibkan LK untuk memiliki sistem pengukuran yang menilai efek perubahan suku bunga pada pendapatan dan nilai ekonomi.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Model Repricing</h2>
+
+<h3>3.1 Mendefinisikan Repricing Gap</h3>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Model <i>repricing gap</i>—juga dikenal sebagai model <i>funding gap</i>—adalah alat dasar untuk mengukur eksposur risiko suku bunga LK. Ini pada dasarnya adalah analisis arus kas akuntansi nilai buku yang berfokus pada perbedaan antara pendapatan bunga yang diperoleh dari aset LK dan beban bunga yang dibayarkan atas liabilitasnya (pendapatan bunga bersih, atau NII) selama cakrawala waktu tertentu. Kesederhanaan model ini adalah kekuatan terbesarnya sekaligus keterbatasannya yang paling signifikan. Lembaga penyimpanan AS yang lebih kecil—yang mewakili mayoritas besar bank—masih menggunakan model ini sebagai ukuran utama risiko suku bunga mereka, dan regulator perbankan AS secara historis mendasarkan evaluasi mereka terhadap risiko suku bunga bank pada model ini.</p>
+  <p>Konsep intinya sederhana: kategorikan setiap aset dan liabilitas di neraca sebagai <i>sensitif terhadap suku bunga</i> atau <i>tidak sensitif terhadap suku bunga</i> berdasarkan apakah suku bunganya akan mengalami repricing dalam <i>maturity bucket</i> tertentu. <i>Aset sensitif terhadap suku bunga (RSA)</i> atau <i>liabilitas sensitif terhadap suku bunga (RSL)</i> adalah aset atau liabilitas yang akan mengalami repricing pada atau mendekati tingkat suku bunga pasar saat ini dalam cakrawala waktu tertentu. Repricing dapat terjadi melalui <i>rollover</i> (pinjaman yang dilunasi pada saat jatuh tempo dan diganti dengan pinjaman baru pada suku bunga saat ini) atau karena instrumen tersebut adalah <i>instrumen suku bunga mengambang</i> (misalnya, hipotek suku bunga mengambang yang diatur ulang setiap kuartal berdasarkan pergerakan suku bunga prima). <i>Repricing gap</i> untuk setiap <i>maturity bucket</i> adalah selisih antara RSA dan RSL dalam bucket tersebut: Gap = RSA − RSL. <i>Gap</i> positif (RSA &gt; RSL) mengekspos LK pada <i>risiko reinvestasi</i>—risiko bahwa dana yang jatuh tempo harus diinvestasikan kembali pada tingkat yang lebih rendah. <i>Gap</i> negatif (RSA &lt; RSL) mengekspos LK pada <i>risiko refinancing</i>—risiko bahwa biaya <i>rollover</i> liabilitas akan naik di atas pengembalian yang diperoleh dari aset.</p>
+  <p>Bank melaporkan <i>repricing gap</i> mereka setiap kuartal dalam laporan panggilan (call reports) pada laporan sensitivitas suku bunga, biasanya dipecah menjadi enam <i>maturity bucket</i>: satu hari; lebih dari 1 hari hingga 3 bulan; lebih dari 3 bulan hingga 6 bulan; lebih dari 6 bulan hingga 12 bulan; lebih dari 1 tahun hingga 5 tahun; dan lebih dari 5 tahun. Tabel 8–1 dalam teks menyajikan contoh klasik. Struktur ini memungkinkan regulator dan manajer untuk melihat sekilas di mana ketidaksesuaian jatuh tempo LK terkonsentrasi. <i>Cumulative gap</i> (CGAP) menjumlahkan <i>gap</i> di beberapa <i>bucket</i>—paling umum <i>repricing gap</i> satu tahun—menyediakan ukuran agregat sensitivitas suku bunga selama cakrawala perencanaan tertentu.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Repricing Gap untuk Maturity Bucket</span>
+  <div class="formula">\[ GAP_i = RSA_i - RSL_i \]</div>
+  <span class="label">Perubahan Pendapatan Bunga Bersih</span>
+  <div class="formula">\[ \Delta NII_i = (GAP_i) \times \Delta R_i = (RSA_i - RSL_i) \times \Delta R_i \]</div>
+  <span class="label">Cumulative Repricing Gap</span>
+  <div class="formula">\[ CGAP = \sum_{i=1}^{n} GAP_i \]</div>
+  <span class="label">Perubahan NII dengan CGAP</span>
+  <div class="formula">\[ \Delta NII = CGAP \times \Delta R \]</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Pertimbangkan sebuah LK sederhana dengan posisi neraca berikut. Dalam <i>bucket</i> satu hari, LK memiliki $20 juta aset sensitif terhadap suku bunga dan $30 juta liabilitas sensitif terhadap suku bunga, menghasilkan <i>gap</i> sebesar −$10 juta. Aset dan liabilitas yang mengalami repricing setiap hari kemungkinan besar adalah pinjaman antar bank di pasar dana federal atau pasar <i>repurchase agreement</i>. Jika suku bunga jangka pendek naik sebesar 1%, perubahan tahunan dalam pendapatan bunga bersih LK dihitung sebagai:</p>
+  <p>ΔNII = (−$10 juta) × 0,01 = −$100.000</p>
+  <p><i>Gap</i> negatif ini mengekspos LK pada <i>risiko refinancing</i>: beban bunga naik sebesar $300.000 (3% dari $30 juta × 1% sebenarnya $30 juta × 1% = $300.000) sementara pendapatan bunga naik hanya $200.000 ($20 juta × 1%), menghasilkan kerugian bersih sebesar $100.000. Sebaliknya, jika LK ini memiliki <i>gap</i> positif $20 juta dalam <i>bucket</i> 6 bulan hingga 12 bulan, ia akan menghadapi <i>risiko reinvestasi</i>: penurunan suku bunga akan menurunkan pendapatan bunga bersih karena pendapatan bunga akan berkurang lebih besar daripada beban bunga.</p>
+  <p>Memperluas ke struktur enam <i>bucket</i> penuh dari Tabel 8–1, dengan <i>bucket</i> yang menunjukkan <i>gap</i> −$10 juta (satu hari), −$10 juta (1 hari–3 bulan), −$15 juta (3–6 bulan), +$20 juta (6–12 bulan), +$10 juta (1–5 tahun), dan +$5 juta (lebih dari 5 tahun), <i>cumulative repricing gap</i> satu tahun adalah:</p>
+  <p>CGAP = (−$10 juta) + (−$10 juta) + (−$15 juta) + $20 juta = −$15 juta</p>
+  <p>Jika rata-rata perubahan suku bunga yang memengaruhi aset dan liabilitas yang mengalami repricing dalam tahun tersebut adalah 1%, perkiraan perubahan pendapatan bunga bersih adalah:</p>
+  <p>ΔNII = CGAP × ΔR = (−$15 juta) × 0,01 = −$150.000</p>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <caption>Tabel 8–1: Repricing Gap ($ juta)</caption>
+    <thead>
+      <tr><th>Maturity Bucket</th><th>Aset</th><th>Liabilitas</th><th>Gap</th><th>Cumulative Gap</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1. Satu hari</td><td>$20</td><td>$30</td><td>−$10</td><td>−$10</td></tr>
+      <tr><td>2. Lebih dari 1 hari–3 bulan</td><td>30</td><td>40</td><td>−10</td><td>−20</td></tr>
+      <tr><td>3. Lebih dari 3 bulan–6 bulan</td><td>70</td><td>85</td><td>−15</td><td>−35</td></tr>
+      <tr><td>4. Lebih dari 6 bulan–12 bulan</td><td>90</td><td>70</td><td>+20</td><td>−15</td></tr>
+      <tr><td>5. Lebih dari 1 tahun–5 tahun</td><td>40</td><td>30</td><td>+10</td><td>−5</td></tr>
+      <tr><td>6. Lebih dari 5 tahun</td><td>10</td><td>5</td><td>+5</td><td>0</td></tr>
+      <tr><td>Total</td><td>260</td><td>260</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Bayangkan sebuah jungkat-jungkit. Satu sisi jungkat-jungkit mewakili aset sensitif terhadap suku bunga LK dan sisi lainnya mewakili liabilitas sensitif terhadap suku bunga. Ketika jungkat-jungkit seimbang (GAP = 0), perubahan suku bunga menghasilkan perubahan yang sama di kedua sisi, dan pendapatan bunga bersih tetap datar. Tetapi ketika satu sisi lebih berat (<i>gap</i> positif atau negatif), jungkat-jungkit miring. Jika suku bunga naik dan RSA melebihi RSL (<i>gap</i> positif), sisi aset naik lebih cepat daripada sisi liabilitas, meningkatkan pendapatan bunga bersih—seperti anak yang lebih berat di jungkat-jungkit mengangkat anak yang lebih ringan lebih tinggi. Jika suku bunga turun dan <i>gap</i> positif, sisi aset turun lebih cepat, mengurangi pendapatan bunga bersih. Arah dan kecepatan kemiringan jungkat-jungkit bergantung pada ukuran <i>gap</i> (seberapa berat satu sisi) dan besarnya perubahan suku bunga (seberapa keras dorongannya). Sama seperti gerakan jungkat-jungkit diperkuat ketika perbedaan berat besar, perubahan pendapatan bunga bersih LK diperkuat ketika nilai absolut CGAP besar.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Model <i>repricing gap</i> pada dasarnya adalah kerangka akuntansi nilai buku: model ini mengukur bagaimana perubahan suku bunga memengaruhi laporan laba rugi (pendapatan bunga bersih) tetapi sepenuhnya mengabaikan efek nilai pasar neraca dari perubahan suku bunga.</b> Ini berarti model tersebut hanya menangkap satu dimensi risiko suku bunga—<i>efek pendapatan</i>—sementara melewatkan <i>efek nilai modal</i> yang dapat mengganggu stabilitas kekayaan bersih LK. Sebuah bank dapat menunjukkan <i>repricing gap</i> nol dan dengan demikian tampak sepenuhnya terlindungi, namun tetap menghadapi risiko suku bunga yang substansial karena nilai pasar aset dan liabilitasnya merespons secara berbeda terhadap perubahan suku bunga.</p>
+</div>
+
+<h3>3.2 Aset dan Liabilitas Sensitif terhadap Suku Bunga</h3>
+
+<div class="interpretation">
+  <h4>Interpretation</h4>
+  <p>Menentukan aset dan liabilitas mana yang sensitif terhadap suku bunga adalah langkah paling kritis dan paling membutuhkan pertimbangan dalam menerapkan model <i>repricing</i>. Manajer LK harus mengajukan pertanyaan sederhana untuk setiap item neraca: <i>Akankah atau dapatkah suku bunga aset atau liabilitas ini berubah dalam satu tahun ke depan?</i> Jika jawabannya ya, item tersebut sensitif terhadap suku bunga; jika tidak, maka tidak sensitif. Pertimbangkan sisi aset dari neraca tipikal. Pinjaman konsumen jangka pendek dengan jatuh tempo satu tahun sensitif terhadap suku bunga karena suku bunganya mengalami repricing pada akhir tahun. T-bill tiga bulan sensitif terhadap suku bunga karena suku bunganya di-reprice pada saat <i>rollover</i> setiap tiga bulan. T-notes enam bulan juga sensitif terhadap suku bunga. Mungkin secara berlawanan dengan intuisi, hipotek suku bunga mengambang 30 tahun yang suku bunganya diatur ulang setiap sembilan bulan diklasifikasikan sebagai sensitif terhadap suku bunga dalam cakrawala <i>repricing</i> satu tahun, meskipun instrumen tersebut memiliki jatuh tempo awal 30 tahun. Klasifikasi tidak bergantung pada jatuh tempo awal tetapi pada waktu penyesuaian suku bunga berikutnya relatif terhadap cakrawala <i>repricing</i>. Instrumen jangka panjang dengan suku bunga tetap—seperti hipotek suku bunga tetap 10 tahun atau obligasi Treasury 3 tahun—sebaliknya tidak sensitif terhadap suku bunga dalam cakrawala satu tahun karena suku bunga mereka tidak akan berubah selama periode tersebut.</p>
+  <p>Sisi liabilitas menghadirkan tantangan klasifikasi yang serupa. CD tiga bulan, <i>bankers acceptance</i> tiga bulan, <i>commercial paper</i> enam bulan, dan simpanan berjangka satu tahun semuanya dengan jelas memenuhi uji sensitivitas suku bunga satu tahun. Klasifikasi <i>demand deposit</i> dan rekening tabungan passbook, bagaimanapun, benar-benar kontroversial. Terhadap dimasukkannya sebagai liabilitas sensitif terhadap suku bunga: <i>demand deposit</i> membayar bunga eksplisit nol berdasarkan regulasi, dan suku bunga rekening NOW tidak berfluktuasi langsung dengan perubahan suku bunga umum. <i>Demand deposit</i> sering bertindak sebagai <i>core deposits</i>—sumber dana yang stabil dan jangka panjang yang diandalkan LK untuk likuiditas. Namun, ada argumen kuat yang mendukung dimasukkannya: <i>demand deposit</i> membayar <i>bunga implisit</i> karena bank tidak membebankan biaya yang sepenuhnya menutupi biaya layanan cek mereka. Ketika suku bunga pasar naik, individu menarik ("run off") sebagian saldo <i>demand deposit</i> mereka untuk berinvestasi pada instrumen yang memberikan imbal hasil lebih tinggi, memaksa bank untuk mengganti dana ini dengan liabilitas yang lebih mahal dan sensitif terhadap suku bunga. Dalam lingkungan suku bunga tinggi, biaya peluang memegang dana di <i>demand deposit</i> sangat besar, membuat penabung lebih cenderung memindahkan saldo. Perdebatan yang sama berlaku untuk rekening tabungan passbook—meskipun batas Peraturan Q dihapuskan pada tahun 1986, bank menyesuaikan suku bunga ini hanya jarang, dan penabung cenderung menarik dana ketika suku bunga naik, memaksa substitusi pendanaan yang lebih mahal.</p>
+  <p>Perdebatan klasifikasi ini bukan hanya akademis. Perlakuan <i>demand deposit</i> dapat mengubah CGAP yang dihitung hingga puluhan juta dolar untuk bank berukuran menengah, mengubah arah eksposur risiko suku bunga LK yang tampak. Regulator secara tradisional memandang rekening transaksi dan tabungan passbook sebagai liabilitas yang tidak sensitif terhadap suku bunga, tetapi dengan pertumbuhan Internet dan persaingan dari lembaga <i>financial technology</i> (FinTech), mobilitas dana ini telah meningkat secara dramatis, menjadikannya jauh lebih sensitif terhadap suku bunga daripada di masa lalu. Kegagalan untuk mengklasifikasikan item-item tersebut dengan benar adalah salah satu alasan kunci mengapa model <i>repricing</i> dapat memberikan sinyal yang menyesatkan.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Perhitungan CGAP Satu Tahun</span>
+  <div class="formula">\[ CGAP = RSA - RSL \]</div>
+  <span class="label">Rasio Gap (Versi Regulasi)</span>
+  <div class="formula">\[ \text{Rasio Gap} = \frac{CGAP}{A} \]</div>
+  <span class="label">Rasio Gap Alternatif</span>
+  <div class="formula">\[ \text{Rasio Gap (Alternatif)} = \frac{RSA}{RSL} \]</div>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Pertimbangkan neraca LK sederhana dalam Tabel 8–2, yang menunjukkan aset sensitif terhadap suku bunga satu tahun berikut: pinjaman konsumen jangka pendek sebesar $50 juta, T-bill tiga bulan sebesar $30 juta, T-notes enam bulan sebesar $35 juta, dan hipotek suku bunga mengambang 30 tahun (suku bunga disesuaikan setiap sembilan bulan) sebesar $40 juta. Total aset sensitif terhadap suku bunga satu tahun adalah $155 juta. Sisa $115 juta aset (pinjaman konsumen jangka panjang, obligasi Treasury 3 tahun, dan hipotek suku bunga tetap 10 tahun) tidak sensitif terhadap suku bunga karena suku bunga mereka tidak akan berubah dalam tahun tersebut.</p>
+  <p>Di sisi liabilitas, liabilitas sensitif terhadap suku bunga satu tahun termasuk CD tiga bulan ($40 juta), <i>bankers acceptance</i> tiga bulan ($20 juta), <i>commercial paper</i> enam bulan ($60 juta), dan simpanan berjangka satu tahun ($20 juta), dengan total $140 juta. Sisanya $130 juta (modal ekuitas, <i>demand deposit</i>, tabungan passbook, dan simpanan berjangka dua tahun) tidak sensitif terhadap suku bunga. Berdasarkan angka-angka ini:</p>
+  <p>CGAP = $155 juta − $140 juta = $15 juta (positif)</p>
+  <p>Rasio gap adalah: $15 juta / $270 juta = 0,056 = 5,6%</p>
+  <p>CGAP positif ini menunjukkan LK akan diuntungkan oleh kenaikan suku bunga dan dirugikan oleh penurunan suku bunga. Jika suku bunga naik sebesar 1%, pendapatan bunga bersih akan meningkat sebesar:</p>
+  <p>ΔNII = $15 juta × 0,01 = $150.000</p>
+  <p>Perhitungan sebenarnya: ΔNII = ($155 juta × 0,01) − ($140 juta × 0,01) = $1,55 juta − $1,40 juta = $150.000.</p>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <caption>Tabel 8–2: Neraca LK Sederhana ($ juta)</caption>
+    <thead>
+      <tr><th>Aset</th><th>$</th><th>Liabilitas</th><th>$</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pinjaman konsumen jangka pendek (1 tahun)</td><td>50</td><td>Modal ekuitas (tetap)</td><td>20</td></tr>
+      <tr><td>Pinjaman konsumen jangka panjang (2 tahun)</td><td>25</td><td>Demand deposit</td><td>40</td></tr>
+      <tr><td>Treasury bill tiga bulan</td><td>30</td><td>Tabungan passbook</td><td>30</td></tr>
+      <tr><td>Treasury notes enam bulan</td><td>35</td><td>CD tiga bulan</td><td>40</td></tr>
+      <tr><td>Obligasi Treasury 3 tahun</td><td>70</td><td>Bankers acceptance tiga bulan</td><td>20</td></tr>
+      <tr><td>Hipotek suku bunga tetap 10 tahun</td><td>20</td><td>Commercial paper enam bulan</td><td>60</td></tr>
+      <tr><td>Hipotek suku bunga mengambang 30 tahun (direset setiap 9 bulan)</td><td>40</td><td>Simpanan berjangka 1 tahun</td><td>20</td></tr>
+      <tr><td></td><td></td><td>Simpanan berjangka 2 tahun</td><td>40</td></tr>
+      <tr><td>Total aset</td><td>270</td><td>Total liabilitas dan ekuitas</td><td>270</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Mengklasifikasikan item sensitif terhadap suku bunga seperti memilah cucian ke dalam tumpukan "aman untuk mesin" dan "cuci tangan". Beberapa item jelas aman untuk mesin (seperti kaos katun—instrumen jangka pendek yang jelas akan segera mengalami repricing), sementara yang lain jelas hanya cuci tangan (seperti blus sutra—instrumen jangka panjang dengan suku bunga tetap). Tetapi beberapa item berada di zona abu-abu—seperti sweter wol yang bertuliskan "disarankan dry cleaning" tetapi mungkin bertahan dalam siklus lembut. <i>Demand deposit</i> adalah sweter wol dari klasifikasi neraca. Secara historis, bankir memperlakukan mereka sebagai tidak sensitif (hanya cuci tangan), tetapi dalam dunia suku bunga tinggi dan persaingan FinTech, mereka sebenarnya mungkin cukup sensitif (aman untuk mesin). Manajer LK harus menggunakan pertimbangan untuk memutuskan di mana setiap item berada, dan klasifikasi yang salah dapat mendistorsi seluruh analisis <i>repricing gap</i>, seperti mencuci sweter wol dengan air panas dapat merusaknya—atau, dalam konteks LK, menghasilkan ukuran risiko suku bunga yang sangat tidak akurat.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Klasifikasi <i>demand deposit</i> dan tabungan passbook sebagai sensitif atau tidak sensitif terhadap suku bunga adalah keputusan penilaian yang dapat secara dramatis mengubah <i>repricing gap</i> yang diukur.</b> Perlakuan regulasi tradisional sebagai tidak sensitif semakin dipertanyakan di era Internet, di mana deposan dapat memindahkan dana ke alternatif dengan imbal hasil lebih tinggi hanya dengan beberapa klik. Mobilitas <i>core deposits</i> telah menjadi sangat sensitif terhadap suku bunga relatif yang dibayarkan oleh bank versus lembaga keuangan nonbank lainnya seperti reksa dana pasar uang.</p>
+</div>
+
+<h3>3.3 Efek CGAP</h3>
+    </div>
+</body>
+</html>
