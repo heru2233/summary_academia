@@ -1,457 +1,697 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Ringkasan Chapter 4 - Financial Services: Securities Firms and Investment Banks (Indonesia)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  h4 {
-    font-size: 12pt;
-    font-style: italic;
-    margin: 12px 0 4px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Services: Securities Firms and Investment Banks</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
-
-<div class="toolbar">
-  <button onclick="window.print()">Cetak / Simpan sebagai PDF</button>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Financial Services: Securities Firms and Investment Banks</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction: The Core Role of Securities Firms and Investment Banks</a></li>
+    <li><a href="#section2">2. Industry Size, Structure, and Composition</a></li>
+    <li><a href="#section3">3. Key Activities of Securities Firms and Investment Banks</a></li>
+    <li><a href="#section4">4. Balance Sheet and Recent Trends</a></li>
+    <li><a href="#section5">5. Regulation of the Securities Industry</a></li>
+    <li><a href="#section6">6. Global Issues</a></li>
+    <li><a href="#section7">7. Practical Cautions and Common Errors</a></li>
+  </ul>
 </div>
 
-<h1>Ringkasan Chapter 4</h1>
-<p class="subtitle">Financial Services: Securities Firms and Investment Banks (Perusahaan Sekuritas dan Bank Investasi)</p>
-<p class="bookinfo">Sumber, Saunders, A. dan Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, Edisi 11, Chapter 4. Disusun sebagai bahan belajar mandiri.</p>
+<h2 id="section1">1. Introduction: The Core Role of Securities Firms and Investment Banks</h2>
 
-<h2>1. Pendahuluan</h2>
-<p>Perusahaan sekuritas dan bank investasi membantu pihak penyedia dana (misalnya rumah tangga) mentransfer dana kepada pihak pengguna dana (misalnya bisnis) dengan biaya rendah dan efisiensi maksimal. Berbeda dengan jenis FI lain, mereka tidak mengubah (mentransformasi) sekuritas yang diterbitkan pengguna dana menjadi klaim yang lebih menarik bagi penyedia dana, melainkan bertindak sebagai <i>broker</i> yang menjadi perantara antara penyedia dan pengguna dana.</p>
-<p><i>Investment banking</i> mencakup penerbitan sekuritas utang dan ekuitas untuk korporasi atau pemerintah, termasuk originasi, underwriting, dan penempatan sekuritas di pasar uang dan pasar modal. <i>Securities services</i> mencakup bantuan perdagangan sekuritas di pasar sekunder (brokerage dan market making). Perusahaan terbesar menjalankan kedua jasa ini dan disebut <i>bulge-bracket investment banks</i> (misalnya BofA Securities), sedangkan perusahaan yang berspesialisasi pada perdagangan sekuritas lama disebut <i>securities firms</i> (sisi ritel) dan yang berspesialisasi menerbitkan sekuritas baru disebut <i>boutique investment banks</i> (sisi komersial).</p>
-<p>Industri ini berubah besar sejak krisis keuangan, dengan akuisisi Bear Stearns oleh JPMorgan Chase, kebangkrutan Lehman Brothers, dan akuisisi Merrill Lynch oleh Bank of America. Dari lima bank investasi terbesar pada awal 2008, semua hilang sebagai bank investasi pada akhir tahun, Goldman Sachs dan Morgan Stanley berkonversi menjadi <i>commercial bank holding companies</i> pada 2008.</p>
+<div class="interpretation">
+  <p>Securities firms and investment banks occupy a fundamentally different position in the financial system than depository institutions, insurance companies, or pension funds. Their primary function is to help net suppliers of funds (e.g., households) transfer funds to net users of funds (e.g., businesses) at a low cost and with a maximum degree of efficiency. The critical distinction is that they do <b>not</b> transform securities issued by fund users into different claims that are more attractive to fund suppliers. Banks, for example, transform loans into bank deposits. Securities firms and investment banks do not do this; instead, they serve as <i>brokers</i> or <i>intermediaries</i> that connect fund suppliers directly with fund users.</p>
+</div>
 
-<h2>2. Ukuran, Struktur, dan Komposisi Industri</h2>
-<p>Karena fokusnya pada perdagangan dan underwriting sekuritas, ukuran industri biasanya diukur dengan <b>modal ekuitas</b>, bukan aset, karena aktivitas ini tidak membutuhkan investasi besar pada aset atau pendanaan liabilitas. Menurut SIFMA, modal ekuitas industri sekuritas mencapai $223 miliar pada 2021.</p>
-<p>Jumlah perusahaan berkembang dari 5.248 (1980) menjadi 9.515 (1987), lalu menyusut menjadi 5.052 (2006, turun 47 persen sejak 1987) dan terus menurun menjadi 3.435 (2020). Perdagangan elektronik meningkatkan volume dan likuiditas, memangkas biaya intermediasi, dan memperluas akses pasar, termasuk <i>automated trading</i>, <i>algorithmic trading</i>, <i>high-frequency trading</i>, dan penerapan kecerdasan buatan serta pembelajaran mesin pada logika perdagangan.</p>
-<p>Krisis keuangan mengubah struktur industri secara permanen. Lima bank investasi terbesar pada awal 2008 (Lehman Brothers, Bear Stearns, Merrill Lynch, Goldman Sachs, dan Morgan Stanley) semuanya tidak lagi menjadi bank investasi pada akhir tahun. Lehman bangkrut, Bear Stearns dan Merrill Lynch diakuisisi (oleh JPMorgan Chase dan Bank of America), sementara Goldman Sachs dan Morgan Stanley meminta dan memperoleh piagam bank komersial. Pada 2021, pendapatan biaya bank holding companies komersial dari investment banking, advisory, brokerage, dan underwriting mencapai $15,23 miliar, naik dari $9,15 miliar pada 2012 dan $14,10 miliar sebelum krisis.</p>
+<div class="interpretation">
+  <p>Two distinct but related service categories define the industry. <b>Investment banking</b> involves raising debt and equity securities for corporations or governments. This includes the <i>origination</i> (designing and preparing the issue), <i>underwriting</i> (bearing the risk of selling the securities), and <i>placement</i> (distributing the securities to investors) in money and capital markets. <b>Securities services</b> involve assistance in the trading of existing securities in secondary markets, which includes <i>brokerage services</i> (executing trades on behalf of customers) and/or <i>market making</i> (providing liquidity by quoting buy and sell prices).</p>
+</div>
 
-<p class="tabcap">Tabel 4-1. Transaksi M&amp;A Besar di Industri Sekuritas AS (sebagian)</p>
-<table>
-  <tr>
-    <th>Kesepakatan</th>
-    <th>Nilai ($ miliar)</th>
-    <th>Tahun</th>
-  </tr>
-  <tr>
-    <td>Citicorp merger dengan Travelers (pemilik Smith Barney dan Salomon)</td>
-    <td>83,0</td>
-    <td>1998</td>
-  </tr>
-  <tr>
-    <td>JPMorgan Chase mengakuisisi Bank One</td>
-    <td>60,0</td>
-    <td>2004</td>
-  </tr>
-  <tr>
-    <td>Bank of America mengakuisisi Merrill Lynch</td>
-    <td>50,0</td>
-    <td>2008</td>
-  </tr>
-  <tr>
-    <td>Bank of America mengakuisisi FleetBoston</td>
-    <td>49,3</td>
-    <td>2003</td>
-  </tr>
-  <tr>
-    <td>Chase Manhattan merger dengan JPMorgan</td>
-    <td>35,0</td>
-    <td>2000</td>
-  </tr>
-  <tr>
-    <td>Bank of America mengakuisisi MBNA</td>
-    <td>35,0</td>
-    <td>2005</td>
-  </tr>
-  <tr>
-    <td>BB&amp;T merger dengan SunTrust Banks</td>
-    <td>28,0</td>
-    <td>2019</td>
-  </tr>
-  <tr>
-    <td>Wachovia mengakuisisi Golden West Financial</td>
-    <td>25,5</td>
-    <td>2006</td>
-  </tr>
-  <tr>
-    <td>Wells Fargo mengakuisisi Wachovia</td>
-    <td>15,1</td>
-    <td>2008</td>
-  </tr>
-  <tr>
-    <td>Wachovia mengakuisisi Southtrust</td>
-    <td>14,3</td>
-    <td>2004</td>
-  </tr>
-  <tr>
-    <td>BlackRock mengakuisisi Barclays Global Investors</td>
-    <td>13,5</td>
-    <td>2009</td>
-  </tr>
-  <tr>
-    <td>UBS mengakuisisi Paine Webber Group</td>
-    <td>12,0</td>
-    <td>2000</td>
-  </tr>
-</table>
+<div class="interpretation">
+  <p>The largest companies in the industry perform both sets of services and are called <b>bulge-bracket investment banks</b> or <i>full-line firms</i> (e.g., BofA Securities). These firms serve both retail customers (brokerage) and corporate customers (underwriting). Firms that concentrate on the purchase, sale, and brokerage of existing securities — the retail side — are called <b>securities firms</b>. Firms that specialize in originating, underwriting, and distributing new securities — the commercial side — are called <b>boutique investment banks</b>.</p>
+</div>
 
-<p class="tabcap">Tabel 4-2. Pendapatan Biaya Investment Banking, Advisory, Brokerage, dan Underwriting Bank Holding Companies Teratas ($ miliar)</p>
-<table>
-  <tr>
-    <th>Bank Holding Company</th>
-    <th>2014</th>
-    <th>2018</th>
-    <th>2021</th>
-  </tr>
-  <tr>
-    <td>Bank of America</td>
-    <td>1,30</td>
-    <td>1,34</td>
-    <td>0,84</td>
-  </tr>
-  <tr>
-    <td>Citigroup</td>
-    <td>0,62</td>
-    <td>1,30</td>
-    <td>1,47</td>
-  </tr>
-  <tr>
-    <td>Goldman Sachs</td>
-    <td>0,34</td>
-    <td>0,80</td>
-    <td>2,61</td>
-  </tr>
-  <tr>
-    <td>JPMorgan Chase</td>
-    <td>3,36</td>
-    <td>4,70</td>
-    <td>4,43</td>
-  </tr>
-  <tr>
-    <td>Wells Fargo</td>
-    <td>0,51</td>
-    <td>0,29</td>
-    <td>0,25</td>
-  </tr>
-  <tr>
-    <td>Semua bank komersial</td>
-    <td>10,43</td>
-    <td>10,92</td>
-    <td>15,23</td>
-  </tr>
-</table>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The industry experienced a structural revolution after the 2008 financial crisis. The five largest standalone investment banks at the start of 2008 — Lehman Brothers, Bear Stearns, Merrill Lynch, Goldman Sachs, and Morgan Stanley — were all gone as investment banks by the end of the year. Lehman Brothers failed; Bear Stearns and Merrill Lynch were acquired by commercial bank holding companies (JPMorgan Chase and Bank of America, respectively); and Goldman Sachs and Morgan Stanley converted to <b>commercial bank holding companies</b>. This permanently blurred the line between investment banking and commercial banking.</p>
+</div>
 
-<h3>2.1 Jenis-Jenis Perusahaan dalam Industri</h3>
-<p>Perusahaan terbesar, disebut <i>national full-line firms</i>, melayani nasabah ritel (sebagai broker-dealer) dan korporasi (underwriting), dan kini terbagi dalam tiga subkelompok, yaitu (1) bank holding companies komersial yang menjadi bank investasi full-service terbesar, seperti Bank of America (lewat akuisisi Merrill Lynch), Morgan Stanley, dan JPMorgan Chase (yang mengakuisisi Bear Stearns sebesar $240 juta pada 2008), (2) national full-line firms yang lebih fokus pada bisnis korporasi dan sangat aktif di perdagangan, seperti Goldman Sachs dan Salomon Brothers/Smith Barney milik Citigroup, serta (3) bank investasi besar dengan jaringan cabang terbatas dan basis klien institusional, seperti Lazard Ltd. dan Greenhill &amp; Co.</p>
-<p>Sisanya terdiri dari berbagai perusahaan yang melayani segmen pasar tertentu</p>
-<ol>
-  <li><b>Regional securities firms</b>, melayani nasabah di wilayah tertentu, misalnya Raymond James Financial</li>
-  <li><b>Specialized discount brokers</b>, melakukan transaksi untuk nasabah tanpa menawarkan nasihat investasi, misalnya Charles Schwab</li>
-  <li><b>Specialized electronic trading securities firms</b>, menyediakan platform perdagangan tanpa broker, misalnya E*TRADE</li>
-  <li><b>Venture capital firms</b>, mengumpulkan dana dari investor individu dan FI lain untuk mendanai usaha baru yang relatif kecil, misalnya di bioteknologi</li>
-  <li>Perusahaan lain, termasuk research boutiques dan <i>designated market makers</i> seperti GTS, Virtu Financial, dan Citadel Securities</li>
-</ol>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>If a bank is like a manufacturer that takes raw materials (deposits) and transforms them into finished products (loans), a securities firm is like a real estate agent who connects buyers and sellers without ever owning the house. The agent arranges the transaction, facilitates the paperwork, and earns a commission — but never takes title to the property except perhaps briefly during the closing process.</p>
+</div>
 
-<h2>3. Aktivitas Kunci</h2>
-<p>Perusahaan sekuritas dan bank investasi menjalankan hingga tujuh area aktivitas utama, yaitu investment banking, venture capital, market making, trading, investing, cash management, serta merger dan akuisisi, ditambah fungsi jasa lain. Banyak aktivitas dijalankan secara bersamaan untuk nasabah yang sama.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Securities firms and investment banks are intermediaries/brokers, not asset transformers.</li>
+    <li>Investment banking = origination, underwriting, and placement of new debt and equity securities.</li>
+    <li>Securities services = brokerage and market making in secondary markets.</li>
+    <li>Full-line (bulge-bracket) firms do both; boutique firms and retail securities firms specialize.</li>
+    <li>Post-2008, the industry consolidated into commercial bank holding companies.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Industry Size, Structure, and Composition</h2>
+
+<h3>2.1 Measuring Industry Size by Equity Capital</h3>
+
+<div class="interpretation">
+  <p>Unlike commercial banking, where asset size is the standard measure of firm size, the securities industry is measured by <b>equity capital</b>. The reason is practical: securities trading and underwriting do not require large investments in assets or liability funding. A securities firm does not need to hold the securities it trades or underwrites except for very short periods (as trading inventory or during the underwriting period). Therefore, asset values do not meaningfully reflect the scale of a firm's operations. Equity capital — the firm's own funds — is the most common benchmark of relative size. According to the Securities Industry and Financial Markets Association (SIFMA), equity capital in the securities industry amounted to <b>$223 billion in 2021</b>.</p>
+</div>
+
+<h3>2.2 Historical Evolution of the Number of Firms</h3>
+
+<div class="interpretation">
+  <p>The number of firms in the securities industry has experienced dramatic swings driven by market conditions and regulatory changes:</p>
+  <ul>
+    <li><b>1980–1987 expansion:</b> firms increased from 5,248 to 9,515, a period of rapid growth before the October 19, 1987 stock market crash.</li>
+    <li><b>Post-1987 shakeout:</b> the number declined 47 percent to 5,052 by 2006.</li>
+    <li><b>Post-financial crisis decline:</b> firms continued to consolidate, falling to 3,435 by 2020.</li>
+  </ul>
+  <p>Concentration of business among the largest firms increased dramatically through mergers and acquisitions (M&amp;As). Many of the largest M&amp;A transactions were <i>interindustry mergers</i> (e.g., insurance companies acquiring investment banks), enabled by regulatory changes such as the <b>Financial Services Modernization Act of 1999</b>. A majority of securities industry M&amp;As in the 2000s involved securities firms that were part of a financial services holding company.</p>
+</div>
+
+<div class="interpretation">
+  <p>Electronic trading dramatically increased trading volumes and liquidity, slashed intermediation costs, and broadened access to markets. Key developments include <i>automated trading</i>, <i>algorithmic trading</i>, <i>high-frequency trading</i>, routing to multiple trading platforms, and the application of <i>artificial intelligence</i> and <i>machine learning</i> to trading logic.</p>
+</div>
+
+<h3>2.3 Taxonomy of Firms in the Industry</h3>
+
+<div class="interpretation">
+  <p>Firms in the industry can be divided into several categories:</p>
+  <ul>
+    <li><b>National full-line firms</b>: service both retail customers (broker-dealers) and corporate customers (underwriting). After the crisis, these fall into three subgroups:
+      <ul>
+        <li><b>Commercial bank holding companies</b> that are the largest full-service investment banks (e.g., Bank of America via Merrill Lynch, Morgan Stanley, JPMorgan Chase via Bear Stearns).</li>
+        <li><b>National full-line firms</b> specializing in corporate business and highly active in trading (e.g., Goldman Sachs, Salomon Brothers/Smith Barney at Citigroup).</li>
+        <li><b>Large investment banks</b> with limited branch networks concentrated in major cities and institutional client bases (e.g., Lazard Ltd., Greenhill &amp; Co.).</li>
+      </ul>
+    </li>
+    <li><b>Regional securities firms</b>: concentrate on servicing customers in a particular region (e.g., Raymond James Financial).</li>
+    <li><b>Specialized discount brokers</b>: execute trades for customers on- or off-line without offering investment advice (e.g., Charles Schwab).</li>
+    <li><b>Specialized electronic trading securities firms</b>: provide platforms for customers to trade without a broker (e.g., E*TRADE).</li>
+    <li><b>Venture capital firms</b>: pool money from individual investors and other FIs to fund relatively small and new businesses (e.g., in biotechnology).</li>
+    <li><b>Other firms</b>: research boutiques, firms with large clearing operations, and designated market makers (e.g., GTS, Virtu Financial, Citadel Securities).</li>
+  </ul>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The financial crisis transformed the structure of the industry. The top five standalone investment banks of 2008 were all absorbed into or converted to commercial bank holding companies. As of 2021, commercial bank holding companies' fee income from investment banking, advisory, securities brokerage, and underwriting topped $15.23 billion, up from $9.15 billion in 2012 and $14.10 billion in the pre-crisis period. The investment banking industry was irrevocably changed.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Industry size is measured by equity capital, not assets; equity capital was $223 billion in 2021.</li>
+    <li>The number of firms declined from 9,515 (1987) to 3,435 (2020) due to shakeouts, consolidation, and the financial crisis.</li>
+    <li>Electronic trading increased volumes, liquidity, and access while reducing costs.</li>
+    <li>The industry now consists of commercial bank holding companies, national full-line firms, large investment banks, regional firms, discount brokers, electronic trading firms, venture capital firms, and specialized players.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Key Activities of Securities Firms and Investment Banks</h2>
+
+<div class="interpretation">
+  <p>Securities firms and investment banks engage in up to <b>seven key activity areas</b>: investment banking, venture capital, market making, trading, investing, cash management, and mergers and acquisitions — plus additional service functions (back-office, custody, research). These activities can be conducted independently or simultaneously. For example, a merger may be financed by new issues of debt and equity underwritten by the same M&amp;A advisory firm. This bundling of services is a defining feature of the industry.</p>
+</div>
 
 <h3>3.1 Investment Banking</h3>
-<p>Investment banking berkaitan dengan underwriting dan distribusi penerbitan utang dan ekuitas baru. Penerbitan dapat berupa <i>primary issues</i> (penerbitan pertama kali, disebut IPO) atau <i>secondary issues</i> (penerbitan perusahaan yang sudah tercatat). Pada 2021, total utang dan ekuitas yang diunderwriting mencapai <b>$11,47 triliun</b>, naik dari $4,95 triliun pada 2008 dan $7,51 triliun pada 2007. Dari jumlah tersebut, $1,29 triliun adalah hasil ekuitas global, naik 19,0 persen dari 2020 dan merupakan periode terkuat sejak 1980, dengan hasil IPO global naik 83 persen didorong IPO raksasa dan munculnya perusahaan unicorn, misalnya Rivian Automotive ($13,7 miliar), GlobalFoundries ($2,9 miliar), dan Bumble ($2,5 miliar).</p>
-<p>Lima underwriter teratas menguasai 22,6 persen pasar utang global dan 39,9 persen pasar ekuitas global, menunjukkan industri ini didominasi segelintir perusahaan papan atas. Underwriting dapat dilakukan melalui <i>private placement</i> (penempatan ke satu atau beberapa investor institusional besar) atau <i>public offering</i>, yang dapat berbasis <i>best-efforts</i> (bank investasi bertindak sebagai agen dengan biaya terkait keberhasilan penempatan) atau <i>firm commitment</i> (bank investasi membeli sekuritas dari emiten pada satu harga dan menjualnya ke publik pada harga sedikit lebih tinggi, menanggung risiko harga).</p>
 
-<p class="tabcap">Tabel 4-3. Lima Underwriter Teratas Utang dan Ekuitas Global, 2021</p>
-<table>
-  <tr>
-    <th>Utang Global</th>
-    <th>Hasil ($ miliar)</th>
-    <th>Pangsa Pasar</th>
-    <th>Ekuitas Global</th>
-    <th>Hasil ($ miliar)</th>
-    <th>Pangsa Pasar</th>
-  </tr>
-  <tr>
-    <td>JPMorgan</td>
-    <td>604,1</td>
-    <td>5,9%</td>
-    <td>Goldman Sachs</td>
-    <td>134,2</td>
-    <td>10,4%</td>
-  </tr>
-  <tr>
-    <td>Citi</td>
-    <td>464,9</td>
-    <td>4,6%</td>
-    <td>JPMorgan</td>
-    <td>117,7</td>
-    <td>9,1%</td>
-  </tr>
-  <tr>
-    <td>Bank of America Securities</td>
-    <td>458,3</td>
-    <td>4,5%</td>
-    <td>Bank of America Securities</td>
-    <td>109,5</td>
-    <td>8,5%</td>
-  </tr>
-  <tr>
-    <td>Goldman Sachs</td>
-    <td>399,1</td>
-    <td>3,9%</td>
-    <td>Citi</td>
-    <td>82,4</td>
-    <td>6,4%</td>
-  </tr>
-  <tr>
-    <td>Morgan Stanley</td>
-    <td>374,3</td>
-    <td>3,7%</td>
-    <td>Morgan Stanley</td>
-    <td>70,0</td>
-    <td>5,4%</td>
-  </tr>
-</table>
+<div class="interpretation">
+  <p><b>Investment banking</b> refers to underwriting and distributing new issues of debt and equity. New issues are classified as:</p>
+  <ul>
+    <li><b>Primary issue / IPO (initial public offering)</b>: the first-time issue of a company's debt or equity to the public.</li>
+    <li><b>Secondary issue</b>: a new issue of seasoned firms whose debt or equity is already trading.</li>
+  </ul>
+  <p>In 2021, a total of <b>$11.47 trillion</b> of debt and equity was underwritten worldwide, up from $4.95 trillion during the financial crisis year of 2008, and above pre-crisis levels of $7.51 trillion (2007) and $7.84 trillion (2006). Global equity proceeds reached $1.29 trillion in 2021, up 19 percent from 2020 — the strongest year since 1980. Global IPO proceeds were up 83 percent from 2020, driven by mega IPOs and the rise of <i>unicorn companies</i> (privately held startups valued at over $1 billion). Examples included Rivian Automotive ($13.7 billion), GlobalFoundries ($2.9 billion), and Bumble ($2.5 billion).</p>
+</div>
 
-<h4>Contoh 4-1. Best-Efforts versus Firm Commitment</h4>
-<p>Sebuah bank investasi setuju mengunderwriting penerbitan 20 juta lembar saham Murray Construction Corp. secara firm commitment, membayar $15,50 per lembar kepada emiten.</p>
-<div class="eq">\[ \text{Dana emiten} = \$15{,}50 \times 20.000.000 = \$310.000.000 \]</div>
-<div class="eq">\[ \text{Laba bank} = (\$16{,}35 - \$15{,}50) \times 20.000.000 = \$17.000.000 \]</div>
-<p>Jika bank menjual saham dengan harga $16,35, emiten tetap menerima $310 juta, bank memperoleh laba $17 juta, dan harga saham emiten adalah $16,35. Namun jika bank hanya bisa menjual dengan harga $14,75, emiten tetap menerima $310 juta tetapi bank menderita kerugian</p>
-<div class="eq">\[ \text{Rugi bank} = (\$14{,}75 - \$15{,}50) \times 20.000.000 = -\$15.000.000 \]</div>
-<p>Pada basis best-efforts, bank menjual 18,4 juta lembar dengan harga $15,50 dan mengenakan biaya $0,375 per lembar terjual. Emiten menerima</p>
-<div class="eq">\[ \text{Dana emiten} = (\$15{,}50 - \$0{,}375) \times 18.400.000 = \$278.300.000 \]</div>
-<div class="eq">\[ \text{Laba bank} = \$0{,}375 \times 18.400.000 = \$6.900.000 \]</div>
-<p>Laba bank pada basis best-efforts tetap $6,9 juta berapa pun harga jualnya, karena risiko harga ditanggung emiten, bukan bank.</p>
+<div class="interpretation">
+  <p>Concentration is significant: the top five underwriters represented <b>22.6 percent</b> of the global debt capital market and <b>39.9 percent</b> of the global equity capital market in 2021. The top-tier rating and the implied reputation it brings has a huge effect in this business — investment banks have refused to participate in an issue if their name would not be placed where they desired on the "tombstone" advertisement announcing the issue.</p>
+</div>
+
+<h4>3.1.1 Public versus Private Offerings</h4>
+
+<div class="interpretation">
+  <p>Securities underwritings can be undertaken through either <b>public offerings</b> or <b>private offerings</b>.</p>
+  <ul>
+    <li><b>Private placement</b>: the investment banker acts as a private placement agent for a fee, placing the securities with one or a few large institutional investors such as life insurance companies. No public offering is made.</li>
+    <li><b>Public offering</b>: the securities are offered to the public at large. This can be done on a <i>best-efforts</i> or <i>firm commitment</i> basis.</li>
+  </ul>
+</div>
+
+<h4>3.1.2 Best-Efforts versus Firm Commitment Underwriting</h4>
+
+<div class="interpretation">
+  <p><b>Best-efforts underwriting</b>: investment bankers act as agents on a fee basis related to their success in placing the issue. The banker does not bear the risk of unsold securities; the issuer bears the risk of incomplete distribution.</p>
+  <p><b>Firm commitment underwriting</b>: the investment banker acts as a principal, purchasing the securities from the issuer at one price and seeking to place them with public investors at a slightly higher price. The banker bears the risk that the securities cannot be sold at the expected price.</p>
+  <p>Factors affecting the issuing firm's preference include: general volatility in the market, the stability and maturity of the issuing firm's financial health, and the perceived appetite for new issues in the marketplace. The investment bank considers these same factors when negotiating fees and/or the pricing spread.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Firm Commitment Underwriting: Issuer Proceeds</span>
+  <div class="formula">\[ \text{Issuer proceeds} = P_{\text{agreed}} \times Q \]</div>
+</div>
+
+<div class="interpretation">
+  <p><b>Symbols:</b> \(P_{\text{agreed}}\) is the price per share the investment bank pays the issuer; \(Q\) is the total number of shares underwritten.</p>
+  <p><b>Relationship:</b> The issuer receives the agreed-upon price multiplied by the total number of shares, regardless of the price at which the investment bank ultimately sells the shares to the public. The proceeds are fixed and known in advance.</p>
+  <p><b>Interpretation:</b> Under firm commitment, the issuer's proceeds are guaranteed. All market risk is transferred to the investment bank.</p>
+  <p><b>Practical use:</b> Used when the issuer wants certainty of funding and is willing to pay a higher spread (the difference between the agreed price and the expected offer price) as compensation for risk transfer.</p>
+  <p><b>Assumption/Caution:</b> The investment bank bears the risk that the public offering price falls below the agreed price, which would produce a loss.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Firm Commitment Underwriting: Investment Bank Profit</span>
+  <div class="formula">\[ \pi_{\text{IB}} = (P_{\text{offer}} - P_{\text{agreed}}) \times Q \]</div>
+</div>
+
+<div class="interpretation">
+  <p><b>Symbols:</b> \(P_{\text{offer}}\) is the price per share at which the investment bank sells the shares to the public; \(P_{\text{agreed}}\) is the price per share paid to the issuer; \(Q\) is the number of shares.</p>
+  <p><b>Relationship:</b> The investment bank's profit is the difference between the public offer price and the agreed price (the spread or gross commission), multiplied by the number of shares.</p>
+  <p><b>Interpretation:</b> If the public sells the shares at a price above the agreed price, the bank earns a positive spread. If the public price falls below the agreed price, the bank incurs a loss.</p>
+  <p><b>Practical use:</b> This is the core risk-reward tradeoff of firm commitment underwriting. The spread compensates the bank for bearing price risk during the underwriting period.</p>
+  <p><b>Assumption/Caution:</b> The profit can be negative if market conditions deteriorate before the securities are placed.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Best-Efforts Underwriting: Issuer Proceeds</span>
+  <div class="formula">\[ \text{Issuer proceeds} = (P_{\text{offer}} - f) \times Q_{\text{sold}} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><b>Symbols:</b> \(P_{\text{offer}}\) is the price per share paid by the public; \(f\) is the fee per share charged by the investment bank; \(Q_{\text{sold}}\) is the number of shares actually sold.</p>
+  <p><b>Relationship:</b> The issuer receives the offer price minus the fee, multiplied by the number of shares actually sold. The issuer bears the risk of incomplete distribution.</p>
+  <p><b>Interpretation:</b> Under best efforts, the issuer's proceeds depend on how many shares the investment bank can sell. If some shares remain unsold, the issuer receives less.</p>
+  <p><b>Practical use:</b> Best-efforts is commonly used for riskier issuers or volatile market conditions, where the investment bank is unwilling to guarantee proceeds.</p>
+  <p><b>Assumption/Caution:</b> The fee structure means the investment bank earns a fee only on shares sold, creating an incentive to place as many shares as possible.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Best-Efforts Underwriting: Investment Bank Fee</span>
+  <div class="formula">\[ \pi_{\text{IB}} = f \times Q_{\text{sold}} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><b>Symbols:</b> \(f\) is the fee per share sold; \(Q_{\text{sold}}\) is the number of shares sold.</p>
+  <p><b>Relationship:</b> The investment bank's profit is the fee per share multiplied by the number of shares sold. This is true regardless of the offer price achieved, as long as shares are sold.</p>
+  <p><b>Interpretation:</b> Best-efforts fees compensate the bank for distribution effort but not for bearing price risk. The bank's profit is therefore not tied to the offer price; it depends solely on the volume of shares placed.</p>
+  <p><b>Practical use:</b> This structure is preferable when the issuing firm accepts the risk of an unsuccessful offering and wants to pay a lower fee than would be required for a firm commitment.</p>
+  <p><b>Assumption/Caution:</b> The investment bank has no obligation to purchase unsold shares. From the issuer's perspective, incomplete distribution means less funding than planned.</p>
+</div>
+
+<div class="example">
+  <h4>Example (from source)</h4>
+  <p><b>Firm commitment:</b> Murray Construction Corp. issues 20 million shares. The investment bank pays $15.50 per share and sells to the public at $16.35.</p>
+  <ul>
+    <li>Murray receives: $15.50 × 20,000,000 = <b>$310,000,000</b>.</li>
+    <li>Investment bank profit: ($16.35 − $15.50) × 20,000,000 = <b>$17,000,000</b>.</li>
+    <li>The stock price is $16.35 (the public's agreed price). From Murray's perspective, the $17 million is a commission to issue the stock.</li>
+  </ul>
+  <p><b>If the share price falls to $14.75:</b> Murray still receives $310,000,000. The investment bank's profit is ($14.75 − $15.50) × 20,000,000 = <b>−$15,000,000</b> — a loss.</p>
+  <p><b>Best-efforts:</b> The investment bank sells 18.4 million shares at $15.50 per share, charging $0.375 per share sold.</p>
+  <ul>
+    <li>Murray receives: ($15.50 − $0.375) × 18,400,000 = <b>$278,300,000</b>.</li>
+    <li>Investment bank profit: $0.375 × 18,400,000 = <b>$6,900,000</b>.</li>
+    <li>Stock price = $15.50.</li>
+  </ul>
+  <p><b>At $14.75:</b> Murray receives ($14.75 − $0.375) × 18,400,000 = <b>$264,500,000</b>. Investment bank profit is still <b>$6,900,000</b>.</p>
+  <p><b>Practical lesson:</b> Firm commitment protects the issuer's proceeds but exposes the bank to market risk. Best-efforts exposes the issuer to incomplete distribution and lower proceeds but gives the bank a guaranteed fee per share sold.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The choice between firm commitment and best-efforts underwriting is fundamentally a choice about <i>who bears the risk of adverse price movements during the offering period</i>. Firm commitment transfers risk to the investment bank; best-efforts leaves risk with the issuer. The fee spread in firm commitment is compensation for bearing this risk.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Firm commitment underwriting is like a wholesaler buying a farmer's entire crop at a fixed price and then reselling it at whatever the market yields. If produce prices rise, the wholesaler profits; if prices crash, the wholesaler loses. Best-efforts is like a commission-based salesperson who takes a percentage of each sale but guarantees nothing about total sales volume.</p>
+</div>
 
 <h3>3.2 Venture Capital</h3>
-<p>Venture capital adalah kumpulan dana yang dikelola secara profesional untuk membiayai perusahaan baru dan sering berisiko tinggi, sebagai imbalan kepemilikan ekuitas. Berbeda dengan bank komersial yang enggan membiayai perusahaan tanpa aset dan sejarah bisnis, venture capital firms membeli kepentingan ekuitas dan umumnya aktif membantu manajemen, bahkan merekrut manajer senior. Jenisnya mencakup <i>institutional venture capital firms</i> (kemitraan terbatas, anak perusahaan bank investasi atau komersial, dan anak perusahaan korporasi nonkeuangan), <i>small business investment companies (SBICs)</i> yang dilisensikan Small Business Administration dengan akses dana Treasury berbunga sangat rendah, serta <i>angel venture capitalists</i> (individu kaya) yang justru berinvestasi lebih banyak daripada institusi. Venture capital berbeda dari private equity, yang lebih fokus pada perusahaan yang sudah terbukti. Dalam keputusan investasi, venture capital firms mencari dua hal, yaitu imbal hasil tinggi (kadang hingga 700 persen dalam lima sampai tujuh tahun) dan jalan keluar (exit) yang mudah.</p>
+
+<div class="interpretation">
+  <p><b>Venture capital</b> is a professionally managed pool of money used to finance new and often high-risk firms. New and small firms face difficulty obtaining debt financing from commercial banks because banks are generally unwilling to lend to companies with no assets and no business history. Venture capital firms fill this gap by providing capital financing as well as business advice.</p>
+  <p>Venture capital firms do <b>not</b> make outright loans. They purchase an <b>equity interest</b> in the firm, acquiring the same rights and privileges as other equity owners. They are not passive investors: they provide expertise to managers, sometimes help recruit senior managers, and generally expect to be fully informed about the firm's operations, problems, and whether the joint goals of all owners are being met.</p>
+</div>
+
+<div class="interpretation">
+  <p><b>Venture capital versus private equity:</b> The terms are often used interchangeably, but there are distinct differences. Venture capital firms concern themselves more with <i>startup business concerns</i>, using pooled investment resources from institutions and wealthy individuals. Private equity firms acquire funds from equity securities, non-publicly traded stocks, and institutional/individual investment pooling, and they deal more with <i>existing companies</i> that have already proven themselves. After the financial crisis, the differences became less distinct as greater competition pushed both types of firms to fund the same types of new and small firms.</p>
+</div>
+
+<div class="interpretation">
+  <p><b>Types of venture capital firms:</b></p>
+  <ul>
+    <li><b>Institutional venture capital firms</b>: business entities whose sole purpose is to find and fund the most promising new firms. Subtypes include:
+      <ul>
+        <li><b>Venture capital limited partnerships</b>: established by professional venture capital firms acting as general partners; they organize and manage the firm and eventually liquidate their equity investment. These dominate the industry.</li>
+        <li><b>Financial venture capital firms</b>: subsidiaries of investment or commercial banks.</li>
+        <li><b>Corporate venture capital firms</b>: subsidiaries of nonfinancial corporations that specialize in startup investments in high-tech firms.</li>
+      </ul>
+    </li>
+    <li><b>Small business investment companies (SBICs)</b>: privately organized venture capital firms licensed by the Small Business Administration (SBA). They make equity investments (as well as loans) to entrepreneurs for startup activities and expansions. They can obtain investment funds from the U.S. Treasury at very low rates.</li>
+    <li><b>Angel venture capitalists (angels)</b>: wealthy individuals who make equity investments. Angels have invested much more in new and small firms than institutional venture capital firms.</li>
+  </ul>
+</div>
+
+<div class="interpretation">
+  <p>Venture capital firms receive many unsolicited proposals, but the majority are rejected. They look for two things in deciding whether to invest:</p>
+  <ol>
+    <li><b>A high return</b>: they are willing to take high risks but require high returns, sometimes as high as <b>700 percent within five to seven years</b>.</li>
+    <li><b>An easy exit</b>: they realize profits by eventually selling their interests in the firm; they want a quick and easy exit opportunity.</li>
+  </ol>
+  <p>This separates venture capital firms from commercial banks, which prefer to invest in existing, financially secure businesses.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Venture capital = professionally managed equity funding for new, high-risk firms.</li>
+    <li>Venture capital firms purchase equity stakes, not loans, and take an active management role.</li>
+    <li>Private equity differs from venture capital: private equity targets proven existing companies.</li>
+    <li>Types: institutional (<i>limited partnerships</i>, <i>financial</i>, <i>corporate</i>), SBICs, and angel investors.</li>
+    <li>Investment criteria: high return (up to 700% in 5–7 years) and easy exit.</li>
+  </ul>
+</div>
 
 <h3>3.3 Market Making</h3>
-<p>Market making adalah penciptaan pasar sekunder atas suatu aset, dapat melalui transaksi agensi (atas nama nasabah, memperoleh komisi, misalnya membeli saham IBM dari satu nasabah pada $190 dan menjualnya ke nasabah lain pada $191, dengan selisih $1 sebagai <i>bid-ask spread</i>) atau transaksi prinsipal (memegang posisi persediaan sendiri untuk mengambil untung dari pergerakan harga). Pada periode stres pasar, laba market making dapat lenyap, misalnya NYSE specialists yang berkewajiban membeli saham bahkan saat pasar jatuh sehingga banyak yang bangkrut atau hampir bangkrut pada Oktober 1987. Contoh modern adalah kegagalan Knight Capital pada 1 Agustus 2012, ketika sistem routing otomatisnya mengirim ribuan pesanan per detik selama 45 menit, mengeksekusi lebih dari 4 juta transaksi pada 154 saham dengan total lebih dari 397 juta lembar, menyebabkan kerugian lebih dari $460 juta dan harga sahamnya anjlok 75 persen dalam sehari, sebelum akhirnya diakuisisi Getco (membentuk KCG Holdings) dan kemudian oleh Virtu Financial. Kompetisi dari bursa elektronik seperti Instinet juga memangkas laba, dengan floor specialists di NYSE kini hanya menangani 12 persen volume (turun dari 100 persen pada awal 1990-an) dan jumlah floor traders turun menjadi kurang dari 500 dari sekitar 5.000 pada puncaknya.</p>
+
+<div class="interpretation">
+  <p><b>Market making</b> involves creating a secondary market in an asset. Investment banks act as primary dealers in government securities and underwriters of corporate bonds and equities, and they also make a secondary market in these instruments.</p>
+  <p>Market making can involve <b>agency transactions</b> or <b>principal transactions</b>:</p>
+  <ul>
+    <li><b>Agency transactions</b>: two-way transactions conducted on behalf of customers for a fee or commission. For example, a NYSE market maker in IBM stock may buy at $190 from one customer and immediately resell at $191 to another. The $1 difference is the <b>bid–ask spread</b>, which represents a large portion of the market maker's profit.</li>
+    <li><b>Principal transactions</b>: the market maker seeks to profit on price movements of securities by taking long or short inventory positions for its own account. An inventory position may also be taken to stabilize the market in the securities.</li>
+  </ul>
+</div>
+
+<div class="interpretation">
+  <p>Market making is profitable in normal conditions but can produce large losses in periods of market stress or high volatility. On the NYSE, market makers have monopoly power over individual stocks but also have an <i>affirmative obligation</i> to buy stocks from sellers even when the market is crashing. This caused several actual and near bankruptcies among NYSE market makers during the October 1987 crash. On NASDAQ, which has competing market makers, liquidity was significantly impaired during the crash and some firms withdrew from market making.</p>
+</div>
+
+<div class="example">
+  <h4>Example (from source): Knight Capital Group Failure</h4>
+  <p>On August 1, 2012, Knight Capital Group, a leading market maker, experienced a failure in its automated routing system. Knight received 212 small retail orders but mistakenly streamed thousands of orders per second into the NYSE over 45 minutes, executing over 4 million trades in 154 stocks totaling more than 397 million shares. It assumed a net long position in 80 stocks of approximately $3.5 billion and a net short position in 74 stocks of approximately $3.15 billion.</p>
+  <p>Knight lost over <b>$460 million</b> from these unwanted positions; its stock fell 75 percent the next day. A week later it received a $400 million cash infusion, and the following summer it was acquired by Getco LLC, forming KCG Holdings, which was later acquired by Virtu Financial in 2017.</p>
+  <p><b>Practical lesson:</b> Market making exposes firms to operational risk, technological failure risk, and rapid losses in volatile conditions.</p>
+</div>
+
+<div class="interpretation">
+  <p>Competition from Internet-based and electronic exchanges (e.g., Instinet Group) has cut into traders' profits. In 2018, only <b>12 percent</b> of total share volume on the NYSE was handled by floor specialists, down from 100 percent in the early 1990s. The number of floor traders on the NYSE fell to fewer than 500, from about 5,000 at the exchange's peak in the early 2000s.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Market making creates secondary markets via agency (commission) or principal (inventory) transactions.</li>
+    <li>The bid–ask spread is the primary source of market-making profit.</li>
+    <li>Market stress can turn market-making profits into rapid, large losses.</li>
+    <li>Automation/electronic exchanges have dramatically reduced floor-based market making.</li>
+  </ul>
+</div>
 
 <h3>3.4 Trading</h3>
-<p>Terdapat setidaknya enam jenis aktivitas trading</p>
-<ol>
-  <li><b>Position trading</b>, membeli blok besar sekuritas dengan ekspektasi pergerakan harga menguntungkan, dengan posisi ditahan beberapa minggu hingga bulan</li>
-  <li><b>Pure arbitrage</b>, membeli aset di satu pasar dan menjualnya segera di pasar lain dengan harga lebih tinggi, mengunci laba tanpa investasi ekuitas, biasanya memanfaatkan perbedaan harga spot dan futures</li>
-  <li><b>Risk arbitrage</b>, membeli sekuritas mengantisipasi pengumuman seperti merger atau keputusan suku bunga Federal Reserve, dengan risiko rugi jika peristiwa tidak terjadi</li>
-  <li><b>Program trading</b>, menurut definisi NYSE, pembelian dan penjualan simultan portofolio minimal 15 saham senilai lebih dari $1 juta yang dipicu program komputer, sering untuk arbitrase antara harga pasar tunai dan futures (misalnya indeks S&amp;P 500)</li>
-  <li><b>Stock brokerage</b>, perdagangan sekuritas atas nama individu melalui broker di bursa</li>
-  <li><b>Electronic brokerage</b>, akses langsung via internet ke lantai bursa, melewati broker tradisional dengan biaya per lembar lebih rendah</li>
-</ol>
 
-<h3>3.5 Investing, Cash Management, dan M&amp;A</h3>
-<p><b>Investing</b> mencakup pengelolaan kumpulan aset seperti reksa dana tertutup dan terbuka serta dana pensiun, dengan tujuan mengalahkan benchmark imbal hasil-risiko seperti indeks S&amp;P 500, menghasilkan aliran pendapatan biaya yang lebih stabil daripada investment banking atau trading. <b>Cash management</b> menawarkan rekening ala deposito seperti <i>cash management accounts (CMAs)</i>, yaitu reksa dana pasar uang dengan fasilitas cek, yang mengaburkan batas antara bank komersial dan bank investasi. <b>Mergers and acquisitions</b> melibatkan pemberian nasihat, pencarian mitra merger, underwriting sekuritas baru, penilaian perusahaan target, dan bahkan membantu mencegah merger (misalnya menuliskan ketentuan <i>poison pill</i>). Nilai M&amp;A domestik meningkat dari kurang dari $200 miliar (1990) menjadi $1,83 triliun (2000, 10.864 kesepakatan), turun ke $458 miliar (2002), memuncak sekitar $1,7 triliun di AS dan $4,5 triliun di dunia (2007), jatuh selama krisis ($903 miliar, $713 miliar, dan $687 miliar pada 2008, 2009, dan 2010), lalu pulih ke $2.749 miliar di AS dan $4.399 miliar di dunia pada 2021, periode M&amp;A terkuat sejak 1980.</p>
-<p>Fungsi <i>back-office</i> mencakup jasa kustodi, kliring dan penyelesaian, serta riset dan advisory. Sebagian biaya riset yang dibeli dengan komisi klien disebut <i>soft dollars</i>, yang menimbulkan konflik kepentingan sehingga SEC mewajibkan pengungkapan. Konflik kepentingan antara riset analis dan underwriting memicu investigasi, misalnya Merrill Lynch membayar denda $100 juta atas laporan yang terlalu optimistis, dan pada musim semi 2003 sepuluh perusahaan sekuritas terbesar menyetujui penyelesaian rekor $1,4 miliar atas tuduhan penyalahgunaan investor.</p>
+<div class="interpretation">
+  <p><b>Trading</b> is closely related to market making, but the trader takes an active net position in an underlying instrument or asset. There are at least <b>six types of trading activities</b>:</p>
+</div>
 
-<h2>4. Neraca dan Tren Terkini</h2>
+<div class="interpretation">
+  <p><b>1. Position trading:</b> Purchasing large blocks of securities on the expectation of a favorable price move. Position traders maintain long or short positions for intervals of up to several weeks or even months. They take relatively longer views of market trends rather than attempting to profit from very short-term movements.</p>
+  <p><b>2. Pure arbitrage:</b> Buying an asset in one market at one price and selling it immediately in another market at a higher price. This "locks in" riskless profits. It usually involves no equity investment, only very short-term borrowed funds, and reduced transaction costs. Pure arbitrageurs often exploit price discrepancies between the spot (cash) price of a security and its corresponding futures price.</p>
+  <p><b>3. Risk arbitrage:</b> Buying securities in anticipation of some information release, such as a merger or takeover announcement or a Federal Reserve interest rate announcement. It is called "risk" arbitrage because if the anticipated event does not occur, the trader loses money.</p>
+  <p><b>4. Program trading:</b> Defined by the NYSE as the simultaneous buying and selling of a portfolio of at least 15 different stocks valued at more than $1 million, using computer programs to initiate trades. Program trading is often associated with seeking a risk arbitrage between a cash market price (e.g., the S&amp;P 500 index) and the futures market price of that instrument. Computers continuously monitor stock and futures prices and can initiate buy or sell orders.</p>
+  <p><b>5. Stock brokerage:</b> Trading securities on behalf of individuals who want to transact in the money or capital markets. Individuals contact their broker, which sends orders to its representative at the exchange to conduct the trades. Large brokerage firms often hold several licenses on the floor of a stock exchange.</p>
+  <p><b>6. Electronic brokerage:</b> Direct access via the Internet to the trading floor, bypassing traditional brokers. Costs per share are generally lower. Users can discover existing sizes and quotes of offers to buy or sell and negotiate with each other using the system's computers.</p>
+</div>
 
-<h3>4.1 Tren</h3>
-<p>Kinerja industri sangat bergantung pada kondisi pasar saham. Komisi brokerage menurun sebagai persentase pendapatan sejak penghapusan komisi tetap oleh SEC pada Mei 1975, stabil dan pulih setelah 1992, dan kembali ke kisaran 15-20 persen dari total pendapatan pada pertengahan 2010-an. Jumlah broker-dealer terdaftar FINRA menurun dari 4.923 (2008) menjadi 3.435 (2020) atau minus 30 persen, sementara jumlah registered investment advisors (RIA) meningkat dari 24.147 (2008) menjadi 30.888 (2020) atau plus 28 persen, dan pangsa pendapatan berbasis biaya di broker-dealer ritel terkemuka tumbuh dari 57 persen (2015) menjadi 70 persen (2019).</p>
-<p>Aktivitas underwriting domestik tumbuh dari $192,7 miliar (1990) menjadi $1.623,9 miliar (2002) dan $4.389,3 miliar (2021), didorong daya tarik utang korporasi karena suku bunga jangka panjang rendah, risiko utang yang lebih kecil daripada ekuitas, dan pertumbuhan pasar asset-backed securities. Laba sebelum pajak mencapai rekor $31,6 miliar (2000), turun 24 persen menjadi $16 miliar (2001) akibat perlambatan ekonomi dan serangan 11 September (biaya Bank of New York $125 juta, Citigroup $100-200 juta, Morgan Stanley $150 juta), lalu naik ke $24,1 miliar (2003), $33,1 miliar (2006), merosot ke $0,78 miliar (2007) dan rekor rugi $34,1 miliar (2008) saat krisis, melonjak ke rekor $61,4 miliar (2009), sebelum akhirnya mencapai $77,2 miliar (2020).</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>As with many securities firm activities, trading can be conducted on behalf of a customer as an <i>agent</i> (broker) or on behalf of the firm as a <i>principal</i>. When trading at the retail level occurs on behalf of customers, it is often called <b>brokerage</b> or <b>stock brokering</b>. The distinction matters for risk-bearing: a principal trader bears the risk of the position; a broker does not.</p>
+</div>
 
-<p class="tabcap">Tabel 4-4. Aktivitas Underwriting Korporasi AS pada Tahun Terpilih ($ miliar)</p>
-<table>
-  <tr>
-    <th>Tahun</th>
-    <th>1990</th>
-    <th>2002</th>
-    <th>2008</th>
-    <th>2015</th>
-    <th>2020</th>
-    <th>2021</th>
-  </tr>
-  <tr>
-    <td>Total underwriting</td>
-    <td>192,7</td>
-    <td>1.623,9</td>
-    <td>2.735,7</td>
-    <td>1.480,0</td>
-    <td>2.672,8</td>
-    <td>4.389,3</td>
-  </tr>
-</table>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Six trading activities: position trading, pure arbitrage, risk arbitrage, program trading, stock brokerage, electronic brokerage.</li>
+    <li>Pure arbitrage is riskless in theory; risk arbitrage depends on an anticipated event occurring.</li>
+    <li>Program trading uses computer algorithms to exploit cash-futures price discrepancies.</li>
+    <li>Electronic brokerage lowers costs and bypasses traditional brokers.</li>
+  </ul>
+</div>
 
-<h3>4.2 Neraca</h3>
-<p>Sifat jangka pendek banyak aset perusahaan sekuritas menunjukkan pentingnya aktivitas trading dan brokerage. Pada neraca konsolidasi 2016, aset terbesar adalah piutang dari broker-dealer lain (29,3 persen), sekuritas yang dibeli dengan perjanjian jual kembali atau reverse repurchase agreements (29,1 persen), dan posisi long dalam sekuritas dan komoditas (22,6 persen). Karena neracanya terdiri dari sekuritas pasar keuangan, industri menghadapi risiko pasar, risiko suku bunga, risiko nilai tukar, dan risiko sovereign yang tinggi.</p>
-<p>Sama seperti FI lain, perusahaan sekuritas menggunakan leverage tinggi, tetapi liabilitasnya sangat jangka pendek. Sumber dana utama adalah <i>repurchase agreements</i> (34,3 persen dari total liabilitas dan ekuitas), diikuti payables kepada nasabah dan broker-dealer lain, serta sekuritas yang dijual short. Lebih dari 36 persen liabilitas adalah payables dari proses transaksi. Modal ekuitas hanya 6,1 persen dari total aset, jauh di bawah lembaga depositori (bank komersial 11,34 persen, lembaga simpanan 10,74 persen, credit union 10,80 persen), karena aset perusahaan sekuritas sebagian besar berupa sekuritas yang dapat diperdagangkan (likuid). Perusahaan sekuritas diwajibkan menjaga rasio utang agregat terhadap modal bersih tidak lebih dari 1.500 persen, artinya utang tidak boleh lebih dari 15 kali ekuitas.</p>
+<h3>3.5 Investing</h3>
 
-<h2>5. Regulasi</h2>
-<p>Regulator utama industri sekuritas adalah <b>SEC</b>, didirikan 1934 sebagai respons atas penyalahgunaan yang dinilai turut menyebabkan masalah ekonomi AS. Peran utamanya mencakup administrasi undang-undang sekuritas, peninjauan registrasi penerbitan sekuritas baru, peninjauan laporan tahunan dan tengah tahunan perusahaan publik, serta larangan manipulasi pasar. <i>National Securities Markets Improvement Act (NSMIA)</i> 1996 mempertegas SEC sebagai regulator utama dengan menghapus sebagian besar beban regulasi negara bagian, sehingga SEC memiliki yurisdiksi eksklusif atas perusahaan sekuritas.</p>
-<p>Skandal riset analis memunculkan penegakan besar. Pada musim semi 2003, sepuluh perusahaan sekuritas terbesar membayar penyelesaian rekor $1,4 miliar, dengan rincian Citigroup $400 juta, Credit Suisse First Boston dan Merrill Lynch masing-masing $200 juta, Morgan Stanley $125 juta, Goldman Sachs $110 juta, serta Bear Stearns, JPMorgan Chase, Lehman Brothers, dan UBS Warburg masing-masing $80 juta, dan Piper Jaffray $32 juta. Penyelesaian mewajibkan pemisahan struktur riset dan perbankan serta mengaitkan kompensasi analis dengan kualitas riset, bukan jumlah bisnis underwriting. Kasus berlanjut, misalnya Morgan Stanley $5 juta (Desember 2012, terkait IPO Facebook) dan denda $43,5 juta kepada Citigroup, Goldman Sachs, dan delapan perusahaan lain (Desember 2014, terkait IPO Toys "R" Us).</p>
-<p>Selain SEC, <b>FINRA</b> adalah organisasi nirlaba independen yang mengatur praktik perdagangan harian, termasuk pengawasan <i>dark pools</i> (sekitar 13 persen transaksi saham AS pada 2018, naik dari 3 persen pada 2007 dan menjadi 40 persen pada 2020). Goldman Sachs menutup dark pool-nya pada 2014, dan denda terkait dark pool dijatuhkan kepada UBS ($14,5 juta), Barclays ($35 juta ke SEC dan $35 juta ke NYAG), serta Credit Suisse ($84,3 juta total). Kongres juga mengawasi industri, misalnya melalui sidang Senate Permanent Subcommittee on Investigations pada musim semi 2010 tentang peran bank investasi dalam krisis.</p>
-<p><i>Wall Street Reform and Consumer Protection Act</i> 2010 membawa banyak perubahan, antara lain pembentukan Financial Services Oversight Council, ambang registrasi investment advisor sebesar $100 juta aset kelolaan (dari $25 juta, efektif 21 Juli 2011), regulasi pasar sekuritisasi dan lembaga pemeringkat kredit, kewajiban issuer dan originator menahan kepentingan finansial pada pinjaman yang disekuritisasi, regulasi komprehensif derivatif OTC, serta <i>Volcker Rule</i> yang melarang proprietary trading (efektif April 2014, kepatuhan paling lambat 21 Juli 2015). <i>USA Patriot Act</i> mewajibkan tiga hal sejak 1 Oktober 2003, yaitu verifikasi identitas pembuka rekening, penyimpanan catatan verifikasi, dan pemeriksaan daftar teroris. Terakhir, <i>Securities Investor Protection Corporation (SIPC)</i>, dibentuk berdasarkan Securities Investor Protection Act 1970 sebagai korporasi keanggotaan nirlaba, melindungi investor hingga $500.000 terhadap kerugian akibat kegagalan perusahaan sekuritas.</p>
+<div class="interpretation">
+  <p><b>Investing</b> involves managing pools of assets such as closed-end and open-end mutual funds, as well as pension funds, in competition with life insurance companies. Securities firms manage such funds either as <i>agents</i> for other investors or as <i>principals</i> for themselves. The objective in funds management is to choose asset allocations to beat some return–risk performance benchmark such as the S&amp;P 500 index. Since fees are based on the size of the pool of assets managed, this business produces a more stable flow of income than investment banking or trading.</p>
+</div>
 
-<h2>6. Isu Global</h2>
-<p>Lebih dari sektor FI lain, perusahaan sekuritas dan bank investasi beroperasi secara global. Lima underwriter utang global teratas 2021 adalah bank AS (JPMorgan, Citi, Bank of America Securities, Goldman Sachs, Morgan Stanley), disusul bank Eropa (Barclays, Deutsche Bank, BNP Paribas, HSBC, Credit Suisse), sementara untuk ekuitas global, 5 dari 10 teratas adalah bank AS, 3 bank Eropa, dan 2 bank China. Transaksi investor asing atas saham AS tumbuh dari $6.173,7 miliar (2003) menjadi $24.031,1 miliar (2008, naik 289 persen), jatuh ke $13.155,2 miliar (2009), lalu mencapai rekor $48.552,9 miliar (2020). Transaksi investor AS atas saham di bursa asing tumbuh dari $2.697,7 miliar (2003) menjadi $10.866,3 miliar (2008, naik 303 persen) dan rekor $14.435,6 miliar (2020). Total penawaran sekuritas internasional naik dari $1.713,0 miliar (2003) menjadi $4.094,9 miliar (2020), dengan penerbit AS menawarkan $915,0 miliar di pasar internasional.</p>
-<p>Pasca krisis, bank investasi global mencari aliansi strategis atau keluar dari pasar asing. Morgan Stanley menjual 21 persen sahamnya kepada Mitsubishi UFJ (2008) dan membentuk usaha patungan pada Maret 2009, sementara Citigroup menjual unit sekuritas dan manajemen aset Jepangnya kepada Sumitomo Mitsui Financial Group. Skandal besar mewarnai industri global, terutama manipulasi <b>LIBOR</b> (suku bunga pinjaman antar bank) yang diperkirakan menghasilkan setidaknya $75 miliar bagi bank-bank yang terlibat. Barclays menyetujui penyelesaian $450 juta (Juni 2012), UBS sekitar $1,5 miliar (Desember 2012), dan Royal Bank of Scotland $610 juta (Februari 2013), sementara pada 2016 enam bank besar (Barclays, JPMorgan Chase, Citigroup, RBS, UBS, dan Bank of America) didenda total hampir $6 miliar atas manipulasi pasar valuta asing dan LIBOR. Trader Tom Hayes dihukum 14 tahun penjara pada Agustus 2015, hukuman pidana individu pertama atas manipulasi LIBOR.</p>
-<p>Hampir $200 triliun derivatif, pinjaman, sekuritas, dan KPR mereferensikan benchmark yang berasal dari rata-rata hanya $500 juta volume perdagangan harian (akhir 2016), sehingga regulator mengembangkan suku bunga referensi alternatif, yaitu SOFR (AS), SONIA (Inggris), ESTER (kawasan euro), SARON (Swiss), dan TONA (Jepang). SOFR, yang dihitung dari pasar repo Treasury AS dengan volume harian sekitar $1 triliun, lebih tahan terhadap manipulasi. LIBOR resmi berhenti diterbitkan setelah 31 Desember 2021 untuk setelan sterling, euro, franc Swiss, yen, serta setelan dolar AS satu minggu dan dua bulan, dan setelah 30 Juni 2023 untuk setelan dolar AS yang tersisa.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Fund management targets beating a return-risk benchmark (e.g., S&amp;P 500).</li>
+    <li>Fees are based on assets under management, producing relatively stable income.</li>
+  </ul>
+</div>
 
-<h2>7. Perhitungan dan Rumus Kunci</h2>
+<h3>3.6 Cash Management</h3>
 
-<h3>7.1 Underwriting Firm Commitment</h3>
-<p>Pada firm commitment, bank investasi membeli seluruh penerbitan dari emiten dengan harga tetap dan menanggung risiko harga.</p>
-<div class="eq">\[ \text{Dana emiten} = P_{\text{beli}} \times N \]</div>
-<div class="eq">\[ \text{Laba bank} = (P_{\text{jual}} - P_{\text{beli}}) \times N \]</div>
-<p>dengan \( P_{\text{beli}} \) adalah harga yang dibayar bank ke emiten, \( P_{\text{jual}} \) harga jual ke publik, dan \( N \) jumlah lembar. Contoh, 20 juta lembar pada $15,50 dengan harga jual $16,35 menghasilkan dana emiten $310 juta dan laba bank $17 juta, sedangkan harga jual $14,75 menghasilkan rugi bank $15 juta.</p>
+<div class="interpretation">
+  <p>Investment banks offer bank deposit–like <b>cash management accounts (CMAs)</b> to individual investors. Since the 1999 Financial Services Modernization Act, they can also offer deposit accounts themselves. Merrill Lynch was the first investment bank to offer a direct deposit account in June 2000 via the two banks it owned.</p>
+  <p>Most CMAs allow customers to write checks against some type of mutual fund account (e.g., a money market mutual fund). When issued in association with commercial banks and thrifts, these accounts can be covered by federal deposit insurance from the FDIC. Many CMAs offer ATM services and debit cards.</p>
+  <p>The advantage of brokerage firm CMAs over commercial bank deposit accounts is that they make it easier to buy and sell securities. The broker can take funds out of the CMA account when an investor buys a security and deposit funds back when the investor sells. CMAs were instrumental in the securities industry's efforts to provide commercial banking services prior to the 1999 Act, and they blurred the distinction between commercial banks and investment banks.</p>
+</div>
 
-<h3>7.2 Underwriting Best-Efforts</h3>
-<p>Pada best-efforts, bank bertindak sebagai agen dan memperoleh biaya per lembar terjual, tanpa menanggung risiko harga.</p>
-<div class="eq">\[ \text{Dana emiten} = (P_{\text{jual}} - \text{biaya}) \times N_{\text{terjual}} \]</div>
-<div class="eq">\[ \text{Laba bank} = \text{biaya} \times N_{\text{terjual}} \]</div>
-<p>Contoh, 18,4 juta lembar terjual pada $15,50 dengan biaya $0,375 per lembar menghasilkan dana emiten $278,3 juta dan laba bank $6,9 juta, berapa pun harga jualnya.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>CMAs are money market mutual fund accounts with check-writing privileges.</li>
+    <li>They blur the line between banking and securities services.</li>
+    <li>CMAs can be FDIC-insured when offered with commercial banks/thrifts.</li>
+  </ul>
+</div>
 
-<h3>7.3 Batas Leverage Perusahaan Sekuritas</h3>
-<div class="eq">\[ \frac{\text{Utang agregat}}{\text{Modal bersih}} \leq 1.500\% \quad \Rightarrow \quad \text{Utang} \leq 15 \times \text{Modal} \]</div>
-<p>Perusahaan sekuritas diwajibkan menjaga utang agregat tidak lebih dari 15 kali modal bersihnya, sebagai pengganti persyaratan modal minimum ala bank.</p>
+<h3>3.7 Mergers and Acquisitions</h3>
 
-<h3>7.4 Pertumbuhan Transaksi Sekuritas Global</h3>
-<div class="eq">\[ \text{Pertumbuhan} = \frac{V_{2008} - V_{2003}}{V_{2003}} \times 100\% \]</div>
-<p>Transaksi investor asing atas saham AS tumbuh 289 persen antara 2003 dan 2008, dan transaksi investor AS atas saham asing tumbuh 303 persen pada periode yang sama.</p>
+<div class="interpretation">
+  <p>Investment banks provide advice and assistance in <b>mergers and acquisitions</b>: finding merger partners, underwriting new securities to be issued by the merged firms, assessing the value of target firms, recommending merger terms, and helping target firms prevent a merger (e.g., seeing that <i>poison-pill provisions</i> are written into a potential target firm's securities contracts).</p>
+  <p>M&amp;A activity is highly cyclical. Total U.S. domestic M&amp;A value increased from less than $200 billion in 1990 to $1.83 trillion in 2000 (10,864 deals). It fell 53 percent in 2001 to $819 billion, bottomed out at $458 billion in 2002, then recovered to $1.7 trillion in the United States (and $4.5 trillion worldwide) in 2007. During the financial crisis, domestic M&amp;A fell to $903 billion (2008), $713 billion (2009), and $687 billion (2010). In 2021, the total value of completed M&amp;A in the U.S. was <b>$2,749 billion</b> and worldwide was <b>$4,399 billion</b> — the strongest year since 1980.</p>
+</div>
 
-<h3>7.5 Data Kunci Lainnya</h3>
-<ul>
-  <li>Modal ekuitas industri sekuritas, $223 miliar (2021)</li>
-  <li>Jumlah broker-dealer, 3.435 (2020) dari 4.923 (2008)</li>
-  <li>Total underwriting global, $11,47 triliun (2021), dengan ekuitas global $1,29 triliun</li>
-  <li>Pendapatan biaya investment banking BHC komersial, $15,23 miliar (2021)</li>
-  <li>Laba sebelum pajak industri, rekor $61,4 miliar (2009) dan $77,2 miliar (2020) versus rekor rugi $34,1 miliar (2008)</li>
-  <li>Rasio modal terhadap aset, 6,1 persen (2016) versus 11,34 persen untuk bank komersial</li>
-  <li>Perlindungan SIPC, hingga $500.000 per nasabah</li>
-</ul>
+<div class="interpretation">
+  <p>In 2021, the top 10 financial advisors ranked by completed M&amp;A deals globally were led by Goldman Sachs ($1,347.1 billion, 19.4 percent market share), JPMorgan ($1,242.8 billion, 17.9 percent), and Morgan Stanley ($1,032.4 billion, 14.9 percent). Many of the top U.S.-ranked banks are also top-ranked worldwide.</p>
+</div>
 
-<h2>8. Ringkasan dan Kesimpulan</h2>
-<p>Bab ini memberikan gambaran perusahaan sekuritas (yang menawarkan layanan sebagian besar ritel kepada investor) dan bank investasi (yang menawarkan layanan sebagian besar grosir kepada nasabah korporasi). Industri ini membantu penerbitan utang dan ekuitas baru, memfasilitasi perdagangan dan market making sekuritas setelah diterbitkan, serta merger dan restrukturisasi korporasi. Ukuran industri diukur dengan modal ekuitas, aktivitas kuncinya mencakup investment banking, venture capital, market making, trading, investing, cash management, dan M&amp;A, dan neracanya didominasi posisi pasar jangka pendek dengan leverage sangat tinggi.</p>
-<p>Industri berada dalam periode konsolidasi dan globalisasi. Krisis keuangan menghapus model bank investasi independen, dengan lima bank investasi terbesar hilang atau berkonversi menjadi bank holding companies, sementara regulasi pasca-Dodd-Frank termasuk Volcker Rule membatasi proprietary trading. Skandal LIBOR dan konflik kepentingan riset menunjukkan pentingnya integritas pasar, dan transisi dari LIBOR ke SOFR menandai perubahan besar dalam infrastruktur pasar keuangan global.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>M&amp;A advisory is a major revenue source for investment banks.</li>
+    <li>M&amp;A activity is highly cyclical and tracks the health of the economy.</li>
+    <li>The top 10 advisors dominate the market with high concentration.</li>
+  </ul>
+</div>
 
-<h2>9. Pertanyaan Konsep untuk Latihan</h2>
-<ol>
-  <li>Bagaimana perusahaan sekuritas berbeda dari bank investasi? Dengan cara apa keduanya menjadi intermediari keuangan?</li>
-  <li>Apa perbedaan antara IPO dan secondary issue, serta antara private placement dan public offering?</li>
-  <li>Apa perbedaan risiko underwriting best-efforts versus firm commitment bagi bank investasi?</li>
-  <li>Sebutkan tujuh area aktivitas kunci perusahaan sekuritas dan bank investasi</li>
-  <li>Apa perbedaan pure arbitrage dan risk arbitrage, serta position trading dan program trading?</li>
-  <li>Mengapa broker-dealers cenderung memegang ekuitas lebih sedikit daripada bank komersial dan thrift?</li>
-  <li>Apa hasil utama NSMIA 1996, dan perubahan regulasi apa yang muncul dari krisis keuangan?</li>
-  <li>Apa tiga persyaratan USA Patriot Act yang wajib diterapkan perusahaan jasa keuangan sejak Oktober 2003?</li>
-  <li>Mengapa LIBOR digantikan SOFR dan suku bunga referensi alternatif lain?</li>
-</ol>
+<h3>3.8 Back-Office and Other Service Functions</h3>
 
-<p class="note">Catatan teknis, persamaan matematis pada halaman ini dirender dengan MathJax dan membutuhkan koneksi internet saat pertama kali dibuka. Untuk mencetak atau menyimpan sebagai PDF, gunakan tombol Cetak di bagian atas. Dokumen ini adalah ringkasan belajar mandiri dan bukan pengganti buku teks asli.</p>
+<div class="interpretation">
+  <p>These functions include <b>custody and escrow services</b>, <b>clearance and settlement services</b>, and <b>research and advisory services</b> (e.g., advice on divestitures and asset sales). Investment banks also increasingly enter traditional bank service areas such as small business lending and the trading of loans. In performing these functions, the investment bank normally acts as an agent for a fee, often based on the total bundle of services performed for the client.</p>
+  <p>The portion of the fee or commission allocated to research and advisory services is called <b>soft dollars</b>. When one area in the firm (e.g., an investment advisor) uses client commissions to buy research from another area in the firm, it receives a benefit because it is relieved from producing and paying for the research itself. This creates a <b>conflict of interest</b> between the advisor's need to obtain research and the client's interest in paying the lowest commission available. The SEC requires firms to disclose soft dollar arrangements to clients.</p>
+</div>
 
+<div class="interpretation">
+  <p>Serious conflicts of interest arose in the early and mid-2000s between analysts' research recommendations and the firm's underwriting business. The New York State attorney general forced Merrill Lynch to pay a <b>$100 million fine</b> and to adopt procedures separating analysts' recommendations (and compensation) from underwriting activities. The investigation was triggered by the collapse of many technology stocks while analysts were still recommending buys or holds.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Back-office functions (custody, clearance, settlement) are fee-based agency services.</li>
+    <li>Soft dollars create conflicts of interest between research quality and commission minimization.</li>
+    <li>Analyst-underwriter conflicts led to major fines and structural separation requirements.</li>
+  </ul>
+</div>
+
+<div class="insight">
+  <h4>Key Insight (Section 3 overall)</h4>
+  <p>The seven key activity areas are interrelated. Investment banking provides origination; market making and trading provide liquidity; venture capital funds startups; investing manages pools; CMAs compete with banks; M&amp;A advisory generates high fees; and back-office functions support all of the above. The largest full-line firms bundle these services to deepen client relationships and stabilize revenue streams.</p>
+</div>
+
+<h2 id="section4">4. Balance Sheet and Recent Trends</h2>
+
+<h3>4.1 Profitability Trends</h3>
+
+<div class="interpretation">
+  <p>Trends in the securities industry depend heavily on the state of the stock market. The 1987 crash produced a sharp decline in trading volume and brokerage commissions over 1987–1991. The decline in commission income as a percentage of revenues actually began in <b>1977</b> due to:</p>
+  <ol>
+    <li>The abolition of fixed commissions on securities trades by the SEC in May 1975, and</li>
+    <li>The fierce competition for wholesale commissions and trades that followed.</li>
+  </ol>
+  <p>Commission income stabilized and recovered after 1992 with record equity trading volumes in 1995–2000. It declined again during the 2008–2009 market crash and recovered to 15–20 percent of total revenues in the mid-2010s. The business model has evolved: the number of FINRA-registered broker-dealer firms decreased from 4,923 in 2008 to 3,435 in 2020 (a 30 percent decline), while the number of SEC/state-registered investment advisor firms (RIAs) increased from 24,147 in 2008 to 30,888 in 2020 (a 28 percent increase). Fee-based revenue at leading retail broker-dealers grew from 57 percent of revenue in 2015 to 70 percent in 2019.</p>
+</div>
+
+<div class="interpretation">
+  <p>Underwriting activity fell over 1987–1990 due to the market crash, the decline in M&amp;As, the economic recession, and concerns about the junk-bond market. Between 1991 and 2001, domestic underwriting grew from $192.7 billion to $1,623.9 billion. Drivers of this resurgence included enhanced trading profits, growth in new issue underwriting, and the attractiveness of corporate debt issues because of low long-term interest rates. Debt has advantages over equity: it is less risky, so there is less risk of adverse price movement; and debt is more likely to be bought in larger blocks by fewer investors, making the selling process less costly.</p>
+</div>
+
+<div class="interpretation">
+  <p>Profitability data illustrate the industry's cyclicality and vulnerability:</p>
+  <ul>
+    <li><b>1996–2000:</b> pretax net income topped $9 billion each year; the all-time high before the crisis was <b>$31.6 billion in 2000</b>.</li>
+    <li><b>2001:</b> pretax profits fell 24 percent to $16 billion, due to the economic slowdown and the September 11 attacks. The Bank of New York estimated $125 million in costs; Citigroup estimated $100–200 million in lost business; Morgan Stanley reported $150 million in property damage and relocation costs.</li>
+    <li><b>2003:</b> profits surged to $24.1 billion as expenses fell; interest expense fell 22.5 percent from $48.4 billion (2002) to $37.5 billion (2003).</li>
+    <li><b>2005:</b> pretax profits fell to $17.6 billion as interest rate increases raised interest expense.</li>
+    <li><b>2006:</b> record pretax profits of <b>$33.1 billion</b>.</li>
+    <li><b>2007:</b> pretax profits collapsed to just <b>$0.78 billion</b> as trading and investment account losses reached $6 billion and expenses grew to a record $473.4 billion.</li>
+    <li><b>2008:</b> record loss of <b>−$34.1 billion</b>, with revenues down 38.7 percent and trading losses of −$65.0 billion.</li>
+    <li><b>2009:</b> record profits of <b>$61.4 billion</b>, with interest expense falling 82.2 percent below 2008 levels.</li>
+    <li><b>2010–2012:</b> profits of $34.8 billion, $14.2 billion, and $32.1 billion, affected by the flash crash, MF Global collapse, and Knight Capital glitch.</li>
+    <li><b>2013–2014:</b> profits fell to $26.3 billion and $27.0 billion due to post-crisis regulation and de-risking.</li>
+    <li><b>2017–2020:</b> profits increased to $37.1 billion (2017), $43.9 billion (2019), and <b>$77.2 billion (2020)</b>.</li>
+  </ul>
+</div>
+
+<h3>4.2 Balance Sheet Structure</h3>
+
+<div class="interpretation">
+  <p>The balance sheet of securities firms reflects the short-term nature of their trading/brokerage activities. As a broker, the firm receives a commission but does not take an asset or liability position. Thus, many assets are cash-like money market instruments, not capital market positions, and many liabilities are extremely short-term funding sources.</p>
+</div>
+
+<div class="example">
+  <h4>Example: Consolidated Balance Sheet of Broker-Dealers, Year-End 2016</h4>
+  <p><b>Assets (total $3,810.9 billion):</b></p>
+  <ul>
+    <li>Receivables from other broker-dealers: $1,116.1B (29.3%)</li>
+    <li>Securities purchased under agreements to resell (reverse repos): $1,110.1B (29.1%)</li>
+    <li>Long positions in securities and commodities: $863.1B (22.6%)</li>
+    <li>Receivables from customers: $225.0B (5.9%)</li>
+    <li>Cash: $122.1B (3.2%)</li>
+    <li>Other assets: $299.9B (7.9%)</li>
+  </ul>
+  <p><b>Liabilities and Equity (total $3,810.9 billion):</b></p>
+  <ul>
+    <li>Securities sold under repurchase agreements (repos): $1,305.7B (34.3%)</li>
+    <li>Payables to customers: $820.9B (21.5%)</li>
+    <li>Payables to other broker-dealers: $452.0B (11.9%)</li>
+    <li>Other nonsubordinated liabilities: $458.6B (12.0%)</li>
+    <li>Short positions in securities and commodities: $317.3B (8.3%)</li>
+    <li>Subordinated liabilities: $116.0B (3.0%)</li>
+    <li>Bank loans payable: $56.0B (1.5%)</li>
+    <li>Payables to noncustomers: $50.3B (1.3%)</li>
+    <li><b>Total equity capital: $234.2B (6.1%)</b></li>
+  </ul>
+</div>
+
+<div class="interpretation">
+  <p>Key balance sheet observations:</p>
+  <ul>
+    <li><b>Market risk and interest rate risk:</b> Because the balance sheet consists largely of financial market securities, the industry is subjected to particularly high levels of market risk and interest rate risk. To the extent that securities are foreign-issued, managers must also be concerned with foreign exchange risk and sovereign risk.</li>
+    <li><b>High financial leverage:</b> Securities firms, like other FIs, use high levels of debt to finance an asset portfolio of financial securities. However, their liabilities are extremely short-term.</li>
+    <li><b>Repurchase agreements (repos)</b> are the major source of funds (34.3 percent of total liabilities and equity). A repo is a security temporarily sold in exchange for cash, with an agreement to repurchase it later. The reverse repurchase agreement on the asset side is a short-term loan to the repurchase agreement seller.</li>
+    <li><b>Low equity capital:</b> Equity capital is only <b>6.1 percent</b> of total assets, well below the 11.34 percent for commercial banks, 10.74 percent for savings institutions, and 10.80 percent for credit unions. One reason: securities firms' balance sheets contain mostly tradable (liquid) securities compared with the relatively illiquid loans of depository institutions.</li>
+    <li><b>Regulatory leverage constraint:</b> Securities firms are required to maintain an aggregate indebtedness to net capital of <b>no more than 1,500 percent</b>, i.e., debt cannot be more than 15 times higher than equity.</li>
+  </ul>
+</div>
+
+<div class="formula-box">
+  <span class="label">Regulatory Leverage Constraint</span>
+  <div class="formula">\[ \frac{\text{Aggregate indebtedness}}{\text{Net capital}} \leq 1{,}500\% \]</div>
+</div>
+
+<div class="interpretation">
+  <p><b>Symbols:</b> <i>Aggregate indebtedness</i> is total debt; <i>Net capital</i> is equity capital (adjusted for asset liquidity, per SEC rules).</p>
+  <p><b>Relationship:</b> The ratio of total debt to net capital must not exceed 15:1.</p>
+  <p><b>Interpretation:</b> For every $1 of equity capital, the firm can carry at most $15 of debt. This is a leverage cap designed to protect creditors and customers.</p>
+  <p><b>Practical use:</b> The constraint limits the risk of insolvency from excessive leverage and is monitored by the SEC and FINRA.</p>
+  <p><b>Assumption/Caution:</b> Because the balance sheet is mostly marketable securities, this lower capital level is considered acceptable relative to banks; however, during market crashes, liquidity can vanish, making the low capital buffer dangerous.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>The securities industry's balance sheet is dominated by very short-term instruments (receivables from broker-dealers, reverse repos, repos). Equity capital is thin relative to banks because assets are marketable and liquid. However, high leverage combined with market volatility creates the potential for rapid insolvency, as demonstrated by the 2008 crisis.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A securities firm is like a highly efficient arbitrageur who borrows overnight to finance inventory that can be sold the next day. The business model depends on continuous access to short-term funding. As long as markets function, the firm earns spreads on high volume. But if funding freezes, even a small decline in asset values can wipe out the thin equity cushion.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Profitability is highly cyclical and closely tied to stock market conditions, interest rates, and trading volumes.</li>
+    <li>Commission income fell as a percentage of revenues after fixed commissions were abolished in 1975.</li>
+    <li>The 2008 crisis produced a record loss of −$34.1 billion; 2009 produced record profits of $61.4 billion.</li>
+    <li>The balance sheet is dominated by short-term, marketable securities and repos; equity capital is only about 6 percent of assets.</li>
+    <li>The regulatory leverage limit: total debt cannot exceed 15× net capital.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. Regulation of the Securities Industry</h2>
+
+<h3>5.1 The SEC as Primary Regulator</h3>
+
+<div class="interpretation">
+  <p>The <b>Securities and Exchange Commission (SEC)</b> is the primary regulator of the securities industry, established in 1934 largely in response to abuses by securities firms that many felt were partly responsible for the economic problems of the Great Depression. The SEC's primary roles include:</p>
+  <ul>
+    <li>Administration of securities laws</li>
+    <li>Review and evaluation of registrations of new securities offerings (ensuring that all relevant information is revealed to potential investors)</li>
+    <li>Review and evaluation of annual and semiannual reports summarizing the financial status of all publicly held corporations</li>
+    <li>Prohibition of any form of security market manipulation</li>
+  </ul>
+</div>
+
+<div class="interpretation">
+  <p>The <b>National Securities Markets Improvement Act (NSMIA) of 1996</b> reaffirmed the SEC as the primary regulator. States are no longer allowed to require federally registered securities firms to register in the state as well. States are prohibited from requiring registration of securities firms' transactions and from imposing substantive requirements on private placements. States may still require firms to pay fees and file documents submitted to the SEC, but most state regulatory burden has been removed. The result is that the SEC has effectively exclusive regulatory jurisdiction over securities firms.</p>
+</div>
+
+<div class="interpretation">
+  <p>The early 2000s saw a partial reversal of SEC dominance, with state attorneys general increasingly intervening. The New York State attorney general forced Merrill Lynch to pay a $100 million penalty for overly optimistic analyst reports about its investment banking clients' stock. In the spring of 2003, regulators and 10 of the nation's largest securities firms reached a record <b>$1.4 billion settlement</b> covering charges that firms issued overly optimistic research to win investment banking business, and that at least two firms (Citigroup and Credit Suisse First Boston) improperly allocated IPO shares to corporate executives to win business.</p>
+</div>
+
+<div class="example">
+  <h4>Example: 2003 Settlement Penalties (from source)</h4>
+  <ul>
+    <li>Citigroup: $400 million</li>
+    <li>Credit Suisse First Boston: $200 million</li>
+    <li>Merrill Lynch: $200 million</li>
+    <li>Morgan Stanley: $125 million</li>
+    <li>Goldman Sachs: $110 million</li>
+    <li>Bear Stearns, JPMorgan Chase, Lehman Brothers, UBS Warburg: $80 million each</li>
+    <li>Piper Jaffray: $32 million</li>
+  </ul>
+  <p><b>Practical lesson:</b> The settlement forced structural separation between research and investment banking, including separate reporting structures, supervisory structures, and tying analyst pay to research quality rather than investment banking business.</p>
+</div>
+
+<div class="interpretation">
+  <p>Subsequent rules require analysts to vouch that their stock picks are not influenced by investment banking colleagues, to disclose compensation details, and to face sanctions (fines, suspensions, or bars) for false attestations. Top officials of all public companies must now sign off on financial statements.</p>
+  <p>Further enforcement actions continued: Morgan Stanley paid $5 million in 2012 for improper banker influence on analysts before Facebook's IPO; Citigroup, Goldman Sachs, and eight other firms were fined $43.5 million in 2014 for offering favorable research to win Toys "R" Us IPO underwriting; JPMorgan Chase paid more than $50 million in 2015 for misfiling bankruptcy court documents.</p>
+  <p>SEC enforcement actions averaged around 800 per year from fiscal year 2015 to fiscal year 2021. In fiscal year 2021, parties were ordered to pay $2.40 billion in disgorgement, and penalties totaled $1.46 billion (up 33 percent from the prior year).</p>
+</div>
+
+<h3>5.2 FINRA and Self-Regulation</h3>
+
+<div class="interpretation">
+  <p>The <b>Financial Industry Regulatory Authority (FINRA)</b> is involved in the day-to-day regulation of trading practices. In contrast to the SEC, which is government-run, FINRA is an independent, not-for-profit organization authorized by Congress to protect investors by ensuring the securities industry operates fairly and honestly. FINRA:</p>
+  <ul>
+    <li>Writes and enforces rules governing securities firm activities</li>
+    <li>Examines firms for compliance</li>
+    <li>Works to foster market transparency</li>
+    <li>Supports investor education</li>
+    <li>Monitors trading abuses (insider trading), trading rule violations, and firms' capital positions</li>
+  </ul>
+</div>
+
+<div class="interpretation">
+  <p>FINRA expanded oversight of <b>dark pools</b> — trades created by institutional orders away from central exchanges. Orders remain hidden until executed, which can help investors get a better price on large trades. About 13 percent of all U.S. stock trades occurred through dark pools in 2018, up from 3 percent in 2007, and this figure increased to 40 percent by 2020. FINRA monitors whether orders placed in dark pools are attempts to move stock prices, and it expanded surveillance of high-speed trading across exchanges.</p>
+</div>
+
+<div class="interpretation">
+  <p>Increased oversight had consequences: Goldman Sachs closed its dark pool in 2014; UBS paid $14.5 million to settle SEC accusations; Barclays paid $35 million to the SEC and $35 million to the NYAG; Credit Suisse paid $30 million to the SEC, $30 million to the NYAG, and $24.3 million in disgorgement for dark pool violations. In July 2018, the SEC required dark pools to disclose how they handle orders and any preferential client deals.</p>
+</div>
+
+<h3>5.3 The 2010 Wall Street Reform and Consumer Protection Act (Dodd-Frank)</h3>
+
+<div class="interpretation">
+  <p>Passed in response to the financial crisis, the Act set forth major changes:</p>
+  <ul>
+    <li><b>Financial Services Oversight Council</b> identifies emerging systemic risks.</li>
+    <li>Effective July 21, 2011, the dollar threshold for investment advisor registration increased: advisors with less than <b>$100 million</b> under management must register with state regulators; those with more than $100 million must register with the SEC (previously $25 million).</li>
+    <li>The Federal Reserve gained authority to supervise all firms that could pose a threat to financial stability, with stronger capital and prudential standards for large, interconnected firms.</li>
+    <li>Regulation of securitization markets; stronger regulation of credit rating agencies.</li>
+    <li>Requirement that issuers and originators retain a financial interest in securitized loans.</li>
+    <li>Comprehensive regulation of over-the-counter derivatives.</li>
+    <li>New authority for the Federal Reserve to oversee payment, clearing, and settlement systems.</li>
+    <li>Authority to resolve nonbank financial institutions whose failure could have systemic effects.</li>
+  </ul>
+</div>
+
+<h3>5.4 The Volcker Rule</h3>
+
+<div class="interpretation">
+  <p>The <b>Volcker Rule</b> prohibits U.S. depository institutions from engaging in <i>proprietary trading</i> — trading as a principal for the trading account of the bank. Investment banks that became bank holding companies (Goldman Sachs, Morgan Stanley) or were acquired by bank holding companies (Bear Stearns, Merrill Lynch, Lehman Brothers) are now subject to this oversight. The rule was implemented in April 2014, with compliance required by July 21, 2015. Critics argued it could push big banks back to a traditional model of deposit taking and lending, reducing capital market activity. Research suggests the Volcker Rule impaired corporate bond liquidity and required extensive compliance efforts. The Fed later proposed revisions categorizing firms by the size of their trading activities, with only the largest trading books subject to the most scrutiny.</p>
+</div>
+
+<h3>5.5 Executive Compensation Oversight</h3>
+
+<div class="interpretation">
+  <p>During the financial crisis, executive compensation at financial institutions receiving taxpayer bailouts became a public issue. The Obama administration proposed that compensation committees be independent from senior management, that shareholders at public companies receive a nonbinding vote on executive compensation packages, and that a "pay czar" (Kenneth Feinberg) oversee compensation at firms receiving government support. Feinberg resigned in 2010 as firms repaid bailouts, and Patricia Geoghegan was appointed to oversee remaining companies.</p>
+</div>
+
+<h3>5.6 USA Patriot Act Requirements</h3>
+
+<div class="interpretation">
+  <p>Securities firms have historically supported anti-money-laundering efforts. The USA Patriot Act, passed after September 11, imposed three requirements effective October 1, 2003:</p>
+  <ol>
+    <li>Firms must verify the identity of any person seeking to open an account.</li>
+    <li>Firms must maintain records of the information used to verify identity.</li>
+    <li>Firms must determine whether a person opening an account appears on any list of known or suspected terrorists or terrorist organizations.</li>
+  </ol>
+</div>
+
+<h3>5.7 SIPC Protection</h3>
+
+<div class="interpretation">
+  <p>The <b>Securities Investor Protection Corporation (SIPC)</b> protects investors against losses of up to <b>$500,000</b> caused by securities firm failures. SIPC is not a government agency; it has no authority to investigate or regulate member broker-dealers. Created under the Securities Investor Protection Act of 1970 as a nonprofit membership corporation, SIPC oversees the liquidation of member broker-dealers that close when bankrupt or in financial trouble and customer assets are missing. SIPC does <b>not</b> protect against losses due to poor investment choices that reduce portfolio value. It is funded with premium contributions from member firms.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p>Regulation is layered: the SEC sets overall standards and enforces federal securities laws; FINRA handles day-to-day trading regulation; Congress investigates and legislates; the Federal Reserve supervises systemic risk; and SIPC provides customer asset protection. The post-crisis reforms substantially intensified oversight, especially for systemically important firms.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The SEC is the primary regulator; NSMIA (1996) granted it effectively exclusive jurisdiction.</li>
+    <li>FINRA handles day-to-day trading practice regulation and compliance exams.</li>
+    <li>Financial crisis reforms: Dodd-Frank, Volcker Rule, systemic risk oversight, OTC derivatives regulation.</li>
+    <li>The USA Patriot Act requires customer identity verification and terrorist list screening.</li>
+    <li>SIPC protects customer assets up to $500,000 in firm failures — not against market losses.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Global Issues</h2>
+
+<h3>6.1 Global Competition and Activity</h3>
+
+<div class="interpretation">
+  <p>Securities firms and investment banks operate globally much more than other financial institution sectors. In 2021, the top five underwriters of global debt were U.S. investment banks (JPMorgan, Citi, Bank of America Securities, Morgan Stanley, and Goldman Sachs); the next five included European banks (Barclays, Deutsche Bank, BNP Paribas, HSBC, Credit Suisse). For global equity underwriters, 5 of the top 10 were U.S. investment banks, 3 were European, and 2 were Chinese.</p>
+  <p>Foreign investors' transactions involving U.S. stocks increased from $6,173.7 billion in 2003 to $24,031.1 billion in 2008 (a 289 percent increase), fell to $13,155.2 billion in 2009, then increased every year to an all-time high of <b>$48,552.9 billion in 2020</b>. Similarly, U.S. investors' transactions involving foreign-listed stocks grew
+    </div>
 </body>
 </html>

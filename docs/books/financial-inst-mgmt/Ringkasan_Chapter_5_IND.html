@@ -1,575 +1,728 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Ringkasan Chapter 5 - Financial Services: Mutual Fund and Hedge Fund Companies (Indonesia)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  h4 {
-    font-size: 12pt;
-    font-style: italic;
-    margin: 12px 0 4px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Services: Mutual Fund and Hedge Fund Companies</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Financial Services: Mutual Fund and Hedge Fund Companies</h1>
+<div class="container">
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="#section1">1. Introduction to Mutual Funds and Hedge Funds</a></li>
+      <li><a href="#section2">2. Size, Structure, and Composition of the Mutual Fund Industry</a></li>
+      <li><a href="#section3">3. Types of Mutual Funds and Risk Profiles</a></li>
+      <li><a href="#section4">4. Mutual Fund Objectives and Investment Strategies</a></li>
+      <li><a href="#section5">5. Investor Returns and Net Asset Value (NAV)</a></li>
+      <li><a href="#section6">6. Open-End vs Closed-End Funds and Exchange-Traded Funds</a></li>
+      <li><a href="#section7">7. Mutual Fund Costs: Loads, Fees, and Expense Ratios</a></li>
+      <li><a href="#section8">8. Balance Sheet and Recent Trends in the Mutual Fund Industry</a></li>
+      <li><a href="#section9">9. Regulation of Mutual Funds</a></li>
+      <li><a href="#section10">10. Global Issues in the Mutual Fund Industry</a></li>
+      <li><a href="#section11">11. Hedge Funds: Characteristics and Distinctions</a></li>
+      <li><a href="#section12">12. Types of Hedge Funds by Risk Classification</a></li>
+      <li><a href="#section13">13. Hedge Fund Fees and Performance</a></li>
+      <li><a href="#section14">14. Regulation of Hedge Funds</a></li>
+      <li><a href="#section15">15. Practical Cautions and Common Errors</a></li>
+    </ul>
+  </div>
 
-<div class="toolbar">
-  <button onclick="window.print()">Cetak / Simpan sebagai PDF</button>
+  <h2 id="section1">1. Introduction to Mutual Funds and Hedge Funds</h2>
+
+  <div class="interpretation">
+    <p><strong>Mutual funds</strong> and <strong>hedge funds</strong> are financial institutions that pool the financial resources of individuals and companies and invest in diversified portfolios of assets. The core function of these pooled investment vehicles is to provide access to diversified portfolios that individual investors could not efficiently construct on their own.</p>
+    <p><strong>Mutual Fund (open-ended):</strong> A financial intermediary that continuously stands ready to sell new shares to investors and to redeem outstanding shares on demand at their fair market value. This provides small investors with opportunities to invest in financial securities and diversify risk while generating economies of scale through lower transaction costs and commissions.</p>
+    <p><strong>Hedge Fund:</strong> A type of investment pool that solicits funds from wealthy individuals and other investors (e.g., commercial banks) and invests these funds on their behalf. Hedge funds are similar to mutual funds in that they are pooled investment vehicles, but investments are restricted to wealthier clients, and they are subject to less regulatory oversight.</p>
+    <p>The mutual fund industry experienced tremendous growth in the 1990s due to rising equity values (e.g., the S&P 500 index returned more than 25% in 1997 and 1998) and the relatively low-cost opportunity mutual funds provide to investors. The 2008–2009 financial crisis caused a $2.4 trillion drop in industry assets (20%). Despite these setbacks, by 2020 more than 7,600 different mutual fund companies held total assets of $23.90 trillion.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Mutual funds are the most important financial intermediary group in the United States as measured by asset size, having surpassed the commercial banking industry.</strong> This growth has not gone unnoticed by commercial banks, which have sought to compete by buying existing mutual fund groups or managing mutual fund assets for a fee.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Mutual funds pool resources from individuals and companies to invest in diversified portfolios.</li>
+      <li>Open-ended mutual funds continuously issue and redeem shares at fair market value.</li>
+      <li>Hedge funds are restricted to wealthy investors and face less regulation.</li>
+      <li>The mutual fund industry has grown to surpass commercial banking in asset size.</li>
+    </ul>
+  </div>
+
+  <h2 id="section2">2. Size, Structure, and Composition of the Mutual Fund Industry</h2>
+
+  <div class="interpretation">
+    <p><strong>Historical Trends:</strong> The first mutual fund was founded in Boston in 1924. By 1970, 361 funds held about $50 billion in assets. Since then, the industry has grown dramatically, driven by the advent of money market mutual funds in 1972, tax-exempt money market funds in 1979, and the explosion of special-purpose equity, bond, emerging market, and derivative funds in the 1990s.</p>
+    <p>Total assets invested in mutual funds grew from $0.45 billion in 1940 to $11,999.71 billion in 2007, then fell to $9,620.27 billion in 2008 during the financial crisis, and recovered to $23,895.84 billion by 2020. The number of mutual funds increased from 68 in 1940 to 8,040 in 2007, then declined to 7,636 in 2020.</p>
+    <p><strong>Low barriers to entry</strong> in the U.S. mutual fund industry have allowed new entrants to offer funds, keeping the industry from being increasingly concentrated. Despite this, the largest 25 companies that sponsor mutual funds managed 81% of the industry's assets in 2020, compared to 25% in 1990.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Growth has been significantly driven by the rise in retirement funds under management by mutual funds.</strong> The retirement fund market increased from $4 trillion in 1990 to $34.9 trillion in 2020, with mutual funds managing approximately 70% of this market. Institutional funds—mutual funds that manage retirement plans for an institution's employees—account for about 80% of all retirement plan investments.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Growth of Mutual Fund Industry, 1940–2020 (Selected Years)</caption>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Number of Funds</th>
+          <th>Total Net Assets ($ billions)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1940</td><td>68</td><td>$0.45</td></tr>
+        <tr><td>1970</td><td>361</td><td>$47.62</td></tr>
+        <tr><td>1990</td><td>3,079</td><td>$1,065.19</td></tr>
+        <tr><td>2000</td><td>8,154</td><td>$6,964.31</td></tr>
+        <tr><td>2007</td><td>8,040</td><td>$11,999.71</td></tr>
+        <tr><td>2008</td><td>8,039</td><td>$9,620.27</td></tr>
+        <tr><td>2020</td><td>7,636</td><td>$23,895.84</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>The mutual fund industry grew from $0.45 billion in 1940 to $23.9 trillion in 2020.</li>
+      <li>Growth drivers include money market funds, retirement funds, and the 1990s bull market.</li>
+      <li>Low barriers to entry allow competition, but the largest 25 firms control 81% of assets.</li>
+      <li>Institutional funds for retirement plans are a major component of the industry.</li>
+    </ul>
+  </div>
+
+  <h2 id="section3">3. Types of Mutual Funds and Risk Profiles</h2>
+
+  <div class="interpretation">
+    <p><strong>Long-term funds</strong> include <strong>equity funds</strong> (comprised of common and preferred stock securities), <strong>bond funds</strong> (comprised of fixed-income securities with maturity longer than one year), and <strong>hybrid funds</strong> (comprised of both bond and stock securities). <strong>Short-term funds</strong> include <strong>taxable money market mutual funds (MMMFs)</strong> and <strong>tax-exempt money market mutual funds</strong>.</p>
+    <p>Long-term equity funds are typically well diversified, with risk being more systematic or market-based. Bond funds have extensive interest rate risk due to their long-term, fixed-rate nature. Sector or industry-specific funds have both systematic (market) and unsystematic risk. The principal type of risk for short-term funds is interest rate risk, but because of the shortness of maturity of assets (often less than 60 days), this risk is mitigated. Short-term funds generally have virtually no liquidity or default risk due to the types of assets held.</p>
+    <p><strong>Money market mutual funds</strong> provide an alternative investment to interest-bearing deposits at commercial banks. The major difference is that interest-bearing deposits (below $250,000) are fully insured by the FDIC, but due to bank regulatory costs, they generally offer lower returns than noninsured MMMFs. The net gain in switching to MMMFs is higher returns in exchange for the loss of deposit insurance coverage.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>The share of long-term vs short-term funds varies considerably over time based on market conditions.</strong> In 2000, 73.5% of all mutual fund assets were in long-term funds and 26.5% in money market funds. During the 2008–2009 financial crisis, the share of long-term funds plunged to 60.2% while money market funds increased to 39.8%. By 2020, long-term funds had recovered to 81.9% of all funds.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Mutual Funds: Total Net Assets by Type ($ billions, Selected Years)</caption>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Equity Funds</th>
+          <th>Hybrid Funds</th>
+          <th>Bond Funds</th>
+          <th>Money Market Funds</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1990</td><td>$239.48</td><td>$35.98</td><td>$291.39</td><td>$498.34</td><td>$1,065.19</td></tr>
+        <tr><td>2000</td><td>$3,934.15</td><td>$360.92</td><td>$823.99</td><td>$1,845.25</td><td>$6,964.31</td></tr>
+        <tr><td>2007</td><td>$6,412.76</td><td>$821.52</td><td>$1,679.66</td><td>$3,085.76</td><td>$11,999.71</td></tr>
+        <tr><td>2008</td><td>$3,654.80</td><td>$562.26</td><td>$1,570.97</td><td>$3,832.24</td><td>$9,620.27</td></tr>
+        <tr><td>2020</td><td>$12,728.44</td><td>$1,620.04</td><td>$5,214.07</td><td>$4,333.28</td><td>$23,895.83</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Long-term funds include equity, bond, and hybrid funds; short-term funds are money market funds.</li>
+      <li>Risk profiles differ: equity funds have market risk, bond funds have interest rate risk, money market funds have minimal risk.</li>
+      <li>Money market funds compete with bank deposits, offering higher returns but without FDIC insurance.</li>
+      <li>The allocation between long-term and short-term funds fluctuates with market conditions and interest rates.</li>
+    </ul>
+  </div>
+
+  <h2 id="section4">4. Mutual Fund Objectives and Investment Strategies</h2>
+
+  <div class="interpretation">
+    <p><strong>Mutual fund objective:</strong> General information about the types of securities a mutual fund will hold as assets, specified in a prospectus available to potential investors. Regulations require that mutual fund managers specify these investment objectives, which must include a list of the securities the fund holds.</p>
+    <p>There are 12 major categories of investment objectives for mutual funds. For example, <strong>capital appreciation</strong> funds hold securities (mainly equities) of high-growth, high-risk firms. <strong>Total return</strong> funds focus on a balance of growth and income. <strong>World funds</strong> invest in securities of issuers located outside the United States.</p>
+    <p><strong>Index funds:</strong> A growing number of long-term mutual funds where fund managers buy securities in proportions similar to those included in a specified major stock index (such as the S&P 500 index). These funds are designed to match the performance of a stock index. In 2020, 490 index funds managed total net assets of $4.8 trillion, compared to 6,806 active funds with assets of $14.8 trillion.</p>
+    <p>Actively managed funds generally underperform index funds. Only 26% of all active funds had a 10-year success rate above their index fund counterparts. The cheapest funds succeeded about twice as often as the priciest ones (35% success rate versus 18%) over the 10-year period ending December 31, 2021.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Passive investment strategies (index funds and ETFs) have grown significantly, accounting for 40% of combined U.S. mutual fund and ETF assets under management in 2020, up from 4% in 1996.</strong> Factors contributing to this shift include the efficient markets hypothesis, lower costs of passive investing, evidence of underperformance of active managers, and greater regulatory focus on fees.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Mutual Funds: Total Net Assets by Composite Investment Objective, 2020</caption>
+      <thead>
+        <tr>
+          <th>Type of Fund</th>
+          <th>2020 Total Net Assets ($ billions)</th>
+          <th>Percent of Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Capital Appreciation</td><td>$3,020.65</td><td>12.6%</td></tr>
+        <tr><td>World</td><td>$3,204.51</td><td>13.4%</td></tr>
+        <tr><td>Total Return</td><td>$6,503.27</td><td>27.2%</td></tr>
+        <tr><td>Total Equity Funds</td><td>$12,728.43</td><td>53.3%</td></tr>
+        <tr><td>Hybrid Funds</td><td>$1,620.04</td><td>6.8%</td></tr>
+        <tr><td>Total Bond Funds</td><td>$5,214.08</td><td>21.8%</td></tr>
+        <tr><td>Total Money Market Funds</td><td>$4,333.28</td><td>18.1%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Mutual fund objectives are specified in a prospectus and describe the types of securities held.</li>
+      <li>Index funds passively track a market index, offering lower fees and often outperforming active funds.</li>
+      <li>Only 26% of active funds outperformed their index fund counterparts over 10 years.</li>
+      <li>The shift from active to passive investing has been a major trend in the industry.</li>
+    </ul>
+  </div>
+
+  <h2 id="section5">5. Investor Returns and Net Asset Value (NAV)</h2>
+
+  <div class="interpretation">
+    <p>The return an investor receives from investing in mutual fund shares reflects three aspects of the underlying portfolio:</p>
+    <ol>
+      <li><strong>Income and dividends</strong> earned on assets.</li>
+      <li><strong>Capital gains</strong> that occur when assets are sold by a mutual fund at prices higher than the purchase price.</li>
+      <li><strong>Capital appreciation</strong> in the underlying values of the assets held in a fund's portfolio.</li>
+    </ol>
+    <p><strong>Marked-to-market:</strong> Mutual fund assets are normally marked-to-market daily, meaning managers calculate the current value of each mutual fund share by computing the daily market value of the fund's total asset portfolio and dividing by the number of shares outstanding.</p>
+    <p><strong>Net Asset Value (NAV):</strong> The price an investor gets when selling shares back to the fund or buying new shares. It is equal to the market value of the assets in the mutual fund portfolio divided by the number of shares outstanding.</p>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">Net Asset Value (NAV)</span>
+    <div class="formula">\[ \text{NAV} = \frac{\text{Market Value of Total Asset Portfolio}}{\text{Number of Shares Outstanding}} \]</div>
+  </div>
+
+  <div class="interpretation">
+    <p><strong>Explanation of symbols:</strong></p>
+    <ul>
+      <li><strong>NAV:</strong> Net Asset Value, the per-share price of the mutual fund.</li>
+      <li><strong>Market Value of Total Asset Portfolio:</strong> The sum of the current market values of all securities held in the fund.</li>
+      <li><strong>Number of Shares Outstanding:</strong> The total number of mutual fund shares held by all investors.</li>
+    </ul>
+    <p><strong>Mathematical relationship:</strong> The NAV is a simple ratio that converts the total market value of the fund's assets into a per-share price. As the market value of the underlying securities increases, the NAV increases proportionally, assuming no change in the number of shares outstanding.</p>
+    <p><strong>Practical use:</strong> Investors use the NAV to determine the price at which they can buy or sell shares in the mutual fund. For open-end mutual funds, the NAV is the transaction price. For money market mutual funds, the NAV is typically fixed at $1 per share, with fluctuations in asset values reflected by changes in the number of shares owned.</p>
+    <p><strong>Important assumption:</strong> The NAV calculation assumes that all assets can be valued at current market prices. For illiquid securities, fair value pricing may be used to estimate the market value.</p>
+  </div>
+
+  <div class="example">
+    <h4>Example: Impact of Capital Appreciation on NAV</h4>
+    <p>Suppose a mutual fund contains 4,000 shares of Macy's at $22.00, 1,200 shares of Exxon/Mobil at $77.00, and 1,500 shares of AT&T at $33.75. The fund has 15,000 shares outstanding.</p>
+    <p>Today's NAV = [(4,000 × $22.00) + (1,200 × $77.00) + (1,500 × $33.75)] ÷ 15,000 = $15.402</p>
+    <p>If next month Macy's increases to $26.50, Exxon/Mobil to $78, and AT&T to $35, the NAV (assuming the same shares outstanding) increases to:</p>
+    <p>NAV = [(4,000 × $26.50) + (1,200 × $78) + (1,500 × $35)] ÷ 15,000 = $16.807</p>
+    <p><strong>Interpretation:</strong> The NAV increased from $15.402 to $16.807 due to capital appreciation of the underlying securities. The return to the investor over the month was ($16.807 – $15.402) ÷ $15.402 = 9.12%.</p>
+    <p><strong>Practical lesson:</strong> The NAV reflects the market value of the fund's portfolio on a per-share basis. Investors benefit from capital appreciation through an increase in NAV.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>For open-end mutual funds, the NAV is determined solely by the market value of the underlying securities divided by the number of shares outstanding.</strong> The number of shares fluctuates daily with redemptions and new purchases, but the NAV is always based on the current market value of the portfolio.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Investor returns come from income/dividends, capital gains, and capital appreciation.</li>
+      <li>Mutual funds are marked-to-market daily, with NAV calculated as total asset value divided by shares outstanding.</li>
+      <li>NAV is the transaction price for buying and selling shares in open-end mutual funds.</li>
+      <li>Changes in NAV reflect changes in the market value of the underlying portfolio.</li>
+    </ul>
+  </div>
+
+  <h2 id="section6">6. Open-End vs Closed-End Funds and Exchange-Traded Funds</h2>
+
+  <div class="interpretation">
+    <p><strong>Open-end mutual fund:</strong> The supply of shares in the fund is not fixed but can increase or decrease daily with purchases and redemptions of shares. Investors buy and sell shares from and to the mutual fund company. The NAV is determined solely by the market value of the underlying securities divided by the number of shares outstanding.</p>
+    <p><strong>Closed-end investment company:</strong> A specialized investment company that invests in securities and assets of other firms but has a fixed supply of shares outstanding. Investors must buy and sell shares on a stock exchange. Since the number of shares is fixed, the market price is determined not only by the NAV but also by demand for the shares themselves. Shares can trade at a <strong>premium</strong> (above NAV) or a <strong>discount</strong> (below NAV).</p>
+    <p><strong>Exchange-Traded Fund (ETF):</strong> An investment company with shares that trade intraday on stock exchanges at market-determined prices. Like a mutual fund, an ETF offers investors a proportionate share in a pool of stocks, bonds, and other assets. ETFs differ from traditional mutual funds in how their shares are issued and redeemed and how they are traded.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Differences Between Open-End Mutual Funds, Closed-End Mutual Funds, and ETFs</caption>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Open-End Mutual Fund</th>
+          <th>Closed-End Mutual Fund</th>
+          <th>ETF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Number of shares</td><td>No limit on shares</td><td>Fixed number of shares</td><td>Fixed number of shares</td></tr>
+        <tr><td>Trading</td><td>Shares not traded on an exchange; bought from and sold to fund</td><td>Shares traded on an exchange</td><td>Shares traded on an exchange</td></tr>
+        <tr><td>Price</td><td>Price based on NAV</td><td>Price based on supply and demand, not NAV</td><td>Price based on NAV</td></tr>
+        <tr><td>Intraday trading</td><td>Trades at market close only</td><td>Trading occurs all day</td><td>Trading occurs all day</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example">
+    <h4>Example: Closed-End Fund Premium and Discount</h4>
+    <p><strong>Premium scenario:</strong> A closed-end fund has 50 shares trading at $20 per share, but the market value of the asset portfolio is $800 (NAV = $16 per share). The shares trade at a premium of $4 per share.</p>
+    <p><strong>Discount scenario:</strong> A second closed-end fund has 100 shares trading at $25 per share, but the NAV is $30 per share. The shares trade at a discount of $5 per share.</p>
+    <p><strong>Interpretation:</strong> In a closed-end fund, the market price reflects both the value of the underlying assets and the demand for the fund's shares. A premium indicates high demand; a discount indicates low demand.</p>
+    <p><strong>Practical lesson:</strong> Investors in closed-end funds face an additional source of return (or loss) from changes in the premium or discount, separate from the performance of the underlying assets.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>ETFs combine features of open-end and closed-end funds: they have a fixed number of shares like closed-end funds but trade at prices based on NAV like open-end funds.</strong> ETFs can be traded intraday, purchased on margin, and sold short. They offer tax efficiency because investors are subject to capital gains taxes only when they sell their shares. Assets invested in ETFs grew from $66 billion in 2000 to $5.45 trillion in 2020.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Open-end funds have a flexible number of shares; closed-end funds have a fixed number.</li>
+      <li>Closed-end funds can trade at a premium or discount to NAV, creating additional risk/return.</li>
+      <li>ETFs trade intraday on exchanges, offer tax efficiency, and are largely passive investment vehicles.</li>
+      <li>Authorized participants (APs) create and redeem ETF shares at NAV, keeping market prices close to NAV.</li>
+    </ul>
+  </div>
+
+  <h2 id="section7">7. Mutual Fund Costs: Loads, Fees, and Expense Ratios</h2>
+
+  <div class="interpretation">
+    <p><strong>Load fund:</strong> A mutual fund with an upfront sales or commission charge (sometimes as high as 5.75%) that must be paid by the investor. <strong>No-load fund:</strong> A mutual fund that does not charge upfront fees or commission charges on the sale of shares. The argument in favor of load funds is that managers provide more personal attention, but the cost may not be worthwhile.</p>
+    <p><strong>12b-1 fees:</strong> Annual fees relating to the distribution and other operating costs of mutual fund shares. These fees cannot exceed 1% of a fund's average net assets per year, with marketing and servicing costs capped at 0.25% per year and management fees capped at 0.75% per year.</p>
+    <p><strong>Share classes:</strong> Funds sold through financial professionals offer different share classes (A, B, C, and institutional shares) with different mixes of sales loads and management and 12b-1 fees. Class A shares carry a front-end load; Class B shares have no front-end load but have a back-end load and higher annual fees; Class C shares have no front-end load but have a back-end load in the first year and continuing annual fees. Institutional shares (I, R, N, X, Y) carry the lowest fees and are available to high-net-worth investors and retirement plans.</p>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">Annualized Total Shareholder Cost</span>
+    <div class="formula">\[ \text{Total Shareholder Cost} = \text{Annualized Sales Load} + \text{Annual Fund Expense Ratio} \]</div>
+  </div>
+
+  <div class="interpretation">
+    <p><strong>Explanation of terms:</strong></p>
+    <ul>
+      <li><strong>Annualized Sales Load:</strong> The one-time sales load divided by the expected holding period in years. For example, a 4% front-end load held for 10 years gives an annualized load of 0.4% per year.</li>
+      <li><strong>Annual Fund Expense Ratio:</strong> The total annual fund operating expenses (including 12b-1 fees, management fees, and other costs) expressed as a percentage of average net assets.</li>
+    </ul>
+    <p><strong>Practical use:</strong> Investors should compare the total annualized cost of different funds, accounting for both one-time loads and ongoing expenses. A no-load fund with a 1% expense ratio may be cheaper than a load fund with a lower expense ratio, depending on the holding period.</p>
+    <p><strong>Important assumption:</strong> The annualized load calculation assumes the investor holds the shares for the entire period. If the holding period is shorter, the annualized cost is higher.</p>
+  </div>
+
+  <div class="example">
+    <h4>Example: Calculation of Mutual Fund Costs</h4>
+    <p>An investor purchases fund shares with a 4% front-end load and expects to hold the shares for 10 years. The annualized sales load is 4% ÷ 10 = 0.4% per year. The fund has a total expense ratio of 1% per year. The annual total shareholder cost is 0.4% + 1% = 1.4% per year.</p>
+    <p><strong>Interpretation:</strong> Over the 10-year holding period, the investor effectively pays 1.4% of assets per year in total costs. If the holding period were only 2 years, the annualized load would be 4% ÷ 2 = 2% per year, making the total cost 3% per year.</p>
+    <p><strong>Practical lesson:</strong> The longer the investment horizon, the smaller the impact of a one-time load fee. Short-term investors should prefer no-load funds.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Expense ratios have been declining across all fund types.</strong> Investors paid 0.71% on average for actively managed equity mutual funds in 2020, down from 1.06% in 2000. Expense ratios for index equity funds and ETFs are even lower, at 0.05% or less for institutional shares. This trend reflects increased competition, regulatory scrutiny, and the shift toward passive investing.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Load funds charge upfront commissions; no-load funds do not.</li>
+      <li>12b-1 fees cover distribution and marketing costs, capped at 1% per year.</li>
+      <li>Different share classes offer different fee structures; institutional shares have the lowest fees.</li>
+      <li>Total shareholder cost includes both annualized sales load and annual expense ratio.</li>
+      <li>Expense ratios have been declining steadily, benefiting investors.</li>
+    </ul>
+  </div>
+
+  <h2 id="section8">8. Balance Sheet and Recent Trends in the Mutual Fund Industry</h2>
+
+  <div class="interpretation">
+    <p><strong>Money Market Mutual Funds (MMMFs):</strong> In 2021, $4,680.50 billion (89.9% of total assets) was invested in short-term financial securities. The major asset categories include security repurchase agreements (47.9% of total), Treasury securities (34.9%), and agency- and GSE-backed securities (7.9%). Most consumer-oriented MMMF shares have their values fixed at $1, with fluctuations adjusted by increasing or reducing the number of shares owned.</p>
+    <p><strong>Long-Term Funds:</strong> In 2021, long-term funds held financial assets totaling $21,208.70 billion, of which 69.5% were corporate equities. The asset composition reflects the popularity of different types of bond or equity funds at any point in time. During the financial crisis, equities fell to 55.5% of long-term fund portfolios, while credit market instruments rose to 41.9%.</p>
+    <p><strong>Key balance sheet trends:</strong> Money market funds moved from corporate bonds to safer U.S. government securities during the financial crisis. In 2020, the COVID-19 pandemic caused a "dash for cash," with government money market funds receiving $834 billion in inflows in March alone. The Federal Reserve established the Money Market Fund Liquidity Facility (MMLF) to stabilize the market.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Money market mutual funds experienced two major liquidity crises in the past 15 years: the 2008 financial crisis (Reserve Primary Fund "broke the buck") and the 2020 COVID-19 pandemic.</strong> In both cases, the federal government intervened to stabilize the industry. The SEC has responded with multiple rounds of reforms, including liquidity requirements, floating NAV for institutional prime funds, and the proposed removal of redemption gates.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Distribution of Assets in Money Market Mutual Funds, 2021</caption>
+      <thead>
+        <tr>
+          <th>Asset Category</th>
+          <th>Amount ($ billions)</th>
+          <th>Percent of Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Security repurchase agreements</td><td>$2,495.7</td><td>47.9%</td></tr>
+        <tr><td>Treasury securities</td><td>$1,814.7</td><td>34.9%</td></tr>
+        <tr><td>Agency- and GSE-backed securities</td><td>$409.9</td><td>7.9%</td></tr>
+        <tr><td>Open market paper</td><td>$226.2</td><td>4.3%</td></tr>
+        <tr><td>Municipal securities</td><td>$110.9</td><td>2.1%</td></tr>
+        <tr><td>Total time and savings deposits</td><td>$143.6</td><td>2.8%</td></tr>
+        <tr><td>Other</td><td>$4.5</td><td>0.1%</td></tr>
+        <tr><td>Total financial assets</td><td>$5,205.5</td><td>100.0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>MMMFs invest primarily in short-term securities: repos, Treasuries, and agency securities.</li>
+      <li>Long-term funds hold predominantly corporate equities (69.5% in 2021).</li>
+      <li>Both sectors experienced significant shifts during the 2008 financial crisis and 2020 pandemic.</li>
+      <li>Regulatory reforms have increased liquidity requirements and changed the structure of the industry.</li>
+    </ul>
+  </div>
+
+  <h2 id="section9">9. Regulation of Mutual Funds</h2>
+
+  <div class="interpretation">
+    <p><strong>Primary regulator:</strong> The Securities and Exchange Commission (SEC) is the primary regulator of mutual funds. Key legislation includes:</p>
+    <ul>
+      <li><strong>Securities Act of 1933:</strong> Requires mutual funds to file a registration statement with the SEC and sets rules regarding the fund's prospectus.</li>
+      <li><strong>Securities Exchange Act of 1934:</strong> Makes the purchase and sale of mutual fund shares subject to various antifraud provisions and requires full and accurate information disclosure.</li>
+      <li><strong>Investment Company Act of 1940:</strong> Sets out rules to prevent conflicts of interest, fraud, and excessive fees or charges for fund shares.</li>
+      <li><strong>Investment Advisers Act of 1940:</strong> Regulates the activities of mutual fund advisors.</li>
+      <li><strong>National Securities Markets Improvement Act (NSMIA) of 1996:</strong> Exempts mutual fund sellers from oversight by state securities regulators, reducing regulatory burden.</li>
+      <li><strong>Sarbanes-Oxley Act of 2002:</strong> Requires public companies (including mutual fund companies) to ensure their boards' audit committees have appropriate financial expertise.</li>
+    </ul>
+    <p><strong>Abusive activities identified in the early 2000s:</strong> Market timing (short-term trading exploiting stale prices), late trading (buying/selling after the 4 PM price was set), directed brokerage (arrangements influencing broker recommendations), and improper assessment of fees. These led to new rules requiring independent boards, chief compliance officers, and improved fee disclosure.</p>
+    <p><strong>Money market fund reforms:</strong> The SEC adopted amendments to Rule 2a-7 in 2010 and 2014, including liquidity requirements (daily liquid assets minimum of 10%, weekly liquid assets minimum of 30%), floating NAV for institutional prime funds, and liquidity fees and redemption gates. In 2021, the SEC proposed further reforms including increased liquidity minimums (25% daily, 50% weekly), removal of redemption gates, and swing pricing.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Regulation of mutual funds has evolved significantly in response to market abuses and financial crises.</strong> The 2004 reforms required chief compliance officers reporting directly to fund directors, "hard closing" of trading orders by 4 PM, and improved disclosure of fees and risks. The 2010 and 2014 money market reforms aimed to address systemic risk, while the 2021 proposed reforms continue to refine the regulatory framework.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>The SEC is the primary regulator of mutual funds, with key legislation from the 1930s and 1940s.</li>
+      <li>Abusive activities (market timing, late trading, directed brokerage, fee issues) led to significant reforms.</li>
+      <li>Money market fund reforms have increased liquidity requirements and changed operational structures.</li>
+      <li>Chief compliance officers are required to monitor compliance with regulations.</li>
+    </ul>
+  </div>
+
+  <h2 id="section10">10. Global Issues in the Mutual Fund Industry</h2>
+
+  <div class="interpretation">
+    <p>Worldwide investment in mutual funds has grown significantly. Combined assets invested in non-U.S. mutual funds are approximately 15% greater than those invested in U.S. mutual funds. Non-U.S. mutual fund assets increased from $4.545 trillion in 1999 to $14.130 trillion in 2007, fell to $9.316 trillion in 2008, and recovered to $33.71 trillion by 2020.</p>
+    <p>The worldwide mutual fund market is most active in countries with the most sophisticated securities markets (e.g., Japan, France, Germany, Australia, and the United Kingdom). The U.S. mutual fund industry has worked to lower barriers to entry overseas, particularly in Europe, Japan, and China.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Worldwide Assets of Open-End Investment Companies ($ millions, Selected Years)</caption>
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>1999</th>
+          <th>2007</th>
+          <th>2008</th>
+          <th>2020</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Total non-U.S.</td><td>$4,544,799</td><td>$14,130,041</td><td>$9,316,409</td><td>$33,713,959</td></tr>
+        <tr><td>Total U.S.</td><td>$6,846,339</td><td>$12,020,895</td><td>$9,601,090</td><td>$29,345,207</td></tr>
+        <tr><td>Total world</td><td>$11,391,138</td><td>$26,150,936</td><td>$18,917,499</td><td>$63,059,166</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Non-U.S. mutual funds experienced larger percentage losses during the financial crisis (34.1% drop) compared to U.S. funds (20.1% drop), but also recovered more strongly (262% growth from 2008 to 2020 vs 206% for U.S. funds).</strong> This reflects the global nature of financial markets and the increasing integration of international investment.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Worldwide mutual fund assets reached $63 trillion in 2020.</li>
+      <li>Non-U.S. funds now exceed U.S. funds in total assets.</li>
+      <li>The most active markets are in countries with sophisticated securities markets.</li>
+      <li>Barriers to entry overseas are higher than in the United States, but the industry is working to reduce them.</li>
+    </ul>
+  </div>
+
+  <h2 id="section11">11. Hedge Funds: Characteristics and Distinctions</h2>
+
+  <div class="interpretation">
+    <p><strong>Hedge fund:</strong> A type of investment pool that solicits funds from wealthy individuals and other investors and invests these funds on their behalf. Hedge funds are similar to mutual funds in that they are pooled investment vehicles, but they are not subject to the numerous regulations that apply to mutual funds for the protection of individuals.</p>
+    <p><strong>Key differences from mutual funds:</strong></p>
+    <ul>
+      <li>Hedge funds are not subject to regulations requiring a certain degree of liquidity.</li>
+      <li>Mutual fund shares must be redeemable at any time; hedge funds have more restrictions.</li>
+      <li>Hedge funds are not subject to regulations protecting against conflicts of interest or ensuring fairness in pricing.</li>
+      <li>Hedge funds do not have to disclose their full activities to third parties, offering a high degree of privacy.</li>
+      <li>Until 2010, hedge funds were not required to register with the SEC.</li>
+      <li>Hedge funds can use aggressive strategies including short selling, leveraging, program trading, arbitrage, and derivatives trading.</li>
+    </ul>
+    <p><strong>Investor requirements:</strong> To be an "accredited investor," an individual must have a net worth of more than $1 million or an annual income of at least $200,000 ($300,000 if married). This allows hedge funds to avoid regulation under the theory that wealthy individuals can evaluate risk and return on their investments.</p>
+    <p>In June 2021, there were more than 8,200 hedge funds in the world with managed assets estimated at $3.96 trillion, compared to $23.90 trillion in mutual fund assets and $5.45 trillion in ETF assets.</p>
+  </div>
+
+  <div class="example">
+    <h4>Example: Hedge Fund Long-Short Strategy</h4>
+    <p>A hedge fund may buy (take a long position in) a bond expecting its price to rise. At the same time, the fund will borrow (take a short position in) another bond and sell it, promising to return the borrowed bond in the future. If prices go up as expected, the hedge fund gains on the bond it purchased while losing on the bond it borrowed. The profit is the difference between the gain and the loss. If prices fall, the profit comes from the bond it borrowed (since it can be repurchased at a lower price).</p>
+    <p><strong>Interpretation:</strong> The simultaneous long and short positions minimize the risk of overall losses, regardless of the direction of price changes. The hedge fund profits from the relative price movement between the two bonds.</p>
+    <p><strong>Practical lesson:</strong> Hedge funds use sophisticated strategies that are not available to mutual funds, but these strategies carry significant risk, as demonstrated by the near-collapse of Long-Term Capital Management (LTCM) in 1998.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Despite their name, hedge funds do not always "hedge" their investments to protect against market price declines.</strong> The near-collapse of Long-Term Capital Management (LTCM) in 1998, which required a $3.6 billion bailout brokered by the Federal Reserve, demonstrated that hedge fund strategies can fail catastrophically when market conditions deviate from historical patterns.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Largest Hedge Fund Firms by Assets Managed, June 2021</caption>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Hedge Fund Company</th>
+          <th>Assets ($ billions)</th>
+          <th>Change from 2020</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Bridgewater Associates</td><td>$105.70</td><td>6.9%</td></tr>
+        <tr><td>2</td><td>Man Group</td><td>$76.80</td><td>23.3%</td></tr>
+        <tr><td>3</td><td>Renaissance Technologies</td><td>$58.00</td><td>−17.1%</td></tr>
+        <tr><td>4</td><td>Millennium Mgmt.</td><td>$52.31</td><td>19.1%</td></tr>
+        <tr><td>5</td><td>TCI Fund Mgmt.</td><td>$40.00</td><td>14.3%</td></tr>
+        <tr><td>6</td><td>D.E. Shaw Group</td><td>$39.74</td><td>16.0%</td></tr>
+        <tr><td>7</td><td>Two Sigma Investments/Advisers</td><td>$39.55</td><td>1.8%</td></tr>
+        <tr><td>8</td><td>Farallon Capital Mgmt.</td><td>$38.10</td><td>27.0%</td></tr>
+        <tr><td>9</td><td>Citadel</td><td>$37.63</td><td>9.6%</td></tr>
+        <tr><td>10</td><td>Davidson Kempner Capital Mgmt.</td><td>$37.35</td><td>17.3%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Hedge funds are pooled investment vehicles restricted to wealthy, accredited investors.</li>
+      <li>They are subject to fewer regulations than mutual funds and can use aggressive strategies.</li>
+      <li>Hedge funds offer privacy and flexibility but carry significant risk.</li>
+      <li>The industry has about $3.96 trillion in assets under management (2021).</li>
+    </ul>
+  </div>
+
+  <h2 id="section12">12. Types of Hedge Funds by Risk Classification</h2>
+
+  <div class="interpretation">
+    <p>Hedge fund managers follow a variety of investment strategies, classified by risk level:</p>
+    <p><strong>More Risky (Market Directional):</strong> These funds seek high returns using leverage, typically investing based on anticipated events.</p>
+    <ul>
+      <li><strong>Aggressive growth:</strong> Invest in equities expected to experience acceleration in earnings per share growth. Hedge by shorting equities where earnings disappointment is expected or by shorting stock indexes.</li>
+      <li><strong>Emerging markets:</strong> Invest in equity or debt securities of emerging markets, which tend to have higher inflation and volatile growth.</li>
+      <li><strong>Macro funds:</strong> Aim to profit from changes in global economies, typically brought about by shifts in government policy that impact interest rates. Use leverage and derivatives.</li>
+      <li><strong>Market timing:</strong> Allocate assets among different asset classes depending on the manager's view of economic or market outlook.</li>
+      <li><strong>Short selling:</strong> Sell securities in anticipation of buying them back at a lower price based on assessment of overvaluation.</li>
+    </ul>
+    <p><strong>Moderate Risk (Market Neutral or Value Orientation):</strong> These funds have moderate exposure to market risk, typically favoring a longer-term investment strategy.</p>
+    <ul>
+      <li><strong>Distressed securities:</strong> Buy equity, debt, or trade claims at deep discounts of companies in or facing bankruptcy.</li>
+      <li><strong>Funds of funds:</strong> Mix hedge funds and other pooled investment vehicles to provide more stable long-term returns.</li>
+      <li><strong>Opportunistic:</strong> Change investment strategy as opportunities arise (IPOs, price changes, takeover bids).</li>
+      <li><strong>Multistrategy:</strong> Implement various strategies simultaneously to realize short- and long-term gains.</li>
+      <li><strong>Special situations:</strong> Invest in event-driven situations such as mergers, hostile takeovers, reorganizations, or leveraged buyouts.</li>
+    </ul>
+    <p><strong>Risk Avoidance:</strong> These funds strive for moderate, consistent returns with low risk.</p>
+    <ul>
+      <li><strong>Income funds:</strong> Focus on yield or current income rather than capital gains.</li>
+      <li><strong>Market neutral–arbitrage:</strong> Hedge market risk by taking offsetting positions, often in different securities of the same issuer.</li>
+      <li><strong>Market neutral–securities hedging:</strong> Invest equally in long and short equity portfolios in particular market sectors.</li>
+      <li><strong>Value funds:</strong> Invest in securities perceived to be selling at deep discounts relative to their intrinsic values.</li>
+    </ul>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Hedge fund performance has been cyclical, with strong returns in the 1990s and early 2000s, poor performance during the 2008 financial crisis, and generally lagging returns in the 2010s.</strong> From 2010 to 2018, hedge funds made 3.4% on average per year, compared with 6.4% from 2000 to 2010 and 18.3% from 1989 to 2000. More than 3,000 hedge funds were liquidated between 2015 and 2018.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Largest Hedge Funds by Fund Earnings, 2008–2009 (Selected Funds)</caption>
+      <thead>
+        <tr>
+          <th>Fund Name</th>
+          <th>Fund Company</th>
+          <th>2009 Return</th>
+          <th>2008 Return</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Appaloosa Investment I</td><td>Appaloosa Mgmt.</td><td>117.3%</td><td>–26.7%</td></tr>
+        <tr><td>BlueGold Global</td><td>BlueGold Capital Mgmt.</td><td>54.6%</td><td>209.4%</td></tr>
+        <tr><td>Kensington Global Strategies</td><td>Citadel Investment Group</td><td>57.0%</td><td>–55.0%</td></tr>
+        <tr><td>Glenview Institutional Partners</td><td>Glenview Capital Mgmt.</td><td>67.1%</td><td>–49.0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Hedge funds are classified by risk: market directional (high risk), market neutral (moderate risk), and risk avoidance (low risk).</li>
+      <li>Strategies include aggressive growth, emerging markets, macro, distressed securities, arbitrage, and value investing.</li>
+      <li>Performance varies widely; some funds outperformed the S&P 500 during the financial crisis.</li>
+      <li>Many hedge funds have underperformed in the 2010s, leading to increased liquidations and fee pressure.</li>
+    </ul>
+  </div>
+
+  <h2 id="section13">13. Hedge Fund Fees and Performance</h2>
+
+  <div class="interpretation">
+    <p>Hedge fund managers generally charge two types of fees:</p>
+    <p><strong>Management fee:</strong> Computed as a percentage of total assets under management, typically between 1.5% and 2.0%. This fee covers operating costs and is similar to mutual fund expense ratios.</p>
+    <p><strong>Performance fee:</strong> Unique to hedge funds, this gives the fund manager a share of any positive returns. The average performance fee has long been around 20% but varies widely. Performance fees are paid to the manager before returns are paid to fund investors.</p>
+    <p><strong>Hurdle rate:</strong> A minimum annualized performance benchmark that must be realized before a performance fee can be assessed. Often tied to a benchmark rate such as the S&P 500.</p>
+    <p><strong>High-water mark:</strong> A provision that the manager does not receive a performance fee unless the value of the fund exceeds the highest net asset value it has previously achieved. This links the manager's incentives more closely to those of investors and reduces the incentive to increase risk.</p>
+    <p><strong>Standard 2/20 fee model:</strong> 2% management fee and 20% performance fee. This model is slowly giving way to new structures due to investor dissatisfaction with low returns. For example, Adage Capital Management changed to a flat 0.5% management fee and 20% performance fee on trading gains or losses in excess of the S&P 500, with refunds if performance falls below the benchmark.</p>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">Total Hedge Fund Cost to Investor</span>
+    <div class="formula">\[ \text{Total Cost} = \text{Management Fee} + \text{Performance Fee (if applicable)} \]</div>
+  </div>
+
+  <div class="interpretation">
+    <p><strong>Explanation of terms:</strong></p>
+    <ul>
+      <li><strong>Management Fee:</strong> A fixed percentage of assets under management, typically 1.5–2.0% per year.</li>
+      <li><strong>Performance Fee:</strong> A percentage of positive returns (typically 20%), paid to the manager before returns are distributed to investors.</li>
+    </ul>
+    <p><strong>Practical use:</strong> Investors should consider the total fee structure when evaluating hedge fund investments. The combination of high management fees and performance fees can significantly reduce net returns, especially in periods of low market returns.</p>
+    <p><strong>Important assumption:</strong> The high-water mark provision ensures that performance fees are only paid on net new profits, not on recovery from losses. This aligns manager and investor interests.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>The standard 2/20 fee model is under significant pressure due to poor hedge fund performance in the 2010s.</strong> Investors are increasingly dissatisfied with fees, leading to the withdrawal of funds (e.g., CalPERS liquidated its $4 billion hedge fund portfolio in 2014). New fee structures include lower management fees, hurdle rates, and performance fees tied to benchmark outperformance.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Hedge funds charge management fees (1.5–2% of assets) and performance fees (typically 20% of profits).</li>
+      <li>Hurdle rates and high-water marks protect investor interests.</li>
+      <li>The 2/20 fee model is under pressure, with new structures offering lower fees and benchmark-based performance fees.</li>
+      <li>Fee compression is a major trend in the hedge fund industry.</li>
+    </ul>
+  </div>
+
+  <h2 id="section14">14. Regulation of Hedge Funds</h2>
+
+  <div class="interpretation">
+    <p>Historically, hedge funds were generally unregulated, operating under two exemptions from registration requirements under the Investment Company Act of 1940: (1) funds with fewer than 100 investors, and (2) funds where investors are "accredited." Hedge funds were also sold only via private placements and could not be offered or advertised to the general public.</p>
+    <p><strong>Wall Street Reform and Consumer Protection Act of 2010:</strong> This act required hedge fund advisors with private pools of capital exceeding $100 million in assets to register with the SEC as investment advisors by July 2011. Key provisions include:</p>
+    <ul>
+      <li>Registration with the SEC subjects hedge funds to periodic inspections.</li>
+      <li>Hedge funds must report information about their trades and portfolios that is "necessary for the purpose of assessing systemic risk posed by a private fund."</li>
+      <li>Data are kept confidential and can be shared only with the Financial Stability Oversight Council (FSOC).</li>
+      <li>If the government determines a hedge fund has grown too large or risky, it is placed under the supervision of the Federal Reserve.</li>
+      <li>Hedge fund managers with less than $100 million in assets are overseen by state regulators.</li>
+    </ul>
+    <p><strong>Offshore hedge funds:</strong> Funds located outside the United States and structured under foreign laws. Major centers include the Cayman Islands (estimated 85% of all hedge funds), Bermuda, Dublin, and Luxembourg. Offshore funds are not subject to U.S. income taxes on distributions of profit or to U.S. estate taxes on fund shares. They are regulated by the host country, but rules are generally not burdensome and provide anonymity.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>While the 2010 act requires large hedge funds to register with the SEC, the regulations imposed on hedge funds continue to be much less onerous than those imposed on mutual funds.</strong> Hedge funds are prohibited from abusive trading practices, but they retain significant flexibility in their investment strategies. The regulatory focus is on systemic risk monitoring rather than investor protection in the traditional sense.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Hedge funds were historically exempt from SEC registration under the 1940 Act.</li>
+      <li>The 2010 Wall Street Reform Act requires advisors with >$100 million in assets to register with the SEC.</li>
+      <li>Registered hedge funds are subject to periodic inspections and must report portfolio data for systemic risk assessment.</li>
+      <li>Offshore hedge funds offer tax advantages and anonymity, with the Cayman Islands being the primary location.</li>
+      <li>Despite increased regulation, hedge funds face less oversight than mutual funds.</li>
+    </ul>
+  </div>
+
+  <h2 id="section15">15. Practical Cautions and Common Errors</h2>
+
+  <div class="interpretation">
+    <p><strong>Incorrect interpretation of coefficients and returns:</strong> A mutual fund's return does not necessarily reflect the skill of the fund manager; it may simply reflect overall market movements. Index funds often outperform actively managed funds, so past performance is not a reliable indicator of future performance.</p>
+    <p><strong>Confusing prediction with causality:</strong> The fact that a mutual fund has a high NAV does not mean it will continue to perform well. NAV reflects the current market value of the portfolio, not future returns. Similarly, hedge fund returns are not necessarily risk-adjusted returns.</p>
+    <p><strong>Ignoring model assumptions:</strong> The calculation of NAV assumes that all assets can be valued at current market prices. For illiquid securities, fair value pricing may be used, which can introduce estimation error. The assumption that money market funds maintain a $1 NAV was violated in 2008 when Reserve Primary Fund "broke the buck."</p>
+    <p><strong>Misinterpreting the intercept:</strong> In the context of fund performance, the "intercept" (or alpha) is often interpreted as the manager's skill. However, this interpretation depends on the validity of the benchmark model used and the assumption that all risk factors are properly accounted for.</p>
+    <p><strong>Ignoring units of measurement:</strong> Expense ratios and load fees are expressed as percentages of assets. A 1% expense ratio on a $10,000 investment is $100 per year, but this amount compounds over time and can significantly reduce returns. The impact of fees is often underestimated.</p>
+    <p><strong>Confusing error and residual:</strong> In the context of fund performance evaluation, the difference between actual returns and expected returns (based on a benchmark) is often called "alpha." However, this alpha may reflect omitted risk factors rather than true manager skill.</p>
+    <p><strong>Omitted-variable problems:</strong> When evaluating hedge fund performance, the inability to explain returns of individual hedge funds with standard multifactor risk models leaves open the possibility that it is not possible to properly measure the risk associated with at least some hedge fund strategies. Risk-adjusted returns may be overstated.</p>
+    <p><strong>Market timing and late trading:</strong> Market timing exploits short-term discrepancies between the price of a mutual fund's shares and out-of-date values on the securities in the fund's portfolio. Late trading involves buying or selling mutual fund shares after the 4 PM price has been set. Both are illegal practices.</p>
+    <p><strong>Leverage risk:</strong> Hedge funds that use leverage can experience amplified losses. The Bear Stearns hedge funds that collapsed in 2007 used substantial leverage to invest in subprime mortgage securities, and when the market moved against them, the losses were catastrophic. The failure to expect extreme price movements and insufficient hedging led to complete loss of capital.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Never imply that obtaining a coefficient or return statistic automatically establishes causality or skill.</strong> The performance of a fund may be due to luck, market conditions, or risk exposure rather than managerial ability. Proper evaluation requires risk-adjusted performance measures and careful consideration of the benchmark.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Past performance does not guarantee future results; index funds often outperform active funds.</li>
+      <li>NAV calculations assume assets can be valued at current market prices; illiquid securities may require estimation.</li>
+      <li>Expense ratios and load fees can significantly reduce returns over time; always consider total costs.</li>
+      <li>Hedge fund returns may not be properly risk-adjusted; standard multifactor models may not capture all risks.</li>
+      <li>Leverage amplifies both gains and losses; hedge fund failures often involve excessive leverage and insufficient hedging.</li>
+      <li>Market timing and late trading are illegal practices that exploit pricing inefficiencies.</li>
+      <li>Correlation does not imply causation; fund performance requires careful attribution analysis.</li>
+    </ul>
+  </div>
 </div>
-
-<h1>Ringkasan Chapter 5</h1>
-<p class="subtitle">Financial Services: Mutual Fund and Hedge Fund Companies (Perusahaan Reksa Dana dan Hedge Fund)</p>
-<p class="bookinfo">Sumber, Saunders, A. dan Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, Edisi 11, Chapter 5. Disusun sebagai bahan belajar mandiri.</p>
-
-<h2>1. Pendahuluan</h2>
-<p>Reksa dana (<i>mutual fund</i>) dan <i>hedge fund</i> adalah lembaga keuangan yang menghimpun sumber daya keuangan individu dan perusahaan, lalu menginvestasikannya dalam portofolio aset yang terdiversifikasi. Reksa dana terbuka (<i>open-end</i>), yang merupakan jenis utama, selalu siap menjual saham baru kepada investor dan menebus saham yang beredar setiap saat sesuai nilai pasar wajarnya. Dengan demikian, reksa dana memberi kesempatan bagi investor kecil untuk berinvestasi pada sekuritas keuangan dan mendiversifikasi risiko, sekaligus menikmati skala ekonomi melalui biaya transaksi dan komisi yang lebih rendah dibandingkan membeli sekuritas secara langsung.</p>
-<p>Industri reksa dana melonjak pesat pada 1990-an seiring kenaikan nilai pasar aset keuangan, misalnya indeks S&amp;P 500 yang memberikan imbal hasil lebih dari 25 persen pada 1997 dan 1998. Krisis keuangan 2008 hingga 2009 memicu penurunan terbesar dalam sejarah nilai aset industri, dengan kerugian investasi dan likuidasi saham reksa dana oleh investor menyebabkan aset industri turun $2,4 triliun (atau 20 persen). Meski demikian, pada 2020 lebih dari 7.600 perusahaan reksa dana mengelola total aset $23,90 triliun.</p>
-<p><i>Hedge fund</i> adalah jenis kumpulan investasi yang menghimpun dana dari individu (kaya) dan investor lain, misalnya bank komersial, dan menginvestasikan dana tersebut atas nama mereka. Sama seperti reksa dana, hedge fund adalah kendaraan investasi yang dikumpulkan, namun investasinya dibatasi hanya untuk klien yang lebih kaya dan, sebelum 2010, umumnya tidak diatur. Setelah kegagalan dan hampir gagalnya beberapa hedge fund yang dipublikasikan luas, misalnya Bernard L. Madoff Investment Securities dan Bear Stearns High Grade Structured Credit Strategies Fund, regulator federal pada 2010 meningkatkan pengawasan, antara lain mewajibkan hedge fund dengan aset kelolaan di atas ambang tertentu mendaftar ke SEC berdasarkan <i>Investment Advisers Act</i> 1940.</p>
-
-<h2>2. Ukuran, Struktur, dan Komposisi Industri Reksa Dana</h2>
-
-<h3>2.1 Tren Historis</h3>
-<p>Reksa dana pertama didirikan di Boston pada 1924. Industri tumbuh lambat pada awalnya, dengan 361 dana senilai sekitar $50 miliar pada 1970. Pertumbuhan pesat kemudian didorong kemunculan reksa dana pasar uang (<i>money market mutual funds</i>, MMMFs) pada 1972, reksa dana pasar uang bebas pajak pada 1979, serta ledakan dana ekuitas, obligasi, pasar negara berkembang, dan derivatif tujuan khusus pada 1990-an. Total aset reksa dana tumbuh dari $0,45 miliar (1940) menjadi $11.999,71 miliar (2007, dengan $8.913,94 miliar pada dana jangka panjang), dan jumlah dana meningkat dari 68 (1940) menjadi 8.040 (2007).</p>
-<p>Krisis keuangan memangkas aktivitas reksa dana secara tajam. Pada akhir 2008, total aset jatuh ke $9.620,27 miliar, dan dana ekuitas mengalami arus keluar besar sementara arus masuk ke reksa dana pasar uang pemerintah AS mencapai rekor tertinggi. Seiring pemulihan ekonomi mulai 2009, aset reksa dana kembali tumbuh ke $11.111,16 miliar pada akhir 2009 dan $23.895,84 miliar pada 2020 (jauh melampaui level 2007), dengan $19.562,56 miliar pada dana jangka panjang.</p>
-<p>Pertumbuhan juga didorong kenaikan dana pensiun yang dikelola reksa dana. Pasar dana pensiun meningkat dari sekitar $4 triliun (1990) menjadi $34,9 triliun (2020), dan reksa dana mengelola sekitar 70 persen pasar tersebut. Sekitar 80 persen seluruh investasi rencana pensiun berada pada <i>institutional funds</i>, yaitu reksa dana yang mengelola rencana pensiun karyawan sebuah institusi, dengan biaya sangat rendah karena tidak ada biaya distribusi tambahan dan daya tawar rencana pensiun yang kuat.</p>
-<p>Diukur dari ukuran aset, industri reksa dana telah melampaui industri perbankan komersial, menjadikannya kelompok FI terpenting di Amerika Serikat. Pangsa aset reksa dana yang dikelola bank sekitar 4 persen pada 2020, dan perusahaan asuransi mengelola 5 persen. Hambatan masuk yang rendah membuat industri tidak semakin terkonsentrasi, tetapi 25 perusahaan sponsor terbesar mengelola 81 persen aset industri pada 2020, naik dari 25 persen pada 1990.</p>
-
-<p class="tabcap">Tabel 5-1. Pertumbuhan Industri Reksa Dana, 1940 hingga 2020 (Sumber, Investment Company Institute, 2021 Investment Company Fact Book)</p>
-<table>
-  <tr>
-    <th>Tahun</th>
-    <th>Jumlah Dana</th>
-    <th>Total Aset Bersih ($ miliar)</th>
-  </tr>
-  <tr>
-    <td>1940</td>
-    <td>68</td>
-    <td>0,45</td>
-  </tr>
-  <tr>
-    <td>1970</td>
-    <td>361</td>
-    <td>47,62</td>
-  </tr>
-  <tr>
-    <td>1990</td>
-    <td>3.079</td>
-    <td>1.065,19</td>
-  </tr>
-  <tr>
-    <td>2000</td>
-    <td>8.154</td>
-    <td>6.964,31</td>
-  </tr>
-  <tr>
-    <td>2007</td>
-    <td>8.040</td>
-    <td>11.999,71</td>
-  </tr>
-  <tr>
-    <td>2008</td>
-    <td>8.039</td>
-    <td>9.620,27</td>
-  </tr>
-  <tr>
-    <td>2015</td>
-    <td>8.121</td>
-    <td>15.657,87</td>
-  </tr>
-  <tr>
-    <td>2020</td>
-    <td>7.636</td>
-    <td>23.895,84</td>
-  </tr>
-</table>
-
-<h3>2.2 Jenis-Jenis Reksa Dana</h3>
-<p>Industri reksa dana biasanya dibagi menjadi dua sektor, yaitu dana jangka pendek dan dana jangka panjang. Dana jangka panjang mencakup <i>equity funds</i> (saham biasa dan preferen), <i>bond funds</i> (sekuritas pendapatan tetap dengan jatuh tempo lebih dari satu tahun), dan <i>hybrid funds</i> (gabungan obligasi dan saham). Dana jangka pendek mencakup MMMF kena pajak dan MMMF bebas pajak.</p>
-<p>Dana ekuitas jangka panjang umumnya terdiversifikasi dengan baik dan risikonya lebih bersifat sistematis atau berbasis pasar. Dana obligasi memiliki risiko suku bunga yang besar karena sifat jangka panjang dan suku bunga tetapnya. Sektor atau dana spesifik industri memiliki risiko sistematis dan tidak sistematis. Risiko utama dana jangka pendek adalah risiko suku bunga karena dominasi sekuritas pendapatan tetap, namun risiko ini tereduksi besar karena jatuh tempo aset yang pendek, sering kurang dari 60 hari, sehingga dana jangka pendek praktis tidak memiliki risiko likuiditas atau gagal bayar.</p>
-
-<p class="tabcap">Tabel 5-2. Reksa Dana, Total Aset Bersih per Jenis Dana, Tahun Terpilih ($ miliar, akhir tahun)</p>
-<table>
-  <tr>
-    <th>Tahun</th>
-    <th>Equity</th>
-    <th>Hybrid</th>
-    <th>Bond</th>
-    <th>Money Market (kena pajak)</th>
-    <th>Money Market (bebas pajak)</th>
-    <th>Total</th>
-  </tr>
-  <tr>
-    <td>1985</td>
-    <td>111,33</td>
-    <td>17,61</td>
-    <td>122,64</td>
-    <td>207,55</td>
-    <td>36,25</td>
-    <td>495,39</td>
-  </tr>
-  <tr>
-    <td>2000</td>
-    <td>3.934,15</td>
-    <td>360,92</td>
-    <td>823,99</td>
-    <td>1.611,38</td>
-    <td>233,87</td>
-    <td>6.964,31</td>
-  </tr>
-  <tr>
-    <td>2007</td>
-    <td>6.412,76</td>
-    <td>821,52</td>
-    <td>1.679,66</td>
-    <td>2.617,67</td>
-    <td>468,09</td>
-    <td>11.999,71</td>
-  </tr>
-  <tr>
-    <td>2008</td>
-    <td>3.654,80</td>
-    <td>562,26</td>
-    <td>1.570,97</td>
-    <td>3.338,56</td>
-    <td>493,68</td>
-    <td>9.620,27</td>
-  </tr>
-  <tr>
-    <td>2020</td>
-    <td>12.728,44</td>
-    <td>1.620,04</td>
-    <td>5.214,07</td>
-    <td>4.227,79</td>
-    <td>105,49</td>
-    <td>23.895,83</td>
-  </tr>
-</table>
-
-<p>Pada 2020, pangsa aset dana jangka panjang mencapai 81,9 persen dari seluruh dana, sementara reksa dana pasar uang turun menjadi 18,1 persen. Krisis 2008 hingga 2009 sempat membalik tren ini, dengan pangsa dana jangka panjang anjlok ke 60,2 persen dan MMMF naik ke 39,8 persen pada akhir 2008, sebagian karena pemerintah AS memperpanjang jaminan asuransi ke semua rekening reksa dana pasar uang secara sementara.</p>
-<p>MMMF menawarkan alternatif investasi terhadap deposito berbunga di bank komersial. Perbedaan utamanya adalah deposito berbunga (di bawah $250.000) diasuransikan penuh oleh FDIC, tetapi karena biaya regulasi bank (persyaratan cadangan, modal, dan premi asuransi deposito), deposito berbunga umumnya menawarkan imbal hasil lebih rendah daripada MMMF yang tidak diasuransikan. Jadi, keuntungan bersih beralih ke MMMF adalah imbal hasil lebih tinggi dengan imbalan kehilangan perlindungan asuransi deposito.</p>
-<p>Pengecualian terjadi selama krisis keuangan. Pada September 2008, Reserve Primary Fund, MMMF besar yang dianggap konservatif, memegang $785 juta commercial paper yang diterbitkan Lehman Brothers. Akibat kegagalan Lehman, saham Reserve Primary Fund <i>broke the buck</i> (jatuh di bawah $1), pertama kalinya harga saham MMMF yang terbuka untuk publik umum turun di bawah satu dolar, memicu penarikan dana lebih dari $200 miliar dalam beberapa hari. Department of Treasury menghentikan penarikan dengan memperpanjang asuransi pemerintah ke semua rekening MMMF yang berpartisipasi sejak penutupan bisnis 19 September 2008, dengan perlindungan berlangsung satu tahun.</p>
-
-<h3>2.3 Kepemilikan Rumah Tangga</h3>
-<p>Kepemilikan reksa dana oleh rumah tangga AS relatif stabil sejak 2000. Pada 2020, 58,7 juta rumah tangga (45,7 persen) memiliki reksa dana. Kepemilikan terkonsentrasi pada individu dalam masa menabung dan berinvestasi prima, dengan 62 persen rumah tangga pemilik dipimpin oleh generasi Baby Boomer dan Generasi X. Rumah tangga pemilik dana tipikal memiliki $126.700 yang diinvestasikan pada median empat reksa dana. Dibandingkan 1995, usia median pemegang naik dari 44 ke 50 tahun, aset keuangan rumah tangga median melonjak dari $50.000 ke $300.000, dan kepemilikan dana ekuitas meningkat dari 73 menjadi 90 persen dari seluruh rumah tangga.</p>
-
-<h2>3. Tujuan Investasi Reksa Dana</h2>
-<p>Regulasi mewajibkan manajer reksa dana menyebutkan tujuan investasi dana mereka dalam prospektus yang tersedia bagi calon investor, termasuk daftar sekuritas yang dipegang. Pada 1998, SEC mengadopsi prosedur baru yang mewajibkan bagian-bagian kunci prospektus ditulis dalam bahasa Inggris yang sederhana (<i>plain English</i>), bukan boilerplate hukum, untuk meningkatkan pemahaman investor atas risiko terkait tujuan investasi. Pada tahun yang sama, SEC mewajibkan reksa dana mengungkapkan lebih banyak informasi tentang risiko imbal hasil dan imbal hasil itu sendiri, agar investor dapat membandingkan trade-off imbal hasil-risiko antar dana.</p>
-<p>Sebagian besar dana jangka panjang kini merupakan <i>index funds</i>, di mana manajer membeli sekuritas dengan proporsi serupa dengan indeks saham utama (misalnya S&amp;P 500). Pada 2020, 490 index funds mengelola total aset bersih $4,8 triliun, dibandingkan 6.806 dana aktif dengan aset $14,8 triliun. Karena sedikit riset atau manajemen agresif yang diperlukan, biaya manajemen index funds lebih rendah dan imbal hasilnya sering lebih tinggi. Data Morningstar 2011 hingga 2021 menunjukkan dana yang dikelola aktif umumnya berkinerja di bawah index funds di hampir semua kelas aset, dengan hanya 26 persen dana aktif yang tingkat keberhasilan 10 tahunnya di atas rekan index fund mereka. Dana termurah berhasil sekitar dua kali lebih sering daripada yang termahal (35 persen versus 18 persen), sebagian karena perbedaan biaya dan kelangsungan hidup (68 persen dana termurah bertahan, versus 54 persen dana termahal).</p>
-
-<p class="tabcap">Tabel 5-3. Reksa Dana Terbesar Berdasarkan Aset yang Dikelola, April 2022 (sebagian, Sumber, laporan tahunan dana dan Morningstar)</p>
-<table>
-  <tr>
-    <th>Peringkat</th>
-    <th>Nama Dana</th>
-    <th>Perusahaan Dana</th>
-    <th>Ticker</th>
-    <th>Total Aset ($ miliar)</th>
-    <th>Expense Ratio</th>
-    <th>Imbal Hasil 1 Tahun</th>
-    <th>Imbal Hasil 10 Tahun</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Vanguard Total Stock Mkt Idx Inst Plus</td>
-    <td>Vanguard</td>
-    <td>VSMPX</td>
-    <td>1.378,96</td>
-    <td>0,03%</td>
-    <td>10,75%</td>
-    <td>15,48%</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Vanguard 500 Index Adm</td>
-    <td>Vanguard</td>
-    <td>VFIAX</td>
-    <td>857,10</td>
-    <td>0,04</td>
-    <td>14,63</td>
-    <td>16,03</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Vanguard Total Intl Stock Index Adm</td>
-    <td>Vanguard</td>
-    <td>VTIAX</td>
-    <td>423,62</td>
-    <td>0,11</td>
-    <td>-2,09</td>
-    <td>5,90</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Fidelity 500 Index</td>
-    <td>Fidelity</td>
-    <td>FXAIX</td>
-    <td>399,10</td>
-    <td>0,02</td>
-    <td>14,67</td>
-    <td>14,66</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>Vanguard Total Bond Market Index Adm</td>
-    <td>Vanguard</td>
-    <td>VBTLX</td>
-    <td>324,57</td>
-    <td>0,05</td>
-    <td>-4,09</td>
-    <td>2,20</td>
-  </tr>
-</table>
-
-<p>Sebagai pembanding, indeks S&amp;P 500 memberikan imbal hasil tahunan 14,68 persen (1 tahun), 16,05 persen (5 tahun), dan 14,76 persen (10 tahun). Dari reksa dana teratas, hanya satu yang mengungguli S&amp;P 500 dalam periode 1 tahun, enam dalam 5 tahun, dan lima dalam 10 tahun.</p>
-
-<h2>4. Imbal Hasil Investor dari Kepemilikan Reksa Dana</h2>
-<p>Imbal hasil investor dari reksa dana mencerminkan tiga aspek portofolio, yaitu (1) pendapatan dan dividen yang diperoleh dari aset, (2) keuntungan modal ketika aset dijual lebih tinggi dari harga beli, dan (3) apresiasi modal pada nilai aset yang dipegang. Terkait apresiasi modal, aset reksa dana biasanya dinilai <i>marked-to-market</i> setiap hari, yaitu manajer menghitung nilai pasar harian total portofolio lalu membaginya dengan jumlah saham yang beredar. Nilai yang dihasilkan disebut <i>net asset value</i> (NAV), yaitu harga yang diterima investor ketika menjual kembali saham ke dana atau membeli saham baru pada hari itu.</p>
-
-<div class="eq">\[ \text{NAV} = \frac{\text{Nilai pasar total portofolio}}{\text{Jumlah saham beredar}} \]</div>
-
-<h4>Contoh 5-1. Dampak Apresiasi Modal pada NAV</h4>
-<p>Misalkan sebuah reksa dana berisi 4.000 saham Macy's Inc. yang diperdagangkan pada $22,00, 1.200 saham Exxon/Mobil pada $77,00, dan 1.500 saham AT&amp;T pada $33,75. Dana tersebut memiliki 15.000 saham beredar. NAV hari ini dihitung sebagai</p>
-<div class="eq">\[ \text{NAV} = \frac{(4.000 \times \$22{,}00) + (1.200 \times \$77{,}00) + (1.500 \times \$33{,}75)}{15.000} = \$15{,}402 \]</div>
-<p>Jika bulan depan saham Macy's naik ke $26,50, Exxon/Mobil ke $78, dan AT&amp;T ke $35, NAV (dengan jumlah saham beredar sama) meningkat menjadi</p>
-<div class="eq">\[ \text{NAV} = \frac{(4.000 \times \$26{,}50) + (1.200 \times \$78) + (1.500 \times \$35)}{15.000} = \$16{,}807 \]</div>
-
-<h4>Contoh 5-2. Dampak Ukuran Investasi pada NAV</h4>
-<p>Anggap 1.000 investor tambahan membeli reksa dana pada Contoh 5-1 dengan NAV saat ini $15,402, sehingga manajer memiliki $15.402 dana tambahan untuk diinvestasikan. Jika manajer membeli saham tambahan Macy's, pada harga pasar $22,00 ia dapat membeli $15.402 dibagi $22,00, yaitu 700 saham tambahan. Portofolio baru dana menjadi 4.700 saham Macy's, 1.200 saham Exxon/Mobil, dan 1.500 saham AT&amp;T, dengan 16.000 saham beredar. Pada akhir bulan, NAV portofolio menjadi</p>
-<div class="eq">\[ \text{NAV} = \frac{(4.700 \times \$26{,}50) + (1.200 \times \$78) + (1.500 \times \$35)}{16.000} = \$16{,}916 \]</div>
-<p>Perbandingan dengan Contoh 5-1 menunjukkan saham tambahan saja memungkinkan dana memperoleh NAV sedikit lebih tinggi daripada jika jumlah saham tetap ($16,916 versus $16,807).</p>
-
-<h3>4.1 Dana Tertutup (Closed-End) dan Premi atau Diskon</h3>
-<p>Reksa dana terbuka dapat dibandingkan dengan perusahaan investasi tertutup (<i>closed-end investment companies</i>), yang memiliki jumlah saham beredar tetap. Dengan dana tertutup, investor harus membeli dan menjual saham di bursa efek seperti saham korporasi. Karena jumlah saham yang tersedia tetap, NAV saham ditentukan tidak hanya oleh nilai sekuritas yang mendasarinya tetapi juga oleh permintaan atas saham perusahaan investasi itu sendiri. Ketika permintaan tinggi, saham dapat diperdagangkan pada <i>premium</i> (di atas nilai wajar), dan ketika rendah, pada <i>discount</i> (di bawah NAV asetnya). Real estate investment trusts (REITs) adalah contoh perusahaan investasi tertutup yang berspesialisasi pada saham perusahaan real estat dan atau pembelian KPR.</p>
-
-<h4>Contoh 5-3. Nilai Pasar Saham Reksa Dana Tertutup</h4>
-<p>Karena permintaan tinggi, 50 saham sebuah perusahaan investasi tertutup diperdagangkan pada $20 per saham. Nilai pasar sekuritas tipe ekuitas dalam portofolionya adalah $800, atau $16 per saham. Neraca nilai pasar dana adalah sebagai berikut.</p>
-<table>
-  <tr>
-    <th>Aset</th>
-    <th>Liabilitas dan Ekuitas</th>
-  </tr>
-  <tr>
-    <td>Nilai pasar portofolio aset, $800</td>
-    <td>Nilai pasar saham dana tertutup (P &#215; N, 50 &#215; $20), $1.000</td>
-  </tr>
-  <tr>
-    <td>Premi, $200</td>
-    <td></td>
-  </tr>
-</table>
-<p>Saham dana diperdagangkan pada premi $4 per saham ($200 dibagi 50). Sebaliknya, karena permintaan rendah pada dana kedua dengan 100 saham beredar yang diperdagangkan pada $25 per saham, nilai pasar sekuritas portofolionya $3.000 atau NAV $30 per saham, sehingga sahamnya diperdagangkan pada diskon $5 per saham ($500 dibagi 100).</p>
-
-<div class="eq">\[ \text{Premi atau diskon per saham} = \frac{\text{Premi atau diskon total}}{N} \]</div>
-
-<h3>4.2 Exchange-Traded Funds (ETFs)</h3>
-<p>Mirip dana tertutup karena jumlah saham yang beredar tetap pada suatu waktu, <i>exchange-traded fund</i> (ETF) adalah perusahaan investasi dengan saham yang diperdagangkan intraday di bursa efek pada harga yang ditentukan pasar. ETF menawarkan investor bagian proporsional dalam kumpulan saham, obligasi, dan aset lain, dan dapat dibeli atau dijual melalui broker seperti saham perusahaan publik. Saham ETF diciptakan ketika investor institusional menyetorkan blok sekuritas tertentu ke ETF, dan sebagai imbalannya menerima jumlah saham ETF tetap yang sebagian atau seluruhnya dapat dijual di bursa. Investor ritel tidak dapat membeli atau menebus saham langsung dari ETF seperti reksa dana tradisional.</p>
-<p>Kebanyakan ETF adalah reksa dana jangka panjang yang dirancang mereplikasi indeks pasar saham tertentu, misalnya Standard &amp; Poor's Depository Receipts (SPDRs) dan Vanguard Large-Cap Index Participation Equity Receipts (VIPERs). Berbeda dari index funds, ETF dapat diperdagangkan sepanjang hari, dibeli secara margin, dan dijual short. Karena berperilaku seperti saham, investor hanya membayar pajak keuntungan modal ketika menjual sahamnya, sehingga dapat menunda pajak selama memegang ETF. Pada 2020, aset yang diinvestasikan pada 2.204 ETF mencapai $5,45 triliun, naik dari $66 miliar pada 80 dana pada 2000.</p>
-<p>Harga ETF umumnya melacak nilai pasar sekuritas portofolionya dengan ketat, salah satunya karena kemampuan <i>authorized participants</i> (APs) untuk menciptakan dan menebus saham ETF pada NAV di akhir setiap hari perdagangan. APs, biasanya lembaga keuangan besar, adalah satu-satunya investor yang boleh berinteraksi langsung dengan dana dan memainkan peran kunci di pasar primer saham ETF. Penciptaan dan penebusan diproses melalui National Securities Clearing Corporation (NSCC) dengan jaminan yang sama seperti transaksi saham domestik. Rata-rata, penciptaan dan penebusan harian agregat hanya sekitar 10 persen dari aktivitas pasar primer total dan kurang dari 0,5 persen dari total aset bersih dana.</p>
-<p>Selama beberapa dekade terakhir terjadi pergeseran signifikan aset dari strategi aktif ke pasif. Pada Desember 2020, dana pasif mencakup 40 persen dari gabungan aset kelolaan reksa dana dan ETF AS, naik dari 4 persen pada 1996 dan 15 persen pada 2007. Faktor yang berkontribusi antara lain hipotesis pasar efisien pada 1950-an dan 1960-an, kemunculan index funds pertama pada 1970-an, biaya pasif yang relatif lebih rendah, bukti kinerja buruk manajer aktif, popularitas ETF, dan fokus regulasi pada biaya produk investasi.</p>
-
-<h2>5. Biaya Reksa Dana</h2>
-<p>Reksa dana membebankan harga atau biaya atas jasa yang diberikan, dan total biaya kepada pemegang saham adalah jumlah dari <i>sales load</i> tahunan dan biaya lain yang dikenakan. Terdapat dua jenis biaya, yaitu <i>sales loads</i> dan <i>fund operating expenses</i>.</p>
-
-<h3>5.1 Load versus No-Load Funds</h3>
-<p>Investor yang membeli saham reksa dana mungkin dikenai beban penjualan, kadang setinggi 5,75 persen, dan dana semacam itu disebut <i>load fund</i>. Dana lain yang memasarkan saham langsung kepada investor tanpa agen penjual komisi disebut <i>no-load funds</i>. Argumen yang mendukung load funds adalah manajernya memberikan perhatian dan nasihat pribadi yang lebih besar, tetapi biaya perhatian ekstra ini mungkin tidak sepadan. Pada 2003, load funds mewakili 43 persen aset reksa dana jangka panjang dan no-load funds 57 persen, tetapi pada akhir 2020 no-load funds mencapai 85 persen. Karena load fee adalah beban satu kali, ia harus dikonversi menjadi beban tahunan selama umur investasi, sehingga semakin panjang horizon investasi, semakin kecil load fee tahunan yang ditanggung.</p>
-<p>Banyak perusahaan, terutama discount brokers, kini menawarkan <i>mutual fund supermarkets</i> dengan program non-transaksi fee, di mana investor dapat membeli reksa dana tanpa biaya transaksi dari banyak perusahaan dana melalui satu broker, dengan broker dibayar dari <i>12b-1 fees</i> dana.</p>
-
-<h3>5.2 Fund Operating Expenses dan 12b-1 Fees</h3>
-<p>Berbeda dengan load di muka yang satu kali, biaya tahunan dikenakan untuk menutupi semua pengeluaran tingkat dana sebagai persentase aset dana. <i>Management fee</i> dikenakan untuk biaya operasional seperti administrasi dan layanan pemegang saham, sedangkan biaya pemasaran dan distribusi tingkat dana dikenal sebagai <i>12b-1 fees</i> sesuai aturan SEC. Biaya tahunan ini tidak boleh melebihi 1 persen dari rata-rata aset bersih dana per tahun, dengan biaya pemasaran dan layanan dibatasi 0,25 persen dan biaya manajemen 0,75 persen per tahun. Karena biaya ini dibayar dari aset dana, investor menanggungnya secara tidak langsung.</p>
-
-<h4>Contoh 5-4. Perhitungan Biaya Reksa Dana</h4>
-<p>Misalkan seorang investor membeli saham dana dengan front-end load 4 persen dan berharap memegang saham selama 10 tahun. Load penjualan tahunan yang ditanggung investor adalah</p>
-<div class="eq">\[ \text{Load tahunan} = \frac{4\%}{10 \text{ tahun}} = 0{,}4\% \text{ per tahun} \]</div>
-<p>Jika dana memiliki rasio beban dana total (termasuk 12b-1 fees) 1 persen per tahun, total biaya pemegang saham tahunan untuk dana ini adalah</p>
-<div class="eq">\[ 0{,}4\% + 1\% = 1{,}4\% \text{ per tahun} \]</div>
-<p>Pada 2020 terdapat 23.894 kelas saham yang ditawarkan oleh 7.636 reksa dana, rata-rata 3 kelas saham per dana, dibandingkan satu kelas saham per dana pada 1980. Kebanyakan dana yang dijual dalam beberapa kelas menawarkan tiga rencana pembayaran melalui kelas A, B, dan C dengan campuran sales loads serta biaya manajemen dan 12b-1 yang berbeda. Kelas A membawa front-end load yang dikenakan saat pembelian, kelas B dijual pada NAV tanpa front-end load dengan back-end load yang biasanya terkonversi ke kelas A setelah enam sampai delapan tahun, dan kelas C dijual pada NAV tanpa front-end load dengan biaya manajemen dan 12b-1 tahunan 1 persen serta back-end load 1 persen hanya pada tahun pertama. Kelas saham institusional (misalnya I, R, N, X, Y) tersedia bagi mereka dengan kekayaan bersih tinggi atau investor institusional dan biasanya membawa biaya terendah. Sebagai contoh, Vanguard menawarkan investor shares dengan rata-rata expense ratio 0,18 persen, Admiral shares 0,11 persen, dan institutional shares 0,05 persen.</p>
-<p>Rata-rata biaya yang dibayar investor reksa dana terus menurun. Investor membayar rata-rata 0,71 persen untuk reksa dana ekuitas aktif pada 2020, turun dari 1,06 persen pada 2000, dan expense ratio dana obligasi aktif turun ke 0,50 persen pada 2020 dari 0,78 persen pada 2000. Skandal pengungkapan yang tidak lengkap dan ketidakmampuan investor memahami berbagai biaya memunculkan pengawasan pada awal 2000-an, termasuk penyelesaian $675 juta oleh Bank of America dan FleetBoston pada 2004. Meskipun expense ratio rendah bagus, investor perlu mengingat bahwa bebas biaya tidak berarti bebas risiko, dan biaya manajemen bukan satu-satunya biaya kepemilikan dana karena trading dan pajak dapat mengurangi imbal hasil.</p>
-
-<h2>6. Neraca dan Tren Terkini Industri Reksa Dana</h2>
-
-<h3>6.1 Reksa Dana Pasar Uang</h3>
-<p>Pada 2021, $4.680,50 miliar (89,9 persen dari total aset) MMMF diinvestasikan pada sekuritas keuangan jangka pendek seperti deposito asing, deposito cek domestik dan mata uang, deposito berjangka dan tabungan, repurchase agreements (RPs atau repos), open market paper (terutama commercial paper), dan sekuritas pemerintah AS. Angka ini naik dari 2007 ketika $2.094,4 miliar (69,0 persen) aset keuangan diinvestasikan pada sekuritas jangka pendek. Saat pasar keuangan jatuh pada 2008, MMMF memindahkan investasi dari obligasi korporasi dan asing (12,4 persen pada 2007 menjadi 6,1 persen pada 2008) ke sekuritas yang lebih aman seperti sekuritas pemerintah AS (13,6 persen pada 2007 menjadi 35,5 persen pada 2008). Kepemilikan aset jatuh tempo pendek mencerminkan tujuan dana mempertahankan sifat seperti deposito dari liabilitas saham MMMF, dan kebanyakan saham MMMF berorientasi konsumen nilainya ditetapkan pada $1, dengan fluktuasi nilai aset disesuaikan dengan menambah atau mengurangi jumlah saham $1 yang dimiliki investor.</p>
-
-<h4>Contoh 5-5. Perhitungan Jumlah Saham Beredar dalam MMMF</h4>
-<p>Karena penurunan suku bunga, nilai pasar aset yang dipegang sebuah MMMF meningkat dari $100 menjadi $110. Neraca nilai pasar sebelum penurunan suku bunga menunjukkan aset $100 dan ekuitas $100 (100 saham dikali $1), dan setelah penurunan menunjukkan aset $110 dan ekuitas $110 (110 saham dikali $1). Penurunan suku bunga menghasilkan 10 saham tipe ekuitas baru (110 dikurangi 100) yang dipegang investor, mencerminkan kenaikan nilai pasar aset MMMF sebesar $10 (10 saham baru masing-masing $1).</p>
-
-<div class="eq">\[ \text{Saham baru} = \frac{\text{Kenaikan nilai aset}}{\$1 \text{ per saham}} = \frac{\$10}{\$1} = 10 \text{ saham} \]</div>
-
-<h3>6.2 Dana Jangka Panjang</h3>
-<p>Komposisi aset dana jangka panjang mencerminkan popularitas berbagai jenis dana obligasi atau ekuitas pada suatu waktu. Pada 2007, saham menyusun lebih dari 70,0 persen portofolio aset reksa dana jangka panjang total, dan instrumen pasar kredit 28,1 persen. Pada 2008 ketika pasar ekuitas merosot, ekuitas hanya 55,5 persen dari portofolio dana jangka panjang dan instrumen pasar kredit 41,9 persen. Total aset keuangan jatuh dari $7.829,0 miliar pada 2007 menjadi hanya $5.435,3 miliar pada 2008, penurunan 30,6 persen. Pada 2021, dana jangka panjang memegang aset keuangan total $21.208,70 miliar, dengan 69,5 persen berupa ekuitas korporasi, masih belum kembali ke level pra-krisis secara proporsional bahkan sepuluh tahun setelah krisis dimulai.</p>
-
-<h2>7. Regulasi Reksa Dana</h2>
-<p>Karena reksa dana mengelola dan menginvestasikan tabungan investor kecil, industri ini diatur ketat dengan <b>SEC</b> sebagai regulator utama. <i>Securities Act</i> 1933 mewajibkan reksa dana mengajukan pernyataan pendaftaran ke SEC dan mengatur prospektus yang dikirim ke investor. <i>Securities Exchange Act</i> 1934 membuat pembelian dan penjualan saham reksa dana tunduk pada berbagai ketentuan antifraud, mewajibkan informasi lengkap dan akurat, serta menunjuk National Association of Securities Dealers (NASD) mengawasi distribusi saham reksa dana. Pada 1940, Kongres meloloskan <i>Investment Advisers Act</i> yang mengatur aktivitas penasihat reksa dana dan <i>Investment Company Act</i> yang mengatur pencegahan konflik kepentingan, penipuan, serta biaya atau beban berlebihan untuk saham dana.</p>
-<p>Undang-undang lain yang berlaku mencakup <i>Insider Trading and Securities Fraud Enforcement Act</i> 1988, <i>Market Reform Act</i> 1990 yang mengizinkan SEC memperkenalkan circuit breakers setelah krisis pasar saham 1987, dan <i>National Securities Markets Improvement Act (NSMIA)</i> 1996 yang membebaskan penjual reksa dana dari pengawasan regulator sekuritas negara bagian, sehingga mengurangi beban regulasi mereka.</p>
-<p>Meski banyak regulasi diberlakukan, beberapa tuduhan penyalahgunaan perdagangan dan pembebanan biaya yang tidak tepat terungkap dan dituntut pada awal 2000-an, dalam empat kategori umum, yaitu <i>market timing</i> (perdagangan jangka pendek memanfaatkan perbedaan antara harga saham dana dan nilai sekuritas yang sudah usang, umum pada dana internasional karena perbedaan zona waktu), <i>late trading</i> (membeli atau menjual saham jauh setelah harga ditetapkan pukul 16.00 waktu timur), <i>directed brokerage</i> (pengaturan antara perusahaan reksa dana dan rumah broker yang memengaruhi dana mana yang direkomendasikan broker), dan pembebanan 12b-1 fees yang tidak tepat yang memungkinkan broker mengelabui investor agar percaya mereka membeli no-load funds.</p>
-<p>Hasil aktivitas ilegal tersebut adalah aturan baru pada 2004 dan 2005, antara lain kewajiban dana memiliki dewan independen yang dipimpin ketua independen, serta penerapan <i>Sarbanes-Oxley Act</i> 2002 yang mewajibkan komite audit memiliki setidaknya satu orang yang memahami GAAP dan berpengalaman dalam pengendalian audit internal. SEC juga menutup celah yang memungkinkan perdagangan tidak tepat tidak terdeteksi dengan mewajibkan portfolio managers melaporkan perdagangan dana yang mereka kelola, mewajibkan <i>hard closing</i> (semua pesanan diterima pukul 16.00), memperluas pengungkapan risiko perdagangan sering untuk mengatasi market timing, dan mewajibkan reksa dana mempekerjakan <i>chief compliance officers</i> mulai 5 Oktober 2004 yang melapor langsung ke direktur dana, bukan eksekutif perusahaan manajemen dana.</p>
-<p>Pada Maret 2009, SEC mengadopsi amandemen yang mewajibkan informasi kunci muncul dalam plain English dengan urutan standar di bagian depan prospektus statutori, termasuk opsi baru prospektus ringkasan dengan prospektus statutori tersedia di situs web. Setelah krisis keuangan, SEC mengadopsi regulasi baru untuk reksa dana pasar uang di bawah <i>Investment Company Act</i> 1940, memperketat kondisi pembatas risiko Rule 2a-7. Amandemen 2010 mencakup batas maksimal 5 persen aset pada sekuritas tidak likuid, minimum 10 persen aset pada sekuritas likuid harian, dan minimum 30 persen aset pada aset likuid mingguan.</p>
-<p>Pada Juli 2014, SEC mengadopsi amandemen lebih lanjut atas aturan MMMF (Rule 2a-7) yang harus dipatuhi pada 16 Oktober 2016, termasuk NAV mengambang (<i>floating NAV</i>) untuk reksa dana pasar uang prime institusional, serta <i>liquidity fees</i> dan <i>redemption gates</i> yang memberi dewan dana kemampuan mengenakan biaya dan gerbang selama periode stres. Amandemen ini juga mencakup persyaratan diversifikasi, pengungkapan, dan stress-testing yang lebih baik. Pergeseran dari dana prime ke dana pemerintah lebih besar dari perkiraan awal, sekitar $1 triliun, dan Federal Home Loan Banks memainkan peran penting dalam penyesuaian pasar dengan membeli sekuritas pemerintah.</p>
-<p>Saat pandemi COVID-19 melanda, pasar mengalami <i>dash for cash</i> pada Maret 2020, dengan dana prime dan bebas pajak mengalami arus keluar besar. Federal Reserve mendirikan berbagai fasilitas pinjaman termasuk Money Market Fund Liquidity Facility (MMLF) yang meredakan tekanan pada pasar kredit jangka pendek dan membalikkan arus keluar. Pada Desember 2021, SEC mengusulkan set reformasi MMMF ketiga, antara lain menaikkan minimum aset likuid harian dan mingguan ke 25 persen dan 50 persen (dari 10 persen dan 30 persen), mencegah MMMF membatasi penebusan melalui biaya dan gerbang yang justru memperburuk penarikan pada Maret 2020, serta mewajibkan kebijakan <i>swing pricing</i> untuk dana prime institusional dan bebas pajak institusional agar biaya penebusan besar dibebankan kepada pemegang saham yang menebus.</p>
-
-<h2>8. Isu Global dalam Industri Reksa Dana</h2>
-<p>Reksa dana adalah sektor dengan pertumbuhan tercepat dalam industri lembaga keuangan AS selama 1990-an hingga 2000-an, hanya terhambat krisis keuangan dunia dan resesi terburuk sejak Depresi Besar. Gabungan aset yang diinvestasikan pada reksa dana non-AS sekitar 15 persen lebih besar daripada yang diinvestasikan pada reksa dana AS saja. Investasi dunia di luar AS meningkat lebih dari 211 persen, dari $4,545 triliun pada 1999 menjadi $14,130 triliun pada 2007, dibandingkan pertumbuhan 75 persen dana AS. Reksa dana non-AS juga mengalami kerugian total aset yang lebih besar selama krisis, jatuh ke $9,316 triliun (minus 34,1 persen) pada 2008 sementara dana AS jatuh ke $9,601 triliun (minus 20,1 persen). Pada 2020, investasi dunia (non-AS) meningkat ke $33,71 triliun (kenaikan 262 persen dari 2008), sementara investasi AS meningkat ke $29,35 triliun (kenaikan 206 persen).</p>
-<p>Pasar reksa dana dunia paling aktif di negara dengan pasar sekuritas paling canggih, seperti Jepang, Prancis, Jerman, Australia, dan Inggris. Hambatan masuk di luar negeri umumnya lebih tinggi daripada di AS, dan industri reksa dana AS berupaya menurunkan hambatan tersebut, termasuk mencapai pasar lintas batas yang sejati di Eropa dan mengurangi hambatan bagi sponsor AS yang ingin menawarkan produk di China dan negara Asia lain.</p>
-
-<h2>9. Hedge Funds</h2>
-<p><i>Hedge fund</i> adalah jenis kumpulan investasi yang menghimpun dana dari individu kaya dan investor lain dan menginvestasikannya atas nama mereka. Berbeda dengan reksa dana, hedge fund tidak tunduk pada banyak regulasi yang melindungi individu, seperti persyaratan likuiditas, penebusan kapan saja, perlindungan konflik kepentingan, keadilan penetapan harga, pengungkapan, dan pembatasan leverage, sehingga menawarkan tingkat privasi tinggi bagi investor. Hingga 2010, hedge fund tidak diwajibkan mendaftar ke SEC dan praktis tanpa pengawasan regulasi.</p>
-<p>Secara historis, hedge fund menghindari regulasi dengan membatasi jumlah investor kurang dari 100 individu yang harus dianggap <i>accredited investors</i>, yaitu investor dengan kekayaan bersih lebih dari $1 juta atau pendapatan tahunan minimal $200.000 ($300.000 jika menikah). Meski pengawasan meningkat setelah 2010, hedge fund yang tidak melebihi $100 juta aset kelolaan tidak mendaftar ke SEC sehingga datanya tidak dapat dilacak secara independen dan sebagian besar dilaporkan sendiri. Diperkirakan pada Juni 2021 terdapat lebih dari 8.200 hedge fund di dunia dengan aset kelolaan sekitar $3,96 triliun, dibandingkan $23,90 triliun aset reksa dana dan $5,45 triliun aset ETF.</p>
-<p>Hedge fund menjadi populer pada 1990-an ketika investor melihat imbal hasil lebih dari 40 persen setelah biaya manajemen (sering lebih dari 25 persen dari laba dana). Long-Term Capital Management (LTCM) hampir runtuh pada akhir 1990-an, dan dampak potensial kegagalannya begitu besar sehingga Federal Reserve merasa perlu campur tangan dengan menengahi bailout $3,6 miliar oleh konsorsium beberapa lembaga keuangan terbesar dunia. Strategi LTCM, yang menggunakan model komputer untuk mendeteksi perbedaan harga antara pasar Treasury AS dan obligasi lain, gagal ketika pada 1998 penurunan besar di banyak pasar saham asing menyebabkan uang mengalir ke pasar Treasury AS, menaikkan harga Treasury dan menurunkan imbal hasil, yang menekan harga banyak sekuritas berbasis KPR dan menguras dana dari pasar obligasi Eropa dan obligasi korporasi berimbal hasil tinggi. Dengan semua posisi melawan mereka, LTCM mengalami kerugian besar, sebagian karena leverage-nya dua sampai empat kali lebih tinggi daripada dana tipikal.</p>
-<p>Kegagalan dua hedge fund Bear Stearns (Bear Stearns High-Grade Structured Credit Fund dan Enhanced Leveraged Fund) pada musim panas 2007 juga merupakan hasil kegagalan manajer memprediksi perilaku pasar obligasi subprime dalam keadaan ekstrem, dan investor kehilangan $1,6 miliar. Strateginya sederhana, membeli collateralized debt obligations (CDOs) yang membayar suku bunga di atas biaya pinjaman dan menggunakan leverage sebanyak mungkin, sambil membeli credit default swaps (CDSs) sebagai asuransi. Ketika masalah utang subprime mulai terurai, pasar berperilaku di luar ekspektasi, margin calls memaksa penjualan obligasi, dan dalam waktu singkat dana mengalami kehilangan modal total.</p>
-
-<p class="tabcap">Tabel 5-4. Sepuluh Perusahaan Hedge Fund Terbesar Berdasarkan Aset Kelolaan, Juni 2021 (Sumber, Pensions and Investments, September 2021)</p>
-<table>
-  <tr>
-    <th>Peringkat</th>
-    <th>Perusahaan Hedge Fund</th>
-    <th>Aset ($ miliar)</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Bridgewater Associates</td>
-    <td>105,70</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Man Group</td>
-    <td>76,80</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Renaissance Technologies</td>
-    <td>58,00</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Millennium Mgmt.</td>
-    <td>52,31</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>TCI Fund Mgmt.</td>
-    <td>40,00</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>D.E. Shaw Group</td>
-    <td>39,74</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>Two Sigma Investments/Advisers</td>
-    <td>39,55</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>Farallon Capital Mgmt.</td>
-    <td>38,10</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>Citadel</td>
-    <td>37,63</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>Davidson Kempner Capital Mgmt.</td>
-    <td>37,35</td>
-  </tr>
-</table>
-
-<h3>9.1 Jenis-Jenis Hedge Fund</h3>
-<p>Sebagian besar hedge fund sangat terspesialisasi, mengandalkan keahlian spesifik manajer dana. Berdasarkan klasifikasi risiko, hedge fund dibagi menjadi tiga kelompok utama.</p>
-<ul>
-  <li><b>Lebih berisiko (market directional)</b>, mengejar imbal hasil tinggi menggunakan leverage, biasanya berinvestasi berdasarkan peristiwa yang diantisipasi, dengan tujuan seperti <i>aggressive growth</i> (ekuitas berisiko tinggi dengan pertumbuhan laba per saham yang dipercepat), <i>emerging markets</i> (ekuitas atau utang pasar negara berkembang), <i>macro</i> (perubahan ekonomi global akibat pergeseran kebijakan pemerintah yang memengaruhi suku bunga), <i>market timing</i> (mengalokasikan aset antar kelas aset berdasarkan pandangan manajer), dan <i>short selling</i> (menjual sekuritas yang dinilai terlalu tinggi untuk dibeli kembali lebih murah)</li>
-  <li><b>Risiko moderat (market neutral atau value orientation)</b>, lebih tradisional seperti reksa dana dengan hanya sebagian portofolio di-hedge, dengan tujuan seperti <i>distressed securities</i> (membeli utang atau klaim perusahaan bangkrut dengan diskon dalam), <i>fund of funds</i> (mencampur berbagai hedge fund untuk imbal hasil yang lebih stabil), <i>opportunistic</i> (mengubah strategi saat peluang muncul, misalnya IPO atau tawaran pengambilalihan), <i>multistrategy</i>, dan <i>special situations</i> (investasi berbasis peristiwa seperti merger atau leveraged buyouts)</li>
-  <li><b>Penghindaran risiko (market neutral)</b>, berusaha imbal hasil moderat dan konsisten dengan risiko rendah, dengan tujuan seperti <i>income</i> (fokus pada yield), <i>market neutral-arbitrage</i> (posisi berlawanan, misalnya long convertible bonds dan short ekuitas penerbit), <i>market neutral-securities hedging</i> (investasi sama pada portofolio ekuitas long dan short), dan <i>value</i> (sekuritas yang dijual pada diskon dalam relatif terhadap nilai intrinsik)</li>
-</ul>
-
-<h3>9.2 Kinerja Hedge Fund</h3>
-<p>Menggunakan ukuran kinerja yang disesuaikan risiko tradisional (seperti Sharpe ratios), kinerja hedge fund sangat kuat dibandingkan investasi tradisional seperti saham dan obligasi. Rata-rata hedge fund kehilangan 15,7 persen pada 2008, kinerja terburuk yang pernah tercatat, dengan hampir tiga perempat seluruh hedge fund mengalami kerugian. Namun banyak dana mengungguli pasar yang mendasarinya seperti indeks S&amp;P 500, dan BlueGold Global Fund memperoleh 209,4 persen pada 2008, tahun ketika indeks S&amp;P 500 memperoleh minus 37,0 persen. Kinerja membaik signifikan pada 2009 dengan rata-rata dana memperoleh lebih dari 20 persen, tertinggi sejak 2003 dan imbal hasil terbaik kedua dalam 10 tahun, meskipun imbal hasil indeks S&amp;P 500 pada 2009 adalah 26,46 persen.</p>
-<p>Aset kelolaan industri hedge fund jatuh hampir 30 persen (ke $1,5 triliun) pada 2008, penurunan terbesar yang pernah tercatat, akibat kombinasi kinerja negatif, lonjakan penebusan, dan likuidasi dana. Kinerja hedge fund terus tertinggal pada 2010-an, dengan rata-rata 3,4 persen per tahun dari 2010 hingga 2018, dibandingkan 6,4 persen dari 2000 hingga 2010 dan 18,3 persen dari 1989 hingga 2000. Pada 2018, indeks utama Hedge Fund Research turun 4,07 persen dibandingkan penurunan 4,38 persen indeks S&amp;P 500, dan enam dari sepuluh hedge fund kehilangan uang. Arus keluar bersih pada 2018 mencapai $34 miliar, dan jumlah dana yang diluncurkan jatuh ke 561 dibandingkan 735 pada 2017. Sejak awal 2015, lebih dari 3.000 hedge fund dilikuidasi, namun kinerja mulai membaik, dan pada 2021 diperkirakan 614 dana baru diluncurkan (tertinggi sejak 2017) sementara 527 dana dilikuidasi (terendah sejak 2004), dengan indeks utama Hedge Fund Research naik 10,3 persen untuk tahun penuh 2021.</p>
-
-<h3>9.3 Biaya Hedge Fund</h3>
-<p>Manajer hedge fund umumnya mengenakan dua jenis biaya, yaitu <i>management fee</i> yang dihitung sebagai persentase total aset kelolaan (biasanya antara 1,5 dan 2,0 persen) dan <i>performance fee</i> yang unik bagi hedge fund, memberi manajer bagian dari imbal hasil positif dana. Rata-rata performance fee sudah lama sekitar 20 persen tetapi bervariasi luas, misalnya Steven Cohen's SAC Capital Partners pernah mengenakan performance fee 50 persen. Performance fee dibayar sebelum imbal hasil dibayarkan ke investor dana. Hedge fund sering menetapkan <i>hurdle rate</i>, yaitu tolok ukur kinerja tahunan minimum yang harus tercapai sebelum performance fee dapat dikenakan, dan <i>high-water mark</i>, di mana manajer tidak menerima performance fee kecuali nilai dana melebihi NAV tertinggi yang pernah dicapai sebelumnya, untuk mengaitkan insentif manajer lebih dekat dengan insentif investor dan mengurangi dorongan meningkatkan risiko transaksi.</p>
-<p>Mengingat catatan imbal hasil rendah baru-baru ini, biaya adalah salah satu isu kunci industri. Model biaya standar 2/20 (management fee 2 persen dan performance fee 20 persen) perlahan memberi jalan pada struktur baru. Pada 2014, CalPERS melikuidasi seluruh portofolio hedge fund-nya ($4 miliar) untuk memangkas biaya. Sebagai contoh struktur baru, Adage Capital Management mengubah ke management fee datar 0,5 persen dan performance fee 20 persen atas keuntungan atau kerugian perdagangan yang melebihi S&amp;P 500, dengan pengembalian hingga setengah biaya jika kinerja turun di bawah benchmark, dan dana tersebut dua kali lipat ukurannya dalam empat tahun setelah perubahan.</p>
-
-<h3>9.4 Offshore Hedge Funds</h3>
-<p>Hedge fund yang diorganisasi di AS disebut <i>domestic hedge funds</i> dan mewajibkan investor membayar pajak penghasilan atas semua pendapatan dari hedge fund. Dana yang berlokasi di luar AS dan disusun berdasarkan hukum asing disebut <i>offshore hedge funds</i>. Pusat keuangan lepas pantai utama mencakup Kepulauan Cayman (diperkirakan lokasi sekitar 85 persen seluruh hedge fund), Bermuda, Dublin, dan Luksemburg. Offshore hedge funds harus mematuhi aturan negara tuan rumah yang umumnya tidak memberatkan dan memberikan anonimitas, serta tidak tunduk pada pajak penghasilan AS atas distribusi laba atau pajak properti AS atas saham dana. Offshore hedge funds cenderung berdagang lebih intensif karena pajak keuntungan modal rendah atau nol, lebih jarang melakukan positive feedback trading, dan lebih jarang herding dibandingkan domestic hedge funds.</p>
-
-<h3>9.5 Regulasi Hedge Fund</h3>
-<p>Meskipun reksa dana diatur sangat ketat, hedge fund umumnya tidak diatur. Hedge fund beroperasi di bawah dua pengecualian dari persyaratan pendaftaran dalam <i>Investment Company Act</i> 1940, yaitu memiliki kurang dari 100 investor dan investor yang <i>accredited</i>, serta hanya dijual melalui penempatan pribadi (<i>private placements</i>) sehingga tidak boleh ditawarkan atau diiklankan ke publik.</p>
-<p>Pada 2010, <i>Wall Street Reform and Consumer Protection Act</i> mewajibkan penasihat hedge fund dengan kumpulan modal swasta melebihi $100 juta aset untuk mendaftar ke SEC sebagai investment advisors paling lambat Juli 2011. Manajer dengan kurang dari $100 juta aset kelolaan diawasi negara bagian. Registrasi ini membuat hedge fund tunduk pada inspeksi berkala oleh pemeriksa SEC, dan hedge fund diwajibkan melaporkan informasi tentang transaksi dan portofolio yang diperlukan untuk menilai risiko sistemik, dengan data dijaga kerahasiaan dan hanya dapat dibagikan ke Financial Stability Oversight Council. Jika pemerintah menilai hedge fund tumbuh terlalu besar atau berisiko, dana ditempatkan di bawah pengawasan Federal Reserve. Meski demikian, regulasi yang dikenakan pada hedge fund terus jauh lebih ringan daripada yang dikenakan pada reksa dana.</p>
-<p>Hedge fund tetap dilarang dari praktik perdagangan yang menyalahgunakan, dan beberapa terlibat dalam skandal yang melanda industri reksa dana pada 2000-an, misalnya Canary Capital Partners yang menyetujui pembayaran $30 juta dari laba ilegal plus denda $10 juta, dan pada Maret 2007 SEC menuntut 14 terdakwa dalam skema yang melibatkan orang dalam UBS Securities, Morgan Stanley, dan beberapa hedge fund dengan laba ilegal $15 juta. Dua skandal yang dipublikasikan luas terjadi pada akhir 2000-an, yaitu skema Ponzi Bernard L. Madoff dengan pernyataan klien menunjukkan kepemilikan saham $65 miliar yang fiktif, yang berujung pada hukuman 150 tahun penjara dengan restitusi $170 miliar, dan skandal perdagangan orang dalam Galleon Group LLC yang menuntut 20 orang termasuk pendiri Raj Rajaratnam dalam penuntutan terbesar atas dugaan insider trading hedge fund di AS. Lebih baru, SAC Capital Advisors milik Steven A. Cohen setuju membayar denda $1,8 miliar pada 2013, hukuman terbesar yang pernah tercatat untuk kasus insider trading, dan Cohen dilarang mengelola uang untuk klien selama dua tahun hingga 1 Januari 2018.</p>
-
-<h2>10. Perhitungan dan Rumus Kunci</h2>
-
-<h3>10.1 Net Asset Value (NAV)</h3>
-<div class="eq">\[ \text{NAV} = \frac{\text{Nilai pasar total portofolio}}{\text{Jumlah saham beredar}} \]</div>
-<p>Aset reksa dana dinilai marked-to-market setiap hari, dan NAV adalah harga yang diterima investor saat menjual kembali saham atau membeli saham baru pada hari itu.</p>
-
-<h3>10.2 Contoh Perhitungan NAV</h3>
-<div class="eq">\[ \text{NAV} = \frac{(4.000 \times \$22{,}00) + (1.200 \times \$77{,}00) + (1.500 \times \$33{,}75)}{15.000} = \$15{,}402 \]</div>
-<div class="eq">\[ \text{NAV} = \frac{(4.000 \times \$26{,}50) + (1.200 \times \$78) + (1.500 \times \$35)}{15.000} = \$16{,}807 \]</div>
-<p>dengan penambahan 1.000 investor baru dan 700 saham Macy's tambahan, NAV menjadi $16,916 dengan 16.000 saham beredar.</p>
-
-<h3>10.3 Premi atau Diskon Dana Tertutup</h3>
-<div class="eq">\[ \text{Premi atau diskon} = P_S \times N_S - \text{NAV} \times N_S \]</div>
-<p>Contoh, 50 saham diperdagangkan pada $20 per saham dengan nilai portofolio $800 ($16 per saham) menghasilkan premi $4 per saham, dan 100 saham diperdagangkan pada $25 dengan nilai portofolio $3.000 ($30 per saham) menghasilkan diskon $5 per saham.</p>
-
-<h3>10.4 Annualisasi Sales Load</h3>
-<div class="eq">\[ \text{Load tahunan} = \frac{\text{Front-end load}}{\text{Horizon investasi (tahun)}} \]</div>
-<div class="eq">\[ \text{Total biaya tahunan} = \text{Load tahunan} + \text{Expense ratio} \]</div>
-<p>Contoh, front-end load 4 persen dengan horizon 10 tahun menghasilkan load tahunan 0,4 persen, ditambah expense ratio 1 persen menjadi total 1,4 persen per tahun.</p>
-
-<h3>10.5 Jumlah Saham MMMF</h3>
-<div class="eq">\[ \text{Jumlah saham} = \frac{\text{Nilai pasar aset}}{\$1} \]</div>
-<p>Kenaikan nilai aset MMMF dari $100 menjadi $110 menciptakan 10 saham baru ($10 dibagi $1 per saham), menjaga nilai saham tetap $1.</p>
-
-<h3>10.6 Pertumbuhan Aset Dunia (Non-AS)</h3>
-<div class="eq">\[ \text{Pertumbuhan} = \frac{V_{2007} - V_{1999}}{V_{1999}} \times 100\% = \frac{\$14{,}130 - \$4{,}545}{\$4{,}545} \times 100\% \approx 211\% \]</div>
-<p>dan dari 2008 ke 2020, investasi non-AS meningkat 262 persen sementara investasi AS meningkat 206 persen.</p>
-
-<h3>10.7 Data Kunci Lainnya</h3>
-<ul>
-  <li>Total aset reksa dana AS, $23,90 triliun (2020), dengan 7.636 dana</li>
-  <li>Aset dana pensiun yang dikelola reksa dana, sekitar 70 persen dari pasar $34,9 triliun (2020)</li>
-  <li>ETF, 2.204 dana dengan aset $5,45 triliun (2020)</li>
-  <li>Aset hedge fund dunia, sekitar $3,96 triliun dari lebih dari 8.200 dana (Juni 2021)</li>
-  <li>Rata-rata expense ratio ekuitas aktif, 0,71 persen (2020) turun dari 1,06 persen (2000)</li>
-  <li>Biaya MMMF, batas 12b-1 maksimal 1 persen per tahun (0,25 persen pemasaran, 0,75 persen manajemen)</li>
-  <li>Ambang registrasi hedge fund, $100 juta aset kelolaan (Dodd-Frank 2010)</li>
-</ul>
-
-<h2>11. Ringkasan dan Kesimpulan</h2>
-<p>Bab ini memberikan gambaran industri reksa dana dan hedge fund, dua jenis lembaga keuangan yang menghimpun dana dari individu dan korporasi serta menginvestasikannya pada portofolio aset yang terdiversifikasi. Reksa dana menyediakan cara yang efektif dari segi biaya bagi investor, terutama investor kecil, untuk berpartisipasi di pasar keuangan dan mendiversifikasi risiko, sementara hedge fund melayani klien yang lebih kaya dengan strategi yang lebih agresif dan regulasi yang jauh lebih ringan.</p>
-<p>Industri reksa dana tumbuh luar biasa sejak 1990-an, melampaui bank komersial sebagai kelompok FI terbesar di AS, namun mengalami guncangan hebat pada krisis 2008 hingga 2009 sebelum pulih ke level rekor. Imbal hasil investor tercermin dalam NAV yang dihitung dari nilai pasar portofolio dibagi jumlah saham beredar, dan biaya kepemilikan mencakup sales loads serta biaya operasional tahunan seperti 12b-1 fees. Regulasi, terutama oleh SEC, melindungi investor kecil dari penyalahgunaan manajer, dan reformasi pasca-krisis memperketat aturan reksa dana pasar uang. Sementara itu, hedge fund, yang diatur jauh lebih longgar dan baru terdaftar di SEC sejak 2010, menawarkan imbal hasil tinggi dengan risiko besar, seperti ditunjukkan kegagalan LTCM dan dana Bear Stearns, serta terus menghadapi tekanan biaya dan pengawasan yang meningkat.</p>
-
-<h2>12. Pertanyaan Konsep untuk Latihan</h2>
-<ol>
-  <li>Di mana peringkat reksa dana dalam hal ukuran aset di antara semua industri FI?</li>
-  <li>Jelaskan perbedaan antara reksa dana jangka pendek dan jangka panjang, serta risiko masing-masing</li>
-  <li>Apa tren jumlah reksa dana sejak 1980, dan apa yang menyebabkan penurunan jumlah dana pada 2008 hingga 2009?</li>
-  <li>Jelaskan perbedaan antara reksa dana terbuka dan tertutup, serta apa yang dimaksud premium dan diskon pada dana tertutup?</li>
-  <li>Bagaimana NAV reksa dana ditentukan, dan apa yang dimaksud dengan marked-to-market setiap hari?</li>
-  <li>Apa perbedaan antara load fund dan no-load fund, serta bagaimana horizon investasi memengaruhi beban load tahunan?</li>
-  <li>Apa itu 12b-1 fee, dan apa batas maksimumnya?</li>
-  <li>Bagaimana ETF berbeda dari reksa dana terbuka dan tertutup, dan siapa authorized participants?</li>
-  <li>Apa perbedaan antara reksa dana dan hedge fund, serta kategori-kategori hedge fund berdasarkan risiko?</li>
-  <li>Jenis biaya apa yang dikenakan hedge fund, dan apa fungsi hurdle rate serta high-water mark?</li>
-  <li>Bagaimana status regulasi hedge fund berubah setelah Dodd-Frank 2010?</li>
-  <li>Apa perbedaan antara domestic hedge fund dan offshore hedge fund, serta keunggulan offshore hedge fund?</li>
-</ol>
-
-<p class="note">Catatan teknis, persamaan matematis pada halaman ini dirender dengan MathJax dan membutuhkan koneksi internet saat pertama kali dibuka. Untuk mencetak atau menyimpan sebagai PDF, gunakan tombol Cetak di bagian atas. Dokumen ini adalah ringkasan belajar mandiri dan bukan pengganti buku teks asli.</p>
-
+    </div>
 </body>
 </html>

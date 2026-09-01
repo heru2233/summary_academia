@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8   Heteroskedasticity</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 8   Heteroskedasticity</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Consequences of Heteroskedasticity for OLS</a></li>
+    <li><a href="#section2">2. Heteroskedasticity-Robust Inference after OLS Estimation</a></li>
+    <li><a href="#section3">3. Testing for Heteroskedasticity</a></li>
+    <li><a href="#section4">4. Weighted Least Squares Estimation</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Consequences of Heteroskedasticity for OLS</h2>
+
+<h3>1.1 Definition and Core Concept</h3>
+
+<div class="interpretation">
+  <p>The homoskedasticity assumption (MLR.5) in the multiple regression model states that the variance of the unobserved error, <i>u</i>, conditional on the explanatory variables, is constant: <i>Var</i>(<i>u</i>|<i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, …, <i>x</i><sub>k</sub>) = σ<sup>2</sup>. Heteroskedasticity occurs when this conditional variance changes across different segments of the population defined by the values of the explanatory variables. For example, in a savings equation, the variance of unobserved factors affecting savings may increase with income.</p>
+  <p>Heteroskedasticity does <i>not</i> cause bias or inconsistency in the OLS estimators of the β<sub>j</sub>. The first four Gauss-Markov assumptions (MLR.1–MLR.4) are sufficient for unbiasedness and consistency. Homoskedasticity is irrelevant for these properties. However, heteroskedasticity does affect the validity of standard errors, confidence intervals, and hypothesis tests. The usual OLS standard errors, t statistics, F statistics, and LM statistics are no longer valid in the presence of heteroskedasticity, even in large samples. Additionally, OLS is no longer the Best Linear Unbiased Estimator (BLUE) when heteroskedasticity is present, and it is not asymptotically efficient in the class of estimators considered in Theorem 5.3.</p>
+  <p>Importantly, the interpretation of goodness-of-fit measures R<sup>2</sup> and adjusted R<sup>2</sup> is unaffected by heteroskedasticity. These are consistent estimators of the population R<sup>2</sup> (1 – σ<sup>2</sup><sub>u</sub>/σ<sup>2</sup><sub>y</sub>), which involves unconditional variances. The sums of squares used in their computation remain consistent estimators of the population variances regardless of whether the conditional variance is constant.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Multiple Linear Regression Model</span>
+  <div class="formula">\[ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> <i>y</i> is the dependent variable; <i>x</i><sub>1</sub>, …, <i>x</i><sub>k</sub> are independent variables; <i>β</i><sub>0</sub> is the intercept; <i>β</i><sub>1</sub>, …, <i>β</i><sub>k</sub> are slope parameters; <i>u</i> is the unobserved error term.</p>
+  <p><strong>Interpretation:</strong> Under Assumptions MLR.1–MLR.4, OLS estimators of β<sub>j</sub> are unbiased and consistent. The homoskedasticity assumption MLR.5 (Var(<i>u</i>|<b>x</b>) = σ<sup>2</sup>) is not required for these properties, but it is necessary for the Gauss-Markov Theorem (BLUE) and for valid inference using standard formulas.</p>
+  <p><strong>Practical Use:</strong> When heteroskedasticity is present, one must either adjust standard errors to be robust to heteroskedasticity or use a more efficient estimator (e.g., weighted least squares). The model itself remains correctly specified for the conditional mean.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>Model:</strong> Savings equation with income as an explanatory variable. If the variance of unobserved factors affecting savings increases with income, heteroskedasticity is present. OLS estimates of the marginal propensity to save remain unbiased, but the usual t statistics are unreliable.</p>
+  <p><strong>Interpretation:</strong> The coefficient on income is still interpreted as the change in expected savings for a one-unit increase in income, holding other factors constant. However, standard errors, confidence intervals, and hypothesis tests based on OLS are invalid unless corrected for heteroskedasticity.</p>
+  <p><strong>Practical Lesson:</strong> Always check for heteroskedasticity when using cross-sectional data. If detected, use heteroskedasticity-robust standard errors or weighted least squares.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Think of OLS as a scale that gives equal weight to every observation. When the variance of the error differs across observations (heteroskedasticity), some observations are more "noisy" than others. Using OLS is like trying to estimate the center of a target when some arrows are much more scattered than others—the estimate is still unbiased, but its precision is compromised, and the usual confidence intervals are misleading.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Heteroskedasticity does not bias OLS coefficients, but it does invalidate the usual standard errors, t statistics, F statistics, and confidence intervals.</strong> OLS is no longer BLUE, and alternative estimators may be more efficient.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Heteroskedasticity: conditional variance of error term changes with explanatory variables.</li>
+    <li>OLS remains unbiased and consistent under MLR.1–MLR.4 even with heteroskedasticity.</li>
+    <li>Usual standard errors, t, F, and LM statistics are invalid; OLS is no longer BLUE.</li>
+    <li>R<sup>2</sup> and adjusted R<sup>2</sup> remain valid as estimators of population R<sup>2</sup>.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Heteroskedasticity-Robust Inference after OLS Estimation</h2>
+
+<h3>2.1 Robust Standard Errors</h3>
+
+<div class="interpretation">
+  <p>Heteroskedasticity-robust procedures allow valid inference after OLS estimation without assuming a specific form of heteroskedasticity. These methods, developed by White (1980) and earlier by Eicker (1967) and Huber (1967), provide standard errors that are asymptotically valid whether or not the errors have constant variance. In large samples, the robust t statistics are approximately t-distributed, and robust F and LM statistics are approximately chi-square distributed.</p>
+  <p>The key idea is to estimate the variance of the OLS estimator without imposing homoskedasticity. For a single independent variable, the variance of the OLS slope estimator <i>β̂</i><sub>1</sub> under heteroskedasticity is:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Variance of OLS Slope Estimator under Heteroskedasticity (Simple Regression)</span>
+  <div class="formula">\[ \text{Var}(\hat{\beta}_1) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2 \sigma_i^2}{\text{SST}_x^2} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> <i>σ</i><sub>i</sub><sup>2</sup> = Var(<i>u</i><sub>i</sub>|<i>x</i><sub>i</sub>), the conditional variance of the error for observation <i>i</i>; SST<sub>x</sub> = Σ(<i>x</i><sub>i</sub> – <i>x̄</i>)<sup>2</sup> is the total sum of squares of <i>x</i>.</p>
+  <p><strong>Interpretation:</strong> When homoskedasticity holds (<i>σ</i><sub>i</sub><sup>2</sup> = σ<sup>2</sup> for all <i>i</i>), the formula reduces to the familiar σ<sup>2</sup>/SST<sub>x</sub>. Under heteroskedasticity, the variance depends on the pattern of <i>σ</i><sub>i</sub><sup>2</sup> across observations with different <i>x</i> values.</p>
+  <p><strong>Practical Use:</strong> This formula cannot be directly used because <i>σ</i><sub>i</sub><sup>2</sup> is unknown. White (1980) proposed replacing <i>σ</i><sub>i</sub><sup>2</sup> with the squared OLS residual <i>û</i><sub>i</sub><sup>2</sup>, leading to a consistent estimator of Var(<i>β̂</i><sub>1</sub>).</p>
+  <p><strong>Assumptions:</strong> MLR.1–MLR.4 must hold; the estimator is asymptotically valid under any form of heteroskedasticity.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Heteroskedasticity-Robust Variance Estimator (Simple Regression)</span>
+  <div class="formula">\[ \widehat{\text{Var}}(\hat{\beta}_1) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2 \hat{u}_i^2}{\text{SST}_x^2} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretation:</strong> The squared OLS residual <i>û</i><sub>i</sub><sup>2</sup> is used as an estimate of <i>σ</i><sub>i</sub><sup>2</sup>. Multiplying this estimator by the sample size <i>n</i> and using the law of large numbers and central limit theorem, the estimator converges in probability to the appropriate limit, justifying its use in large samples.</p>
+  <p><strong>Practical Use:</strong> Most regression packages compute heteroskedasticity-robust standard errors automatically. The square root of this variance estimator is the heteroskedasticity-robust standard error.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Heteroskedasticity-Robust Variance Estimator (Multiple Regression)</span>
+  <div class="formula">\[ \widehat{\text{Var}}(\hat{\beta}_j) = \frac{\sum_{i=1}^n \hat{r}_{ij}^2 \hat{u}_i^2}{\text{SSR}_j^2} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> <i>r̂</i><sub>ij</sub> is the <i>i</i>-th residual from regressing <i>x</i><sub>j</sub> on all other independent variables; SSR<sub>j</sub> is the sum of squared residuals from that auxiliary regression.</p>
+  <p><strong>Interpretation:</strong> This formula implements the partialling-out approach: the variance of <i>β̂</i><sub>j</sub> depends on the variation in <i>x</i><sub>j</sub> after netting out the other explanatory variables, weighted by the squared residuals.</p>
+  <p><strong>Practical Use:</strong> The square root of this quantity is the heteroskedasticity-robust standard error. A degrees of freedom correction (multiplying by <i>n</i>/(<i>n</i> – <i>k</i> – 1)) is sometimes applied to make the estimator consistent with the usual OLS standard errors under homoskedasticity. All forms are asymptotically equivalent.</p>
+  <p><strong>Assumptions:</strong> MLR.1–MLR.4; large sample required for asymptotic validity.</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.1: Log Wage Equation with Heteroskedasticity-Robust Standard Errors</h4>
+  <p><strong>Model:</strong></p>
+  <div class="formula">\[ \log(\text{wage}) = 0.321 + 0.213 \text{marrmale} - 0.198 \text{marrfem} - 0.110 \text{singfem} + 0.0789 \text{educ} + 0.0268 \text{exper} - 0.00054 \text{exper}^2 + 0.0291 \text{tenure} - 0.00053 \text{tenure}^2 \]</div>
+  <p><strong>Standard errors:</strong> Usual OLS in parentheses; robust in brackets. For example, educ: usual SE = 0.0067, robust SE = 0.0074. Exper: usual SE = 0.0055, robust SE = 0.0051.</p>
+  <p><strong>Interpretation:</strong> In this example, robust standard errors are similar to usual ones; no conclusions are overturned. However, robust standard errors can be larger or smaller, and they should be used when heteroskedasticity is suspected.</p>
+  <p><strong>Practical Lesson:</strong> Report both sets of standard errors or use robust ones in large samples. The robust t statistic is calculated as (estimate – hypothesized value)/(robust SE).</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.2: Heteroskedasticity-Robust F Statistic</h4>
+  <p><strong>Model:</strong> cumgpa on sat, hsperc, tothrs, female, black, white. Testing joint hypothesis H<sub>0</sub>: β<sub>black</sub> = 0, β<sub>white</sub> = 0. Usual F = 0.69, robust F = 0.75 (p-value = 0.474). Both fail to reject.</p>
+  <p><strong>Interpretation:</strong> The robust F statistic is valid under heteroskedasticity; it can be computed using software that implements heteroskedasticity-robust Wald tests.</p>
+  <p><strong>Practical Lesson:</strong> For multiple exclusion restrictions, use heteroskedasticity-robust F or LM statistics. The Chow test for group differences also requires robust procedures if heteroskedasticity is present.</p>
+</div>
+
+<h3>2.2 Heteroskedasticity-Robust LM Test</h3>
+
+<div class="interpretation">
+  <p>The robust LM test allows testing multiple exclusion restrictions without requiring a specific form of heteroskedasticity. The procedure involves three steps: (1) Estimate the restricted model and obtain residuals <i>ũ</i>; (2) Regress each excluded variable on all included variables and obtain residuals <i>r̃</i><sub>j</sub>; (3) Run the regression of 1 on the products <i>r̃</i><sub>j</sub><i>ũ</i> (without intercept) and compute the robust LM statistic = <i>n</i> – SSR<sub>1</sub>, where SSR<sub>1</sub> is the sum of squared residuals from this final regression. Under H<sub>0</sub>, LM ~ χ<sub>q</sub><sup>2</sup> (asymptotically).</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.3: Heteroskedasticity-Robust LM Statistic</h4>
+  <p><strong>Model:</strong> narr86 (number of arrests) on pcnv, avgsen, avgsen<sup>2</sup>, ptime86, qemp86, inc86, black, hispan. Testing H<sub>0</sub>: β<sub>avgsen</sub> = 0, β<sub>avgsen2</sub> = 0. Usual LM = 3.54 (p = 0.170), robust LM = 4.00 (p = 0.135). Both fail to reject at conventional levels.</p>
+  <p><strong>Interpretation:</strong> The robust LM test accounts for heteroskedasticity, which can change the p-value. In this case, the quadratic term avgsen<sup>2</sup> becomes more significant when using robust standard errors (t = -2.48 vs -1.73).</p>
+  <p><strong>Practical Lesson:</strong> The robust LM test is easy to compute with any regression package and is recommended when heteroskedasticity is suspected.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Heteroskedasticity-robust standard errors (White/Huber/Eicker) are asymptotically valid under any form of heteroskedasticity, provided the model is correctly specified for the conditional mean.</strong> They are easy to compute in modern software and should be used in large samples, but they are only justified asymptotically, not in small samples where the CLM assumptions (including normality) may provide exact inference.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Heteroskedasticity-robust standard errors: valid asymptotically regardless of the form of heteroskedasticity.</li>
+    <li>Robust t, F, and LM statistics are available and easy to compute.</li>
+    <li>Robust standard errors can be larger or smaller than usual OLS standard errors.</li>
+    <li>In small samples, the robust t statistic may not follow a t distribution closely; usual OLS statistics under CLM assumptions are exact.</li>
+    <li>Report both sets of standard errors or use robust ones in large samples.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Testing for Heteroskedasticity</h2>
+
+<h3>3.1 The Breusch-Pagan (BP) Test</h3>
+
+<div class="interpretation">
+  <p>The Breusch-Pagan test is a widely used test for heteroskedasticity. The null hypothesis is homoskedasticity: H<sub>0</sub>: Var(<i>u</i>|<i>x</i><sub>1</sub>, …, <i>x</i><sub>k</sub>) = σ<sup>2</sup>. Since Var(<i>u</i>|<b>x</b>) = E(<i>u</i><sup>2</sup>|<b>x</b>), the test checks whether the squared error is related to the explanatory variables. The auxiliary regression is:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Breusch-Pagan Test: Auxiliary Regression</span>
+  <div class="formula">\[ \hat{u}^2 = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \cdots + \delta_k x_k + \text{error} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> <i>û</i><sup>2</sup> is the squared OLS residual from the original model; <i>x</i><sub>1</sub>, …, <i>x</i><sub>k</sub> are the original independent variables; <i>δ</i><sub>0</sub>, …, <i>δ</i><sub>k</sub> are coefficients; the error term has mean zero.</p>
+  <p><strong>Interpretation:</strong> Under H<sub>0</sub> (homoskedasticity), all slope coefficients <i>δ</i><sub>1</sub> = … = <i>δ</i><sub>k</sub> = 0. The test statistic is either the F statistic for overall significance of this auxiliary regression or the LM statistic = <i>n</i> × R<sup>2</sup><sub>û²</sub>, where R<sup>2</sup><sub>û²</sub> is the R-squared from the auxiliary regression. The LM statistic is asymptotically distributed as χ<sup>2</sup><sub>k</sub> under H<sub>0</sub>.</p>
+  <p><strong>Practical Use:</strong> After estimating the original model by OLS, obtain the squared residuals, regress them on all independent variables, and compute the F or LM statistic. A small p-value indicates rejection of homoskedasticity.</p>
+  <p><strong>Assumptions:</strong> MLR.1–MLR.4 must hold; the test is valid in large samples. If the functional form of the conditional mean is misspecified, the test may reject even if the variance is constant, so test for functional form first.</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.4: Heteroskedasticity in Housing Price Equations</h4>
+  <p><strong>Model (levels):</strong> price = -21.77 + 0.00207 lotsize + 0.123 sqrft + 13.85 bdrms. R<sup>2</sup> = 0.672. Auxiliary regression of <i>û</i><sup>2</sup> on lotsize, sqrft, bdrms gives R<sup>2</sup><sub>û²</sub> = 0.1601. F = 5.34 (p = 0.002), LM = 88 × 0.1601 = 14.09 (p ≈ 0.0028). Strong evidence of heteroskedasticity.</p>
+  <p><strong>Model (log):</strong> log(price) = -1.30 + 0.168 log(lotsize) + 0.700 log(sqrft) + 0.037 bdrms. R<sup>2</sup> = 0.643. Auxiliary regression gives R<sup>2</sup><sub>û²</sub> = 0.0480. F = 1.41 (p = 0.245), LM = 4.22 (p = 0.239). Fail to reject homoskedasticity.</p>
+  <p><strong>Interpretation:</strong> Using the logarithmic transformation of the dependent variable reduces heteroskedasticity, a common empirical finding.</p>
+  <p><strong>Practical Lesson:</strong> The BP test is easy to implement. If the test rejects, consider using robust standard errors or WLS. Also, test for functional form misspecification before relying on the heteroskedasticity test.</p>
+</div>
+
+<h3>3.2 The White Test for Heteroskedasticity</h3>
+
+<div class="interpretation">
+  <p>The White test is more general than the BP test: it includes squares and cross products of all independent variables in the auxiliary regression. The test is designed to detect forms of heteroskedasticity that invalidate the usual OLS standard errors. The auxiliary regression is:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">White Test: Auxiliary Regression (k=3 example)</span>
+  <div class="formula">\[ \hat{u}^2 = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \delta_3 x_3 + \delta_4 x_1^2 + \delta_5 x_2^2 + \delta_6 x_3^2 + \delta_7 x_1 x_2 + \delta_8 x_1 x_3 + \delta_9 x_2 x_3 + \text{error} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretation:</strong> The null hypothesis is that all coefficients except the intercept are zero. The test statistic is either the F statistic (with <i>q</i> restrictions) or LM = <i>n</i> × R<sup>2</sup><sub>û²</sub> from this auxiliary regression. The number of regressors grows quickly with <i>k</i>, which can be a drawback.</p>
+  <p><strong>Practical Use:</strong> A more conservative version uses only the fitted values <i>ŷ</i> and <i>ŷ</i><sup>2</sup> from the original model:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Special Case of White Test</span>
+  <div class="formula">\[ \hat{u}^2 = \delta_0 + \delta_1 \hat{y} + \delta_2 \hat{y}^2 + \text{error} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretation:</strong> This regression uses only two regressors regardless of the number of original independent variables. The test statistic is F (2, <i>n</i> – 3) or LM = <i>n</i> × R<sup>2</sup><sub>û²</sub> ~ χ<sup>2</sup><sub>2</sub> under H<sub>0</sub>.</p>
+  <p><strong>Practical Use:</strong> This special case is easier to implement and conserves degrees of freedom. It is particularly useful when the variance is thought to change with the level of the conditional mean.</p>
+  <p><strong>Assumptions:</strong> Same as BP test: MLR.1–MLR.4 must hold; functional form must be correctly specified.</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.5: Special Form of White Test in Log Housing Price Equation</h4>
+  <p><strong>Model:</strong> log(price) equation from Example 8.4. Auxiliary regression of <i>û</i><sup>2</sup> on <i>ŷ</i> and <i>ŷ</i><sup>2</sup> yields R<sup>2</sup><sub>û²</sub> = 0.0392. LM = 88 × 0.0392 = 3.45 (p = 0.178). Fail to reject homoskedasticity, consistent with the BP test.</p>
+  <p><strong>Interpretation:</strong> The special White test provides a check that is robust to more general forms of heteroskedasticity than the BP test, but still fails to reject in this case.</p>
+  <p><strong>Practical Lesson:</strong> Use the special White test as a general diagnostic. However, note that a significant test may also indicate functional form misspecification, so check for that first.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Tests for heteroskedasticity can also detect functional form misspecification. If the conditional mean is incorrectly specified (e.g., missing quadratic terms or using levels instead of logs), the tests may reject even if the variance is constant.</strong> Therefore, it is prudent to first ensure the model is correctly specified for the conditional mean before interpreting a heteroskedasticity test.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Breusch-Pagan test: regress squared OLS residuals on original independent variables; use F or LM statistic.</li>
+    <li>White test: includes squares and cross products; special case uses fitted values and their squares.</li>
+    <li>Both tests have asymptotic justification under MLR.1–MLR.4.</li>
+    <li>Rejecting H<sub>0</sub> indicates heteroskedasticity (or functional form misspecification).</li>
+    <li>If heteroskedasticity is detected, use robust standard errors or weighted least squares.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Weighted Least Squares Estimation</h2>
+
+<h3>4.1 When the Form of Heteroskedasticity Is Known (Up to a Multiplicative Constant)</h3>
+
+<div class="interpretation">
+  <p>Weighted Least Squares (WLS) is a method to obtain more efficient estimators than OLS when the form of heteroskedasticity is known. The key assumption is that the conditional variance of the error is proportional to a known function <i>h</i>(<b>x</b>):</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Heteroskedasticity Model (Known Up to a Multiplicative Constant)</span>
+  <div class="formula">\[ \text{Var}(u|\mathbf{x}) = \sigma^2 h(\mathbf{x}) \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> <i>h</i>(<b>x</b>) > 0 is a known function of the explanatory variables; σ<sup>2</sup> is an unknown constant.</p>
+  <p><strong>Interpretation:</strong> The variance of the error is known up to a scale factor. For example, in a savings function, <i>h</i>(inc) = inc implies that the variance is proportional to income.</p>
+  <p><strong>Practical Use:</strong> The idea is to transform the original model so that the transformed error becomes homoskedastic. Divide both sides of the original equation by √<i>h</i>(<b>x</b>):</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Transformed Model (Homoskedastic Errors)</span>
+  <div class="formula">\[ \frac{y_i}{\sqrt{h_i}} = \beta_0 \frac{1}{\sqrt{h_i}} + \beta_1 \frac{x_{i1}}{\sqrt{h_i}} + \cdots + \beta_k \frac{x_{ik}}{\sqrt{h_i}} + \frac{u_i}{\sqrt{h_i}} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> <i>h</i><sub>i</sub> = <i>h</i>(<b>x</b><sub>i</sub>); the transformed error <i>u</i><sub>i</sub>*/√<i>h</i><sub>i</sub> has constant variance σ<sup>2</sup>.</p>
+  <p><strong>Interpretation:</strong> The transformed model satisfies all Gauss-Markov assumptions (MLR.1–MLR.5). OLS on this transformed model yields the Weighted Least Squares (WLS) estimators, which are BLUE. The WLS estimators minimize the weighted sum of squared residuals:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">WLS Objective Function</span>
+  <div class="formula">\[ \sum_{i=1}^n \frac{(y_i - \beta_0 - \beta_1 x_{i1} - \cdots - \beta_k x_{ik})^2}{h_i} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretation:</strong> Observations with larger variance (larger <i>h</i><sub>i</sub>) receive smaller weights (1/<i>h</i><sub>i</sub>), reflecting their lower reliability. OLS gives equal weight to all observations, which is inefficient under heteroskedasticity.</p>
+  <p><strong>Practical Use:</strong> Most regression packages have a WLS option where you specify the weights (typically 1/<i>h</i><sub>i</sub>). The estimated coefficients are interpreted in the original model, not the transformed one. Standard errors, t statistics, and F statistics from the WLS regression are valid under the assumed variance function.</p>
+  <p><strong>Assumptions:</strong> The variance function <i>h</i>(<b>x</b>) must be correctly specified. If it is misspecified, WLS can be less efficient than OLS and may produce invalid standard errors. However, WLS is still consistent for the β<sub>j</sub> as long as the conditional mean is correctly specified (MLR.1–MLR.4).</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.6: Financial Wealth Equation</h4>
+  <p><strong>Model:</strong> nettfa (net total financial wealth, $1,000s) on inc (income, $1,000s), (age-25)<sup>2</sup>, male, e401k (eligibility indicator).</p>
+  <p><strong>Results:</strong> OLS (column 3) and WLS (column 4) under assumption Var(u|inc) = σ<sup>2</sup>inc.</p>
+  <ul>
+    <li>OLS coefficient on inc: 0.771 (robust SE = 0.100); WLS: 0.740 (SE = 0.064).</li>
+    <li>WLS standard errors are smaller, indicating greater efficiency if the variance assumption is correct.</li>
+    <li>WLS coefficient on e401k: 5.19 vs OLS: 6.89; the difference suggests possible misspecification of the mean function (e.g., interaction between e401k and inc).</li>
+  </ul>
+  <p><strong>Interpretation:</strong> WLS produces more precise estimates under the assumed variance function. The intercept in WLS is interpreted as expected nettfa when all variables are zero, but the weighting changes the effective sample.</p>
+  <p><strong>Practical Lesson:</strong> WLS is attractive when a plausible form of heteroskedasticity is known. However, the choice of weights is often arbitrary; sensitivity analysis is recommended.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Think of WLS as a weighted average where each observation is given a weight inversely proportional to its error variance. If you have two measurements of the same quantity, one precise (low variance) and one imprecise (high variance), the optimal combined estimate gives more weight to the precise measurement. WLS does the same in regression: it downweights observations with high variance, improving efficiency.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>WLS is more efficient than OLS when the variance function is correctly specified, but it is inconsistent for the variance parameters if the variance function is misspecified. However, the coefficients remain consistent as long as the conditional mean is correctly specified.</strong> The WLS standard errors are valid only under the assumed variance structure; if the variance is misspecified, the standard errors are invalid. In practice, use heteroskedasticity-robust standard errors even after WLS if you are unsure about the variance function.</p>
+</div>
+
+<h3>4.2 Feasible GLS (FGLS)</h3>
+
+<div class="interpretation">
+  <p>When the form of heteroskedasticity is unknown, one can estimate the variance function from the data and then use WLS with estimated weights. This is called Feasible Generalized Least Squares (FGLS). A common approach is to assume a parametric model for the variance, such as:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Variance Function Model</span>
+  <div class="formula">\[ \text{Var}(u|\mathbf{x}) = \sigma^2 \exp(\delta_0 + \delta_1 x_1 + \cdots + \delta_k x_k) \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretation:</strong> The log of the variance is linear in the independent variables. One can estimate this model by regressing log(<i>û</i><sup>2</sup>) on the <i>x</i><sub>j</sub> (using OLS residuals), then computing fitted values <i>ĝ</i><sub>i</sub> = exp(fitted values) and using weights 1/<i>ĝ</i><sub>i</sub> in WLS.</p>
+  <p><strong>Practical Use:</strong> FGLS is efficient if the variance function is correctly specified. However, it adds estimation uncertainty, which can affect inference in small samples. In large samples, FGLS is asymptotically efficient.</p>
+  <p><strong>Assumptions:</strong> The variance function must be correctly specified; the conditional mean must be correctly specified. FGLS is consistent and asymptotically normal under standard regularity conditions.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>FGLS is more efficient than OLS if the variance model is correct, but it can be worse than OLS if the variance model is misspecified. In practice, heteroskedasticity-robust standard errors after OLS are often preferred because they are simpler and do not require specifying the variance form.</strong></p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>WLS: efficient estimator when the form of heteroskedasticity is known up to a multiplicative constant.</li>
+    <li>Transform the model by dividing by √<i>h</i>(<b>x</b>) to achieve homoskedasticity; OLS on transformed model yields WLS.</li>
+    <li>WLS minimizes the weighted sum of squared residuals with weights 1/<i>h</i><sub>i</sub>.</li>
+    <li>Interpret coefficients in the original model, not the transformed model.</li>
+    <li>If the variance function is misspecified, WLS may be less efficient than OLS; robust standard errors are advisable.</li>
+    <li>FGLS estimates the variance function from data; it is asymptotically efficient but requires correct specification of both mean and variance.</li>
+  </ul>
+</div>
+
+<div class="practical-cautions">
+  <h4>Practical Cautions</h4>
+  <ul>
+    <li><strong>Incorrect interpretation of coefficients:</strong> The coefficients in WLS are interpreted in the original model, not in the transformed variables. Always return to the original model for interpretation.</li>
+    <li><strong>Confusing prediction with causality:</strong> Neither OLS nor WLS alone establishes causality; causal interpretation requires additional assumptions (e.g., exogeneity, no omitted variables).</li>
+    <li><strong>Ignoring model assumptions:</strong> WLS relies on the correct specification of the conditional mean (MLR.1–MLR.4). If the mean is misspecified, WLS is inconsistent.</li>
+    <li><strong>Misinterpreting the intercept:</strong> In WLS, the intercept term is multiplied by 1/√<i>h</i><sub>i</sub> in the transformed model, but the estimated intercept in the original equation is interpreted as usual.</li>
+    <li><strong>Ignoring units of measurement:</strong> Heteroskedasticity-robust standard errors are scale-invariant for the coefficients, but the weights in WLS depend on the scale of the variance function.</li>
+    <li><strong>Confusing error and residual:</strong> The squared residual <i>û</i><sub>i</sub><sup>2</sup> is an estimate of the squared error; using it in WLS introduces estimation error that can affect inference, especially in small samples.</li>
+    <li><strong>Omitted-variable problem:</strong> Heteroskedasticity-robust standard errors do not correct for omitted variable bias. If an important variable is omitted, both OLS and WLS coefficients are biased.</li>
+    <li><strong>Automatic use of robust standard errors:</strong> In small samples, robust t statistics may not follow a t distribution closely; consider using bootstrap methods or exact inference under CLM assumptions if homoskedasticity is plausible.</li>
+  </ul>
+</div>
+    </div>
+</body>
+</html>

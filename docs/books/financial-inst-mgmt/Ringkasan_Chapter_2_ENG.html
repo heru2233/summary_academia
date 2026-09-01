@@ -1,546 +1,1020 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Chapter 2 Summary - Financial Services and Depository Institutions (English)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Services and Depository Institutions</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
-
-<div class="toolbar">
-  <button onclick="window.print()">Print / Save as PDF</button>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Financial Services and Depository Institutions</h1>
+<div class="container">
+<div class="toc">
+<h3>Table of Contents</h3>
+<ul>
+<li><a href="#section1">1. Introduction to Depository Institutions</a></li>
+<li><a href="#section2">2. Commercial Banks: Industry Structure and Composition</a></li>
+<li><a href="#section3">3. Commercial Banks: Balance Sheet and Recent Trends</a></li>
+<li><a href="#section4">4. Commercial Banks: Off-Balance-Sheet Activities</a></li>
+<li><a href="#section5">5. Commercial Banks: Other Fee-Generating Activities</a></li>
+<li><a href="#section6">6. Commercial Banks: Regulation</a></li>
+<li><a href="#section7">7. Commercial Banks: Industry Performance</a></li>
+<li><a href="#section8">8. Savings Institutions</a></li>
+<li><a href="#section9">9. Credit Unions</a></li>
+<li><a href="#section10">10. Practical Cautions and Common Errors</a></li>
+</ul>
 </div>
-
-<h1>Chapter 2 Summary</h1>
-<p class="subtitle">Financial Services and Depository Institutions</p>
-<p class="bookinfo">Source, Saunders, A. and Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, 11th Edition, Chapter 2. Prepared as self-study material.</p>
-
-<h2>1. Introduction</h2>
-<p>The main theme of the book is that the products sold and the risks faced by modern financial institutions (FIs) are becoming increasingly similar, as are the techniques used to measure and manage those risks. In 1999, the U.S. Congress passed the Financial Services Modernization Act (FSMA), which repealed regulations that set barriers between commercial banking, insurance, and investment banking, and allowed for the creation of financial services holding companies that could engage in banking, insurance, and securities activities at once.</p>
-
-<p class="tabcap">Table 2-1. Products Sold by the U.S. Financial Services Industry, 1950 versus 2021</p>
-<table>
-  <tr>
-    <th>Institution</th>
-    <th>1950</th>
-    <th>2021</th>
-  </tr>
-  <tr>
-    <td>Depository institutions</td>
-    <td>Payment services, savings products, fiduciary services, business and consumer lending</td>
-    <td>All functions, payment services, savings, fiduciary, business and consumer lending, equity and debt underwriting, insurance and risk management products</td>
-  </tr>
-  <tr>
-    <td>Insurance companies</td>
-    <td>Savings products (minor), insurance and risk management products</td>
-    <td>Insurance and risk management products, savings products</td>
-  </tr>
-  <tr>
-    <td>Finance companies</td>
-    <td>Consumer lending, business lending (minor)</td>
-    <td>Business and consumer lending</td>
-  </tr>
-  <tr>
-    <td>Securities firms</td>
-    <td>Payment services, savings products, equity and debt underwriting</td>
-    <td>Equity and debt underwriting, payment services</td>
-  </tr>
-  <tr>
-    <td>Pension funds</td>
-    <td>Savings products</td>
-    <td>Savings products, insurance and risk management products</td>
-  </tr>
-  <tr>
-    <td>Mutual funds</td>
-    <td>Savings products</td>
-    <td>Savings products, insurance and risk management products</td>
-  </tr>
-</table>
-<p>This chapter examines the three major groups of FIs known as depository institutions, namely commercial banks, savings institutions, and credit unions. For each group, four topics are covered, namely size, structure, and composition of the industry, balance sheets and recent trends, regulation, and industry performance.</p>
-
-<h2>2. Commercial Banks</h2>
-
-<h3>2.1 Size, Structure, and Composition of the Industry</h3>
-<p>Commercial banks make up the largest group of depository institutions measured by asset size. They accept deposits (liabilities) and make loans (assets), with a much more varied composition of assets and liabilities than savings institutions and credit unions. In December 2021, the United States had <b>4,231 commercial banks</b>, down sharply from 14,416 banks in 1985 and 12,744 in 1989, largely as a result of mergers and acquisitions.</p>
-<p>The number of bank branches increased from 43,293 in 1985 to an all-time high of 85,005 in 2009, then declined to 74,583 as of December 2020 due to consolidation. Some of the largest mergers ever occurred, such as J.P. Morgan's acquisition of Chase Manhattan ($33.6 billion, 2000), Bank of America's acquisition of FleetBoston ($49.3 billion, 2003), JPMorgan Chase's acquisition of Bank One ($60.0 billion, 2004), and Bank of New York's acquisition of Mellon Financial ($18.3 billion, 2007).</p>
-<p>Consolidation changed asset concentration. The asset share of small banks (under $1 billion) fell from 36.6 percent in 1984 to just 4.7 percent in 2021, while the share of the largest banks (over $1 billion) rose from 63.4 percent to 95.3 percent. Small banks, or community banks, tend to specialize in retail or consumer banking, such as residential mortgages and consumer loans. Regional and superregional banks serve large corporate customers regionally and nationally, while money center banks such as Bank of New York Mellon, Citigroup, JPMorgan Chase, and HSBC Bank USA rely heavily on nondeposit or borrowed funds and are major participants in foreign currency markets, exposing them to foreign exchange risk.</p>
-<p>Loan portfolio structure differs by bank size. Small banks (assets under $1 billion) hold 74.49 percent of their loans in real estate loans and only 14.29 percent in commercial and industrial (C&amp;I) loans, whereas large banks (assets of $1 billion or more) have a more balanced portfolio, with real estate 43.83 percent, C&amp;I 21.88 percent, consumer loans 9.44 percent, and credit cards 7.82 percent.</p>
-
-<h3>2.2 Balance Sheet and Recent Trends</h3>
-<p>Loans and investment securities remain the primary assets of the banking industry. Real estate loans were the major asset on bank balance sheets between 1984 and 2019, but starting in the first quarter of 2020 their proportion declined due to the COVID-19 pandemic. In contrast, the proportion of securities and cash increased because government assistance programs, combined with increased personal savings, contributed to a record inflow of deposits, leading banks to shift toward shorter-term, lower-yielding assets.</p>
-
-<p class="tabcap">Table 2-2. Balance Sheet of U.S. Commercial Banks, December 31, 2021 (abridged)</p>
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Billions of Dollars</th>
-    <th>Percent of Assets</th>
-  </tr>
-  <tr>
-    <td>Cash assets</td>
-    <td>$3,420.4</td>
-    <td>15.41</td>
-  </tr>
-  <tr>
-    <td>Securities</td>
-    <td>$5,587.1</td>
-    <td>25.17</td>
-  </tr>
-  <tr>
-    <td>Net loans and leases, consisting of real estate $4,813.8 (21.69), C&amp;I $2,266.0 (10.21), individuals $1,744.7 (7.86), other $1,667.5 (7.51)</td>
-    <td>$10,396.6</td>
-    <td>46.84</td>
-  </tr>
-  <tr>
-    <td>Other assets</td>
-    <td>$2,791.1</td>
-    <td>12.58</td>
-  </tr>
-  <tr>
-    <td><b>Total assets</b></td>
-    <td><b>$22,195.2</b></td>
-    <td><b>100.00</b></td>
-  </tr>
-</table>
-<p>On the liability side, deposits amounted to $18,410.3 billion, or 82.9 percent of total liabilities and equity. Transaction accounts constituted 31.2 percent of deposits ($5,735.6 billion), including non-interest-bearing demand deposits and interest-bearing checking accounts (most commonly NOW accounts). Nontransaction accounts constituted 60.6 percent ($11,162.8 billion), including money market deposit accounts (MMDAs) as the largest source of deposit funds, other savings deposits, and time deposits (certificates of deposit, CDs). Borrowings and other liabilities totaled about 7.9 percent of all bank liabilities ($1,572.5 billion), including federal funds purchases and repurchase agreements.</p>
-<p>Commercial bank equity capital was about 10.0 percent of total liabilities and equity in 2021, implying that 90.0 percent of assets were funded by debt. Because of this high leverage, even a relatively small number of loan defaults can wipe out a bank's equity and leave it insolvent. Regulators require banks to hold a minimum level of equity as a buffer against losses. Bank liability structures generally have shorter maturities than asset portfolios, making maturity mismatch (interest rate risk) and liquidity risk key concerns for bank managers.</p>
-
-<h3>2.3 Capital Assistance Programs and Stress Tests</h3>
-<p>Part of the Troubled Asset Relief Program (TARP) of 2008-2009 was the Capital Purchase Program (CPP), under which the Treasury purchased more than $200 billion of senior preferred equity. TARP also provided emergency funding to Citigroup ($25 billion) and Bank of America ($20 billion). Through December 2009, $204.9 billion of TARP capital had been allocated, and as of December 31, 2021, $196.62 billion had been paid back plus $30.16 billion in dividends and other proceeds.</p>
-<p>Under the Wall Street Reform and Consumer Protection Act of 2010, the largest banks are subject to annual stress tests, with scenarios ranging from mild to calamitous. Extreme scenarios include a 5 percent decline in gross domestic product (GDP), an unemployment rate of 12 percent, and a stock market that loses half its value. In the first stress test (February 2009), 10 of the 19 largest depository institutions needed to raise a total of $74.6 billion in capital, and within a month of the May 7, 2009 release they had raised $149.45 billion. The results of the Dodd-Frank Act Stress Test (DFAST) 2021 showed that the 23 participating firms had sufficient capital to absorb losses under the severely adverse scenario.</p>
-
-<h3>2.4 Off-Balance-Sheet Activities</h3>
-<p>The balance sheet does not reflect the total scope of bank activities. Banks conduct many fee-related activities off the balance sheet, known as off-balance-sheet (OBS) activities. An item is an OBS asset if, when a contingent event occurs, it moves onto the asset side of the balance sheet or an income item is realized, and an OBS liability if it moves onto the liability side or an expense is realized. OBS activities include issuing guarantees such as letters of credit, making future commitments to lend, and engaging in derivative transactions (futures, forwards, options, and swaps).</p>
-<p>Banks undertake OBS activities to earn additional fee income to complement declining margins, while avoiding regulatory costs or taxes, since reserve requirements and deposit insurance premiums are not levied on OBS activities. However, OBS activities also add to insolvency risk. The notional value of bank OBS activities grew from $10,236.7 billion in 1992 to a peak of $228,467.4 billion in 2012, then declined to $188,189.6 billion in 2021, while on-balance-sheet assets grew from $3,506.2 billion to $22,195.2 billion. Note that notional value overstates risk, since the potential gain or loss is based on the change in market value of the contract, normally less than 3 percent of notional value.</p>
-<p>The Volcker Rule, part of the 2010 legislation, prohibits U.S. depository institutions from engaging in proprietary trading (trading as a <i>principal</i> for the bank's own account). It was implemented in April 2014, with compliance required by July 21, 2015, contributing to a reduction in derivatives held off the balance sheet. Noninterest income as a percentage of total operating income rose from 22.66 percent in 1979 to 30.14 percent in 2018.</p>
-<p>Two other fee-generating activities are trust services, where banks hold and manage assets for individuals (about one-half of all trust assets) and pension funds, and correspondent banking, the provision of services such as check clearing and foreign exchange trading to other banks that lack the staff to perform them.</p>
-
-<h3>2.5 Regulation</h3>
-<p>Unlike banks in countries with one or two regulators, U.S. banks may be supervised by up to four regulators, namely the FDIC, the OCC, the Federal Reserve System (FRS), and state bank regulators. This reflects the dual banking system, in which banks may choose a national or a state charter. In December 2021, there were 747 nationally chartered banks and 3,484 state-chartered banks, holding about 66 percent and 34 percent of total commercial bank assets, respectively.</p>
+<h2 id="section1">1. Introduction to Depository Institutions</h2>
+<h3>1.1 Definition and Core Concept</h3>
+<div class="interpretation">
+<p>A <strong>depository institution (DI)</strong> is a financial institution that obtains a significant proportion of its funding from customer deposits. The three major groups of DIs are <strong>commercial banks</strong>, <strong>savings institutions</strong>, and <strong>credit unions</strong>. These institutions form the backbone of the financial system by providing payment services, savings products, fiduciary services, and lending to both businesses and consumers.</p>
+<p>The central theme of modern financial services is that the products sold and the risks faced by financial institutions are becoming increasingly similar, as are the techniques used to measure and manage those risks. This convergence accelerated with the passage of the <strong>Financial Services Modernization Act (FSMA) of 1999</strong>, which repealed the regulatory barriers that had separated commercial banking, insurance, and investment banking since the Glass-Steagall Act of 1933. The FSMA allowed the creation of <strong>financial services holding companies</strong> that could engage in banking, insurance, and securities activities simultaneously.</p>
+</div>
+<div class="interpretation">
+<p>However, the financial crisis of 2007–2009 led to a partial reversal of this trend. The <strong>Volcker Rule</strong>, a provision of the Wall Street Reform and Consumer Protection Act of 2010, prohibits bank holding companies from engaging in proprietary trading and limits their investments in hedge funds, private equity, and related vehicles. Despite these restrictions, many financial institutions continue to operate across multiple industry segments.</p>
+</div>
+<div class="interpretation">
+<p>During the financial crisis, several nondepository financial institutions—including investment banks Goldman Sachs and Morgan Stanley, and finance company GMAC—converted to bank holding companies. This conversion reflected the recognition that their business models had become too risky and that they needed the stability of bank deposits and access to Federal Reserve lending facilities. By becoming bank holding companies, these firms agreed to tighter regulations, higher capital reserves, greater disclosure, and closer supervision by government bank examiners.</p>
+</div>
+<div class="interpretation">
+<p>The <strong>product-based balance sheet</strong> of depository institutions reveals their distinctive joint-product nature: DIs offer products on both sides of their balance sheets—loans on the asset side and deposits on the liability side. This dual role creates unique management challenges, as DI managers must simultaneously address risks arising from both assets and liabilities, including credit risk, liquidity risk, interest rate risk, and operational risk.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
 <ul>
-  <li><b>FDIC</b> provides deposit insurance to deter runs and contagious panics, levies insurance premiums, manages the deposit insurance fund (DIF), carries out bank examinations, and acts as receiver and liquidator when an insured bank is closed. A vivid example of the importance of insurance is that Bear Stearns (an investment bank) suffered the first major run on a U.S. FI since the Great Depression in March 2008 because its liabilities had no federal insurance</li>
-  <li><b>OCC</b> is the oldest bank regulatory agency, established in 1863 as a subagency of the U.S. Treasury, and charters, examines, and closes national banks</li>
-  <li><b>Federal Reserve</b>, besides conducting monetary policy, regulates member banks and bank holding companies, with membership advantages including access to the federal funds wire transfer network (Fedwire) and the discount window as lender of last resort. Since 1980 all banks face uniform reserve requirements</li>
-  <li><b>State authorities</b> perform functions similar to those of the OCC for state-chartered banks</li>
+<li>Depository institutions (commercial banks, savings institutions, credit unions) are defined by their reliance on customer deposits as a primary funding source.</li>
+<li>The FSMA of 1999 eliminated barriers between banking, insurance, and securities activities, enabling full-service financial institutions.</li>
+<li>The Volcker Rule (2010) partially reversed this trend by prohibiting proprietary trading and limiting hedge fund investments by bank holding companies.</li>
+<li>DIs have a joint-product nature: they originate loans (assets) funded by deposits (liabilities), creating complex risk management challenges.</li>
 </ul>
-
-<p class="tabcap">Table 2-3. Major U.S. Banking Laws</p>
-<table>
-  <tr>
-    <th>Year</th>
-    <th>Law</th>
-    <th>Key Features</th>
-  </tr>
-  <tr>
-    <td>1927</td>
-    <td>McFadden Act</td>
-    <td>Restricted interstate branching for national banks</td>
-  </tr>
-  <tr>
-    <td>1933</td>
-    <td>Banking Acts (Glass-Steagall)</td>
-    <td>Separated commercial from investment banking, created the FDIC, prohibited interest on demand deposits</td>
-  </tr>
-  <tr>
-    <td>1956</td>
-    <td>Bank Holding Company Act</td>
-    <td>Restricted multibank holding company acquisitions, empowered the Federal Reserve to regulate them</td>
-  </tr>
-  <tr>
-    <td>1980</td>
-    <td>DIDMCA</td>
-    <td>Phased out Regulation Q ceilings, authorized NOW accounts, uniform reserve requirements, raised deposit insurance from $40,000 to $100,000</td>
-  </tr>
-  <tr>
-    <td>1982</td>
-    <td>Garn-St Germain (DIA)</td>
-    <td>Introduced MMDAs and super NOW accounts, expanded thrift lending powers</td>
-  </tr>
-  <tr>
-    <td>1989</td>
-    <td>FIRREA</td>
-    <td>Abolished the FSLIC, created SAIF under the FDIC and the RTC, imposed the 65 percent QTL test</td>
-  </tr>
-  <tr>
-    <td>1991</td>
-    <td>FDICIA</td>
-    <td>Introduced prompt corrective action and risk-based insurance premiums (1993)</td>
-  </tr>
-  <tr>
-    <td>1994</td>
-    <td>Riegle-Neal Act</td>
-    <td>Eased interstate branching and acquisitions</td>
-  </tr>
-  <tr>
-    <td>1999</td>
-    <td>Financial Services Modernization Act</td>
-    <td>Repealed Glass-Steagall, allowed financial services holding companies</td>
-  </tr>
-  <tr>
-    <td>2010</td>
-    <td>Dodd-Frank Act</td>
-    <td>Created the Consumer Financial Protection Bureau, the Volcker Rule, annual stress tests for large banks</td>
-  </tr>
-  <tr>
-    <td>2018</td>
-    <td>EGRRCPA</td>
-    <td>Provided regulatory relief for community banks, adjusted prudential regulation thresholds</td>
-  </tr>
-</table>
-
-<h3>2.6 Industry Performance</h3>
-<p>Commercial bank performance is strongly cyclical. In 1999 bank earnings reached a record $71.6 billion with an average ROA of 1.31 percent. In 2003 net income rose to $106.3 billion with ROA of 1.40 percent and ROE of 15.34 percent, both all-time highs, supported by Federal Reserve rate cuts (13 times), a housing boom, and new financial instruments such as credit derivatives and mortgage-backed securities. In 2006 ROA and ROE were 1.33 percent and 13.02 percent, and no banks failed (compared with 206 failures in 1989).</p>
-<p>The 2007-2009 crisis hit hard. 2007 net income fell to $105.5 billion (down 27.4 percent from 2006), and in 2008 net income collapsed to just $10.2 billion (down 89.8 percent) with ROA of 0.13 percent, the lowest since 1987, and 23.6 percent of institutions unprofitable. Losses from OBS securities exceeded $1 trillion worldwide through 2009. As the economy recovered, ROA and ROE returned closer to their pre-crisis levels.</p>
-
-<p class="tabcap">Table 2-4. Return on Assets of Commercial Banks by Size (percent, selected years)</p>
-<table>
-  <tr>
-    <th>Year</th>
-    <th>All Banks</th>
-    <th>$0-100 Million</th>
-    <th>$100 Million-1 Billion</th>
-    <th>$1-10 Billion</th>
-    <th>$10 Billion+</th>
-  </tr>
-  <tr>
-    <td>1990</td>
-    <td>0.49</td>
-    <td>0.79</td>
-    <td>0.78</td>
-    <td>0.76</td>
-    <td>0.38</td>
-  </tr>
-  <tr>
-    <td>1995</td>
-    <td>1.17</td>
-    <td>1.18</td>
-    <td>1.25</td>
-    <td>1.28</td>
-    <td>1.10</td>
-  </tr>
-  <tr>
-    <td>2000</td>
-    <td>1.19</td>
-    <td>1.01</td>
-    <td>1.28</td>
-    <td>1.29</td>
-    <td>1.16</td>
-  </tr>
-  <tr>
-    <td>2006</td>
-    <td>1.33</td>
-    <td>0.95</td>
-    <td>1.24</td>
-    <td>1.35</td>
-    <td>1.35</td>
-  </tr>
-  <tr>
-    <td>2008</td>
-    <td>0.16</td>
-    <td>0.36</td>
-    <td>0.38</td>
-    <td>-0.10</td>
-    <td>0.16</td>
-  </tr>
-  <tr>
-    <td>2009</td>
-    <td>0.09</td>
-    <td>0.06</td>
-    <td>-0.01</td>
-    <td>-0.35</td>
-    <td>0.15</td>
-  </tr>
-  <tr>
-    <td>2010</td>
-    <td>0.66</td>
-    <td>0.36</td>
-    <td>0.34</td>
-    <td>0.19</td>
-    <td>0.75</td>
-  </tr>
-  <tr>
-    <td>2015</td>
-    <td>1.04</td>
-    <td>0.87</td>
-    <td>1.07</td>
-    <td>1.16</td>
-    <td>1.02</td>
-  </tr>
-  <tr>
-    <td>2021</td>
-    <td>1.24</td>
-    <td>1.00</td>
-    <td>1.26</td>
-    <td>1.46</td>
-    <td>1.21</td>
-  </tr>
-</table>
-<p>ROE for all banks in selected years was 7.64 percent (1990), 14.68 percent (1995), 14.07 percent (2000), 13.06 percent (2006), 9.29 percent (2008), 1.62 percent (2009), 0.85 percent (2010), 5.99 percent (2013), and 9.60 percent (2015). Because large banks operate with less equity per dollar of assets, their ROE is generally larger than that of small banks.</p>
-
-<h2>3. Savings Institutions</h2>
-
-<h3>3.1 History, Structure, and the 1980s Crisis</h3>
-<p>Savings institutions were first created in the early 1800s to serve individuals needing funds to buy homes, since commercial banks concentrated on serving business enterprises. Savings institutions comprise two groups, savings associations (SAs), which historically concentrated on residential mortgages, and savings banks (SBs), which are more diversified, holding some commercial loans, corporate bonds, and corporate stock, and rely more heavily on deposits. Many savings banks were established as mutual organizations in which depositors are also the legal owners of the bank.</p>
-<p>At the end of the 1970s there were slightly fewer than 4,000 savings associations with assets of about $0.6 trillion. Between October 1979 and October 1982, the Federal Reserve's restrictive monetary policy drove T-bill rates as high as 16 percent. Savings associations faced negative interest spreads because they funded fixed-rate long-term residential mortgages with short-term deposits, and were constrained by Regulation Q interest ceilings, causing disintermediation as depositors moved funds to money market mutual funds. To address this, the DIDMCA (1980) and DIA (1982) granted new powers, such as NOW accounts, MMDAs, adjustable-rate mortgages (ARMs), and limited commercial and consumer lending.</p>
-<p>However, in the mid-1980s real estate prices in Texas and the Southwest collapsed, followed by downturns in the Northeast and Western states. Many borrowers defaulted, and the risk-taking (<i>moral hazard</i>) behavior was exacerbated by the FSLIC, which could not close insolvent savings associations (a policy of regulator forbearance). Savings associations declined from 4,000 (1980) to 2,600 (1989), down 35 percent, even though their assets doubled from $600 billion to $1.2 trillion. The New England real estate crash of 1990-1991 then brought down many savings banks.</p>
-<p>The crisis produced two landmark laws. FIRREA (1989) abolished the FSLIC, replaced it with SAIF under the FDIC, created the Resolution Trust Corporation (RTC), which by its dissolution in 1995 had closed more than 700 institutions at an estimated cost of $200 billion, and imposed the Qualified Thrift Lender (QTL) test requiring thrifts to hold at least 65 percent of assets in residential mortgage-related assets. FDICIA (1991) introduced risk-based deposit insurance premiums (from 1993) and prompt corrective action (PCA), under which an institution whose equity-to-assets ratio falls below 2 percent must be closed or recapitalized within three months. As a result, the industry shrank from 3,677 institutions (1989) to 2,262 (1993), down 38 percent, with assets falling from $1.427 trillion to $1.001 trillion (down 30 percent).</p>
-
-<h3>3.2 Balance Sheet 2021</h3>
-<p>In 2021 total assets of savings institutions were about $1.524 trillion. Real estate loans accounted for 29.17 percent of total assets, higher than the 21.69 percent at commercial banks. Cash and U.S. government securities amounted to 47.06 percent of assets (compared with 35.53 percent at commercial banks) for liquidity and reserve requirement purposes. Deposits were the predominant source of funds at 84.73 percent of total liabilities and net worth, followed by borrowings from the Federal Home Loan Banks (FHLBs, 12 banks owned by the savings institutions themselves). Net worth amounted to 9.66 percent of total assets in 2021, compared with 9.97 percent at commercial banks.</p>
-
-<h3>3.3 Regulation</h3>
-<p>The main regulators of savings institutions are the OCC and the FDIC. FIRREA (1989) created the Office of Thrift Supervision (OTS) to charter and examine federal savings institutions. Because its performance was judged weak during the financial crisis, the Wall Street Reform and Consumer Protection Act mandated the consolidation of the OTS into the OCC, effective July 21, 2011, with the OTS ceasing to exist on October 19, 2011. On the insurance side, the SAIF and the Bank Insurance Fund (BIF) were merged into the Deposit Insurance Fund (DIF) in January 2007, so thrifts now operate under the same regulatory structure as commercial banks.</p>
-
-<h3>3.4 Industry Performance</h3>
-<p>Savings institution performance mirrors the commercial bank cycle. In 1999 they reported net income of $10.7 billion with ROA of 1.00 percent. In 2007 net income fell to $6.0 billion with ROA of 0.13 percent, and in 2008 net income was negative $8.6 billion with ROA of -0.72 percent, the first negative earnings year since 1991, while only six institutions failed or were assisted, including Washington Mutual, the largest savings institution with over $300 billion in assets. After recovery, in 2021 ROA and ROE were 1.11 percent and 11.29 percent, respectively, with the number of institutions down to 608.</p>
-
-<p class="tabcap">Table 2-5. Selected Indicators for U.S. Savings Institutions</p>
-<table>
-  <tr>
-    <th>Year</th>
-    <th>Number of Institutions</th>
-    <th>ROA (%)</th>
-    <th>ROE (%)</th>
-  </tr>
-  <tr>
-    <td>1989</td>
-    <td>3,677</td>
-    <td>-0.39</td>
-    <td>-8.06</td>
-  </tr>
-  <tr>
-    <td>1999</td>
-    <td>1,642</td>
-    <td>1.00</td>
-    <td>11.73</td>
-  </tr>
-  <tr>
-    <td>2006</td>
-    <td>1,279</td>
-    <td>0.99</td>
-    <td>8.68</td>
-  </tr>
-  <tr>
-    <td>2007</td>
-    <td>1,251</td>
-    <td>0.13</td>
-    <td>1.08</td>
-  </tr>
-  <tr>
-    <td>2008</td>
-    <td>1,219</td>
-    <td>-0.72</td>
-    <td>-7.75</td>
-  </tr>
-  <tr>
-    <td>2009</td>
-    <td>1,172</td>
-    <td>0.14</td>
-    <td>1.31</td>
-  </tr>
-  <tr>
-    <td>2010</td>
-    <td>1,128</td>
-    <td>0.65</td>
-    <td>5.76</td>
-  </tr>
-  <tr>
-    <td>2015</td>
-    <td>844</td>
-    <td>1.12</td>
-    <td>9.93</td>
-  </tr>
-  <tr>
-    <td>2021</td>
-    <td>608</td>
-    <td>1.11</td>
-    <td>11.29</td>
-  </tr>
-</table>
-<p>Consolidation also occurred. The largest savings institutions (assets over $10 billion) grew from 8 in 1992 to 18 in 2021, with their control of industry assets rising from 17.8 percent to 67.3 percent.</p>
-
-<h2>4. Credit Unions</h2>
-
-<h3>4.1 Characteristics and Structure</h3>
-<p>Credit unions (CUs) are nonprofit depository institutions mutually organized and owned by their members (depositors). The first U.S. credit unions were established in the early 1900s in Massachusetts as self-help organizations. Unlike commercial banks and savings institutions, CUs are prohibited from serving the general public and only serve members who share a common bond of occupation (e.g., police CUs), association (e.g., university-affiliated CUs), or a well-defined neighborhood, community, or rural district. The primary objective of CUs is to satisfy the depository and lending needs of their members, and because they are nonprofit, their net income is not taxed and they are not subject to the local investment requirements of the Community Reinvestment Act. This tax-exempt status allows CUs to offer higher deposit rates and lower loan rates than banks and savings institutions.</p>
-<p>CUs are the most numerous of the depository institutions, totaling 4,942 in 2021, with more than 129.6 million members. Traditionally, more than 60 percent of CU assets have been in small consumer loans, often under $10,000, and CUs hold large amounts of government securities (14.2 percent of assets in 2021) and relatively few residential mortgages. This made CUs more resilient to crises, for example in 2008 the average CU ROA was 0.31 percent, better than commercial banks (0.13 percent) and savings institutions (-0.72 percent). In 2021 business loans represented only 5.9 percent of the industry's lending.</p>
-<p>The national credit union system has three tiers, namely the U.S. Central Credit Union at the national level, corporate credit unions (11 institutions) at the state or regional level that serve member credit unions by investing and lending excess funds, and local credit unions at the bottom tier.</p>
-
-<h3>4.2 Balance Sheet 2021</h3>
-<p>In December 2021, 4,942 credit unions had assets of $2,060.4 billion, compared with $155 billion in 1987. The average CU size was $416.9 million, far smaller than the average bank at $5,245.9 million, and total CU assets are less than half the size of JPMorgan Chase. Cash and equivalents reached 12.6 percent of assets, investment securities 22.0 percent, and total loans 60.9 percent. Member loans consist of home mortgages at 26.7 percent and small consumer loans at 23.1 percent, so together member loans amount to 49.8 percent of total assets. Funding comes mainly from member deposits (89.7 percent), with regular shares at 35.5 percent, money market accounts 22.0 percent, share drafts 19.9 percent, and share certificates (CDs) 13.4 percent. The CU capital-to-assets ratio in December 2021 was 10.27 percent, compared with 9.66 percent for savings institutions and 9.97 percent for commercial banks.</p>
-
-<h3>4.3 Regulation and Performance</h3>
-<p>CUs may be federally or state chartered. In 2021, 62.7 percent of the 4,942 CUs were federally chartered and subject to National Credit Union Administration (NCUA) regulation, accounting for 52.6 percent of membership and 50.5 percent of assets. The NCUA also provides deposit insurance of up to $250,000 through the National Credit Union Share Insurance Fund (NCUSIF), which now covers 98 percent of all credit union deposits.</p>
-<p>CU assets grew more than 6.9 percent annually from 1999 to 2021, and membership increased from 77.5 million (1999) to over 129.6 million (2018). Industry ROA in 2021 was 1.07 percent, with the largest CUs reaching 1.20 percent while the smallest (assets under $10 million) earned only 0.18 percent. Because of mutual ownership, profit growth is not the primary goal of CUs, which instead aim to serve members' deposit and lending needs as long as capital is sufficient to protect against unexpected losses.</p>
-<p>However, corporate credit unions nearly collapsed during the crisis. They reported $18 billion in unrealized securities losses as of November 2008, and local credit unions' deposits in corporates fell nearly 49 percent between March 31, 2008 and September 30, 2008, from $44.7 billion to $22.9 billion, while the corporates had accumulated $50 billion in toxic mortgage-backed securities. In March 2009 the NCUA placed U.S. Central and WesCorp into conservatorship, and as of the third quarter of 2010 the NCUA held roughly 70 percent of the assets of the corporate credit union system. Ultimately, five of the largest corporate credit unions were declared insolvent.</p>
-
-<h2>5. Global Financial Performance</h2>
-<p>The U.S. financial crisis quickly spread worldwide. In 2008 the largest banks in the Netherlands, Switzerland, and the United Kingdom had net losses, while banks in Ireland, Spain, and the United Kingdom were especially hard hit due to large investments in mortgages and mortgage-backed securities. Governments responded in various ways, for example Germany guaranteed all consumer deposits and bailed out Hypo Real Estate, the U.K. nationalized Bradford &amp; Bingley and raised deposit guarantees from $62,220 to $88,890 per account, Ireland guaranteed deposits and debt of its six major institutions, Iceland rescued its third largest bank for $860 million, and the Netherlands, Belgium, and Luxembourg injected $16.37 billion into Fortis NV. The Bank of England lowered its target rate to a record low of 1 percent.</p>
-<p>The Greek debt crisis then threatened the European financial system. In March 2010 a bailout plan for Greece of up to $41 billion began to take shape, but in late April 2010 Greek bond prices dropped dramatically after the 2009 budget deficit proved worse than reported and Moody's downgraded Greek debt. A run on Greek banks followed, with withdrawals reaching as high as 750 million per day, nearly 0.5 percent of the 170 billion deposit base. U.S. bank exposure to Greece, Ireland, Portugal, and Spain totaled $43.1 billion, $113.9 billion, $47.1 billion, and $187.5 billion, respectively, and worldwide bank exposure to these four countries reached $2,512.3 billion. On May 9, 2010, European finance ministers and the IMF approved a $147 billion rescue package with a $1 trillion safety net. The situation stabilized after 2012, and on December 18, 2012 Standard &amp; Poor's raised Greek debt six notches to B minus.</p>
-<p>In June 2016 the United Kingdom voted to leave the European Union (Brexit) by 17.4 million to 16.1 million. The U.K. formally left on January 31, 2020, with the transition ending December 31, 2020. Brexit slowed U.K. growth from 2.4 percent (2015) to 1.6 percent (2019), with an estimated cost of up to 6.7 percent of growth over 15 years, the pound fell from $1.48 to $1.36 the day after the referendum, and business investment fell 11 percent between 2016 and 2019.</p>
-
-<h2>6. Key Calculations and Formulas</h2>
-<p>This section summarizes the important formulas used to assess the performance of depository institutions.</p>
-
-<h3>6.1 Return on Assets (ROA)</h3>
-<p>ROA measures earnings per dollar of assets, calculated as net income divided by total assets.</p>
-<div class="eq">\[ ROA = \frac{NI}{TA} \]</div>
-<p>where \( NI \) is net income and \( TA \) is total assets.</p>
-
-<h3>6.2 Return on Equity (ROE)</h3>
-<p>ROE measures the return to shareholders, calculated as net income divided by equity, which equals ROA times the ratio of assets to equity (the equity multiplier).</p>
-<div class="eq">\[ ROE = \frac{NI}{E} = ROA \times \frac{TA}{E} \]</div>
-<p>where \( E \) is equity. Because large banks hold less equity per dollar of assets, their net income per dollar of equity (ROE) is generally larger.</p>
-
-<h3>6.3 The DuPont Decomposition</h3>
-<p>ROE can be decomposed into three components through DuPont analysis, namely the net profit margin, asset utilization, and the equity multiplier.</p>
-<div class="eq">\[ ROE = \frac{NI}{S} \times \frac{S}{TA} \times \frac{TA}{E} \]</div>
-<p>where \( S \) is sales (revenue). This decomposition helps trace the underlying sources of bank profitability.</p>
-
-<h3>6.4 Leverage and the PCA Rule</h3>
-<p>The equity-to-assets ratio of commercial banks in 2021 was about 10.0 percent, meaning 90.0 percent of assets were funded by debt. By comparison, the capital-to-assets ratios in December 2021 were 10.27 percent for credit unions, 9.66 percent for savings institutions, and 9.97 percent for commercial banks.</p>
-<div class="eq">\[ \frac{E}{TA} \lt 2\% \quad \Rightarrow \quad \text{close or recapitalize within 3 months} \]</div>
-<p>This is the prompt corrective action (PCA) threshold, which requires regulators to close or recapitalize an institution within three months if its equity-to-assets ratio falls below 2 percent.</p>
-
-<h3>6.5 Other Key Data</h3>
+</div>
+<h3>1.2 Historical Product Evolution</h3>
+<div class="interpretation">
+<p>Tables 2–1A and 2–1B in the source document illustrate the dramatic expansion of product offerings by depository institutions between 1950 and 2021. In 1950, DIs primarily offered payment services, savings products, fiduciary services, business lending, consumer lending, and debt underwriting. By 2021, DIs had expanded into equity underwriting, insurance and risk management products, and a broader range of lending and fiduciary services. This expansion reflects both regulatory changes and market-driven innovation.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
 <ul>
-  <li>Number of commercial banks, 4,231 (2021) versus 14,416 (1985)</li>
-  <li>Total commercial bank assets, $22,195.2 billion (2021), deposits 82.9 percent, equity 10.0 percent</li>
-  <li>Notional value of OBS activities, $188,189.6 billion versus on-balance-sheet assets of $22,195.2 billion (2021)</li>
-  <li>2009 stress test, $74.6 billion capital need and $149.45 billion raised</li>
-  <li>TARP, $204.9 billion allocated, $196.62 billion repaid plus $30.16 billion in dividends</li>
-  <li>QTL test, at least 65 percent of thrift assets in residential mortgage-related assets</li>
-  <li>Deposit insurance coverage, up to $250,000 per person per bank (including CUs through the NCUSIF)</li>
+<li>DI product offerings expanded significantly from 1950 to 2021, moving into equity underwriting and insurance.</li>
+<li>Regulatory changes (FSMA) and market forces drove this product expansion.</li>
 </ul>
-
-<h2>7. Summary and Conclusion</h2>
-<p>This chapter provided an overview of the major activities of the three groups of depository institutions, namely commercial banks, savings institutions, and credit unions, together with their regulators. All of these institutions rely heavily on deposits to fund their activities, although borrowed funds are becoming increasingly important for the largest institutions. Historically, commercial banks concentrated on commercial lending and securities investment, savings institutions on mortgage lending, and credit unions on consumer lending, but these differences are being eroded by competitive forces, regulation, and changing financial and business technology.</p>
-<p>Key lessons from this chapter are that industry structure changes dramatically through mergers and consolidation, regulation has evolved from strict separation (Glass-Steagall) toward integration (FSMA) and tighter prudential oversight (Dodd-Frank, stress tests, PCA), and performance is strongly influenced by economic cycles and crises, from the S&amp;L crisis of the 1980s to the global financial crisis of 2008-2009 and the European debt crisis. Performance measures such as ROA, ROE, and the DuPont decomposition are essential tools for assessing the health of depository institutions.</p>
-
-<h2>8. Concept Questions for Practice</h2>
-<ol>
-  <li>What are the differences between community banks, regional banks, and money center banks?</li>
-  <li>Why is ROA for smaller banks generally larger than for large banks, but ROE consistently larger for large banks?</li>
-  <li>What are the three major segments of deposit funding, and how are they changing over time?</li>
-  <li>What activities are normally classified as off-balance-sheet, and what are their benefits and risks to a bank?</li>
-  <li>Who are the major regulators of U.S. commercial banks, and what is the role of each?</li>
-  <li>How did FIRREA (1989) and FDICIA (1991) transform the savings institution industry?</li>
-  <li>What is the common bond membership qualification of credit unions, and how does it affect their operational objective?</li>
-  <li>Why did credit unions prosper relative to banks and savings institutions during the 1980s and late 2000s?</li>
-</ol>
-
-<p class="note">Technical note, the mathematical equations on this page are rendered with MathJax and require an internet connection on first open. To print or save as PDF, use the Print button at the top. This document is a self-study summary and is not a substitute for the original textbook.</p>
-
+</div>
+<h2 id="section2">2. Commercial Banks: Industry Structure and Composition</h2>
+<h3>2.1 Definition and Scope</h3>
+<div class="interpretation">
+<p><strong>Commercial banks</strong> are depository institutions that accept deposits (liabilities) and make loans (assets). They are the largest group of depository institutions measured by asset size. Commercial banks differ from savings institutions and credit unions in the composition of their assets and liabilities, which are much more varied. Commercial bank liabilities typically include several types of nondeposit sources of funds, while their loans include consumer, commercial, and real estate loans. Commercial banking activity is regulated separately from savings institutions and credit unions.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>Commercial banks are the largest DI group by asset size.</li>
+<li>Their asset and liability compositions are more diversified than those of savings institutions or credit unions.</li>
+<li>They are subject to separate regulatory oversight.</li>
+</ul>
+</div>
+<h3>2.2 Size, Number, and Consolidation Trends</h3>
+<div class="interpretation">
+<p>As of December 2021, the United States had 4,231 commercial banks. This number represents a dramatic decline from 14,416 banks in 1985 and 12,744 in 1989. The reduction in the number of banks is largely attributable to mergers and acquisitions, bank failures, and a relatively small number of new bank charters.</p>
+<p>Figure 2–3 in the source illustrates the structural changes in the number of commercial banks from 1980 through 2021. The dominant factor driving consolidation has been mergers, particularly after regulators began allowing interstate mergers in the 1980s and 1990s. The <strong>Riegle-Neal Act</strong> of 1994 eased branching by banks across state lines, accelerating the trend toward nationwide banking.</p>
+<p>The number of bank branches increased from 43,293 in 1985 to an all-time high of 85,005 in 2009, before declining to 74,583 by December 2020. This pattern reflects the consolidation of back-office operations alongside the expansion of branch networks, followed by the recent trend toward digital banking and branch reduction.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>The number of U.S. commercial banks declined from 14,416 in 1985 to 4,231 in 2021.</li>
+<li>Mergers and acquisitions are the primary driver of consolidation.</li>
+<li>The Riegle-Neal Act (1994) enabled interstate branching, accelerating consolidation.</li>
+<li>Branch numbers peaked in 2009 and have since declined due to digital banking trends.</li>
+</ul>
+</div>
+<h3>2.3 Bank Categories by Size and Function</h3>
+<div class="interpretation">
+<p>Commercial banks are categorized by asset size and functional scope into several types: <strong>community banks</strong>, <strong>regional or superregional banks</strong>, and <strong>money center banks</strong>.</p>
+<p><strong>Community banks</strong> are banks with assets under $1 billion. They specialize in retail or consumer banking, providing residential mortgages, consumer loans, and accessing local deposit bases. These banks focus on <strong>relationship banking</strong>, often basing lending decisions on personal knowledge of customers' creditworthiness and local business conditions. The asset share of community banks declined from 36.6 percent in 1984 to 4.7 percent in 2021, reflecting the significant consolidation in the industry.</p>
+<p><strong>Regional or superregional banks</strong> range in size from several billion to several hundred billion dollars in assets. They are headquartered in larger regional cities with offices and branches throughout large portions of the United States. These banks engage in a complete array of wholesale commercial banking activities, including consumer and residential lending as well as commercial and industrial (C&I) lending. They utilize retail deposit bases for funding but also develop relationships with large corporate customers and access purchased funds markets, such as the interbank or federal funds market.</p>
+<p><strong>Money center banks</strong> are the very largest banks, but asset size alone does not define them. What distinguishes a money center bank is its heavy reliance on nondeposit or borrowed sources of funds, its location (typically New York or Chicago), and its major participation in foreign currency markets. For example, Bank of America, with $2,427.5 billion in assets in 2021, is not a money center bank, while Bank of New York Mellon, with only $416.6 billion in assets, is a money center bank. Money center banks have few retail branches and rely primarily on wholesale and borrowed funds. They are major participants in foreign currency markets and are therefore subject to foreign exchange risk.</p>
+</div>
+<div class="table-wrap">
+<table>
+<caption>Asset Concentration by Bank Size, 1984 vs. 2021</caption>
+<thead>
+<tr>
+<th>Asset Size Class</th>
+<th>2021 Number</th>
+<th>2021 % of Banks</th>
+<th>2021 Assets ($B)</th>
+<th>2021 % of Assets</th>
+<th>1984 Number</th>
+<th>1984 % of Banks</th>
+<th>1984 Assets ($B)</th>
+<th>1984 % of Assets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Under $100M</td>
+<td>712</td>
+<td>16.8%</td>
+<td>$44.0</td>
+<td>0.2%</td>
+<td>12,044</td>
+<td>83.2%</td>
+<td>$404.2</td>
+<td>16.1%</td>
+</tr>
+<tr>
+<td>$100M–$1B</td>
+<td>2,702</td>
+<td>63.9%</td>
+<td>$988.0</td>
+<td>4.5%</td>
+<td>2,161</td>
+<td>14.9%</td>
+<td>$513.9</td>
+<td>20.5%</td>
+</tr>
+<tr>
+<td>$1B–$10B</td>
+<td>675</td>
+<td>16.0%</td>
+<td>$1,866.0</td>
+<td>8.4%</td>
+<td>254</td>
+<td>1.8%</td>
+<td>$725.9</td>
+<td>28.9%</td>
+</tr>
+<tr>
+<td>$10B+</td>
+<td>142</td>
+<td>3.4%</td>
+<td>$19,297.2</td>
+<td>86.9%</td>
+<td>24</td>
+<td>0.2%</td>
+<td>$864.8</td>
+<td>34.5%</td>
+</tr>
+<tr>
+<td><strong>All Banks</strong></td>
+<td><strong>4,231</strong></td>
+<td><strong>100%</strong></td>
+<td><strong>$22,195.2</strong></td>
+<td><strong>100%</strong></td>
+<td><strong>14,483</strong></td>
+<td><strong>100%</strong></td>
+<td><strong>$2,508.8</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="interpretation">
+<p>The data reveal a dramatic shift in asset concentration. Banks with assets under $100 million held 16.1% of industry assets in 1984 but only 0.2% in 2021. Conversely, banks with assets over $10 billion held 34.5% of assets in 1984 but 86.9% in 2021. This concentration reflects the massive consolidation through mergers and acquisitions over the past four decades.</p>
+</div>
+<div class="analogy">
+<h4>Analogy</h4>
+<p>The banking industry has undergone a transformation similar to that of the retail industry: small "mom and pop" stores (community banks) have been largely replaced by large "big box" retailers and national chains (superregional and money center banks), though small banks still serve important local niches that larger institutions cannot efficiently address.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>Community banks (under $1B) declined from 36.6% of industry assets in 1984 to 4.7% in 2021.</li>
+<li>Money center banks rely on nondeposit funding, have few retail branches, and are exposed to foreign exchange risk.</li>
+<li>Bank size does not alone determine money center status; funding structure and market participation matter.</li>
+<li>Community banks focus on relationship banking and provide essential small business lending services.</li>
+</ul>
+</div>
+<h3>2.4 Loan Portfolio Composition by Bank Size</h3>
+<div class="interpretation">
+<p>Figure 2–2 in the source shows the breakdown of loan portfolios for small banks (assets under $1 billion) versus large banks (assets $1 billion or more) as of December 2021. Small banks allocate 74.49% of their loan portfolio to real estate loans, 5.43% to farm loans, 14.29% to C&I loans, 0.30% to credit cards, 3.79% to consumer loans, and 1.69% to other loans. Large banks allocate 43.83% to real estate loans, 0.39% to farm loans, 21.88% to C&I loans, 7.82% to credit cards, 9.44% to consumer loans, and 16.63% to other loans.</p>
+<p>The key difference is that small banks are far more concentrated in real estate lending and have a significant farm loan presence, while large banks have a more diversified loan portfolio with substantial C&I lending, credit card lending, and other loan categories. This difference reflects the distinct customer bases and business models of small versus large banks.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>Small banks concentrate heavily on real estate loans (74.49% of portfolio).</li>
+<li>Large banks have more diversified loan portfolios across real estate, C&I, credit cards, and consumer loans.</li>
+</ul>
+</div>
+<h2 id="section3">3. Commercial Banks: Balance Sheet and Recent Trends</h2>
+<h3>3.1 Asset Structure</h3>
+<div class="interpretation">
+<p>Loans and investment securities are the primary assets of the banking industry. Commercial loans are relatively more important for larger banks, while consumer loans, small business loans, and residential mortgages are more important for smaller banks. Each type of loan creates credit risk and, to varying extents, liquidity risk for the bank. The security portfolio is a source of liquidity and interest rate risk, especially with the increased use of mortgage-backed securities and structured notes.</p>
+<p>Figure 2–4 in the source shows portfolio shifts over the 1984–2021 period for four principal earning asset areas: commercial and industrial loans, real estate loans, loans to individuals, and securities, as well as cash assets. Real estate loans were the major asset on bank balance sheets between 1984 and 2019. Starting in Q1 2020, real estate loans as a percentage of total assets began to decline due to the COVID-19 pandemic. Declines in C&I loans and loans to individuals were also observed for 2020 and 2021. In contrast, the proportion of securities and cash assets increased from Q1 2020, driven by government assistance programs, increased personal savings, and record deposit inflows that created historically high bank liquidity.</p>
+</div>
+<div class="table-wrap">
+<table>
+<caption>Balance Sheet of U.S. Commercial Banks, December 31, 2021 ($ billions)</caption>
+<thead>
+<tr>
+<th>Item</th>
+<th>Amount ($B)</th>
+<th>Percent of Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Assets</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Cash assets</td>
+<td>$3,420.4</td>
+<td>15.41%</td>
+</tr>
+<tr>
+<td>Securities</td>
+<td>$5,587.1</td>
+<td>25.17%</td>
+</tr>
+<tr>
+<td>&emsp;U.S. Government securities</td>
+<td>$4,465.1</td>
+<td>20.12%</td>
+</tr>
+<tr>
+<td>&emsp;Other securities</td>
+<td>$1,122.0</td>
+<td>5.06%</td>
+</tr>
+<tr>
+<td>Net loans and leases</td>
+<td>$10,396.6</td>
+<td>46.84%</td>
+</tr>
+<tr>
+<td>&emsp;All real estate loans</td>
+<td>$4,813.8</td>
+<td>21.69%</td>
+</tr>
+<tr>
+<td>&emsp;Farm loans</td>
+<td>$71.1</td>
+<td>0.32%</td>
+</tr>
+<tr>
+<td>&emsp;Commercial and Industrial (C&I) loans</td>
+<td>$2,266.0</td>
+<td>10.21%</td>
+</tr>
+<tr>
+<td>&emsp;Loans to individuals</td>
+<td>$1,744.7</td>
+<td>7.86%</td>
+</tr>
+<tr>
+<td>&emsp;Total other loans and leases</td>
+<td>$1,667.5</td>
+<td>7.51%</td>
+</tr>
+<tr>
+<td>&emsp;Less: Allowance for loan losses</td>
+<td>$166.6</td>
+<td>0.75%</td>
+</tr>
+<tr>
+<td>Other assets</td>
+<td>$2,791.1</td>
+<td>12.58%</td>
+</tr>
+<tr>
+<td><strong>Total assets</strong></td>
+<td><strong>$22,195.2</strong></td>
+<td><strong>100.00%</strong></td>
+</tr>
+<tr>
+<td><strong>Liabilities and Capital</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Total deposits</td>
+<td>$18,410.3</td>
+<td>82.95%</td>
+</tr>
+<tr>
+<td>&emsp;Deposits held in foreign offices</td>
+<td>$1,512.0</td>
+<td>6.81%</td>
+</tr>
+<tr>
+<td>&emsp;Deposits held in domestic offices</td>
+<td>$16,898.3</td>
+<td>76.13%</td>
+</tr>
+<tr>
+<td>&emsp;&emsp;Transaction accounts</td>
+<td>$5,735.6</td>
+<td>25.84%</td>
+</tr>
+<tr>
+<td>&emsp;&emsp;Nontransaction accounts</td>
+<td>$11,162.8</td>
+<td>50.29%</td>
+</tr>
+<tr>
+<td>Borrowings</td>
+<td>$591.5</td>
+<td>2.67%</td>
+</tr>
+<tr>
+<td>Other liabilities</td>
+<td>$981.0</td>
+<td>4.42%</td>
+</tr>
+<tr>
+<td><strong>Total liabilities</strong></td>
+<td><strong>$19,982.8</strong></td>
+<td><strong>90.03%</strong></td>
+</tr>
+<tr>
+<td><strong>Total equity capital</strong></td>
+<td><strong>$2,212.4</strong></td>
+<td><strong>9.97%</strong></td>
+</tr>
+<tr>
+<td><strong>Total liabilities and capital</strong></td>
+<td><strong>$22,195.2</strong></td>
+<td><strong>100.00%</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="interpretation">
+<p>As of December 31, 2021, total loans amounted to $10,396.6 billion, or 46.84% of total assets. Real estate loans constituted the largest loan category at $4,813.8 billion (21.69% of total assets), followed by C&I loans at $2,266.0 billion (10.21%), loans to individuals at $1,744.7 billion (7.86%), and other loans at $1,667.5 billion (7.51%). The investment security portfolio of $5,587.1 billion (25.17% of total assets) consisted primarily of U.S. government securities ($4,465.1 billion, or 20.12% of total assets).</p>
+<p>A major inference from this asset structure is that <strong>credit or default risk</strong> is a major risk faced by commercial bank managers. Because commercial banks are highly leveraged (equity is only 9.97% of total assets), even a relatively small number of loan defaults can wipe out a bank's equity, rendering it insolvent.</p>
+</div>
+<div class="insight">
+<h4>Key Insight</h4>
+<p><strong>Credit risk is the primary risk facing commercial banks.</strong> With equity capital at only 9.97% of assets, loan losses that exceed the allowance for loan losses ($166.6 billion) directly reduce equity, potentially leading to insolvency. This high leverage amplifies the impact of loan defaults.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>Loans constitute 46.84% of bank assets; real estate loans are the largest loan category.</li>
+<li>Securities (25.17% of assets) are primarily U.S. government securities.</li>
+<li>High leverage (equity ~10% of assets) means credit risk is a critical concern.</li>
+</ul>
+</div>
+<h3>3.2 Liability Structure</h3>
+<div class="interpretation">
+<p>Commercial banks have two major sources of funds other than equity: <strong>deposits</strong> and <strong>borrowed or other liability funds</strong>. A major difference between banks and other firms is banks' high leverage. In 2021, the average equity-to-assets ratio was 10.0%, implying that 90.0% of bank assets were funded by debt, either deposits or borrowed funds.</p>
+<p>Deposits amounted to $18,410.3 billion, or 82.95% of total liabilities and equity. <strong>Transaction accounts</strong> (checkable deposits) constituted $5,735.6 billion (31.2% of total deposits). These include non-interest-bearing demand deposits and interest-bearing checking accounts, most commonly called <strong>NOW accounts</strong> (negotiable order of withdrawal accounts). Since their introduction in 1980, interest-bearing checking accounts—especially NOW accounts—have dominated transaction accounts. However, due to limitations on corporate holdings of such accounts and minimum balance requirements, non-interest-bearing demand deposits are still held.</p>
+<p><strong>Nontransaction accounts</strong> include <strong>money market deposit accounts (MMDAs)</strong>, other savings deposits, and time deposits. MMDAs are high-yield savings accounts that allow depository institutions to compete with money market mutual funds (MMMFs). They generally earn interest at a higher rate than standard savings accounts but have no fixed holding period, although withdrawal limits may apply. <strong>Certificates of deposit (CDs)</strong> are time deposits that require customers to deposit funds for a specific length of time and typically earn higher rates than MMDAs. In December 2021, nontransaction accounts constituted 60.6% of total deposits, or $11,162.8 billion.</p>
+<p><strong>Nondeposit liabilities</strong> comprise borrowings and other liabilities totaling $1,572.5 billion (7.09% of total liabilities). These include purchases of federal funds (bank reserves) on the interbank market, repurchase agreements (temporary swaps of securities for federal funds), and longer-term notes and bonds.</p>
+<p>The liability structure of bank balance sheets tends to reflect a <strong>shorter maturity structure</strong> than the asset portfolio, with relatively more liquid instruments (deposits, interbank borrowings) used to fund less liquid assets (loans). This creates <strong>maturity mismatch</strong>, which exposes banks to <strong>interest rate risk</strong> and <strong>liquidity risk</strong>.</p>
+</div>
+<div class="analogy">
+<h4>Analogy</h4>
+<p>A bank's liability structure is like a restaurant that borrows ingredients (deposits) that can be recalled at any time (short-term) while cooking dishes (loans) that take months or years to prepare (long-term). If many customers demand their ingredients back simultaneously, the restaurant may not have enough prepared dishes to sell—this is the essence of liquidity risk and maturity mismatch.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>Deposits fund 82.95% of bank assets; equity funds only 9.97%.</li>
+<li>Transaction accounts (checkable deposits) are 31.2% of deposits; nontransaction accounts are 60.6%.</li>
+<li>MMDAs are high-yield savings accounts with no fixed holding period; CDs are time deposits with fixed terms.</li>
+<li>Maturity mismatch (short-term liabilities funding long-term assets) creates interest rate and liquidity risk.</li>
+</ul>
+</div>
+<h3>3.3 Equity Capital</h3>
+<div class="interpretation">
+<p>Commercial bank equity capital consists mainly of common and preferred stock (at par value), surplus or additional paid-in capital, and retained earnings. Regulators require banks to hold a <strong>minimum level of equity capital</strong> as a buffer against losses from on- and off-balance-sheet activities. Because deposit funding is relatively low-cost, banks tend to hold equity close to the minimum levels set by regulators. This impacts banks' risk exposures and their ability to grow—both on and off the balance sheet—over time.</p>
+<p>During the 2008–2009 financial crisis, the <strong>Troubled Asset Relief Program (TARP)</strong> included the <strong>Capital Purchase Program (CPP)</strong>, which encouraged U.S. financial institutions to build capital. The Treasury purchased more than $200 billion of senior preferred equity. Through December 2009, $204.9 billion of TARP capital injections had been allocated to DIs, of which $196.62 billion was paid back plus $30.16 billion in dividends and other proceeds as of December 31, 2021.</p>
+<p>The <strong>Wall Street Reform and Consumer Protection Act of 2010</strong> requires the largest banks to undergo annual <strong>stress tests</strong> designed to ensure adequate capitalization. The original stress test in February 2009 measured the ability of the 19 largest DIs to withstand a protracted economic slump. Results showed that 10 of the 19 DIs needed to raise a total of $74.6 billion in capital; within a month, they had raised $149.45 billion. The <strong>Dodd-Frank Act Stress Test (DFAST) 2021</strong> showed that large banks have sufficient capital levels to absorb losses during stressful conditions, due in large part to the substantial buildup of capital since the 2007–2009 financial crisis.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>Equity capital acts as a buffer against losses; regulators set minimum capital requirements.</li>
+<li>TARP injected $204.9 billion into DIs during the financial crisis; most has been repaid.</li>
+<li>Annual stress tests ensure the largest banks can withstand severe economic scenarios.</li>
+</ul>
+</div>
+<h2 id="section4">4. Commercial Banks: Off-Balance-Sheet Activities</h2>
+<h3>4.1 Definition and Importance</h3>
+<div class="interpretation">
+<p><strong>Off-balance-sheet (OBS) activities</strong> are fee-generating activities that do not appear on the current balance sheet under standard accounting rules. They include issuing guarantees (such as letters of credit), making future commitments to lend, and engaging in derivative transactions (futures, forwards, options, and swaps). An <strong>off-balance-sheet asset</strong> is an item that moves onto the asset side of the balance sheet or generates income when a contingent event occurs. An <strong>off-balance-sheet liability</strong> is an item that moves onto the liability side or generates an expense when a contingent event occurs.</p>
+<p>Banks use OBS activities to earn additional fee income to complement declining margins or spreads on traditional lending. At the same time, they can avoid regulatory costs, since reserve requirements and deposit insurance premiums are not levied on OBS activities. Thus, banks have both earnings and regulatory "tax-avoidance" incentives to undertake OBS activities.</p>
+<p>However, OBS activities can involve risks that add to the overall insolvency exposure of a financial institution. At the heart of the financial crisis were losses associated with OBS mortgage-backed securities. Losses from the falling value of OBS securities reached over $1 trillion worldwide through 2009, resulting in the failure, acquisition, or bailout of some of the largest FIs. When used appropriately, however, OBS activities can also reduce or hedge interest rate, credit, and foreign exchange risks.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>OBS activities generate fee income without appearing on the balance sheet.</li>
+<li>They help banks avoid regulatory costs (reserve requirements, deposit insurance premiums).</li>
+<li>OBS activities can increase or decrease risk depending on how they are used.</li>
+<li>OBS mortgage-backed securities were central to the 2007–2009 financial crisis.</li>
+</ul>
+</div>
+<h3>4.2 Growth and Distribution of OBS Activities</h3>
+<div class="interpretation">
+<p>The notional (face) value of OBS activities at commercial banks was $10,236.7 billion in 1992, compared to $3,506.2 billion of on-balance-sheet activities. By 2012, the notional value of OBS bank activities had increased to $228,467.4 billion (compared to $13,387.5 billion of on-balance-sheet activities) before falling to $188,737.9 billion in 2015 and $188,189.6 billion in 2021.</p>
+<p>The decline after 2012 is partly attributable to the <strong>Volcker Rule</strong>, which prohibits U.S. depository institutions from engaging in proprietary trading. The Volcker Rule was implemented in April 2014, with full compliance required by July 21, 2015. This resulted in a reduction in derivative securities held off-balance-sheet by financial institutions.</p>
+<p>The notional value of OBS activities does not accurately reflect the risk to the bank. The potential gain or loss is based on the possible change in market value over the life of the contract, which is normally less than 3% of the notional value of an OBS contract.</p>
+</div>
+<div class="table-wrap">
+<table>
+<caption>Aggregate Value of Off-Balance-Sheet Commitments and Contingencies by U.S. Commercial Banks ($ billions), Selected Years</caption>
+<thead>
+<tr>
+<th>Category</th>
+<th>1992</th>
+<th>2007</th>
+<th>2009</th>
+<th>2012</th>
+<th>2015</th>
+<th>2021</th>
+<th>2021 %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Credit derivatives</td>
+<td>$0.0</td>
+<td>$15,862.8</td>
+<td>$14,112.3</td>
+<td>$13,190.1</td>
+<td>$6,985.8</td>
+<td>$3,539.1</td>
+<td>1.9%</td>
+</tr>
+<tr>
+<td>Interest rate swaps</td>
+<td>$2,122.4</td>
+<td>$99,376.4</td>
+<td>$133,277.3</td>
+<td>$123,883.7</td>
+<td>$93,700.7</td>
+<td>$91,829.5</td>
+<td>48.8%</td>
+</tr>
+<tr>
+<td>Interest rate futures/forwards</td>
+<td>$1,738.1</td>
+<td>$9,117.0</td>
+<td>$20,995.9</td>
+<td>$29,842.1</td>
+<td>$20,960.2</td>
+<td>$7,869.5</td>
+<td>4.2%</td>
+</tr>
+<tr>
+<td>Interest rate options</td>
+<td>$1,012.7</td>
+<td>$20,984.4</td>
+<td>$27,166.3</td>
+<td>$23,832.9</td>
+<td>$23,647.4</td>
+<td>$26,438.8</td>
+<td>14.0%</td>
+</tr>
+<tr>
+<td>Foreign exchange swaps</td>
+<td>$278.9</td>
+<td>$3,091.6</td>
+<td>$5,373.3</td>
+<td>$11,937.6</td>
+<td>$12,400.4</td>
+<td>$15,066.4</td>
+<td>8.0%</td>
+</tr>
+<tr>
+<td>FX commitments</td>
+<td>$3,015.5</td>
+<td>$10,057.9</td>
+<td>$9,212.5</td>
+<td>$12,216.3</td>
+<td>$15,515.2</td>
+<td>$24,570.7</td>
+<td>13.1%</td>
+</tr>
+<tr>
+<td>FX options</td>
+<td>$494.8</td>
+<td>$4,024.8</td>
+<td>$2,714.0</td>
+<td>$4,315.0</td>
+<td>$5,217.2</td>
+<td>$4,014.0</td>
+<td>2.1%</td>
+</tr>
+<tr>
+<td>Other commodity/equity contracts</td>
+<td>$102.5</td>
+<td>$3,590.3</td>
+<td>$2,664.1</td>
+<td>$3,366.2</td>
+<td>$3,502.4</td>
+<td>$5,839.9</td>
+<td>3.1%</td>
+</tr>
+<tr>
+<td>Standby letters of credit</td>
+<td>$162.5</td>
+<td>$569.8</td>
+<td>$549.3</td>
+<td>$602.9</td>
+<td>$543.2</td>
+<td>$598.2</td>
+<td>0.3%</td>
+</tr>
+<tr>
+<td>Commercial letters of credit</td>
+<td>$28.2</td>
+<td>$29.7</td>
+<td>$22.5</td>
+<td>$23.2</td>
+<td>$17.8</td>
+<td>$18.3</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>Total unused commitments</td>
+<td>$1,281.1</td>
+<td>$7,264.8</td>
+<td>$5,405.1</td>
+<td>$5,257.4</td>
+<td>$6,247.5</td>
+<td>$8,405.2</td>
+<td>4.5%</td>
+</tr>
+<tr>
+<td><strong>Total OBS Items</strong></td>
+<td><strong>$10,236.7</strong></td>
+<td><strong>$173,969.4</strong></td>
+<td><strong>$221,492.4</strong></td>
+<td><strong>$228,467.4</strong></td>
+<td><strong>$188,737.9</strong></td>
+<td><strong>$188,189.6</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+<tr>
+<td>Total Assets (on-balance-sheet)</td>
+<td>$3,506.2</td>
+<td>$11,181.9</td>
+<td>$11,826.8</td>
+<td>$13,387.5</td>
+<td>$14,893.2</td>
+<td>$22,195.2</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="interpretation">
+<p>The data reveal that derivative contracts (interest rate swaps, futures, forwards, and options) dominate OBS activities, accounting for the vast majority of notional value. Interest rate swaps alone constitute 48.8% of total OBS notional value in 2021. The growth in derivative securities activities by commercial banks has been a direct response to increased interest rate risk, credit risk, and foreign exchange risk exposures. These contracts offer banks a way to hedge these risks without making extensive changes to the balance sheet.</p>
+<p><strong>Noninterest income</strong> as a percentage of total operating income increased from 22.66% in 1979 to 30.14% in 2018, reflecting the growing importance of fee-generating OBS activities.</p>
+</div>
+<div class="insight">
+<h4>Key Insight</h4>
+<p><strong>The notional value of OBS activities vastly exceeds on-balance-sheet assets</strong> ($188.2 trillion vs. $22.2 trillion in 2021), but the actual risk exposure is typically less than 3% of notional value. However, even small percentage losses on such large positions can have systemic consequences, as demonstrated in 2007–2009.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>OBS notional value grew from $10.2 trillion (1992) to $188.2 trillion (2021).</li>
+<li>Interest rate derivatives are the largest OBS category (48.8% of total in 2021).</li>
+<li>Volcker Rule contributed to the decline in OBS activity after 2012.</li>
+<li>Actual risk exposure is much smaller than notional value (typically <3%).</li>
+<li>Noninterest income from OBS activities has grown significantly over time.</li>
+</ul>
+</div>
+<h3>4.3 Policy Responses to OBS Risks</h3>
+<div class="interpretation">
+<p>The financial crisis revealed the systemic risks of OBS activities. The <strong>Troubled Asset Relief Program (TARP)</strong> gave the U.S. Treasury funds to buy "toxic" mortgages and other securities from financial institutions. The <strong>Public-Private Investment Fund (PPIF)</strong> was created to acquire real estate-related OBS assets, initially funded at $500 billion with plans to expand to $1.25 trillion. The purchases of $1.25 trillion in OBS mortgage-backed securities were completed in March 2010.</p>
+<p>Regulators responded by imposing <strong>capital requirements</strong> on OBS activities and explicitly recognizing FIs' solvency risk exposure from such activities. In spring 2009, regulators proposed extending regulatory oversight to unregulated over-the-counter (OTC) derivative securities. The regulation requires that all OTC derivative contracts be subject to regulation, all derivatives dealers be subject to supervision, and regulators be empowered to enforce rules against manipulation and abuse.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>TARP and PPIF were created to address OBS-related toxic assets during the financial crisis.</li>
+<li>Post-crisis regulation extended oversight to OTC derivatives and imposed capital requirements on OBS activities.</li>
+</ul>
+</div>
+<h2 id="section5">5. Commercial Banks: Other Fee-Generating Activities</h2>
+<h3>5.1 Trust Services</h3>
+<div class="interpretation">
+<p>The <strong>trust department</strong> of a commercial bank holds and manages assets for individuals or corporations. Only the largest banks have sufficient staff to offer trust services. Individual trusts represent about one-half of all trust assets managed by commercial banks, including estate assets and assets delegated by less financially sophisticated investors. Pension fund assets are the second largest group of trust assets managed by commercial banks. Banks manage the pension funds, act as trustees for any bonds held by the funds, and act as transfer and disbursement agents.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>Trust services involve managing assets for individuals and corporations.</li>
+<li>Only large banks typically offer trust services due to staffing requirements.</li>
+</ul>
+</div>
+<h3>5.2 Correspondent Banking</h3>
+<div class="interpretation">
+<p><strong>Correspondent banking</strong> is the provision of banking services to other banks that do not have the staff resources to perform the services themselves. These services include check clearing and collection, foreign exchange trading, hedging services, and participation in large loan and security issuances. Correspondent banking services are generally sold as a package, and payment is typically in the form of non-interest-bearing deposits held at the bank offering the correspondent services.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>Correspondent banking provides specialized services to smaller banks.</li>
+<li>Payment is usually in the form of non-interest-bearing deposits.</li>
+</ul>
+</div>
+<h2 id="section6">6. Commercial Banks: Regulation</h2>
+<h3>6.1 The Regulatory Framework</h3>
+<div class="interpretation">
+<p>Unlike banks in countries with one or two regulators, U.S. banks may be subject to the supervision and regulations of up to four separate regulators: the <strong>Federal Deposit Insurance Corporation (FDIC)</strong>, the <strong>Office of the Comptroller of the Currency (OCC)</strong>, the <strong>Federal Reserve System (FRS)</strong>, and <strong>state bank regulators</strong>.</p>
+<p>The <strong>FDIC</strong> provides deposit insurance to deter depositor runs and contagious panics. In exchange for insuring deposits, the FDIC levies insurance premiums on member banks, manages the deposit insurance fund, and carries out bank examinations. When an insured bank is closed, the FDIC acts as receiver and liquidator. The FDIC manages the <strong>Deposit Insurance Fund (DIF)</strong>, which combines the former commercial bank and savings association insurance funds since 2007.</p>
+<p>The <strong>OCC</strong>, established in 1863, is the oldest bank regulatory agency and a subagency of the U.S. Treasury. Its primary function is to charter and close national banks. The OCC also examines national banks and has the power to approve or disapprove their merger applications.</p>
+<p>The <strong>Federal Reserve System</strong> has regulatory power over banks and, when relevant, their holding company parents. All nationally chartered banks are automatically members of the Federal Reserve System; state-chartered banks may choose to become members. The primary advantages of FRS membership are direct access to the federal funds wire transfer network and the discount window for lender of last resort borrowing. The Federal Reserve regulates and examines bank holding companies because the holding company's management can influence the risk exposure of bank subsidiaries.</p>
+<p><strong>State authorities</strong> regulate state-chartered commercial banks, performing functions similar to those the OCC performs for national banks. The choice of national versus state charter lies at the foundation of the <strong>dual banking system</strong> in the United States. In December 2021, 747 banks were nationally chartered and 3,484 were state chartered, with approximately 66% and 34% of total commercial bank assets, respectively.</p>
+</div>
+<div class="analogy">
+<h4>Analogy</h4>
+<p>The U.S. banking regulatory system is like a house with multiple security systems: the FDIC is the fire alarm (deterring runs), the OCC is the building inspector (chartering and examining), the Federal Reserve is the utility company (providing liquidity and overseeing holding companies), and state authorities are local zoning boards (regulating state-chartered banks). Each system serves a distinct purpose, but they must work together to ensure the safety of the entire structure.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>U.S. banks may be regulated by up to four entities: FDIC, OCC, Federal Reserve, and state regulators.</li>
+<li>FDIC insurance deters contagious runs by guaranteeing deposits.</li>
+<li>The dual banking system allows banks to choose between national and state charters.</li>
+<li>The Federal Reserve regulates bank holding companies to control risk at the parent level.</li>
+</ul>
+</div>
+<h3>6.2 Major Banking Laws</h3>
+<div class="table-wrap">
+<table>
+<caption>Major U.S. Banking Laws and Their Key Features</caption>
+<thead>
+<tr>
+<th>Year</th>
+<th>Act</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1927</td>
+<td>McFadden Act</td>
+<td>Made branching of national banks subject to same regulations as state banks; liberalized national banks' securities underwriting.</td>
+</tr>
+<tr>
+<td>1933</td>
+<td>Banking Acts (Glass-Steagall)</td>
+<td>Prohibited commercial banks from underwriting securities (with exceptions); established FDIC; prohibited interest on demand deposits.</td>
+</tr>
+<tr>
+<td>1956</td>
+<td>Bank Holding Company Act</td>
+<td>Restricted multibank holding company acquisitions; empowered Federal Reserve to regulate, supervise, and examine BHCs.</td>
+</tr>
+<tr>
+<td>1970</td>
+<td>Amendments to BHC Act</td>
+<td>Extended BHC Act to one-bank holding companies; restricted permissible activities to those "closely related to banking."</td>
+</tr>
+<tr>
+<td>1978</td>
+<td>International Banking Act</td>
+<td>Regulated foreign bank branches and agencies in the U.S.; subjected foreign banks to McFadden and Glass-Steagall Acts.</td>
+</tr>
+<tr>
+<td>1980</td>
+<td>DIDMCA</td>
+<td>Phased out Regulation Q interest rate ceilings; authorized NOW accounts nationwide; introduced uniform reserve requirements; raised deposit insurance to $100,000.</td>
+</tr>
+<tr>
+<td>1982</td>
+<td>Garn-St. Germain (DIA)</td>
+<td>Introduced MMDAs and Super NOW accounts; allowed thrifts more lending and deposit-taking powers; allowed sound banks to acquire failed thrifts.</td>
+</tr>
+<tr>
+<td>1987</td>
+<td>CEBA</td>
+<td>Redefined "bank" to limit nonbank bank growth; sought to recapitalize FSLIC.</td>
+</tr>
+<tr>
+<td>1989</td>
+<td>FIRREA</td>
+<td>Limited thrift investments in nonresidential real estate; equalized capital requirements for thrifts and banks; replaced FSLIC with FDIC-SAIF; created RTC.</td>
+</tr>
+<tr>
+<td>1991</td>
+<td>FDICIA</td>
+<td>Introduced prompt corrective action (PCA); introduced risk-based deposit insurance premiums; limited too-big-to-fail bailouts; extended regulation of foreign bank branches.</td>
+</tr>
+<tr>
+<td>1994</td>
+<td>Riegle-Neal Act</td>
+<td>Permitted BHCs to acquire banks in other states; allowed conversion of out-of-state subsidiaries into branches (June 1997).</td>
+</tr>
+<tr>
+<td>1999</td>
+<td>Financial Services Modernization Act</td>
+<td>Eliminated barriers between banking, insurance, and securities; allowed creation of financial services holding companies.</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>Wall Street Reform and Consumer Protection Act</td>
+<td>Created Financial Services Oversight Council; allowed government to break up systemically risky FIs; created Consumer Financial Protection Bureau; required OTC derivatives to trade through clearinghouses.</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>Economic Growth, Regulatory Relief, and Consumer Protection Act</td>
+<td>Relaxed mortgage lending rules for some institutions; exempted banks under $10B from Volcker Rule; raised enhanced prudential regulation threshold from $50B to $250B.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="interpretation">
+<p>The evolution of banking regulation reflects a cycle of restriction and deregulation. The 1927 McFadden Act restricted interstate branching, while the 1933 Glass-Steagall Act separated commercial banking from investment banking. The 1980 DIDMCA and 1982 DIA were deregulatory, eliminating interest ceilings and expanding bank powers. The 1989 FIRREA and 1991 FDICIA responded to the thrift crisis and bank failures by pulling back from deregulation. The 1994 Riegle-Neal Act and 1999 FSMA reversed long-standing restrictions on geographic expansion and product diversification. The 2010 Wall Street Reform Act responded to the financial crisis by re-regulating many aspects of banking, and the 2018 Act provided regulatory relief for smaller institutions.</p>
+</div>
+<div class="insight">
+<h4>Key Insight</h4>
+<p><strong>Banking regulation in the U.S. follows a crisis-response pattern:</strong> major financial crises (the Great Depression, the S&amp;L crisis, the 2007–2009 financial crisis) trigger significant regulatory reforms, which are then partially relaxed over time as the memory of the crisis fades and industry lobbying intensifies.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>Glass-Steagall (1933) separated commercial and investment banking; FSMA (1999) repealed this separation.</li>
+<li>McFadden Act (1927) restricted interstate branching; Riegle-Neal (1994) enabled nationwide branching.</li>
+<li>FDICIA (1991) introduced prompt corrective action and risk-based deposit insurance premiums.</li>
+<li>Wall Street Reform Act (2010) created the Consumer Financial Protection Bureau and systemic risk oversight.</li>
+<li>Economic Growth Act (2018) provided regulatory relief for community banks (under $10B in assets).</li>
+</ul>
+</div>
+<h2 id="section7">7. Commercial Banks: Industry Performance</h2>
+<h3>7.1 Key Performance Metrics</h3>
+<div class="interpretation">
+<p>The two primary measures of bank profitability are <strong>return on assets (ROA)</strong> and <strong>return on equity (ROE)</strong>.</p>
+</div>
+<div class="formula-box">
+<span class="label">Return on Assets (ROA)</span>
+<div class="formula">\[ROA = \frac{\text{Net Income}}{\text{Total Assets}}\]</div>
+</div>
+<div class="interpretation">
+<p><strong>ROA</strong> measures the earnings generated per dollar of assets. It reflects the efficiency with which a bank uses its asset base to generate profits. <strong>Y</strong> = Net Income, <strong>X</strong> = Total Assets. The ratio shows how many cents of profit the bank earns for each dollar of assets. A higher ROA indicates more efficient asset utilization. This metric is used to compare profitability across banks of different sizes and over time.</p>
+</div>
+<div class="formula-box">
+<span class="label">Return on Equity (ROE)</span>
+<div class="formula">\[ROE = \frac{\text{Net Income}}{\text{Total Equity}}\]</div>
+</div>
+<div class="interpretation">
+<p><strong>ROE</strong> measures the return to the bank's common stockholders per dollar of equity invested. <strong>Y</strong> = Net Income, <strong>X</strong> = Total Equity. ROE reflects the return on shareholders' investment and is the key metric for equity investors. Because large banks typically operate with less equity per dollar of assets (higher leverage), ROE is generally larger for this group even when ROA is similar or lower.</p>
+</div>
+<div class="formula-box">
+<span class="label">DuPont Decomposition of ROE</span>
+<div class="formula">\[ROE = ROA \times \frac{\text{Assets}}{\text{Equity}}\]</div>
+</div>
+<div class="interpretation">
+<p><strong>DuPont analysis</strong> decomposes ROE into two components: ROA (profitability per dollar of assets) and the equity multiplier (assets/equity, a measure of leverage). <strong>Y</strong> = ROE, <strong>X1</strong> = ROA, <strong>X2</strong> = Assets/Equity. This decomposition allows analysts to identify whether a bank's ROE is driven by profitability (ROA) or leverage (equity multiplier). A bank with high ROE but low ROA is relying on high leverage, which amplifies both returns and risk. This is used in practice to assess the sources of bank profitability and to compare banks with different capital structures.</p>
+</div>
+<div class="insight">
+<h4>Key Insight</h4>
+<p><strong>ROE can be decomposed into ROA and leverage.</strong> A bank with high ROE but low ROA is using high leverage to boost returns, which also amplifies downside risk. The DuPont decomposition reveals whether profitability comes from operational efficiency (ROA) or financial leverage (equity multiplier).</p>
+</div>
+<div class="formula-box">
+<span class="label">Spread</span>
+<div class="formula">\[\text{Spread} = \text{Lending Rate} - \text{Deposit Rate}\]</div>
+</div>
+<div class="interpretation">
+<p><strong>Spread</strong> is the difference between the rate a bank earns on loans (lending rate) and the rate it pays on deposits (deposit rate). <strong>Y</strong> = Spread, <strong>X1</strong> = Lending Rate, <strong>X2</strong> = Deposit Rate. The spread reflects the bank's core profitability from intermediation. Larger banks tend to have narrower spreads because they face more competition in national markets, while smaller banks in localized markets often benefit from less competition and wider spreads. However, large banks compensate by generating fee income from OBS activities.</p>
+</div>
+<div class="key-takeaway">
+<h4>Key Takeaways</h4>
+<ul>
+<li>ROA = Net Income / Total Assets (profitability per dollar of assets).</li>
+<li>ROE = Net Income / Total Equity (return to shareholders).</li>
+<li>DuPont decomposition: ROE = ROA × (Assets/Equity).</li>
+<li>Spread = Lending Rate − Deposit Rate (core intermediation profitability).</li>
+</ul>
+</div>
+<h3>7.2 Historical Performance Trends</h3>
+<div class="table-wrap">
+<table>
+<caption>ROA and ROE of Commercial Banks by Size, Selected Years (1990–2021)</caption>
+<thead>
+<tr>
+<th>Year</th>
+<th>All Banks ROA</th>
+<th>All Banks ROE</th>
+<th>Under $100M ROA</th>
+<th>Under $100M ROE</th>
+<th>$100M–$1B ROA</th>
+<th>$100M–$1B ROE</th>
+<th>$1B–$10B ROA</th>
+<th>$1B–$10B ROE</th>
+<th>$10B+ ROA</th>
+<th>$10B+ ROE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1990</td>
+<td>0.49%</td>
+<td>7.64%</td>
+<td>0.79%</td>
+<td>9.02%</td>
+<td>0.78%</td>
+<td>9.95%</td>
+<td>0.76%</td>
+<td>10.25%</td>
+<td>0.38%</td>
+<td>6.68%</td>
+</tr>
+<tr>
+<td>1995</td>
+<td>1.17%</td>
+<td>14.68%</td>
+<td>1.18%</td>
+<td>11.37%</td>
+<td>1.25%</td>
+<td>13.48%</td>
+<td>1.28%</td>
+<td>15.04%</td>
+<td>1.10%</td>
+<td>15.60%</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>1.19%</td>
+<td>14.07%</td>
+<td>1.01%</td>
+<td>9.09%</td>
+<td>1.28%</td>
+<td>13.56%</td>
+<td>1.29%</td>
+<td>14.57%</td>
+<td>1.16%</td>
+<td>14.42%</td>
+</tr>
+<tr>
+<td>2006</td>
+<td>1.33%</td>
+<td>13.06%</td>
+<td>0.95%</td>
+<td>7.38%</td>
+<td>1.24%</td>
+<td>12.20%</td>
+<td>1.35%</td>
+<td>12.65%</td>
+<td>1.35%</td>
+<td>13.40%</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>0.95%</td>
+<td>9.29%</td>
+<td>0.82%</td>
+<td>6.00%</td>
+<td>1.06%</td>
+<td>10.34%</td>
+<td>1.08%</td>
+<td>9.47%</td>
+<td>0.92%</td>
+<td>9.22%</td>
+</tr>
+<tr>
+<td>2008</td>
+<td>0.16%</td>
+<td>1.62%</td>
+<td>0.36%</td>
+<td>2.76%</td>
+<td>0.38%</td>
+<td>3.68%</td>
+<td>−0.10%</td>
+<td>−0.90%</td>
+<td>0.16%</td>
+<td>1.70%</td>
+</tr>
+<tr>
+<td>2009</td>
+<td>0.09%</td>
+<td>0.85%</td>
+<td>0.06%</td>
+<td>0.46%</td>
+<td>−0.01%</td>
+<td>−0.15%</td>
+<td>−0.35%</td>
+<td>−3.16%</td>
+<td>0.15%</td>
+<td>1.44%</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>0.66%</td>
+<td>5.99%</td>
+<td>0.36%</td>
+<td>3.06%</td>
+<td>0.34%</td>
+<td>3.35%</td>
+<td>0.19%</td>
+<td>1.67%</td>
+<td>0.75%</td>
+<td>6.78%</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>1.07%</td>
+<td>9.60%</td>
+<td>0.76%</td>
+<td>6.63%</td>
+<td>0.93%</td>
+<td>8.76%</td>
+<td>1.23%</td>
+<td>10.42%</td>
+<td>1.07%</td>
+<td>9.61%</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>1.04%</td>
+<td>9.26%</td>
+<td>0.87%</td>
+<td>7.21%</td>
+<td>1.07%</td>
+<td>9.74%</td>
+<td>1.16%</td>
+<td>9.86%</td>
+<td>1.02%</td>
+<td>9.17%</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>1.24%</td>
+<td>12.27%</td>
+<td>1.00%</td>
+<td>7.62%</td>
+<td>1.26%</td>
+<td>11.79%</td>
+<td>1.46%</td>
+<td>13.58%</td>
+<td>1.21%</td>
+<td>12.18%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="interpretation">
+<p>The performance data reveal several important patterns. In the early 1990s, the largest banks ($10B+) had the lowest ROA (0.38% in 1990) but their ROE (6.68%) was closer to the industry average due to higher leverage. During the 1995–2006 period, bank performance improved significantly, with ROA peaking at 1.40% in 2003 and ROE at 15.34% in 2003 for all banks.</p>
+<p>The <strong>financial crisis of 2007–2009</strong> caused severe deterioration. In 2008, ROA for all banks fell to 0.16% and ROE to 1.62%. The smallest banks (under $100M) had a slightly positive ROA of 0.36% in 2008, while mid-sized banks ($1B–$10B) experienced negative ROA (−0.10%) and ROE (−0.90%). In 2009, the smallest banks' ROA fell to 0.06% and mid-sized banks' ROA to −0.35%.</p>
+<p>The recovery was uneven. The biggest banks ($10B+) returned to positive ROA (0.15%) and ROE (1.44%) in 2009, while smaller banks' ROA and ROE remained negative until 2010. This faster recovery for large banks is attributable to greater government assistance and monitoring. By 2021, the industry had largely recovered, with all-bank ROA at 1.24% and ROE at 12.27%.</p>
+</div>
+<div class="insight">
+<h4>Key Insight</h4>
+<p><strong>Large banks recovered faster from the 2007–2009 crisis than small banks</strong> due to greater government assistance, stress testing, and capital injections. This pattern reverses the historical advantage that small banks held in terms of ROA stability during economic downturns.</p>
+</div>
+<div class="table-wrap">
+<table>
+<caption>Selected Performance Indicators for U.S. Commercial Banks, 1989–2021</caption>
+<thead>
+<tr>
+<th>Year</th>
+<th>Number of Institutions</th>
+<th>Return on Assets (%)</th>
+<th>Return on Equity (%)</th>
+<th>Provision for Loan Losses / Total Assets (%)</th>
+<th>Net Charge-offs / Loans (%)</th>
+<th>Asset Growth Rate (%)</th>
+<th>Net Operating Income Growth (%)</th>
+<th>Number of Failed/Assisted Institutions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1989</td>
+<td>12,709</td>
+<td>0.49</td>
+<td>7.71</td>
+<td>0.94</td>
+<td>1.16</td>
+<td
+    </div>
 </body>
 </html>

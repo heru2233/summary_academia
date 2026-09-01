@@ -1,444 +1,694 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Ringkasan Chapter 6 - Financial Services: Insurance Companies (Indonesia)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  h4 {
-    font-size: 12pt;
-    font-style: italic;
-    margin: 12px 0 4px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Services: Insurance Companies</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
-
-<div class="toolbar">
-  <button onclick="window.print()">Cetak / Simpan sebagai PDF</button>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Financial Services: Insurance Companies</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction to Insurance Companies</a></li>
+    <li><a href="#section2">2. Life Insurance</a></li>
+    <li><a href="#section3">3. Types of Life Insurance Policies</a></li>
+    <li><a href="#section4">4. Other Life Insurer Activities</a></li>
+    <li><a href="#section5">5. Life Insurance Balance Sheet and Recent Trends</a></li>
+    <li><a href="#section6">6. Regulation of Life Insurance</a></li>
+    <li><a href="#section7">7. Property–Casualty Insurance</a></li>
+    <li><a href="#section8">8. Types of Property–Casualty Insurance</a></li>
+    <li><a href="#section9">9. PC Insurance Balance Sheet and Underwriting Risk</a></li>
+    <li><a href="#section10">10. Measuring Underwriting Performance: Key Ratios</a></li>
+    <li><a href="#section11">11. Reinsurance and Catastrophe Bonds</a></li>
+    <li><a href="#section12">12. Recent Trends in Property–Casualty Insurance</a></li>
+    <li><a href="#section13">13. Regulation of Property–Casualty Insurance</a></li>
+    <li><a href="#section14">14. Global Issues in Insurance</a></li>
+    <li><a href="#section15">15. Practical Cautions and Common Errors</a></li>
+    <li><a href="#section16">16. Summary and Key Takeaways</a></li>
+  </ul>
 </div>
 
-<h1>Ringkasan Chapter 6</h1>
-<p class="subtitle">Financial Services: Insurance Companies (Perusahaan Asuransi)</p>
-<p class="bookinfo">Sumber, Saunders, A. dan Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, Edisi 11, Chapter 6. Disusun sebagai bahan belajar mandiri.</p>
+<h2 id="section1">1. Introduction to Insurance Companies</h2>
 
-<h2>1. Pendahuluan</h2>
-<p>Jasa asuransi yang ditawarkan FI melindungi individu dan korporasi (pemegang polis) dari peristiwa buruk. Dengan menerima premi, FI yang menawarkan jasa asuransi menjanjikan kompensasi kepada pemegang polis jika peristiwa tertentu terjadi, dan polis tersebut merupakan liabilitas keuangan bagi perusahaan asuransi. Dari premi yang terkumpul, perusahaan asuransi berinvestasi pada sekuritas keuangan seperti obligasi korporasi dan saham. Jasa asuransi diklasifikasikan menjadi dua kelompok besar, yaitu asuransi jiwa (<i>life</i>) dan asuransi properti-kecelakaan (<i>property-casualty</i>, PC). Asuransi jiwa melindungi dari kemungkinan kematian sebelum waktunya, penyakit, dan pensiun, sedangkan asuransi properti-kecelakaan melindungi dari cedera pribadi dan liabilitas seperti kecelakaan, pencurian, dan kebakaran. Banyak FI seperti MetLife dan Allstate menawarkan kedua jenis jasa tersebut, dan banyak pula yang menjual produk investasi seperti reksa dana dan jasa perbankan.</p>
-<p>Krisis keuangan menunjukkan betapa besar risiko yang dapat ditimbulkan perusahaan asuransi bagi FI dan sistem keuangan global. Ketika pasar KPR subprime mulai gagal pada musim panas 2008, nilai kumpulan KPR subprime dan sekuritas yang ditulis di atasnya jatuh tajam. Banyak credit default swaps (CDSs) ditulis atas sekuritas KPR subprime tersebut, dan AIG adalah penulis utama CDS. Ketika kerugian KPR meningkat, AIG harus membayar miliaran dolar klaim CDS dan akhirnya tidak mampu menutupinya, sehingga meningkatkan eksposur risiko bank, bank investasi, dan perusahaan asuransi yang membeli kontrak asuransi CDS AIG. Alasan pemerintah federal turun tangan menyelamatkan AIG adalah karena AIG adalah pemain dominan di pasar CDS, dan jika AIG gagal, setiap FI yang membeli kontrak CDS darinya akan menderita kerugian besar.</p>
+<div class="interpretation">
+  <p>Insurance companies are financial institutions that provide risk protection to individuals and corporations (policyholders) against adverse events. By accepting premiums, insurers promise compensation if specified events occur. These policies represent financial liabilities to the insurer. Premiums collected are invested in financial securities such as corporate bonds and stocks. Insurance services are classified into two major groups: <strong>life insurance</strong> and <strong>property–casualty (PC) insurance</strong>. Life insurance protects against untimely death, illnesses, and retirement. Property–casualty insurance protects against personal injury and liability such as accidents, theft, and fire. Many firms, such as MetLife and Allstate, offer both types.</p>
+</div>
 
-<h2>2. Asuransi Jiwa</h2>
-<p>Asuransi jiwa memungkinkan individu dan penerima manfaatnya melindungi diri dari kerugian pendapatan akibat kematian sebelum waktunya atau pensiun. Dengan menggabungkan risiko (<i>pooling risks</i>), asuransi jiwa memindahkan ketidakpastian terkait pendapatan dari individu yang diasuransikan ke kelompok.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The financial crisis of 2008 demonstrated the systemic risk that insurance companies can pose.</strong> AIG, a major writer of credit default swaps (CDS) on subprime mortgage securities, faced catastrophic losses when mortgage-backed securities fell in value. The federal government intervened with a $127 billion bailout because AIG's failure would have triggered substantial losses across banks, investment banks, and other insurers that had purchased CDS contracts from it. This illustrates that insurance company risk extends far beyond the insurance sector itself.</p>
+</div>
 
-<h3>2.1 Ukuran, Struktur, dan Komposisi Industri</h3>
-<p>Pada 2020, Amerika Serikat memiliki sekitar 750 perusahaan asuransi jiwa, dibandingkan lebih dari 2.300 pada 1988. Aset agregat perusahaan asuransi jiwa mencapai $8,1 triliun pada 2020, dibandingkan $1,1 triliun pada 1988. Sepuluh perusahaan asuransi jiwa terbesar mewakili 45,6 persen dari aset industri $8,1 triliun dan menulis 40,6 persen dari premi langsung industri $1,1 triliun pada 2020. Industri ini juga mengalami merger besar, misalnya Anthem dan Signa, Hartford Life dan Mass Mutual, serta MetLife dan American Life Insurance. Banyak perusahaan asuransi terbesar, seperti Metropolitan dan Prudential, telah berkonversi menjadi perusahaan yang dikendalikan pemegang saham (<i>stock companies</i>) untuk memperoleh akses pasar ekuitas guna membiayai ekspansi bisnis, dan pada 2020, 74 persen seluruh perusahaan asuransi jiwa adalah stock companies. Sebaliknya, <i>mutual company</i> dimiliki oleh pemegang polisnya, sehingga modal dan cadangan yang ada harus didistribusikan kepada pemegang polis.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Insurance companies accept premiums and promise compensation for specified adverse events.</li>
+    <li>Two main categories: life insurance (death, illness, retirement) and property–casualty (injury, liability, theft, fire).</li>
+    <li>Insurers invest premiums in financial securities, creating asset-liability management challenges.</li>
+    <li>Insurance company failures can create systemic risk to the entire financial system.</li>
+  </ul>
+</div>
 
-<p class="tabcap">Tabel 6-1. Perusahaan Asuransi Jiwa AS Terbesar, 2020 (Sumber, AM Best dan Insurance Information Institute)</p>
-<table>
-  <tr>
-    <th>Peringkat Aset</th>
-    <th>Perusahaan atau Grup</th>
-    <th>Aset 2020 ($ miliar)</th>
-    <th>Peringkat Premi</th>
-    <th>Perusahaan atau Grup</th>
-    <th>Premi Langsung 2020 ($ miliar)</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Prudential of America Group</td>
-    <td>680,2</td>
-    <td>1</td>
-    <td>Prudential of America Group</td>
-    <td>103,3</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Metropolitan Life Insurance Companies</td>
-    <td>455,6</td>
-    <td>2</td>
-    <td>New York Life Group</td>
-    <td>62,7</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>New York Life Group</td>
-    <td>371,5</td>
-    <td>3</td>
-    <td>Massachusetts Mutual Life Group</td>
-    <td>61,9</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>TIAA Group</td>
-    <td>341,3</td>
-    <td>4</td>
-    <td><i>Principal</i> Financial Group</td>
-    <td>40,2</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>American International Group (AIG)</td>
-    <td>327,2</td>
-    <td>5</td>
-    <td>Lincoln Financial Group</td>
-    <td>38,5</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>Lincoln Financial Group</td>
-    <td>315,1</td>
-    <td>6</td>
-    <td>Western &amp; Southern Financial Group</td>
-    <td>26,4</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>Massachusetts Mutual Life Group</td>
-    <td>313,2</td>
-    <td>7</td>
-    <td>Transamerica</td>
-    <td>25,4</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>Northwestern Mutual Group</td>
-    <td>308,9</td>
-    <td>8</td>
-    <td>American International Group (AIG)</td>
-    <td>22,9</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>John Hancock Life Insurance Group</td>
-    <td>302,1</td>
-    <td>9</td>
-    <td>Equitable Holdings</td>
-    <td>22,9</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>Jackson National Group</td>
-    <td>297,1</td>
-    <td>10</td>
-    <td>Metropolitan Life Insurance Companies</td>
-    <td>22,6</td>
-  </tr>
-</table>
+<h2 id="section2">2. Life Insurance</h2>
 
-<p>Salah satu masalah yang secara alami dihadapi perusahaan asuransi jiwa (dan PC) adalah masalah <i>adverse selection</i>, yaitu nasabah yang mengajukan polis asuransi cenderung adalah mereka yang paling membutuhkan asuransi, misalnya seseorang dengan masalah kesehatan kronis lebih mungkin membeli polis asuransi jiwa daripada orang yang sehat sempurna. Karena itu, penggunaan statistik kesehatan yang mewakili populasi keseluruhan mungkin tidak tepat untuk menghitung probabilitas pembayaran klaim. Perusahaan asuransi menangani masalah ini dengan membentuk kumpulan populasi yang berbeda berdasarkan karakteristik kesehatan dan terkait (seperti pendapatan), sehingga probabilitas klaim dan premi dapat dihitung lebih akurat.</p>
+<div class="interpretation">
+  <p>Life insurance allows individuals and their beneficiaries to protect against income losses from premature death or retirement. By pooling risks, life insurance transfers income-related uncertainties from the insured individual to a group. In 2020, the United States had approximately 750 life insurance companies (down from 2,300 in 1988), with aggregate assets of $8.1 trillion. The 10 largest life insurers represented 45.6 percent of industry assets and wrote 40.6 percent of direct premiums.</p>
+</div>
 
-<h3>2.2 Jenis-Jenis Asuransi Jiwa</h3>
-<p>Empat kelas dasar asuransi jiwa dibedakan berdasarkan cara penjualannya, yaitu (1) <i>ordinary life</i>, (2) <i>group life</i>, (3) <i>industrial life</i>, dan (4) <i>credit life</i>. Pada 2020, dari total premi langsung $188,0 miliar, ordinary life menyumbang sekitar 78,7 persen, group life 20,9 persen, dan industrial life serta credit life bersama-sama kurang dari 1 persen. <i>Ordinary life</i> dipasarkan secara individual, biasanya dalam unit $1.000, dengan pembayaran premi berkala, dan memiliki lima bentuk kontraktual dasar.</p>
-<ul>
-  <li><b>Term life</b>, paling mendekati asuransi jiwa murni tanpa unsur tabungan, dengan pembayaran yang bergantung pada kematian selama periode perlindungan yang dapat bervariasi dari 1 tahun hingga 40 tahun atau lebih</li>
-  <li><b>Whole life</b>, melindungi individu sepanjang hidup dengan premi berkala atau level, di mana penerima manfaat menerima nilai nominal kontrak pada saat kematian, sehingga memiliki unsur tabungan sekaligus unsur asuransi murni</li>
-  <li><b>Endowment life</b>, menggabungkan unsur asuransi murni (term) dengan unsur tabungan, menjamin pembayaran kepada penerima manfaat jika kematian terjadi selama periode endowment, dan orang yang hidup sampai tanggal endowment menerima nilai nominal polis</li>
-  <li><b>Variable life</b>, menginvestasikan pembayaran premi tetap pada reksa dana saham, obligasi, dan instrumen pasar uang yang dapat dipilih pemegang polis sesuai preferensi risiko, sehingga nilai polis naik atau turun mengikuti imbal hasil aset reksa dana</li>
-  <li><b>Universal life dan variable universal life</b>, memungkinkan jumlah premi dan jatuh tempo kontrak diubah oleh tertanggung, dan pada beberapa kontrak premi diinvestasikan pada reksa dana uang, ekuitas, atau obligasi sehingga komponen tabungan mencerminkan imbal hasil pasar</li>
-</ul>
-<p><i>Group life insurance</i> melindungi sejumlah besar orang dalam satu polis, biasanya diterbitkan untuk pemberi kerja korporasi, dan dapat bersifat <i>contributory</i> (pemberi kerja dan karyawan sama-sama menanggung) atau <i>noncontributory</i>. Ekonomi biaya adalah keunggulan utama group life, yang berasal dari administrasi massal, biaya evaluasi individu yang lebih rendah melalui skrining medis, serta biaya penjualan dan komisi yang lebih rendah. <i>Industrial life</i> melibatkan pembayaran mingguan yang dikumpulkan langsung oleh perwakilan perusahaan, dan kini merupakan area sangat kecil karena pertumbuhan group life. <i>Credit life</i> dijual untuk melindungi pemberi pinjaman terhadap kematian peminjam sebelum pelunasan kontrak utang seperti KPR atau pinjaman mobil, dengan nilai nominal polis mencerminkan pokok dan bunga pinjaman yang terutang.</p>
+<h3>2.1 Adverse Selection in Insurance</h3>
 
-<h3>2.3 Aktivitas Lain Perusahaan Asuransi Jiwa</h3>
-<p>Tiga aktivitas besar lain perusahaan asuransi jiwa adalah penjualan anuitas, rencana pensiun swasta, dan asuransi kecelakaan dan kesehatan. <b>Anuitas</b> merupakan kebalikan dari asuransi jiwa, yaitu jika asuransi jiwa melibatkan berbagai metode kontraktual untuk membangun dana, anuitas melibatkan berbagai metode melikuidasi dana, seperti membayarkan hasil dana. Anuitas dapat dijual kepada individu atau kelompok secara tetap atau variabel dengan dikaitkan pada imbal hasil portofolio investasi yang mendasarinya, dibeli dengan pembayaran tunggal atau tersebar selama beberapa tahun, dan membangun dana yang imbal hasilnya ditangguhkan pajaknya. Pembayaran dapat dimulai segera atau ditangguhkan, dan dapat berhenti pada kematian atau terus dibayarkan kepada penerima manfaat. Penjualan anuitas (atau premi langsung) pada 2020 mencapai $369,7 miliar ($206,5 miliar di antaranya anuitas biasa), dibandingkan $26 miliar pada 1996, dan dua kali lipat penjualan $188,0 miliar untuk jalur asuransi jiwa tradisional, menunjukkan bahwa anuitas kini menjadi area bisnis utama perusahaan asuransi jiwa.</p>
+<div class="interpretation">
+  <p><strong>Adverse selection</strong> is a fundamental problem facing insurance companies: customers who apply for insurance policies are more likely to be those most in need of insurance. For example, someone with chronic health problems is more likely to purchase life insurance than someone in perfect health. If insurers use population-wide health statistics to calculate premiums, they will underestimate the probability of having to pay out on policies because their customer pool is more prone to health problems than the general population.</p>
+</div>
 
-<h4>Contoh 6-1. Perhitungan Nilai Wajar Polis Anuitas</h4>
-<p>Misalkan seseorang ingin membeli anuitas hari ini yang akan membayar $15.000 per tahun sampai akhir hidupnya. Perusahaan asuransi memperkirakan orang tersebut akan hidup 25 tahun lagi dan dapat menginvestasikan jumlah yang diterima pada tingkat bunga terjamin 5 persen. Harga wajar polis anuitas hari ini dihitung sebagai nilai sekarang dari 25 pembayaran tahunan sebesar $15.000</p>
-<div class="eq">\[ \text{Nilai wajar} = \frac{15.000}{1+r} + \frac{15.000}{(1+r)^2} + \dots + \frac{15.000}{(1+r)^{25}} \]</div>
-<div class="eq">\[ \text{Nilai wajar} = 15.000 \times \text{PVIFA}_{r=5\%, n=25} = 15.000 \times 14{,}0939 = \$211.409 \]</div>
-<p>Dengan demikian, biaya membeli anuitas ini hari ini adalah $211.409.</p>
+<div class="interpretation">
+  <p><strong>Mitigation strategy:</strong> Insurance companies deal with adverse selection by establishing different pools of the population based on health and related characteristics (such as income). By tailoring the pool used to determine the probability of losses to a particular customer's health characteristics, the insurer can more accurately determine the probability of payout and adjust the premium accordingly.</p>
+</div>
 
-<p><b>Rencana pensiun swasta</b> ditawarkan perusahaan asuransi jiwa kepada pemberi kerja swasta, termasuk rencana inovatif berbasis <i>guaranteed investment contracts (GICs)</i> di mana penanggung menjamin suku bunga yang dikreditkan ke rencana pensiun selama periode tertentu (misalnya lima tahun) sekaligus tarif anuitas pada kontrak penerima manfaat. Rencana lain mencakup <i>immediate participation</i> dan <i>separate account plans</i> yang mengikuti strategi investasi lebih agresif, seperti menginvestasikan premi pada reksa dana ekuitas tujuan khusus. <b>Asuransi kecelakaan dan kesehatan</b> melindungi terhadap risiko morbiditas, atau kesehatan yang buruk, dengan lebih dari $209,8 miliar premi langsung ditulis oleh perusahaan jiwa dan kesehatan di area kecelakaan-kesehatan pada 2020, dan perusahaan asuransi jiwa menulis lebih dari 50 persen seluruh premi asuransi kesehatan.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>A person with a pre-existing condition will be placed in a higher-risk pool and charged a higher premium than a person in perfect health. This reflects the insurer's more accurate assessment of the probability of a claim.</p>
+</div>
 
-<h3>2.4 Neraca dan Tren Terkini</h3>
-<p>Karena sifat jangka panjang liabilitasnya (akibat sifat jangka panjang klaim pemegang polis) dan kebutuhan menghasilkan imbal hasil kompetitif pada unsur tabungan produk asuransi jiwa, perusahaan asuransi jiwa memusatkan investasi asetnya pada ujung spektrum jatuh tempo yang lebih panjang, misalnya obligasi, ekuitas, dan sekuritas pemerintah. Pada 2020, 6,1 persen aset diinvestasikan pada sekuritas pemerintah, 64,9 persen pada obligasi dan saham korporasi, dan 7,9 persen pada KPR, dengan pinjaman lain termasuk <i>policy loans</i> (pinjaman kepada pemegang polis dengan polis sebagai agunan) melengkapi sisanya. Tren utamanya adalah peningkatan jangka panjang proporsi obligasi dan ekuitas serta penurunan proporsi KPR, sehingga manajer perusahaan asuransi harus mampu mengukur dan mengelola risiko kredit, risiko suku bunga, dan risiko lain dari sekuritas tersebut.</p>
-<p>Pada sisi liabilitas neraca industri asuransi jiwa 2020, <i>policy reserves</i> (komitmen pembayaran yang diharapkan atas kontrak polis yang ada) mencapai $3.355,7 miliar atau 41,2 persen dari total liabilitas dan modal. Cadangan ini didasarkan pada asumsi aktuarial mengenai komitmen pembayaran masa depan yang diharapkan, termasuk manfaat kematian, endowment yang jatuh tempo, dan nilai tunai penyerahan polis (<i>cash surrender value</i>, nilai kas yang dibayarkan jika polis diserahkan sebelum jatuh tempo). Karena fluktuasi tak terduga dapat terjadi, misalnya tingkat mortalitas meningkat akibat epidemi penyakit katastropik, penanggung jiwa memegang dana cadangan modal dan surplus untuk memenuhi kerugian tak terduga. Modal dan surplus penanggung jiwa pada 2020 adalah $450,6 miliar, atau 5,5 persen dari total aset. <i>Separate accounts</i> mewakili 37,8 persen dari total liabilitas dan modal, yaitu dana yang didirikan dan dipegang terpisah dari dana lain perusahaan asuransi, dapat diinvestasikan tanpa batasan diversifikasi biasa, dan pembayaran polis bergantung pada imbal hasil dana dalam separate account tersebut.</p>
-<p>Perusahaan asuransi memperoleh laba dengan menerima pendapatan premi lebih besar daripada pembayaran polis. Perusahaan dapat meningkatkan selisih antara pendapatan premi dan pembayaran polis dengan dua cara, yaitu (1) menurunkan pembayaran masa depan yang diwajibkan untuk tingkat premi tertentu dengan mengurangi risiko kumpulan tertanggung, dan (2) meningkatkan profitabilitas pendapatan bunga atas cadangan polis bersih, karena semakin tinggi imbal hasil investasi, semakin besar selisih antara arus pendapatan premi dan pembayaran polis (kecuali pada variable life).</p>
-<p>Industri asuransi jiwa sangat menguntungkan pada awal dan pertengahan 2000-an, dengan net income di atas $34 miliar pada 2006. Namun krisis keuangan berdampak besar, dengan kerugian modal terealisasi dan belum terealisasi dari obligasi, saham preferen, dan saham biasa yang menembus $35 miliar pada 2008, penurunan lebih dari 875 persen dari 2007, dan pendapatan investasi bersih turun 3,5 persen. Hasilnya, pendapatan bersih setelah pajak untuk tahun tersebut adalah minus $51,8 miliar, $83,7 miliar lebih rendah daripada 2007. Department of Treasury kemudian memperpanjang dana bailout ke sejumlah perusahaan asuransi jiwa yang kesulitan, yang paling terkenal adalah $127 miliar untuk AIG (termasuk $45 miliar dari TARP, $77 miliar untuk membeli sekuritas utang dan KPR yang diagunkan, dan pinjaman jembatan $44 miliar). Penanggung jiwa lain yang menerima dana TARP termasuk Hartford Financial Services Group, Prudential Financial, Lincoln National, dan Allstate. Pendapatan premi turun $120 miliar (19 persen) dari level 2008, namun akhir 2009 mulai membaik dengan total aset naik lebih dari $200 miliar dan net income kembali positif menjadi $21,1 miliar. Premi 2011 sebesar $634,0 miliar melampaui level pra-krisis (2007) sebesar $608,3 miliar, dan selama 2012 hingga 2020 pendapatan premi dan anuitas stabil sekitar $635 miliar. Namun net income turun 50,5 persen pada 2020 menjadi $22,2 miliar dari $44,7 miliar pada 2019, dengan kontribusi penurunan 36,2 persen net income sebelum keuntungan modal dan kerugian modal $10,7 miliar.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Adverse selection is like a used car market where only sellers of defective cars want to sell. If buyers assume all cars are average quality, they underpay for good cars and overpay for bad ones. Insurers face a similar problem: only those who expect to need insurance are most eager to buy it.</p>
+</div>
 
-<h3>2.5 Regulasi Asuransi Jiwa</h3>
-<p>Undang-undang penting yang memengaruhi regulasi perusahaan asuransi jiwa adalah <b>McCarran-Ferguson Act 1945</b>, yang menegaskan keunggulan regulasi negara bagian atas federal untuk perusahaan asuransi. Berbeda dari lembaga depositori yang dapat memperoleh piagam di tingkat federal atau negara bagian, piagam penanggung jiwa dilakukan sepenuhnya di tingkat negara bagian, dan komisi asuransi negara bagian mengawasi serta memeriksa perusahaan asuransi menggunakan sistem pemeriksaan terkoordinasi yang dikembangkan National Association of Insurance Commissioners (NAIC).</p>
-<p>Pada 2009, Kongres AS mempertimbangkan pembentukan piagam asuransi federal opsional, didorong kegagalan sistem regulasi negara bagian dalam mencegah masalah AIG menjadi risiko sistemik. Versi akhir <i>Wall Street Reform and Consumer Protection Act</i> 2010 membentuk <b>Federal Insurance Office (FIO)</b> yang melapor ke Kongres dan presiden, dengan wewenang memantau industri asuransi, mengidentifikasi kesenjangan regulasi atau risiko sistemik, menangani masalah asuransi internasional, dan memantau akses komunitas yang kurang terlayani terhadap produk asuransi terjangkau. Undang-undang yang sama juga membentuk Financial Stability Oversight Council (FSOC) yang menunjuk lembaga keuangan (termasuk perusahaan asuransi) yang menghadirkan risiko sistemik untuk regulasi lebih besar, dan menjadikan Federal Reserve sebagai pengawas utama perusahaan asuransi dengan menunjuk tiga penanggung terbesar (AIG, Prudential Financial, dan MetLife) sebagai <i>systemically important financial institutions</i> (SIFIs). Namun, pada Maret 2016 pengadilan distrik AS mencabut penunjukan MetLife, AIG dicabut pada Oktober 2017, dan Prudential pada Oktober 2018, sehingga tidak ada nonbank yang memiliki label SIFI.</p>
-<p>Selain pengawasan dan pemeriksaan, negara bagian mempromosikan <i>insurance guarantee funds</i>. Berbeda dari bank dan thrift, penanggung jiwa tidak memiliki akses ke dana jaminan federal (meskipun selama krisis keuangan pemerintah federal mengambil langkah belum pernah terjadi sebelumnya dengan menolong beberapa perusahaan asuransi besar). Dana jaminan negara bagian ini berbeda dari asuransi deposito dalam beberapa cara penting. Pertama, meskipun disponsori regulator asuransi negara bagian, dana ini sebenarnya dijalankan dan dikelola oleh perusahaan asuransi swasta itu sendiri. Kedua, tidak seperti DIF di mana FDIC membangun dana cadangan permanen, tidak ada dana jaminan permanen untuk industri asuransi, kecuali dana jaminan PC dan jiwa di negara bagian New York, sehingga kontribusi dibayarkan ke dana jaminan oleh perusahaan yang bertahan hanya setelah perusahaan asuransi benar-benar gagal. Ketiga, ukuran kontribusi yang diwajibkan bervariasi luas antar negara bagian, dengan setiap penanggung yang bertahan biasanya dikenai jumlah pro rata sesuai ukuran pendapatan premi di negara bagian itu, dan definisi pemegang polis kecil bervariasi dalam kisaran polis $100.000 hingga $500.000. Keempat, karena tidak ada dana permanen dan pembayaran tahunan pro rata sering dibatasi secara hukum, biasanya terjadi penundaan sebelum pemegang polis kecil menerima nilai tunai penyerahan polis mereka, kontras dengan asuransi deposito yang memberikan perlindungan langsung hingga $250.000.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Adverse selection forces insurers to use risk-based pricing rather than population-average pricing.</strong> Without proper risk segmentation, insurers would systematically underprice policies for high-risk individuals, leading to financial losses and potential insolvency.</p>
+</div>
 
-<h2>3. Asuransi Properti-Kecelakaan (PC)</h2>
-<p>Asuransi properti melibatkan perlindungan terkait kerugian properti riil dan pribadi, sedangkan asuransi kecelakaan, atau lebih tepatnya liabilitas, menyangkut perlindungan terhadap eksposur liabilitas hukum. Namun, perbedaan antara kedua area luas ini semakin kabur karena kecenderungan penanggung PC menawarkan perlindungan multi-jalur yang menggabungkan fitur properti dan liabilitas ke dalam paket polis tunggal, misalnya asuransi homeowners multiple-peril.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Adverse selection: those most likely to claim are most likely to purchase insurance.</li>
+    <li>Insurers mitigate adverse selection by segmenting the population into risk pools based on health and related characteristics.</li>
+    <li>Proper risk segmentation allows accurate premium determination.</li>
+  </ul>
+</div>
 
-<h3>3.1 Ukuran, Struktur, dan Komposisi Industri</h3>
-<p>Sekitar 2.476 perusahaan menjual asuransi properti-kecelakaan, dengan sekitar setengahnya menulis bisnis PC di seluruh atau sebagian besar AS. Total aset industri PC pada 2020 adalah $2,0 triliun, sekitar 28 persen dari aset industri asuransi jiwa. Industri PC AS cukup terkonsentrasi, dengan 10 perusahaan teratas memiliki pangsa 47,6 persen dari pasar PC keseluruhan diukur dari premi langsung yang ditulis, dan 200 perusahaan teratas membentuk 96 persen. Pada 2020, perusahaan teratas (State Farm) menulis 9,1 persen seluruh premi asuransi PC, dan peringkat kedua (Berkshire Hathaway) menulis 6,4 persen, total gabungan 15,5 persen, naik dari 14,5 persen untuk dua perusahaan teratas pada 1985, sebagian besar melalui merger dan akuisisi.</p>
+<h3>2.2 Mutual versus Stock Insurance Companies</h3>
 
-<p class="tabcap">Tabel 6-2. Perusahaan Asuransi Properti-Kecelakaan Terbesar, 2020 (Sumber, Insurance Information Institute)</p>
-<table>
-  <tr>
-    <th>Peringkat</th>
-    <th>Perusahaan atau Grup</th>
-    <th>Premi Langsung Ditulis ($ miliar)</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>State Farm Group</td>
-    <td>66,2</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Berkshire Hathaway Insurance</td>
-    <td>46,4</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Progressive Insurance Group</td>
-    <td>41,7</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Allstate Insurance Group</td>
-    <td>39,2</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>Liberty Mutual Insurance Cos</td>
-    <td>36,2</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>Travelers Group</td>
-    <td>28,7</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>USAA Group</td>
-    <td>24,6</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>Chubb INA Group</td>
-    <td>24,2</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>Farmers Insurance Group</td>
-    <td>20,1</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>Nationwide Mutual Group</td>
-    <td>18,5</td>
-  </tr>
-</table>
+<div class="interpretation">
+  <p>Insurance companies can be organized as either <strong>mutual</strong> or <strong>stock</strong> companies. A mutual company is owned by its policyholders, who receive policy dividends and have ownership rights to accumulated profits. A stock company is owned by stockholders, who receive stock dividends and have ownership rights. As of 2020, 74 percent of all life insurance companies are stock companies. Many large insurers, such as Metropolitan and Prudential, have converted from mutual to stock ownership to gain access to equity markets for capital to fund business expansion and compete with the consolidating banking industry.</p>
+</div>
 
-<h3>3.2 Jenis-Jenis Asuransi PC</h3>
-<p>Jalur PC penting mencakup berikut ini, dengan pangsa premi 2020 dibandingkan 1960 dalam tanda kurung.</p>
-<ul>
-  <li><b>Fire insurance</b>, melindungi dari bahaya kebakaran, petir, dan pemindahan properti yang rusak karena kebakaran (2,2 persen pada 2020, 16,6 persen pada 1960)</li>
-  <li><b>Homeowners multiple-peril (MP) insurance</b>, melindungi dari banyak bahaya kerusakan tempat tinggal pribadi dan properti pribadi serta memberikan perlindungan liabilitas, menggabungkan fitur asuransi properti dan liabilitas (14,9 persen pada 2020, 5,2 persen pada 1960)</li>
-  <li><b>Commercial multiple-peril insurance</b>, melindungi perusahaan komersial dari bahaya, mirip homeowners multiple-peril (6,3 persen pada 2020, 0,4 persen pada 1960)</li>
-  <li><b>Automobile liability dan physical damage (PD) insurance</b>, melindungi dari kerugian akibat liabilitas hukum kepemilikan atau penggunaan kendaraan serta pencurian atau kerusakan kendaraan (38,7 persen pada 2020, 43,0 persen pada 1960)</li>
-  <li><b>Liability insurance (selain auto)</b>, melindungi individu atau perusahaan komersial dari liabilitas hukum yang tidak terkait kendaraan, termasuk liabilitas operasi bisnis dan bahaya product liability (11,8 persen pada 2020, 6,6 persen pada 1960)</li>
-</ul>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Mutual insurers: owned by policyholders; profits distributed as policy dividends.</li>
+    <li>Stock insurers: owned by shareholders; profits distributed as stock dividends.</li>
+    <li>Conversion to stock ownership provides access to equity capital markets.</li>
+  </ul>
+</div>
 
-<h3>3.3 Neraca dan Risiko Underwriting</h3>
-<p>Mirip perusahaan asuransi jiwa, penanggung PC menginvestasikan mayoritas asetnya pada sekuritas jangka panjang, sehingga menghadapi risiko kredit dan suku bunga. Pada 2017, obligasi ($1.006,3 miliar), saham preferen ($5,1 miliar), dan saham biasa ($326,6 miliar) merupakan 65,7 persen dari total aset. Penanggung PC memegang aset jangka panjang terutama untuk dua alasan, yaitu (1) mencocokkan jatuh tempo liabilitas kontraktual jangka panjang, dan (2) karena pembayaran kontrak asuransi mereka lebih tidak pasti (risiko likuiditas lebih besar), struktur aset mereka mencakup banyak aset dengan imbal hasil relatif tetap yang dapat dilikuidasi dengan mudah dan biaya rendah. Pada sisi liabilitas, komponen utama adalah <i>loss reserve dan loss adjustment expenses</i> ($658,8 miliar) yang disisihkan untuk memenuhi kerugian yang diharapkan dari underwriting dan beban administrasi, merupakan 32,3 persen dari total liabilitas dan modal. <i>Unearned premiums</i> (cadangan yang berisi bagian premi yang dibayar sebelum perlindungan asuransi diberikan) juga liabilitas utama, mewakili 12,7 persen dari total liabilitas dan modal.</p>
-<p><b>Risiko underwriting PC</b> terjadi ketika premi yang dihasilkan pada jalur asuransi tertentu tidak cukup untuk menutupi (1) klaim (kerugian) yang timbul dari penjaminan bahaya dan (2) beban administrasi penyediaan asuransi (biaya hukum, komisi, pajak, dan lain-lain), setelah memperhitungkan (3) pendapatan investasi yang dihasilkan antara saat premi diterima dan saat klaim dibayar. Dengan demikian, risiko underwriting dapat berasal dari kenaikan tak terduga tingkat kerugian, kenaikan tak terduga beban, dan atau penurunan tak terduga imbal hasil investasi.</p>
+<h2 id="section3">3. Types of Life Insurance Policies</h2>
 
-<h4>3.3.1 Risiko Kerugian (Loss Risk)</h4>
-<p>Fitur kunci eksposur klaim adalah keterprediksian aktuarial kerugian relatif terhadap premi yang diperoleh, yang bergantung pada beberapa karakteristik bahaya yang diasuransikan.</p>
-<ul>
-  <li><b>Properti versus liabilitas</b>, tingkat kerugian maksimum lebih dapat diprediksi untuk jalur properti daripada liabilitas, misalnya nilai kerugian mobil relatif mudah dihitung sementara batas atas kerugian product liability, seperti kerusakan asbes pada kesehatan pekerja, sulit diperkirakan</li>
-  <li><b>Severity versus frequency</b>, tingkat kerugian lebih dapat diprediksi pada jalur severity rendah dan frekuensi tinggi (misalnya kebakaran, auto, homeowners) di mana hukum bilangan besar berlaku, dibandingkan jalur severity tinggi dan frekuensi rendah (misalnya gempa bumi, badai, financial guaranty) di mana probabilitas tidak selalu stasioner, risiko individu tidak independen, dan severity kerugian bisa sangat besar. Di bawah program asuransi terorisme federal 2002, pemerintah bertanggung jawab atas 90 persen kerugian industri asuransi dari insiden teroris masa depan yang melebihi jumlah minimum, dengan kerugian pemerintah dibatasi $100 miliar per tahun, dan pada 2017 setiap penanggung memiliki jumlah maksimum yang akan dibayar sebelum bantuan federal, yaitu 18 persen dari premi properti-kecelakaan komersial perusahaan</li>
-  <li><b>Long tail versus short tail</b>, beberapa jalur liabilitas menderita eksposur long-tail di mana peristiwa terjadi selama periode perlindungan tetapi klaim tidak diajukan sampai bertahun-tahun kemudian, misalnya kasus Dalkon shield dan asbes, dengan Halliburton pada 2002 setuju membayar $4 miliar tunai dan saham serta mencari perlindungan kebangkrutan untuk anak perusahaan (KBR) guna menyelesaikan lebih dari 300.000 klaim asbes, dan perusahaan asuransi setuju mengganti Halliburton $1,5 miliar untuk biaya penyelesaian kasus asbes pada akhir 2004</li>
-  <li><b>Product inflation versus social inflation</b>, tingkat kerugian semua polis properti PC dipengaruhi buruk oleh kenaikan inflasi tak terduga (misalnya guncangan harga minyak 1973, 1978, dan 2008), dan jalur liabilitas dapat tunduk pada social inflation, yaitu kesediaan juri memberikan ganti rugi punitif jauh di atas tingkat inflasi, terutama lazim pada asuransi liabilitas komersial dan medical malpractice</li>
-</ul>
+<div class="interpretation">
+  <p>Life insurance policies are classified by how they are sold: <strong>ordinary life</strong> (individual policies), <strong>group life</strong> (single policy covering many people), <strong>industrial life</strong> (weekly payments collected by agents), and <strong>credit life</strong> (protects lenders against borrower death). In 2020, ordinary life accounted for 78.7 percent of direct premiums, group life for 20.9 percent, and industrial and credit life together for less than 1 percent.</p>
+</div>
 
-<h4>3.3.2 Reasuransi dan Catastrophe Bonds</h4>
-<p>Alternatif untuk mengelola risiko pada neraca penanggung PC adalah membeli <b>reasuransi</b> dari perusahaan reasuransi, yang pada dasarnya adalah asuransi untuk perusahaan asuransi. Reasuransi memungkinkan penanggung primer melindungi diri dari kerugian tak terduga atau luar biasa, meningkatkan posisi modal, memperluas bisnis, membatasi kerugian, dan menstabilkan arus kas. Sekitar 75 persen bisnis reasuransi yang berasal dari perusahaan asuransi AS ditulis oleh reasuransi non-AS seperti Munich Re dan Swiss Re. Setelah Hurricane Andrew dan Northridge Earthquake pada pertengahan 1990-an, beberapa penanggung terpaksa bangkrut dan kapasitas reasuransi mengering, sehingga penanggung dan reasuransi mulai menerbitkan <b>catastrophe bonds</b> yang pasarnya tumbuh pesat sejak itu. Catastrophe bonds berfungsi seperti kontrak reasuransi yang disusun selama beberapa tahun atau satu tahun, di mana ketika kerugian kerusakan properti sponsor melebihi pemicu indemnity tertentu (misalnya $2 juta), obligasi menyerap dampak finansial hingga batas yang dinyatakan (misalnya $3 juta), dan kerugian lain dipatok pada pemicu parametrik seperti magnitudo gempa atau kecepatan angin. Catastrophe bonds juga memberikan nilai bagi investor karena imbal hasilnya umumnya lebih tinggi daripada obligasi tradisional dan menawarkan manfaat diversifikasi portofolio karena risiko kerusakan properti katastropik tidak berkorelasi dengan risiko kelas aset lain. Tantangan potensial bagi pasar catastrophe bonds adalah kenaikan suku bunga yang dapat mengurangi minat investor.</p>
+<h3>3.1 Ordinary Life Insurance: Traditional Forms</h3>
 
-<h4>3.3.3 Mengukur Risiko Kerugian, Risiko Beban, dan Risiko Imbal Hasil Investasi</h4>
-<p><b>Loss ratio</b> mengukur rasio kerugian yang timbul terhadap premi yang diperoleh (<i>premiums earned</i>, premi yang diterima dan diperoleh karena waktu telah berlalu tanpa klaim diajukan). Loss ratio kurang dari 100 berarti premi yang diperoleh cukup untuk menutupi kerugian yang timbul pada jalur tersebut. Rasio kerugian agregat industri meningkat dari kisaran 60 persen pada 1950-an ke kisaran 70 dan 80 persen pada 1980-an hingga awal 2010-an, dengan rasio 79,4 pada 2011, turun ke 67,4 pada 2013 dan tetap di bawah 70 hingga 2015, lalu naik lagi di atas 70 persen pada 2016 hingga 2020, memuncak di 76,2 persen pada 2017.</p>
-<p>Dua sumber utama <b>risiko beban (expense risk)</b> bagi penanggung PC adalah (1) <i>loss adjustment expenses (LAE)</i>, biaya seputar proses penyelesaian kerugian seperti penyesuai yang menentukan liabilitas penanggung dan ukuran penyelesaian, dan (2) komisi yang dibayarkan kepada broker dan agen asuransi serta biaya lain terkait akuisisi bisnis. Berbeda dari tren kenaikan loss ratio, expense ratio umumnya menurun, sebagian karena peralihan dari distribusi melalui broker independen (metode American agency) ke penjualan langsung melalui broker sendiri (metode direct writer). Pada 2020, beban, yaitu komisi dan lainnya (non-LAE), berjumlah 27,3 persen dari premi yang ditulis.</p>
-<p><b>Combined ratio</b> adalah ukuran umum profitabilitas underwriting keseluruhan sebuah jalur, secara teknis sama dengan loss ratio ditambah rasio LAE terhadap premi yang diperoleh, komisi serta biaya akuisisi lain dan beban umum terhadap premi yang ditulis, ditambah dividen yang dibayarkan kepada pemegang polis sebagai proporsi premi yang diperoleh. Jika combined ratio kurang dari 100, premi saja cukup untuk menutupi baik kerugian maupun beban terkait jalur tersebut, seperti yang terjadi pada 2013 hingga 2015 (95,7, 96,5, dan 97,2). Jika premi tidak cukup dan combined ratio melebihi 100, penanggung PC harus mengandalkan pendapatan investasi atas premi untuk profitabilitas keseluruhan, misalnya combined ratio sebelum dividen 103,9 pada 2017 yang didorong kerugian katastropik lebih tinggi dan pasar auto yang berkinerja buruk.</p>
+<h4>3.1.1 Term Life Insurance</h4>
 
-<h4>Contoh 6-2. Perhitungan Combined Ratio dan Operating Ratio</h4>
-<p>Misalkan loss ratio proyeksi sebuah perusahaan asuransi adalah 79,8 persen, expense ratio 27,9 persen, dan perusahaan membayar 2 persen dari premi yang diperoleh kepada pemegang polis sebagai dividen. Combined ratio setelah dividen adalah</p>
-<div class="eq">\[ \text{Combined ratio} = \text{Loss ratio} + \text{Expense ratio} + \text{Dividend ratio} = 79{,}8 + 27{,}9 + 2{,}0 = 109{,}7 \]</div>
-<p>Kerugian yang diharapkan, beban, dan dividen melebihi premi yang diperoleh sebesar 9,7 persen. Jika portofolio investasi perusahaan menghasilkan 12 persen, operating ratio dan profitabilitas keseluruhan penanggung PC adalah</p>
-<div class="eq">\[ \text{Operating ratio} = \text{Combined ratio setelah dividen} - \text{Investment yield} = 109{,}7 - 12{,}0 = 97{,}7\% \]</div>
-<div class="eq">\[ \text{Profitabilitas keseluruhan} = 100 - \text{Operating ratio} = 100 - 97{,}7 = 2{,}3\% \]</div>
-<p>Imbal hasil investasi yang tinggi (12 persen) membuat penanggung PC menguntungkan secara keseluruhan. Sebagai contoh lain, pada 2012 investment yield penanggung PC adalah 10,5 persen, sehingga operating ratio adalah 92,7 (combined ratio setelah dividen 103,2 dikurangi investment yield 10,5), tetapi imbal hasil investasi bersih yang lebih rendah, misalnya 2,8 persen, akan membuat underwriting asuransi PC sedikit tidak menguntungkan dengan operating ratio 100,4. Karena itu, pengaruh suku bunga dan tingkat gagal bayar pada investasi penanggung PC sangat penting bagi profitabilitas keseluruhan. Pada 2017, obligasi merupakan 49,4 persen dari total aset dan 65,6 persen dari aset keuangan penanggung PC, dan rasio surplus pemegang polis terhadap aset adalah 38,6 persen.</p>
+<div class="interpretation">
+  <p><strong>Term life</strong> is the closest to pure life insurance, with no savings element. The individual receives a payout contingent on death during the coverage period. The term can vary from 1 year to 40 years or more. Premiums are periodic and level. If the insured survives the term, no payout occurs.</p>
+</div>
 
-<h3>3.4 Tren Terkini dan Siklus Underwriting</h3>
-<p>Meskipun katastropi seharusnya acak, periode 1980 hingga 2021 ditandai sejumlah katastropi dengan severity historis tinggi, dan industri mengalami palung siklus underwriting (<i>underwriting cycle</i>) atau kondisi underwriting yang sulit. Sebagian besar periode 1985 hingga 2017 tidak terlalu menguntungkan bagi industri PC, dengan combined ratio 116,2 pada 1987, 115,7 pada 1992, dan 116,0 pada 2001, akibat suksesi katastropi seperti Hurricane Hugo (1989), gempa San Francisco (1991), kebakaran Oakland (1991), dan kerugian hampir $20 miliar dari Hurricane Andrew di Florida. Pada 1994, Northridge earthquake menyebabkan kerugian diperkirakan $7 miliar hingga $10 miliar, dan kerugian terkait El Niño mendorong combined ratio naik ke 105,6 pada 1998, 107,9 pada 1999 (dengan $3,4 miliar dibayarkan untuk klaim asbes, pembayaran terbesar yang pernah ada), dan 110,5 pada 2000.</p>
-<p>Serangan teroris 11 September 2001 menambah beban besar dengan perkiraan biaya awal setinggi $19 miliar bagi perusahaan asuransi, dan hanya 10 persen kerugian yang dilaporkan pada 2001, namun kerugian menambah sekitar 4 poin persentase pada combined ratio setelah dividen 116,0. Pemerintah AS mengusulkan membayar mayoritas kerugian industri dengan membatasi liabilitas penanggung 2002 pada $12 miliar, 2003 pada $23 miliar, dan 2004 pada $36 miliar. Setelah beberapa tahun yang penuh gejolak, 2003 melihat profitabilitas industri PC membaik dengan combined ratio setelah dividen 100,1, hasil terbaik sejak 1979. Pada 2004, empat badai besar (Charley, Frances, Ivan, dan Jeanne) menyebabkan kerugian diperkirakan $25 miliar, namun industri tetap mencatat tahun menguntungkan pertama sejak 1960-an dengan combined ratio 98,7. Pada 2005, kerugian katastropi $57,7 miliar terutama dari musim badai rekor yang mencakup Katrina, Wilma, dan Rita menaikkan combined ratio ke 100,9, mendorong Allstate dan State Farm berhenti menulis polis pemilik rumah baru. Pada 2006 dan 2007, tingkat kerugian katastropik kecil dikombinasikan kinerja kuat di hampir semua jalur utama menghasilkan combined ratio 92,4 (kinerja underwriting terbaik sejak 1936) dan 95,6.</p>
-<p>Kerugian naik signifikan pada 2008 hingga 2012 karena lonjakan kerugian katastropi, termasuk $12,5 miliar dari Hurricane Ike, $18,8 miliar dari Hurricane Sandy, dan $14,2 miliar dari tornado Midwest, serta kerugian di segmen KPR dan financial guaranty terkait krisis keuangan, yang mengalami kerugian 194,6 dan 136,6 persen dari premi yang ditulis pada 2012, turun dari 214,6 dan 416,9 persen pada 2008. Kerugian ini mendorong combined ratio 2008 ke 105,1. Pada 2011, kerugian katastropi yang diasuransikan total $25,0 miliar, net income setelah pajak turun 46 persen menjadi $19,2 miliar, dan combined ratio industri naik ke 107,8, tertinggi sejak 2001. Profitabilitas industri PC melonjak ke level tertinggi era pasca-krisis pada 2013 hingga 2015 dengan premi bersih yang ditulis $546 miliar pada 2013 dan rekor $570 miliar pada 2014, dan combined ratio turun tahunan ke 96,3, 97,0, dan 97,6. Namun 2016 dan 2017 mencatat dua tahun beruntun kerugian underwriting, dengan kerugian 2017 lebih dari tiga kali lipat 2016, termasuk perkiraan $19 miliar untuk Hurricane Harvey, $25 miliar untuk Irma, dan $30 miliar untuk Maria, sehingga combined ratio 2017 menjadi 103,9. Meskipun dampak kerugian katastropi dan COVID-19 pada 2020, combined ratio industri PC membaik menjadi 99,1, 98,7, dan 98,7 pada 2018, 2019, dan 2020, terutama karena pertumbuhan premi yang berkelanjutan, pelepasan cadangan tahun sebelumnya, dan biaya kerugian pasar auto yang lebih rendah.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Term life provides pure mortality protection only.</strong> There is no cash value accumulation. This makes it the most cost-effective form of life insurance for a given level of death benefit, but it provides no savings or investment component.</p>
+</div>
 
-<h3>3.5 Regulasi Asuransi PC</h3>
-<p>Sama seperti perusahaan asuransi jiwa, penanggung PC diberi piagam oleh negara bagian dan diatur oleh komisi negara bagian, dengan dana jaminan negara bagian memberikan perlindungan kepada pemegang polis jika perusahaan asuransi gagal. NAIC menyediakan berbagai layanan kepada komisi regulasi negara bagian, termasuk sistem pemeriksaan standar dan <i>Insurance Regulatory Information System (IRIS)</i> untuk mengidentifikasi penanggung dengan rasio kerugian, combined, dan rasio lain di luar kisaran normal. Beban tambahan yang dihadapi penanggung PC di beberapa jalur aktivitas, terutama asuransi auto dan workers' compensation, adalah regulasi tarif, di mana komisi negara bagian menetapkan batas atas premi dan kenaikan premi berdasarkan formula biaya modal dan eksposur risiko jalur tertentu, yang mendorong beberapa penanggung meninggalkan negara bagian seperti New Jersey, Florida, dan California yang memiliki regulasi paling ketat. Industri juga diserang atas cara menangani klaim pemilik rumah terkait Hurricane Katrina, dengan penanggung bersikeras bahwa storm surge diklasifikasikan sebagai banjir dan karena itu dikecualikan dari perlindungan, tetapi vonis Januari 2007 mengharuskan State Farm bertanggung jawab atas batas polis yang totalnya lebih dari $220.000 untuk setiap kerugian yang dianggap karena storm-surge flooding, sekaligus bertanggung jawab atas ganti rugi punitif.</p>
+<h4>3.1.2 Whole Life Insurance</h4>
 
-<h2>4. Isu Global</h2>
-<p>Seperti sektor lain industri lembaga keuangan, sektor asuransi menjadi semakin global, dengan Amerika Serikat, Jepang, dan Eropa barat mendominasi pasar global. Pada 2020, negara teratas berdasarkan total premi yang ditulis adalah AS ($2.530,6 miliar, pangsa pasar global 40,3 persen), China ($655,9 miliar, 10,4 persen), Jepang ($414,8 miliar, 6,6 persen), Inggris ($338,3 miliar, 5,4 persen), Jerman ($258,6 miliar, 4,1 persen), dan Prancis ($231,3 miliar, 3,7 persen). Perusahaan asuransi terbesar dunia berdasarkan premi bersih yang ditulis 2020 adalah UnitedHealth Group Inc. ($201,5 miliar), Ping An Ins Co of China Ltd. ($118,8 miliar), China Life Insurance Company ($111,2 miliar), Centene Corporation ($107,4 miliar), dan Anthem Inc. ($105,7 miliar).</p>
-<p>Secara dunia, 2011 adalah tahun buruk bagi penanggung jiwa dan PC, dengan kerugian katastropi terburuk yang pernah tercatat, termasuk gempa dan tsunami Jepang (kerugian diasuransikan $40 miliar), gempa di Selandia Baru ($13 miliar), banjir di Thailand ($10 miliar), dan serangkaian tornado parah di AS ($14,2 miliar), semuanya berkontribusi pada $350 miliar kerugian bencana. Kerugian diasuransikan dunia 2012 adalah 36 persen lebih tinggi daripada rata-rata 10 tahun ($81 miliar versus $53 miliar). Kerugian diasuransikan global turun ke $45 miliar pada 2013 dan $27 miliar pada 2015, tahun dengan kerugian katastropi terendah sejak 2009. Namun pada 2017, kerugian diasuransikan dunia mencapai $144 miliar, tertinggi yang pernah tercatat menurut Swiss Re, naik dari $56 miliar pada 2016 dan di atas rata-rata tahunan $58 miliar yang disesuaikan inflasi dari 10 tahun sebelumnya, berdasarkan pembayaran terkait tiga badai besar di AS (Harvey, Irma, dan Maria), kebakaran hutan di California, dan banyak badai petir serta angin kencang. Menurut Munich Re, bencana alam dunia menyebabkan kerugian total $280 miliar pada 2021, naik dramatis dari $210 miliar pada 2020 dan $166 miliar pada 2019, dengan sekitar $120 miliar diasuransikan, dan AS menyumbang sekitar $145 miliar dari total kerugian dengan sekitar $85 miliar diasuransikan.</p>
+<div class="interpretation">
+  <p><strong>Whole life</strong> protects the individual over an entire lifetime. In return for periodic (level) premiums, the beneficiaries receive the face value of the policy upon death. Unlike term insurance, there is certainty that if premiums are maintained, the insurer will pay out. Whole life has both a <strong>pure insurance element</strong> and a <strong>savings element</strong>. The savings component accumulates as cash value that the policyholder can borrow against or withdraw.</p>
+</div>
 
-<h2>5. Perhitungan dan Rumus Kunci</h2>
+<h4>3.1.3 Endowment Life Insurance</h4>
 
-<h3>5.1 Nilai Wajar Anuitas</h3>
-<div class="eq">\[ \text{Nilai wajar} = \sum_{t=1}^{n} \frac{CF}{(1+r)^t} = CF \times \text{PVIFA}_{r,n} \]</div>
-<p>dengan CF adalah pembayaran tahunan, r suku bunga terjamin, dan n perkiraan tahun hidup. Contoh, $15.000 per tahun selama 25 tahun pada 5 persen menghasilkan nilai wajar $15.000 kali 14,0939, yaitu $211.409.</p>
+<div class="interpretation">
+  <p><strong>Endowment life</strong> combines a pure (term) insurance element with a savings element. It guarantees a payout to beneficiaries if death occurs during the endowment period (e.g., before retirement age). An insured who lives to the endowment date receives the face amount of the policy. This creates a forced savings mechanism with a guaranteed payout at maturity.</p>
+</div>
 
-<h3>5.2 Loss Ratio</h3>
-<div class="eq">\[ \text{Loss ratio} = \frac{\text{Kerugian yang timbul}}{\text{Premi yang diperoleh}} \]</div>
-<p>Loss ratio mengukur kerugian aktual yang timbul pada sebuah jalur, dan nilai kurang dari 100 berarti premi yang diperoleh cukup menutupi kerugian. Loss ratio 2020 adalah 70,2 dan 2011 adalah 79,4.</p>
+<h3>3.2 Ordinary Life Insurance: Newer Forms</h3>
 
-<h3>5.3 Expense Ratio</h3>
-<div class="eq">\[ \text{Expense ratio} = \frac{\text{Beban (komisi dan lainnya)}}{\text{Premi yang ditulis}} \]</div>
-<p>Pada 2020, expense ratio adalah 27,3 persen dari premi yang ditulis, dan tren jangka panjangnya menurun karena peralihan ke metode direct writer.</p>
+<h4>3.2.1 Variable Life Insurance</h4>
 
-<h3>5.4 Combined Ratio</h3>
-<div class="eq">\[ \text{Combined ratio} = \text{Loss ratio} + \text{Expense ratio} + \text{Dividend ratio} \]</div>
-<p>Jika combined ratio kurang dari 100, premi saja cukup menutupi kerugian dan beban. Contoh, 79,8 + 27,9 + 2,0 = 109,7, artinya kerugian, beban, dan dividen melebihi premi yang diperoleh sebesar 9,7 persen.</p>
+<div class="interpretation">
+  <p><strong>Variable life</strong> invests fixed premium payments in mutual funds of stocks, bonds, and money market instruments. Policyholders can choose mutual fund investments to reflect their risk preferences. Unlike traditional policies that pay a fixed face amount, the value of a variable life policy increases or decreases with the asset returns of the underlying mutual fund. This provides an alternative way to build savings compared with traditional whole life policies.</p>
+</div>
 
-<h3>5.5 Operating Ratio</h3>
-<div class="eq">\[ \text{Operating ratio} = \text{Combined ratio setelah dividen} - \text{Investment yield} \]</div>
-<div class="eq">\[ \text{Profitabilitas keseluruhan} = 100 - \text{Operating ratio} \]</div>
-<p>Contoh, combined ratio 109,7 dengan investment yield 12 persen menghasilkan operating ratio 97,7 dan profitabilitas keseluruhan 2,3 persen. Pada 2015, investment yield 9,5 persen menghasilkan operating ratio 88,1 (97,6 dikurangi 9,5).</p>
+<h4>3.2.2 Universal Life and Variable Universal Life</h4>
 
-<h3>5.6 Data Kunci Lainnya</h3>
-<ul>
-  <li>Perusahaan asuransi jiwa AS, 750 perusahaan dengan aset $8,1 triliun (2020)</li>
-  <li>Premi langsung asuransi jiwa, $188,0 miliar (2020), dengan ordinary life 78,7 persen</li>
-  <li>Penjualan anuitas, $369,7 miliar (2020) versus $26 miliar (1996)</li>
-  <li>Aset industri PC, $2,0 triliun (2020), dengan 2.476 perusahaan</li>
-  <li>Bailout AIG, $127 miliar total (termasuk $45 miliar TARP dan pinjaman jembatan $44 miliar)</li>
-  <li>Perlindungan dana jaminan negara bagian, pemegang polis kecil $100.000 hingga $500.000 versus asuransi deposito $250.000</li>
-  <li>Program asuransi terorisme federal 2002, pemerintah menanggung 90 persen kerugian di atas minimum dengan batas $100 miliar per tahun</li>
-</ul>
+<div class="interpretation">
+  <p><strong>Universal life</strong> allows both the premium amounts and the maturity of the contract to be changed by the insured, unlike traditional policies that maintain fixed premiums over a fixed contract period. For some contracts, insurers invest premiums in money market, equity, or bond mutual funds—as in variable life insurance—so that the savings component reflects market returns. In this case, the policy is called <strong>variable universal life</strong>.</p>
+</div>
 
-<h2>6. Ringkasan dan Kesimpulan</h2>
-<p>Bab ini mengkaji aktivitas dan regulasi perusahaan asuransi. Bagian pertama membahas berbagai kelas asuransi jiwa dan tren terkini, termasuk lima bentuk kontraktual ordinary life, group life, industrial life, dan credit life, serta aktivitas lain seperti anuitas, rencana pensiun swasta, dan asuransi kecelakaan dan kesehatan. Bagian kedua membahas perusahaan properti-kecelakaan, dengan berbagai jalur yang membentuk asuransi PC semakin kabur karena penawaran perlindungan multi-jalur, dan tiga sumber risiko underwriting, yaitu risiko kerugian, risiko beban, dan risiko imbal hasil investasi, yang diukur melalui loss ratio, expense ratio, combined ratio, dan operating ratio.</p>
-<p>Baik perusahaan asuransi jiwa maupun PC diatur di tingkat negara bagian, bukan federal, berdasarkan McCarran-Ferguson Act 1945, dengan pengawasan tambahan dari FIO dan Federal Reserve setelah krisis keuangan, dan keduanya dilindungi oleh dana jaminan negara bagian yang berbeda dari asuransi deposito federal. Krisis keuangan menunjukkan risiko sistemik yang dapat ditimbulkan perusahaan asuransi, seperti yang terjadi pada AIG, sementara tren global menunjukkan konsolidasi industri, meningkatnya frekuensi dan severity katastropi yang mendorong inovasi seperti catastrophe bonds, dan kedua jenis perusahaan asuransi menghadapi ancaman dari perusahaan jasa keuangan lain yang menawarkan produk serupa atau kompetitif.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Term life: pure insurance, no savings element, payout only on death during term.</li>
+    <li>Whole life: lifelong coverage, fixed premiums, includes savings component (cash value).</li>
+    <li>Endowment life: insurance plus savings, pays face value at death or at endowment date.</li>
+    <li>Variable life: premiums invested in mutual funds, policy value fluctuates with market returns.</li>
+    <li>Universal life: flexible premiums and maturity; variable universal life adds market-linked investment.</li>
+  </ul>
+</div>
 
-<h2>7. Pertanyaan Konsep untuk Latihan</h2>
-<ol>
-  <li>Apa fungsi utama perusahaan asuransi, dan bagaimana dibandingkan dengan fungsi utama lembaga depositori?</li>
-  <li>Apa masalah <i>adverse selection</i>, dan bagaimana pengaruhnya terhadap pengelolaan menguntungkan perusahaan asuransi?</li>
-  <li>Apa persamaan dan perbedaan di antara empat jalur dasar produk asuransi jiwa?</li>
-  <li>Jelaskan bagaimana aktivitas anuitas merupakan kebalikan dari aktivitas asuransi jiwa</li>
-  <li>Apa perbedaan antara kontrak asuransi jiwa dan kontrak anuitas?</li>
-  <li>Mengapa perusahaan asuransi jiwa berinvestasi pada aset jangka panjang, dan apa sumber utama risiko underwriting asuransi jiwa?</li>
-  <li>Bagaimana komposisi aset perusahaan asuransi jiwa AS berubah seiring waktu (Tabel 6-2 bab)?</li>
-  <li>Mengapa penanggung PC memegang lebih banyak modal dan cadangan daripada penanggung jiwa, dan mengapa aset penanggung jiwa rata-rata lebih panjang jatuh temponya daripada penanggung PC?</li>
-  <li>Apa tiga sumber risiko underwriting di industri asuransi properti-kecelakaan?</li>
-  <li>Apa komponen combined ratio, dan bagaimana operating ratio berbeda dari combined ratio?</li>
-  <li>Mengapa combined ratio cenderung berperilaku siklis?</li>
-  <li>Bagaimana regulasi perusahaan asuransi berbeda dari regulasi lembaga depositori, dan bagaimana dana jaminan negara bagian dibandingkan dengan asuransi deposito?</li>
-</ol>
+<h3>3.3 Group Life, Industrial Life, and Credit Life</h3>
 
-<p class="note">Catatan teknis, persamaan matematis pada halaman ini dirender dengan MathJax dan membutuhkan koneksi internet saat pertama kali dibuka. Untuk mencetak atau menyimpan sebagai PDF, gunakan tombol Cetak di bagian atas. Dokumen ini adalah ringkasan belajar mandiri dan bukan pengganti buku teks asli.</p>
+<div class="interpretation">
+  <p><strong>Group life insurance</strong> covers a large number of insured persons under a single policy, usually issued to corporate employers. Policies may be <strong>contributory</strong> (employer and employee share the cost) or <strong>noncontributory</strong> (employer pays entirely). Cost economies are the principal advantage: mass administration, lower medical screening costs, and reduced selling and commission costs.</p>
+  <p><strong>Industrial life insurance</strong> involves weekly payments directly collected by company representatives. It represents a very small area of coverage today, largely displaced by the growth of group life insurance.</p>
+  <p><strong>Credit life insurance</strong> protects lenders against a borrower's death before repayment of a debt contract such as a mortgage or car loan. The face amount typically reflects the outstanding principal and interest on the loan.</p>
+</div>
 
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Group life: single policy covering many individuals; cost-efficient due to economies of scale.</li>
+    <li>Industrial life: weekly premium collections; now negligible in market share.</li>
+    <li>Credit life: protects lenders; face amount equals outstanding loan balance.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Other Life Insurer Activities</h2>
+
+<h3>4.1 Annuities</h3>
+
+<div class="interpretation">
+  <p><strong>Annuities</strong> represent the reverse of life insurance activities. While life insurance involves building up a fund (accumulation), annuities involve liquidating a fund (distribution). Annuities can be sold to individuals or groups on a fixed or variable basis, linked to the return on an underlying investment portfolio. Individuals can purchase annuities with a single payment or with payments spread over years. The annuity builds up a fund whose returns are <strong>tax deferred</strong> (not subject to capital gains taxes during accumulation). Payments may be structured to start immediately or be deferred (at which time taxes are paid based on the income tax rate of the receiver). Payments may cease on death or continue to beneficiaries for a number of years after death.</p>
+</div>
+
+<div class="interpretation">
+  <p>Life insurance and annuity products can be used together: a life insurance policy (whole life or universal life) requires regular premium payments and provides a lump-sum death benefit. Upon receipt of that lump sum, a single annuity could be purchased to generate regular cash payments until the value is depleted. This creates a steady stream of cash disbursements without requiring a single lump-sum payment.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Fair Value of an Annuity Policy</span>
+  <div class="formula">\[ \text{Fair value} = \frac{15,000}{1+r} + \frac{15,000}{(1+r)^2} + \cdots + \frac{15,000}{(1+r)^{25}} = 15,000 \times \text{PVA}_{i=10\%, n=25} = 15,000 \times 14.0939 = \$211,409 \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Explanation of symbols:</strong> <i>r</i> = guaranteed interest rate (5 percent in the example). <i>PVA</i> = present value annuity factor. The fair value is the sum of discounted expected future payments. The equation shows that the cost of purchasing an annuity today equals the present value of all expected future payments, discounted at the guaranteed interest rate the insurer can earn on the invested premiums.</p>
+  <p><strong>Interpretation:</strong> If a person wants to receive $15,000 per year for 25 years (their expected remaining lifespan), and the insurer can earn 5 percent on invested funds, the fair price today is $211,409. This is the single premium the person must pay to receive the stream of payments.</p>
+  <p><strong>Practical use:</strong> This calculation is used to price annuity contracts. The higher the guaranteed interest rate, the lower the premium required to generate a given payment stream. The longer the expected lifespan, the higher the premium because more payments will be made.</p>
+  <p><strong>Assumptions:</strong> The calculation assumes the person lives exactly 25 years. If the person lives longer, the insurer must continue payments beyond the expected period, creating longevity risk. If the person dies earlier, the insurer keeps the remaining funds.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>A 65-year-old person wants to purchase an annuity paying $20,000 per year for life. The insurer expects the person to live 15 more years and can earn 6 percent. The fair price is $20,000 × PVA<sub>6%,15</sub> = $20,000 × 9.7122 = $194,244. A healthier 65-year-old expected to live 20 years would be charged $20,000 × PVA<sub>6%,20</sub> = $20,000 × 11.4699 = $229,398. The healthier person pays more because they are expected to receive more payments.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Annuities have become the primary business of many life insurance companies, surpassing traditional life insurance.</strong> In 2020, annuity sales (direct premiums written) topped $369.7 billion, twice the $188.0 billion in traditional life insurance sales. This shift reflects the growing demand for retirement income products.</p>
+</div>
+
+<h3>4.2 Private Pension Plans</h3>
+
+<div class="interpretation">
+  <p>Insurance companies offer alternative pension plans to private employers, competing with commercial banks and securities firms. Innovative pension plans are based on <strong>guaranteed investment contracts (GICs)</strong>, where the insurer guarantees both the interest rate credited to the pension plan over a given period (e.g., five years) and the annuity rates on beneficiaries' contracts. Other plans include <strong>immediate participation</strong> and <strong>separate account plans</strong> that follow more aggressive investment strategies, such as investing premiums in special-purpose equity mutual funds.</p>
+</div>
+
+<h3>4.3 Accident and Health Insurance</h3>
+
+<div class="interpretation">
+  <p><strong>Accident and health insurance</strong> protects against morbidity (ill health) risk, as opposed to life insurance which protects against mortality risk. In 2020, more than $209.8 billion in direct premiums were written by life and health companies in this area. The major activity line is group insurance, providing health insurance coverage to corporate employees. Life insurance companies write more than 50 percent of all health insurance premiums.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Annuities are the reverse of life insurance: they liquidate a fund rather than build one up.</li>
+    <li>Annuity fair value = present value of expected future payments, discounted at the guaranteed interest rate.</li>
+    <li>Tax deferral is a key feature of annuity products.</li>
+    <li>GICs allow insurers to compete for pension fund business by guaranteeing both interest rates and annuity rates.</li>
+    <li>Accident and health insurance protects against morbidity risk; group insurance is the dominant line.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. Life Insurance Balance Sheet and Recent Trends</h2>
+
+<h3>5.1 Assets</h3>
+
+<div class="interpretation">
+  <p>Because of the long-term nature of their liabilities (life insurance policyholders' claims are long-term) and the need to generate competitive returns on the savings elements of life insurance products, life insurance companies concentrate their asset investments at the longer end of the maturity spectrum. In 2020, 6.1 percent of assets were invested in government securities, 64.9 percent in corporate bonds and stocks, and 7.9 percent in mortgages. <strong>Policy loans</strong> (loans made to policyholders using their policies as collateral) constituted a smaller portion.</p>
+</div>
+
+<div class="interpretation">
+  <p>Insurance companies hold mortgages as investment securities—they purchase mortgages in secondary markets rather than originating them. Major trends include a long-term increase in the proportion of bonds and equities and a decline in the proportion of mortgages. Insurance company managers must measure and manage credit risk, interest rate risk, and other risks associated with these securities.</p>
+</div>
+
+<h3>5.2 Liabilities</h3>
+
+<div class="interpretation">
+  <p>On the liability side, <strong>policy reserves</strong> ($3,355.7 billion, or 41.2 percent of total liabilities and capital) represent the expected payment commitment on existing policy contracts. These reserves are based on actuarial assumptions regarding expected future liability commitments, including death benefits, matured endowments, and <strong>cash surrender values</strong> (the cash value paid to the policyholder if the policy is surrendered before maturity).</p>
+</div>
+
+<div class="interpretation">
+  <p>Even though actuarial assumptions are normally very conservative, unexpected fluctuations in future required payouts can occur. Underwriting life insurance is risky because mortality rates might unexpectedly increase above historically based mortality tables due to events such as a catastrophic epidemic (e.g., AIDS or widespread influenza). To meet unexpected future losses, the life insurer holds a <strong>capital and surplus reserve fund</strong>. In 2020, capital and surplus reserves were $450.6 billion, or 5.5 percent of total assets.</p>
+</div>
+
+<div class="interpretation">
+  <p><strong>Separate accounts</strong> (37.8 percent of total liabilities and capital in 2020) are funds established and held separately from the insurance company's other funds. These funds may be invested without regard to usual diversification restrictions (e.g., all stocks or all bonds). The payoff on the life insurance policy depends on the return on the funds in the separate account. Separate account assets also appear on the asset side of the balance sheet.</p>
+</div>
+
+<h3>5.3 Profitability and Recent Trends</h3>
+
+<div class="interpretation">
+  <p>Insurance companies earn profits by taking in more premium income than they pay out in policy payments. Firms can increase their spread between premium income and policy payouts in two ways: (1) decrease future required payouts for any given level of premium payments (by reducing the risk of the insured pool, provided policyholders do not demand premium rebates that fully reflect lower expected payouts), and (2) increase the profitability of interest income on net policy reserves. Since insurance liabilities are typically long-term, the insurer has long periods to invest premium payments in interest-earning asset portfolios. The higher the yield on investments, the greater the difference between premium income and policy payouts (except for variable life insurance).</p>
+</div>
+
+<div class="interpretation">
+  <p>The financial crisis severely impacted life insurers. The value of stocks and bonds in asset portfolios dropped as financial markets deteriorated. Losses were experienced on commercial mortgage-backed securities, commercial loans, and lower-grade corporate debt. Lower equity market values reduced asset-based fees earned on equity-linked products such as variable annuities. Government bond yields fell as investors fled to safety, and historically low short-term interest rates prevented insurers from lowering minimum rates on new policies, encouraging higher surrender rates on existing policies. The result was a net after-tax loss of –$51.8 billion in 2008. The Treasury Department extended bailout funds, most notably $127 billion to AIG. By 2020, net income had recovered to $22.2 billion, though this was down 50.5 percent from 2019.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Life insurers invest in long-term assets (bonds, stocks, mortgages) to match long-term liabilities.</li>
+    <li>Policy reserves are the largest liability, based on actuarial assumptions about future payouts.</li>
+    <li>Separate accounts link policy payouts to underlying investment performance.</li>
+    <li>Profitability depends on the spread between premium income and policy payouts, plus investment returns.</li>
+    <li>The financial crisis demonstrated that asset value declines can severely threaten insurer solvency.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Regulation of Life Insurance</h2>
+
+<div class="interpretation">
+  <p>The <strong>McCarran-Ferguson Act of 1945</strong> confirms the primacy of state over federal regulation of insurance companies. Unlike depository institutions, which can be chartered at the federal or state level, chartering of life insurers is done entirely at the state level. State insurance commissions supervise and examine insurance companies using a coordinated examination system developed by the <strong>National Association of Insurance Commissioners (NAIC)</strong>.</p>
+</div>
+
+<div class="interpretation">
+  <p>The <strong>Wall Street Reform and Consumer Protection Act of 2010</strong> established the <strong>Federal Insurance Office (FIO)</strong>, which reports to Congress and the president on insurance industry matters. While state regulation remains primary, the FIO has authority to monitor the insurance industry, identify regulatory gaps or systemic risk, deal with international insurance matters, and monitor access to affordable insurance products. The Act also established the <strong>Financial Stability Oversight Council (FSOC)</strong>, which designates financial institutions (including insurance companies) that present systemic risk for greater regulation.</p>
+</div>
+
+<div class="interpretation">
+  <p>The Federal Reserve became a major supervisor of insurance firms through designation of insurers as "systemically important financial institutions" (SIFIs). AIG, Prudential Financial, and MetLife were designated as SIFIs, though all three were subsequently de-designated (MetLife in 2016, AIG in 2017, Prudential in 2018). As of 2018, no nonbank currently holds the SIFI label. The Fed also supervises insurance companies that own savings institutions.</p>
+</div>
+
+<h3>6.1 State Guarantee Funds</h3>
+
+<div class="interpretation">
+  <p>States promote <strong>life insurance guarantee funds</strong> to protect policyholders in the event of insurer failure. These differ from deposit insurance in several important ways:</p>
+  <ul>
+    <li>They are sponsored by state regulators but run and administered by private insurance companies themselves.</li>
+    <li>No permanent guarantee fund exists (except in New York); contributions are paid by surviving firms only after a failure has occurred.</li>
+    <li>Required contributions vary by state; surviving insurers are normally levied a pro rata amount according to the size of their statewide premium income.</li>
+    <li>Because no permanent fund exists and annual pro rata payments are often legally capped, a delay usually occurs before small policyholders receive payment.</li>
+  </ul>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Insurance regulation is primarily at the state level (McCarran-Ferguson Act).</li>
+    <li>The FIO monitors the industry and identifies systemic risk at the federal level.</li>
+    <li>The FSOC can designate insurers as systemically important for enhanced regulation.</li>
+    <li>State guarantee funds differ from deposit insurance: no permanent fund, post-failure assessments, and potential payment delays.</li>
+  </ul>
+</div>
+
+<h2 id="section7">7. Property–Casualty Insurance</h2>
+
+<div class="interpretation">
+  <p><strong>Property insurance</strong> covers loss of real and personal property. <strong>Casualty (liability) insurance</strong> protects against legal liability exposures. The distinctions between these two areas are increasingly blurred as PC insurers offer multiple-activity line coverages combining features of both into single policy packages, such as homeowners multiple-peril insurance.</p>
+</div>
+
+<h3>7.1 Size, Structure, and Composition</h3>
+
+<div class="interpretation">
+  <p>In 2020, approximately 2,476 companies sold property–casualty insurance, with total assets of $2.0 trillion (about 28 percent of the life insurance industry's assets). The industry is concentrated: the top 10 firms hold a 47.6 percent share of the market by direct premiums written, and the top 200 firms make up 96 percent. The top firm (State Farm) wrote 9.1 percent of all PC premiums in 2020, while the second-ranked (Berkshire Hathaway) wrote 6.4 percent. Industry leaders are increasing their market share through mergers and acquisitions.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>PC insurance covers property loss (real and personal property) and liability (legal liability exposures).</li>
+    <li>The industry is concentrated, with the top 10 firms holding nearly half the market.</li>
+    <li>Multiple-peril policies increasingly combine property and liability features.</li>
+  </ul>
+</div>
+
+<h2 id="section8">8. Types of Property–Casualty Insurance</h2>
+
+<div class="interpretation">
+  <p>Important PC lines include the following (with 2020 premium shares):</p>
+  <ul>
+    <li><strong>Fire insurance</strong> (2.2% of premiums): protects against fire, lightning, and removal of property damaged in a fire.</li>
+    <li><strong>Homeowners multiple-peril (MP) insurance</strong> (14.9%): protects against multiple perils to personal dwelling and property, plus liability coverage for legal liability due to injury to others. Combines property and liability features.</li>
+    <li><strong>Commercial multiple-peril insurance</strong> (6.3%): similar to homeowners MP but for commercial firms.</li>
+    <li><strong>Automobile liability and physical damage (PD) insurance</strong> (38.7%): covers legal liability from vehicle ownership/use (auto liability) and theft/damage to vehicles (auto physical damage).</li>
+    <li><strong>Liability insurance (other than auto)</strong> (11.8%): protects individuals or commercial firms against nonautomobile-related legal liability, including business operations liability and product liability hazards.</li>
+  </ul>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Fire insurance: declining share (16.6% in 1960 to 2.2% in 2020).</li>
+    <li>Homeowners MP: growing share (5.2% in 1960 to 14.9% in 2020).</li>
+    <li>Auto insurance (liability + physical damage): largest line at 38.7% of premiums.</li>
+    <li>Liability insurance (other than auto): growing share (6.6% in 1960 to 11.8% in 2020).</li>
+  </ul>
+</div>
+
+<h2 id="section9">9. PC Insurance Balance Sheet and Underwriting Risk</h2>
+
+<h3>9.1 Balance Sheet Structure</h3>
+
+<div class="interpretation">
+  <p>PC insurers invest the majority of their assets in long-term securities, subjecting them to credit and interest rate risks. In 2017, bonds ($1,006.3 billion), preferred stock ($5.1 billion), and common stock ($326.6 billion) constituted 65.7 percent of total assets. PC insurers hold long-term securities for two reasons: (1) to match the maturity of their longer-term contractual liabilities, and (2) because they have more uncertain payouts on insurance contracts (greater liquidity risk), so their asset structure includes many assets with relatively fixed returns that can be liquidated easily and at low cost.</p>
+</div>
+
+<div class="interpretation">
+  <p>The major liability component is the <strong>loss reserve and loss adjustment expenses</strong> ($658.8 billion, 32.3 percent of total liabilities and capital), set aside to meet expected losses from underwriting and administrative expenses. <strong>Unearned premiums</strong> ($258.4 billion, 12.7 percent) are a reserve containing the portion of a premium paid before insurance coverage has been provided.</p>
+</div>
+
+<h3>9.2 Underwriting Risk</h3>
+
+<div class="interpretation">
+  <p><strong>PC underwriting risk</strong> results when premiums generated on a given insurance line are insufficient to cover (1) claims (losses) incurred, (2) administrative expenses (legal expenses, commissions, taxes), after taking into account (3) investment income generated between the time premiums are received and claims are paid. Thus, underwriting risk may result from unexpected increases in loss rates, unexpected increases in expenses, and/or unexpected decreases in investment yields or returns.</p>
+</div>
+
+<h4>9.2.1 Loss Risk</h4>
+
+<div class="interpretation">
+  <p>The predictability of claims loss exposure depends on several characteristics of the perils insured:</p>
+  <ul>
+    <li><strong>Property versus liability:</strong> Maximum levels of losses are more predictable for property lines than for liability lines. The monetary value of a damaged auto is relatively easy to calculate, while the upper limit of losses in a product liability line (e.g., asbestos damage) may be difficult or impossible to estimate.</li>
+    <li><strong>Severity versus frequency:</strong> Loss rates are more predictable on low-severity, high-frequency lines (e.g., fire, auto, homeowners) than on high-severity, low-frequency lines (e.g., earthquake, hurricane, financial guaranty insurance). For high-frequency lines, the law of large numbers allows insurers to estimate expected losses within small probability bounds. For low-frequency lines, probabilities are not always stationary, individual risks are not independent, and severity could be enormous.</li>
+    <li><strong>Long tail versus short tail:</strong> Some liability lines suffer from <strong>long-tail risk</strong>, where the insured event occurs during a coverage period but a claim is not filed until many years later. Losses incurred but not reported (IBNR) have caused significant problems in lines such as medical malpractice and other liability insurance where product damage suits (e.g., Dalkon shield, asbestos) have mushroomed many years after the event occurred.</li>
+    <li><strong>Product inflation versus social inflation:</strong> Loss rates on property policies are adversely affected by unexpected increases in inflation. Liability lines may be subject to <strong>social inflation</strong>, reflected in juries' willingness to award punitive and other liability damages at rates far above the underlying rate of inflation. This has been particularly prevalent in commercial liability and medical malpractice insurance.</li>
+  </ul>
+</div>
+
+<h4>9.2.2 Expense Risk</h4>
+
+<div class="interpretation">
+  <p>The two major sources of expense risk are (1) <strong>loss-adjustment expenses (LAE)</strong>, which relate to the costs of the loss settlement process (e.g., adjusters who determine liability and settlement size), and (2) <strong>commissions and other expenses</strong>, including costs paid to insurance brokers and sales agents. In 2020, expenses amounted to 27.3 percent of premiums written. The secular decline in the expense ratio has been driven by a switch from relying on independent brokers (American agency method) to selling insurance directly through the insurer's own brokers (direct writer method).</p>
+</div>
+
+<h4>9.2.3 Investment Yield/Return Risk</h4>
+
+<div class="interpretation">
+  <p>When the combined ratio exceeds 100, overall profitability can be ensured only by sufficient investment return on premiums earned. PC firms invest premiums in assets between the time they are received and the time they are paid out to meet claims. The effect of interest rates and default rates on PC insurers' investments is crucial to overall profitability. Measuring and managing credit and interest rate risk are key concerns of PC managers.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>PC insurers hold long-term assets (bonds, stocks) to match long-term liabilities, but face greater liquidity risk than life insurers.</li>
+    <li>Loss reserve and loss adjustment expenses are the largest liability.</li>
+    <li>Underwriting risk has three components: loss risk, expense risk, and investment yield risk.</li>
+    <li>Loss risk depends on property vs. liability, severity vs. frequency, long tail vs. short tail, and inflation type.</li>
+    <li>Investment yield risk is critical when combined ratios exceed 100.</li>
+  </ul>
+</div>
+
+<h2 id="section10">10. Measuring Underwriting Performance: Key Ratios</h2>
+
+<h3>10.1 Loss Ratio</h3>
+
+<div class="interpretation">
+  <p><strong>Loss ratio</strong> measures the ratio of losses incurred (including loss-adjustment expenses) to premiums earned. A loss ratio less than 100 means premiums earned were sufficient to cover losses incurred on that line. The aggregate loss ratio for the PC industry has increased from the 60 percent range in the 1950s to the 70–80 percent range in recent decades, with a value of 70.2 percent in 2020.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Loss Ratio</span>
+  <div class="formula">\[ \text{Loss Ratio} = \frac{\text{Losses Incurred}}{\text{Premiums Earned}} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Explanation:</strong> Losses incurred include both pure losses and loss-adjustment expenses. Premiums earned are premiums received and earned on insurance contracts because time has passed with no claim being filed. The loss ratio measures the proportion of premium income consumed by claims and claim-related expenses. A ratio of 70.2 means that for every $100 of premium earned, $70.20 was paid out in losses and loss-adjustment expenses.</p>
+</div>
+
+<h3>10.2 Expense Ratio</h3>
+
+<div class="interpretation">
+  <p><strong>Expense ratio</strong> reflects commissions and other (non-LAE) expenses for PC insurers. In contrast to the increasing trend in the loss ratio, the expense ratio has generally decreased over time, reaching 27.3 percent in 2020.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Expense Ratio</span>
+  <div class="formula">\[ \text{Expense Ratio} = \frac{\text{Commissions and Other Expenses}}{\text{Premiums Written}} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Explanation:</strong> The expense ratio measures the proportion of premium income consumed by acquisition costs (commissions) and other operating expenses. The denominator is premiums written (not earned), reflecting that expenses are incurred when policies are written rather than over the life of the policy.</p>
+</div>
+
+<h3>10.3 Combined Ratio</h3>
+
+<div class="interpretation">
+  <p><strong>Combined ratio</strong> is a common measure of the overall underwriting profitability of a line. It equals the loss ratio plus the ratios of LAE to premiums earned, commissions and other acquisition costs and general expense costs to premiums written, plus any dividends paid to policyholders as a proportion of premiums earned. If the combined ratio is less than 100, premiums alone are sufficient to cover both losses and expenses. If it exceeds 100, the PC insurer must rely on investment income for overall profitability.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Combined Ratio (after dividends)</span>
+  <div class="formula">\[ \text{Combined Ratio} = \text{Loss Ratio} + \text{Expense Ratio} + \text{Dividend Ratio} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Explanation:</strong> The loss ratio includes LAE. The expense ratio includes commissions and other (non-LAE) expenses. The dividend ratio is dividends paid to policyholders divided by premiums earned. If the combined ratio is 109.7, expected losses, expenses, and dividends exceed premiums earned by 9.7 percent. The combined ratio before dividends excludes the dividend ratio.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>An insurance company has a projected loss ratio of 79.8 percent, an expense ratio of 27.9 percent, and pays 2.0 percent of premiums earned as dividends. The combined ratio after dividends = 79.8 + 27.9 + 2.0 = 109.7. Expected losses, expenses, and dividends exceed premiums earned by 9.7 percent.</p>
+</div>
+
+<h3>10.4 Operating Ratio and Overall Profitability</h3>
+
+<div class="interpretation">
+  <p><strong>Operating ratio</strong> measures the overall profitability of a PC insurer. It equals the combined ratio after dividends minus the investment yield (net investment income to premiums earned). If the operating ratio is less than 100, the insurer is profitable overall (investment income compensates for underwriting losses).</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Operating Ratio and Overall Profitability</span>
+  <div class="formula">\[ \text{Operating Ratio} = \text{Combined Ratio (after dividends)} - \text{Investment Yield} \]</div>
+  <div class="formula">\[ \text{Overall Profitability} = 100 - \text{Operating Ratio} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Explanation:</strong> Investment yield is net investment income divided by premiums earned. If the combined ratio is 109.7 and the investment yield is 12.0 percent, the operating ratio = 109.7 – 12.0 = 97.7. Overall profitability = 100 – 97.7 = 2.3 percent. This means the insurer is profitable overall, but only because of high investment returns. If the investment yield were lower (e.g., 2.8 percent), the operating ratio would be 109.7 – 2.8 = 106.9, and overall profitability would be –6.9 percent (a loss).</p>
+  <p><strong>Assumptions:</strong> This calculation assumes that underwriting losses and investment income are the only sources of profit. The operating ratio depends critically on the investment yield, which in turn depends on interest rates, credit conditions, and portfolio allocation.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>In 2012, PC insurers' combined ratio after dividends was 103.2 and investment yield was 10.5 percent, giving an operating ratio of 92.7 (profitable). In 2017, the combined ratio was 103.9. An investment yield of 10.5 percent would give an operating ratio of 93.4 (profitable), but a yield of 2.8 percent would give 101.1 (unprofitable). This illustrates the critical importance of investment returns to PC insurer profitability.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>A combined ratio above 100 does not necessarily mean the insurer is unprofitable.</strong> If investment income is sufficiently high, the operating ratio can still be below 100, meaning the insurer is profitable overall. This is why measuring and managing credit and interest rate risk are key concerns for PC managers.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Loss ratio = losses incurred / premiums earned (measures claim cost relative to premium income).</li>
+    <li>Expense ratio = commissions and other expenses / premiums written (measures operating efficiency).</li>
+    <li>Combined ratio = loss ratio + expense ratio + dividend ratio (measures overall underwriting profitability).</li>
+    <li>Operating ratio = combined ratio − investment yield (measures overall profitability including investment income).</li>
+    <li>If combined ratio < 100, premiums alone cover losses and expenses. If combined ratio > 100, investment income is needed for profitability.</li>
+    <li>Overall profitability = 100 − operating ratio. Positive values indicate profit; negative values indicate loss.</li>
+  </ul>
+</div>
+
+<h2 id="section11">11. Reinsurance and Catastrophe Bonds</h2>
+
+<h3>11.1 Reinsurance</h3>
+
+<div class="interpretation">
+  <p><strong>Reinsurance</strong> is essentially insurance for insurance companies. It allows primary insurers to protect against unforeseen or extraordinary losses. Reinsurance can enable the insurer to improve its capital position, expand its business, limit losses, and stabilize cash flows. The reinsurer, drawing information from many primary insurers, typically has a far larger pool of data for assessing risks. Reinsurance may represent a layer of risk (e.g., losses within certain limits, such as $5 million to $10 million) or a sharing of both losses and profits for certain types of business. About 75 percent of reinsurance business from U.S. insurers is written by non-U.S. reinsurers such as Munich Re and Swiss Re.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Reinsurance is an international business, and large catastrophes can generate losses exceeding the reasonable carrying capacity of the reinsurance industry.</strong> Primary insurers hedging their tail risk face the possibility that when they need coverage most (after a major catastrophe), the entire insurance industry may be heavily affected and the reinsurer may face payment difficulties.</p>
+</div>
+
+<h3>11.2 Catastrophe Bonds</h3>
+
+<div class="interpretation">
+  <p><strong>Catastrophe bonds (cat bonds)</strong> are a form of insurance-linked security (ILS) that emerged after Hurricane Andrew and the Northridge Earthquake in the mid-1990s forced several insurers into bankruptcy and dried up reinsurance capacity. Cat bonds function like a reinsurance contract structured over several years or a single year. When the sponsor's property damage losses exceed a specified indemnity trigger (e.g., $2 million), the bond absorbs the financial impact up to a stated limit (e.g., $3 million). Other cat bonds use parametric triggers such as earthquake magnitude or wind speed.</p>
+</div>
+
+<div class="interpretation">
+  <p>Cat bonds offer value to investors through higher yields than traditional bonds (such as Treasuries, asset-backed securities, and commercial mortgage-backed securities) and portfolio diversification benefits because catastrophic property damage risks do not correlate with the risks of other asset classes. A potential challenge to the cat bond market is rising interest rates, which may encourage institutional investors to focus on rising yields in government and corporate bonds rather than cat bonds.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Reinsurance is insurance for insurers, providing protection against extraordinary losses.</li>
+    <li>Catastrophe bonds are securities that transfer catastrophe risk to capital market investors.</li>
+    <li>Cat bonds offer diversification benefits because catastrophe risk is uncorrelated with market risk.</li>
+    <li>Rising interest rates may reduce investor demand for cat bonds.</li>
+  </ul>
+</div>
+
+<h2 id="section12">12. Recent Trends in Property–Casualty Insurance</h2>
+
+<div class="interpretation">
+  <p>The PC insurance industry experiences <strong>underwriting cycles</strong>—periods of rising premiums leading to increased profitability, followed by softening premiums as supply increases. The period 1985–2017 was characterized by significant catastrophe losses and generally low profitability. Major catastrophes included Hurricane Hugo (1989), San Francisco earthquake (1991), Hurricane Andrew (1991, $20 billion in losses), Northridge earthquake (1994, $7–10 billion), the 9/11 terrorist attacks (2001, $19 billion), Hurricanes Katrina/Rita/Wilma (2005, $57.7 billion in catastrophe losses), Hurricane Ike (2008, $12.5 billion), Hurricane Sandy (2012, $18.8 billion), and the 2017 hurricanes Harvey/Irma/Maria ($19 billion, $25 billion, and $30 billion respectively).</p>
+</div>
+
+<div class="interpretation">
+  <p>In 2006 and 2007, low catastrophe losses and strong performance in other lines produced combined ratios of 92.4 (best since 1936) and 95.6. The financial crisis pushed the 2008 combined ratio to 105.1. Profitability improved in 2013–2015 with combined ratios of 96.3, 97.0, and 97.6. The 2017 hurricane season drove the combined ratio to 103.9. In 2018–2020, the combined ratio improved to 99.1, 98.7, and 98.7, respectively, due to sustained premium growth, prior-year reserve releases, and lower loss costs in the auto market that offset catastrophe losses and pandemic-related losses.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The PC industry follows an underwriting cycle with alternating hard and soft markets.</li>
+    <li>Catastrophe losses have been a major driver of underwriting losses and combined ratio volatility.</li>
+    <li>Excluding catastrophe losses, the underlying combined ratio has been below 100 in many years.</li>
+    <li>Premium growth, reserve releases, and auto market conditions have helped offset catastrophe losses in recent years.</li>
+  </ul>
+</div>
+
+<h2 id="section13">13. Regulation of Property–Casualty Insurance</h2>
+
+<div class="interpretation">
+  <p>Like life insurers, PC insurers are chartered by states and regulated by state commissions. State guaranty funds provide some protection to policyholders if an insurer fails. The NAIC provides a standardized examination system and the <strong>Insurance Regulatory Information System (IRIS)</strong> to identify insurers with loss, combined, and other ratios outside normal ranges.</p>
+</div>
+
+<div class="interpretation">
+  <p>PC insurers face <strong>rate regulation</strong> in some activity lines, especially auto insurance and workers' compensation insurance. State commissioners set ceilings on premiums and premium increases based on specific cost of capital and line risk exposure formulas. This has led some insurers to leave states with the most restrictive regulations (e.g., New Jersey, Florida, California).</p>
+</div>
+
+<div class="interpretation">
+  <p>The industry faced controversy over homeowners' claims handling after Hurricane Katrina. Homeowners' policies excluded flood damage. Insurers classified the storm surge as a flood and denied coverage. Policyholders argued the surge was a direct result of hurricane winds (a covered risk). A 2007 verdict held State Farm responsible for policy limits totaling more than $220,000 on each loss deemed due to storm-surge flooding, plus punitive damages.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>PC insurers are state-regulated, with NAIC providing standardized oversight.</li>
+    <li>Rate regulation in auto and workers' compensation lines caps premium increases.</li>
+    <li>Disputes over policy interpretation (e.g., flood vs. wind damage) can lead to significant litigation and liability.</li>
+  </ul>
+</div>
+
+<h2 id="section14">14. Global Issues in Insurance</h2>
+
+<div class="interpretation">
+  <p>The insurance sector is becoming increasingly global. The United States, Japan, and Western Europe dominate the global market, but all regions are engaged in insurance, and many insurers operate internationally. Table 6–8 shows the top 10 countries by total premiums written in 2020: the United States ($2,530.6 billion, 40.3% global share), China ($655.9 billion, 10.4%), Japan ($414.8 billion, 6.6%), the United Kingdom ($338.3 billion, 5.4%), and Germany ($258.6 billion, 4.1%) lead the market.</p>
+</div>
+
+<div class="interpretation">
+  <p>Global insured losses from natural catastrophes and man-made disasters have been significant. In 2011, the Japan earthquake/tsunami ($40 billion insured losses), New Zealand earthquakes ($13 billion), Thailand floods ($10 billion), and U.S. tornadoes ($14.2 billion) contributed to $350 billion in disaster losses. In 2017, global insured losses reached $144 billion, the highest ever recorded, driven by hurricanes Harvey, Irma, and Maria, California wildfires, and severe weather worldwide. In 2021, natural disasters caused $280 billion in total losses, with roughly $120 billion insured, according to Munich Re.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The U.S. dominates the global insurance market with 40.3% of premiums written.</li>
+    <li>Global catastrophe losses have been increasing, with 2017 setting a record for insured losses.</li>
+    <li>Central governments in many countries cover a significant portion of catastrophe losses, reducing the burden on insurers.</li>
+  </ul>
+</div>
+
+<h2 id="section15">15. Practical Cautions and Common Errors</h2>
+
+<div class="interpretation">
+  <p>The following are important cautions and common errors in the analysis and interpretation of insurance company operations and performance:</p>
+  <ul>
+    <li><strong>Confusing the combined ratio with overall profitability:</strong> A combined ratio above 100 does not necessarily mean the insurer is unprofitable. Investment income can offset underwriting losses. The operating ratio (combined ratio minus investment yield) is the correct measure of overall profitability.</li>
+    <li><strong>Ignoring the time value of money in loss reserves:</strong> Loss reserves on the balance sheet represent expected future payouts, but the actual timing of claims payments can significantly affect the present value of liabilities. Long-tail lines (e.g., medical malpractice, product liability) are particularly sensitive to this.</li>
+    <li><strong>Misinterpreting the loss ratio:</strong> The loss ratio includes loss-adjustment expenses, not just pure losses. The combined ratio adds expense and dividend ratios. Using only the loss ratio to assess profitability is incomplete.</li>
+    <li><strong>Ignoring the role of investment income:</strong> PC insurers rely heavily on investment income to achieve profitability. Changes in interest rates, credit spreads, and equity market returns can have a dramatic impact on the operating ratio, even if underwriting performance is stable.</li>
+    <li><strong>Confusing adverse selection with moral hazard:</strong> Adverse selection is about who buys insurance (those who need it most). Moral hazard (not covered in this chapter) is about how insured behavior changes after obtaining coverage. Both are distinct risks.</li>
+    <li><strong>Assuming claims are independent:</strong> For high-severity, low-frequency lines (earthquake, hurricane, financial guaranty), individual risks are not independent. The law of large numbers does not apply, and expected loss estimation is extremely difficult.</li>
+    <li><strong>Ignoring social inflation:</strong> Liability losses can be driven by jury awards and litigation trends that far exceed general inflation. Using historical loss data without adjusting for social inflation can lead to significant underestimation of required reserves.</li>
+    <li><strong>Treating premiums earned and premiums written as interchangeable:</strong> The loss ratio uses premiums earned (denominator), while the expense ratio uses premiums written. These denominators differ because premiums are earned over time, while expenses are incurred when policies are written.</li>
+    <li><strong>Overlooking the impact of reinsurance:</strong> Reinsurance can significantly alter the risk profile of a primary insurer. An insurer's net exposure after reinsurance may be much smaller than its gross exposure. Analysts must distinguish between gross and net positions.</li>
+    <li><strong>Confusing the role of policyholder surplus:</strong> Policyholder surplus (capital and surplus) is a buffer against unexpected losses. A low surplus-to-assets ratio indicates higher insolvency risk. PC insurers typically hold more surplus relative to assets than life insurers due to greater uncertainty in loss estimation.</li>
+  </ul>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Combined ratio > 100 does not imply unprofitability; investment income must be considered.</li>
+    <li>Loss ratios and expense ratios use different denominators (premiums earned vs. premiums written).</li>
+    <li>High-severity, low-frequency lines violate the independence assumption of the law of large numbers.</li>
+    <li>Social inflation can cause liability losses to outpace general inflation.</li>
+    <li>Reinsurance and policyholder surplus are critical risk management tools.</li>
+  </ul>
+</div>
+
+<h2 id="section16">16. Summary and Key Takeaways</h2>
+
+<div class="interpretation">
+  <p>This chapter has examined the activities, balance sheets, regulation, and risk profile of life insurance and property–casualty insurance companies. The key conceptual distinctions are:</p>
+  <ul>
+    <li><strong>Life insurance</strong> protects against mortality risk (death) and morbidity risk (ill health), and includes savings components in many policy forms. The industry has shifted toward annuities as the primary business line.</li>
+    <li><strong>Property–casualty insurance</strong> protects against property loss and legal liability. The industry faces significant underwriting risk from catastrophe losses, long-tail claims, and social inflation.</li>
+    <li>Both industries are regulated primarily at the state level, with federal oversight through the FIO and FSOC for systemic risk.</li>
+    <li>Profitability depends on both underwriting performance (measured by the combined ratio) and investment returns (measured by the investment yield).</li>
+    <li>Reinsurance and catastrophe bonds provide mechanisms for transferring risk to other parties.</li>
+  </ul>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The fundamental economic function of insurance companies is risk pooling and risk transfer.</strong> By collecting premiums from many policyholders and investing those premiums in diversified portfolios, insurers can absorb losses that would be catastrophic for any individual policyholder. The success of this model depends on accurate risk assessment, appropriate pricing, adequate reserves, and effective asset-liability management. The financial crisis of 2008 demonstrated that when these mechanisms fail, the consequences can be systemic.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Life insurance: mortality risk protection, savings components, long-term asset investment.</li>
+    <li>Property–casualty insurance: property loss and liability protection, significant underwriting risk from catastrophes.</li>
+    <li>Combined ratio measures underwriting profitability; operating ratio measures overall profitability including investment income.</li>
+    <li>State-level regulation is primary, with federal oversight for systemic risk.</li>
+    <li>Reinsurance and catastrophe bonds are key risk transfer mechanisms.</li>
+    <li>Adverse selection requires risk-based pricing and population segmentation.</li>
+    <li>The financial crisis demonstrated that insurance company failures can create systemic risk to the entire financial system.</li>
+  </ul>
+</div>
+    </div>
 </body>
 </html>

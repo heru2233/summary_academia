@@ -360,11 +360,132 @@ body.mobile-mode .toc a { font-size: 14px !important; }
     .note { font-size: 12px !important; }
 }
 
-/* Print styles */
+/* ============================================================
+   PRINT / PDF STYLES
+   ============================================================ */
+.print-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+.print-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
 @media print {
-    .toolbar, .mode-toggle { display: none !important; }
-    body { padding: 0 !important; }
-    .container { box-shadow: none !important; border-radius: 0 !important; }
+    /* Hide non-printable elements */
+    .toolbar, .mode-toggle, .print-btn, .back, .footer,
     .nav-card, .book-card, .article-card, .lang-card,
-    .chapter-list, .back, .footer { break-inside: avoid; }
+    .chapter-list { display: none !important; }
+
+    /* Page setup */
+    @page {
+        size: A4;
+        margin: 2cm 2.5cm;
+    }
+    body {
+        padding: 0 !important;
+        background: white !important;
+        font-size: 11pt !important;
+        line-height: 1.6 !important;
+        color: #000 !important;
+    }
+    .container {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* Headings */
+    h1 {
+        font-size: 18pt !important;
+        color: #000 !important;
+        border-bottom: 2px solid #000 !important;
+        page-break-after: avoid;
+    }
+    h2 {
+        font-size: 14pt !important;
+        color: #000 !important;
+        border-left: 3px solid #333 !important;
+        page-break-after: avoid;
+        margin-top: 24pt !important;
+    }
+    h3 {
+        font-size: 12pt !important;
+        color: #000 !important;
+        page-break-after: avoid;
+    }
+    h4 {
+        font-size: 11pt !important;
+        color: #000 !important;
+        page-break-after: avoid;
+    }
+
+    /* Colored boxes → border only (save ink) */
+    .interpretation, .formula-box, .example, .analogy, .insight, .key-takeaway {
+        background: white !important;
+        border: 1px solid #999 !important;
+        border-left: 4px solid #333 !important;
+        padding: 12px !important;
+        margin: 12px 0 !important;
+        page-break-inside: avoid;
+    }
+    .interpretation h4, .formula-box .label, .example h4,
+    .analogy h4, .insight h4, .key-takeaway h4 {
+        color: #000 !important;
+    }
+    .formula-box .formula {
+        background: #f5f5f5 !important;
+        border: 1px solid #ccc !important;
+    }
+
+    /* Table of Contents */
+    .toc {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+    }
+    .toc a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+    /* Tables */
+    table {
+        page-break-inside: avoid;
+        font-size: 10pt !important;
+    }
+    th {
+        background: #333 !important;
+        color: white !important;
+    }
+    tr:nth-child(even) { background: #f5f5f5 !important; }
+
+    /* Links */
+    a { color: #000 !important; text-decoration: none !important; }
+
+    /* MathJax */
+    .MathJax { font-size: 100% !important; }
+
+    /* Page breaks */
+    h2 { page-break-before: auto; }
+    .section { page-break-inside: avoid; }
+
+    /* Remove shadows and rounded corners */
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
 }

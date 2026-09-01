@@ -24,6 +24,28 @@
     </style>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 We need to translate the HTML content to Bahasa Indonesia, preserving HTML tags exactly. Only translate text content, not tags. Must keep all HTML tags as they are. So we need to replace English text with Indonesian translation, but keep tags like <h3>, <p>, <strong>, <ol>, <li>, <div class="eq">, etc. Also need to translate content inside tables, etc. Ensure we don't translate inside code like variable names (e.g., ERM, ESG, Tobin’s Q, ROA, etc.)? Those are part of text but they are acronyms; we can keep them as is. Also need to translate sentences.
 
 We'll produce the translated HTML.

@@ -21,6 +21,28 @@
     </style>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 <h3>Enterprise Risk Management and Firm Performance: Role of the Risk Committee</h3>
 
 <p>This article provides a comprehensive summary of the empirical study titled “Enterprise risk management and firm performance: Role of the risk committee” by Muhammad Farhan Malik, Mahbub Zaman, and Sherrena Buckby. The paper investigates how the effectiveness of Enterprise Risk Management (ERM) influences firm performance and whether the presence of a structurally strong board‑level risk committee (BLRC) amplifies this relationship. The analysis is based on 260 firm‑year observations drawn from FTSE350 companies listed on the London Stock Exchange during 2012‑2015. The study employs Tobin’s Q as the primary performance metric, adopts the Gordon et al. (2009) ERM index to capture the effectiveness of ERM processes, and uses <i>principal</i> component analysis (PCA) to derive a composite measure of BLRC structural strength. The findings reveal a positive and significant association between ERM effectiveness and firm performance, and demonstrate that a strong BLRC moderates this relationship, enhancing the value‑relevance of ERM. The following sections detail the study’s <i>motivation</i>, theoretical background, hypothesis development, methodology, results, discussion, and conclusions.</p>

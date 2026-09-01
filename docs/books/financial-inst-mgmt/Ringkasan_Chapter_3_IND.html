@@ -1,388 +1,389 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Ringkasan Chapter 3 - Financial Services: Finance Companies (Indonesia)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Services: Finance Companies</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Financial Services: Finance Companies</h1>
+<div class="container">
 
-<div class="toolbar">
-  <button onclick="window.print()">Cetak / Simpan sebagai PDF</button>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction: The Role and Economic Function of Finance Companies</a></li>
+    <li><a href="#section2">2. Size, Structure, and Composition of the Industry</a></li>
+    <li><a href="#section3">3. Types of Finance Companies and Their Market Segments</a></li>
+    <li><a href="#section4">4. Balance Sheet Analysis: Assets and Lending Portfolio</a></li>
+    <li><a href="#section5">5. Consumer Lending and Subprime Credit Markets</a></li>
+    <li><a href="#section6">6. Real Estate Lending and Mortgage Securitization</a></li>
+    <li><a href="#section7">7. Business Lending and Equipment Finance</a></li>
+    <li><a href="#section8">8. Liabilities, Equity, and Funding Structure</a></li>
+    <li><a href="#section9">9. Industry Performance and Crisis Dynamics</a></li>
+    <li><a href="#section10">10. Regulation and Solvency Signaling</a></li>
+    <li><a href="#section11">11. Global Issues and International Trends</a></li>
+    <li><a href="#section12">12. Practical Cautions and Common Errors</a></li>
+  </ul>
 </div>
 
-<h1>Ringkasan Chapter 3</h1>
-<p class="subtitle">Financial Services: Finance Companies (Perusahaan Pembiayaan)</p>
-<p class="bookinfo">Sumber, Saunders, A. dan Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, Edisi 11, Chapter 3. Disusun sebagai bahan belajar mandiri.</p>
+<h2 id="section1">1. Introduction: The Role and Economic Function of Finance Companies</h2>
 
-<h2>1. Pendahuluan</h2>
-<p>Seperti bank komersial, lembaga simpanan, dan credit union, jasa keuangan utama yang disediakan perusahaan pembiayaan (<i>finance companies</i>) adalah pemberian pinjaman. Fungsi utamanya adalah menyalurkan pinjaman kepada individu dan korporasi, mencakup pinjaman konsumen, pinjaman bisnis, dan pinjaman real estate. Beberapa pinjamannya mirip dengan pinjaman lembaga depositori, misalnya pinjaman konsumen dan mobil, tetapi sebagian lainnya lebih terspesialisasi.</p>
-<p>Perbedaan mendasar perusahaan pembiayaan dengan lembaga depositori adalah bahwa mereka <b>tidak menerima deposito</b>, melainkan mengandalkan utang jangka pendek dan jangka panjang sebagai sumber dana. Selain itu, perusahaan pembiayaan sering memberi pinjaman kepada nasabah yang dianggap terlalu berisiko oleh lembaga depositori. Perbedaan ini dapat menimbulkan kerugian bahkan kegagalan jika risiko tinggi tersebut tidak terbayar.</p>
+<div class="interpretation">
+  <p>The primary financial service provided by finance companies is lending. Like commercial banks, savings institutions, and credit unions, finance companies extend loans to both individuals and corporations. Their lending activities span three broad categories: consumer lending, business lending, and real estate lending. Some of these loans closely resemble those offered by depository institutions—such as consumer and auto loans—while others are substantially more specialized and tailored to particular market niches.</p>
+  <p>The critical structural distinction between finance companies and depository institutions is that finance companies do not accept deposits. Instead, they rely on short-term and long-term debt as their principal source of funds. This single difference has far-reaching consequences for their funding costs, regulatory oversight, risk profile, and competitive behavior. A second important distinction is that finance companies frequently lend to customers whom depository institutions consider too risky to serve. This willingness to serve higher-risk borrowers enables finance companies to earn higher interest income, but it also exposes them to elevated default risk, which can produce losses and even failure when the high-risk strategy does not pay off.</p>
+</div>
 
-<h2>2. Ukuran, Struktur, dan Komposisi Industri</h2>
-<p>Perusahaan pembiayaan besar pertama lahir pada masa Depresi Besar, ketika General Electric Corp. mendirikan General Electric Capital Corp. (GECC, kini GE Capital Global Holdings atau GECGH) untuk membiayai penjualan peralatan rumah tangga kepada pelanggan yang kekurangan uang tunai dan tidak bisa memperoleh kredit angsuran dari bank. <i>Installment credit</i> adalah pinjaman yang dibayar kembali secara berkala (angsuran) dengan porsi bunga dan pokok yang bervariasi, misalnya pinjaman mobil, KPR, dan pinjaman mahasiswa.</p>
-<p>GE Capital mencapai puncaknya pada 2008 dengan aset lebih dari $600 miliar dan menyumbang hampir 60 persen dari laba GE. Krisis keuangan memukulnya keras, nilai pasar GE turun lebih dari separuh selama 2008, dan sahamnya jatuh ke $14,58 pada November 2008, terendah sejak Januari 1997. Pada 12 November 2008 FDIC menyetujui GE Capital sebagai entitas yang memenuhi syarat dalam <i>Temporary Liquidity Guarantee Program (TLGP)</i>. Pada April 2015 GE mengumumkan <i>GE Capital Exit Plan</i> untuk menjual sebagian besar asetnya, yang selesai pada Maret 2017, sehingga aset GE Capital menyusut dari lebih dari $600 miliar (2008) menjadi $119 miliar (2018). Pada Maret 2021 GE menggabungkan GECAS dengan AerCap Holdings dalam kesepakatan senilai lebih dari $30 miliar, menandai kembalinya GE menjadi organisasi rekayasa murni.</p>
-<p>Contoh besar lainnya adalah Ally Financial (sebelumnya GMAC), didirikan 1919 sebagai General Motors Acceptance Corporation. Pada November 2006 General Motors menjual 51 persen sahamnya kepada konsorsium yang dipimpin Cerberus Capital Management. GMAC menderita kerugian $8 miliar pada 2007-2008, dan pada 24 Desember 2008 disetujui menjadi <i>bank holding company</i>, yang memberinya akses hingga $6 miliar dana penyelamatan pemerintah. Pada Mei 2009 GMAC Bank diubah namanya menjadi Ally Bank, dan pada Mei 2010 GMAC menjadi Ally Financial. Pada November 2012 Treasury AS memiliki 73,8 persen saham GMAC. Ally go public pada akhir 2014 dan keluar dari program TARP pada Desember 2014.</p>
-<p>Karena suku bunga yang menarik pada sebagian pinjaman (misalnya pinjaman mobil baru), kesediaan meminjamkan kepada peminjam yang lebih berisiko, afiliasi langsung dengan perusahaan manufaktur, dan regulasi yang relatif terbatas, perusahaan pembiayaan menjadi salah satu kelompok FI dengan pertumbuhan tercepat. Pada kuartal kedua 2021 aset mereka mencapai <b>$1.475,5 miliar</b>, dibandingkan $39,6 miliar pada awal 1977, atau pertumbuhan hampir <b>3.627 persen</b> dalam 44 tahun. Namun total asetnya turun 33 persen dari puncaknya pada awal 2008.</p>
+<div class="interpretation">
+  <p><strong>Finance company:</strong> a non-depository financial intermediary whose primary function is to make loans to individuals and businesses using funds obtained primarily from short- and long-term debt issuance rather than from customer deposits.</p>
+  <p><strong>Depository institution:</strong> a financial institution (such as a commercial bank, savings institution, or credit union) that accepts deposits from customers and makes loans. Depository institutions typically have access to deposit insurance and regulatory safety nets.</p>
+  <p><strong>Installment credit:</strong> a loan repaid to the lender through periodic payments (installments) consisting of varying amounts of interest and principal. Common examples include auto loans, home mortgages, and student loans.</p>
+</div>
 
-<h3>2.1 Tiga Jenis Perusahaan Pembiayaan</h3>
-<ol>
-  <li><b>Sales finance institutions</b>, misalnya Ford Motor Credit dan Sears Roebuck Acceptance Corp., berspesialisasi memberi pinjaman kepada pelanggan dari retailer atau manufaktur tertentu. Karena dapat memproses pinjaman lebih cepat dan nyaman (umumnya di lokasi pembelian), sektor ini bersaing langsung dengan lembaga depositori untuk pinjaman konsumen</li>
-  <li><b>Personal credit institutions</b>, misalnya HSBC Finance dan AIG American General, berspesialisasi membuat pinjaman angsuran dan pinjaman lain kepada konsumen, termasuk nasabah yang terlalu berisiko bagi lembaga depositori. Mereka mengompensasi risiko ekstra dengan suku bunga lebih tinggi dan atau menerima agunan (misalnya mobil bekas) yang tidak diterima lembaga depositori</li>
-  <li><b>Business credit institutions</b>, misalnya CIT Group dan U.S. Bancorp Equipment Finance, menyediakan pembiayaan kepada korporasi, terutama melalui sewa guna usaha (leasing) peralatan dan <i>factoring</i>, yaitu pembelian piutang usaha dari korporasi dengan diskon dari nilai nominalnya, di mana perusahaan pembiayaan mengambil alih tanggung jawab penagihan</li>
-</ol>
-<p>Banyak perusahaan pembiayaan menjalankan lebih dari satu dari tiga jasa ini. Industri ini cukup terkonsentrasi, perusahaan besar dengan aset $20 miliar atau lebih (kurang dari 0,5 persen dari seluruh perusahaan pembiayaan) menguasai 71 persen aset industri. Banyak perusahaan pembiayaan terbesar adalah anak perusahaan yang dimiliki penuh (<i>captive</i>) dari perusahaan manufaktur besar, misalnya Ford Motor Credit yang pada pertengahan 2000-an menyumbang hingga 80 persen dari laba Ford Motor Corporation. Keuntungan bagi induk perusahaan adalah diversifikasi sumber pendapatan. Perusahaan pembiayaan captive terbesar sebelum 2014 adalah GECGH dengan piutang hingga $285,0 miliar.</p>
+<div class="interpretation">
+  <p>The historical origin of the finance company industry is instructive. The first major finance company was created during the Great Depression when General Electric Corp. established General Electric Capital Corp. (GECC, now known as GE Capital Global Holdings or GECGH) as a vehicle to finance appliance sales to cash-constrained customers who could not obtain installment credit from banks. This origin illustrates the fundamental economic function of finance companies: they extend credit to market segments underserved by traditional depository institutions. By the late 1950s, banks became more willing to make installment loans, and finance companies expanded beyond their parent companies' product lines to pursue broader lending opportunities.</p>
+</div>
 
-<p class="tabcap">Tabel 3-1. Perusahaan Pembiayaan Terbesar AS (piutang dan pembiayaan, 2021)</p>
-<table>
-  <tr>
-    <th>Perusahaan</th>
-    <th>Piutang (juta $)</th>
-    <th>Jenis</th>
-    <th>Kepemilikan</th>
-  </tr>
-  <tr>
-    <td>Ford Motor Credit Company</td>
-    <td>92.350</td>
-    <td>Sales finance</td>
-    <td>Anak perusahaan Ford Motor</td>
-  </tr>
-  <tr>
-    <td>Toyota Motor Credit Corp.</td>
-    <td>80.925</td>
-    <td>Sales finance</td>
-    <td>Anak perusahaan Toyota Motor</td>
-  </tr>
-  <tr>
-    <td>Synchrony Financial</td>
-    <td>80.740</td>
-    <td>Personal credit</td>
-    <td>Independen (terdaftar NYSE)</td>
-  </tr>
-  <tr>
-    <td>GM Financial Company</td>
-    <td>62.979</td>
-    <td>Sales finance</td>
-    <td>Anak perusahaan General Motors</td>
-  </tr>
-  <tr>
-    <td>American Honda Finance Corp.</td>
-    <td>39.008</td>
-    <td>Sales finance</td>
-    <td>Anak perusahaan American Honda Motor</td>
-  </tr>
-  <tr>
-    <td>John Deere Capital Corp.</td>
-    <td>35.729</td>
-    <td>Business credit</td>
-    <td>Anak perusahaan Deere &amp; Company</td>
-  </tr>
-  <tr>
-    <td>Santander Consumer USA Holdings Inc.</td>
-    <td>27.484</td>
-    <td>Personal credit</td>
-    <td>Independen (terdaftar NYSE)</td>
-  </tr>
-  <tr>
-    <td>Caterpillar Financial Services Corp.</td>
-    <td>27.177</td>
-    <td>Business credit</td>
-    <td>Anak perusahaan Caterpillar</td>
-  </tr>
-  <tr>
-    <td>IBM Credit LLC</td>
-    <td>21.126</td>
-    <td>Business credit</td>
-    <td>Anak perusahaan IBM</td>
-  </tr>
-  <tr>
-    <td>Mercedes-Benz Financial Services USA</td>
-    <td>17.296</td>
-    <td>Sales finance</td>
-    <td>Anak perusahaan Daimler North America</td>
-  </tr>
-  <tr>
-    <td>American Express Credit Corp.</td>
-    <td>14.059</td>
-    <td>Personal credit</td>
-    <td>Anak perusahaan American Express</td>
-  </tr>
-  <tr>
-    <td>PACCAR Financial Corp.</td>
-    <td>11.921</td>
-    <td>Business credit</td>
-    <td>Anak perusahaan PACCAR</td>
-  </tr>
-  <tr>
-    <td>Harley-Davidson Financial Services</td>
-    <td>6.443</td>
-    <td>Sales finance</td>
-    <td>Anak perusahaan Harley-Davidson</td>
-  </tr>
-</table>
-<p>Menurut definisi Federal Reserve, perusahaan pembiayaan adalah entitas yang memiliki minimal 50 persen total asetnya dalam bentuk pinjaman atau sewa kepada konsumen atau bisnis, dan bukan merupakan lembaga pemerintah, organisasi nirlaba, koperasi, bank, bank holding company, credit union, atau real estate investment trust.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>GE Capital, at its peak in 2008, contributed nearly 60 percent of General Electric's overall profits and held more than $600 billion in assets ranging from commercial real estate to auto loans in Thailand. Following the financial crisis, GE announced the GE Capital Exit Plan in April 2015 to sell most of its financial services assets. By 2018, GE Capital's assets had fallen to $119 billion, down from over $600 billion in 2008. The eventual disposition of GE Capital demonstrates both the profit potential and the systemic vulnerability of large captive finance companies.</p>
+</div>
 
-<h2>3. Neraca dan Tren Terkini</h2>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A finance company resembles a specialty lender that operates like a department store's in-house financing desk but on a massive scale. Just as a furniture store might finance a customer's purchase directly when a bank would reject the customer's application, finance companies step in to provide credit where traditional banks are unwilling or unable to lend. Unlike banks, which obtain funds from depositors' savings accounts, finance companies borrow money from capital markets—much like a business taking out a corporate loan—and then relend those funds to borrowers at higher rates.</p>
+</div>
 
-<h3>3.1 Aset</h3>
-<p>Pinjaman bisnis dan konsumen merupakan aset utama perusahaan pembiayaan, mencapai 64,0 persen dari total aset pada 2021, sementara pinjaman real estate mencapai 6,2 persen. Dari 2007 hingga 2021, pinjaman konsumen menurun dalam jumlah absolut tetapi meningkat sebagai persentase aset, sedangkan pinjaman real estate menurun baik absolut maupun persentase karena krisis mendorong banyak pemberi pinjaman mengurangi eksposur pada kredit berisiko. Satu-satunya area yang tumbuh konsisten sejak 2007 adalah pinjaman kendaraan konsumen dan pinjaman ritel bisnis.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Finance companies occupy a distinct position in the financial system as non-depository lenders that compete directly with banks while serving riskier borrower segments. Their comparative advantage lies in regulatory flexibility and specialized lending expertise; their comparative disadvantage lies in their reliance on debt markets for funding and their lack of access to deposit insurance and the Federal Reserve's discount window.</strong> The absence of deposit funding removes the traditional safety net but also removes much of the regulatory burden imposed on depositories.</p>
+</div>
 
-<h4>Pinjaman Konsumen</h4>
-<p>Pinjaman kendaraan bermotor dan sewanya secara tradisional merupakan jenis pinjaman konsumen terbesar, mencapai 32,5 persen dari total aset pada 2021. Suku bunga pinjaman mobil dari perusahaan pembiayaan umumnya lebih tinggi daripada bank komersial, namun kadang turun drastis, misalnya hingga 0,9 persen pada akhir 1990-an dan bahkan 0 persen setelah serangan September 2001 dan selama krisis 2008-2009 untuk mendorong penjualan mobil. Pada 2002 perusahaan pembiayaan mengenakan suku bunga pinjaman mobil baru 3,33 persen lebih rendah daripada bank komersial, dan baru pada 2013 tren historis kembali ketika suku bunga mereka 0,27 persen lebih tinggi daripada bank.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Finance companies are non-depository lenders whose primary function is making consumer, business, and real estate loans.</li>
+    <li>They differ from banks by not accepting deposits and by relying on short- and long-term debt for funding.</li>
+    <li>Finance companies frequently lend to borrowers that depository institutions consider too risky, earning higher interest rates in exchange for higher default risk.</li>
+    <li>The industry originated during the Depression with GE Capital, which financed appliance sales to customers who could not obtain bank installment credit.</li>
+  </ul>
+</div>
 
-<p class="tabcap">Tabel 3-2. Suku Bunga Kredit Konsumen, 1995-2021 (persen)</p>
-<table>
-  <tr>
-    <th>Jenis</th>
-    <th>1995</th>
-    <th>1996</th>
-    <th>1997</th>
-    <th>2002</th>
-    <th>2007</th>
-    <th>2012</th>
-    <th>2013</th>
-    <th>2015</th>
-    <th>2018</th>
-    <th>2021</th>
-  </tr>
-  <tr>
-    <td>Bank komersial, mobil baru</td>
-    <td>9,57</td>
-    <td>9,05</td>
-    <td>9,02</td>
-    <td>7,62</td>
-    <td>7,77</td>
-    <td>5,73</td>
-    <td>4,43</td>
-    <td>4,31</td>
-    <td>5,37</td>
-    <td>4,82</td>
-  </tr>
-  <tr>
-    <td>Perusahaan pembiayaan mobil, mobil baru</td>
-    <td>11,19</td>
-    <td>9,84</td>
-    <td>7,12</td>
-    <td>4,29</td>
-    <td>4,87</td>
-    <td>4,73</td>
-    <td>4,70</td>
-    <td>5,40</td>
-    <td>6,69</td>
-    <td>4,60</td>
-  </tr>
-  <tr>
-    <td>Selisih (bank dikurangi finance)</td>
-    <td>1,62</td>
-    <td>0,79</td>
-    <td>-1,90</td>
-    <td>-3,33</td>
-    <td>-2,90</td>
-    <td>-1,00</td>
-    <td>0,27</td>
-    <td>1,09</td>
-    <td>1,32</td>
-    <td>-0,22</td>
-  </tr>
-</table>
-<p>Suku bunga yang lebih tinggi pada pinjaman konsumen sebagian besar disebabkan nasabah perusahaan pembiayaan lebih berisiko daripada nasabah bank. Bahkan seseorang dengan catatan kebangkrutan pun dapat memperoleh pinjaman dari <i>subprime lender</i>. Contoh ekstrem adalah Jayhawk Acceptance Corp. yang membiayai operasi kosmetik, dengan suku bunga 9,9 persen per tahun jika dilunasi dalam setahun dan 13,9 persen jika dilunasi maksimal dua tahun, namun akhirnya bangkrut. Ada pula <i>loan sharks</i> yang mengenakan suku bunga selangit hingga 30 persen per tahun atau lebih kepada peminjam yang putus asa.</p>
-<p>Jenis subprime lender lain adalah <i>payday lender</i>, yang memberikan uang muka jangka pendek yang biasanya jatuh tempo saat peminjam menerima gaji berikutnya. Peminjam khas mengambil pinjaman dua minggu dan membayar $15 untuk setiap $100 yang dipinjam, setara suku bunga tahunan 390 persen, dengan pendapatan khas $25.000 hingga $50.000 per tahun. Industri payday menghasilkan sekitar $50 miliar pinjaman per tahun dengan pendapatan sekitar $11 miliar pada 2018 dan sekitar 15.400 pemberi pinjaman di seluruh negeri. Regulasi payday dilakukan di tingkat negara bagian, dengan 16 negara bagian dan District of Columbia membatasi suku bunga maksimal 36 persen pada 2018, dan per Juli 2021 sebanyak 32 negara bagian serta DC memberlakukan batas 36 persen untuk pinjaman angsuran $2.000 selama dua tahun. Aturan CFPB Oktober 2017 yang mewajibkan penilaian kemampuan bayar sempat tertunda dan diakhiri pada Juli 2020, lalu dibatalkan Kongres pada 24 Juni 2021.</p>
-<p>Pinjaman revolving dan pinjaman konsumen lain mencakup pinjaman tunai pribadi, pinjaman rumah mobil, dan kartu kredit private label (misalnya Discover), dan pada 2021 mencapai 27,5 persen dari portofolio pinjaman konsumen perusahaan pembiayaan.</p>
+<h2 id="section2">2. Size, Structure, and Composition of the Industry</h2>
 
-<h4>KPR dan Home Equity Loans</h4>
-<p>KPR residensial dan komersial menjadi komponen utama portofolio perusahaan pembiayaan, meskipun pada 1970-an mereka umumnya tidak berkecimpung di sana. Karena regulasinya tidak seketat bank, perusahaan pembiayaan bersedia memberikan KPR kepada peminjam yang lebih berisiko dan mengompensasinya dengan suku bunga serta biaya lebih tinggi. KPR dapat diberikan langsung atau sebagai <i>securitized mortgage assets</i>, yaitu penggabungan kelompok KPR dengan karakteristik serupa, pemindahannya dari neraca, dan penjualan kepentingan atas kumpulan tersebut kepada investor pasar sekunder, yang menghasilkan <i>mortgage-backed securities</i>. KPR dalam portofolio dapat berupa KPR pertama atau KPR kedua dalam bentuk <i>home equity loans</i>, yaitu pinjaman dengan garis kredit yang dijamin KPR kedua atas rumah. Home equity loans menjadi sangat menguntungkan sejak <i>Tax Reform Act</i> 1986 yang menghapus pengurangan pajak bunga konsumen selain bunga KPR, sementara biaya utang macet dan biaya administrasinya lebih rendah. Melonjaknya tunggakan dan gagal bayar KPR subprime pada 2007-2008 menjadi akar krisis keuangan 2008-2009.</p>
+<div class="interpretation">
+  <p>The finance company industry has experienced dramatic growth over nearly half a century. In the second quarter of 2021, total industry assets stood at $1,475.5 billion. Comparing this figure to $39.6 billion at the beginning of 1977, the industry experienced growth of almost 3,627 percent over 44 years. This extraordinary expansion was driven by attractive rates on certain loans (such as new car loans), a willingness to lend to riskier borrowers than depository institutions serve, direct affiliation with manufacturing firms through captive subsidiaries, and a relatively limited regulatory burden. However, total assets were still 33 percent below the industry's peak at the beginning of 2008, reflecting the substantial contraction during and after the financial crisis.</p>
+</div>
 
-<h4>Pinjaman Bisnis</h4>
-<p>Pinjaman bisnis mencapai 19,2 persen dari portofolio pinjaman pada 2021. Perusahaan pembiayaan memiliki lima keunggulan atas bank komersial dalam melayani usaha kecil</p>
-<ol>
-  <li>Tidak tunduk pada regulasi yang membatasi jenis produk dan jasa yang dapat ditawarkan</li>
-  <li>Karena tidak menerima deposito, tidak ada regulator ala bank yang mengawasi langsung</li>
-  <li>Sebagai anak perusahaan holding company sektor korporasi, sering memiliki keahlian industri dan produk yang substansial</li>
-  <li>Lebih bersedia menerima nasabah berisiko daripada bank komersial</li>
-  <li>Umumnya memiliki overhead lebih rendah, misalnya tanpa teller atau cabang untuk menerima deposito</li>
-</ol>
-<p>Subkategori utama pinjaman bisnis adalah pinjaman dan sewa kendaraan bermotor ritel serta grosir (21,2 persen dari seluruh pinjaman bisnis 2021), pinjaman peralatan (57,0 persen), dan pinjaman bisnis lain (21,9 persen). Contoh pinjaman grosir adalah pembiayaan floor plan Ford Motor Credit kepada dealer Ford untuk persediaan mobil, di mana FMCC membayar persediaan dealer dan memasang hak jaminan pada setiap mobil, sementara dealer membayar bunga berkala dan melunasi mobil saat terjual. Perusahaan pembiayaan sering memilih menyewakan peralatan daripada menjual dan membiayai pembeliannya, karena reposesi lebih mudah ketika hak milik tetap di tangan finance company (melalui leasing), perjanjian sewa umumnya tanpa uang muka, dan finance company memperoleh pengurangan pajak berupa biaya depresiasi.</p>
+<div class="formula-box">
+  <span class="label">Industry Growth Rate (Compounded Over 44 Years)</span>
+  <div class="formula">
+    \[ \text{Growth Rate} = \frac{\text{Assets}_{2021\text{Q}2} - \text{Assets}_{1977}}{\text{Assets}_{1977}} \times 100\% \]
+  </div>
+</div>
 
-<h3>3.2 Liabilitas dan Ekuitas</h3>
-<p>Untuk membiayai pertumbuhan aset, perusahaan pembiayaan mengandalkan terutama <i>commercial paper</i> jangka pendek dan utang lain (notes dan obligasi jangka panjang). Pada Desember 2021, commercial paper berjumlah $37,6 miliar (2,2 persen dari total aset), sekuritas utang lain $732,6 miliar (43,6 persen), dan pinjaman bank $194,5 miliar (11,6 persen). Sebagai perbandingan, pada 2007 commercial paper mencapai 5,4 persen dari total pembiayaan, utang lain 59,4 persen, dan pinjaman bank 8,0 persen. Perubahan sumber dana ini sebagian besar karena ekonomi kuat dan suku bunga rendah di pasar utang jangka panjang AS sejak 2007. Rasio modal terhadap aset perusahaan pembiayaan pada 2021 adalah <b>24,9 persen</b>, jauh lebih tinggi daripada 8,5 persen pada 2007.</p>
-<p>Karena tidak dapat menerbitkan deposito, perusahaan pembiayaan sangat mengandalkan commercial paper, dan kini menjadi penerbit terbesar di pasar commercial paper jangka pendek, dengan jatuh tempo umumnya 30 hari atau kurang, meskipun dapat diterbitkan hingga 270 hari. Utang kepada induk perusahaan (misalnya utang FMCC kepada Ford) cenderung tidak berujung pada proses hukum jika anak perusahaan mengalami tahun buruk, namun induk perusahaan rentan terhadap kerugian besar jika anak perusahaannya gagal.</p>
+<div class="interpretation">
+  <p>Where $\text{Assets}_{2021\text{Q}2} = \$1{,}475.5$ billion and $\text{Assets}_{1977} = \$39.6$ billion. Substituting:</p>
+  <p>\[ \frac{1{,}475.5 - 39.6}{39.6} \times 100\% = \frac{1{,}435.9}{39.6} \times 100\% \approx 3{,}627\% \]</p>
+  <p>This is a measure of the total percentage increase in industry assets over the period. It is used to gauge the industry's long-run expansion. The growth calculation does not imply that growth occurred smoothly each year; the time series in Figure 3–1 shows cyclical fluctuations, including substantial declines after 2008. The industry's pronounced growth should be interpreted with the caveat that it partly reflects the transfer of lending activity from banks to finance companies and the expansion of consumer credit in the U.S. economy.</p>
+</div>
 
-<h2>4. Kinerja Industri</h2>
-<p>Pada awal 2000-an prospek industri cerah, dengan suku bunga historis rendah, refinancing KPR tumbuh, dan permintaan pinjaman kuat. Aset industri tumbuh sekitar 8 persen per tahun. Perusahaan pembiayaan sukses menjadi sasaran akuisisi, misalnya Citigroup mengakuisisi Associates First Capital, AIG mengakuisisi American General (Mei 2001), dan HSBC Holdings mengakuisisi Household International sebesar $14,9 miliar (2003), salah satu merger terbesar tahun itu.</p>
-<p>Namun pada pertengahan dan akhir 2000-an, masalah pada peminjam berkualitas rendah menimbulkan kerugian besar. Pada akhir 2006, persentase KPR subprime dengan keterlambatan minimal 60 hari mencapai 14 persen, naik dari 6 persen pada awal 2005. Origination KPR subprime turun 30-35 persen pada 2007 dari sekitar $600 miliar pada 2006, sekitar seperlima dari seluruh pasar KPR. Saham New Century Financial, pemberi pinjaman subprime nomor dua, anjlok hampir 79 persen pada awal Maret 2007 dan perdagangannya dihentikan NYSE pada 13 Maret 2007. Fremont General kehilangan sepertiga nilainya, Countrywide Financial kehilangan lebih dari separuh nilai pasarnya dan hanya selamat berkat investasi ekuitas $2 miliar dari Bank of America pada 2007 serta tawaran akuisisi pada 2008, dan HSBC (pemberi pinjaman subprime nomor satu) mencatat beban pinjaman macet $10,6 juta pada 2006.</p>
-<p>Pada akhir 2009, tunggakan KPR meningkat untuk kuartal ke-12 berturut-turut dengan rata-rata nasional tertinggi sepanjang masa sebesar 6,89 persen, berarti lebih dari 7,2 juta KPR menunggak. Tingkat kegagalan pinjaman usaha kecil mencapai 11,9 persen pada 2009 (dibandingkan 2,4 persen pada 2004), dan tingkat gagal bayar KPR komersial naik menjadi 2,25 persen dari 1,62 persen pada kuartal keempat 2008. Krisis menyebabkan kegagalan Countrywide, konversi paksa GMAC menjadi bank holding company, dan kebangkrutan CIT Group pada November 2009, yang saat itu memiliki aset $71 miliar dan liabilitas $65 miliar, dengan kebangkrutan yang menghapus $10 miliar utang termasuk $2,3 miliar dana bailout 2008.</p>
-<p>Seiring pemulihan ekonomi pada akhir 2000-an dan awal 2010-an, industri ikut membaik. Pada pertengahan 2010-an, ROE median industri naik menjadi 9,33 persen dari 6,61 persen pada puncak krisis, dan untuk business credit institutions naik menjadi 13,73 persen dari 5,31 persen. Aset industri mencapai $1,82 triliun (dari $1,59 triliun saat krisis), namun piutang turun menjadi $1,43 triliun (dari $1,93 triliun) dan tenaga kerja menyusut menjadi 562.400 (dari 715.900).</p>
+<div class="interpretation">
+  <p>The industry is highly concentrated. Firms with assets of $20 billion or more—representing less than 0.5 percent of all finance companies—account for 71 percent of industry assets. Many of the largest finance companies are wholly owned or captive subsidiaries of major manufacturing companies. A <strong>captive finance company</strong> is a finance company wholly owned by a parent corporation, and its major role is to provide financing for the purchase of products manufactured by the parent. For example, Ford Motor Credit Corp. finances purchases of Ford vehicles. The parent company is often a major source of debt finance for the captive subsidiary. A benefit of the captive structure to the parent is diversification of revenue streams: when the auto industry suffered from weak sales in the mid-2000s, Ford Motor Credit produced record profits, contributing as much as 80 percent of Ford Motor Corporation's overall profits.</p>
+</div>
 
-<h2>5. Regulasi</h2>
-<p>Federal Reserve mendefinisikan perusahaan pembiayaan sebagai perusahaan (selain lembaga depositori) yang aset utamanya adalah pinjaman kepada individu dan bisnis. Seperti lembaga depositori, perusahaan pembiayaan adalah intermediari keuangan yang meminjam dana untuk dipinjamkan kembali dan memperoleh laba dari selisih suku bunga, tunduk pada batas usury negara bagian dan aturan penagihan pinjaman macet. Namun karena tidak menerima deposito, mereka tidak tunduk pada pengawasan ekstensif regulator federal atau negara bagian seperti bank dan thrift, meskipun menawarkan jasa yang bersaing langsung dengan lembaga depositori. Kurangnya pengawasan ini memungkinkan mereka menawarkan banyak jasa ala bank tanpa biaya kepatuhan regulasi seperti Community Reinvestment Act 1977.</p>
-<p>Karena dampak FI nonbank terhadap perekonomian selama krisis dan kebutuhan Federal Reserve menyelamatkan beberapa di antaranya (GMAC, GE Capital, CIT Group), <i>Wall Street Reform and Consumer Protection Act</i> 2010 memberi pemerintah alat untuk mengelola krisis, yaitu rezim baru untuk menyelesaikan FI nonbank yang kegagalannya berdampak sistemik, revisi kewenangan pinjaman darurat Federal Reserve, pembentukan <i>Financial Services Oversight Council</i> untuk mengidentifikasi risiko sistemik, kewenangan Federal Reserve mengawasi semua perusahaan yang mengancam stabilitas keuangan, serta standar modal yang lebih kuat untuk semua perusahaan keuangan. American Express, Discover Financial, Goldman Sachs, dan Morgan Stanley juga menjadi bank holding companies pada 2008.</p>
-<p>Karena peminjam berat di pasar modal dan tidak menikmati jaring pengaman regulasi seperti bank (tanpa asuransi deposito dan tanpa akses diskonto window), perusahaan pembiayaan perlu memberi sinyal solvabilitas dan keamanan kepada investor, biasanya dengan memegang rasio modal terhadap aset yang lebih tinggi dan rasio leverage lebih rendah daripada bank. Pada 2021 rasio modal terhadap aset perusahaan pembiayaan adalah 24,9 persen, dibandingkan 10,0 persen untuk bank komersial. Perusahaan pembiayaan captive besar juga menggunakan jaminan perlindungan gagal bayar dari induknya dan atau letter of credit dan garis kredit dari bank berkualitas sebagai perlindungan tambahan terhadap risiko insolvensi, sehingga perusahaan besar cenderung beroperasi dengan rasio modal lebih rendah daripada perusahaan kecil.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>Table 3–1 lists the largest U.S. finance companies of 2021 by loans and receivables.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>2021 Loans and Receivables ($ millions)</th>
+          <th>Type of Finance Company</th>
+          <th>Ownership</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Ford Motor Credit Company</td><td>$92,350</td><td>Sales finance</td><td>Subsidiary of Ford Motor Company</td></tr>
+        <tr><td>Toyota Motor Credit Corp.</td><td>80,925</td><td>Sales finance</td><td>Subsidiary of Toyota Motor Corp.</td></tr>
+        <tr><td>Synchrony Financial</td><td>80,740</td><td>Personal credit</td><td>NYSE-listed independent</td></tr>
+        <tr><td>GM Financial Company</td><td>62,979</td><td>Sales finance</td><td>Subsidiary of General Motors Company</td></tr>
+        <tr><td>American Honda Finance Corp.</td><td>39,008</td><td>Sales finance</td><td>Subsidiary of American Honda Motor Company</td></tr>
+        <tr><td>John Deere Capital Corp.</td><td>35,729</td><td>Business credit</td><td>Subsidiary of Deere &amp; Company</td></tr>
+        <tr><td>Santander Consumer USA Holdings Inc.</td><td>27,484</td><td>Personal credit</td><td>NYSE-listed independent</td></tr>
+        <tr><td>Caterpillar Financial Services Corp.</td><td>27,177</td><td>Business credit</td><td>Subsidiary of Caterpillar Inc.</td></tr>
+        <tr><td>IBM Credit LLC</td><td>21,126</td><td>Business credit</td><td>Subsidiary of IBM</td></tr>
+        <tr><td>Mercedes-Benz Financial Services USA</td><td>17,296</td><td>Sales finance</td><td>Subsidiary of Daimler North America Corp.</td></tr>
+        <tr><td>American Express Credit Corp.</td><td>14,059</td><td>Personal credit</td><td>Subsidiary of American Express</td></tr>
+        <tr><td>PACCAR Financial Corp.</td><td>11,921</td><td>Business credit</td><td>Subsidiary of PACCAR</td></tr>
+        <tr><td>Harley-Davidson Financial Services</td><td>6,443</td><td>Sales finance</td><td>Subsidiary of Harley-Davidson, Inc.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Ally Financial and CIT Group are not included in the list because both became bank holding companies in 2008. Ford Motor Company is the largest finance company with receivables totaling $92.4 billion. Notably, the majority of the top firms are captive subsidiaries of manufacturing companies.</p>
+</div>
 
-<h2>6. Isu Global</h2>
-<p>Meskipun bank komersial adalah sumber kredit terpenting di banyak negara, terutama ekonomi pasar berkembang, lembaga keuangan nonbank (perusahaan pembiayaan, credit union, dan building societies) mencakup sebagian substansial dari kredit yang beredar dan kepentingan relatifnya meningkat. Dari pertengahan 1990-an hingga 2010-an, persentase kredit agregat yang diterbitkan lembaga nonbank meningkat dari 22 menjadi 32 persen di Amerika Latin dan dari 4 menjadi 17 persen di Eropa Tengah. Di Thailand, lembaga nonbank khusus kartu kredit merebut pangsa pasar, dan di Meksiko lembaga KPR khusus mendominasi pinjaman KPR berpendapatan rendah. Karena regulasi di sebagian besar negara asing tidak seketat di AS, perusahaan pembiayaan asing umumnya merupakan anak perusahaan bank komersial atau perusahaan industri, sehingga nasibnya mengikuti induknya. Di Selandia Baru krisis memicu konsolidasi dan restrukturisasi banyak perusahaan pembiayaan, sementara di Rusia terjadi pengurangan staf yang signifikan.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>The concentration of the finance company industry is similar to the retail industry, where a handful of large national chains dominate total sales while thousands of small independent stores serve local niches. The captive finance company relationship is comparable to an automobile manufacturer owning its own dealership financing arm—the financing arm exists primarily to help sell the manufacturer's products while also generating independent profits that can cushion the parent company during downturns in its core business.</p>
+</div>
 
-<h2>7. Perhitungan dan Rumus Kunci</h2>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The finance company industry is dominated by captive subsidiaries of nonfinancial corporations. This ownership structure aligns the finance company's lending objective with the parent's commercial objective of selling manufactured goods, creating a powerful distribution channel for credit that is fundamentally different from the standalone banking model.</strong> The diversification benefit to the parent is substantial: captive finance subsidiaries can produce countercyclical profits that offset weakness in the parent's manufacturing operations.</p>
+</div>
 
-<h3>7.1 Pertumbuhan Aset Industri</h3>
-<p>Aset perusahaan pembiayaan tumbuh dari $39,6 miliar (1977) menjadi $1.475,5 miliar (kuartal kedua 2021).</p>
-<div class="eq">\[ \text{Pertumbuhan} = \frac{TA_{2021} - TA_{1977}}{TA_{1977}} \times 100\% = \frac{1.475{,}5 - 39{,}6}{39{,}6} \times 100\% \approx 3.627\% \]</div>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Finance company assets grew from $39.6 billion (1977) to $1,475.5 billion (2021 Q2), an increase of roughly 3,627 percent.</li>
+    <li>Industry assets remained 33 percent below the pre-crisis 2008 peak, reflecting the lasting impact of the financial crisis.</li>
+    <li>Large finance companies with assets of $20 billion or more represent less than 0.5 percent of firms yet account for 71 percent of industry assets.</li>
+    <li>Most of the largest finance companies are captive subsidiaries of major manufacturers, such as Ford Motor Credit, Toyota Motor Credit, and John Deere Capital.</li>
+    <li>Access to FDIC programs and bank holding company status has reshaped the competitive landscape for former finance companies such as GMAC/Ally and CIT Group.</li>
+  </ul>
+</div>
 
-<h3>7.2 Suku Bunga Efektif Tahunan Payday Loan</h3>
-<p>Peminjam membayar $15 untuk setiap $100 yang dipinjam selama dua minggu.</p>
-<div class="eq">\[ APR = \frac{15}{100} \times \frac{365}{14} \approx 3{,}90 = 390\% \]</div>
-<p>dengan \( APR \) adalah suku bunga tahunan efektif. Inilah dasar kritik bahwa biaya payday loan sangat tinggi.</p>
+<h2 id="section3">3. Types of Finance Companies and Their Market Segments</h2>
 
-<h3>7.3 Selisih Suku Bunga Bank versus Perusahaan Pembiayaan</h3>
-<div class="eq">\[ \text{Selisih} = r_{\text{bank}} - r_{\text{finance}} \]</div>
-<p>Nilai positif berarti bank lebih mahal, nilai negatif berarti perusahaan pembiayaan lebih murah, misalnya -3,33 persen pada 2002 (karena program bunga 0 persen captive finance companies) dan +0,27 persen pada 2013.</p>
+<div class="interpretation">
+  <p>The finance company industry is composed of three major types of institutions, each serving a distinct market segment: sales finance institutions, personal credit institutions, and business credit institutions.</p>
+</div>
 
-<h3>7.4 Rasio Modal terhadap Aset</h3>
-<div class="eq">\[ \frac{C}{TA} = 24{,}9\% \quad (2021, \text{perusahaan pembiayaan}) \quad \text{versus} \quad 10{,}0\% \quad (\text{bank komersial}) \]</div>
-<p>Rasio yang lebih tinggi berfungsi sebagai sinyal solvabilitas kepada investor karena perusahaan pembiayaan tidak memiliki jaring pengaman deposito.</p>
+<div class="interpretation">
+  <p><strong>Sales finance institutions</strong> specialize in making loans to the customers of a particular retailer or manufacturer. Examples include Ford Motor Credit and Sears Roebuck Acceptance Corp. Because sales finance institutions can frequently process loans faster and more conveniently than depository institutions—generally at the location of purchase—this sector competes directly with depository institutions for consumer loans. The key feature of the sales finance model is the integration of credit extension with the point-of-sale transaction, which reduces transaction costs and increases convenience for the borrower.</p>
+</div>
 
-<h3>7.5 Return on Equity</h3>
-<div class="eq">\[ ROE = \frac{NI}{E} \]</div>
-<p>ROE median industri naik dari 6,61 persen (puncak krisis) menjadi 9,33 persen (pertengahan 2010-an), dan untuk business credit institutions dari 5,31 persen menjadi 13,73 persen.</p>
+<div class="interpretation">
+  <p><strong>Personal credit institutions</strong> specialize in making installment and other loans to consumers. Examples include HSBC Finance and AIG American General. These institutions make loans to customers that depository institutions find too risky to serve, either because of low income or a bad credit history. To compensate for the additional risk, personal credit institutions charge higher interest rates than depository institutions and/or accept collateral (such as used cars) that banks find unacceptable. The higher rates are not a reflection of exploitation per se but a risk premium required to cover expected losses and still earn a profit on loans to subprime borrowers.</p>
+</div>
 
-<h3>7.6 Data Kunci Lainnya</h3>
-<ul>
-  <li>Aset industri, $1.475,5 miliar (Q2 2021), turun 33 persen dari puncak awal 2008</li>
-  <li>Konsentrasi industri, perusahaan dengan aset $20 miliar+ (kurang dari 0,5 persen jumlah) menguasai 71 persen aset</li>
-  <li>Komposisi aset 2021, pinjaman konsumen dan bisnis 64,0 persen, real estate 6,2 persen</li>
-  <li>Pendanaan 2021, commercial paper 2,2 persen, sekuritas utang lain 43,6 persen, pinjaman bank 11,6 persen</li>
-  <li>Tunggakan KPR subprime 60+ hari, 14 persen (akhir 2006) versus 6 persen (awal 2005)</li>
-  <li>Tunggakan KPR nasional, rekor 6,89 persen (akhir 2009), lebih dari 7,2 juta pinjaman</li>
-  <li>Kegagalan pinjaman usaha kecil, 11,9 persen (2009) versus 2,4 persen (2004)</li>
-</ul>
+<div class="interpretation">
+  <p><strong>Business credit institutions</strong> provide financing to corporations, especially through equipment leasing and factoring. Examples include CIT Group and U.S. Bancorp Equipment Finance. <strong>Factoring</strong> is the process of purchasing accounts receivable from corporate customers at a discount from their face value; the finance company specializes in and assumes responsibility for collecting the receivables. The corporate customer receives cash for sales faster than the time it takes customers to pay their bills and no longer bears the risk that receivables may be delayed or defaulted upon. Many finance companies perform more than one of these three services—Ally Financial is an example of a multi-line finance company.</p>
+</div>
 
-<h2>8. Ringkasan dan Kesimpulan</h2>
-<p>Bab ini memberikan gambaran industri perusahaan pembiayaan yang bersaing langsung dengan lembaga depositori untuk nasabah pinjaman berkualitas (prime) dengan berspesialisasi pada pinjaman konsumen, real estate, dan bisnis, sekaligus melayani peminjam subprime (berisiko tinggi) yang dianggap terlalu berisiko bagi sebagian besar lembaga depositori. Karena tidak menerima deposito, perusahaan pembiayaan tidak diatur seketat lembaga depositori dan sangat mengandalkan utang jangka pendek dan jangka panjang, terutama commercial paper. Saat ini industri umumnya tumbuh dan menguntungkan, meskipun sektor subprime mengalami masalah seiring naiknya tingkat gagal bayar konsumen.</p>
-<p>Pelajaran penting dari bab ini adalah bahwa model bisnis tanpa deposito membawa trade-off, yaitu kebebasan regulasi dan fleksibilitas produk sebagai keunggulan, namun ketergantungan pada pendanaan pasar dan risiko kredit peminjam berisiko sebagai kelemahan yang terbukti pada krisis 2008-2009 melalui kegagalan Countrywide, GMAC, dan CIT Group. Rasio modal yang tinggi dan jaminan dari induk perusahaan menjadi mekanisme kunci untuk menjaga kepercayaan investor.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>Ford Motor Credit Corp. (FMCC) operates as a sales finance institution that provides wholesale financing to Ford dealers for inventory floor plans. In this arrangement, FMCC pays for Ford dealers' auto inventory received from Ford, places a lien on each car on the showroom floor, and charges the dealer periodic interest on the floor plan loan. The dealer does not pay for the car until it is sold. This example illustrates the operational mechanics of sales finance institutions: they are deeply embedded in the distribution chain of the manufacturer, providing financing not only to consumers (retail) but also to dealers (wholesale).</p>
+</div>
 
-<h2>9. Pertanyaan Konsep untuk Latihan</h2>
-<ol>
-  <li>Apa fungsi utama perusahaan pembiayaan dan bagaimana mereka berbeda dari lembaga depositori?</li>
-  <li>Apa tiga jenis utama perusahaan pembiayaan dan segmen pasar mana yang dilayani masing-masing?</li>
-  <li>Mengapa suku bunga pinjaman konsumen perusahaan pembiayaan umumnya lebih tinggi daripada bank komersial?</li>
-  <li>Mengapa home equity loans menjadi populer? Apa itu securitized mortgage assets?</li>
-  <li>Apa keunggulan perusahaan pembiayaan atas bank komersial dalam melayani usaha kecil?</li>
-  <li>Apa sumber pendanaan utama perusahaan pembiayaan?</li>
-  <li>Mengapa perusahaan pembiayaan menghadapi lebih sedikit regulasi daripada bank, dan bagaimana keunggulan ini menjadi keunggulan kinerja? Apa kelemahan kinerja utamanya?</li>
-  <li>Bandingkan rasio modal terhadap aset perusahaan pembiayaan dan bank komersial. Apa yang ditunjukkan perbandingan ini?</li>
-</ol>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Think of the three types of finance companies as three different kinds of stores. Sales finance institutions are like boutique stores attached to a specific brand—they sell credit only for products made by their parent. Personal credit institutions are like general-purpose pawn shops or second-hand stores—they lend to consumers whom mainstream banks reject, charging more for the privilege. Business credit institutions are like wholesale suppliers—they provide financing to businesses through equipment leasing and by buying their unpaid invoices at a discount (factoring), much as a wholesaler might purchase a retailer's inventory at a discount to assume responsibility for selling it.</p>
+</div>
 
-<p class="note">Catatan teknis, persamaan matematis pada halaman ini dirender dengan MathJax dan membutuhkan koneksi internet saat pertama kali dibuka. Untuk mencetak atau menyimpan sebagai PDF, gunakan tombol Cetak di bagian atas. Dokumen ini adalah ringkasan belajar mandiri dan bukan pengganti buku teks asli.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The three-way taxonomy of finance companies reflects fundamental differences in borrower segments and collateral types. Sales finance institutions are tied to product distribution, personal credit institutions serve subprime consumers, and business credit institutions serve corporations. Understanding which type of finance company one is analyzing is essential because their risk profiles, funding needs, and regulatory exposure differ substantially.</strong></p>
+</div>
 
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Sales finance institutions make loans to customers of a specific retailer or manufacturer, competing directly with banks at the point of sale.</li>
+    <li>Personal credit institutions specialize in installment and other consumer loans, serving high-risk borrowers that banks reject and charging higher rates accordingly.</li>
+    <li>Business credit institutions finance corporations through equipment leasing and factoring; factoring means purchasing accounts receivable at a discount.</li>
+    <li>Factoring transfers the responsibility and risk of collecting accounts receivable to the finance company, providing immediate cash to the corporate customer.</li>
+    <li>Many finance companies, such as Ally Financial, operate across more than one of these categories.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Balance Sheet Analysis: Assets and Lending Portfolio</h2>
+
+<div class="interpretation">
+  <p>Finance companies provide three basic lending services: consumer lending, real estate lending, and business lending. Table 3–2 presents the aggregate balance sheet of U.S. finance companies for 2007, 2018, and 2021. Business and consumer loans are the major asset categories, accounting together for 64.0 percent of total assets in 2021, while real estate loans constitute 6.2 percent of total assets. Over the 2007–2021 period, consumer loans declined in absolute dollar terms but increased as a percentage of total assets. Real estate loans decreased in both absolute and percentage terms, largely because the financial crisis prompted many lenders to reduce exposure to riskier forms of credit. Since 2007, the only categories that have grown consistently are consumer vehicle loans and business retail loans.</p>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th rowspan="2">Asset Category</th>
+        <th colspan="3">Level ($ billion)</th>
+        <th colspan="3">Share of Total Assets</th>
+      </tr>
+      <tr>
+        <th>2007</th><th>2018</th><th>2021</th><th>2007</th><th>2018</th><th>2021</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="7"><strong>Consumer</strong></td></tr>
+      <tr><td>&nbsp;&nbsp;Motor vehicle loans</td><td>261.5</td><td>316.0</td><td>370.6</td><td>11.8%</td><td>21.1%</td><td>22.0%</td></tr>
+      <tr><td>&nbsp;&nbsp;Motor vehicle leases</td><td>122.9</td><td>193.9</td><td>176.3</td><td>5.6</td><td>13.0</td><td>10.5</td></tr>
+      <tr><td>&nbsp;&nbsp;Revolving</td><td>86.0</td><td>23.7</td><td>13.4</td><td>3.9</td><td>1.6</td><td>0.8</td></tr>
+      <tr><td>&nbsp;&nbsp;Other</td><td>420.7</td><td>201.7</td><td>193.5</td><td>19.0</td><td>13.5</td><td>11.5</td></tr>
+      <tr><td>&nbsp;&nbsp;Subtotal</td><td>891.1</td><td>735.3</td><td>753.8</td><td>40.3</td><td>49.2</td><td>44.8</td></tr>
+      <tr><td colspan="7"><strong>Real estate</strong></td></tr>
+      <tr><td>&nbsp;&nbsp;One-to-four family</td><td>472.7</td><td>87.1</td><td>73.6</td><td>21.4</td><td>5.8</td><td>4.4</td></tr>
+      <tr><td>&nbsp;&nbsp;Other</td><td>99.7</td><td>27.7</td><td>31.1</td><td>4.5</td><td>1.9</td><td>1.8</td></tr>
+      <tr><td>&nbsp;&nbsp;Subtotal</td><td>572.4</td><td>114.8</td><td>104.7</td><td>25.9</td><td>7.7</td><td>6.2</td></tr>
+      <tr><td colspan="7"><strong>Business</strong></td></tr>
+      <tr><td>&nbsp;&nbsp;Motor vehicles</td><td>105.7</td><td>115.7</td><td>68.5</td><td>4.8</td><td>7.7</td><td>4.1</td></tr>
+      <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Retail loans</td><td>16.4</td><td>17.5</td><td>21.9</td><td>0.7</td><td>1.2</td><td>1.3</td></tr>
+      <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Wholesale loans</td><td>56.9</td><td>88.9</td><td>38.7</td><td>2.6</td><td>5.9</td><td>2.3</td></tr>
+      <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Leases</td><td>32.4</td><td>9.2</td><td>8.0</td><td>1.5</td><td>0.6</td><td>0.5</td></tr>
+      <tr><td>&nbsp;&nbsp;Equipment</td><td>347.0</td><td>199.3</td><td>184.3</td><td>15.7</td><td>13.3</td><td>11.0</td></tr>
+      <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Loans</td><td>115.9</td><td>125.7</td><td>126.9</td><td>5.2</td><td>8.4</td><td>7.5</td></tr>
+      <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Leases</td><td>231.1</td><td>73.5</td><td>57.4</td><td>10.5</td><td>4.9</td><td>3.4</td></tr>
+      <tr><td>&nbsp;&nbsp;Other business receivables</td><td>149.5</td><td>81.7</td><td>70.8</td><td>6.8</td><td>5.5</td><td>4.2</td></tr>
+      <tr><td>&nbsp;&nbsp;Subtotal</td><td>602.2</td><td>396.7</td><td>323.6</td><td>27.3</td><td>26.5</td><td>19.2</td></tr>
+      <tr><td>Total loans and leases</td><td>2,065.6</td><td>1,246.8</td><td>1,182.1</td><td>93.5</td><td>83.4</td><td>70.3</td></tr>
+      <tr><td>Total assets</td><td>2,209.4</td><td>1,495.8</td><td>1,682.2</td><td>100.0</td><td>100.0</td><td>100.0</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="interpretation">
+  <p>Several structural patterns stand out. First, the total assets of finance companies were substantially lower in 2021 ($1,682.2 billion) than in 2007 ($2,209.4 billion), a decline of approximately 24 percent. This reflects the industry's contraction during and after the financial crisis. Second, the composition shifted markedly: consumer motor vehicle loans grew from 11.8 percent to 22.0 percent of total assets between 2007 and 2021; revolving consumer credit collapsed from 3.9 percent to 0.8 percent; and one-to-four-family real estate loans declined from 21.4 percent to 4.4 percent. Third, total loans and leases as a share of total assets fell from 93.5 percent to 70.3 percent, indicating that finance companies now hold a larger fraction of non-loan assets (including possibly cash and securities) than before the crisis.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Composition Share</span>
+  <div class="formula">
+    \[ \text{Share of Total Assets} = \frac{\text{Asset Category Value}}{\text{Total Assets}} \times 100\% \]
+  </div>
+</div>
+
+<div class="interpretation">
+  <p>Where the asset category value is the dollar amount of a particular loan category (e.g., consumer motor vehicle loans = $370.6 billion in 2021) and total assets is the industry aggregate ($1,682.2 billion in 2021). The ratio expresses the relative importance of each loan category in the industry's asset portfolio. This measure is used to track portfolio composition over time and to assess the industry's exposure to different credit markets. For example, the sharp decline in real estate loans from 25.9 percent to 6.2 percent of assets between 2007 and 2021 reveals a strategic withdrawal from mortgage lending following the financial crisis.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Between 2007 and 2021, consumer motor vehicle loans and leases grew from $384.4 billion combined (261.5 + 122.9) to $546.9 billion combined (370.6 + 176.3), while their share of total assets rose from 17.4 percent to 32.5 percent. Meanwhile, one-to-four-family real estate loans plummeted from $472.7 billion to $73.6 billion. The strategic implication is that finance companies refocused their business models toward auto finance and away from residential mortgage lending after the crisis.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>The balance sheet of a finance company is like an investor's portfolio. Just as an investor might shift from real estate holdings into automotive stocks in response to changing market conditions, finance companies reshuffled their loan portfolios away from real estate and toward vehicle financing after the financial crisis exposed the risks of mortgage lending. The percentages reveal not just where money is deployed but also management's assessment of which markets offer acceptable risk-adjusted returns.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The balance sheet data reveal that finance companies are primarily vehicle financiers and equipment lenders, not general-purpose mortgage lenders. The dramatic reduction in real estate lending after 2007, combined with the sustained growth in consumer vehicle loans and business retail loans, demonstrates how crisis-driven losses reshaped the industry's strategic focus.</strong> The rising share of non-loan assets on the balance sheet suggests finance companies diversified their asset holdings beyond traditional lending.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Consumer loans (44.8 percent), business loans (19.2 percent), and real estate loans (6.2 percent) constitute the major asset categories in 2021.</li>
+    <li>Consumer vehicle loans and leases are the largest single loan category, representing about 32.5 percent of total assets.</li>
+    <li>Real estate loans contracted dramatically from 25.9 percent (2007) to 6.2 percent (2021) of total assets following the financial crisis.</li>
+    <li>Total loans and leases fell from 93.5 percent to 70.3 percent of total assets, indicating greater diversification into non-loan assets.</li>
+    <li>The only consistently growing loan categories since 2007 are consumer vehicle loans and business retail loans.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. Consumer Lending and Subprime Credit Markets</h2>
+
+<div class="interpretation">
+  <p>Consumer lending is the largest lending activity of finance companies. Consumer loans comprise motor vehicle loans and leases and other consumer loans, including revolving credit and securitized loans. Motor vehicle loans and leases are traditionally the major type of consumer loan, representing 32.5 percent of total assets in 2021. Other consumer loans (revolving and other) constituted 27.5 percent of the consumer loan portfolio in 2021 and consist of personal cash loans, mobile home loans, and private-label credit card loans (e.g., Discover card) used to purchase consumer goods such as appliances, apparel, general merchandise, and recreational vehicles.</p>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>1995</th><th>1996</th><th>1997</th><th>2002</th><th>2007</th><th>2012</th><th>2013</th><th>2015</th><th>2018</th><th>2021</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Commercial bank new car</td><td>9.57%</td><td>9.05%</td><td>9.02%</td><td>7.62%</td><td>7.77%</td><td>5.73%</td><td>4.43%</td><td>4.31%</td><td>5.37%</td><td>4.82%</td></tr>
+      <tr><td>Auto finance company new car</td><td>11.19</td><td>9.84</td><td>7.12</td><td>4.29</td><td>4.87</td><td>4.73</td><td>4.70</td><td>5.40</td><td>6.69</td><td>4.60</td></tr>
+      <tr><td>Difference in commercial bank versus finance company rate</td><td>1.62</td><td>0.79</td><td>−1.90</td><td>−3.33</td><td>−2.90</td><td>−1.00</td><td>0.27</td><td>1.09</td><td>1.32</td><td>−0.22</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="interpretation">
+  <p>Table 3–3 shows consumer credit interest rates for new car loans at commercial banks versus auto finance companies from 1995 to 2021. In the 1990s, finance companies historically charged higher rates than commercial banks—1.62 percent higher in 1995 and 0.79 percent higher in 1996. This premium reflected the riskier borrower base served by finance companies. However, in the late 1990s and early 2000s, the pattern reversed dramatically. Because new car sales by U.S. firms were lower than normal, auto finance companies owned by major manufacturers slashed rates, sometimes to as low as 0.9 percent. After the September 2001 terrorist attacks, some major auto manufacturers lowered rates on new car loans to zero percent to boost sales. By 2002, finance companies were charging 3.33 percent less than commercial banks. It was not until 2013 that the historical trend returned, with finance companies charging 0.27 percent more than banks. In 2021, finance companies charged 0.22 percent less than commercial banks, again reflecting promotional captive financing.</p>
+</div>
+
+<div class="interpretation">
+  <p>The higher rates that finance companies generally charge for consumer loans are mostly attributable to the fact that finance companies attract riskier customers than commercial banks. Customers who seek loans from finance companies are often judged too risky to obtain loans from commercial banks or thrifts. <strong>Subprime lender:</strong> a finance company that lends to high-risk customers, sometimes even those with a bankruptcy on their records. <strong>Loan sharks:</strong> subprime lenders that charge unfairly exorbitant rates to desperate subprime borrowers, sometimes as high as 30 percent per year or more.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Payday Loan Annual Percentage Rate</span>
+  <div class="formula">
+    \[ \text{APR} = \left( \frac{\text{Fee}}{\text{Principal}} \right) \times \left( \frac{\text{Number of Periods per Year}}{1} \right) \times 100\% \]
+  </div>
+</div>
+
+<div class="interpretation">
+  <p>Where the fee is the dollar charge for the loan (e.g., $15 per $100 borrowed), the principal is the amount borrowed ($100), and the number of periods per year reflects how many times the loan term fits into a year. For a typical two-week payday loan:</p>
+  <p>\[ \text{APR} = \left( \frac{15}{100} \right) \times \left( \frac{52}{2} \right) \times 100\% = 0.15 \times 26 \times 100\% = 390\% \]</p>
+  <p>This formula annualizes the cost of short-term credit so that loans with different maturities can be compared on a common basis. The 390 percent APR for payday loans is dramatically higher than rates on conventional bank loans. Lenders argue that such rates are necessary to cover high default rates, operating costs, and the risk of lending to borrowers with poor credit histories. Critics contend the rates are exorbitant and trap financially strapped borrowers in a cycle of paying additional fees to renew the same principal. The payday lending industry is regulated at the state level; as of 2021, 32 states and the District of Columbia imposed an interest rate limit of 36 percent or less on a $2,000, two-year installment loan.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Jayhawk Acceptance Corp., a subprime lender, began marketing loans for tummy tucks, hair transplants, and other procedures not usually covered by health insurance. Borrowers who paid within one year paid 9.9 percent annually; those who repaid within the maximum of two years paid 13.9 percent per year. Skeptical analysts noted the practical problem of repossessing collateral for a cosmetic surgery loan—"no one could repossess a nose job." Jayhawk eventually declared bankruptcy. This example illustrates the extreme end of subprime lending, where collateral is intangible and default risk is difficult to manage. It also demonstrates that the willingness of finance companies to serve high-risk borrowers can produce losses when risk management fails.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Subprime lending by finance companies is analogous to a landlord renting an apartment to a tenant with a history of evictions and damaged properties. The landlord charges a higher security deposit and higher monthly rent than market rates for prime tenants. If the tenant defaults, the landlord loses the unpaid rent and may incur repair costs. Similarly, finance companies charge higher interest rates to subprime borrowers to compensate for the elevated probability of default. When the economy turns sour and defaults spike simultaneously across many borrowers, the finance company can face catastrophic losses—just as a landlord with many risky tenants will suffer when a local economic downturn causes widespread job losses.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The higher interest rates charged by finance companies are primarily risk premiums reflecting a riskier borrower base, not monopolistic pricing. However, the payday lending segment demonstrates that some lenders may charge rates that far exceed what expected default costs would justify, particularly when borrowers are desperate and financially unsophisticated.</strong> Regulatory intervention at the state and federal levels has sought to cap these rates, but enforcement is complicated by lender partnerships with nationally chartered banks in states without usury ceilings.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Motor vehicle loans and leases are the dominant consumer loan product, making up 32.5 percent of finance company assets in 2021.</li>
+    <li>Finance companies historically charged 0.79–1.62 percent more than banks on new car loans due to riskier borrowers.</li>
+    <li>Promotional financing by captive auto finance companies periodically drives rates below bank rates—even to zero percent—particularly after 2001 and during the 2008–2009 crisis.</li>
+    <li>Subprime lenders extend credit to borrowers with poor or no credit histories, including those with bankruptcies.</li>
+    <li>Payday lenders charge fees equivalent to 390 percent APR on two-week loans of $15 per $100 borrowed.</li>
+    <li>As of July 2021, 32 states and the District of Columbia impose interest rate limits of 36 percent or less on $2,000, two-year installment loans.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Real Estate Lending and Mortgage Securitization</h2>
+
+<div class="interpretation">
+  <p>Residential and commercial mortgages became a major component of finance company portfolios in the 1980s and 1990s, even though finance companies did not generally deal in mortgages in the 1970s. Since finance companies are not subject to as extensive regulations as banks, they are often willing to issue mortgages to riskier borrowers than commercial banks would accept, compensating for this additional risk by charging higher interest rates and fees. Mortgages include all loans secured by liens on any type of real estate and can be made either directly or as securitized mortgage assets.</p>
+  <p><strong>Securitized mortgage assets:</strong> mortgages that are pooled with similar characteristics, removed from the originating institution's balance sheet, and sold as interests in the pool to secondary market investors. This process creates <strong>mortgage-backed securities</strong> (e.g., government agency securities, collateralized mortgage obligations) that can be traded in secondary mortgage markets. The originating finance company may still service the mortgage portfolio for a fee even after the mortgages are removed from its balance sheet. <strong>Mortgage servicing</strong> is a fee-related business in which the flow of mortgage repayments (interest and principal) is collected and passed on to investors in whole loans or securitization vehicles, with the servicer charging a fee for this intermediation activity.</p>
+</div>
+
+<div class="interpretation">
+  <p>The mortgages in finance company portfolios can be first mortgages or second mortgages in the form of <strong>home equity loans</strong>, which allow customers to borrow on a line of credit secured with a second mortgage on their home. Home equity loans became very profitable for finance companies after the Tax Reform Act of 1986, which disallowed the tax deductibility of consumer interest payments other than those on home mortgages. Specifically, interest on first and second mortgages secured by residential real estate is tax deductible, while interest on other types of individual loans (such as credit card loans) is not. Additionally, the bad debt expense and administrative costs on home equity loans are lower than on other finance company loans. During 2007–2008, a sharp rise in late payments and defaults by subprime and even relatively strong credit mortgage and home equity loan borrowers caused large losses for mortgage lenders and mortgage-backed securities investors, ultimately becoming the root
+    </div>
 </body>
 </html>

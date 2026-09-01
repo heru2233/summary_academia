@@ -21,6 +21,28 @@
     </style>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 <h3>Introduction</h3>
 <p>Climate change is reshaping agricultural production systems worldwide by increasing the frequency and intensity of extreme weather events, disrupting value chains, and heightening price volatility in agri‑food markets (Abbass et al., 2022). While much of the adaptation literature focuses on production‑side interventions such as improved seed varieties, irrigation, and conservation agriculture, the resilience of agricultural systems also depends on how farmers market their produce. The choice of marketing channel influences <i>transaction costs</i>, income stability, and ultimately food security. In Tanzania, rice is a strategic commodity for food security and economic development, yet smallholder rice farmers face numerous marketing challenges, including limited bargaining power, poor infrastructure, and information asymmetry. This study investigates the determinants of marketing channel selection among smallholder rice farmers in Kilombero District, explicitly incorporating climate‑change risk perception and access to climate information services alongside traditional socioeconomic and institutional factors.</p>
 

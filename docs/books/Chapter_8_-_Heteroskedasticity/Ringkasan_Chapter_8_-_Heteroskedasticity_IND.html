@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8   Heteroskedasticity</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 8   Heteroskedasticity</h1>
+<div class="toc">
+  <h3>Daftar Isi</h3>
+  <ul>
+    <li><a href="#section1">1. Konsekuensi <i>Heteroskedasticity</i> bagi <i>OLS</i></a></li>
+    <li><a href="#section2">2. Inferensi Kuat <i>Heteroskedasticity</i> setelah Estimasi <i>OLS</i></a></li>
+    <li><a href="#section3">3. Pengujian <i>Heteroskedasticity</i></a></li>
+    <li><a href="#section4">4. Estimasi <i>Weighted Least Squares</i></a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Konsekuensi <i>Heteroskedasticity</i> bagi <i>OLS</i></h2>
+
+<h3>1.1 Definisi dan Konsep Inti</h3>
+
+<div class="interpretation">
+  <p>Asumsi <i>homoskedasticity</i> (MLR.5) dalam model <i>regression</i> berganda menyatakan bahwa <i>variance</i> dari galat yang tidak teramati, <i>u</i>, dengan syarat pada variabel-variabel penjelas, adalah konstan: <i>Var</i>(<i>u</i>|<i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, …, <i>x</i><sub>k</sub>) = σ<sup>2</sup>. <i>Heteroskedasticity</i> terjadi ketika <i>variance</i> bersyarat ini berubah di berbagai segmen populasi yang didefinisikan oleh nilai-nilai variabel penjelas. Sebagai contoh, dalam persamaan tabungan, <i>variance</i> faktor-faktor tak teramati yang memengaruhi tabungan dapat meningkat seiring dengan pendapatan.</p>
+  <p><i>Heteroskedasticity</i> <i>tidak</i> menyebabkan bias atau inkonsistensi pada estimator <i>OLS</i> untuk β<sub>j</sub>. Empat asumsi <i>Gauss-Markov</i> yang pertama (MLR.1–MLR.4) sudah cukup untuk ketidakbiasan dan konsistensi. <i>Homoskedasticity</i> tidak relevan untuk sifat-sifat ini. Namun, <i>heteroskedasticity</i> memengaruhi validitas <i>standard error</i>, interval kepercayaan, dan pengujian hipotesis. <i>Standard error</i> <i>OLS</i> biasa, statistik <i>t</i>, statistik <i>F</i>, dan statistik <i>LM</i> tidak lagi valid jika terdapat <i>heteroskedasticity</i>, bahkan dalam sampel besar. Selain itu, <i>OLS</i> bukan lagi <i>Best Linear Unbiased Estimator</i> (<i>BLUE</i>) ketika <i>heteroskedasticity</i> hadir, dan <i>OLS</i> tidak efisien secara asimtotik dalam kelas estimator yang dipertimbangkan dalam Teorema 5.3.</p>
+  <p>Yang penting, interpretasi ukuran kebaikan-suai R<sup>2</sup> dan R<sup>2</sup> yang disesuaikan tidak terpengaruh oleh <i>heteroskedasticity</i>. Keduanya merupakan estimator konsisten dari R<sup>2</sup> populasi (1 – σ<sup>2</sup><sub>u</sub>/σ<sup>2</sup><sub>y</sub>), yang melibatkan <i>variance</i> tanpa syarat. Jumlah kuadrat yang digunakan dalam perhitungannya tetap merupakan estimator konsisten dari <i>variance</i> populasi terlepas dari apakah <i>variance</i> bersyarat konstan atau tidak.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model <i>Regression</i> Linear Berganda</span>
+  <div class="formula">\[ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> <i>y</i> adalah variabel dependen; <i>x</i><sub>1</sub>, …, <i>x</i><sub>k</sub> adalah variabel independen; <i>β</i><sub>0</sub> adalah <i>intercept</i>; <i>β</i><sub>1</sub>, …, <i>β</i><sub>k</sub> adalah parameter <i>slope</i>; <i>u</i> adalah suku galat yang tidak teramati.</p>
+  <p><strong>Interpretasi:</strong> Di bawah Asumsi MLR.1–MLR.4, estimator <i>OLS</i> untuk β<sub>j</sub> bersifat tidak bias dan konsisten. Asumsi <i>homoskedasticity</i> MLR.5 (<i>Var</i>(<i>u</i>|<b>x</b>) = σ<sup>2</sup>) tidak diperlukan untuk sifat-sifat ini, tetapi diperlukan untuk Teorema <i>Gauss-Markov</i> (<i>BLUE</i>) dan untuk inferensi valid menggunakan rumus standar.</p>
+  <p><strong>Penggunaan Praktis:</strong> Ketika <i>heteroskedasticity</i> hadir, seseorang harus menyesuaikan <i>standard error</i> agar kuat terhadap <i>heteroskedasticity</i> atau menggunakan estimator yang lebih efisien (misalnya, <i>weighted least squares</i>). Model itu sendiri tetap terspesifikasi dengan benar untuk rata-rata bersyarat.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>Model:</strong> Persamaan tabungan dengan pendapatan sebagai variabel penjelas. Jika <i>variance</i> faktor-faktor tak teramati yang memengaruhi tabungan meningkat seiring pendapatan, maka <i>heteroskedasticity</i> hadir. Estimasi <i>OLS</i> untuk kecenderungan menabung marjinal tetap tidak bias, tetapi statistik <i>t</i> biasa tidak dapat diandalkan.</p>
+  <p><strong>Interpretasi:</strong> Koefisien pendapatan tetap diinterpretasikan sebagai perubahan harapan tabungan untuk kenaikan satu unit pendapatan, dengan faktor lain tetap. Namun, <i>standard error</i>, interval kepercayaan, dan pengujian hipotesis berbasis <i>OLS</i> menjadi tidak valid kecuali dikoreksi untuk <i>heteroskedasticity</i>.</p>
+  <p><strong>Pelajaran Praktis:</strong> Selalu periksa <i>heteroskedasticity</i> ketika menggunakan data lintas-seksi. Jika terdeteksi, gunakan <i>standard error</i> yang kuat terhadap <i>heteroskedasticity</i> atau <i>weighted least squares</i>.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Bayangkan <i>OLS</i> sebagai timbangan yang memberikan bobot sama pada setiap observasi. Ketika <i>variance</i> galat berbeda antar observasi (<i>heteroskedasticity</i>), sebagian observasi lebih "berisik" daripada yang lain. Menggunakan <i>OLS</i> seperti mencoba mengestimasi titik tengah sasaran ketika sebagian anak panah jauh lebih tersebar daripada yang lain—estimasi tetap tidak bias, tetapi presisinya terganggu, dan interval kepercayaan yang biasa menjadi menyesatkan.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Heteroskedasticity</i> tidak menyebabkan bias pada koefisien <i>OLS</i>, tetapi membuat <i>standard error</i>, statistik <i>t</i>, statistik <i>F</i>, dan interval kepercayaan yang biasa menjadi tidak valid.</strong> <i>OLS</i> tidak lagi <i>BLUE</i>, dan estimator alternatif mungkin lebih efisien.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li><i>Heteroskedasticity</i>: <i>variance</i> bersyarat dari galat berubah mengikuti variabel penjelas.</li>
+    <li><i>OLS</i> tetap tidak bias dan konsisten di bawah MLR.1–MLR.4 meskipun ada <i>heteroskedasticity</i>.</li>
+    <li><i>Standard error</i> biasa, statistik <i>t</i>, <i>F</i>, dan <i>LM</i> tidak valid; <i>OLS</i> bukan lagi <i>BLUE</i>.</li>
+    <li>R<sup>2</sup> dan R<sup>2</sup> yang disesuaikan tetap valid sebagai estimator R<sup>2</sup> populasi.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Inferensi Kuat <i>Heteroskedasticity</i> setelah Estimasi <i>OLS</i></h2>
+
+<h3>2.1 <i>Standard Error</i> Kuat</h3>
+
+<div class="interpretation">
+  <p>Prosedur kuat terhadap <i>heteroskedasticity</i> memungkinkan inferensi valid setelah estimasi <i>OLS</i> tanpa mengasumsikan bentuk <i>heteroskedasticity</i> tertentu. Metode ini, yang dikembangkan oleh White (1980) dan sebelumnya oleh Eicker (1967) dan Huber (1967), memberikan <i>standard error</i> yang valid secara asimtotik baik ketika galat memiliki <i>variance</i> konstan maupun tidak. Dalam sampel besar, statistik <i>t</i> kuat kira-kira berdistribusi <i>t</i>, dan statistik <i>F</i> serta <i>LM</i> kuat kira-kira berdistribusi chi-kuadrat.</p>
+  <p>Ide utamanya adalah mengestimasi <i>variance</i> dari estimator <i>OLS</i> tanpa memaksakan <i>homoskedasticity</i>. Untuk satu variabel independen, <i>variance</i> dari estimator <i>slope</i> <i>OLS</i> <i>β̂</i><sub>1</sub> di bawah <i>heteroskedasticity</i> adalah:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label"><i>Variance</i> Estimator <i>Slope</i> <i>OLS</i> di bawah <i>Heteroskedasticity</i> (<i>Regresi</i> Sederhana)</span>
+  <div class="formula">\[ \text{Var}(\hat{\beta}_1) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2 \sigma_i^2}{\text{SST}_x^2} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> <i>σ</i><sub>i</sub><sup>2</sup> = <i>Var</i>(<i>u</i><sub>i</sub>|<i>x</i><sub>i</sub>), <i>variance</i> bersyarat dari galat untuk observasi <i>i</i>; SST<sub>x</sub> = Σ(<i>x</i><sub>i</sub> – <i>x̄</i>)<sup>2</sup> adalah jumlah kuadrat total dari <i>x</i>.</p>
+  <p><strong>Interpretasi:</strong> Ketika <i>homoskedasticity</i> berlaku (<i>σ</i><sub>i</sub><sup>2</sup> = σ<sup>2</sup> untuk semua <i>i</i>), rumus tersebut mereduksi menjadi σ<sup>2</sup>/SST<sub>x</sub> yang lazim. Di bawah <i>heteroskedasticity</i>, <i>variance</i> bergantung pada pola <i>σ</i><sub>i</sub><sup>2</sup> di seluruh observasi dengan nilai <i>x</i> yang berbeda.</p>
+  <p><strong>Penggunaan Praktis:</strong> Rumus ini tidak dapat digunakan secara langsung karena <i>σ</i><sub>i</sub><sup>2</sup> tidak diketahui. White (1980) mengusulkan penggantian <i>σ</i><sub>i</sub><sup>2</sup> dengan kuadrat <i>residual</i> <i>OLS</i>, <i>û</i><sub>i</sub><sup>2</sup>, sehingga menghasilkan estimator konsisten untuk <i>Var</i>(<i>β̂</i><sub>1</sub>).</p>
+  <p><strong>Asumsi:</strong> MLR.1–MLR.4 harus berlaku; estimator valid secara asimtotik di bawah bentuk <i>heteroskedasticity</i> apa pun.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Estimator <i>Variance</i> Kuat <i>Heteroskedasticity</i> (<i>Regresi</i> Sederhana)</span>
+  <div class="formula">\[ \widehat{\text{Var}}(\hat{\beta}_1) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2 \hat{u}_i^2}{\text{SST}_x^2} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretasi:</strong> Kuadrat <i>residual</i> <i>OLS</i>, <i>û</i><sub>i</sub><sup>2</sup>, digunakan sebagai estimasi untuk <i>σ</i><sub>i</sub><sup>2</sup>. Dengan mengalikan estimator ini dengan ukuran sampel <i>n</i> serta menggunakan hukum bilangan besar dan teorema limit pusat, estimator konvergen dalam probabilitas ke limit yang sesuai, sehingga membenarkan penggunaannya dalam sampel besar.</p>
+  <p><strong>Penggunaan Praktis:</strong> Kebanyakan paket <i>regression</i> menghitung <i>standard error</i> kuat <i>heteroskedasticity</i> secara otomatis. Akar kuadrat dari estimator <i>variance</i> ini adalah <i>standard error</i> kuat <i>heteroskedasticity</i>.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Estimator <i>Variance</i> Kuat <i>Heteroskedasticity</i> (<i>Regresi</i> Berganda)</span>
+  <div class="formula">\[ \widehat{\text{Var}}(\hat{\beta}_j) = \frac{\sum_{i=1}^n \hat{r}_{ij}^2 \hat{u}_i^2}{\text{SSR}_j^2} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> <i>r̂</i><sub>ij</sub> adalah <i>residual</i> ke-<i>i</i> dari <i>regression</i> <i>x</i><sub>j</sub> terhadap semua variabel independen lain; SSR<sub>j</sub> adalah jumlah kuadrat <i>residual</i> dari <i>regression</i> bantu tersebut.</p>
+  <p><strong>Interpretasi:</strong> Rumus ini mengimplementasikan pendekatan <i>partialling-out</i>: <i>variance</i> dari <i>β̂</i><sub>j</sub> bergantung pada variasi <i>x</i><sub>j</sub> setelah mengeluarkan variabel penjelas lain, yang diberi bobot oleh kuadrat <i>residual</i>.</p>
+  <p><strong>Penggunaan Praktis:</strong> Akar kuadrat dari kuantitas ini adalah <i>standard error</i> kuat <i>heteroskedasticity</i>. Koreksi derajat kebebasan (dengan mengalikan <i>n</i>/(<i>n</i> – <i>k</i> – 1)) kadang diterapkan agar estimator konsisten dengan <i>standard error</i> <i>OLS</i> biasa di bawah <i>homoskedasticity</i>. Semua bentuk setara secara asimtotik.</p>
+  <p><strong>Asumsi:</strong> MLR.1–MLR.4; sampel besar diperlukan untuk validitas asimtotik.</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.1: Persamaan Log Upah dengan <i>Standard Error</i> Kuat <i>Heteroskedasticity</i></h4>
+  <p><strong>Model:</strong></p>
+  <div class="formula">\[ \log(\text{wage}) = 0.321 + 0.213 \text{marrmale} - 0.198 \text{marrfem} - 0.110 \text{singfem} + 0.0789 \text{educ} + 0.0268 \text{exper} - 0.00054 \text{exper}^2 + 0.0291 \text{tenure} - 0.00053 \text{tenure}^2 \]</div>
+  <p><strong><i>Standard error</i>:</strong> <i>OLS</i> biasa dalam tanda kurung; kuat dalam kurung siku. Misalnya, educ: SE biasa = 0.0067, SE kuat = 0.0074. Exper: SE biasa = 0.0055, SE kuat = 0.0051.</p>
+  <p><strong>Interpretasi:</strong> Dalam contoh ini, <i>standard error</i> kuat mirip dengan yang biasa; tidak ada kesimpulan yang berubah. Namun, <i>standard error</i> kuat bisa lebih besar atau lebih kecil, dan sebaiknya digunakan ketika <i>heteroskedasticity</i> diduga ada.</p>
+  <p><strong>Pelajaran Praktis:</strong> Laporkan kedua set <i>standard error</i> atau gunakan yang kuat dalam sampel besar. Statistik <i>t</i> kuat dihitung sebagai (estimasi – nilai hipotesis)/(SE kuat).</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.2: Statistik <i>F</i> Kuat <i>Heteroskedasticity</i></h4>
+  <p><strong>Model:</strong> cumgpa pada sat, hsperc, tothrs, female, black, white. Menguji hipotesis gabungan H<sub>0</sub>: β<sub>black</sub> = 0, β<sub>white</sub> = 0. <i>F</i> biasa = 0.69, <i>F</i> kuat = 0.75 (<i>p-value</i> = 0.474). Keduanya gagal menolak.</p>
+  <p><strong>Interpretasi:</strong> Statistik <i>F</i> kuat valid di bawah <i>heteroskedasticity</i>; statistik ini dapat dihitung menggunakan perangkat lunak yang mengimplementasikan uji <i>Wald</i> kuat <i>heteroskedasticity</i>.</p>
+  <p><strong>Pelajaran Praktis:</strong> Untuk restriksi eksklusi berganda, gunakan statistik <i>F</i> atau <i>LM</i> kuat <i>heteroskedasticity</i>. Uji <i>Chow</i> untuk perbedaan kelompok juga memerlukan prosedur kuat jika terdapat <i>heteroskedasticity</i>.</p>
+</div>
+
+<h3>2.2 Uji <i>LM</i> Kuat <i>Heteroskedasticity</i></h3>
+
+<div class="interpretation">
+  <p>Uji <i>LM</i> kuat memungkinkan pengujian restriksi eksklusi berganda tanpa memerlukan bentuk <i>heteroskedasticity</i> tertentu. Prosedurnya melibatkan tiga langkah: (1) Estimasi model terestriksi dan peroleh <i>residual</i> <i>ũ</i>; (2) <i>Regress</i> setiap variabel yang dieksklusi pada semua variabel yang diikutsertakan dan peroleh <i>residual</i> <i>r̃</i><sub>j</sub>; (3) Jalankan <i>regression</i> dari 1 pada produk <i>r̃</i><sub>j</sub><i>ũ</i> (tanpa <i>intercept</i>) dan hitung statistik <i>LM</i> kuat = <i>n</i> – SSR<sub>1</sub>, dengan SSR<sub>1</sub> adalah jumlah kuadrat <i>residual</i> dari <i>regression</i> akhir ini. Di bawah H<sub>0</sub>, <i>LM</i> ~ χ<sub>q</sub><sup>2</sup> (secara asimtotik).</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.3: Statistik <i>LM</i> Kuat <i>Heteroskedasticity</i></h4>
+  <p><strong>Model:</strong> narr86 (jumlah penangkapan) pada pcnv, avgsen, avgsen<sup>2</sup>, ptime86, qemp86, inc86, black, hispan. Menguji H<sub>0</sub>: β<sub>avgsen</sub> = 0, β<sub>avgsen2</sub> = 0. <i>LM</i> biasa = 3.54 (<i>p</i> = 0.170), <i>LM</i> kuat = 4.00 (<i>p</i> = 0.135). Keduanya gagal menolak pada taraf konvensional.</p>
+  <p><strong>Interpretasi:</strong> Uji <i>LM</i> kuat memperhitungkan <i>heteroskedasticity</i>, yang dapat mengubah <i>p-value</i>. Dalam kasus ini, suku kuadratik avgsen<sup>2</sup> menjadi lebih signifikan ketika menggunakan <i>standard error</i> kuat (<i>t</i> = -2.48 vs -1.73).</p>
+  <p><strong>Pelajaran Praktis:</strong> Uji <i>LM</i> kuat mudah dihitung dengan paket <i>regression</i> apa pun dan disarankan ketika <i>heteroskedasticity</i> diduga ada.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Standard error</i> kuat <i>heteroskedasticity</i> (White/Huber/Eicker) valid secara asimtotik di bawah bentuk <i>heteroskedasticity</i> apa pun, asalkan model terspesifikasi dengan benar untuk rata-rata bersyarat.</strong> Metode ini mudah dihitung dalam perangkat lunak modern dan sebaiknya digunakan pada sampel besar, tetapi metode ini hanya dapat dibenarkan secara asimtotik, tidak pada sampel kecil di mana asumsi <i>CLM</i> (termasuk normalitas) dapat memberikan inferensi eksak.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li><i>Standard error</i> kuat <i>heteroskedasticity</i>: valid secara asimtotik terlepas dari bentuk <i>heteroskedasticity</i>.</li>
+    <li>Statistik <i>t</i>, <i>F</i>, dan <i>LM</i> kuat tersedia dan mudah dihitung.</li>
+    <li><i>Standard error</i> kuat bisa lebih besar atau lebih kecil daripada <i>standard error</i> <i>OLS</i> biasa.</li>
+    <li>Pada sampel kecil, statistik <i>t</i> kuat mungkin tidak mengikuti distribusi <i>t</i> secara ketat; statistik <i>OLS</i> biasa di bawah asumsi <i>CLM</i> bersifat eksak.</li>
+    <li>Laporkan kedua set <i>standard error</i> atau gunakan yang kuat pada sampel besar.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Pengujian <i>Heteroskedasticity</i></h2>
+
+<h3>3.1 Uji <i>Breusch-Pagan</i> (BP)</h3>
+
+<div class="interpretation">
+  <p>Uji <i>Breusch-Pagan</i> adalah uji yang banyak digunakan untuk <i>heteroskedasticity</i>. Hipotesis nolnya adalah <i>homoskedasticity</i>: H<sub>0</sub>: <i>Var</i>(<i>u</i>|<i>x</i><sub>1</sub>, …, <i>x</i><sub>k</sub>) = σ<sup>2</sup>. Karena <i>Var</i>(<i>u</i>|<b>x</b>) = <i>E</i>(<i>u</i><sup>2</sup>|<b>x</b>), uji ini memeriksa apakah galat kuadrat berhubungan dengan variabel-variabel penjelas. <i>Regression</i> bantunya adalah:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Uji <i>Breusch-Pagan</i>: <i>Regression</i> Bantu</span>
+  <div class="formula">\[ \hat{u}^2 = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \cdots + \delta_k x_k + \text{error} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> <i>û</i><sup>2</sup> adalah kuadrat <i>residual</i> <i>OLS</i> dari model asli; <i>x</i><sub>1</sub>, …, <i>x</i><sub>k</sub> adalah variabel independen asli; <i>δ</i><sub>0</sub>, …, <i>δ</i><sub>k</sub> adalah koefisien; suku galat memiliki rata-rata nol.</p>
+  <p><strong>Interpretasi:</strong> Di bawah H<sub>0</sub> (<i>homoskedasticity</i>), semua koefisien <i>slope</i> <i>δ</i><sub>1</sub> = … = <i>δ</i><sub>k</sub> = 0. Statistik ujinya adalah statistik <i>F</i> untuk signifikansi keseluruhan dari <i>regression</i> bantu ini atau statistik <i>LM</i> = <i>n</i> × R<sup>2</sup><sub>û²</sub>, dengan R<sup>2</sup><sub>û²</sub> adalah R-kuadrat dari <i>regression</i> bantu. Statistik <i>LM</i> berdistribusi asimtotik χ<sup>2</sup><sub>k</sub> di bawah H<sub>0</sub>.</p>
+  <p><strong>Penggunaan Praktis:</strong> Setelah mengestimasi model asli dengan <i>OLS</i>, peroleh kuadrat <i>residual</i>, <i>regress</i> kuadrat tersebut pada semua variabel independen, dan hitung statistik <i>F</i> atau <i>LM</i>. <i>P-value</i> yang kecil mengindikasikan penolakan <i>homoskedasticity</i>.</p>
+  <p><strong>Asumsi:</strong> MLR.1–MLR.4 harus berlaku; uji valid dalam sampel besar. Jika bentuk fungsional rata-rata bersyarat salah spesifikasi, uji mungkin menolak meskipun <i>variance</i> konstan, jadi uji bentuk fungsional terlebih dahulu.</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.4: <i>Heteroskedasticity</i> dalam Persamaan Harga Rumah</h4>
+  <p><strong>Model (level):</strong> price = -21.77 + 0.00207 lotsize + 0.123 sqrft + 13.85 bdrms. R<sup>2</sup> = 0.672. <i>Regression</i> bantu dari <i>û</i><sup>2</sup> pada lotsize, sqrft, bdrms menghasilkan R<sup>2</sup><sub>û²</sub> = 0.1601. <i>F</i> = 5.34 (<i>p</i> = 0.002), <i>LM</i> = 88 × 0.1601 = 14.09 (<i>p</i> ≈ 0.0028). Bukti kuat adanya <i>heteroskedasticity</i>.</p>
+  <p><strong>Model (log):</strong> log(price) = -1.30 + 0.168 log(lotsize) + 0.700 log(sqrft) + 0.037 bdrms. R<sup>2</sup> = 0.643. <i>Regression</i> bantu menghasilkan R<sup>2</sup><sub>û²</sub> = 0.0480. <i>F</i> = 1.41 (<i>p</i> = 0.245), <i>LM</i> = 4.22 (<i>p</i> = 0.239). Gagal menolak <i>homoskedasticity</i>.</p>
+  <p><strong>Interpretasi:</strong> Menggunakan transformasi logaritmik pada variabel dependen mengurangi <i>heteroskedasticity</i>, sebuah temuan empiris yang umum.</p>
+  <p><strong>Pelajaran Praktis:</strong> Uji BP mudah diimplementasikan. Jika uji menolak, pertimbangkan menggunakan <i>standard error</i> kuat atau <i>WLS</i>. Selain itu, uji kesalahan spesifikasi bentuk fungsional sebelum mengandalkan uji <i>heteroskedasticity</i>.</p>
+</div>
+
+<h3>3.2 Uji <i>White</i> untuk <i>Heteroskedasticity</i></h3>
+
+<div class="interpretation">
+  <p>Uji <i>White</i> lebih umum daripada uji BP: uji ini mencakup kuadrat dan hasil kali silang dari semua variabel independen dalam <i>regression</i> bantu. Uji ini dirancang untuk mendeteksi bentuk <i>heteroskedasticity</i> yang membuat <i>standard error</i> <i>OLS</i> biasa tidak valid. <i>Regression</i> bantunya adalah:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Uji <i>White</i>: <i>Regression</i> Bantu (contoh k=3)</span>
+  <div class="formula">\[ \hat{u}^2 = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \delta_3 x_3 + \delta_4 x_1^2 + \delta_5 x_2^2 + \delta_6 x_3^2 + \delta_7 x_1 x_2 + \delta_8 x_1 x_3 + \delta_9 x_2 x_3 + \text{error} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretasi:</strong> Hipotesis nolnya adalah semua koefisien kecuali <i>intercept</i> sama dengan nol. Statistik ujinya adalah statistik <i>F</i> (dengan <i>q</i> restriksi) atau <i>LM</i> = <i>n</i> × R<sup>2</sup><sub>û²</sub> dari <i>regression</i> bantu ini. Jumlah <i>regressor</i> meningkat dengan cepat seiring <i>k</i>, yang bisa menjadi kelemahan.</p>
+  <p><strong>Penggunaan Praktis:</strong> Versi yang lebih konservatif hanya menggunakan nilai <i>fitted</i> <i>ŷ</i> dan <i>ŷ</i><sup>2</sup> dari model asli:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Kasus Khusus Uji <i>White</i></span>
+  <div class="formula">\[ \hat{u}^2 = \delta_0 + \delta_1 \hat{y} + \delta_2 \hat{y}^2 + \text{error} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretasi:</strong> <i>Regression</i> ini hanya menggunakan dua <i>regressor</i> berapa pun jumlah variabel independen asli. Statistik ujinya adalah <i>F</i> (2, <i>n</i> – 3) atau <i>LM</i> = <i>n</i> × R<sup>2</sup><sub>û²</sub> ~ χ<sup>2</sup><sub>2</sub> di bawah H<sub>0</sub>.</p>
+  <p><strong>Penggunaan Praktis:</strong> Kasus khusus ini lebih mudah diimplementasikan dan menghemat derajat kebebasan. Kasus ini sangat berguna ketika <i>variance</i> diduga berubah mengikuti level rata-rata bersyarat.</p>
+  <p><strong>Asumsi:</strong> Sama seperti uji BP: MLR.1–MLR.4 harus berlaku; bentuk fungsional harus terspesifikasi dengan benar.</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.5: Bentuk Khusus Uji <i>White</i> dalam Persamaan Log Harga Rumah</h4>
+  <p><strong>Model:</strong> Persamaan log(price) dari Contoh 8.4. <i>Regression</i> bantu dari <i>û</i><sup>2</sup> pada <i>ŷ</i> dan <i>ŷ</i><sup>2</sup> menghasilkan R<sup>2</sup><sub>û²</sub> = 0.0392. <i>LM</i> = 88 × 0.0392 = 3.45 (<i>p</i> = 0.178). Gagal menolak <i>homoskedasticity</i>, konsisten dengan uji BP.</p>
+  <p><strong>Interpretasi:</strong> Uji <i>White</i> khusus memberikan pemeriksaan yang lebih kuat terhadap bentuk <i>heteroskedasticity</i> yang lebih umum daripada uji BP, tetapi tetap gagal menolak dalam kasus ini.</p>
+  <p><strong>Pelajaran Praktis:</strong> Gunakan uji <i>White</i> khusus sebagai diagnostik umum. Namun, perlu dicatat bahwa uji yang signifikan juga dapat mengindikasikan kesalahan spesifikasi bentuk fungsional, jadi periksa hal tersebut terlebih dahulu.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Uji untuk <i>heteroskedasticity</i> juga dapat mendeteksi kesalahan spesifikasi bentuk fungsional. Jika rata-rata bersyarat salah spesifikasi (misalnya, kehilangan suku kuadratik atau menggunakan level alih-alih log), uji dapat menolak meskipun <i>variance</i> konstan.</strong> Oleh karena itu, bijaksana untuk memastikan model terspesifikasi dengan benar untuk rata-rata bersyarat sebelum menafsirkan uji <i>heteroskedasticity</i>.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Uji <i>Breusch-Pagan</i>: <i>regress</i> kuadrat <i>residual</i> <i>OLS</i> pada variabel independen asli; gunakan statistik <i>F</i> atau <i>LM</i>.</li>
+    <li>Uji <i>White</i>: mencakup kuadrat dan hasil kali silang; kasus khusus menggunakan nilai <i>fitted</i> dan kuadratnya.</li>
+    <li>Kedua uji memiliki justifikasi asimtotik di bawah MLR.1–MLR.4.</li>
+    <li>Menolak H<sub>0</sub> mengindikasikan <i>heteroskedasticity</i> (atau kesalahan spesifikasi bentuk fungsional).</li>
+    <li>Jika <i>heteroskedasticity</i> terdeteksi, gunakan <i>standard error</i> kuat atau <i>weighted least squares</i>.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Estimasi <i>Weighted Least Squares</i></h2>
+
+<h3>4.1 Ketika Bentuk <i>Heteroskedasticity</i> Diketahui (Hingga Konstanta Perkalian)</h3>
+
+<div class="interpretation">
+  <p><i>Weighted Least Squares</i> (<i>WLS</i>) adalah metode untuk memperoleh estimator yang lebih efisien daripada <i>OLS</i> ketika bentuk <i>heteroskedasticity</i> diketahui. Asumsi utamanya adalah <i>variance</i> bersyarat dari galat sebanding dengan fungsi yang diketahui <i>h</i>(<b>x</b>):</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model <i>Heteroskedasticity</i> (Diketahui Hingga Konstanta Perkalian)</span>
+  <div class="formula">\[ \text{Var}(u|\mathbf{x}) = \sigma^2 h(\mathbf{x}) \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> <i>h</i>(<b>x</b>) &gt; 0 adalah fungsi yang diketahui dari variabel-variabel penjelas; σ<sup>2</sup> adalah konstanta yang tidak diketahui.</p>
+  <p><strong>Interpretasi:</strong> <i>Variance</i> dari galat diketahui hingga faktor skala. Misalnya, dalam fungsi tabungan, <i>h</i>(inc) = inc mengimplikasikan bahwa <i>variance</i> sebanding dengan pendapatan.</p>
+  <p><strong>Penggunaan Praktis:</strong> Idenya adalah mentransformasi model asli sehingga galat yang ditransformasi menjadi <i>homoskedastic</i>. Bagi kedua sisi persamaan asli dengan √<i>h</i>(<b>x</b>):</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model yang Ditransformasi (Galat <i>Homoskedastic</i>)</span>
+  <div class="formula">\[ \frac{y_i}{\sqrt{h_i}} = \beta_0 \frac{1}{\sqrt{h_i}} + \beta_1 \frac{x_{i1}}{\sqrt{h_i}} + \cdots + \beta_k \frac{x_{ik}}{\sqrt{h_i}} + \frac{u_i}{\sqrt{h_i}} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> <i>h</i><sub>i</sub> = <i>h</i>(<b>x</b><sub>i</sub>); galat yang ditransformasi <i>u</i><sub>i</sub>/√<i>h</i><sub>i</sub> memiliki <i>variance</i> konstan σ<sup>2</sup>.</p>
+  <p><strong>Interpretasi:</strong> Model yang ditransformasi memenuhi semua asumsi <i>Gauss-Markov</i> (MLR.1–MLR.5). <i>OLS</i> pada model yang ditransformasi menghasilkan estimator <i>Weighted Least Squares</i> (<i>WLS</i>), yang merupakan <i>BLUE</i>. Estimator <i>WLS</i> meminimumkan jumlah kuadrat <i>residual</i> tertimbang:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Fungsi Objektif <i>WLS</i></span>
+  <div class="formula">\[ \sum_{i=1}^n \frac{(y_i - \beta_0 - \beta_1 x_{i1} - \cdots - \beta_k x_{ik})^2}{h_i} \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretasi:</strong> Observasi dengan <i>variance</i> lebih besar (<i>h</i><sub>i</sub> lebih besar) menerima bobot lebih kecil (1/<i>h</i><sub>i</sub>), mencerminkan keandalan yang lebih rendah. <i>OLS</i> memberikan bobot sama untuk semua observasi, yang tidak efisien di bawah <i>heteroskedasticity</i>.</p>
+  <p><strong>Penggunaan Praktis:</strong> Sebagian besar paket <i>regression</i> memiliki opsi <i>WLS</i> di mana Anda menentukan bobot (biasanya 1/<i>h</i><sub>i</sub>). Koefisien yang diestimasi diinterpretasikan dalam model asli, bukan model yang ditransformasi. <i>Standard error</i>, statistik <i>t</i>, dan statistik <i>F</i> dari <i>regression</i> <i>WLS</i> valid di bawah fungsi <i>variance</i> yang diasumsikan.</p>
+  <p><strong>Asumsi:</strong> Fungsi <i>variance</i> <i>h</i>(<b>x</b>) harus terspesifikasi dengan benar. Jika salah spesifikasi, <i>WLS</i> bisa kurang efisien daripada <i>OLS</i> dan dapat menghasilkan <i>standard error</i> yang tidak valid. Namun, <i>WLS</i> tetap konsisten untuk β<sub>j</sub> selama rata-rata bersyarat terspesifikasi dengan benar (MLR.1–MLR.4).</p>
+</div>
+
+<div class="example">
+  <h4>Example 8.6: Persamaan Kekayaan Finansial</h4>
+  <p><strong>Model:</strong> nettfa (kekayaan finansial bersih total, dalam ribuan USD) pada inc (pendapatan, ribuan USD), (age-25)<sup>2</sup>, male, e401k (indikator eligibilitas).</p>
+  <p><strong>Hasil:</strong> <i>OLS</i> (kolom 3) dan <i>WLS</i> (kolom 4) di bawah asumsi <i>Var</i>(u|inc) = σ<sup>2</sup>inc.</p>
+  <ul>
+    <li>Koefisien <i>OLS</i> untuk inc: 0.771 (SE kuat = 0.100); <i>WLS</i>: 0.740 (SE = 0.064).</li>
+    <li><i>Standard error</i> <i>WLS</i> lebih kecil, mengindikasikan efisiensi yang lebih besar jika asumsi <i>variance</i> benar.</li>
+    <li>Koefisien <i>WLS</i> untuk e401k: 5.19 vs <i>OLS</i>: 6.89; perbedaan ini mengisyaratkan kemungkinan kesalahan spesifikasi fungsi rata-rata (misalnya, interaksi antara e401k dan inc).</li>
+  </ul>
+  <p><strong>Interpretasi:</strong> <i>WLS</i> menghasilkan estimasi yang lebih presisi di bawah fungsi <i>variance</i> yang diasumsikan. <i>Intercept</i> dalam <i>WLS</i> diinterpretasikan sebagai harapan nettfa ketika semua variabel nol, tetapi pembobotan mengubah sampel efektif.</p>
+  <p><strong>Pelajaran Praktis:</strong> <i>WLS</i> menarik ketika bentuk <i>heteroskedasticity</i> yang masuk akal diketahui. Namun, pilihan bobot sering kali arbitrer; analisis sensitivitas disarankan.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Bayangkan <i>WLS</i> sebagai rata-rata tertimbang di mana setiap observasi diberi bobot yang berbanding terbalik dengan <i>variance</i> galatnya. Jika Anda memiliki dua pengukuran untuk kuantitas yang sama, satu presisi (<i>variance</i> rendah) dan satu tidak presisi (<i>variance</i> tinggi), estimasi gabungan optimal memberikan bobot lebih besar pada pengukuran yang presisi. <i>WLS</i> melakukan hal yang sama dalam <i>regression</i>: <i>WLS</i> memberikan bobot lebih rendah pada observasi dengan <i>variance</i> tinggi, sehingga meningkatkan efisiensi.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>WLS</i> lebih efisien daripada <i>OLS</i> ketika fungsi <i>variance</i> terspesifikasi dengan benar, tetapi menjadi tidak konsisten untuk parameter <i>variance</i> jika fungsi <i>variance</i> salah spesifikasi. Namun, koefisien tetap konsisten selama rata-rata bersyarat terspesifikasi dengan benar.</strong> <i>Standard error</i> <i>WLS</i> hanya valid di bawah struktur <i>variance</i> yang diasumsikan; jika <i>variance</i> salah spesifikasi, <i>standard error</i> menjadi tidak valid. Dalam praktiknya, gunakan <i>standard error</i> kuat <i>heteroskedasticity</i> bahkan setelah <i>WLS</i> jika Anda tidak yakin tentang fungsi <i>variance</i>.</p>
+</div>
+
+<h3>4.2 <i>Feasible GLS</i> (FGLS)</h3>
+
+<div class="interpretation">
+  <p>Ketika bentuk <i>heteroskedasticity</i> tidak diketahui, seseorang dapat mengestimasi fungsi <i>variance</i> dari data dan kemudian menggunakan <i>WLS</i> dengan bobot yang diestimasi. Ini disebut <i>Feasible Generalized Least Squares</i> (<i>FGLS</i>). Pendekatan yang umum adalah mengasumsikan model parametrik untuk <i>variance</i>, seperti:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model Fungsi <i>Variance</i></span>
+  <div class="formula">\[ \text{Var}(u|\mathbf{x}) = \sigma^2 \exp(\delta_0 + \delta_1 x_1 + \cdots + \delta_k x_k) \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretasi:</strong> Log dari <i>variance</i> adalah linear dalam variabel independen. Model ini dapat diestimasi dengan melakukan <i>regression</i> log(<i>û</i><sup>2</sup>) pada <i>x</i><sub>j</sub> (menggunakan <i>residual</i> <i>OLS</i>), kemudian menghitung nilai <i>fitted</i> <i>ĝ</i><sub>i</sub> = exp(nilai <i>fitted</i>) dan menggunakan bobot 1/<i>ĝ</i><sub>i</sub> dalam <i>WLS</i>.</p>
+  <p><strong>Penggunaan Praktis:</strong> <i>FGLS</i> efisien jika fungsi <i>variance</i> terspesifikasi dengan benar. Namun, <i>FGLS</i> menambah ketidakpastian estimasi, yang dapat memengaruhi inferensi pada sampel kecil. Dalam sampel besar, <i>FGLS</i> efisien secara asimtotik.</p>
+  <p><strong>Asumsi:</strong> Fungsi <i>variance</i> harus terspesifikasi dengan benar; rata-rata bersyarat harus terspesifikasi dengan benar. <i>FGLS</i> konsisten dan normal secara asimtotik di bawah kondisi keteraturan standar.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>FGLS</i> lebih efisien daripada <i>OLS</i> jika model <i>variance</i> benar, tetapi bisa lebih buruk daripada <i>OLS</i> jika model <i>variance</i> salah spesifikasi. Dalam praktiknya, <i>standard error</i> kuat <i>heteroskedasticity</i> setelah <i>OLS</i
+    </div>
+</body>
+</html>

@@ -1,457 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Chapter 4 Summary - Financial Services: Securities Firms and Investment Banks (English)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  h4 {
-    font-size: 12pt;
-    font-style: italic;
-    margin: 12px 0 4px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Services: Securities Firms and Investment Banks</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
-
-<div class="toolbar">
-  <button onclick="window.print()">Print / Save as PDF</button>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Financial Services: Securities Firms and Investment Banks</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction: The Role of Securities Firms and Investment Banks</a></li>
+    <li><a href="#section2">2. Size, Structure, and Composition of the Industry</a></li>
+    <li><a href="#section3">3. Key Activities of Securities Firms and Investment Banks</a>
+      <ul>
+        <li><a href="#section3-1">3.1 Investment Banking</a></li>
+        <li><a href="#section3-2">3.2 Venture Capital</a></li>
+        <li><a href="#section3-3">3.3 Market Making</a></li>
+        <li><a href="#section3-4">3.4 Trading</a></li>
+        <li><a href="#section3-5">3.5 Investing</a></li>
+        <li><a href="#section3-6">3.6 Cash Management</a></li>
+        <li><a href="#section3-7">3.7 Mergers and Acquisitions</a></li>
+        <li><a href="#section3-8">3.8 Back-Office and Other Service Functions</a></li>
+      </ul>
+    </li>
+    <li><a href="#section4">4. Balance Sheet and Recent Trends</a></li>
+    <li><a href="#section5">5. Regulation of the Securities Industry</a></li>
+    <li><a href="#section6">6. Practical Cautions and Common Errors</a></li>
+  </ul>
 </div>
 
-<h1>Chapter 4 Summary</h1>
-<p class="subtitle">Financial Services: Securities Firms and Investment Banks</p>
-<p class="bookinfo">Source, Saunders, A. and Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, 11th Edition, Chapter 4. Prepared as self-study material.</p>
+<h2 id="section1">1. Introduction: The Role of Securities Firms and Investment Banks</h2>
 
-<h2>1. Introduction</h2>
-<p>Securities firms and investment banks primarily help net suppliers of funds (e.g., households) transfer funds to net users of funds (e.g., businesses) at a low cost and with maximum efficiency. Unlike other types of FIs, they do not transform the securities issued by fund users into claims that are more attractive to fund suppliers, but rather serve as brokers intermediating between the two.</p>
-<p>Investment banking involves raising debt and equity securities for corporations or governments, including the origination, underwriting, and placement of securities in money and capital markets. Securities services involve assistance in trading securities in secondary markets (brokerage and market making). The largest companies performing both sets of services are called bulge-bracket investment banks (e.g., BofA Securities), while firms specializing in trading existing securities are called securities firms (the retail side) and firms specializing in originating and underwriting new issues are called boutique investment banks (the commercial side).</p>
-<p>The industry has undergone substantial structural changes since the financial crisis, including the acquisition of Bear Stearns by JPMorgan Chase, the bankruptcy of Lehman Brothers, and the acquisition of Merrill Lynch by Bank of America. Of the five largest investment banks at the start of 2008, all were gone as investment banks by the end of the year, with Goldman Sachs and Morgan Stanley converting to commercial bank holding companies in 2008.</p>
+<div class="interpretation">
+  <p>Securities firms and investment banks perform a critical function in the financial system: they enable <i>net suppliers of funds</i> (primarily households) to transfer funds to <i>net users of funds</i> (primarily businesses and governments) at low cost and with maximum efficiency. This distinguishes them from other financial intermediaries (FIs) such as commercial banks and insurance companies, which transform the securities issued by fund users into claims that are more attractive to fund suppliers&mdash;for example, a bank converts a corporate loan into a bank deposit. Securities firms and investment banks do <b>not</b> engage in such asset transformation. Instead, they operate as <b>brokers</b>, intermediating directly between the two sides of the market.</p>
+  <p>The industry encompasses two related but distinct service categories. <b>Investment banking</b> involves the raising of debt and equity securities for corporations or governments. It comprises three stages: <i>origination</i> (structuring the issue), <i>underwriting</i> (assuming the risk of distributing the issue), and <i>placement</i> (selling the securities in money and capital markets). <b>Securities services</b> involve assistance in the trading of existing securities in secondary markets, including <i>brokerage services</i> (executing trades on behalf of customers) and <i>market making</i> (maintaining a secondary market by standing ready to buy and sell).</p>
+  <p>Firms in this industry vary in scope. <i>Full-line firms</i>&mdash;often called <b>bulge-bracket investment banks</b> (e.g., BofA Securities)&mdash;perform both underwriting and brokerage services. <b>Securities firms</b> specialize in the purchase, sale, and brokerage of existing securities (the retail side of the business). <b>Boutique investment banks</b> specialize in originating, underwriting, and distributing new securities issues (the commercial side).</p>
+  <p>The industry experienced profound structural change during the 2008 financial crisis. Bear Stearns was acquired by JPMorgan Chase; Lehman Brothers declared bankruptcy; Merrill Lynch was acquired by Bank of America. By the end of 2008, of the five largest investment banks in existence at the start of the year, only Goldman Sachs and Morgan Stanley remained as independent entities, and both converted to commercial bank holding companies. This restructuring permanently altered the regulatory landscape, competitive dynamics, and business model of the industry.</p>
+</div>
 
-<h2>2. Size, Structure, and Composition of the Industry</h2>
-<p>Because of the emphasis on securities trading and underwriting, industry size is usually measured by <b>equity capital</b> rather than assets, since these activities require no large investment in assets or liability funding. According to SIFMA, equity capital in the securities industry amounted to $223 billion in 2021.</p>
-<p>The number of firms expanded from 5,248 (1980) to 9,515 (1987), then declined to 5,052 (2006, down 47 percent since 1987) and continued falling to 3,435 (2020). Electronic trading dramatically increased volumes and liquidity, slashed intermediation costs, and broadened market access, including automated trading, algorithmic trading, high-frequency trading, and the application of artificial intelligence and machine learning to trading logic.</p>
-<p>The financial crisis permanently changed the industry's structure. The five largest investment banks at the beginning of 2008 (Lehman Brothers, Bear Stearns, Merrill Lynch, Goldman Sachs, and Morgan Stanley) were all gone as investment banks by the end of the year. Lehman failed, Bear Stearns and Merrill Lynch were acquired (by JPMorgan Chase and Bank of America), and Goldman Sachs and Morgan Stanley obtained commercial bank charters. In 2021, commercial bank holding companies' fee income from investment banking, advisory, brokerage, and underwriting topped $15.23 billion, up from $9.15 billion in 2012 and $14.10 billion before the crisis.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>From source:</strong> At the beginning of 2008, the five largest investment banks were Lehman Brothers, Bear Stearns, Merrill Lynch, Goldman Sachs, and Morgan Stanley. By year-end, all five had ceased to exist as independent investment banks: Lehman Brothers failed, Bear Stearns was acquired by JPMorgan Chase for $240 million, Merrill Lynch was acquired by Bank of America for $50 billion, and Goldman Sachs and Morgan Stanley requested and received commercial bank charters.</p>
+  <p><strong>Interpretation:</strong> The financial crisis did not merely reduce industry profitability; it fundamentally changed the institutional structure of investment banking.</p>
+  <p><strong>Practical lesson:</strong> The "bulge-bracket" investment bank model&mdash;independent, lightly regulated, and highly leveraged&mdash;was replaced by a model in which most major investment banks are subsidiary operations within commercial bank holding companies, subject to stricter capital requirements and Federal Reserve oversight.</p>
+</div>
 
-<p class="tabcap">Table 4-1. Major U.S. Securities Industry M&amp;A Transactions (selected)</p>
-<table>
-  <tr>
-    <th>Deal</th>
-    <th>Value ($ billions)</th>
-    <th>Year</th>
-  </tr>
-  <tr>
-    <td>Citicorp merges with Travelers (owner of Smith Barney and Salomon)</td>
-    <td>83.0</td>
-    <td>1998</td>
-  </tr>
-  <tr>
-    <td>JPMorgan Chase acquires Bank One</td>
-    <td>60.0</td>
-    <td>2004</td>
-  </tr>
-  <tr>
-    <td>Bank of America acquires Merrill Lynch</td>
-    <td>50.0</td>
-    <td>2008</td>
-  </tr>
-  <tr>
-    <td>Bank of America acquires FleetBoston</td>
-    <td>49.3</td>
-    <td>2003</td>
-  </tr>
-  <tr>
-    <td>Chase Manhattan merges with JPMorgan</td>
-    <td>35.0</td>
-    <td>2000</td>
-  </tr>
-  <tr>
-    <td>Bank of America acquires MBNA</td>
-    <td>35.0</td>
-    <td>2005</td>
-  </tr>
-  <tr>
-    <td>BB&amp;T merges with SunTrust Banks</td>
-    <td>28.0</td>
-    <td>2019</td>
-  </tr>
-  <tr>
-    <td>Wachovia acquires Golden West Financial</td>
-    <td>25.5</td>
-    <td>2006</td>
-  </tr>
-  <tr>
-    <td>Wells Fargo acquires Wachovia</td>
-    <td>15.1</td>
-    <td>2008</td>
-  </tr>
-  <tr>
-    <td>Wachovia acquires Southtrust</td>
-    <td>14.3</td>
-    <td>2004</td>
-  </tr>
-  <tr>
-    <td>BlackRock acquires Barclays Global Investors</td>
-    <td>13.5</td>
-    <td>2009</td>
-  </tr>
-  <tr>
-    <td>UBS acquires Paine Webber Group</td>
-    <td>12.0</td>
-    <td>2000</td>
-  </tr>
-</table>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A securities firm acts like a real estate agent. A real estate agent does not buy and transform houses into apartments (that is the developer&rsquo;s role); rather, the agent connects buyers and sellers, earns a commission, and does not take ownership of the property permanently. Similarly, an investment bank connects fund suppliers with fund users, earns fees for underwriting and brokerage, and typically holds securities only temporarily (during trading inventory or the underwriting period). A commercial bank, by contrast, is like a developer that transforms a house into rentable apartments and holds the asset on its balance sheet.</p>
+</div>
 
-<p class="tabcap">Table 4-2. Investment Banking, Advisory, Brokerage, and Underwriting Fee Income of Top BHCs ($ billions)</p>
-<table>
-  <tr>
-    <th>Bank Holding Company</th>
-    <th>2014</th>
-    <th>2018</th>
-    <th>2021</th>
-  </tr>
-  <tr>
-    <td>Bank of America</td>
-    <td>1.30</td>
-    <td>1.34</td>
-    <td>0.84</td>
-  </tr>
-  <tr>
-    <td>Citigroup</td>
-    <td>0.62</td>
-    <td>1.30</td>
-    <td>1.47</td>
-  </tr>
-  <tr>
-    <td>Goldman Sachs</td>
-    <td>0.34</td>
-    <td>0.80</td>
-    <td>2.61</td>
-  </tr>
-  <tr>
-    <td>JPMorgan Chase</td>
-    <td>3.36</td>
-    <td>4.70</td>
-    <td>4.43</td>
-  </tr>
-  <tr>
-    <td>Wells Fargo</td>
-    <td>0.51</td>
-    <td>0.29</td>
-    <td>0.25</td>
-  </tr>
-  <tr>
-    <td>All commercial banks</td>
-    <td>10.43</td>
-    <td>10.92</td>
-    <td>15.23</td>
-  </tr>
-</table>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The defining feature of securities firms and investment banks is that they are broker-intermediaries, not asset transformers.</strong> They facilitate the transfer of funds without altering the risk-return character of the underlying securities. This is why their size is not measured by assets but by equity capital, and why their balance sheets consist overwhelmingly of liquid trading positions rather than illiquid loans. This broker model also means their income comes from fees, commissions, and spreads rather than from interest rate margins on loans.</p>
+</div>
 
-<h3>2.1 Types of Firms in the Industry</h3>
-<p>The largest firms, called national full-line firms, serve both retail customers (as broker-dealers) and corporate customers (underwriting), and now fall into three subgroups, namely (1) commercial bank holding companies that are the largest full-service investment banks, such as Bank of America (through its acquisition of Merrill Lynch), Morgan Stanley, and JPMorgan Chase (which acquired Bear Stearns for $240 million in 2008), (2) national full-line firms focusing more on corporate business and highly active in trading, such as Goldman Sachs and Salomon Brothers/Smith Barney of Citigroup, and (3) large investment banks with limited branch networks and institutional client bases, such as Lazard Ltd. and Greenhill &amp; Co.</p>
-<p>The rest of the industry consists of firms serving particular market segments</p>
-<ol>
-  <li><b>Regional securities firms</b>, serving customers in a particular region, such as Raymond James Financial</li>
-  <li><b>Specialized discount brokers</b>, effecting trades for customers without offering investment advice, such as Charles Schwab</li>
-  <li><b>Specialized electronic trading securities firms</b>, providing a platform for trading without a broker, such as E*TRADE</li>
-  <li><b>Venture capital firms</b>, pooling money from individual investors and other FIs to fund relatively small and new businesses, such as in biotechnology</li>
-  <li>Other firms, including research boutiques and designated market makers such as GTS, Virtu Financial, and Citadel Securities</li>
-</ol>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Securities firms and investment banks act as brokers between net suppliers and net users of funds; they do not transform securities into new claims.</li>
+    <li>Investment banking = origination, underwriting, and placement of new debt and equity securities.</li>
+    <li>Securities services = brokerage and market making in existing (secondary-market) securities.</li>
+    <li>Full-line (bulge-bracket) firms perform both sets of services; boutiques and retail securities firms specialize.</li>
+    <li>The 2008 crisis eliminated all five major independent investment banks, with Goldman Sachs and Morgan Stanley converting to commercial bank holding companies.</li>
+  </ul>
+</div>
 
-<h2>3. Key Activities</h2>
-<p>Securities firms and investment banks engage in up to seven key activity areas, namely investment banking, venture capital, market making, trading, investing, cash management, and mergers and acquisitions, plus other service functions. Many activities are conducted simultaneously for the same customers.</p>
+<h2 id="section2">2. Size, Structure, and Composition of the Industry</h2>
 
-<h3>3.1 Investment Banking</h3>
-<p>Investment banking refers to underwriting and distributing new issues of debt and equity. Issues can be primary (first-time issues, called IPOs) or secondary (issues of seasoned firms). In 2021, a total of <b>$11.47 trillion</b> of debt and equity was underwritten, up from $4.95 trillion in 2008 and $7.51 trillion in 2007. Of this, $1.29 trillion was global equity proceeds, up 19.0 percent from 2020 and the strongest period since 1980, with global IPO proceeds up 83 percent driven by mega IPOs and unicorn companies, for example Rivian Automotive ($13.7 billion), GlobalFoundries ($2.9 billion), and Bumble ($2.5 billion).</p>
-<p>The top five underwriters controlled 22.6 percent of the global debt market and 39.9 percent of the global equity market, showing that the industry is dominated by a handful of top-tier firms. Underwritings can be done through private placements (placing securities with one or a few large institutional investors) or public offerings, which may be on a best-efforts basis (the investment bank acts as an <i>agent</i> for a fee tied to placement success) or a firm commitment basis (the investment bank buys the securities from the issuer at one price and sells them to the public at a slightly higher price, bearing the price risk).</p>
+<div class="interpretation">
+  <p>Because securities trading and underwriting are fee-generating activities that do not require firms to hold large asset portfolios (except for very short periods as trading inventory or during underwriting), <b>asset value is not the traditional measure of industry size</b>. Instead, the <b>equity capital</b> of participating firms is used as the standard benchmark of relative size. According to the Securities Industry and Financial Markets Association (SIFMA), equity capital in the securities industry amounted to <b>$223 billion in 2021</b>.</p>
+  <p>The number of firms in the industry has fluctuated dramatically. From 1980 to the October 1987 stock market crash, the number of securities firms expanded from 5,248 to 9,515. The crash triggered a major shakeout, reducing the count to 5,052 by 2006&mdash;a 47% decline from 1987. The post-crisis period accelerated this trend; the number of broker-dealers fell to 3,435 by 2020. Similar to commercial banking, concentration among the largest firms increased substantially through mergers and acquisitions among top-ranked firms.</p>
+  <p>Several structural forces shaped this consolidation. First, the <b>Financial Services Modernization Act of 1999</b> permitted interindustry mergers (e.g., insurance companies acquiring investment banks), leading many securities firms to become part of financial services holding companies. Second, the growth of <b>electronic trading</b>&mdash;including automated trading, algorithmic trading, high-frequency trading, and artificial intelligence/machine learning applied to trading logic&mdash;dramatically increased trading volumes and liquidity while slashing intermediation costs and broadening market access.</p>
+  <p>The financial crisis produced a second structural change: by the end of 2008, all five major investment banks had either failed, been acquired, or converted to commercial bank charters. As of 2021, commercial bank holding companies&rsquo; fee income from investment banking, advisory, securities brokerage, and underwriting reached <b>$15.23 billion</b>, up from $9.15 billion in 2012 and $14.10 billion in the pre-crisis period.</p>
+  <p>The industry today is divided along several dimensions:</p>
+  <ul>
+    <li><b>National full-line firms</b>, which service both retail customers (as broker-dealers) and corporate customers (as underwriters). These fall into three subgroups: (1) large commercial bank holding companies such as Bank of America (via Merrill Lynch), Morgan Stanley, and JPMorgan Chase (via Bear Stearns); (2) national full-line firms specializing in corporate business and active securities trading, such as Goldman Sachs and Citigroup&rsquo;s Salomon Brothers/Smith Barney operations; and (3) large investment banks with limited branch networks and institutional client bases, such as Lazard Ltd. and Greenhill &amp; Co.</li>
+    <li><b>Regional securities firms</b>, which concentrate on customers in a particular region (e.g., Raymond James Financial).</li>
+    <li><b>Specialized discount brokers</b>, which execute trades for customers without offering investment advice (e.g., Charles Schwab).</li>
+    <li><b>Specialized electronic trading securities firms</b>, which provide online platforms for customers to trade without a broker (e.g., E*TRADE).</li>
+    <li><b>Venture capital firms</b>, which pool money from individual investors and other FIs (e.g., hedge funds, pension funds, insurance companies) to fund relatively small and new businesses.</li>
+    <li><b>Other firms</b>: research boutiques, clearing operations, and designated market makers such as GTS, Virtu Financial, and Citadel Securities.</li>
+  </ul>
+</div>
 
-<p class="tabcap">Table 4-3. Top Five Underwriters of Global Debt and Equity, 2021</p>
-<table>
-  <tr>
-    <th>Global Debt</th>
-    <th>Proceeds ($ billions)</th>
-    <th>Market Share</th>
-    <th>Global Equity</th>
-    <th>Proceeds ($ billions)</th>
-    <th>Market Share</th>
-  </tr>
-  <tr>
-    <td>JPMorgan</td>
-    <td>604.1</td>
-    <td>5.9%</td>
-    <td>Goldman Sachs</td>
-    <td>134.2</td>
-    <td>10.4%</td>
-  </tr>
-  <tr>
-    <td>Citi</td>
-    <td>464.9</td>
-    <td>4.6%</td>
-    <td>JPMorgan</td>
-    <td>117.7</td>
-    <td>9.1%</td>
-  </tr>
-  <tr>
-    <td>Bank of America Securities</td>
-    <td>458.3</td>
-    <td>4.5%</td>
-    <td>Bank of America Securities</td>
-    <td>109.5</td>
-    <td>8.5%</td>
-  </tr>
-  <tr>
-    <td>Goldman Sachs</td>
-    <td>399.1</td>
-    <td>3.9%</td>
-    <td>Citi</td>
-    <td>82.4</td>
-    <td>6.4%</td>
-  </tr>
-  <tr>
-    <td>Morgan Stanley</td>
-    <td>374.3</td>
-    <td>3.7%</td>
-    <td>Morgan Stanley</td>
-    <td>70.0</td>
-    <td>5.4%</td>
-  </tr>
-</table>
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>From source:</strong> Major U.S. securities industry M&amp;A transactions include: Citicorp merged with Travelers (which owned Smith Barney and Salomon) for $83.0 billion in 1998; Bank of America acquired Merrill Lynch for $50.0 billion in 2008; JPMorgan Chase acquired Bear Stearns for $0.2 billion in 2008; Wells Fargo acquired Wachovia for $15.1 billion in 2008; and Intercontinental Exchange acquired NYSE for $8.2 billion in 2012.</p>
+  <p><strong>Interpretation:</strong> Many of these deals were interindustry mergers, involving insurance companies, banks, and securities firms.</p>
+  <p><strong>Practical lesson:</strong> Regulatory changes such as the Financial Services Modernization Act of 1999 were a primary driver of convergence across financial service sectors; most securities industry M&amp;As in the 2000s involve firms that are part of a financial services holding company.</p>
+</div>
 
-<h4>Example 4-1. Best-Efforts versus Firm Commitment</h4>
-<p>An investment bank agrees to underwrite an issue of 20 million shares of Murray Construction Corp. on a firm commitment basis, paying $15.50 per share to the issuer.</p>
-<div class="eq">\[ \text{Issuer proceeds} = \$15.50 \times 20{,}000{,}000 = \$310{,}000{,}000 \]</div>
-<div class="eq">\[ \text{Bank profit} = (\$16.35 - \$15.50) \times 20{,}000{,}000 = \$17{,}000{,}000 \]</div>
-<p>If the bank sells the shares at $16.35, the issuer still receives $310 million, the bank earns $17 million, and the issuer's stock price is $16.35. However, if the bank can only sell at $14.75, the issuer still receives $310 million but the bank suffers a loss</p>
-<div class="eq">\[ \text{Bank loss} = (\$14.75 - \$15.50) \times 20{,}000{,}000 = -\$15{,}000{,}000 \]</div>
-<p>On a best-efforts basis, the bank sells 18.4 million shares at $15.50 and charges $0.375 per share sold. The issuer receives</p>
-<div class="eq">\[ \text{Issuer proceeds} = (\$15.50 - \$0.375) \times 18{,}400{,}000 = \$278{,}300{,}000 \]</div>
-<div class="eq">\[ \text{Bank profit} = \$0.375 \times 18{,}400{,}000 = \$6{,}900{,}000 \]</div>
-<p>On a best-efforts basis, the bank's profit stays at $6.9 million regardless of the selling price, because the price risk is borne by the issuer, not the bank.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Measuring a securities firm by its assets is like measuring a consulting firm by the size of its office furniture. A consulting firm&rsquo;s value lies in its expertise and client relationships, not in physical infrastructure. Likewise, a securities firm&rsquo;s size is measured by its equity capital&mdash;the financial cushion that enables it to take on underwriting risk and support trading activities&mdash;not by the assets on its books.</p>
+</div>
 
-<h3>3.2 Venture Capital</h3>
-<p>Venture capital is a professionally managed pool of money used to finance new and often high-risk firms, in return for an equity investment. Unlike commercial banks, which are generally unwilling to lend to companies with no assets and business history, venture capital firms buy an equity interest and are usually active, providing expertise and even helping recruit senior managers. Types include institutional venture capital firms (limited partnerships, subsidiaries of investment or commercial banks, and corporate venture capital subsidiaries), small business investment companies (SBICs) licensed by the Small Business Administration with access to very low-rate Treasury funding, and angel venture capitalists (wealthy individuals), who have invested much more in new and small firms than institutions. Venture capital differs from private equity, which deals more with established companies. In making investment decisions, venture capital firms look for two things, namely high returns (sometimes as high as 700 percent within five to seven years) and an easy exit.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Industry size is measured by equity capital because securities activities are fee- and risk-based, not balance-sheet-based.</strong> The consolidation trend&mdash;from over 9,500 firms in 1987 to 3,435 in 2020&mdash;reflects both market forces and regulatory changes. The crisis-driven conversion of independent investment banks into commercial bank holding companies permanently shifted the regulatory and competitive center of gravity of the industry.</p>
+</div>
 
-<h3>3.3 Market Making</h3>
-<p>Market making involves creating a secondary market in an asset, either through agency transactions (on behalf of customers for a fee, for example buying IBM stock from one customer at $190 and immediately reselling it at $191 to another, with the $1 difference being the bid-ask spread) or <i>principal</i> transactions (holding inventory positions to profit from price movements). In periods of market stress, market-making profits can disappear, for example NYSE specialists, who have an affirmative obligation to buy stocks even when the market is crashing, suffered actual and near bankruptcies in October 1987. A modern example is Knight Capital's failure on August 1, 2012, when its automated routing system streamed thousands of orders per second over 45 minutes, executing over 4 million trades in 154 stocks totaling more than 397 million shares, causing losses of over $460 million and a 75 percent drop in its stock price in one day, before it was acquired by Getco (forming KCG Holdings) and later by Virtu Financial. Competition from electronic exchanges such as Instinet also cut profits, with NYSE floor specialists handling only 12 percent of volume in 2018 (down from 100 percent in the early 1990s) and floor traders falling to fewer than 500 from about 5,000 at the peak.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Industry size is benchmarked by equity capital ($223 billion in 2021), not total assets.</li>
+    <li>The number of broker-dealers fell from 9,515 in 1987 to 3,435 in 2020.</li>
+    <li>The Financial Services Modernization Act of 1999 enabled cross-sector mergers and the dominance of financial services holding companies.</li>
+    <li>Electronic trading, algorithmic trading, and AI/ML have reshaped market structure and reduced intermediation costs.</li>
+    <li>All five major investment banks were gone as independent investment banks by end of 2008.</li>
+    <li>Firms are classified by scope: national full-line, regional, discount brokers, electronic trading firms, venture capital firms, and specialized boutiques.</li>
+  </ul>
+</div>
 
-<h3>3.4 Trading</h3>
-<p>There are at least six types of trading activities</p>
-<ol>
-  <li><b>Position trading</b>, purchasing large blocks of securities expecting a favorable price move, holding positions for weeks or months</li>
-  <li><b>Pure arbitrage</b>, buying an asset in one market and immediately selling it in another at a higher price, locking in profits with no equity investment, usually exploiting discrepancies between spot and futures prices</li>
-  <li><b>Risk arbitrage</b>, buying securities in anticipation of an information release such as a merger or Federal Reserve decision, with the risk of losses if the event does not occur</li>
-  <li><b>Program trading</b>, defined by the NYSE as the simultaneous buying and selling of a portfolio of at least 15 stocks valued at more than $1 million, initiated by computer programs, often seeking arbitrage between cash and futures prices (e.g., the S&amp;P 500 index)</li>
-  <li><b>Stock brokerage</b>, trading securities on behalf of individuals through a broker at an exchange</li>
-  <li><b>Electronic brokerage</b>, direct Internet access to the trading floor, bypassing traditional brokers at lower cost per share</li>
-</ol>
+<h2 id="section3">3. Key Activities of Securities Firms and Investment Banks</h2>
 
-<h3>3.5 Investing, Cash Management, and M&amp;A</h3>
-<p><b>Investing</b> involves managing pools of assets such as closed- and open-end mutual funds and pension funds, aiming to beat a return-risk benchmark such as the S&amp;P 500 index, generating a more stable fee income than investment banking or trading. <b>Cash management</b> offers bank-deposit-like cash management accounts (CMAs), which are money market mutual funds with check-writing privileges, blurring the distinction between commercial and investment banks. <b>Mergers and acquisitions</b> involve advice, finding merger partners, underwriting new securities, valuing target firms, and even helping prevent mergers (e.g., writing poison-pill provisions). Domestic M&amp;A value rose from under $200 billion (1990) to $1.83 trillion (2000, 10,864 deals), fell to $458 billion (2002), peaked at about $1.7 trillion in the U.S. and $4.5 trillion worldwide (2007), declined during the crisis ($903 billion, $713 billion, and $687 billion in 2008, 2009, and 2010), and recovered to $2,749 billion in the U.S. and $4,399 billion worldwide in 2021, the strongest M&amp;A period since 1980.</p>
-<p>Back-office functions include custody and escrow services, clearance and settlement, and research and advisory services. Part of the research purchased with client commissions is called soft dollars, creating a conflict of interest that the SEC requires firms to disclose. Conflicts between analyst research and underwriting triggered investigations, for example Merrill Lynch paid a $100 million fine for overly optimistic reports, and in spring 2003 the ten largest securities firms agreed to a record $1.4 billion settlement over investor abuse charges.</p>
+<div class="interpretation">
+  <p>Securities firms and investment banks engage in as many as seven key activity areas, plus supporting service functions. These activities can be conducted independently or simultaneously for a client. For example, a firm advising on a merger (M&amp;A activity) may also underwrite the debt and equity issued to finance the transaction (investment banking activity). Understanding each activity requires knowing how it generates revenue, what risks it creates, and how it serves customer needs.</p>
+</div>
 
-<h2>4. Balance Sheet and Recent Trends</h2>
+<h3 id="section3-1">3.1 Investment Banking</h3>
 
-<h3>4.1 Trends</h3>
-<p>Industry performance depends heavily on the state of the stock market. Brokerage commissions declined as a percentage of revenues since the SEC abolished fixed commissions in May 1975, stabilized and recovered after 1992, and returned to 15-20 percent of total revenues in the mid-2010s. FINRA-registered broker-dealers fell from 4,923 (2008) to 3,435 (2020), down 30 percent, while registered investment advisors (RIAs) rose from 24,147 (2008) to 30,888 (2020), up 28 percent, and fee-based revenue at leading retail broker-dealers grew from 57 percent (2015) to 70 percent (2019).</p>
-<p>Domestic underwriting grew from $192.7 billion (1990) to $1,623.9 billion (2002) and $4,389.3 billion (2021), driven by the attractiveness of corporate debt at low long-term rates, debt's lower risk than equity, and growth in asset-backed securities. Pretax profits reached a record $31.6 billion (2000), fell 24 percent to $16 billion (2001) due to the slowdown and the September 11 attacks (Bank of New York costs $125 million, Citigroup $100-200 million, Morgan Stanley $150 million), rose to $24.1 billion (2003) and $33.1 billion (2006), collapsed to $0.78 billion (2007) and a record loss of $34.1 billion (2008), surged to a record $61.4 billion (2009), and eventually reached $77.2 billion (2020).</p>
+<div class="interpretation">
+  <p><b>Investment banking</b> refers to activities related to underwriting and distributing new issues of debt and equity. New issues can be <b>primary offerings</b>&mdash;the first-time issues of companies, often called <i>initial public offerings (IPOs)</i>&mdash;or <b>secondary offerings</b>, which are new issues of seasoned firms whose securities are already trading. In 2021, a total of <b>$11.47 trillion</b> of debt and equity was underwritten, up from $4.95 trillion in 2008, and above pre-crisis levels of $7.51 trillion (2007) and $7.84 trillion (2006). Global equity proceeds were $1.29 trillion in 2021, up 19% from 2020, and global IPO proceeds rose 83% from 2020, driven by mega IPOs and <i>unicorn companies</i> (privately held startups valued at over $1 billion). Examples include Rivian Automotive ($13.7 billion), GlobalFoundries ($2.9 billion), and Bumble ($2.5 billion) IPOs in 2021.</p>
+  <p>The top five underwriters accounted for 22.6% of the global debt capital market and 39.9% of the global equity capital market, indicating that the industry is dominated by a handful of top-tier firms. <b>Top-tier ranking and the implied reputation it brings</b> has a significant effect in this business; investment banks have sometimes refused to participate in an issue if their name would not be placed where they desired on the "tombstone" advertisement announcing the issue.</p>
+  <p>Securities underwritings are undertaken through either <b>public offerings</b> or <b>private offerings</b>. In a <b>private offering</b>, the investment banker acts as a <i>private placement agent</i> for a fee, placing the securities with one or a few large institutional investors (e.g., life insurance companies). In a <b>public offering</b>, securities are offered to the public at large, and the underwriting is executed on either a <b>best-efforts</b> or a <b>firm commitment</b> basis.</p>
+  <p>Under <b>best-efforts underwriting</b>, the investment banker acts as an agent on a fee basis related to success in placing the issue. The risk of unsold securities remains with the issuer. Under <b>firm commitment underwriting</b>, the investment banker acts as a principal: it purchases the securities from the issuer at one price and seeks to place them with public investors at a slightly higher price. The investment bank absorbs the risk that the securities cannot be sold at the anticipated price. Factors influencing the issuing firm&rsquo;s preference include general market volatility, the stability and maturity of the issuing firm&rsquo;s financial health, and the perceived appetite for new issues. The investment bank considers these same factors when negotiating fees and the pricing spread.</p>
+</div>
 
-<p class="tabcap">Table 4-4. U.S. Corporate Underwriting Activity in Selected Years ($ billions)</p>
-<table>
-  <tr>
-    <th>Year</th>
-    <th>1990</th>
-    <th>2002</th>
-    <th>2008</th>
-    <th>2015</th>
-    <th>2020</th>
-    <th>2021</th>
-  </tr>
-  <tr>
-    <td>Total underwriting</td>
-    <td>192.7</td>
-    <td>1,623.9</td>
-    <td>2,735.7</td>
-    <td>1,480.0</td>
-    <td>2,672.8</td>
-    <td>4,389.3</td>
-  </tr>
-</table>
+<div class="formula-box">
+  <span class="label">Firm Commitment Underwriting Profit</span>
+  <div class="formula">\[ \text{IB Profit} = (P_{\text{public}} - P_{\text{issuer}}) \times N_{\text{shares}} \]</div>
+</div>
 
-<h3>4.2 Balance Sheet</h3>
-<p>The short-term nature of many assets of securities firms reflects the importance of trading and brokerage. On the 2016 consolidated balance sheet, the largest assets were receivables from other broker-dealers (29.3 percent), securities purchased under agreements to resell, i.e., reverse repurchase agreements (29.1 percent), and long positions in securities and commodities (22.6 percent). Because the balance sheet consists of financial market securities, the industry faces high levels of market risk, interest rate risk, foreign exchange risk, and sovereign risk.</p>
-<p>Like other FIs, securities firms use high financial leverage, but their liabilities are extremely short term. The major source of funds is repurchase agreements (34.3 percent of total liabilities and equity), followed by payables to customers and other broker-dealers, and securities sold short. Over 36 percent of total liabilities are payables incurred in the transaction process. Equity capital is only 6.1 percent of total assets, well below depository institutions (commercial banks 11.34 percent, savings institutions 10.74 percent, credit unions 10.80 percent), because securities firms' balance sheets contain mostly tradable, liquid securities. Securities firms must maintain an aggregate indebtedness to net capital of no more than 1,500 percent, meaning debt cannot exceed 15 times equity.</p>
+<div class="interpretation">
+  <p><b>Symbol meanings:</b> \(P_{\text{public}}\) = price per share at which the investment bank sells the securities to the public; \(P_{\text{issuer}}\) = price per share paid to the issuing firm; \(N_{\text{shares}}\) = number of shares underwritten.</p>
+  <p><b>Mathematical relationship:</b> Profit is the per-share spread (the difference between the public offering price and the issuer price) multiplied by the number of shares.</p>
+  <p><b>Interpretation:</b> In a firm commitment, the investment bank acts as a principal. It buys low from the issuer and seeks to sell higher to the public. The spread compensates the bank for bearing the risk that market conditions deteriorate and the shares cannot be resold at a profit. If the public price \(P_{\text{public}}\) falls below \(P_{\text{issuer}}\), the bank incurs a loss.</p>
+  <p><b>Practical use:</b> This formula is used to compute both the issuer&rsquo;s proceeds and the investment bank&rsquo;s compensation in a firm commitment offering. The issuer receives \(P_{\text{issuer}} \times N_{\text{shares}}\), regardless of the price ultimately obtained from the public.</p>
+  <p><b>Assumptions:</b> All shares are sold in the primary distribution, and there are no additional fees or expenses.</p>
+</div>
 
-<h2>5. Regulation</h2>
-<p>The primary regulator of the securities industry is the <b>SEC</b>, established in 1934 largely in response to abuses by securities firms. Its main roles include administering securities laws, reviewing registrations of new securities offerings, reviewing annual and semiannual reports of public corporations, and prohibiting market manipulation. The National Securities Markets Improvement Act (NSMIA) of 1996 reaffirmed the SEC as the primary regulator by removing most state regulatory burdens, effectively giving the SEC exclusive jurisdiction over securities firms.</p>
-<p>The analyst research scandals produced major enforcement. In spring 2003, the ten largest securities firms paid a record $1.4 billion settlement, including Citigroup $400 million, Credit Suisse First Boston and Merrill Lynch $200 million each, Morgan Stanley $125 million, Goldman Sachs $110 million, Bear Stearns, JPMorgan Chase, Lehman Brothers, and UBS Warburg $80 million each, and Piper Jaffray $32 million. The settlement required separating research and banking structures and tying analyst pay to research quality rather than underwriting business. Further cases followed, for example Morgan Stanley paid $5 million (December 2012, related to the Facebook IPO) and Citigroup, Goldman Sachs, and eight other firms were fined $43.5 million (December 2014, related to the Toys "R" Us IPO).</p>
-<p>Besides the SEC, <b>FINRA</b> is an independent nonprofit organization regulating day-to-day trading practices, including oversight of dark pools (about 13 percent of U.S. stock trades in 2018, up from 3 percent in 2007 and reaching 40 percent by 2020). Goldman Sachs closed its dark pool in 2014, and dark pool penalties were imposed on UBS ($14.5 million), Barclays ($35 million to the SEC and $35 million to the NYAG), and Credit Suisse ($84.3 million total). Congress also oversees the industry, for example through the Senate Permanent Subcommittee on Investigations hearings in spring 2010 on investment banks' role in the crisis.</p>
-<p>The Wall Street Reform and Consumer Protection Act of 2010 brought many changes, including the Financial Services Oversight Council, an investment advisor registration threshold of $100 million in assets under management (up from $25 million, effective July 21, 2011), regulation of securitization markets and credit rating agencies, a requirement that issuers and originators retain a financial interest in securitized loans, comprehensive regulation of OTC derivatives, and the Volcker Rule prohibiting proprietary trading (implemented April 2014, compliance by July 21, 2015). The USA Patriot Act imposed three requirements effective October 1, 2003, namely verifying the identity of account openers, maintaining verification records, and checking terrorist lists. Finally, the Securities Investor Protection Corporation (SIPC), created under the Securities Investor Protection Act of 1970 as a nonprofit membership corporation, protects investors against losses of up to $500,000 caused by securities firm failures.</p>
+<div class="formula-box">
+  <span class="label">Best-Efforts Underwriting: Issuer Proceeds and Bank Fee</span>
+  <div class="formula">\[ \text{Issuer Proceeds} = (P_{\text{market}} - f) \times Q_{\text{sold}} \]</div>
+  <div class="formula">\[ \text{IB Fee} = f \times Q_{\text{sold}} \]</div>
+</div>
 
-<h2>6. Global Issues</h2>
-<p>More than other FI sectors, securities firms and investment banks operate globally. The top five global debt underwriters in 2021 are U.S. banks (JPMorgan, Citi, Bank of America Securities, Goldman Sachs, Morgan Stanley), followed by European banks (Barclays, Deutsche Bank, BNP Paribas, HSBC, Credit Suisse), while for global equity, 5 of the top 10 are U.S. banks, 3 European, and 2 Chinese. Foreign investors' transactions in U.S. stocks grew from $6,173.7 billion (2003) to $24,031.1 billion (2008, up 289 percent), fell to $13,155.2 billion (2009), then reached an all-time high of $48,552.9 billion (2020). U.S. investors' transactions in foreign-listed stocks grew from $2,697.7 billion (2003) to $10,866.3 billion (2008, up 303 percent) and an all-time high of $14,435.6 billion (2020). Total international security offerings rose from $1,713.0 billion (2003) to $4,094.9 billion (2020), with U.S. issuers offering $915.0 billion internationally.</p>
-<p>After the crisis, global investment banks sought strategic alliances or exited foreign markets. Morgan Stanley sold a 21 percent stake to Mitsubishi UFJ (2008) and formed a joint venture in March 2009, while Citigroup sold its Japanese securities and asset management units to Sumitomo Mitsui Financial Group. A major scandal marked the global industry, namely the manipulation of the <b>LIBOR</b> interbank rate, estimated to have earned the banks involved at least $75 billion. Barclays agreed to a $450 million settlement (June 2012), UBS about $1.5 billion (December 2012), and Royal Bank of Scotland $610 million (February 2013), while in 2016 six major banks (Barclays, JPMorgan Chase, Citigroup, RBS, UBS, and Bank of America) were fined nearly $6 billion total for rigging the foreign exchange market and LIBOR. Trader Tom Hayes was sentenced to 14 years in prison in August 2015, the first criminal conviction of an individual for LIBOR manipulation.</p>
-<p>Nearly $200 trillion of derivatives, loans, securities, and mortgages referenced a benchmark derived from just $500 million in average daily trading volumes (year-end 2016), so regulators developed alternative reference rates, namely SOFR (U.S.), SONIA (U.K.), ESTER (euro area), SARON (Switzerland), and TONA (Japan). SOFR, calculated from the U.S. Treasury repo market with daily volumes of about $1 trillion, is more resilient to manipulation. LIBOR ceased to be provided after December 31, 2021 for sterling, euro, Swiss franc, yen, and the one-week and two-month U.S. dollar settings, and after June 30, 2023 for the remaining U.S. dollar settings.</p>
+<div class="interpretation">
+  <p><b>Symbol meanings:</b> \(P_{\text{market}}\) = price per share at which shares are actually sold in the market; \(f\) = fee per share charged by the investment bank; \(Q_{\text{sold}}\) = number of shares actually sold.</p>
+  <p><b>Mathematical relationship:</b> Issuer proceeds equal the market price less the fee, multiplied by shares sold. The fee is a fixed amount per share sold, independent of the market price.</p>
+  <p><b>Interpretation:</b> In best-efforts underwriting, the investment bank acts as an agent, not a principal. It does not purchase the securities; it merely distributes them for a fee. The issuer bears the risk of unsold shares and unfavorable prices. The bank&rsquo;s compensation is contractually tied to the number of shares successfully placed, not to the price achieved.</p>
+  <p><b>Practical use:</b> This arrangement is preferred when market volatility is high or when the issuer&rsquo;s financial stability is uncertain. The bank faces no inventory risk and therefore a lower fee is typically charged compared with firm commitment.</p>
+  <p><b>Assumptions:</b> The fee per share is fixed; all sold shares generate the fee regardless of the market price.</p>
+</div>
 
-<h2>7. Key Calculations and Formulas</h2>
+<div class="example">
+  <h4>Example: Murray Construction Corp. (from source)</h4>
+  <p><strong>Firm commitment case:</strong> The investment bank pays Murray Construction $15.50 per share for 20 million shares, then sells them to the public at $16.35 per share.</p>
+  <p><strong>Calculation:</strong> Murray receives $15.50 &times; 20,000,000 = $310,000,000. The bank&rsquo;s profit is ($16.35 &minus; $15.50) &times; 20,000,000 = $17,000,000.</p>
+  <p><strong>Interpretation:</strong> The $17 million represents the commission Murray pays to issue the stock, and $16.35 is the stock price because that is what the public agrees to pay.</p>
+  <p><strong>Downside case:</strong> If the bank can sell shares for only $14.75, Murray still receives $310,000,000, but the bank loses ($14.75 &minus; $15.50) &times; 20,000,000 = &minus;$15,000,000. The bank absorbs the loss because it acted as a principal with a firm commitment.</p>
+  <p><strong>Best-efforts case:</strong> The bank sells 18.4 million shares at $15.50 and charges a $0.375 fee per share sold.</p>
+  <p><strong>Calculation:</strong> Murray receives ($15.50 &minus; $0.375) &times; 18,400,000 = $278,300,000. The bank&rsquo;s fee is $0.375 &times; 18,400,000 = $6,900,000. If the price falls to $14.75, Murray receives ($14.75 &minus; $0.375) &times; 18,400,000 = $264,500,000, and the bank&rsquo;s fee remains $6,900,000 because the fee is per share sold, not price-dependent.</p>
+  <p><strong>Practical lesson:</strong> Firm commitment underwriting transfers market risk to the investment bank; best-efforts leaves the risk with the issuing firm. The choice between them depends on market volatility, issuer stability, and investor appetite for new issues.</p>
+</div>
 
-<h3>7.1 Firm Commitment Underwriting</h3>
-<p>Under firm commitment, the investment bank buys the entire issue from the issuer at a fixed price and bears the price risk.</p>
-<div class="eq">\[ \text{Issuer proceeds} = P_{\text{buy}} \times N \]</div>
-<div class="eq">\[ \text{Bank profit} = (P_{\text{sell}} - P_{\text{buy}}) \times N \]</div>
-<p>where \( P_{\text{buy}} \) is the price the bank pays the issuer, \( P_{\text{sell}} \) the public selling price, and \( N \) the number of shares. For example, 20 million shares at $15.50 with a selling price of $16.35 yield issuer proceeds of $310 million and bank profit of $17 million, while a selling price of $14.75 yields a bank loss of $15 million.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A firm commitment is like a wholesale buyer purchasing a farmer&rsquo;s entire crop at a fixed price, hoping to resell it at a profit in the market. If market prices fall, the buyer absorbs the loss. Best-efforts is like a commission-based sales agent: the agent earns a fee for each box sold but does not own the crop and bears no loss if the crop cannot be sold.</p>
+</div>
 
-<h3>7.2 Best-Efforts Underwriting</h3>
-<p>Under best efforts, the bank acts as an <i>agent</i> earning a fee per share sold, without bearing price risk.</p>
-<div class="eq">\[ \text{Issuer proceeds} = (P_{\text{sell}} - \text{fee}) \times N_{\text{sold}} \]</div>
-<div class="eq">\[ \text{Bank profit} = \text{fee} \times N_{\text{sold}} \]</div>
-<p>For example, 18.4 million shares sold at $15.50 with a $0.375 per-share fee yield issuer proceeds of $278.3 million and bank profit of $6.9 million, regardless of the selling price.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Underwriting is fundamentally a risk-bearing service in firm commitment offerings and a distribution service in best-efforts offerings.</strong> The investment bank&rsquo;s profit is the spread between the issuer price and the public price (firm commitment) or the per-share fee on securities sold (best-efforts). The issuer&rsquo;s proceeds and the bank&rsquo;s profit are determined by the contractual structure, not by the subsequent market price. Investors purchase shares at the market price, establishing the firm&rsquo;s public valuation.</p>
+</div>
 
-<h3>7.3 Securities Firm Leverage Limit</h3>
-<div class="eq">\[ \frac{\text{Aggregate indebtedness}}{\text{Net capital}} \leq 1{,}500\% \quad \Rightarrow \quad \text{Debt} \leq 15 \times \text{Capital} \]</div>
-<p>Securities firms must keep aggregate indebtedness at no more than 15 times net capital, serving as a substitute for bank-style minimum capital requirements.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Investment banking covers primary issues (IPOs) and secondary offerings of seasoned firms.</li>
+    <li>In 2021, $11.47 trillion was underwritten globally; top five debt underwriters held 22.6% of the market, top five equity underwriters 39.9%.</li>
+    <li>Private placements place securities with large institutional investors for a fee; public offerings sell to the public at large.</li>
+    <li>Firm commitment: bank purchases securities as principal and assumes price risk; profit = (P_public &minus; P_issuer) &times; N.</li>
+    <li>Best-efforts: bank acts as agent for a per-share fee; issuer bears price and unsold-inventory risk.</li>
+  </ul>
+</div>
 
-<h3>7.4 Growth of Global Securities Transactions</h3>
-<div class="eq">\[ \text{Growth} = \frac{V_{2008} - V_{2003}}{V_{2003}} \times 100\% \]</div>
-<p>Foreign investors' transactions in U.S. stocks grew 289 percent between 2003 and 2008, and U.S. investors' transactions in foreign stocks grew 303 percent over the same period.</p>
+<h3 id="section3-2">3.2 Venture Capital</h3>
 
-<h3>7.5 Other Key Data</h3>
-<ul>
-  <li>Securities industry equity capital, $223 billion (2021)</li>
-  <li>Number of broker-dealers, 3,435 (2020) from 4,923 (2008)</li>
-  <li>Total global underwriting, $11.47 trillion (2021), with global equity of $1.29 trillion</li>
-  <li>BHC investment banking fee income, $15.23 billion (2021)</li>
-  <li>Industry pretax profits, record $61.4 billion (2009) and $77.2 billion (2020) versus a record loss of $34.1 billion (2008)</li>
-  <li>Equity-to-assets ratio, 6.1 percent (2016) versus 11.34 percent for commercial banks</li>
-  <li>SIPC protection, up to $500,000 per customer</li>
-</ul>
+<div class="interpretation">
+  <p><b>Venture capital</b> is a professionally managed pool of money used to finance new and often high-risk firms. Commercial banks generally will not lend to new companies with no assets and no operating history. Venture capital fills this financing gap by providing <b>equity capital</b>&mdash;not loans&mdash;to untried companies and their managers. In exchange, the venture capital firm receives an equity interest with the same rights and privileges as other owners. Unlike passive investors, venture capital firms are actively involved: they provide expertise to managers, may help recruit senior executives, and expect to be fully informed about operations, problems, and whether joint goals are being met.</p>
+  <p><b>Venture capital vs. private equity:</b> The terms are often used interchangeably, but there are distinct differences. Venture capital firms, using pooled investment resources of institutions and wealthy individuals, focus on <i>startup</i> business concerns. Private equity firms acquire funds from equity securities, non-publicly traded stocks, and institutional/individual pooling, and deal more with <i>existing companies</i> that have proven themselves. Since the financial crisis, with fewer new ventures, the two types compete more directly, and the differences have become less distinct.</p>
+  <p><b>Types of venture capital firms:</b></p>
+  <ul>
+    <li><b>Institutional venture capital firms</b>: business entities whose sole purpose is to find and fund promising new firms. Subtypes include: <i>venture capital limited partnerships</i> (established by professional venture capital firms acting as general partners&mdash;organizing, managing, and eventually liquidating their equity investments), <i>financial venture capital firms</i> (subsidiaries of investment or commercial banks), and <i>corporate venture capital firms</i> (subsidiaries of nonfinancial corporations that specialize in startup investments in high-tech firms). Limited partner venture capital firms dominate the industry.</li>
+    <li><b>Small Business Investment Companies (SBICs)</b>: privately organized venture capital firms licensed by the Small Business Administration (SBA). They make equity investments and loans to entrepreneurs for startup activities and expansions. As federally sponsored entities, SBICs can obtain investment funds from the U.S. Treasury at very low rates.</li>
+    <li><b>Angel venture capitalists (angels)</b>: wealthy individuals who make equity investments. Angels have invested much more in new and small firms than institutional venture capital firms.</li>
+  </ul>
+  <p>Venture capital firms receive many unsolicited funding proposals; the majority are rejected. They look for two things when deciding whether to invest: (1) <b>high return</b>&mdash;they accept high-risk investments but require high returns, sometimes as high as 700% within five to seven years; and (2) <b>easy exit</b>&mdash;they profit by eventually selling their interests, so they need a quick and easy exit opportunity when the time comes to sell.</p>
+</div>
 
-<h2>8. Summary and Conclusion</h2>
-<p>This chapter presented an overview of securities firms (which offer largely retail services to investors) and investment banking firms (which offer largely wholesale services to corporate customers). The industry assists in bringing new issues of debt and equity to the markets, facilitates trading and market making of securities after issuance, and supports corporate mergers and restructurings. Industry size is measured by equity capital, key activities include investment banking, venture capital, market making, trading, investing, cash management, and M&amp;A, and balance sheets are dominated by short-term market positions with very high leverage.</p>
-<p>The industry is in a period of consolidation and globalization. The financial crisis eliminated the independent investment bank model, with the five largest investment banks gone or converted into bank holding companies, while post-Dodd-Frank regulation including the Volcker Rule restricts proprietary trading. The LIBOR scandal and research conflicts of interest highlight the importance of market integrity, and the transition from LIBOR to SOFR marks a major change in global financial market infrastructure.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>From source:</strong> Venture capital firms often fund biotechnology startups, a sector characterized by high risk, long development periods, and potentially enormous payoffs. SBICs obtain funds from the U.S. Treasury at very low rates compared with private-sector venture capital firms, giving them a unique funding advantage.</p>
+  <p><strong>Interpretation:</strong> The venture capital model is fundamentally different from commercial bank lending: banks prefer existing, financially secure businesses; venture capital provides equity funds to new, unproven, and young firms.</p>
+  <p><strong>Practical lesson:</strong> A venture capital investment is evaluated primarily on return potential and exit feasibility, not on current cash flow or collateral. Understanding these two criteria is essential for entrepreneurs seeking venture funding.</p>
+</div>
 
-<h2>9. Concept Questions for Practice</h2>
-<ol>
-  <li>How do securities firms differ from investment banks? In what ways are they financial intermediaries?</li>
-  <li>What is the difference between an IPO and a secondary issue, and between a private placement and a public offering?</li>
-  <li>What are the risk implications of best-efforts versus firm commitment underwriting for an investment bank?</li>
-  <li>List the seven key activity areas of securities firms and investment banks</li>
-  <li>What is the difference between pure arbitrage and risk arbitrage, and between position trading and program trading?</li>
-  <li>Why do broker-dealers tend to hold less equity capital than commercial banks and thrifts?</li>
-  <li>What was the major result of the NSMIA of 1996, and what regulatory changes resulted from the financial crisis?</li>
-  <li>What three requirements of the USA Patriot Act must financial service firms implement since October 2003?</li>
-  <li>Why was LIBOR replaced by SOFR and other alternative reference rates?</li>
-</ol>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A venture capital firm is like a talent scout for a professional sports team. The scout does not buy a stadium or manage the team&rsquo;s daily operations (that is the commercial bank&rsquo;s lending role); instead, the scout identifies promising rookies, invests in their development, and expects to profit when they succeed and either generate returns or are sold/traded. The scout demands a high potential payoff for the risk that the rookie may fail, and needs a clear path to exit (selling the contract) if the investment matures.</p>
+</div>
 
-<p class="note">Technical note, the mathematical equations on this page are rendered with MathJax and require an internet connection on first open. To print or save as PDF, use the Print button at the top. This document is a self-study summary and is not a substitute for the original textbook.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Venture capital is active equity financing for high-risk startups, driven by the dual requirements of high returns and easy exit.</strong> It is not loan financing, and the venture capital firm, as an equity holder, shares in both the upside and the managerial oversight of the firm. The institutional design&mdash;limited partnerships, financial subsidiaries, corporate subsidiaries, SBICs, and angels&mdash;reflects different funding sources and risk appetites.</p>
+</div>
 
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Venture capital = professionally managed pool of money financing new, high-risk firms through equity investments, not loans.</li>
+    <li>Venture capital firms are active investors, providing expertise and sometimes recruiting senior managers.</li>
+    <li>Venture capital differs from private equity: VC targets startups; PE targets existing proven companies.</li>
+    <li>Types: institutional VC firms (limited partnerships, financial subsidiaries, corporate subsidiaries), SBICs, and angel investors.</li>
+    <li>Investment decisions rest on two criteria: high return potential (up to 700% in five to seven years) and easy exit.</li>
+  </ul>
+</div>
+
+<h3 id="section3-3">3.3 Market Making</h3>
+
+<div class="interpretation">
+  <p><b>Market making</b> involves creating a secondary market in an asset. In addition to acting as primary dealers in government securities and underwriters of corporate bonds and equities, investment banks make secondary markets in these instruments. Market making can involve <b>agency transactions</b> or <b>principal transactions</b>.</p>
+  <p>In <b>agency transactions</b>, the firm acts on behalf of customers&mdash;as a stockbroker or dealer&mdash;for a fee or commission. For example, on the New York Stock Exchange (NYSE), a market maker in IBM stock may, upon receiving customer orders, buy stock at $190 from one customer and immediately resell it at $191 to another. The $1 difference, called the <b>bid&ndash;ask spread</b>, represents a large portion of the market maker&rsquo;s profit.</p>
+  <p>In <b>principal transactions</b>, the market maker seeks to profit from price movements of securities by taking either <b>long</b> (buying and holding) or <b>short</b> (selling borrowed securities with the expectation of repurchasing at a lower price) inventory positions for its own account. Inventory positions may also be taken to stabilize the market in the securities. Market making is generally profitable, but in periods of market stress or high volatility, profits can disappear rapidly. NYSE market makers, in return for having <i>monopoly power</i> in individual stocks, have an <i>affirmative obligation</i> to buy stocks from sellers even when the market is crashing. This obligation caused bankruptcies and near-bankruptcies among NYSE market makers during the October 1987 crash. On NASDAQ, which has a system of competing market makers, liquidity was significantly impaired at the crash time, and several firms withdrew from market making.</p>
+</div>
+
+<div class="example">
+  <h4>Example: Knight Capital Group (from source)</h4>
+  <p><strong>Event:</strong> On August 1, 2012, Knight Capital, a leading market maker, experienced a major failure in its automated routing system. Knight received 212 small retail orders, then mistakenly streamed thousands of orders per second into the NYSE over 45 minutes, executing over 4 million trades in 154 stocks&mdash;more than 397 million shares. It assumed a net long position of approximately $3.5 billion in 80 stocks and a net short position of approximately $3.15 billion in 74 stocks.</p>
+  <p><strong>Result:</strong> Knight lost over $460 million; its stock price dropped 75% the next day. A week later, it received a $400 million cash infusion; the next summer it was acquired by Getco LLC, forming KCG Holdings, which was later acquired by Virtu Financial in 2017.</p>
+  <p><strong>Interpretation:</strong> Automated market-making systems can rapidly amplify small errors into firm-threatening losses.</p>
+  <p><strong>Practical lesson:</strong> Operational risk&mdash;the risk of failure in internal systems and processes&mdash;is a critical risk category for market makers. Competition from electronic exchanges has also cut into profits: by 2018, only 12% of NYSE share volume was handled by floor specialists, down from 100% in the early 1990s; NYSE floor traders fell from about 5,000 at the peak to fewer than 500.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A market maker is like a fishmonger in a wholesale market. The fishmonger stands ready to buy fish from fishermen (even when the catch is abundant and prices are falling) and sell fish to restaurants (even when supply is scarce and prices are rising). The profit is the spread between the buying price and the selling price. But if the fishmonger is obligated to buy during a sudden market glut and cannot resell, the losses can wipe out past profits. In a similar way, market makers profit from the bid&ndash;ask spread but are exposed to inventory risk, particularly when they have an affirmative obligation to provide liquidity during market crashes.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Market making provides liquidity but embeds significant inventory and operational risk.</strong> The bid&ndash;ask spread is the compensation for providing immediacy to buyers and sellers. However, the affirmative obligation to maintain orderly markets&mdash;especially during crashes&mdash;can transform a profitable business into a loss-making one. The Knight Capital episode demonstrates that technology failures in automated market making can produce multi-billion-dollar unintended positions in minutes.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Market making creates secondary markets by standing ready to buy and sell securities.</li>
+    <li>Agency transactions earn commissions/spreads by executing customer orders; principal transactions take positions for the firm&rsquo;s own account.</li>
+    <li>The bid&ndash;ask spread is a major profit source for market makers.</li>
+    <li>NYSE market makers have an affirmative obligation to buy during crashes, which historically caused bankruptcies (e.g., October 1987).</li>
+    <li>Electronic trading and automated systems reduce costs but introduce operational risks, as demonstrated by Knight Capital&rsquo;s $460 million loss in 2012.</li>
+  </ul>
+</div>
+
+<h3 id="section3-4">3.4 Trading</h3>
+
+<div class="interpretation">
+  <p><b>Trading</b> is closely related to market making: a trader takes an active net position in an underlying instrument or asset. The chapter identifies six types of trading activities.</p>
+  <p><b>1. Position trading</b> involves purchasing large blocks of securities in anticipation of a favorable price move. Positions are held for intervals up to several weeks or months. Unlike day traders, position traders take a relatively longer view of market trends. Their activity also facilitates the smooth functioning of secondary markets.</p>
+  <p><b>2. Pure arbitrage</b> entails buying an asset in one market at one price and selling it immediately in another market at a higher price. This "locks in" profits that are available from price discrepancies between markets&mdash;for example, between the spot (cash) price of a security and its corresponding futures price. Pure arbitrage typically requires no equity investment, uses only very short-term borrowed funds, and involves reduced transaction costs. When theoretical futures-spot pricing relationships get out of line, pure arbitrageurs enter the market to exploit them, thereby pushing prices back toward equilibrium.</p>
+  <p><b>3. Risk arbitrage</b> involves buying securities in anticipation of some information release, such as a merger or takeover announcement or a Federal Reserve interest-rate announcement. It is called <i>risk</i> arbitrage because if the anticipated event does not occur (the merger falls through, the Fed does not change rates), the trader loses money.</p>
+  <p><b>4. Program trading</b> (NYSE definition) is the simultaneous buying and selling of a portfolio of at least 15 different stocks valued at more than $1 million, using computer programs to initiate such trades. It is often associated with seeking risk arbitrage between a cash market price (e.g., the S&amp;P 500 index) and the futures market price of that instrument. Because computers continuously monitor prices and can initiate buy or sell orders, these trades are classified separately.</p>
+  <p><b>5. Stock brokerage</b> involves trading securities on behalf of individuals. The individual contacts a broker, who sends the order to a representative at the exchange to execute the trade. Large brokerage firms hold multiple exchange licenses through which commission brokers trade orders from clients or for the firm&rsquo;s own account.</p>
+  <p><b>6. Electronic brokerage</b> provides direct access via the Internet to the trading floor, bypassing traditional brokers. Costs per share are generally lower, and users can discover existing sizes and quotes of offers, then negotiate directly. The services of the traditional retail brokerage firm are frequently bypassed.</p>
+  <p>Trading is conducted either as an agent (on behalf of customers) or as a principal (on behalf of the firm). At the retail level, agency trading on behalf of customers is called <b>brokerage</b>.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>From source:</strong> Program trading seeks to exploit price discrepancies between the S&amp;P 500 cash index and S&amp;P 500 futures contracts. Because stocks and futures trade in different markets, their prices are not always equal. A program trader might buy the cash S&amp;P index while simultaneously selling futures contracts on the S&amp;P index, profiting when the futures price converges to the cash price.</p>
+  <p><strong>Interpretation:</strong> The six trading activities differ in time horizon, information, and risk exposure: position trading takes multi-week directional bets; pure arbitrage locks in riskless cross-market profits; risk arbitrage bets on event occurrence; program trading uses computers to exploit index/futures discrepancies; brokerage serves retail clients; electronic brokerage automates the process.</p>
+  <p><strong>Practical lesson:</strong> Each trading strategy has a distinct risk profile. Pure arbitrage is considered low-risk because profits are locked in, but it requires low transaction costs and fast execution. Risk arbitrage and position trading expose the trader to adverse events and price movements.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>The different trading strategies resemble different approaches to buying groceries. A position trader is like a family stocking up on groceries for the month, anticipating future needs. A pure arbitrageur is like someone who notices that the same brand of cereal is cheaper at Store A than Store B, buys at A and immediately sells at B, profiting from the difference. A risk arbitrageur is like betting that a store&rsquo;s "going out of business" sale will actually happen&mdash;if it does, prices drop and profits; if it does not, the bet loses. A program trader is like a chef using a recipe app that simultaneously monitors several ingredient prices and automatically places bulk orders when price relationships become favorable.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The diversity of trading activities reflects different risk-return trade-offs and time horizons.</strong> Pure arbitrage is the classic no-risk profit opportunity that corrects cross-market price discrepancies. Risk arbitrage and position trading are directional bets that expose the trader to event risk and market risk. Program trading harnesses computers to exploit index-futures mispricings. Electronic brokerage has reduced costs and democratized access to markets but has simultaneously contributed to the decline of traditional floor-based brokerage.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Six trading activities: position trading, pure arbitrage, risk arbitrage, program trading, stock brokerage, and electronic brokerage.</li>
+    <li>Position trading: multi-week directional bets on price moves.</li>
+    <li>Pure arbitrage: simultaneous buy-low/sell-high across markets to lock in riskless profits.</li>
+    <li>Risk arbitrage: bets on information events (mergers, Fed announcements); loses if the event does not occur.</li>
+    <li>Program trading: computer-initiated simultaneous buying/selling of portfolios of 15+ stocks, often exploiting index-futures relationships.</li>
+    <li>Brokerage can be conducted as an agent (for customers) or principal (for the firm).</li>
+  </ul>
+</div>
+
+<h3 id="section3-5">3.5 Investing</h3>
+
+<div class="interpretation">
+  <p><b>Investing</b> involves managing pools of assets&mdash;such as closed- and open-end mutual funds and pension funds&mdash;in competition with life insurance companies. Securities firms can manage these funds either as <b>agents</b> for other investors or as <b>principals</b> for themselves. The objective in funds management is to choose asset allocations that beat some return&ndash;risk performance benchmark, such as the S&amp;P 500 index. Because fees are based on the size of the asset pool managed, this business generates a more stable flow of income than either investment banking or trading. Investment banking and trading income depend heavily on market cycles and deal flow, whereas asset management fees accrue as long as assets remain under management.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>From source:</strong> A securities firm managing an open-end mutual fund charges a fee based on total assets under management. If the fund outperforms the S&amp;P 500 benchmark, it attracts new investor inflows, increasing the asset base&mdash;and therefore the fee income&mdash;without any additional underwriting or trading activity.</p>
+  <p><strong>Interpretation:</strong> Asset management is a scale business: the same infrastructure can manage $1 billion or $100 billion, making it a relatively stable and profitable revenue source.</p>
+  <p><strong>Practical lesson:</strong> Because fees are proportional to assets managed, "beating the benchmark" is both an investment objective and a marketing tool. Funds that consistently outperform attract assets, which increases revenue and profitability.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Asset management is like a property management company that charges a percentage of the rent collected. The company does not own the buildings (that is the investors&rsquo; role), but it earns fees as long as the buildings are occupied and rents are collected. The better the occupancy rate (performance), the more buildings (assets) owners bring to it, and the higher the fees.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Asset management provides a stable, fee-based revenue stream that counterbalances the cyclical income of investment banking and trading.</strong> The fee structure&mdash;a percentage of assets under management&mdash;incentivizes fund managers to achieve the return&ndash;risk objective (e.g., beating the S&amp;P 500) to attract and retain investors.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Investing involves managing mutual funds and pension funds, either as agent or principal.</li>
+    <li>The objective is to beat a return&ndash;risk benchmark such as the S&amp;P 500.</li>
+    <li>Fee income is proportional to assets under management, creating a stable revenue stream compared to underwriting and trading.</li>
+  </ul>
+</div>
+
+<h3 id="section3-6">3.6 Cash Management</h3>
+
+<div class="interpretation">
+  <p>Investment banks offer bank deposit&ndash;like <b>cash management accounts (CMAs)</b> to individual investors. Most CMAs allow customers to write checks against some type of mutual fund account (e.g., a money market mutual fund). When issued in association with commercial banks and thrifts, these accounts can be covered by federal deposit insurance from the FDIC. Merrill Lynch was the first investment bank to offer a direct deposit account in June 2000 through the two banks it owned, following the Financial Services Modernization Act of 1999.</p>
+  <p>CMAs offer ATM services and debit cards. As a result, the distinction between commercial banks and investment banks became blurred. The advantage of brokerage-firm CMAs over commercial bank deposit accounts is that they make it easier to buy and sell securities: the broker can take funds out of the CMA when the investor buys a security and deposit funds back when the investor sells. CMAs were instrumental in the securities industry&rsquo;s efforts to provide commercial banking services before the 1999 act. Since its passage, securities firms can offer loans, credit and debit cards, ATM services, and sell securities.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p><strong>From source:</strong> Merrill Lynch was the first investment bank to offer a direct deposit account in June 2000, via the two banks it owned. CMAs were adopted by other securities firms under various names (e.g., "house account") and spread rapidly; many offer ATM services and debit cards.</p>
+  <p><strong>Interpretation:</strong> CMAs allow customers to hold cash in a brokerage account with check-writing privileges, effectively combining a bank deposit account with a securities trading account.</p>
+  <p><strong>Practical lesson:</strong> CMAs are a product-level example of financial convergence: they blurred the line between brokerages and banks, a trend formally legitimized by the Financial Services Modernization Act of 1999.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A CMA is like a wallet that also works as a bank account. You can spend from it (checks/debit cards), park cash in it (money market mutual fund), and use it to buy and sell investments (stocks/bonds) without transferring money between separate accounts. It is one integrated financial hub, which is more convenient than maintaining separate bank and brokerage accounts.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Cash management accounts transformed the retail relationship between investors and securities firms by integrating banking and brokerage services.</strong> This integration introduced deposit-like features into securities firms and set the stage for the broader cross-industry convergence enabled by the 1999 Financial Services Modernization Act.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>CMAs are bank deposit&ndash;like accounts offered by securities firms, typically linked to money market mutual funds.</li>
+    <li>CMAs offer check-writing privileges, ATM services, and debit cards.</li>
+    <li>CMAs blur the traditional distinction between commercial banks and investment banks.</li>
+    <li>The 1999 Financial Services Modernization Act allowed securities firms to offer loans, credit cards, and deposit products.</li>
+  </ul>
+</div>
+
+<h3 id="section3-7">3.7 Mergers and Acquisitions</h3>
+
+<div class="interpretation">
+  <p>Investment banks are frequently involved in providing advice or assistance in <b>mergers and acquisitions (M&amp;A)</b>. Their services include: finding
+    </div>
 </body>
 </html>

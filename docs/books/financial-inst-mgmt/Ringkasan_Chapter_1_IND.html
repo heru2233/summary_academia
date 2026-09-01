@@ -1,386 +1,473 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Ringkasan Chapter 1 - Why Are Financial Institutions Special? (Indonesia)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Are Financial Institutions Special?</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
-
-<div class="toolbar">
-  <button onclick="window.print()">Cetak / Simpan sebagai PDF</button>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Why Are Financial Institutions Special?</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction: The Role and Evolution of Financial Institutions</a></li>
+    <li><a href="#section2">2. The Specialness of Financial Institutions</a></li>
+    <li><a href="#section3">3. Information Costs and Delegated Monitoring</a></li>
+    <li><a href="#section4">4. Liquidity and Price Risk Reduction</a></li>
+    <li><a href="#section5">5. Other Special Services: Transaction Costs and Maturity Intermediation</a></li>
+    <li><a href="#section6">6. Other Aspects of Specialness</a></li>
+    <li><a href="#section7">7. Specialness and Regulation</a></li>
+    <li><a href="#section8">8. The Changing Dynamics of Specialness</a></li>
+    <li><a href="#section9">9. The Financial Crisis and the Shift Away from Risk Measurement and Management</a></li>
+    <li><a href="#section10">10. Enterprise Risk Management</a></li>
+    <li><a href="#section11">11. Fintech: Technology-Enabled Financial Innovation</a></li>
+    <li><a href="#section12">12. Global Trends in Financial Services</a></li>
+    <li><a href="#section13">13. Practical Cautions and Common Errors</a></li>
+  </ul>
 </div>
 
-<h1>Ringkasan Chapter 1</h1>
-<p class="subtitle">Why Are Financial Institutions Special?</p>
-<p class="bookinfo">Sumber, Saunders, A. dan Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, Edisi 11, Chapter 1. Disusun sebagai bahan belajar mandiri.</p>
+<h2 id="section1">1. Introduction: The Role and Evolution of Financial Institutions</h2>
 
-<h2>1. Pendahuluan</h2>
-<p>Lembaga keuangan (financial institutions, FI), seperti bank, lembaga simpanan, credit union, perusahaan asuransi, perusahaan sekuritas, bank investasi, perusahaan pembiayaan, dan reksa dana, menjalankan fungsi utama berupa penyaluran dana dari pihak yang memiliki surplus dana (suppliers of funds) kepada pihak yang kekurangan dana (users of funds).</p>
-<p>Pada tahun 2021, aset FI di Amerika Serikat mencapai lebih dari <b>$83,23 triliun</b>. Sebagai perbandingan, industri kendaraan bermotor AS (misalnya General Motors dan Ford) hanya memegang total aset sekitar <b>$0,80 triliun</b>. Dari 50 perusahaan terbesar di AS berdasarkan total aset, sebanyak 31 di antaranya adalah lembaga keuangan.</p>
-<p>Meskipun jenis dan layanannya beragam, semua FI menghadapi sejumlah risiko yang sama, yaitu</p>
-<ol>
-  <li><b>Risiko kredit</b>, karena FI memegang aset yang berpotensi gagal bayar (default)</li>
-  <li><b>Risiko suku bunga</b>, karena FI cenderung mempertemukan jatuh tempo aset dan liabilitas yang tidak sama (mismatch)</li>
-  <li><b>Risiko likuiditas</b>, karena klaim yang dijual FI dapat ditarik oleh pemegang liabilitas</li>
-  <li><b>Risiko underwriting</b>, melalui penjualan sekuritas atau penerbitan berbagai jenis jaminan kredit di dalam maupun di luar neraca</li>
-  <li><b>Risiko operasional</b>, karena produksi jasa keuangan membutuhkan sumber daya riil dan sistem pendukung (tenaga kerja dan teknologi)</li>
-</ol>
-<p>Tema utama buku ini adalah pengukuran dan manajemen risiko. Bab ini menjawab tiga pertanyaan besar, yaitu fungsi khusus apa yang disediakan FI, apa yang membuat sebagian FI lebih istimewa dari yang lain, dan seberapa unik serta langgeng fungsi istimewa tersebut.</p>
+<div class="interpretation">
+  <p><strong>Financial institutions (FIs)</strong> are economic entities (e.g., banks, credit unions, insurance companies, mutual funds) that channel funds from those with surplus funds (suppliers of funds, typically household savers) to those with shortages of funds (users of funds, typically corporations and governments). This intermediation is the essential function of the financial services industry. The industry has come "full cycle" over the past century: originally operating as a full-service industry, then experiencing separation of functions in the 1930s, further unbundling via unregulated intermediaries in the 1970s and 1980s, and finally reconsolidating under the umbrella of financial services holding companies in the 21st century.</p>
+  <p>The scale of the FI sector is enormous. In 2021, U.S. FIs held assets totaling more than <strong>$83.23 trillion</strong>, compared to <strong>$0.80 trillion</strong> for the entire U.S. motor vehicle and parts industry. Of the largest 50 companies in the United States by total assets, 31 were financial institutions. This scale reflects the central role FIs play in capital allocation, payment systems, and risk management.</p>
+  <p>Although FIs are categorized into distinct groups—depository institutions (banks, savings institutions, credit unions) and nondepository institutions (insurance companies, securities firms, investment banks, finance companies, mutual funds)—they face a set of <strong>common risks</strong> that unify their study:</p>
+  <ul>
+    <li><strong>Credit risk</strong>: exposure to default on assets held.</li>
+    <li><strong>Interest rate risk</strong>: exposure due to mismatched maturities of assets and liabilities.</li>
+    <li><strong>Liquidity risk</strong>: exposure to liability withdrawals (deposits, policy claims, share redemptions).</li>
+    <li><strong>Underwriting risk</strong>: exposure from selling securities or issuing credit guarantees on or off the balance sheet.</li>
+    <li><strong>Operating risk</strong>: exposure from the production of financial services requiring real resources and back-office support systems.</li>
+  </ul>
+  <p>The major theme of the study of financial institutions is the <strong>measurement and management of these risks</strong>. Because of these risks and the special role FIs play in the financial system, FIs are singled out for special regulatory attention.</p>
+</div>
 
-<h2>2. Keistimewaan Lembaga Keuangan (The Specialness of FIs)</h2>
+<div class="formula-box">
+  <span class="label">Flow of Funds with Financial Intermediation</span>
+  <div class="formula">
+    \[ \text{Household Savers} \rightarrow \text{Financial Institutions} \rightarrow \text{Corporate Borrowers} \]
+  </div>
+</div>
 
-<h3>2.1 Dunia Tanpa FI</h3>
-<p>Untuk memahami fungsi ekonomi FI, bayangkan dunia sederhana tanpa FI. Rumah tangga yang memiliki kelebihan tabungan hanya punya dua pilihan, yaitu memegang kas atau membeli sekuritas yang diterbitkan korporasi. Kedua pilihan ini memiliki tiga disinsentif</p>
-<ol>
-  <li><b>Biaya monitoring yang tinggi</b>. Investor harus memantau perilaku peminjam agar mematuhi perjanjian (covenants) dalam kontrak sekuritasnya, dan biaya ini mahal bagi individu</li>
-  <li><b>Biaya likuiditas</b>. Sekuritas korporasi kurang likuid karena sulit dijual kembali dengan cepat tanpa menanggung kerugian besar</li>
-  <li><b>Risiko harga</b>. Nilai sekuritas dapat berfluktuasi tajam sehingga investor menghadapi ketidakpastian besar saat menjualnya</li>
-</ol>
-<p>Keberadaan FI mengatasi ketiga masalah ini dengan mengubah klaim keuangan yang ditawarkan kepada penabung menjadi klaim yang lebih likuid, berisiko lebih rendah, dan jatuh temponya lebih pendek.</p>
+<div class="interpretation">
+  <p>In this structural relationship, household savers deposit funds with FIs (receiving deposits, insurance policies, or mutual fund shares), and FIs purchase primary securities issued by corporations. The FI stands as an intermediary between the ultimate suppliers and ultimate users of funds, transforming risk, maturity, and liquidity characteristics along the way. This intermediary position is what makes FIs "special" relative to direct securities market transactions.</p>
+</div>
 
-<h3>2.2 Broker versus Asset Transformer</h3>
-<p>FI dapat bertindak sebagai <i>broker</i>, yaitu sekadar mempertemukan pembeli dan penjual sekuritas tanpa mengubah bentuk klaim. Akan tetapi, fungsi yang lebih mendasar adalah sebagai <i>asset transformer</i>, yaitu FI membeli klaim primer (primary securities) yang diterbitkan korporasi dan menjual klaim sekunder (secondary securities) yang berbeda karakteristiknya kepada penabung, misalnya deposito yang likuid dan berisiko rendah.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>JPMorgan Chase operates as the world's fifth largest financial services holding company, operating in 62 countries. It simultaneously runs a commercial bank (JPMorgan Chase Bank), an investment bank (J.P. Morgan Securities, which sells mutual funds), and, after the 2008–2009 crisis, acquired Washington Mutual (a savings institution) and Bear Stearns (an investment bank). This example illustrates the full-service, consolidated model that has replaced the segmented structure of the mid-20th century.</p>
+</div>
 
-<h3>2.3 Delegated Monitor dan Biaya Informasi</h3>
-<p>FI bertindak sebagai <i>delegated monitor</i>, yaitu pihak yang memantau peminjam atas nama banyak penabung sekaligus. Dengan menggabungkan dana dari banyak pihak, FI dapat mengumpulkan informasi tentang nasabah (misalnya korporasi) dan memantau tindakan mereka dengan biaya rata-rata yang lebih rendah (economies of scale) dibandingkan jika dilakukan sendiri oleh individu. Inilah yang disebut <b>information costs</b> dalam Tabel 1-1.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A financial institution acts like a large irrigation reservoir between a river (household savings) and farmland (corporate investment). Without the reservoir, rainfall (savings) may be erratic, insufficiently distributed, or wasted. The reservoir collects, stores, channels, and regulates the flow so that farmland receives water at the right time, in the right quantity, and with minimal waste. The FI performs the same collection, transformation, and distribution function for funds in the economy.</p>
+</div>
 
-<h3>2.4 Likuiditas, Risiko Harga, dan Biaya Transaksi</h3>
-<p>FI menyediakan klaim keuangan kepada penabung rumah tangga dengan atribut likuiditas yang lebih unggul dan risiko harga yang lebih rendah. Selain itu, ukuran FI yang besar menghasilkan economies of scale dalam biaya transaksi (<i>transaction cost services</i>), sama seperti halnya dalam produksi informasi.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>All FIs confront a common inventory of risks—credit, interest rate, liquidity, underwriting, and operating—regardless of their institutional label.</strong> This common risk exposure justifies studying FIs as a unified phenomenon and explains why they are collectively subjected to intense regulatory oversight.</p>
+</div>
 
-<h3>2.5 Maturity Intermediation</h3>
-<p>FI dapat lebih baik menanggung risiko ketidakcocokan jatuh tempo antara aset dan liabilitasnya (<i>maturity intermediation</i>). Praktik umumnya adalah meminjam jangka pendek (misalnya deposito) dan menyalurkan pinjaman jangka panjang (misalnya KPR), sehingga FI menyerap risiko suku bunga atas nama penabung. FI yang lebih besar umumnya lebih mampu mengelola risiko ini dibandingkan FI kecil.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>FIs channel funds from surplus units (households) to deficit units (corporations), an essential economic function.</li>
+    <li>The U.S. FI sector held $83.23 trillion in assets in 2021, dwarfing other industries.</li>
+    <li>All FIs share five core risks: credit, interest rate, liquidity, underwriting, and operating risk.</li>
+    <li>The financial services industry has cycled from full-service to segmented and back toward consolidated full-service holding companies.</li>
+  </ul>
+</div>
 
-<p class="tabcap">Tabel 1-1. Sembilan Area Keistimewaan FI dalam Penyediaan Jasa</p>
-<table>
-  <tr>
-    <th style="width:28%">Area Keistimewaan</th>
-    <th>Penjelasan Singkat</th>
-  </tr>
-  <tr>
-    <td><i>Information costs</i> (biaya informasi)</td>
-    <td>Penggabungan dana memberi insentif lebih besar untuk mengumpulkan informasi tentang nasabah dan memantau tindakan mereka dengan biaya rata-rata lebih rendah (economies of scale)</td>
-  </tr>
-  <tr>
-    <td><i>Liquidity and price risk</i> (likuiditas dan risiko harga)</td>
-    <td>FI menyediakan klaim keuangan dengan likuiditas lebih unggul dan risiko harga lebih rendah bagi penabung rumah tangga</td>
-  </tr>
-  <tr>
-    <td><i>Transaction cost services</i> (jasa biaya transaksi)</td>
-    <td>Ukuran FI yang besar menghasilkan economies of scale dalam biaya transaksi</td>
-  </tr>
-  <tr>
-    <td><i>Maturity intermediation</i> (intermediasi jatuh tempo)</td>
-    <td>FI dapat lebih baik menanggung risiko ketidakcocokan jatuh tempo aset dan liabilitas</td>
-  </tr>
-  <tr>
-    <td>Transmisi penawaran uang (kebijakan moneter)</td>
-    <td>Lembaga depositori adalah saluran (conduit) pengaruh kebijakan moneter bank sentral kepada sistem keuangan dan perekonomian</td>
-  </tr>
-  <tr>
-    <td>Alokasi kredit</td>
-    <td>FI sering menjadi sumber utama, bahkan satu-satunya, pembiayaan bagi sektor tertentu seperti pertanian, usaha kecil, dan properti hunian</td>
-  </tr>
-  <tr>
-    <td>Transfer kekayaan antar generasi</td>
-    <td>FI, terutama asuransi jiwa dan dana pensiun, memungkinkan penabung mentransfer kekayaan dari satu generasi ke generasi berikutnya</td>
-  </tr>
-  <tr>
-    <td>Jasa pembayaran</td>
-    <td>Efisiensi lembaga depositori dalam menyediakan jasa pembayaran seperti kliring cek langsung menguntungkan perekonomian</td>
-  </tr>
-  <tr>
-    <td><i>Denomination intermediation</i> (intermediasi denominasi)</td>
-    <td>FI seperti reksa dana memungkinkan investor kecil mengatasi kendala pembelian aset akibat ukuran denominasi minimum yang besar</td>
-  </tr>
-</table>
+<h2 id="section2">2. The Specialness of Financial Institutions</h2>
 
-<h2>3. Aspek Lain dari Keistimewaan FI</h2>
+<div class="interpretation">
+  <p>To understand why FIs are special, consider a <strong>simple world without FIs</strong>. Households generating excess savings have two choices: hold cash as an asset, or invest directly in securities issued by corporations (equity and debt). In such a world, funds would flow directly from households to corporations, and financial claims would flow from corporations to households. However, the level of such direct fund flows is likely to be quite low because of three economic disincentives:</p>
+  <ul>
+    <li><strong>Monitoring costs</strong>: After lending money to a firm, households must monitor the firm's management to ensure that funds are neither wasted nor diverted to projects with low or negative net present value. This monitoring is extremely costly relative to the size of an average household's investment. Each household prefers to free-ride and let others monitor, resulting in little or no monitoring at all, which increases the risk of investing.</li>
+    <li><strong>Liquidity costs</strong>: Corporate equity and debt are relatively long-term in nature, and without FIs there may be no secondary market where households can sell these securities. Given the choice between holding cash and holding long-term securities, households may choose cash for liquidity reasons—especially if they plan to finance near-term consumption. <strong>Liquidity</strong> is defined as the ease of converting an asset into cash.</li>
+    <li><strong>Price risk</strong>: Even if secondary markets exist, investors face <strong>price risk</strong>—the risk that the sale price of an asset will be lower than its purchase price. Secondary market trading also involves transaction costs, making direct investment less attractive.</li>
+  </ul>
+  <p>The economy solves this problem through FIs, which perform two distinct functions. The <strong>brokerage function</strong> involves acting as an agent for the saver by providing information and transaction services. The <strong>asset-transformation function</strong> involves issuing financial claims (secondary securities) that are more attractive to household savers than the claims directly issued by corporations (primary securities).</p>
+  <p><strong>Primary securities</strong> are securities issued by corporations and backed by the real assets of those corporations (equities, bonds, and other debt claims). <strong>Secondary securities</strong> are securities issued by FIs (deposits, insurance policies) and backed by primary securities. FIs are independent market parties that create financial products whose value added to clients is the transformation of financial risk.</p>
+</div>
 
-<h3>3.1 Transmisi Kebijakan Moneter</h3>
-<p>Kontrak deposito lembaga depositori merupakan inti dari dua definisi penawaran uang yang paling umum dipakai, yaitu M1 dan M2. Karena liabilitas lembaga depositori merupakan komponen penting dari penawaran uang yang memengaruhi tingkat inflasi, lembaga depositori menjadi saluran utama transmisi kebijakan moneter dari bank sentral ke seluruh perekonomian.</p>
-<ul>
-  <li><b>M1</b> (sebesar $3.738,4 miliar pada Januari 2019) terdiri atas mata uang di luar Treasury AS, bank Federal Reserve, dan brankas lembaga depositori, ditambah traveler's checks, giro (demand deposits), dan simpanan dapat ditarik lainnya (other checkable deposits)</li>
-  <li><b>M2</b> (sebesar $14.504,7 miliar pada Januari 2019) terdiri atas M1 ditambah tabungan dan deposito berjangka kecil (di bawah $100.000) serta kewajiban nondeposito lainnya dari lembaga depositori</li>
-</ul>
-<p>Instrumen kebijakan moneter meliputi operasi pasar terbuka (pembelian dan penjualan sekuritas Treasury), penetapan tingkat diskonto (suku bunga pinjaman lender of last resort dari Federal Reserve), dan penetapan giro wajib minimum (<i>reserve requirements</i>). Salah satu alasan utama pemerintah AS dan dunia menyelamatkan banyak lembaga depositori serta menaikkan batas asuransi deposito dari <b>$100.000 menjadi $250.000</b> per orang per bank selama krisis keuangan adalah agar bank sentral dapat menjalankan kebijakan moneter yang agresif untuk melawan runtuhnya pasar keuangan.</p>
+<div class="formula-box">
+  <span class="label">The Two Economic Functions of FIs</span>
+  <div class="formula">
+    \[ \text{Broker function: } \text{Saver} \xrightarrow{\text{information, transaction services}} \text{Securities Markets} \]
+    \[ \text{Asset transformation: } \text{Primary Securities (corporate)} \xrightarrow{\text{FI}} \text{Secondary Securities (deposits, policies)} \]
+  </div>
+</div>
 
-<h3>3.2 Alokasi Kredit</h3>
-<p>FI sering dipandang sebagai sumber utama, dan kadang satu-satunya, pembiayaan bagi sektor-sektor tertentu perekonomian, seperti pertanian, usaha kecil, dan properti hunian. Regulasi sering digunakan untuk memastikan aliran kredit ke sektor-sektor ini tetap berjalan.</p>
+<div class="interpretation">
+  <p>In the broker function, the FI (e.g., a full-service securities firm or discount broker) acts purely as an agent, reducing information and transaction costs. Discount brokers such as Charles Schwab execute purchases and sales at better prices and with greater efficiency than households could achieve on their own, generating <strong>economies of scale</strong>—concept that cost reductions in trading and other transaction services result in increased efficiency when FIs perform these services. In the asset-transformation function, the FI purchases primary securities and finances those purchases by selling secondary securities to households. This transformation reduces monitoring costs, liquidity costs, and price risk for savers.</p>
+</div>
 
-<h3>3.3 Transfer Kekayaan Antar Generasi (Time Intermediation)</h3>
-<p>FI, terutama perusahaan asuransi jiwa dan dana pensiun, menyediakan kemampuan kepada penabung untuk mentransfer kekayaan dari satu generasi ke generasi berikutnya. Ini memungkinkan perencanaan keuangan jangka panjang dan pewarisan aset lintas waktu.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>Independent insurance brokers identify the best types of insurance policies for household savers to fit their savings and retirement plans (brokerage function). Meanwhile, a commercial bank collects demand deposits and uses those funds to make corporate loans (asset transformation). Both functions encourage a higher rate of savings than would otherwise exist.</p>
+</div>
 
-<h3>3.4 Jasa Pembayaran</h3>
-<p>Efisiensi lembaga depositori dalam menyediakan jasa pembayaran seperti kliring cek dan transfer dana (misalnya melalui Fedwire yang memproses triliunan dolar setiap hari) secara langsung menguntungkan perekonomian dengan mempercepat sirkulasi uang.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A broker is like a real estate agent who helps you find and purchase a house you could not locate efficiently on your own. An asset transformer is like a company that buys raw lumber (primary securities), processes it into finished furniture (secondary securities), and sells the furniture at a premium because it is more immediately useful to consumers. The value added in both cases justifies an economic return.</p>
+</div>
 
-<h3>3.5 Denomination Intermediation</h3>
-<p>Banyak aset keuangan memiliki denominasi minimum yang besar, misalnya sertifikat deposito (CD) negotiable minimum $100.000 dan surat berharga dengan nominal $250.000 atau lebih. Penabung kecil secara individu tidak mampu membeli aset semacam itu. Reksa dana mengatasi kendala ini dengan menggabungkan dana banyak investor kecil, sekaligus menyediakan jasa informasi dan diversifikasi.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>FIs exist because financial markets are imperfect—information is costly, assets are illiquid, and prices are uncertain. By resolving these three frictions, FIs improve the allocation of capital in the economy.</strong> They do not merely move funds; they transform risk, maturity, and liquidity in ways that make saving and investment more attractive for both households and firms.</p>
+</div>
 
-<h2>4. Keistimewaan FI dan Regulasi</h2>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>In a world without FIs, direct household investment in corporate securities would be severely hampered by monitoring costs, liquidity costs, and price risk.</li>
+    <li>FIs perform two functions: brokerage (information and transaction services) and asset transformation (issuing secondary claims backed by primary securities).</li>
+    <li>Primary securities are issued by corporations; secondary securities are issued by FIs and backed by primary securities.</li>
+    <li>The economic justification for FIs rests on market imperfections—costly information, illiquidity, and price uncertainty.</li>
+  </ul>
+</div>
 
-<h3>4.1 Negative Externalities dan Net Regulatory Burden</h3>
-<p>Kegagalan sebuah FI dapat menimbulkan <i>negative externalities</i>, yaitu biaya yang ditanggung pihak lain di luar FI itu sendiri. Contohnya adalah biaya yang dihadapi usaha kecil di kota yang hanya memiliki satu bank (<i>one-bank town</i>) ketika bank lokalnya gagal, karena mereka kesulitan memperoleh pembiayaan dari tempat lain, dan kegagalan itu dapat berdampak menular (contagious) terhadap prospek ekonomi seluruh komunitas.</p>
-<p>Meskipun regulasi bermanfaat secara sosial, regulasi juga membebankan biaya privat kepada pemilik dan manajer FI, misalnya larangan bank memberikan pinjaman melebihi 15 persen ekuitas kepada satu peminjam meskipun pinjaman itu bernilai positif bagi bank. Selisih antara biaya privat dan manfaat privat regulasi bagi produsen jasa keuangan disebut <b><i>net regulatory burden</i></b>. Selama biaya tambahan ini membantu menghindari negative externalities dan menjamin kelancaran serta efisiensi perekonomian, net regulatory burden bernilai positif.</p>
+<h2 id="section3">3. Information Costs and Delegated Monitoring</h2>
 
-<h3>4.2 Enam Jenis Regulasi</h3>
-<ol>
-  <li>Regulasi keamanan dan kesehatan keuangan (<i>safety and soundness regulation</i>)</li>
-  <li>Regulasi kebijakan moneter (<i>monetary policy regulation</i>)</li>
-  <li>Regulasi alokasi kredit (<i>credit allocation regulation</i>)</li>
-  <li>Regulasi perlindungan konsumen (<i>consumer protection regulation</i>)</li>
-  <li>Regulasi perlindungan investor (<i>investor protection regulation</i>)</li>
-  <li>Regulasi masuk dan perizinan (<i>entry and chartering regulation</i>)</li>
-</ol>
-<p>Regulasi dikenakan secara berbeda pada berbagai jenis FI. Lembaga depositori adalah FI yang paling ketat diatur, sedangkan perusahaan pembiayaan jauh lebih sedikit diatur. Regulasi dapat diberlakukan di tingkat federal, negara bagian, dan kadang internasional (seperti aturan modal bank).</p>
+<div class="interpretation">
+  <p>The first major cost facing an average saver who invests directly in corporate financial claims is the <strong>high cost of information collection</strong>. After purchasing securities, households must monitor the actions of firms in a timely and complete fashion. Failure to monitor exposes savers to <strong>agency costs</strong>—costs relating to the risk that the owners and managers of firms receiving savers' funds will take actions with those funds contrary to the best interests of the savers. Agency costs arise whenever economic agents enter into contracts in a world of incomplete information and costly information collection. The saver (the <strong>principal</strong>) may be harmed by actions taken by the borrowing firm (the <strong>agent</strong>).</p>
+  <p>FIs solve this problem in two interconnected ways.</p>
+  <p><strong>First, FIs act as delegated monitors.</strong> A large number of small savers place their funds with a single FI, which groups the funds together and invests in the direct financial claims issued by firms. This agglomeration of funds creates a much greater incentive for the FI to collect information and monitor firm actions because the FI has far more at stake than any small individual household. Small savers have appointed the FI as a <strong>delegated monitor</strong>—an economic agent appointed to act on behalf of smaller agents in collecting information and/or investing funds on their behalf. The FI also achieves economies of scale: the average cost of collecting information declines as funds under management increase. For a small investor, buying a $100 broker's report for a $10,000 investment appears inordinately expensive; for an FI with $10 million under management, the cost is trivial.</p>
+  <p><strong>Second, FIs act as information producers.</strong> Associated with the greater incentive to monitor, FIs develop new secondary securities that enable them to monitor more effectively. The classic example is the bank loan. Bank loans are generally shorter-term debt contracts than bond contracts. This short-term nature allows the FI to exercise more monitoring power and control over the borrower. The information generated regarding the firm is frequently updated at each loan renewal decision. When bank loan contracts are sufficiently short term, the banker becomes almost like an insider to the firm regarding familiarity with its operations and financial conditions. This frequent monitoring often replaces the need for relatively inflexible and hard-to-enforce bond covenants. Thus, by acting as a delegated monitor and producing better and more timely information, FIs reduce the degree of information imperfection and asymmetry between the ultimate suppliers and users of funds.</p>
+</div>
 
-<h3>4.3 Empat Lapis Perlindungan Safety and Soundness</h3>
-<p>Untuk melindungi deposan dan peminjam dari risiko kegagalan FI (misalnya akibat kurangnya diversifikasi), regulator mengembangkan lapisan mekanisme perlindungan</p>
-<ol>
-  <li><b>Diversifikasi aset</b>. Bank diwajibkan tidak memberikan pinjaman melebihi 15 persen ekuitasnya kepada satu perusahaan atau peminjam. Contoh perhitungan, bank yang mendanai 10 persen asetnya dengan modal sendiri (dan 90 persen dengan deposito) hanya dapat meminjamkan maksimal 1,5 persen asetnya kepada satu pihak</li>
-  <li><b>Modal minimum</b>. Pemilik FI wajib menyumbang tingkat modal atau ekuitas minimum tertentu. Semakin tinggi proporsi modal dari pemilik, semakin besar perlindungan terhadap risiko insolvensi bagi pemegang klaim luar seperti deposan dan pemegang polis asuransi</li>
-  <li><b>Keterbukaan informasi dan pemeriksaan</b>. FI wajib menyediakan laporan keuangan dan tunduk pada pemeriksaan untuk memastikan kesehatan keuangannya</li>
-  <li><b>Asuransi deposito dan lender of last resort</b>. Jaring pengaman terakhir berupa asuransi deposito dan akses pinjaman darurat dari bank sentral. Karena lapisan ini efektif, bahkan di masa krisis keuangan terparah sekalipun, penarikan dana besar-besaran (bank runs) di bank, lembaga simpanan, dan credit union tidak terjadi</li>
-</ol>
+<div class="formula-box">
+  <span class="label">Agency Costs and Information Imperfections</span>
+  <div class="formula">
+    \[ \text{Agency Costs} = f(\text{Incomplete Information}, \text{Costly Information Collection}) \]
+  </div>
+</div>
 
-<h2>5. Dinamika Keistimewaan FI</h2>
+<div class="interpretation">
+  <p>This functional relationship states that agency costs increase when information is incomplete (asymmetry between borrower and lender) and when collecting information is costly. The more difficult and costly it is to collect information, the more likely it is that contracts will be broken. FIs lower both arguments of this function: they invest in information production to reduce incomplete information, and they achieve economies of scale in collection to reduce the cost of information. In practice, the delegated monitor reduces the left-hand side of the relationship—the realized agency costs borne by savers.</p>
+</div>
 
-<h3>5.1 Tren Pangsa Aset</h3>
-<p>Pangsa aset FI berubah drastis selama lebih dari satu abad. Pangsa lembaga depositori menurun dari 89,2 persen pada tahun 1860 menjadi sekitar 30,2 persen pada tahun 2021, sementara total aset seluruh FI tumbuh dari $0,001 triliun menjadi $83,23 triliun. Perusahaan investasi (reksa dana) tumbuh pesat dan pada 2021 menjadi kategori FI terbesar (sekitar 31 persen), sementara pangsa asuransi stabil sekitar 15 persen dan dana pensiun menyusut menjadi sekitar 5 persen. Perusahaan pembiayaan dan kategori lain (broker sekuritas, REIT) memegang porsi kecil.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>A small saver with $10,000 to invest cannot justify spending $100 on a credit analysis report. A bank managing $10 million in deposits can spread that $100 cost over the entire portfolio, making the per-dollar cost negligible. Moreover, when the bank makes a 90-day commercial loan, it reviews the borrower's financial condition every quarter. If the borrower must return for renewal, the bank acquires fresh, current information—far more timely and flexible than the information embedded in a 10-year bond with fixed covenants.</p>
+</div>
 
-<p class="tabcap">Tabel 1-2. Pangsa Aset FI di AS pada Tahun Terpilih (persen, angka terpilih)</p>
-<table>
-  <tr>
-    <th>Kategori FI</th>
-    <th>1860</th>
-    <th>1960</th>
-    <th>1980</th>
-    <th>2000</th>
-    <th>2021</th>
-  </tr>
-  <tr>
-    <td>Lembaga depositori</td>
-    <td>89,2</td>
-    <td>54,5</td>
-    <td>57,9</td>
-    <td>27,9</td>
-    <td>30,2</td>
-  </tr>
-  <tr>
-    <td>Perusahaan asuransi</td>
-    <td>10,7</td>
-    <td>22,6</td>
-    <td>15,7</td>
-    <td>14,4</td>
-    <td>15,1</td>
-  </tr>
-  <tr>
-    <td>Perusahaan investasi (reksa dana)</td>
-    <td>n.a.</td>
-    <td>4,7</td>
-    <td>5,2</td>
-    <td>24,0</td>
-    <td>31,1</td>
-  </tr>
-  <tr>
-    <td>Dana pensiun</td>
-    <td>0,0</td>
-    <td>1,5</td>
-    <td>3,6</td>
-    <td>15,1</td>
-    <td>5,3</td>
-  </tr>
-  <tr>
-    <td>Total aset FI ($ triliun)</td>
-    <td>0,001</td>
-    <td>0,63</td>
-    <td>4,10</td>
-    <td>29,91</td>
-    <td>83,23</td>
-  </tr>
-</table>
-<p class="note">Catatan, angka dalam tabel adalah angka terpilih dari Tabel 1-2 buku (tahun antara dihilangkan untuk ringkas). Tanda n.a. berarti data tidak tersedia.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Delegated monitoring is like hiring a building superintendent to inspect a property you jointly own with many other investors. Each individual owner lacks the time and resources to inspect daily; the superintendent does it professionally, at lower cost per owner, and has a stronger incentive to detect problems because the superintendent's livelihood depends on the building's condition. Just as the superintendent reports back to all owners, the FI reports (via interest rates and loan renewal decisions) to the market through the pricing of its own securities.</p>
+</div>
 
-<h3>5.2 Perubahan Cara FI Menyediakan Jasa</h3>
-<p>FI tradisional semakin tidak mampu memproduksi jasanya seefisien dulu, sebagian karena <i>net regulatory burden</i> yang lebih tinggi dibandingkan perusahaan investasi. Kongres AS merespons dengan mengesahkan <i>Financial Services Modernization (FSM) Act</i> yang mencabut pembatasan Glass-Steagall tahun 1933 antara bank komersial, bank investasi, dan perusahaan asuransi. Struktur <i>holding companies</i> semakin umum, dan model bisnis bergeser dari <i>originate to hold</i> menjadi <i>originate to distribute</i>, yaitu pinjaman dibuat lalu dijual/disekuritisasi, yang mengubah insentif dalam pengelolaan risiko kredit.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>FIs reduce information asymmetry between suppliers and users of funds by serving as delegated monitors and information producers. This monitoring advantage is not merely a service—it is a fundamental justification for the existence of financial intermediaries.</strong> The short-term bank loan is the archetypal monitoring instrument, allowing the banker to act almost as an "insider" in evaluating borrower operations.</p>
+</div>
 
-<h3>5.3 Krisis Keuangan dan Pelajaran Penting</h3>
-<p>Krisis keuangan akhir 2000-an menunjukkan bagaimana keistimewaan FI dapat gagal. Angka keterlambatan pembayaran (delinquency) subprime mencapai 17,1 persen pada Juni 2007 dan lebih dari 20 persen pada Agustus 2007, sementara sekuritas yang menunggak 90 hari atau lebih mencapai 10,09 persen, jauh lebih tinggi dibandingkan 5,37 persen pada Mei 2005. Krisis ini menegaskan pentingnya pengukuran dan manajemen risiko. Sebagai respons, otoritas menerapkan <i>stress test</i>. Pada Mei 2009, hasil pengujian menunjukkan 10 dari 19 lembaga depositori perlu menambah modal total <b>$74,6 miliar</b>, dan dalam waktu satu bulan setelah pengumuman 7 Mei 2009, lembaga-lembaga tersebut berhasil menghimpun <b>$149,45 miliar</b>.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Agency costs arise from incomplete information and costly information collection in contractual relationships between principals (savers) and agents (borrowing firms).</li>
+    <li>A delegated monitor is an FI that pools small savers' funds to gain incentive and economies of scale in monitoring corporate borrowers.</li>
+    <li>Short-term bank loans are a monitoring technology: frequent renewals generate timely information and control over the borrower.</li>
+    <li>Information production by FIs replaces inflexible, hard-to-enforce bond covenants with continuous, relationship-based monitoring.</li>
+  </ul>
+</div>
 
-<h3>5.4 ERM, Fintech, dan Tren Global</h3>
-<p>Setelah krisis, manajemen risiko bergeser dari pengelolaan per fungsi (misalnya risiko kredit atau likuiditas secara terpisah) menuju <i>enterprise risk management (ERM)</i>, yaitu manajemen spektrum risiko secara terpadu. Perkembangan teknologi keuangan (<i>fintech</i>) juga mengubah cara FI beroperasi dan melayani nasabah. Pada tingkat global, struktur dan regulasi industri FI bervariasi antar negara, misalnya perbedaan peran asuransi, dana pensiun, dan kepemilikan asing, serta penerapan aturan seperti <i>Qualified Thrift Lender (QTL) test</i> yang mewajibkan lembaga simpanan (thrifts) memegang minimal 65 persen asetnya dalam aset terkait properti hunian.</p>
+<h2 id="section4">4. Liquidity and Price Risk Reduction</h2>
 
-<h2>6. Perhitungan dan Rumus Kunci</h2>
-<p>Bagian ini merangkum semua perhitungan penting dalam Chapter 1 beserta rumusnya.</p>
+<div class="interpretation">
+  <p>FIs provide financial or secondary claims to household savers that often have <strong>superior liquidity attributes</strong> compared to primary securities such as corporate equity and bonds. Depository institutions issue transaction account deposit contracts with fixed principal value (and often a guaranteed interest rate) that can be withdrawn immediately on demand. Money market mutual funds allow savers to enjoy almost fixed-principal (deposit-like) contracts while often earning interest rates higher than bank deposits. Life insurance companies allow policyholders to borrow against their policies at very short notice.</p>
+  <p>This raises a puzzle: how can FIs offer highly liquid, low-price-risk contracts on the liability side of their balance sheets while investing in relatively illiquid, higher-price-risk securities on the asset side? The answer lies in the ability of FIs to <strong>diversify away some, but not all, of their portfolio risks</strong>. As long as the returns on different investments are not perfectly positively correlated, FIs can exploit the benefits of size to diversify away significant amounts of portfolio risk—especially the risk specific to an individual firm. Research has shown that equal investments in as few as <strong>15 securities</strong> can bring significant diversification benefits. As the number of securities increases beyond 15, portfolio risk falls at a diminishing rate.</p>
+  <p>FIs exploit the <strong>law of large numbers</strong> in their investments. A domestically and globally diversified FI may be able to generate an almost risk-free return on its assets, allowing it to credibly fulfill its promise to supply highly liquid claims with little price or capital value risk. The bank offering liquid demand deposits as liabilities while investing in risky loans as assets is only able to do so because diversification and monitoring make the expected return on the loan portfolio highly predictable.</p>
+</div>
 
-<h3>6.1 Batas Maksimum Kredit kepada Satu Peminjam</h3>
-<p>Bank tidak boleh memberikan pinjaman kepada satu peminjam melebihi 15 persen ekuitasnya.</p>
-<div class="eq">\[ L_{\max} = 15\% \times E \]</div>
-<p>dengan \( L_{\max} \) adalah pinjaman maksimum dan \( E \) adalah ekuitas (modal sendiri) bank. Contoh, bank yang mendanai 10 persen asetnya dengan modal sendiri hanya dapat meminjamkan maksimal</p>
-<div class="eq">\[ L_{\max} = 15\% \times 10\% = 1{,}5\% \]</div>
-<p>dari total asetnya kepada satu pihak.</p>
+<div class="formula-box">
+  <span class="label">Diversification and Portfolio Risk</span>
+  <div class="formula">
+    \[ \text{Portfolio Risk} \longrightarrow \text{Diversifiable (firm-specific) Risk} \to 0 \quad \text{as } n \geq 15 \text{ securities} \]
+  </div>
+</div>
 
-<h3>6.2 Giro Wajib Minimum (Reserve Requirements)</h3>
-<p>Cadangan wajib dihitung sebagai persentase dari simpanan.</p>
-<div class="eq">\[ RR = r \times D \]</div>
-<p>dengan \( RR \) adalah cadangan wajib, \( r \) adalah persentase giro wajib minimum, dan \( D \) adalah simpanan. Contoh soal Bank Three dengan simpanan transaksi \( D = \$600 \) juta</p>
-<ul>
-  <li>Pada \( r = 10\% \), maka \( RR = 10\% \times \$600 \) juta \( = \$60 \) juta</li>
-  <li>Jika \( r \) diturunkan menjadi \( 8\% \), maka \( RR = 8\% \times \$600 \) juta \( = \$48 \) juta</li>
-  <li>Jika \( r \) dinaikkan menjadi \( 12\% \), maka \( RR = 12\% \times \$600 \) juta \( = \$72 \) juta</li>
-</ul>
+<div class="interpretation">
+  <p>This relationship expresses the principle that portfolio risk contains a firm-specific component that can be eliminated by holding at least 15 different securities whose returns are not perfectly positively correlated. The FI's large asset base permits this degree of diversification, whereas the small household saver is constrained to holding relatively undiversified portfolios. The resulting predictability of returns is what makes it rational for savers to believe that the FI can honor its promise to supply liquid claims at fixed principal value. Practical use: FIs (and their regulators) rely on diversification—through asset size, geographic spread, and sector allocation—to stabilize earnings and protect liability holders.</p>
+</div>
 
-<h3>6.3 Kelebihan Cadangan (Excess Reserves)</h3>
-<p>Ketika giro wajib minimum diturunkan dari 10 persen menjadi 8 persen, sebagian cadangan yang semula wajib menjadi bebas digunakan.</p>
-<div class="eq">\[ ER = TR - RR = \$60 \text{ juta} - \$48 \text{ juta} = \$12 \text{ juta} \]</div>
-<p>dengan \( ER \) adalah kelebihan cadangan dan \( TR \) adalah total cadangan. Bank dapat meminjamkan kelebihan cadangan sebesar $12 juta ini.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>A money market mutual fund invests in commercial paper, negotiable certificates of deposit, and Treasury bills—illiquid instruments often sold in minimum denominations of $100,000 or more. The fund issues shares to small savers who can redeem them on demand. The fund's ability to offer near-deposit liquidity rests on the diversification of its short-term portfolio across many issuers and maturities, which stabilizes returns and limits price volatility.</p>
+</div>
 
-<h3>6.4 Pengganda Deposito (Deposit Multiplier)</h3>
-<p>Jika bank menarik seluruh kelebihan cadangannya dan memberikannya sebagai pinjaman, dan peminjam mengembalikan seluruh dana tersebut ke bank dalam bentuk simpanan transaksi, maka simpanan total dapat bertambah sebesar</p>
-<div class="eq">\[ \Delta D = \frac{1}{r} \times \Delta R = \frac{1}{0{,}08} \times \$12 \text{ juta} = \$150 \text{ juta} \]</div>
-<p>dengan \( \Delta D \) adalah perubahan simpanan dan \( \Delta R \) adalah perubahan cadangan. Inilah contoh efek pengganda penciptaan uang oleh sistem perbankan.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Diversification is like carrying many small umbrellas rather than one large one: if a single umbrella breaks, the others still provide protection. Similarly, FIs hold many loans and securities; if one borrower defaults, the loss is diluted across the entire portfolio. A household saver carrying just one umbrella (one stock) is fully exposed when that single asset fails.</p>
+</div>
 
-<h3>6.5 Definisi Penawaran Uang</h3>
-<div class="eq">\[ M2 = M1 + \text{tabungan} + \text{deposito berjangka kecil} \]</div>
-<p>Pada Januari 2019, \( M1 = \$3.738{,}4 \) miliar dan \( M2 = \$14.504{,}7 \) miliar.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>FIs can credibly offer liquid claims to savers only because diversification stabilizes their asset returns.</strong> Without this stability, the promise of "instant liquidity at fixed principal" would be empty. Diversification is thus the foundation upon which the FI's liability structure is built.</p>
+</div>
 
-<h3>6.6 Data Kunci Lainnya</h3>
-<ul>
-  <li>Batas asuransi deposito dinaikkan dari $100.000 menjadi $250.000 per orang per bank</li>
-  <li>Hasil <i>stress test</i> 2009, kebutuhan modal $74,6 miliar dan dana yang dihimpun $149,45 miliar</li>
-  <li>Delinquency subprime 17,1 persen (Juni 2007) dan lebih dari 20 persen (Agustus 2007), serta 10,09 persen versus 5,37 persen untuk tunggakan 90 hari</li>
-  <li>QTL test, minimal 65 persen aset thrift dalam aset properti hunian</li>
-  <li>Total aset FI AS 2021, $83,23 triliun</li>
-</ul>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Liquidity is the ease of converting an asset into cash; price risk is the risk that the sale price of an asset will be lower than its purchase price.</li>
+    <li>FIs offer highly liquid liabilities (demand deposits, mutual fund shares, insurance policy loans) while holding illiquid, higher-risk assets.</li>
+    <li>Diversification away of firm-specific risk—with as few as 15 securities—is what makes this transformation credible.</li>
+    <li>The law of large numbers allows large FIs to predict expected portfolio returns accurately enough to guarantee liquid claims.</li>
+  </ul>
+</div>
 
-<h2>7. Ringkasan dan Kesimpulan</h2>
-<p>FI istimewa karena menyediakan sembilan fungsi yang menguntungkan perekonomian, mulai dari pengurangan biaya informasi dan biaya transaksi, penyediaan likuiditas dan pengelolaan risiko harga, intermediasi jatuh tempo dan denominasi, hingga transmisi kebijakan moneter, alokasi kredit, transfer antar generasi, dan jasa pembayaran. Karena fungsi-fungsi ini, FI dikenai perhatian regulasi khusus melalui enam jenis regulasi dan empat lapis perlindungan keamanan dan kesehatan keuangan.</p>
-<p>Keistimewaan FI bersifat dinamis. Pangsa lembaga depositori menyusut, perusahaan investasi tumbuh menjadi kategori terbesar, dan model bisnis bergeser ke arah originate to distribute. Krisis keuangan 2007-2009 membuktikan bahwa keistimewaan FI dapat gagal dan risiko harus dikelola secara terpadu (ERM). Pemahaman atas fungsi istimewa, regulasi, dan perhitungan risiko seperti cadangan wajib dan batas kredit menjadi fondasi penting untuk mempelajari manajemen lembaga keuangan.</p>
+<h2 id="section5">5. Other Special Services: Transaction Costs and Maturity Intermediation</h2>
 
-<h2>8. Pertanyaan Konsep untuk Latihan</h2>
-<ol>
-  <li>Apa tiga disinsentif yang dihadapi penabung di dunia tanpa FI, dan bagaimana FI mengatasinya?</li>
-  <li>Apa perbedaan peran FI sebagai broker dan sebagai asset transformer?</li>
-  <li>Mengapa FI disebut sebagai delegated monitor?</li>
-  <li>Sebutkan sembilan area keistimewaan FI dalam Tabel 1-1</li>
-  <li>Apa yang dimaksud dengan net regulatory burden dan mengapa nilainya bisa positif?</li>
-  <li>Bagaimana penurunan giro wajib minimum dari 10 persen menjadi 8 persen memengaruhi cadangan dan penawaran uang Bank Three?</li>
-  <li>Mengapa batas asuransi deposito dinaikkan dari $100.000 menjadi $250.000 selama krisis keuangan?</li>
-  <li>Jelaskan tren pangsa aset lembaga depositori dari tahun 1860 hingga 2021</li>
-</ol>
+<div class="interpretation">
+  <p>Beyond information and liquidity services, FIs provide two additional special services: reduced transaction costs and maturity intermediation.</p>
+  <p><strong>Reduced transaction costs</strong> arise from economies of scale in trading. Since May 1, 1975, fixed commissions for equity trades on the NYSE have been abolished, and small retail buyers now face higher commission charges than large wholesale buyers. By grouping their assets in FIs—such as mutual funds and pension funds—household savers can reduce the transaction costs of asset purchases. In addition, bid–ask (buy–sell) spreads are normally lower for assets bought and sold in large quantities. The FI's size generates efficiencies that individual savers cannot achieve.</p>
+  <p><strong>Maturity intermediation</strong> is the process by which FIs bear the risk of mismatching the maturities of their assets and liabilities. Through maturity mismatching, FIs can produce long-term contracts, such as long-term fixed-rate mortgage loans to households, while raising funds with short-term liability contracts. While such mismatches subject an FI to interest rate risk, a large FI is better able to manage this risk through its superior access to markets and instruments for hedging, including:</p>
+  <ul>
+    <li>Loan sales and securitization</li>
+    <li>Futures</li>
+    <li>Swaps</li>
+    <li>Options, caps, floors, and collars</li>
+  </ul>
+  <p>This ability to manage maturity mismatch risk is beyond the capacity of small household savers, making maturity intermediation a distinctive FI service.</p>
+</div>
 
-<p class="note">Catatan teknis, persamaan matematis pada halaman ini dirender dengan MathJax dan membutuhkan koneksi internet saat pertama kali dibuka. Untuk mencetak atau menyimpan sebagai PDF, gunakan tombol Cetak di bagian atas. Istilah asing dimiringkan. Dokumen ini adalah ringkasan belajar mandiri dan bukan pengganti buku teks asli.</p>
+<div class="formula-box">
+  <span class="label">Maturity Intermediation</span>
+  <div class="formula">
+    \[ \text{Short-term Liabilities (deposits)} \xrightarrow{\text{FI}} \text{Long-term Assets (30-yr fixed-rate mortgages)} \]
+  </div>
+</div>
 
+<div class="interpretation">
+  <p>This structural relationship shows that an FI borrows short and lends long. The asset side (e.g., a 30-year fixed-rate mortgage) has a much longer duration than the liability side (e.g., demand deposits). The FI absorbs the interest rate risk inherent in this mismatch because it can hedge using futures, swaps, options, caps, floors, and collars, or reduce the risk through loan sales and securitization. Household savers benefit by gaining access to long-term financing (mortgages) and short-term liquid savings vehicles simultaneously. In practice, this service is what makes homeownership feasible for ordinary households.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>A household saver deposits funds in a checking account at a commercial bank. The bank uses those funds (and other deposits) to make a 30-year, fixed-rate mortgage loan to a homebuyer. The homeowner gets a predictable monthly payment over three decades; the depositor retains the ability to withdraw funds on demand. The bank bears the risk that interest rates rise (increasing its cost of funds while the mortgage rate remains fixed) and must hedge that exposure.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Maturity intermediation is like a car rental company that buys long-lived vehicles using short-term debt. The company must constantly manage the mismatch between its long-term assets (cars lasting five years) and short-term liabilities (bank lines of credit renewed monthly). If interest rates spike, its borrowing costs rise faster than its rental income. Large rental companies can hedge with financial derivatives; a single consumer could not.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Maturity intermediation is a double-edged sword: it delivers valuable long-term financing and short-term liquidity to the economy, but it exposes FIs to interest rate risk that must be actively managed.</strong> The existence of specialized hedging markets (futures, swaps, options, securitization) is what enables FIs to bear this risk.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Economies of scale in transaction costs reduce per-unit trading costs for household savers who pool funds through FIs.</li>
+    <li>Maturity intermediation means FIs borrow short and lend long, creating interest rate risk.</li>
+    <li>Large FIs hedge maturity mismatch risk using loan sales, securitization, futures, swaps, options, caps, floors, and collars.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Other Aspects of Specialness</h2>
+
+<div class="interpretation">
+  <p>FIs would exist even without financial market imperfections because they provide social benefits in several institution-specific areas. The principal additional areas of specialness are the following six services.</p>
+  <p><strong>1. Transmission of monetary policy.</strong> The highly liquid nature of depository institution deposits has resulted in their acceptance by the public as the most widely used medium of exchange. At the core of the two most commonly used definitions of the money supply—<strong>M1</strong> and <strong>M2</strong>—lie depository institutions' deposit contracts. M1 consists of (1) currency outside the U.S. Treasury, Federal Reserve Banks, and the vaults of depository institutions; (2) traveler's checks of nonbank issuers; (3) demand deposits at all commercial banks (excluding interbank, U.S. government, and foreign bank deposits, less cash items in process of collection and Federal Reserve float); and (4) other checkable deposits (OCDs). M2 consists of M1 plus (1) savings and small time deposits (under $100,000) and (2) other nondeposit obligations of depository institutions. Because depository institution liabilities are a significant component of the money supply, they are the conduit through which monetary policy actions (open market operations, discount rate changes, reserve requirement changes) impact the rest of the financial system and the economy. This is why governments bailed out banks and raised the deposit insurance limit from $100,000 to $250,000 during the financial crisis—to keep the monetary transmission mechanism intact.</p>
+  <p><strong>2. Credit allocation.</strong> FIs are often the major, and sometimes the only, source of financing for sectors pre-identified as needing special support—such as residential real estate and farming. In the United States, savings associations and savings banks have traditionally served the credit needs of the residential real estate sector; the Federal Farm Credit Banks were created to channel financing to farming. The social logic is that affordable housing and viable farms produce a more stable, productive society.</p>
+  <p><strong>3. Intergenerational wealth transfers (time intermediation).</strong> Life insurance companies and pension funds provide savers the ability to transfer wealth from one generation to the next. These institutions are encouraged through special taxation relief and subsidy mechanisms because intergenerational wealth transfer is of great social importance—often avoiding the full marginal tax treatment that a direct payment would incur.</p>
+  <p><strong>4. Payment services.</strong> Depository institutions provide check-clearing and wire transfer services whose efficiency directly benefits the economy. On any given day, trillions of dollars of payments are effected through <strong>Fedwire</strong> and <strong>CHIPS</strong>, the two large wholesale payment wire networks. A breakdown in these systems would produce gridlock in the payment system with severe economic harm.</p>
+  <p><strong>5. Denomination intermediation.</strong> Money market and debt–equity mutual funds allow small investors to overcome constraints posed by large minimum denomination sizes. A negotiable certificate of deposit (CD) typically has a $100,000 minimum; commercial paper is often sold in minimum packages of $250,000 or more. By buying shares in a money market mutual fund, household savers gain indirect access to these markets and can earn higher returns than they could otherwise achieve.</p>
+  <p><strong>6. Reduction of information costs and transaction costs.</strong> These were discussed in prior sections and reflect FIs' economies of scale in both information production and trading.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Money Supply Definitions</span>
+  <div class="formula">
+    \[ M1 = \text{Currency} + \text{Traveler's Checks} + \text{Demand Deposits} + \text{Other Checkable Deposits} \]
+    \[ M2 = M1 + \text{Savings and Small Time Deposits} + \text{Other Nondeposit Obligations} \]
+  </div>
+</div>
+
+<div class="interpretation">
+  <p>These definitions identify the components of the money supply that include depository institution liabilities. M1 is the narrow, highly liquid money supply; M2 is broader and includes savings and small time deposits. The significance for FI specialness is that by controlling the quantity of outside money (government-produced notes and coin), the central bank influences bank reserves, lending capacity, and deposit creation (inside money). Depository institutions are therefore the transmission mechanism for monetary policy. In January 2019, M1 stood at $3,738.4 billion and M2 at $14,504.7 billion.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>When the Federal Reserve conducted open market purchases during the 2008–2009 crisis, it injected reserves into the banking system; banks' capacity to create deposits (inside money) expanded, supporting credit availability and economic stabilization. Because depository institutions held the newly created reserves, they were the conduit through which the policy reached households and firms. This would not have been possible had the public held only cash.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Depository institutions are like the plumbing system in a building: the central bank controls the pressure at the main valve (outside money), but water reaches every room only through the internal pipes (depository institutions). If the pipes are clogged or broken (bank failures), the entire building suffers—regardless of the pressure at the main. The government repairs or replaces critical pipes (bailouts, guarantee funds) because the cost of gridlock is so high.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Even if financial markets were perfect and information free, FIs would still exist because of social benefits: monetary policy transmission, credit allocation, intergenerational wealth transfer, payment services, and denomination intermediation.</strong> These services connect the FI system to the broader social welfare and justify regulation beyond what market imperfections alone would require.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Depository institutions transmit monetary policy because their liabilities are a large component of the money supply (M1 and M2).</li>
+    <li>Credit allocation regulation supports socially important sectors such as housing and farming.</li>
+    <li>Life insurance companies and pension funds provide intergenerational wealth transfers, encouraged by tax subsidies.</li>
+    <li>Payment services (Fedwire, CHIPS) process trillions in daily wholesale payments.</li>
+    <li>Denomination intermediation lets small savers access instruments with large minimum denominations (e.g., $100,000 CDs, $250,000 commercial paper).</li>
+  </ul>
+</div>
+
+<h2 id="section7">7. Specialness and Regulation</h2>
+
+<div class="interpretation">
+  <p>Because failures in the FI sector impose <strong>negative externalities</strong>—actions by an economic agent that impose costs on other economic agents—FIs are regulated more heavily than other private corporations. A bank failure destroys household savings and restricts firms' access to credit; an insurance company failure leaves households exposed to catastrophic illness and retirement income loss. Individual FI failures can create doubts about the stability of FIs in general, causing panics and runs even on sound institutions. This systemic contagion risk was the rationale for raising the deposit insurance cap to $250,000 per person per bank in 2009.</p>
+  <p>Regulation, however, imposes private costs on FI owners and managers, known as the <strong>net regulatory burden</strong>—the difference between the private costs of regulations and the private benefits for the producers of financial services. For example, regulations prohibit commercial banks from making loans to any single borrower exceeding 15 percent of the bank's equity capital, even if the loan has a positive net present value. The private cost of this regulation is forgone profitable lending; the private benefit includes the implicit subsidy of deposit insurance and other guaranty funds. When compliance costs exceed private benefits, the net regulatory burden is positive, raising operating costs and reducing efficiency.</p>
+  <p>Six types of regulation seek to enhance net social welfare benefits:</p>
+  <ol>
+    <li><strong>Safety and soundness regulation</strong></li>
+    <li><strong>Monetary policy regulation</strong></li>
+    <li><strong>Credit allocation regulation</strong></li>
+    <li><strong>Consumer protection regulation</strong></li>
+    <li><strong>Investor protection regulation</strong></li>
+    <li><strong>Entry and chartering regulation</strong></li>
+  </ol>
+  <p>These are imposed differentially: depository institutions are the most heavily regulated, while finance companies face fewer regulations. Regulation is imposed at federal, state, and occasionally international levels (e.g., bank capital requirements).</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Net Regulatory Burden</span>
+  <div class="formula">
+    \[ \text{NRB} = \text{Private Costs of Regulation} - \text{Private Benefits of Regulation} \]
+  </div>
+</div>
+
+<div class="interpretation">
+  <p>Here NRB denotes net regulatory burden. Private costs include compliance expenses (examinations, reporting, required capital, reserve requirements) and reduced business flexibility. Private benefits include guarantees (deposit insurance, SIPC, state guaranty funds), enhanced credibility, and lower funding costs. When NRB &gt; 0, FIs produce financial services less efficiently from the owner's perspective; when NRB &lt; 0, regulation is a net subsidy to FI owners. In practice, the NRB can vary by institution type, and a high NRB encourages movement of activity to less-regulated sectors (e.g., shadow banking).</p>
+</div>
+
+<h3>7.1 Safety and Soundness Regulation</h3>
+
+<div class="interpretation">
+  <p>Safety and soundness regulation protects depositors and borrowers against FI failure and maintains FI credibility. It operates through four layers of protection.</p>
+  <p><strong>Layer 1: Asset diversification requirements.</strong> Banks are required not to make loans exceeding 15 percent of their equity capital to any one borrower. This prevents excessive concentration in a single credit. The constraint is economically meaningful: a bank with 10 percent of assets funded by equity capital can lend no more than 1.5 percent of its assets to any single party.</p>
+  <p><strong>Layer 2: Minimum capital requirements.</strong> Regulators require owners to contribute a minimum level of equity capital. The higher the proportion of owner-contributed capital, the greater the protection for outside liability holders (depositors, policyholders), because asset losses are borne by equity holders first. Equity is the first-loss buffer. During the financial crisis, the Capital Purchase Program (part of TARP) encouraged institutions to build capital; the 2009 stress tests on the 19 largest U.S. depository institutions found that 10 needed to raise $74.6 billion in capital—and, within a month of the May 7, 2009 announcement, the institutions had raised $149.45 billion.</p>
+  <p><strong>Layer 3: Guaranty funds.</strong> The Deposit Insurance Fund (DIF) protects depositors at depository institutions; the Securities Investor Protection Corporation (SIPC) protects securities firm customers; state guaranty funds protect small claim holders in life and property–casualty insurance. These funds create a demand for regulation to protect the funds' resources, which is why the FDIC monitors and regulates participants in the DIF.</p>
+  <p><strong>Layer 4: Monitoring and surveillance.</strong> Regulators conduct on-site examinations and require timely accounting statements and reports for off-site evaluation. Society appoints regulators to monitor FIs just as savers appoint FIs as delegated monitors of borrowers. Post-crisis reforms significantly increased monitoring of any institution whose failure could have systemic effects.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Bank Loan Concentration Limit</span>
+  <div class="formula">
+    \[ \text{Max Loan to Single Borrower} = 0.15 \times \text{Bank Equity Capital} \]
+  </div>
+</div>
+
+<div class="interpretation">
+  <p>This constraint binds lending concentration. If a bank has $100 million in equity capital, it cannot lend more than $15 million to any one borrower—regardless of the borrower's creditworthiness. If the bank is leveraged at 10:1 (10% equity-to-assets), then $15 million equals only 1.5% of total assets. The practical implication is that a bank's portfolio must be diversified across many borrowers by regulatory requirement, not solely by private risk management choice.</p>
+</div>
+
+<h3>7.2 Monetary Policy Regulation</h3>
+
+<div class="interpretation">
+  <p>The central bank directly controls only the quantity of notes and coin—called <strong>outside money</strong>—while the bulk of the money supply consists of deposits created by the private banking system—called <strong>inside money</strong>. To control inside money, regulators impose a minimum level of required cash reserves to be held against deposits. Required reserves make the control of the money supply more predictable. However, reserves that pay little or no interest act as a tax on FIs, adding to the net regulatory burden. Well-managed FIs would hold some cash reserves for liquidity needs, but the optimal privately chosen level is normally low; mandatory reserves above that level impose a positive cost of intermediation.</p>
+</div>
+
+<h3>7.3 Credit Allocation Regulation</h3>
+
+<div class="interpretation">
+  <p>Credit allocation regulation directs lending to socially important sectors. Examples include the <strong>Quality Thrift Lender (QTL) test</strong>, which requires thrifts to hold 65 percent of their assets in residential mortgage-related assets to retain a thrift charter, and New York State insurance regulations setting maximums on foreign or international assets held by insurance companies. Interest rate restrictions include usury laws setting maximum rates on mortgages and consumer loans, and the (now abolished) Federal Reserve Regulation Q maximums on time and savings deposit rates. While justified on social welfare grounds, these restrictions impose private costs and reduce the efficiency of intermediation.</p>
+</div>
+
+<h3>7.4 Consumer Protection Regulation</h3>
+
+<div class="interpretation">
+  <p>The <strong>Community Reinvestment Act (CRA)</strong> and the <strong>Home Mortgage Disclosure Act (HMDA)</strong> prevent discrimination in lending. The HMDA assists the public in determining whether banks and other mortgage-lending institutions meet the needs of their local communities, with special attention to discrimination based on age, race, sex, or income. The compliance burden is substantial: in 2020, the Federal Financial Institutions Examination Council (FFIEC) processed information on more than 13.6 million mortgage transactions from more than 4,472 institutions. The 2010 Wall Street Reform and Consumer Protection Act created the Consumer Financial Protection Bureau to protect consumers across the financial sector from unfair, deceptive, and abusive practices. The 2010 credit card reform bill placed restrictions on interest rate increases, fees, penalties, universal default, and billing practices.</p>
+</div>
+
+<h3>7.5 Investor Protection Regulation</h3>
+
+<div class="interpretation">
+  <p>Investor protection laws protect those using investment banks to purchase securities or investing indirectly through mutual or pension funds. Key legislation includes the Securities Acts of 1933 and 1934, the Investment Company Act of 1940, and the Wall Street Reform and Consumer Protection Act of 2010. These laws protect investors against insider trading, lack of disclosure, malfeasance, and breach of fiduciary responsibilities, but they also impose compliance costs (net regulatory burden) on FIs.</p>
+</div>
+
+<h3>7.6 Entry Regulation</h3>
+
+<div class="interpretation">
+  <p>The entry and activities of FIs are subject to regulation—for example, new bank chartering regulations. High direct costs (required equity contributions) and indirect costs (restrictions on who may establish FIs) of entry protect the profitability of existing firms. The <strong>Financial Services Modernization Act of 1999</strong> defines the scope of permitted activities under a given charter: the broader the permitted set of activities, the more valuable the charter. Barriers to entry and activity restrictions thus affect the charter value of an FI and its net regulatory burden.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>In December 2021, the FDIC judged 8.7 percent of examined banks "outstanding" in CRA compliance, 89.1 percent "satisfactory," 2.2 percent "needing to improve or in noncompliance," and 0.0 percent in "substantial noncompliance." This illustrates that consumer protection regulation imposes an ongoing monitoring cost on both regulators and banks—a private cost that is part of the net regulatory burden.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Regulating FIs is like building a dam with multiple redundant spillways. Each spillway (diversification rules, capital requirements, guaranty funds, surveillance) protects against a different failure mode. But the dam itself is expensive to build and maintain. The builder (FIs) bears the construction cost; society benefits from the reduced flood risk (systemic crises). The optimal set of spillways balances construction cost against expected flood damage.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Regulation of FIs is justified by negative externalities—the systemic costs of FI failure—but regulation itself has private costs captured as the net regulatory burden.</strong> When the net regulatory burden is positive, FIs operate less efficiently than they would absent regulation, and activity migrates toward less regulated sectors. Regulation is thus a balancing act between social protection and private efficiency.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Negative externalities (costs imposed on others by FI failures) justify special regulatory attention.</li>
+    <li>Net regulatory burden = private costs of regulation − private benefits of regulation; a positive burden reduces FI efficiency.</li>
+    <li>Safety and soundness regulation has four layers: diversification requirements, capital requirements, guaranty funds, and monitoring/surveillance.</li>
+    <li>Banks face a 15 percent single-borrower lending limit based on equity capital.</li>
+    <li>Monetary policy regulation via reserve requirements acts as a tax on depository institutions.</li>
+    <li>Six regulatory types: safety and soundness, monetary policy, credit allocation, consumer protection, investor protection, and entry/chartering.</li>
+  </ul>
+</div>
+
+<h2 id="section8">8. The Changing Dynamics of Specialness</h2>
+
+<div class="interpretation">
+  <p>The demand for FI services evolves with changing preferences, macroeconomic conditions, technology, and regulation. Market shares shift accordingly. Historical data on percentage shares of assets of U.S. financial institutions from 1860 to 2021 reveal major trends.</p>
+  <p><strong>Decline of depository institutions.</strong> Depository institutions' share of total FI assets declined from 62.7 percent in 1948 to 30.2 percent in 2021. Their traditional services—payment services, transaction cost services, and information cost reduction—have become relatively less significant as a portion of all FI services.</p>
+  <p><strong>Decline of insurance companies.</strong> Insurance companies declined from 23.4 percent in 1948 to 15.1 percent in 2021.</p>
+  <p><strong>Rise of investment companies.</strong> The most dramatic trend is the rising share of investment companies (mutual funds and money market mutual funds), from 1.1 percent in 1948 to 31.1 percent in 2021. Investment companies differ from banks and insurance companies in that they give savers cheaper access to direct securities markets. They exploit the comparative advantages of size and diversification, with transformation of financial claims (such as maturity transformation) a lesser concern. Open-ended mutual funds buy stocks and bonds directly and issue shares linked pro rata to the value of the underlying portfolio. Money market mutual funds invest in short-term assets (commercial paper, CDs, Treasury bills) and offer price risk protection and liquidity services through diversification.</p>
+  <p><strong>Rise of financial services holding companies.</strong> The Financial Services Modernization (FSM) Act of 1999 repealed the 1933 Glass-Steagall barriers between commercial banking, insurance, and investment banking. The act allowed the creation of financial services holding companies that could engage in banking, insurance, and securities activities simultaneously. This opened the door to full-service financial institutions similar to those existing before 1933. As a result, the financial services holding company has become the dominant institutional form in terms of total assets, even though Table 1–2 reports assets by functional area.</p>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <caption><strong>Table 1–2. Percentage Shares of Assets of Financial Institutions in the United States, 1860–2021</strong></caption>
+    <thead>
+      <tr>
+        <
+    </div>
 </body>
 </html>

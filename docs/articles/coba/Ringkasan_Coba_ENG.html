@@ -24,6 +24,28 @@
     </style>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 <h3>Introduction</h3>
 <p>The paper entitled “Enterprise risk management, ESG disclosure and firm performance: evidence from the manufacturing sector in Vietnam” investigates how <strong>Enterprise Risk Management (ERM)</strong> and <strong>Environmental, Social, and Governance (ESG)</strong> disclosure jointly influence firm performance in an emerging‑market context. The authors focus on Vietnam’s manufacturing industry, a sector that contributes roughly 34‑35 % of GDP and is highly exposed to supply‑chain disruptions, energy price volatility, and evolving trade policies. By constructing a COSO‑2017‑based ERM index and an ESG disclosure index derived from the S&amp;P Global Corporate Sustainability Assessment (CSA), the study addresses four notable gaps in the existing literature: (1) inconsistent ERM‑performance findings in emerging markets; (2) scarce sector‑specific evidence for manufacturing in developing countries; (3) limited exploration of the ERM‑ESG interplay; and (4) reliance on outdated ERM proxies. The research questions are:</p>
 <ol>

@@ -1,432 +1,651 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Ringkasan Chapter 7 - Risks of Financial Institutions (Indonesia)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  h4 {
-    font-size: 12pt;
-    font-style: italic;
-    margin: 12px 0 4px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risks of Financial Institutions</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
-
-<div class="toolbar">
-  <button onclick="window.print()">Cetak / Simpan sebagai PDF</button>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Risks of Financial Institutions</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction: The Risk Landscape of Financial Institutions</a></li>
+    <li><a href="#section2">2. Interest Rate Risk</a></li>
+    <li><a href="#section3">3. Credit Risk</a></li>
+    <li><a href="#section4">4. Liquidity Risk</a></li>
+    <li><a href="#section5">5. Foreign Exchange Risk</a></li>
+    <li><a href="#section6">6. Country or Sovereign Risk</a></li>
+    <li><a href="#section7">7. Market Risk</a></li>
+    <li><a href="#section8">8. Off-Balance-Sheet Risk</a></li>
+    <li><a href="#section9">9. Technology and Operational Risks</a></li>
+    <li><a href="#section10">10. Risk of Digital Disruption and Fintech</a></li>
+    <li><a href="#section11">11. Insolvency Risk</a></li>
+    <li><a href="#section12">12. Interaction of Risks and Additional Risk Dimensions</a></li>
+    <li><a href="#section13">13. Practical Cautions and Summary</a></li>
+  </ul>
 </div>
 
-<h1>Ringkasan Chapter 7</h1>
-<p class="subtitle">Risks of Financial Institutions (Risiko-Risiko Lembaga Keuangan)</p>
-<p class="bookinfo">Sumber, Saunders, A. dan Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, Edisi 11, Chapter 7. Disusun sebagai bahan belajar mandiri.</p>
+<h2 id="section1">1. Introduction: The Risk Landscape of Financial Institutions</h2>
 
-<h2>1. Pendahuluan</h2>
-<p>Tujuan utama manajemen FI adalah meningkatkan imbal hasil bagi pemiliknya, tetapi hal ini sering datang dengan biaya berupa peningkatan risiko. Bab ini memberikan gambaran berbagai risiko yang dihadapi FI, yaitu risiko suku bunga, risiko kredit, risiko likuiditas, risiko nilai tukar, risiko negara atau sovereign, risiko pasar, risiko off-balance-sheet, risiko teknologi dan operasional, risiko gangguan digital dan fintech, serta risiko insolvensi. Pengelolaan risiko yang efektif merupakan inti kinerja FI, bahkan dapat dikatakan bahwa bisnis utama FI adalah mengelola risiko-risiko ini. Selama dekade terakhir, profitabilitas lembaga keuangan AS umumnya kuat, tetapi risiko intermediasi keuangan meningkat seiring ekonomi AS dan luar negeri yang semakin terintegrasi, misalnya ketidakpastian terkait peristiwa internasional seperti Brexit dan perang tarif, yang menghadirkan risiko besar bagi FI yang beroperasi dan meminjamkan di pasar luar negeri. Bahkan FI tanpa nasabah asing pun dapat terkena risiko nilai tukar dan sovereign jika nasabah domestiknya memiliki urusan bisnis dengan negara asing.</p>
+<div class="interpretation">
+  <p>The central objective of financial institution (FI) management is to increase returns for the FI's owners. This objective is pursued, however, at the cost of increased risk exposure. The main business of FIs can be characterized as the management of risk: FIs transform assets and liabilities while simultaneously bearing the risks inherent in that transformation. This chapter provides a foundational overview of eleven major risk categories facing modern FIs: interest rate risk, credit risk, liquidity risk, foreign exchange risk, country or sovereign risk, market risk, off-balance-sheet risk, technology risk, operational risk, risk of digital disruption and fintech, and insolvency risk.</p>
+  <p>The importance of understanding these risks has grown as U.S. and overseas economies have become increasingly integrated. International events such as Brexit and tariff wars pose risks to FIs that operate in or lend to foreign markets. Even FIs without direct foreign customers may be exposed to foreign exchange and sovereign risk if their domestic customers conduct business abroad. Consequently, FI managers must dedicate substantial resources to understanding, measuring, and managing the full spectrum of risk exposures.</p>
+</div>
 
-<p class="tabcap">Tabel 7-1. Risiko-Risiko yang Dihadapi Intermediari Keuangan</p>
-<table>
-  <tr>
-    <th>Risiko</th>
-    <th>Definisi</th>
-  </tr>
-  <tr>
-    <td>Risiko suku bunga</td>
-    <td>Risiko yang ditanggung FI ketika jatuh tempo aset dan liabilitasnya tidak cocok (mismatched)</td>
-  </tr>
-  <tr>
-    <td>Risiko kredit</td>
-    <td>Risiko bahwa arus kas yang dijanjikan dari pinjaman dan sekuritas yang dipegang FI tidak dibayar penuh</td>
-  </tr>
-  <tr>
-    <td>Risiko likuiditas</td>
-    <td>Risiko bahwa lonjakan penarikan liabilitas secara tiba-tiba mengharuskan FI melikuidasi aset dalam waktu sangat singkat dan dengan harga di bawah nilai pasar wajar</td>
-  </tr>
-  <tr>
-    <td>Risiko nilai tukar</td>
-    <td>Risiko bahwa perubahan nilai tukar memengaruhi nilai aset dan liabilitas FI yang didenominasi mata uang non-domestik</td>
-  </tr>
-  <tr>
-    <td>Risiko negara atau sovereign</td>
-    <td>Risiko bahwa pembayaran dari peminjam asing terhenti karena pembatasan, intervensi, atau campur tangan pemerintah asing</td>
-  </tr>
-  <tr>
-    <td>Risiko pasar</td>
-    <td>Risiko dari aset dan liabilitas di buku trading FI akibat perubahan suku bunga, nilai tukar, dan harga lain</td>
-  </tr>
-  <tr>
-    <td>Risiko off-balance-sheet</td>
-    <td>Risiko yang ditanggung FI akibat aktivitas terkait aset dan liabilitas kontinjen yang dipegang di luar neraca</td>
-  </tr>
-  <tr>
-    <td>Risiko teknologi</td>
-    <td>Risiko seperti risiko strategis tidak berinvestasi pada teknologi yang tepat, risiko cyber, dan risiko manajemen data</td>
-  </tr>
-  <tr>
-    <td>Risiko operasional</td>
-    <td>Risiko bahwa teknologi, audit, pemantauan, dan sistem pendukung lain yang ada tidak berfungsi atau rusak</td>
-  </tr>
-  <tr>
-    <td>Risiko gangguan digital dan fintech</td>
-    <td>Risiko bahwa FI gagal mendefinisikan ulang dan berinovasi dalam cara menciptakan, mengirimkan, dan menangkap nilai, serta gagal bersaing dengan pemain disruptif baru</td>
-  </tr>
-  <tr>
-    <td>Risiko insolvensi</td>
-    <td>Risiko bahwa FI tidak memiliki cukup modal untuk mengimbangi penurunan tiba-tiba nilai asetnya</td>
-  </tr>
-</table>
+<div class="interpretation">
+  <p>Each risk type is defined precisely by the source. Interest rate risk arises when asset and liability maturities are mismatched. Credit risk is the risk that promised cash flows from loans and securities will not be paid in full. Liquidity risk is the risk that a sudden surge in liability withdrawals forces asset liquidation at less than fair market prices. Foreign exchange risk arises from exchange rate changes affecting the value of assets and liabilities denominated in nondomestic currencies. Country or sovereign risk involves repayment interruption due to foreign government restrictions or interference. Market risk arises from trading book positions exposed to changes in interest rates, exchange rates, and other prices. Off-balance-sheet risk stems from contingent assets and liabilities. Technology risk includes strategic technology choices, cyber risk, and data management failures. Operational risk involves malfunctions in existing technology, auditing, monitoring, and support systems. Risk of digital disruption and fintech is the risk of failing to innovate and compete against new disruptive players. Insolvency risk is the risk that capital is insufficient to offset a sudden decline in asset values.</p>
+</div>
 
-<h2>2. Risiko Suku Bunga</h2>
-<p>Bab 1 membahas transformasi aset sebagai fungsi khusus utama FI, yaitu membeli sekuritas primer atau aset dan menerbitkan sekuritas sekunder atau liabilitas untuk mendanai pembelian aset. Sekuritas primer yang dibeli FI sering memiliki karakteristik jatuh tempo dan likuiditas yang berbeda dari sekuritas sekunder yang dijual. Dalam menyeimbangkan jatuh tempo aset dan liabilitas sebagai bagian dari fungsi transformasi aset, FI berpotensi mengekspos diri pada risiko suku bunga, yaitu risiko yang ditanggung FI ketika jatuh tempo aset dan liabilitasnya tidak cocok.</p>
+<div class="table-wrap">
+  <table>
+    <tr><th>Risk Type</th><th>Core Definition</th></tr>
+    <tr><td>Interest rate risk</td><td>Risk incurred when maturities of assets and liabilities are mismatched.</td></tr>
+    <tr><td>Credit risk</td><td>Risk that promised cash flows from loans and securities held by FIs may not be paid in full.</td></tr>
+    <tr><td>Liquidity risk</td><td>Risk that a sudden surge in liability withdrawals may require liquidation of assets at less than fair market prices.</td></tr>
+    <tr><td>Foreign exchange risk</td><td>Risk that exchange rate changes affect the value of assets and liabilities denominated in nondomestic currencies.</td></tr>
+    <tr><td>Country or sovereign risk</td><td>Risk that repayments from foreign borrowers may be interrupted by foreign government restrictions or interference.</td></tr>
+    <tr><td>Market risk</td><td>Risk incurred from assets and liabilities in the trading book due to changes in interest rates, exchange rates, and other prices.</td></tr>
+    <tr><td>Off-balance-sheet risk</td><td>Risk from activities related to contingent assets and liabilities held off the balance sheet.</td></tr>
+    <tr><td>Technology risk</td><td>Strategic risk of not investing in the right technology, cyber risk, and data management risk.</td></tr>
+    <tr><td>Operational risk</td><td>Risk that existing technology, auditing, monitoring, and other support systems malfunction or break down.</td></tr>
+    <tr><td>Digital disruption and fintech risk</td><td>Risk that an FI fails to redefine how it creates, delivers, and captures value and fails to compete against new disruptive players.</td></tr>
+    <tr><td>Insolvency risk</td><td>Risk that an FI may not have enough capital to offset a sudden decline in the value of its assets.</td></tr>
+  </table>
+</div>
 
-<h4>Contoh 7-1. Dampak Kenaikan Suku Bunga pada Laba FI Ketika Jatuh Tempo Aset Melebihi Jatuh Tempo Liabilitas</h4>
-<p>Pertimbangkan FI yang menerbitkan liabilitas $100 juta berjatuh tempo satu tahun untuk membiayai pembelian aset $100 juta berjatuh tempo dua tahun. FI ini dapat dipandang <i>short-funded</i>, yaitu jatuh tempo liabilitasnya lebih pendek daripada asetnya. Misalkan biaya dana (liabilitas) FI adalah 9 persen per tahun dan imbal hasil aset 10 persen per tahun. Pada tahun pertama, FI dapat mengunci selisih laba 1 persen (10 persen dikurangi 9 persen) dikali $100 juta dengan meminjam jangka pendek dan meminjamkan jangka panjang, sehingga labanya $1 juta.</p>
-<div class="eq">\[ \text{Profit spread} = r_{\text{aset}} - r_{\text{liabilitas}} = 10\% - 9\% = 1\% \]</div>
-<div class="eq">\[ \text{Laba} = 0{,}01 \times \$100 \text{ juta} = \$1 \text{ juta} \]</div>
-<p>Namun laba tahun kedua tidak pasti. Jika suku bunga naik dan FI hanya dapat meminjam liabilitas satu tahun baru pada 11 persen di tahun kedua, profit spread tahun kedua menjadi negatif, yaitu 10 persen dikurangi 11 persen sama dengan minus 1 persen, atau FI menderita kerugian $1 juta. Dengan memegang aset berjangka lebih panjang relatif terhadap liabilitas, FI mengekspos diri pada <b>risiko pembiayaan kembali (refinancing risk)</b>, yaitu risiko bahwa biaya menggulirkan atau meminjam ulang dana bisa lebih tinggi daripada imbal hasil yang diperoleh dari investasi aset. Contoh nyata adalah bank yang meminjam deposito jangka pendek dengan suku bunga yang sering berubah sambil berinvestasi pada pinjaman suku bunga tetap yang jarang disesuaikan.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>The 2008–2009 financial crisis demonstrates how multiple risks interact. Investment banks that traded mortgage-backed securities faced market risk as mortgage defaults rose, which simultaneously increased credit risk. The freezing of securitized mortgage markets forced FIs to hold toxic assets at deeply reduced values, ultimately threatening solvency. This single episode illustrates credit, market, liquidity, off-balance-sheet, and insolvency risks operating simultaneously.</p>
+</div>
 
-<h4>Contoh 7-2. Dampak Penurunan Suku Bunga Ketika Jatuh Tempo Liabilitas Melebihi Jatuh Tempo Aset</h4>
-<p>Struktur neraca alternatif adalah FI meminjam $100 juta untuk jangka lebih panjang daripada aset $100 juta yang diinvestasikan, sehingga FI <i>long-funded</i> dengan jatuh tempo liabilitas lebih panjang daripada aset. Misalkan FI meminjam dana pada 9 persen per tahun selama dua tahun dan menginvestasikannya pada aset yang menghasilkan 10 persen selama satu tahun. FI mengunci selisih laba satu tahun sebesar 1 persen atau $1 juta, tetapi pada akhir tahun pertama aset jatuh tempo dan dana yang dipinjam selama dua tahun harus diinvestasikan ulang. Jika suku bunga turun sehingga imbal hasil aset satu tahun baru hanya 8 persen, FI menghadapi kerugian atau selisih negatif tahun kedua sebesar 1 persen (8 persen dikurangi 9 persen), atau rugi $1 juta. Dengan memegang aset berjangka lebih pendek relatif terhadap liabilitas, FI mengekspos diri pada <b>risiko investasi ulang (reinvestment risk)</b>, yaitu risiko bahwa imbal hasil dana yang akan diinvestasikan ulang turun di bawah biaya dana. Contoh nyata adalah bank yang meminjam deposito suku bunga tetap sambil berinvestasi pada pinjaman suku bunga mengambang.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>An FI's risk management is analogous to a ship captain navigating a fleet through varied weather conditions. Interest rate risk is like navigating changing tides; credit risk is like avoiding underwater obstacles; liquidity risk is like ensuring sufficient fuel for sudden course changes; foreign exchange and sovereign risks are like crossing international waters with different maritime laws. A successful captain must monitor all conditions simultaneously because they interact.</p>
+</div>
 
-<p>Selain risiko refinancing atau reinvestment, FI juga menghadapi <b>risiko nilai pasar (market value risk)</b>. Nilai pasar (atau wajar) sebuah aset atau liabilitas secara konseptual sama dengan nilai sekarang arus kas kini dan masa depan darinya. Karena itu, kenaikan suku bunga menaikkan tingkat diskonto arus kas tersebut dan menurunkan nilai pasar aset atau liabilitas, dan sebaliknya. Lebih jauh, ketidakcocokan jatuh tempo dengan memegang aset lebih panjang daripada liabilitas berarti ketika suku bunga naik, nilai pasar aset FI turun lebih besar daripada liabilitasnya, mengekspos FI pada risiko kerugian ekonomi dan berpotensi risiko insolvensi. Berbeda dari risiko refinancing atau reinvestment, risiko nilai pasar mencerminkan realitas ekonomi atau nilai sejati aset atau liabilitas jika portofolio FI dilikuidasi pada harga sekuritas hari ini, serta mempertimbangkan tingkat leverage neraca dan waktu penerimaan atau pengeluaran arus kas.</p>
-<p>Karena memegang aset dan liabilitas dengan jatuh tempo tidak cocok mengekspos FI pada risiko investasi ulang (atau pembiayaan kembali) dan nilai pasar, FI dapat mencoba melakukan <i>hedge</i> dengan mencocokkan jatuh tempo aset dan liabilitasnya. Namun, mencocokkan jatuh tempo tidak selalu konsisten dengan fungsi transformasi aset yang aktif, karena FI tidak dapat menjadi asset transformer (misalnya mengubah deposito jangka pendek menjadi pinjaman jangka panjang) dan penyeimbang neraca langsung pada saat yang sama. Meskipun mengurangi eksposur risiko suku bunga, pencocokan jatuh tempo juga dapat mengurangi profitabilitas FI. Sebagai contoh, lembaga depositori secara tradisional memegang aset lebih panjang daripada liabilitas, sedangkan penanggung jiwa cenderung mencocokkan sifat jangka panjang liabilitasnya dengan aset jangka panjang. Terakhir, pencocokan jatuh tempo hanya melakukan hedge risiko suku bunga secara sangat perkiraan, bukan sempurna, karena berkaitan dengan perbedaan antara umur rata-rata (atau durasi) dan jatuh tempo, serta penggunaan campuran liabilitas dan ekuitas pemegang saham untuk mendanai pembelian aset. Penyebab risiko suku bunga dan metode pengukurannya dibahas rinci di Bab 8 dan 9, dan instrumen untuk melakukan hedge di Bab 23 hingga 25.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Effective risk management is not merely a support function; it is the core business of financial intermediation.</strong> The eleven risks presented in this chapter are not isolated — they interact and compound one another, meaning an FI manager cannot manage one risk in isolation without considering its effect on other risk exposures.</p>
+</div>
 
-<h2>3. Risiko Kredit</h2>
-<p><b>Risiko kredit</b> muncul karena kemungkinan arus kas yang dijanjikan atas klaim keuangan yang dipegang FI, seperti pinjaman atau obligasi, tidak dibayar penuh. Hampir semua jenis FI menghadapi risiko ini, tetapi FI yang membuat pinjaman atau membeli obligasi berjatuh tempo panjang umumnya lebih terekspos daripada yang berjatuh tempo pendek. Misalnya, lembaga depositori dan penanggung jiwa lebih terekspos risiko kredit daripada reksa dana pasar uang dan penanggung properti-kecelakaan. Jika pokok semua klaim keuangan dibayar penuh pada jatuh tempo dan bunga dibayar pada tanggal yang dijanjikan, FI tidak menghadapi risiko kredit sama sekali. Namun jika peminjam gagal bayar, baik pokok yang dipinjamkan maupun pembayaran bunga yang diharapkan menjadi berisiko. Karena itu, banyak klaim keuangan yang diterbitkan korporasi menjanjikan imbal hasil naik yang terbatas atau tetap (pembayaran pokok dan bunga) dengan probabilitas tinggi, tetapi risiko turun yang besar (kehilangan pokok pinjaman dan bunga yang dijanjikan) dengan probabilitas lebih kecil. Contohnya adalah obligasi kupon pendapatan tetap dan pinjaman bank, di mana pada peristiwa gagal bayar, FI memperoleh bunga nol dan mungkin kehilangan seluruh atau sebagian pokok, tergantung kemampuannya mengklaim aset peminjam melalui proses kebangkrutan. Karena itu, peran kunci FI adalah melakukan skrining dan pemantauan pemohon pinjaman (Bab 10).</p>
-<p>Risiko kredit spesifik perusahaan (<i>firm-specific credit risk</i>) adalah risiko gagal bayar perusahaan peminjam yang terkait dengan risiko proyek spesifik yang diambil perusahaan, sedangkan risiko kredit sistematis (<i>systematic credit risk</i>) adalah risiko gagal bayar yang terkait kondisi makroekonomi umum yang memengaruhi semua peminjam, misalnya resesi ekonomi. Salah satu keunggulan FI atas investor rumah tangga individu adalah kemampuan mendiversifikasi sebagian risiko kredit dari satu aset dengan memanfaatkan hukum bilangan besar dalam portofolio investasinya. Diversifikasi memangkas atau membatasi probabilitas hasil buruk dalam portofolio, mengurangi risiko kredit spesifik perusahaan sambil tetap mengekspos FI pada risiko kredit sistematis. Efek risiko kredit terlihat pada tingkat charge-off (penghapusan) pinjaman kartu kredit bank komersial yang tinggi sepanjang periode 1984 hingga 2021, melonjak di awal 2000-an dan selama resesi 2007 hingga 2010. Total pinjaman kartu kredit tumbuh dari $227,497 miliar (Desember 1999) menjadi $444,692 miliar (Desember 2008), turun ke $403,071 miliar (Maret 2009), naik kembali seiring pemulihan, mencapai puncak $941,557 miliar (Desember 2019), lalu turun ke $791,990 miliar (Juni 2021). Metode mengukur risiko gagal bayar klaim korporasi individu dibahas di Bab 10, risiko portofolio di Bab 11, dan pengelolaan eksposur risiko kredit di Bab 26 serta peran derivatif kredit di Bab 23, 24, 25, dan 27.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>FIs face at least eleven distinct categories of risk that collectively determine their performance and survival.</li>
+    <li>Risk arises from the fundamental asset-transformation function of FIs: buying primary securities and issuing secondary securities with different characteristics.</li>
+    <li>Global economic integration increases the complexity and interdependence of FI risk exposures.</li>
+    <li>Risks are often positively correlated: interest rate changes affect credit risk, liquidity risk, and ultimately insolvency risk.</li>
+  </ul>
+</div>
 
-<h2>4. Risiko Likuiditas</h2>
-<p><b>Risiko likuiditas</b> muncul ketika pemegang liabilitas FI, seperti deposan atau pemegang polis asuransi, menuntut uang tunai segera untuk klaim keuangan yang mereka pegang, atau ketika pemegang komitmen pinjaman off-balance-sheet (atau credit lines) tiba-tiba menggunakan hak mereka untuk meminjam. Ketika pemegang liabilitas menuntut uang tunai segera, FI harus meminjam dana tambahan atau menjual aset untuk memenuhi permintaan penarikan. Aset paling likuid adalah kas, tetapi FI membatasi kepemilikan kas karena kas tidak menghasilkan bunga. Penarikan harian umumnya dapat diprediksi, dan FI biasanya dapat meminjam dana tambahan untuk menutupi kekurangan kas mendadak di pasar uang dan keuangan.</p>
-<p>Namun, ada saat FI menghadapi krisis likuiditas, ketika pemegang liabilitas menuntut penarikan lebih besar dari normal karena kurangnya kepercayaan atau kebutuhan kas tak terduga. Ketika banyak FI menghadapi permintaan kas yang luar biasa besar, biaya dana pinjaman naik dan pasokannya terbatas, sehingga FI mungkin harus menjual sebagian aset yang kurang likuid untuk memenuhi penarikan. Ini menghasilkan risiko likuiditas yang lebih serius, terutama karena aset dengan pasar tipis menghasilkan harga lebih rendah ketika penjualan dilakukan segera daripada ketika FI punya lebih banyak waktu bernegosiasi. Likuidasi aset pada harga murah (<i>fire-sale prices</i>, harga yang diterima FI jika aset harus dilikuidasi segera di bawah nilai pasar wajarnya) dapat mengancam profitabilitas dan solvabilitas FI. Contohnya, pada musim panas 2008 bank IndyMac gagal, sebagian karena bank run yang berlangsung beberapa hari bahkan setelah diambil alih FDIC, setelah pengumuman bahwa operasi KPR-nya akan berhenti, dan deposan bergegas menarik uang meskipun deposito mereka diasuransikan hingga $100.000 oleh FDIC.</p>
+<h2 id="section2">2. Interest Rate Risk</h2>
 
-<h4>Contoh 7-3. Dampak Risiko Likuiditas pada Nilai Ekuitas FI</h4>
-<p>Pertimbangkan neraca FI sederhana, sebelum penarikan deposito FI memiliki $10 juta aset kas dan $90 juta aset nonlikuid (misalnya pinjaman usaha kecil), yang didanai dengan $90 juta deposito dan $10 juta ekuitas pemilik. Misalkan deposan menarik $15 juta deposito secara tak terduga dan FI tidak menerima deposito baru. Untuk memenuhi penarikan, FI pertama menggunakan $10 juta kas yang dimiliki, lalu menjual sebagian aset nonlikuid untuk mengumpulkan tambahan $5 juta kas. Karena FI tidak dapat meminjam lagi dan tidak dapat menunggu harga lebih baik, FI harus menjual aset nonlikuid pada 50 sen per dolar. Untuk menutupi sisa $5 juta penarikan, FI harus menjual $10 juta aset nonlikuid, menderita kerugian $5 juta dari nilai nominal aset tersebut. Kerugian ini dihapuskan terhadap modal atau ekuitas, sehingga karena modal awalnya $10 juta, kerugian $5 juta pada fire-sale aset menyisakan FI dengan hanya $5 juta ekuitas.</p>
-<div class="eq">\[ \text{Kerugian fire-sale} = \text{Aset yang dijual} \times (1 - \text{harga fire-sale}) = \$10 \text{ juta} \times (1 - 0{,}5) = \$5 \text{ juta} \]</div>
-<div class="eq">\[ \text{Ekuitas akhir} = \text{Ekuitas awal} - \text{Kerugian} = \$10 \text{ juta} - \$5 \text{ juta} = \$5 \text{ juta} \]</div>
+<div class="interpretation">
+  <p>Interest rate risk is incurred when the maturities of an FI's assets and liabilities are mismatched. This risk arises directly from the asset-transformation function described in Chapter 1: FIs buy primary securities (assets) and issue secondary securities (liabilities) that typically have different maturity and liquidity characteristics. When an FI mismatches the maturities of its assets and liabilities, it exposes itself to potential losses from interest rate movements.</p>
+  <p>There are two fundamental manifestations of interest rate risk. The first is refinancing risk or reinvestment risk, which affects the FI's income stream when interest rates change and the FI must roll over or reinvest funds. The second is market value risk, which affects the economic value of the FI's assets and liabilities because the present value of future cash flows changes with interest rates.</p>
+</div>
 
-<p class="tabcap">Tabel 7-2. Penyesuaian terhadap Penarikan Deposito Menggunakan Penjualan Aset ($ juta)</p>
-<table>
-  <tr>
-    <th colspan="2">Sebelum Penarikan</th>
-    <th colspan="2">Setelah Penarikan</th>
-  </tr>
-  <tr>
-    <th>Aset</th>
-    <th>Liabilitas/Ekuitas</th>
-    <th>Aset</th>
-    <th>Liabilitas/Ekuitas</th>
-  </tr>
-  <tr>
-    <td>Aset kas, $10</td>
-    <td>Deposito, $90</td>
-    <td>Aset kas, $0</td>
-    <td>Deposito, $75</td>
-  </tr>
-  <tr>
-    <td>Aset nonlikuid, $90</td>
-    <td>Ekuitas, $10</td>
-    <td>Aset nonlikuid, $80</td>
-    <td>Ekuitas, $5</td>
-  </tr>
-  <tr>
-    <td>Total, $100</td>
-    <td>Total, $100</td>
-    <td>Total, $80</td>
-    <td>Total, $80</td>
-  </tr>
-</table>
+<h3>2.1 Refinancing Risk (Short-Funded Position)</h3>
 
-<p>Sifat risiko likuiditas normal, abnormal, dan run-type serta dampaknya dibahas rinci di Bab 12, cara mengelola risiko likuiditas dan liabilitas di Bab 19, dan peran asuransi deposito serta skema jaminan liabilitas lain di Bab 20.</p>
+<div class="interpretation">
+  <p>When an FI issues liabilities with a shorter maturity than the assets it purchases, the FI is said to be <i>short-funded</i>. In this position, the FI must refinance or roll over its liabilities when they mature. If interest rates rise at the refinancing date, the cost of funds may exceed the return on assets, producing a negative spread and losses.</p>
+</div>
 
-<h2>5. Risiko Nilai Tukar</h2>
-<p>FI semakin menyadari bahwa investasi asing langsung dan investasi portofolio asing dapat memperluas manfaat operasional dan finansial yang tersedia dari investasi domestik murni. Dana pensiun AS yang memegang sekitar 5 persen asetnya pada sekuritas asing pada awal 1990-an kini memegang lebih dari 24 persen, dan banyak bank besar AS, bank investasi, dan reksa dana menjadi lebih global. Sejauh imbal hasil investasi domestik dan asing tidak berkorelasi sempurna, ada potensi keuntungan bagi FI yang memperluas kepemilikan aset dan pendanaan liabilitasnya melampaui batas domestik. Imbal hasil tidak berkorelasi sempurna karena dua alasan, yaitu teknologi dasar berbagai ekonomi berbeda (satu ekonomi mungkin berbasis pertanian sementara yang lain berbasis industri, sehingga satu ekonomi dapat berkembang sementara yang lain berkontraksi), dan perubahan nilai tukar tidak berkorelasi sempurna antar negara (nilai tukar dolar-euro mungkin terapresiasi sementara dolar-yen terdepresiasi).</p>
-<p><b>Risiko nilai tukar</b> adalah risiko bahwa perubahan nilai tukar dapat memengaruhi nilai aset dan liabilitas FI yang didenominasi mata uang asing. Misalnya, jika FI AS membuat pinjaman ke perusahaan Inggris dalam pound, dan pound terdepresiasi terhadap dolar, pembayaran pokok dan bunga yang diterima investor AS akan terdepresiasi dalam nilai dolar, dan jika pound jatuh cukup jauh, imbal hasil keseluruhan bisa negatif ketika arus kas dikonversi kembali ke dolar. Secara umum, FI dapat memegang aset yang didenominasi mata uang asing dan atau menerbitkan liabilitas asing. FI AS yang memegang pinjaman pound senilai pound 100 juta sebagai aset dan mendanai pound 80 juta dengan CD pound berada pada posisi <i>net long</i> pound 20 juta dalam aset pound, dan menderita kerugian jika nilai tukar pound jatuh atau terdepresiasi terhadap dolar. Sebaliknya, jika FI memiliki pound 20 juta lebih banyak liabilitas pound daripada aset, ia memegang posisi <i>net short</i> dalam aset pound dan terekspos risiko nilai tukar jika pound terapresiasi terhadap dolar. Untuk kira-kira ter-hedge, FI harus mencocokkan aset dan liabilitasnya dalam setiap mata uang asing.</p>
-<p>Catatan penting, FI sepenuhnya ter-hedge hanya jika memegang aset dan liabilitas asing dengan jatuh tempo yang sama persis. Jika FI mencocokkan ukuran buku mata uang asingnya (aset pound sama dengan liabilitas pound, misalnya pound 100 juta) tetapi tidak mencocokkan jatuh tempo, misalnya aset pound berjatuh tempo enam bulan dan liabilitas tiga bulan, FI akan terekspos risiko suku bunga asing, yaitu risiko bahwa suku bunga Inggris naik ketika harus menggulirkan liabilitas CD pound pada akhir bulan ketiga. FI yang mencocokkan baik ukuran maupun jatuh tempo eksposur aset dan liabilitasnya dalam mata uang tertentu adalah ter-hedge atau ter-imunisasi terhadap risiko mata uang asing dan risiko suku bunga asing. Karena perubahan nilai tukar dan suku bunga tidak berkorelasi sempurna antar negara, FI dapat mendiversifikasi sebagian atau seluruh risiko mata uang asingnya. Pengukuran dan evaluasi eksposur risiko mata uang asing dibahas mendalam di Bab 13.</p>
+<div class="formula-box">
+  <span class="label">Profit Spread and Dollar Profit</span>
+  <div class="formula">\[ \text{Profit Spread} = r_A - r_L \]</div>
+</div>
 
-<h2>6. Risiko Negara atau Sovereign</h2>
-<p><b>Risiko negara atau sovereign</b> adalah jenis risiko kredit yang berbeda yang dihadapi FI yang membeli aset seperti obligasi dan pinjaman korporasi asing, yaitu risiko bahwa pembayaran dari peminjam asing terhenti karena pembatasan, intervensi, atau campur tangan pemerintah asing. Ketika korporasi domestik tidak mampu atau tidak mau membayar pinjaman, FI biasanya memiliki recourse ke pengadilan kebangkrutan domestik dan akhirnya dapat memulihkan setidaknya sebagian investasi awalnya. Sebaliknya, korporasi asing mungkin tidak mampu membayar pokok atau bunga pinjaman meskipun ingin, paling umum karena pemerintah negara tempat korporasi itu berpusat melarang atau membatasi pembayaran utang karena kekurangan mata uang asing dan alasan politik yang merugikan.</p>
-<p>Contoh ekstremnya adalah Argentina, yang mematok peso ke dolar satu lawan satu sejak awal 1990-an, tetapi pada Desember 2001 gagal bayar atas $130 miliar utang yang diterbitkan pemerintah, sebagian besar karena peso yang dinilai terlalu tinggi dan efek buruknya pada ekspor dan pendapatan mata uang asing, dan pada 2002 meloloskan undang-undang yang menyebabkan gagal bayar atas $30 miliar utang korporasi yang terutang kepada kreditur asing. Argentina kemudian gagal bayar pembayaran pinjaman $3 miliar ke IMF pada September 2003. Contoh lain adalah krisis Eropa 2010-an, di mana pada Maret 2012 pemegang utang pemerintah Yunani kehilangan 53,5 persen dari investasi $265 miliar mereka ketika Yunani merestrukturisasi sebagian besar utang sovereignnya, menghasilkan gagal bayar utang sovereign terbesar yang pernah ada. Dalam peristiwa pembatasan, penjadwalan ulang, atau larangan pembayaran kewajiban utang oleh pemerintah sovereign, pemegang klaim FI memiliki sedikit atau tidak ada recourse ke pengadilan kebangkrutan lokal atau pengadilan klaim sipil internasional. Leverage utama yang tersedia bagi FI untuk memastikan atau meningkatkan probabilitas dan jumlah pembayaran adalah kendalinya atas pasokan pinjaman atau dana masa depan ke negara terkait, tetapi leverage ini mungkin sangat lemah di hadapan mata uang dan pemerintah yang runtuh. Bab 14 membahas bagaimana risiko negara atau sovereign diukur dan solusi pasar keuangan yang mungkin untuk masalah eksposur risiko negara FI yang berorientasi global.</p>
+<div class="interpretation">
+  <p>Here, \(r_A\) is the return on assets and \(r_L\) is the cost of funds (liabilities). The dollar profit is the spread multiplied by the principal amount:</p>
+</div>
 
-<h2>7. Risiko Pasar</h2>
-<p><b>Risiko pasar</b> muncul ketika FI secara aktif memperdagangkan aset dan liabilitas (serta derivatif) daripada memegangnya untuk investasi, pendanaan, atau hedging jangka panjang. Risiko pasar terkait erat dengan risiko suku bunga, risiko kredit, dan risiko nilai tukar, tetapi menambah dimensi lain yang dihasilkan dari aktivitas perdagangan, yaitu risiko inkremental yang ditanggung FI ketika risiko suku bunga, nilai tukar, dan kredit digabungkan dengan strategi perdagangan aktif, terutama yang melibatkan horizon perdagangan pendek seperti satu hari. Secara konseptual, portofolio trading FI dapat dibedakan dari portofolio investasinya berdasarkan horizon waktu dan likuiditas pasar sekunder. Portofolio trading berisi aset, liabilitas, dan kontrak derivatif yang dapat dibeli atau dijual dengan cepat di pasar keuangan terorganisir, sedangkan portofolio investasi (atau <i>banking book</i> pada bank) berisi aset dan liabilitas yang relatif tidak likuid dan dipegang untuk periode lebih lama.</p>
+<div class="formula-box">
+  <span class="label">Dollar Profit</span>
+  <div class="formula">\[ \text{Dollar Profit} = (r_A - r_L) \times \text{Principal} \]</div>
+</div>
 
-<p class="tabcap">Tabel 7-3. Buku Investasi (Banking) dan Buku Trading Bank Komersial (hipotetis)</p>
-<table>
-  <tr>
-    <th>Banking book</th>
-    <th colspan="2">Aset</th>
-    <th colspan="2">Liabilitas</th>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Kas</td>
-    <td></td>
-    <td>Deposito</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Pinjaman</td>
-    <td></td>
-    <td>Dana pinjaman tidak likuid lain</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Premis dan peralatan</td>
-    <td></td>
-    <td>Modal</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Aset tidak likuid lain</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Trading book</td>
-    <td>Obligasi (long)</td>
-    <td></td>
-    <td>Obligasi (short)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Komoditas (long)</td>
-    <td></td>
-    <td>Komoditas (short)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Valas (long)</td>
-    <td></td>
-    <td>Valas (short)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Ekuitas (long)</td>
-    <td></td>
-    <td>Ekuitas (short)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Derivatif (long)</td>
-    <td></td>
-    <td>Derivatif (short)</td>
-    <td></td>
-  </tr>
-</table>
+<div class="interpretation">
+  <p>If the spread is positive, the FI earns a profit; if negative, it incurs a loss. This formula is used in practice to compute an FI's net interest income for a given period and to assess the sensitivity of earnings to interest rate changes. The critical assumption is that the FI's assets continue to earn the same return while liabilities are refinanced at the new market rate.</p>
+</div>
 
-<p>Dengan meningkatnya sekuritisasi pinjaman bank (misalnya KPR), semakin banyak aset menjadi likuid dan dapat diperdagangkan. Regulator bank biasanya memandang aset yang dapat diperdagangkan sebagai aset yang dipegang kurang dari satu tahun, tetapi FI swasta mengambil pandangan yang lebih pendek, peduli pada fluktuasi nilai aset dan liabilitas buku trading untuk periode sesingkat satu hari, terutama jika fluktuasi tersebut mengancam solvabilitas. Kasus ekstrem risiko pasar adalah krisis keuangan 2008 hingga 2009, ketika bank investasi dan perusahaan sekuritas menjadi pembeli dan pedagang KPR besar di awal 2000-an, dan kenaikan suku bunga di pertengahan 2000-an menghasilkan peningkatan signifikan gagal bayar KPR, sehingga pasar KPR tersekuritisasi membeku dan FI ditinggalkan memegang aset beracun pada nilai pasar yang sangat berkurang. Risiko pasar hadir setiap kali FI mengambil posisi terbuka atau tidak ter-hedge long (beli) atau short (jual) dalam obligasi, ekuitas, valuta asing, dan produk derivatif, dan harga berubah berlawanan arah dengan yang diharapkan. Semakin volatil harga aset di pasar tempat instrumen ini diperdagangkan, semakin besar risiko pasar yang dihadapi FI dengan posisi trading terbuka, sehingga manajemen FI dan regulator perlu menetapkan kendali untuk membatasi posisi trader dan mengembangkan model untuk mengukur eksposur risiko pasar harian, yang dibahas di Bab 15.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>An FI issues $100 million of one-year liabilities at 9% to finance the purchase of $100 million of two-year assets yielding 10%. In year 1, the FI locks in a profit spread of 1% (10% − 9%) × $100 million = $1 million profit. If interest rates rise and new one-year liabilities cost 11% in year 2, the spread becomes 10% − 11% = −1%, producing a $1 million loss. The positive first-year spread is offset by the negative second-year spread. If rates rise by more than 1%, the FI takes losses over the two-year period as a whole.</p>
+</div>
 
-<h2>8. Risiko Off-Balance-Sheet</h2>
-<p>Salah satu tren paling mencolok bagi banyak FI modern adalah pertumbuhan aktivitas off-balance-sheet dan risiko off-balance-sheet-nya. Aktivitas off-balance-sheet, menurut definisi, tidak muncul di neraca FI saat ini karena tidak melibatkan pemegangan klaim primer (aset) saat ini atau penerbitan klaim sekunder (liabilitas) saat ini. Sebaliknya, aktivitas off-balance-sheet memengaruhi bentuk neraca FI di masa depan, melibatkan penciptaan aset dan liabilitas kontinjen yang berpotensi ditempatkan di neraca, sehingga berdampak langsung pada profitabilitas dan kinerja masa depan FI. Akuntan menempatkannya di bawah garis bawah neraca aset dan liabilitas FI.</p>
-<p>Contoh baik aktivitas off-balance-sheet adalah penerbitan jaminan <i>standby letter of credit</i> oleh perusahaan asuransi dan bank untuk mendukung penerbitan obligasi kota. Banyak pemerintah negara bagian dan lokal tidak dapat menerbitkan sekuritas semacam itu tanpa jaminan letter of credit bank atau perusahaan asuransi yang menjanjikan pembayaran pokok dan bunga kepada investor jika pemerintah kota gagal bayar atas kewajiban masa depannya. Jika arus kas pemerintah kota cukup kuat untuk membayar pokok dan bunga utangnya, jaminan letter of credit yang diterbitkan FI berakhir tanpa digunakan, dan tidak ada yang muncul di neraca FI hari ini atau di masa depan, tetapi biaya yang diperoleh untuk menerbitkan jaminan muncul di laporan laba rugi FI. Kemampuan memperoleh pendapatan biaya tanpa membebani atau memperluas neraca menjadi motivasi penting bagi FI untuk mengejar bisnis off-balance-sheet. Namun aktivitas ini tidak bebas risiko, karena jika pemerintah kota gagal bayar, liabilitas kontinjen atau jaminan yang diterbitkan FI menjadi liabilitas aktual yang muncul di neraca FI, dan FI harus menggunakan ekuitasnya sendiri untuk mengkompensasi investor obligasi kota.</p>
-<p>Selain letter of credit, aktivitas off-balance-sheet lain mencakup komitmen pinjaman oleh bank, kontrak servis KPR oleh lembaga depositori, dan posisi dalam forward, futures, swap, dan sekuritas derivatif lain oleh hampir semua FI besar. Meskipun sebagian aktivitas ini disusun untuk mengurangi eksposur FI terhadap risiko kredit, suku bunga, atau nilai tukar, kesalahan pengelolaan atau penggunaan spekulatif instrumen ini dapat mengakibatkan kerugian besar. Seperti terlihat selama krisis keuangan 2008 hingga 2009, kerugian signifikan dalam aktivitas off-balance-sheet (misalnya credit default swaps) dapat menyebabkan FI gagal, sama seperti kerugian besar akibat risiko gagal bayar dan suku bunga di neraca. Sifat spesifik risiko aktivitas off-balance-sheet dibahas lebih lengkap di Bab 16, dan bagaimana instrumen (forward, futures, options, dan swaps) dapat digunakan untuk mengelola risiko di Bab 23, 24, 25, dan 27.</p>
+<div class="interpretation">
+  <p><i>Refinancing risk</i> is formally defined as the risk that the cost of rolling over or reborrowing funds will rise above the returns being earned on asset investments. A real-world illustration occurred in the mid-2010s when banks borrowed short-term deposits with frequently adjusting interest rates while investing in fixed-rate loans whose rates adjusted infrequently. When interest rates rose, these banks experienced compression of their profit margins.</p>
+</div>
 
-<h4>Contoh 7-4. Dampak Risiko Off-Balance-Sheet pada Nilai Ekuitas FI</h4>
-<p>Pada panel A, nilai kekayaan bersih (E) FI dihitung dengan cara tradisional sebagai selisih antara nilai pasar aset on-balance-sheet (A) dan liabilitas (L)</p>
-<div class="eq">\[ E = A - L \]</div>
-<div class="eq">\[ 10 = 100 - 90 \]</div>
-<p>Di bawah perhitungan ini, nilai pasar kepemilikan ekuitas pemegang saham FI adalah 10 dan rasio modal terhadap aset FI adalah 10 persen. Gambaran yang lebih akurat tentang solvabilitas ekonomi FI harus mempertimbangkan nilai pasar baik aktivitas on-balance-sheet maupun off-balance-sheet. Pada panel B, nilai pasar aset kontinjen (CA) adalah 50 dan nilai pasar liabilitas kontinjen (CL) adalah 55. Karena CL melebihi CA sebesar 5, selisih ini adalah kewajiban tambahan atau klaim atas kekayaan bersih FI, sehingga kekayaan bersih sejati pemegang saham (E) sebenarnya adalah</p>
-<div class="eq">\[ E = (A - L) + (CA - CL) \]</div>
-<div class="eq">\[ E = (100 - 90) + (50 - 55) = 5 \]</div>
-<p>daripada 10 ketika aktivitas off-balance-sheet diabaikan. Secara ekonomi, aset dan liabilitas kontinjen adalah klaim kontraktual yang berdampak langsung pada nilai ekonomi kepemilikan ekuitas dalam FI, dan dari perspektif pemegang saham dan regulator, peningkatan besar nilai liabilitas off-balance-sheet dapat membuat FI tidak solven secara ekonomi sama efektifnya dengan kerugian akibat kesenjangan suku bunga yang tidak cocok dan kerugian gagal bayar dari aktivitas on-balance-sheet.</p>
+<h3>2.2 Reinvestment Risk (Long-Funded Position)</h3>
 
-<h2>9. Risiko Teknologi dan Operasional</h2>
-<p>Risiko teknologi dan operasional terkait erat dan dalam beberapa tahun terakhir menjadi perhatian besar manajer FI dan regulator. Bank for International Settlements (BIS) mendefinisikan risiko operasional (termasuk risiko teknologi) sebagai risiko kerugian yang dihasilkan dari proses internal, orang, dan sistem yang tidak memadai atau gagal, atau dari peristiwa eksternal. Sejumlah FI menambahkan risiko reputasi dan risiko strategis (misalnya karena merger yang gagal) sebagai bagian dari definisi risiko operasional yang lebih luas. Inovasi teknologi adalah area pertumbuhan besar FI pada 1990-an dan 2000-an, dengan bank, perusahaan asuransi, dan perusahaan investasi berupaya meningkatkan efisiensi operasional melalui investasi besar pada komunikasi internal dan eksternal, komputer, dan infrastruktur teknologi yang diperluas, misalnya deposan dapat memeriksa saldo rekening, mentransfer dana, mengelola keuangan, dan membayar tagihan dari perangkat elektronik pribadi, serta transfer dana elektronik melalui automated clearing houses (ACH) dan jaringan pembayaran transfer kawat seperti Clearing House Interbank Payments Systems (CHIPS).</p>
-<p>Tujuan utama ekspansi teknologi adalah menurunkan biaya operasional, meningkatkan laba, dan menangkap pasar baru, dengan mengeksploitasi <i>economies of scale</i> (kemampuan FI menurunkan biaya rata-rata operasi dengan memperluas keluaran jasa keuangan) dan <i>economies of scope</i> (kemampuan FI menghasilkan sinergi biaya dengan memproduksi lebih dari satu keluaran dengan input yang sama, misalnya menggunakan informasi kualitas nasabah yang sama untuk memperluas penjualan produk pinjaman dan produk asuransi). Risiko teknologi dalam jasa keuangan mencakup risiko strategis tidak merangkul teknologi baru, tidak berinvestasi pada teknologi yang tepat, serta risiko keamanan siber (cyber), risiko vendor teknologi dan pihak ketiga, dan manajemen risiko yang tidak efektif. Banyak FI menjalani transformasi legacy-ke-digital dengan memindahkan sistem ke cloud dan berinvestasi pada teknologi seperti blockchain, realitas virtual, kecerdasan buatan, dan pembelajaran mesin. Selama pandemi COVID-19, FI beralih sementara ke kerja jarak jauh, meningkatkan risiko serangan cyber dan ketergantungan pada penyedia layanan pihak ketiga, dan sektor keuangan terkena serangan cyber relatif lebih sering daripada sebagian besar sektor lain sejak pandemi dimulai, dengan perusahaan pembayaran, penanggung, dan credit union sangat terpengaruh oleh peningkatan peretasan.</p>
-<p><b>Risiko operasional</b> sebagian terkait risiko teknologi dan dapat muncul setiap kali teknologi yang ada tidak berfungsi atau sistem pendukung back-office rusak. Contohnya, pada Agustus 2018 FBI mengirim peringatan ke bank bahwa penjahat cyber bersiap melakukan skema penipuan global yang dikenal sebagai ATM cash-out, di mana pencuri menggunakan kartu kloning di mesin ATM untuk menarik jutaan dolar dalam beberapa jam setelah menghapus banyak kendali penipuan di lembaga keuangan, seperti jumlah penarikan ATM maksimum. Contoh terkenal lain adalah Target Stores pada 2013, ketika peretas menginfeksi pembaca kartu pembayaran perusahaan dan membawa pergi 110 juta catatan pada puncak musim belanja Natal. Risiko operasional tidak eksklusif merupakan hasil kegagalan teknologi, karena penipuan dan kesalahan karyawan juga merupakan jenis risiko operasional yang sering memengaruhi reputasi FI secara negatif. Contoh baik adalah kerugian $6,2 miliar pada 2012 oleh trader JPMorgan Chase, Bruno Iksil, yang dikenal sebagai the London Whale, yang mengambil posisi credit default swap (CDS) besar dengan harapan krisis keuangan Eropa akan menyebabkan kecemasan di pasar keuangan, tetapi bailout, langkah penghematan, dan intervensi mencegah peristiwa besar di Eropa, sehingga posisi CDS harus ditutup dengan kerugian ketika pedagang hedge fund mengambil posisi untuk mendapat keuntungan dari transaksi yang harus dilakukan Iksil untuk menjaga posisi tetap berjalan. Aktivitas karyawan FI ini mengakibatkan hilangnya reputasi dan bisnis secara keseluruhan. Federal Reserve mendefinisikan risiko reputasi sebagai potensi bahwa publisitas negatif mengenai praktik bisnis institusi, benar atau tidak, akan menyebabkan penurunan basis nasabah, litigasi mahal, atau pengurangan pendapatan. Rincian risiko teknologi dibahas di Bab 17.</p>
+<div class="interpretation">
+  <p>An FI is <i>long-funded</i> when the maturity of its liabilities exceeds the maturity of its assets. In this case, the FI faces <i>reinvestment risk</i>: the risk that the return on funds to be reinvested will fall below the cost of funds. When short-term assets mature and must be reinvested, a decline in interest rates reduces the return on new investments while the cost of long-term liabilities remains fixed.</p>
+</div>
 
-<h2>10. Risiko Gangguan Digital dan Fintech</h2>
-<p>Inovasi digital mentransformasi sektor jasa keuangan. <i>Fintech</i> mengacu pada penggunaan teknologi untuk mengirimkan solusi keuangan dengan cara yang bersaing dengan metode keuangan tradisional, dan Financial Stability Board mendefinisikan fintech sebagai inovasi berteknologi dalam jasa keuangan yang dapat menghasilkan model bisnis, aplikasi, proses, atau produk baru dengan efek material pada penyediaan jasa keuangan. Contoh inovasi ini mencakup uang seluler, pinjaman peer-to-peer (P2P) atau marketplace, robo-advice, insurtech, dan mata uang digital. Perusahaan fintech adalah perusahaan yang berspesialisasi menawarkan jasa keuangan digital kepada konsumen atau memungkinkan penyedia lain menawarkan jasa keuangan digital, sedangkan big tech adalah perusahaan besar yang aktivitas utamanya adalah jasa digital (mesin pencari, platform media sosial, platform e-commerce, platform ride-hailing, dan operator jaringan seluler).</p>
-<p>Teknologi baru seperti mata uang digital (misalnya bitcoin, ether) dan blockchain menyediakan sistem yang mendukung pertukaran nilai antara dua pihak yang tidak saling kenal secara cepat dan efektif tanpa kebutuhan intermediari keuangan. Dengan mengurangi biaya transaksi di antara semua peserta ekonomi, fintech mendukung model kolaborasi massa peer-to-peer yang dapat membuat banyak bentuk organisasi yang ada menjadi berlebihan. Namun, berinvestasi pada fintech dapat memungkinkan pemain lama seperti JPMorgan Chase, Citigroup, dan Credit Suisse melakukan lebih banyak dengan lebih sedikit, merampingkan bisnis, dan mengurangi risiko. Adopsi teknologi baru di jasa keuangan memerlukan pengeluaran besar untuk beradaptasi dengan standar industri dan preferensi konsumen yang berkembang, dan SEC mencatat bahwa mata uang digital membatasi kemampuan bank melacak pergerakan dana dan mematuhi hukum seperti regulasi antimoney laundering.</p>
-<p>Perusahaan fintech terbesar berdasarkan valuasi mencakup Stripe ($95 miliar), penyedia platform pembayaran online, Klarna ($31 miliar), perusahaan yang mendanai pembelian di toko seperti IKEA, H&amp;M, dan Etsy, serta Kraken ($20 miliar), bursa cryptocurrency. Bank-bank terkemuka dengan cepat menutup kesenjangan dalam digitalisasi proses internal dan penawaran nasabah untuk bersaing dengan fintech dan big tech, yang mampu memperdalam penetrasi ke produk keuangan inti karena economies of scale dan efek jaringan yang kuat dalam platform digital dan cloud computing. Sementara perusahaan fintech menghadapi pengawasan regulasi yang meningkat, lembaga keuangan menghadapi kebutuhan yang meningkat untuk memperbarui model operasional teknologi mereka. Namun, lembaga keuangan tradisional telah menggunakan manajemen risiko dengan cara tertentu selama bertahun-tahun dengan tim besar karyawan berpengalaman, sementara perusahaan fintech cenderung memiliki tim kecil yang menggunakan proses manajemen risiko yang dikembangkan dalam waktu relatif singkat dan belum teruji dalam menangani peristiwa risiko besar, dan peristiwa risiko di perusahaan fintech dapat menghasilkan kerugian yang sangat merusak nilai perusahaan karena lebih sedikit sejarah untuk membuat protokol. Bab 18 merangkum peluang dan risiko gangguan digital dan fintech secara rinci.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>An FI borrows $100 million at 9% for two years and invests the funds in one-year assets yielding 10%. In year 1, the FI earns a 1% spread ($1 million profit). At the end of year 1, the assets mature and funds must be reinvested. If interest rates fall so that new one-year assets yield only 8%, the spread in year 2 becomes 8% − 9% = −1%, producing a $1 million loss. This example mirrors the experience of banks in the 2000s that borrowed fixed-rate deposits while investing in floating-rate loans whose rates adjusted downward.</p>
+</div>
 
-<h2>11. Risiko Insolvensi</h2>
-<p><b>Risiko insolvensi</b> adalah konsekuensi atau hasil dari satu atau lebih risiko yang dijelaskan di atas, yaitu risiko suku bunga, kredit, likuiditas, nilai tukar, sovereign, pasar, off-balance-sheet, teknologi, dan risiko gangguan digital dan fintech. Secara teknis, insolvensi terjadi ketika modal atau sumber daya ekuitas pemilik FI terdorong ke, atau mendekati, nol karena kerugian yang ditanggung sebagai akibat satu atau lebih risiko tersebut. Pertimbangkan kasus Washington Mutual (WaMu), yang menderita kerugian besar dari kepemilikan on- dan off-balance-sheet selama krisis keuangan, dengan kapital pasar hanya $3,5 miliar pada awal September 2008, turun dari $43 miliar pada akhir 2006, sebelum diambil alih FDIC dan dijual ke JPMorgan Chase pada September 2008. Sebaliknya, pada Maret 2009 harga saham Citigroup jatuh di bawah $1 per saham dan bank yang pernah terbesar di AS ini hampir gagal, tetapi menerima jaminan pemerintah besar terhadap kerugian (hingga $306 miliar) dan suntikan kas $20 miliar untuk mencegah kegagalan. Antara Oktober 2008 dan Desember 2009, lebih dari 700 bank menerima total $205 miliar dana pemerintah federal melalui Capital Purchase Program untuk menopang modal dan mendukung pinjaman.</p>
-<p>Secara umum, semakin banyak modal ekuitas relatif terhadap dana pinjaman yang dimiliki FI, yaitu semakin rendah leverage-nya, semakin baik kemampuannya menahan kerugian, baik akibat perubahan suku bunga yang merugikan, kerugian kredit tak terduga, atau alasan lain. Karena itu, baik manajemen maupun regulator FI fokus pada modal (dan kecukupannya) sebagai ukuran kunci kemampuan FI tetap solven dan tumbuh di hadapan berbagai eksposur risiko. Masalah berapa tingkat modal yang memadai untuk mengelola eksposur risiko keseluruhan FI dibahas di Bab 21.</p>
+<h3>2.3 Market Value Risk</h3>
 
-<h2>12. Risiko Lain dan Interaksi Risiko</h2>
-<p>Bab ini berfokus pada 11 risiko besar yang terus memengaruhi proses pengambilan keputusan manajer FI. Meskipun pembahasan umumnya menggambarkan masing-masing secara independen, pada kenyataannya risiko-risiko ini sering saling bergantung. Misalnya, ketika suku bunga naik, korporasi dan konsumen lebih sulit mempertahankan pembayaran yang dijanjikan atas utang mereka, sehingga pada rentang pergerakan suku bunga tertentu, risiko kredit, suku bunga, dan off-balance-sheet berkorelasi positif. FI mungkin juga mengandalkan dana dari pembayaran pinjaman yang dijanjikan untuk tujuan manajemen likuiditas, sehingga risiko likuiditas juga berkorelasi dengan risiko suku bunga dan kredit. Ketidakmampuan nasabah melakukan pembayaran yang dijanjikan memengaruhi pendapatan dan laba FI serta posisi ekuitas atau modalnya, sehingga setiap risiko dan interaksinya dengan risiko lain pada akhirnya memengaruhi risiko insolvensi. Perubahan nilai tukar dan suku bunga juga sangat berkorelasi, karena ketika Federal Reserve mengubah suku bunga kunci melalui tindakan kebijakan moneternya, nilai tukar juga cenderung berubah.</p>
-<p>Berbagai risiko lain, sering bertipe diskrit atau peristiwa, juga memengaruhi profitabilitas dan eksposur risiko FI, meskipun banyak yang memandang risiko diskrit atau peristiwa sebagai bagian dari risiko operasional. Risiko diskrit dapat mencakup peristiwa eksternal seperti perubahan mendadak kebijakan regulasi, termasuk penghapusan hambatan regulasi terhadap pinjaman atau masuk atau produk yang ditawarkan (misalnya perubahan regulasi 1994 yang mengizinkan branching antar negara bagian setelah 1997, Financial Services Modernization Act 1999, dan Wall Street Reform and Consumer Protection Act 2010), serta perubahan mendadak dan tak terduga dalam kondisi pasar keuangan karena perang, revolusi, atau keruntuhan pasar mendadak, seperti kecelakaan pasar saham 1929 dan 2008 atau serangan teroris September 2001. Risiko peristiwa lain mencakup penipuan, pencurian, gempa bumi, badai, mala fide, dan pelanggaran kepercayaan fidusia, yang semuanya pada akhirnya dapat menyebabkan FI gagal atau sangat terluka, tetapi masing-masing sulit dimodelkan dan diprediksi.</p>
-<p>Risiko makroekonomi atau sistemik yang lebih umum, seperti inflasi yang meningkat, volatilitas inflasi, dan pengangguran, dapat berdampak langsung dan tidak langsung pada tingkat eksposur risiko suku bunga, kredit, dan likuiditas FI. Selama Resesi Besar (Desember 2007 hingga Juni 2009), ekonomi AS kehilangan sekitar 8 juta pekerjaan, sebagian besar pada periode November 2008 hingga Juni 2009, dan dengan begitu banyak orang menganggur, eksposur risiko kredit FI meningkat drastis karena peminjam kesulitan menjaga pembayaran pinjaman setelah kehilangan pekerjaan. Butuh lebih dari lima tahun bagi pasar tenaga kerja untuk pulih, dan tingkat pengangguran 2007 yang kurang dari 5 persen tidak terlihat lagi sampai 2016. Namun, besarnya kehilangan pekerjaan pada fase awal pandemi COVID-19 tidak ada presedennya sejak akhir Perang Dunia II, dengan lebih dari dua kali lipat pekerjaan yang hilang antara Maret dan April 2020 daripada yang hilang selama seluruh periode 2007 hingga 2009. Akibatnya, forbearance KPR meningkat tajam, menunjukkan peningkatan hampir 3.000 persen dari Maret 2020 hingga Mei 2020, permintaan modifikasi pinjaman mobil meningkat hampir 10 kali lipat sejak pandemi dimulai, dan bank AS meningkatkan penyisihan kerugian tiga hingga empat kali lipat untuk kuartal pertama 2020 dibandingkan kuartal keempat 2019.</p>
-<p>Selain risiko-risiko di atas, ada kekhawatiran yang meningkat bahwa <b>risiko iklim</b> dapat memengaruhi neraca FI secara merugikan dan relevan bagi stabilitas keuangan. Dalam pidatonya tahun 2015 di Lloyd's of London, gubernur Bank of England dan ketua Financial Stability Board (FSB) Mark Carney membahas tiga saluran luas melalui mana perubahan iklim memengaruhi sektor keuangan, yaitu (1) <i>risiko fisik</i>, terkait peristiwa cuaca ekstrem atau kondisi iklim yang berubah, di mana banjir dan badai hebat dapat menyebabkan kerusakan parah pada aset fisik bahkan untuk sektor keuangan, (2) <i>risiko liabilitas</i>, terkait dampak pada lembaga keuangan jika pihak yang menderita kerugian atau kerusakan dari efek perubahan iklim mencari kompensasi dari mereka yang dianggap bertanggung jawab, di mana jika kerugian diasuransikan, industri asuransi terekspos, dan jika tidak diasuransikan, bank dan lembaga keuangan lain terekspos karena rumah tangga lebih mungkin gagal bayar pinjaman dan KPR sementara agunan mereka tidak lagi tersedia untuk menutupi kerugian, dan (3) <i>risiko transisi</i>, terkait tujuan dua derajat di bawah Perjanjian Paris, di mana eksposur sektor keuangan menjadi jelas ketika mempertimbangkan kecenderungan penanggung, dana pensiun, dan investor lain menyelaraskan portofolio mereka dengan indeks pasar modal yang sering mengandung porsi besar industri (misalnya bahan bakar fosil dan energi) yang akan terpengaruh oleh transisi ke ekonomi rendah karbon. Rata-rata kerugian terkait cuaca per tahun di seluruh dunia kira-kira tiga kali lipat selama 30 tahun terakhir, sementara pangsa kerugian tidak diasuransikan meningkat. Risiko terkait iklim juga dapat menimbulkan peningkatan mendadak premi risiko di berbagai aset, mengubah comovement harga aset, memperkuat risiko kredit, likuiditas, dan counterparty, serta menantang manajemen risiko keuangan dengan cara yang sulit diprediksi. FI mengambil berbagai tindakan untuk mengurangi atau mengelola eksposur risiko terkait iklim, seperti negative screening dalam proses pinjaman, investasi, atau underwriting, dan kebijakan eksklusi untuk industri intensif karbon, meskipun tindakan ini tidak diterapkan secara sistematis oleh sebagian besar perusahaan. Pada 21 Oktober 2021, Financial Stability Oversight Council (FSOC) merilis laporannya tentang risiko keuangan terkait iklim dan untuk pertama kalinya mengakui bahwa perubahan iklim adalah ancaman yang muncul dan meningkat terhadap stabilitas keuangan AS, dengan rekomendasi tindakan baru tentang data, pengungkapan, dan analisis skenario perubahan iklim, sementara SEC mulai mengevaluasi aturan pengungkapannya, Federal Reserve Board membentuk dua komite untuk mengembangkan pemahaman risiko terkait iklim, dan CFTC terlibat melalui Market Risk Advisory Committee-nya.</p>
+<div class="interpretation">
+  <p>Beyond refinancing and reinvestment risk, FIs face <i>market value risk</i>. The market (fair) value of an asset or liability equals the present value of its current and future cash flows. Rising interest rates increase the discount rate applied to those cash flows, thereby reducing the market value of both assets and liabilities. Conversely, falling rates increase market values. When an FI holds longer-term assets than liabilities, rising rates reduce the market value of assets by a greater amount than liabilities, exposing the FI to economic loss and potentially insolvency.</p>
+  <p>Critically, market value risk reflects economic reality — the true value of assets and liabilities if the portfolio were liquidated at today's securities prices — rather than historical book values. It incorporates the degree of leverage on the balance sheet as well as the timing of cash flows on assets and liabilities. Refinancing and reinvestment risks affect the income statement; market value risk affects the economic value of the FI's equity.</p>
+</div>
 
-<h2>13. Perhitungan dan Rumus Kunci</h2>
+<h3>2.4 Maturity Matching as a Hedge</h3>
 
-<h3>13.1 Profit Spread dan Laba FI</h3>
-<div class="eq">\[ \text{Profit spread} = r_{\text{aset}} - r_{\text{liabilitas}} \]</div>
-<div class="eq">\[ \text{Laba} = \text{Profit spread} \times \text{Jumlah dana} \]</div>
-<p>Contoh 7-1, spread 10 persen dikurangi 9 persen sama dengan 1 persen, laba $1 juta pada tahun pertama, tetapi jika suku bunga naik ke 11 persen pada tahun kedua, spread menjadi minus 1 persen atau rugi $1 juta (risiko refinancing). Contoh 7-2, jika imbal hasil aset turun ke 8 persen pada tahun kedua dengan biaya dana 9 persen, FI rugi $1 juta (risiko reinvestment).</p>
+<div class="interpretation">
+  <p>Matching the maturities of assets and liabilities is a general strategy for hedging interest rate risk. However, the source notes several important caveats. First, maturity matching is not consistent with an active asset-transformation function; an FI cannot simultaneously transform short-term deposits into long-term loans and be a direct balance sheet matcher. Second, matching maturities may reduce profitability because the returns from acting as specialized risk-bearing asset transformers are diminished. Third, maturity matching hedges interest rate risk only approximately, because the average life (or duration) of an asset differs from its maturity, and because FIs partly fund assets with equity capital rather than liabilities alone. Some FIs emphasize maturity mismatching more than others: depository institutions traditionally hold longer-term assets than liabilities, whereas life insurers tend to match long-term liabilities with long-term assets.</p>
+</div>
 
-<h3>13.2 Kerugian Fire-Sale dan Ekuitas Akhir</h3>
-<div class="eq">\[ \text{Kerugian fire-sale} = \text{Nilai nominal aset yang dijual} \times (1 - \text{harga fire-sale}) \]</div>
-<div class="eq">\[ \text{Ekuitas akhir} = \text{Ekuitas awal} - \text{Kerugian} \]</div>
-<p>Contoh 7-3, menjual $10 juta aset nonlikuid pada 50 sen per dolar menghasilkan kerugian $5 juta, sehingga ekuitas turun dari $10 juta menjadi $5 juta.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Interest rate risk is like walking on a seesaw. When one side (assets) extends further from the fulcrum than the other (liabilities), a small shift in weight (interest rates) creates a large imbalance. Matching maturities is like balancing the seesaw by placing equal weights at equal distances — but this also prevents the seesaw from being used for its intended purpose of lifting someone off the ground, just as maturity matching prevents asset transformation.</p>
+</div>
 
-<h3>13.3 Kekayaan Bersih dengan Aktivitas Off-Balance-Sheet</h3>
-<div class="eq">\[ E = A - L \]</div>
-<div class="eq">\[ E = (A - L) + (CA - CL) \]</div>
-<p>Contoh 7-4, E = (100 dikurangi 90) + (50 dikurangi 55) = 5, bukan 10 ketika aktivitas off-balance-sheet diabaikan.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Interest rate risk has two distinct channels: the income channel (refinancing and reinvestment risk affecting net interest income) and the wealth channel (market value risk affecting economic value of equity).</strong> An FI may appear profitable on an accrual basis while simultaneously suffering economic losses in market value terms when rates rise.</p>
+</div>
 
-<h3>13.4 Posisi Nilai Tukar Bersih</h3>
-<div class="eq">\[ \text{Posisi bersih} = \text{Aset mata uang asing} - \text{Liabilitas mata uang asing} \]</div>
-<p>Net long dalam aset pound (aset pound 100 juta dikurangi liabilitas pound 80 juta, net long pound 20 juta) menderita kerugian jika pound terdepresiasi, sedangkan net short (liabilitas pound 100 juta dikurangi aset pound 80 juta) menderita kerugian jika pound terapresiasi.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Short-funded FIs (assets longer than liabilities) face refinancing risk: rising rates increase the cost of rolling over liabilities.</li>
+    <li>Long-funded FIs (liabilities longer than assets) face reinvestment risk: falling rates reduce returns on reinvested funds.</li>
+    <li>Both positions expose the FI to negative spreads and losses when interest rates move adversely.</li>
+    <li>Market value risk arises because rising discount rates reduce the present value of assets and liabilities; mismatched maturities cause asymmetric value changes that can threaten solvency.</li>
+    <li>Maturity matching can hedge interest rate risk but conflicts with the asset-transformation function and may reduce profitability.</li>
+  </ul>
+</div>
 
-<h3>13.5 Data Kunci Lainnya</h3>
-<ul>
-  <li>Pinjaman kartu kredit bank komersial, dari $227,497 miliar (Desember 1999) ke puncak $941,557 miliar (Desember 2019) dan $791,990 miliar (Juni 2021)</li>
-  <li>IndyMac, bank run musim panas 2008, gagal meskipun deposito diasuransikan hingga $100.000 (kini $250.000)</li>
-  <li>Argentina, gagal bayar $130 miliar utang pemerintah (2001) dan $30 miliar utang korporasi (2002), serta $3 miliar ke IMF (2003)</li>
-  <li>Yunani, pemegang utang kehilangan 53,5 persen dari investasi $265 miliar (Maret 2012), gagal bayar sovereign terbesar yang pernah ada</li>
-  <li>WaMu, kapital pasar turun dari $43 miliar (2006) ke $3,5 miliar (2008), diambil alih FDIC dan dijual ke JPMorgan Chase</li>
-  <li>Citigroup, jaminan pemerintah hingga $306 miliar dan suntikan kas $20 miliar (2009), serta 700 bank menerima $205 miliar melalui Capital Purchase Program</li>
-  <li>London Whale (Bruno Iksil), kerugian $6,2 miliar pada JPMorgan Chase (2012), dan Target Stores, 110 juta catatan dicuri (2013)</li>
-  <li>Fintech terbesar, Stripe $95 miliar, Klarna $31 miliar, Kraken $20 miliar</li>
-  <li>Dana pensiun AS, kepemilikan sekuritas asing naik dari sekitar 5 persen menjadi lebih dari 24 persen</li>
-</ul>
+<h2 id="section3">3. Credit Risk</h2>
 
-<h2>14. Ringkasan dan Kesimpulan</h2>
-<p>Bab ini memberikan pandangan pengantar 11 risiko besar yang dihadapi FI modern. FI menghadapi risiko suku bunga ketika jatuh tempo aset dan liabilitasnya tidak cocok, risiko kredit atau gagal bayar jika klien gagal bayar pinjaman dan kewajiban lain, risiko likuiditas akibat penarikan berlebihan atau masalah pembiayaan kembali liabilitas, serta risiko nilai tukar dan sovereign jika menjalankan bisnis asing. FI menanggung risiko pasar pada aset dan liabilitas trading jika terjadi pergerakan merugikan suku bunga, nilai tukar, atau harga aset lain, dan terlibat dalam aktivitas off-balance-sheet yang mengekspos mereka pada risiko aset dan liabilitas kontinjen. Kemunculan teknologi canggih dan otomasi mengekspos FI pada risiko teknologi dan operasional, serta risiko gangguan digital dan fintech ketika gagal mengimplementasikan transformasi digital dalam upaya bersaing melawan pemain disruptif baru. FI menghadapi risiko insolvensi ketika modalnya tidak cukup untuk menahan kerugian yang ditanggung akibat risiko-risiko tersebut.</p>
-<p>Interaksi berbagai risiko berarti manajer FI menghadapi trade-off di antara mereka, karena ketika mengambil tindakan untuk memengaruhi satu jenis risiko, manajer FI harus mempertimbangkan dampak yang mungkin pada risiko lain. Risiko diskrit atau peristiwa, risiko makroekonomi seperti inflasi dan pengangguran, serta risiko iklim yang semakin diakui sebagai ancaman terhadap stabilitas keuangan, semuanya menambah kompleksitas. Pengelolaan risiko yang efektif menentukan sukses atau gagalnya FI modern, dan bab-bab berikutnya menganalisis masing-masing risiko ini secara lebih rinci.</p>
+<div class="interpretation">
+  <p>Credit risk is the risk that promised cash flows on financial claims held by FIs — such as loans or bonds — will not be paid in full. Virtually all types of FIs face credit risk. However, FIs that make loans or buy bonds with long maturities are generally more exposed than those with short maturities. Depository institutions and life insurers therefore face greater credit risk than money market mutual funds and property–casualty insurers.</p>
+  <p>The source emphasizes that if all principal and interest payments were made as promised, FIs would always recover their principal plus interest and face no credit risk. When a borrower defaults, both the principal loaned and the expected interest payments are at risk. Financial claims issued by corporations therefore promise a limited or fixed upside return (principal and interest with a high probability) but carry a large downside risk (loss of principal and promised interest) with a much smaller probability. Fixed-income coupon bonds and bank loans are prototypical examples: the FI earns the coupon or promised interest if no default occurs, but in the event of default, it earns zero interest and may lose all or part of the principal, depending on its ability to claim borrower assets through legal bankruptcy and insolvency proceedings.</p>
+</div>
 
-<h2>15. Pertanyaan Konsep untuk Latihan</h2>
-<ol>
-  <li>Apa proses transformasi aset yang dilakukan lembaga keuangan, dan mengapa proses ini sering mengarah pada penciptaan risiko suku bunga?</li>
-  <li>Apa risiko refinancing, dan bagaimana ia menjadi bagian dari risiko suku bunga? Jika FI mendanai aset jangka panjang dengan liabilitas jangka pendek, apa dampak kenaikan suku bunga pada pendapatan?</li>
-  <li>Apa risiko reinvestment, dan bagaimana ia menjadi bagian dari risiko suku bunga? Jika FI mendanai aset jangka pendek dengan liabilitas jangka panjang, apa dampak penurunan suku bunga pada pendapatan?</li>
-  <li>Bagaimana risiko suku bunga memengaruhi nilai ekonomi atau pasar FI?</li>
-  <li>Apa risiko kredit, dan jenis FI mana yang lebih rentan terhadap jenis risiko ini dan mengapa?</li>
-  <li>Apa perbedaan antara risiko kredit spesifik perusahaan dan risiko kredit sistematis, dan bagaimana FI dapat mengurangi risiko kredit spesifik perusahaan?</li>
-  <li>Apa risiko likuiditas, dan realitas pasar apa yang dapat menciptakan kesulitan keuangan parah bagi FI pada masa krisis likuiditas ekstrem?</li>
-  <li>Apa risiko nilai tukar? Apa artinya FI net long dalam aset asing dan net short dalam aset asing, dan apa yang harus terjadi pada nilai tukar agar FI menderita kerugian dalam setiap kasus?</li>
-  <li>Apa risiko negara atau sovereign, dan remedy realistis apa yang dimiliki FI dalam peristiwa negara atau mata uang yang runtuh?</li>
-  <li>Apa risiko pasar, dan bagaimana risiko ini memengaruhi kinerja operasional lembaga keuangan?</li>
-  <li>Apa sifat aktivitas off-balance-sheet, dan bagaimana FI mendapat manfaat dari aktivitas semacam itu?</li>
-  <li>Apa perbedaan antara economies of scale dan economies of scope, serta antara risiko teknologi dan risiko operasional?</li>
-  <li>Apa fintech, dan bagaimana risiko di perusahaan fintech berbeda dari risiko di FI tradisional?</li>
-  <li>Mengapa risiko insolvensi dapat diklasifikasikan sebagai konsekuensi atau hasil dari semua jenis risiko lain?</li>
-  <li>Diskusikan hubungan antar berbagai sumber eksposur risiko FI, dan mengapa model manajemen risiko yang mengukur dan mengelola hanya satu jenis risiko tidak lengkap?</li>
-  <li>Apa yang dimaksud dengan risiko peristiwa, dan apa contoh risiko peristiwa serta risiko makroekonomi umum yang memengaruhi FI?</li>
-</ol>
+<h3>3.1 Firm-Specific versus Systematic Credit Risk</h3>
 
-<p class="note">Catatan teknis, persamaan matematis pada halaman ini dirender dengan MathJax dan membutuhkan koneksi internet saat pertama kali dibuka. Untuk mencetak atau menyimpan sebagai PDF, gunakan tombol Cetak di bagian atas. Dokumen ini adalah ringkasan belajar mandiri dan bukan pengganti buku teks asli.</p>
+<div class="interpretation">
+  <p>Credit risk can be decomposed into two categories. <i>Firm-specific credit risk</i> is the risk of default associated with the specific types of project risk taken by an individual borrowing firm (e.g., the risk specific to holding General Motors bonds or loans). <i>Systematic credit risk</i> is the risk of default associated with general economy-wide or macroeconomic conditions affecting all borrowers simultaneously, such as an economic recession. Diversification across assets can reduce firm-specific credit risk by exploiting the law of large numbers: with a diversified loan portfolio, the probability of partial or full repayment increases. However, diversification does not eliminate systematic credit risk — the risk that simultaneous defaults occur due to economy-wide factors.</p>
+</div>
 
+<h3>3.2 Empirical Evidence: Charge-Off Rates</h3>
+
+<div class="interpretation">
+  <p>The source presents charge-off (write-off) rate data for commercial bank lending from 1984 to 2021. Credit card loans exhibited persistently high charge-off rates. Charge-offs increased from the mid-1980s to 1993, again from 1995 to 1998, then surged in the early 2000s and during the 2007–2010 recession. The total volume of credit card loans grew from $227.497 billion in December 1999 to $444.692 billion in December 2008, fell to $403.071 billion in March 2009, rose to $712.776 billion by March 2010, peaked at $941.557 billion in December 2019, and fell to $791.990 billion by June 2021. This pattern demonstrates that credit losses are cyclical and correlated with macroeconomic conditions.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The credit card charge-off data show that credit risk intensifies during recessions. In the early 2000s, a weak economy and changes in bankruptcy laws caused a surge in credit card charge-offs. During the 2007–2010 recession, charge-offs again spiked. FIs that failed to anticipate cyclical increases in credit losses — such as institutions heavily exposed to subprime mortgages — experienced severe financial distress.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Credit risk is like lending a car to a neighbor. Most neighbors return it with a full tank (pay principal and interest). But some may crash it (partial default), and a few may disappear entirely (full default). Lending to many different neighbors reduces the impact of any single bad outcome, but if the whole neighborhood experiences an economic downturn, multiple defaults occur simultaneously — analogous to systematic credit risk.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Diversification truncates bad outcomes in a loan portfolio by reducing firm-specific credit risk, but it does not eliminate systematic credit risk.</strong> FIs earn the maximum dollar return when all loans pay in full; diversification reduces the probability of extreme losses without eliminating the possibility of loss entirely.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Credit risk is the risk that promised cash flows on loans and bonds held by FIs are not paid in full.</li>
+    <li>FIs with long-maturity loans or bonds face greater credit risk than those with short-maturity claims.</li>
+    <li>Firm-specific credit risk can be diversified away; systematic credit risk cannot.</li>
+    <li>Screening and monitoring of borrowers are essential FI functions for controlling credit risk.</li>
+    <li>Empirical charge-off data demonstrate that credit losses are cyclical and spike during recessions.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Liquidity Risk</h2>
+
+<div class="interpretation">
+  <p>Liquidity risk arises when an FI's liability holders — such as depositors or insurance policyholders — demand immediate cash for the financial claims they hold, or when holders of off-balance-sheet loan commitments (credit lines) suddenly exercise their right to borrow. When liability holders demand cash immediacy, the FI must either borrow additional funds or sell assets to meet withdrawal demands. On the asset side, loan requests and the exercise of loan commitments also create liquidity risk.</p>
+  <p>Cash is the most liquid asset and can directly meet withdrawal demands, but FIs limit cash holdings because cash earns no interest. In normal times, day-to-day withdrawals are predictable, and FIs can borrow additional funds on money and financial markets to meet shortfalls. However, when many FIs simultaneously face abnormally large cash demands, the cost of borrowed funds rises and supply becomes restricted. FIs may then be forced to sell less liquid assets at <i>fire-sale prices</i> — prices received when assets must be liquidated immediately at less than their fair market value. Such forced sales can threaten profitability and solvency.</p>
+</div>
+
+<h3>4.1 Balance Sheet Mechanics of a Liquidity Crisis</h3>
+
+<div class="formula-box">
+  <span class="label">Impact of Fire-Sale Liquidation on Equity</span>
+  <div class="formula">\[ \text{New Equity} = \text{Old Equity} - \text{Loss on Forced Asset Sales} \]</div>
+</div>
+
+<div class="interpretation">
+  <p>When an FI must liquidate nonliquid assets at a discount below fair market value, the loss reduces equity. The loss equals the face value of assets sold minus the cash proceeds received. Equity is the buffer that absorbs such losses; if equity is depleted, insolvency follows.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Consider the balance sheet in Table 7–2. Before the withdrawal, the FI has $10 million cash, $90 million nonliquid assets, $90 million deposits, and $10 million equity. Depositors unexpectedly withdraw $15 million. The FI first uses its $10 million cash, leaving $5 million to raise. Unable to borrow, the FI sells nonliquid assets at 50 cents on the dollar. To raise $5 million, it must sell $10 million in nonliquid assets, incurring a $5 million loss. The FI writes off this loss against equity, reducing equity from $10 million to $5 million. The balance sheet after adjustment shows $0 cash, $80 million nonliquid assets, $75 million deposits, and $5 million equity.</p>
+</div>
+
+<div class="interpretation">
+  <p>The IndyMac failure in the summer of 2008 provides a dramatic real-world example. On July 7, 2008, IndyMac announced it would stop mortgage operations due to a deteriorating capital position. Depositors rushed to withdraw money despite FDIC insurance coverage of $100,000 (since increased to $250,000), partly because transferring deposits could take days. The run was so severe that within a week the FDIC took over the bank. This illustrates that even insured depositors may panic if they fear delayed access to funds.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Liquidity risk is like a convenience store that keeps minimal cash in the register. Usually, customers make predictable purchases and the store restocks and deposits cash regularly. But if a rumor causes all customers to demand refunds simultaneously, the store must sell inventory at whatever price buyers offer — possibly below cost — to generate cash. If the losses exceed the owner's equity, the store closes.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Liquidity risk is fundamentally about the timing mismatch between cash inflows and cash outflows.</strong> An FI can be solvent on paper but still fail if it cannot convert assets to cash quickly enough to meet withdrawal demands. The fire-sale discount transforms a liquidity problem into a capital adequacy problem.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Liquidity risk arises from sudden withdrawals by liability holders or unexpected drawdowns of loan commitments.</li>
+    <li>In normal times, predictable withdrawals are manageable through cash reserves and borrowing.</li>
+    <li>During a crisis, borrowing becomes expensive or unavailable, forcing fire-sale liquidations at discounts.</li>
+    <li>Fire-sale losses reduce equity and can threaten solvency.</li>
+    <li>The IndyMac case demonstrates that even insured deposit runs can be severe and fast-moving.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. Foreign Exchange Risk</h2>
+
+<div class="interpretation">
+  <p>Foreign exchange risk is the risk that exchange rate changes can affect the value of an FI's assets and liabilities denominated in nondomestic currencies. As U.S. pension funds increased their foreign securities holdings from approximately 5% of assets in the early 1990s to over 24% today, and as large banks, investment banks, and mutual funds became increasingly global, foreign exchange risk has grown in importance. The potential benefit of global diversification is that returns on domestic and foreign investments are imperfectly correlated, offering gains from expanding asset holdings beyond domestic borders.</p>
+</div>
+
+<h3>5.1 Sources of Imperfect Correlation</h3>
+
+<div class="interpretation">
+  <p>Returns on domestic and foreign investments are not perfectly correlated for two reasons. First, the underlying technologies of different economies differ, as do the firms within those economies. One economy may be agriculture-based while another is industry-based; one may be expanding while another contracts. Second, exchange rate changes are not perfectly correlated across countries: the dollar–euro rate may appreciate while the dollar–yen rate depreciates. These decorrelation opportunities motivate global expansion but also introduce foreign exchange risk.</p>
+</div>
+
+<h3>5.2 Net Long and Net Short Positions</h3>
+
+<div class="interpretation">
+  <p>An FI can hold assets denominated in a foreign currency and/or issue foreign liabilities. If a U.S. FI holds £100 million in pound loans as assets and funds £80 million with pound certificates of deposit, the remaining £20 million is funded by dollar CDs. The FI is <i>net long</i> £20 million in pound assets — it holds more foreign assets than liabilities. A net long position produces losses when the foreign currency depreciates against the domestic currency, because the dollar value of foreign assets falls by more than the dollar value of foreign liabilities.</p>
+  <p>Conversely, if the FI has £20 million more pound liabilities than assets, it holds a <i>net short</i> position in pound assets. In this case, the FI loses if the pound <i>appreciates</i> against the dollar, because the dollar value of its pound liabilities rises faster than the return on its pound assets. To be approximately hedged against foreign exchange risk, the FI must match its assets and liabilities in each foreign currency.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Suppose a U.S. FI makes a £100 million loan to a British company. If the British pound depreciates against the dollar, the principal and interest payments received are devalued in dollar terms. If the pound falls far enough, the conversion of cash flows back into dollars could produce a negative overall return: foreign exchange losses offset the promised value of local currency interest payments at the original exchange rate. If the FI instead holds more pound liabilities than pound assets and the pound appreciates, its pound-denominated liabilities grow in dollar value faster than its assets, generating losses.</p>
+</div>
+
+<div class="interpretation">
+  <p>A critical subtlety noted by the source: matching the <i>size</i> of foreign currency assets and liabilities (e.g., pound assets = pound liabilities = £100 million) is sufficient for hedging only if the maturities are also matched. If the pound assets have six-month maturity and the pound liabilities have three-month maturity, the FI is exposed to <i>foreign interest rate risk</i> — the risk that British interest rates rise when the FI must roll over its pound CD liabilities at the end of the third month. Full hedging therefore requires matching both size and maturity (or, more technically, duration) of assets and liabilities in each currency.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Foreign exchange risk is like holding a bond in a foreign currency and betting on the exchange rate simultaneously. If you are net long a foreign currency, you profit when that currency strengthens, just as you would profit from an appreciating asset. Being net short is like short-selling the currency — you profit when it weakens. Hedging means holding equal amounts of assets and liabilities in each currency, like balancing two sides of a scale.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>It is not just whether an FI holds foreign assets or liabilities that matters — it is the net position in each currency that determines the direction of exchange rate risk.</strong> If exchange rate changes are not perfectly correlated across countries, an FI can diversify away part of its foreign currency risk by holding a portfolio of different currency positions.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Foreign exchange risk arises from holding assets or liabilities denominated in nondomestic currencies.</li>
+    <li>Net long foreign asset positions lose when the foreign currency depreciates; net short positions lose when it appreciates.</li>
+    <li>Matching both the size and maturity of foreign currency assets and liabilities is necessary for approximate hedging.</li>
+    <li>Global diversification offers benefits because returns on domestic and foreign investments are imperfectly correlated.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Country or Sovereign Risk</h2>
+
+<div class="interpretation">
+  <p>Country or sovereign risk is a distinct type of credit risk faced by an FI that purchases assets such as bonds and loans of foreign corporations. When a domestic corporation defaults, an FI has recourse to domestic bankruptcy courts and may recoup at least a portion of its investment through liquidation or restructuring of the defaulted firm's assets. By contrast, a foreign corporation may be unable to repay even when willing, because the government of the country may prohibit or limit debt payments due to foreign currency shortages or adverse political reasons.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>In 2001, Argentina defaulted on its government debt — largely because an overvalued peso, pegged one-to-one to the dollar since the early 1990s, adversely affected exports and foreign currency earnings. In December 2001, Argentina defaulted on $130 billion in government-issued debt. In 2002, it passed legislation leading to defaults on $30 billion of corporate debt owed to foreign creditors. In September 2003, Argentina defaulted on a $3 billion loan repayment to the IMF, and in early 2018 it was still requesting debt payment adjustments.</p>
+  <p>An even more extreme case occurred during the European crisis of the 2010s. In March 2012, Greek government debtholders lost 53.5% of their $265 billion investment as Greece restructured much of its sovereign debt — the largest sovereign debt default in history, despite massive bailout injections by the eurozone and the International Monetary Fund.</p>
+</div>
+
+<div class="interpretation">
+  <p>In the event of sovereign restrictions, reschedulings, or outright prohibitions on debt payments, the FI claimholder has little or no recourse to local bankruptcy courts or international civil claims courts. The major leverage available to an FI is control over the future supply of loans or funds to the country concerned. However, such leverage may be very weak in the face of a country's collapsing currency and government. This risk exists even when lending only to the highest-quality foreign corporations, because sovereign governments can block debt payments regardless of the borrower's financial health.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Sovereign risk is like lending money to a business in a country whose government can freeze foreign debt payments. You may have a strong contract with a reliable local partner, but if the government imposes capital controls or refuses to honor foreign claims, your recourse is limited. You cannot easily sue a sovereign government in its own courts, just as you cannot collect a debt when the local ruler changes the rules.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Sovereign risk is qualitatively different from ordinary credit risk because the political and legal remedies available to a domestic lender are largely absent for international claims.</strong> The FI's primary source of leverage is its ability to withhold future lending, which may be insufficient in the face of a national financial collapse.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Country or sovereign risk is the risk that foreign government restrictions or interference interrupt debt repayments.</li>
+    <li>Unlike domestic credit risk, sovereign risk offers limited or no legal recourse through bankruptcy courts.</li>
+    <li>Historical examples include Argentina's 2001 default ($130 billion) and Greece's 2012 restructuring (53.5% loss on $265 billion).</li>
+    <li>An FI's main leverage is its control over future lending to the country, which may be weak during crises.</li>
+  </ul>
+</div>
+
+<h2 id="section7">7. Market Risk</h2>
+
+<div class="interpretation">
+  <p>Market risk arises when FIs actively trade assets and liabilities (including derivatives) rather than hold them for longer-term investment, funding, or hedging purposes. Market risk is closely related to interest rate risk, credit risk, and foreign exchange risk, but it adds a distinct dimension: the incremental risk resulting from an active trading strategy, especially one with short trading horizons such as a single day.</p>
+  <p>The source distinguishes between an FI's <i>trading portfolio</i> and its <i>investment portfolio</i> (called the banking book for banks). The trading portfolio contains assets, liabilities, and derivative contracts that can be bought or sold quickly on organized financial markets. The investment portfolio or banking book contains relatively illiquid assets and liabilities held for longer periods. Table 7–3 illustrates this distinction: the banking book contains cash, loans, premises and equipment, deposits, and other illiquid borrowed funds, while the trading book contains long and short positions in bonds, commodities, foreign exchange, equities, and derivatives.</p>
+</div>
+
+<div class="interpretation">
+  <p>With the increasing securitization of bank loans (e.g., mortgages), more assets have become liquid and tradable. Bank regulators have typically viewed tradable assets as those held for horizons of less than one year, but private FIs take an even shorter-term perspective, focusing on daily fluctuations in trading account values, especially when those fluctuations threaten solvency.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The financial crisis of 2008–2009 is an extreme case of market risk. Investment banks and securities firms were major purchasers and traders of mortgages in the early 2000s, packaging loans as securities. Rising interest rates in the mid-2000s increased mortgage defaults. As defaults rose, the securitized mortgage market froze, and FIs were left holding toxic assets at deeply reduced market values. FIs that were active traders faced extreme market risk because they held open, unhedged long positions in mortgage-backed securities whose prices collapsed.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Conceptual Relationship</span>
+  <div class="formula">\[ \text{Market Risk Exposure} \propto \text{Open Position Size} \times \text{Asset Price Volatility} \]</div>
+</div>
+
+<div class="interpretation">
+  <p>This conceptual relationship indicates that the more volatile the asset prices in the markets where an FI trades, and the larger its open (unhedged) positions, the greater its market risk. An open long position loses when prices fall; an open short position loses when prices rise. The practical implication is that FI management and regulators must establish controls to limit trader positions and develop models to measure market risk exposure on a day-to-day basis.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Market risk is like a surfer riding a wave. The surfer (trader) takes an active position on the wave (market). If the wave behaves as expected, the surfer gains; if the wave reverses direction suddenly, the surfer crashes. The bigger the wave (volatility) and the less balanced the surfer's position (unhedged exposure), the greater the risk of a wipeout.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Market risk transforms ordinary price risk into a daily solvency threat when combined with active trading.</strong> An FI can hold a seemingly reasonable asset portfolio, but if it trades those assets with short horizons and high leverage, adverse price movements can erode capital rapidly — as the 2008–2009 crisis demonstrated.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Market risk arises from active trading of assets, liabilities, and derivatives on organized markets.</li>
+    <li>The trading book differs from the banking book in time horizon and secondary market liquidity.</li>
+    <li>Open long or short positions combined with price volatility create market risk.</li>
+    <li>The 2008–2009 crisis exemplifies how securitization, trading, and price collapse interact to threaten FI solvency.</li>
+    <li>Controls on trader positions and daily market risk measurement are essential.</li>
+  </ul>
+</div>
+
+<h2 id="section8">8. Off-Balance-Sheet Risk</h2>
+
+<div class="interpretation">
+  <p>Off-balance-sheet risk is incurred by an FI as a result of activities related to its contingent assets and liabilities held off the balance sheet. Off-balance-sheet activities do not appear on the FI's current balance sheet because they do not involve holding a current primary claim (asset) or issuing a current secondary claim (liability). Instead, they affect the <i>future</i> shape of the balance sheet by creating contingent assets and liabilities that may be placed on the balance sheet later. Accountants record them "below the bottom line."</p>
+  <p>While all FIs engage in some off-balance-sheet activities, large banks are the most active participants, particularly in derivative securities. Smaller depository institutions and many insurance companies hold relatively fewer off-balance-sheet positions.</p>
+</div>
+
+<h3>8.1 Contingent Claims and Standby Letters of Credit</h3>
+
+<div class="interpretation">
+  <p>A standby letter of credit is a credit guarantee issued by an FI for a fee, on which payment is contingent on some future event. For example, insurance companies and banks issue letter of credit guarantees to back municipal bond issuance. State and local governments often cannot issue bonds without such guarantees, which promise principal and interest payments to investors should the municipality default. If the municipal government's cash flow is sufficient to pay its obligations, the letter of credit guarantee expires unused and nothing appears on the FI's balance sheet — but the fee earned appears on its income statement. If the municipality defaults, the contingent liability becomes an actual liability, and the FI must use its equity to compensate investors.</p>
+</div>
+
+<h3>8.2 Valuation of Net Worth with Off-Balance-Sheet Activities</h3>
+
+<div class="formula-box">
+  <span class="label">Traditional Net Worth Valuation</span>
+  <div class="formula">\[ E = A - L \]</div>
+</div>
+
+<div class="interpretation">
+  <p>In the traditional valuation, \(E\) is the market value of stockholders' equity, \(A\) is the market value of on-balance-sheet assets, and \(L\) is the market value of on-balance-sheet liabilities. In the source's example, \(E = 100 - 90 = 10\), so equity is 10 and the capital-to-assets ratio is 10%. Regulators often use this ratio as a simple measure of solvency.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Economic Net Worth with Off-Balance-Sheet Activities</span>
+  <div class="formula">\[ E = (A - L) + (CA - CL) \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here, \(CA\) is the current market value of contingent assets and \(CL\) is the current market value of contingent liabilities. In the source's example, \(CA = 50\) and \(CL = 55\), so \(E = (100 - 90) + (50 - 55) = 5\). Because contingent liabilities exceed contingent assets by 5, the FI's true economic net worth is 5, not 10. This demonstrates that contingent assets and liabilities are contractual claims that directly affect the economic value of the equity holders' stake. From both stockholders' and regulators' perspectives, large increases in the value of OBS liabilities can render an FI economically insolvent just as effectively as losses from mismatched interest rate gaps or on-balance-sheet default losses.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>An FI issues standby letter of credit guarantees to back municipal bonds. As long as municipalities remain solvent, the FI earns fee income without adding assets or liabilities to its balance sheet. If a municipality defaults, the FI must compensate bond investors using its own equity. During the 2008–2009 financial crisis, significant losses in off-balance-sheet activities such as credit default swaps caused FIs to fail just as major balance sheet losses could. This proves that off-balance-sheet risk, while invisible on the balance sheet, is economically real.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Off-balance-sheet risk is like co-signing a loan for a friend. The co-signer receives a fee (or favors) but the obligation does not appear as a liability on the co-signer's financial statement. If the friend defaults, the co-signer must pay — turning the contingent obligation into a real one. The fee was earned upfront, but the risk of future loss was hidden.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Off-balance-sheet activities generate current fee income while deferring risk to the future — but the risk is not eliminated.</strong> The correct measure of an FI's economic solvency must include both on- and off-balance-sheet positions, because contingent liabilities can erode equity just as surely as current liabilities.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Off-balance-sheet activities create contingent assets and liabilities that affect the future balance sheet.</li>
+    <li>Standby letters of credit are a classic example: fees are earned now, but default by the underlying obligor makes the guarantee an actual liability.</li>
+    <li>The correct valuation of net worth is \(E = (A - L) + (CA - CL)\).</li>
+    <li>FIs pursue off-balance-sheet business to earn fee income without expanding the balance sheet, but must manage the associated contingent risk.</li>
+  </ul>
+</div>
+
+<h2 id="section9">9. Technology and Operational Risks</h2>
+
+<div class="interpretation">
+  <p>Technology and operational risks are closely related and have become major concerns for FI managers and regulators. The Bank for International Settlements (BIS) defines operational risk (inclusive of technology risk) as "the risk of loss resulting from inadequate or failed internal processes, people, and systems or from external events." Many FIs add reputational risk and strategic risk (e.g., from a failed merger) as part of a broader definition of operational risk.</p>
+</div>
+
+<h3>9.1 Technology Risk</h3>
+
+<div class="interpretation">
+  <p>Technology innovation was a major growth area for FIs in the 1990s and 2000s. Banks, insurance companies, and investment companies invested heavily in communications, computers, and expanded technological infrastructure. Most banks now provide depositors with remote capabilities to check balances, transfer funds, manage finances, and pay bills. At the wholesale level, electronic fund transfers through automated clearing houses (ACH) and wire transfer networks such as the Clearing House Interbank Payments Systems (CHIPS) were developed. Citigroup, for example, operates in more than 100 countries connected in real time by a proprietary satellite system.</p>
+  <p>Technology risk includes the strategic risk of not embracing new technology, not investing in the right technology, cybersecurity risk, technology vendor and third-party risk, and ineffective risk management. <i>Cyber risk</i> is an umbrella term for risks resulting from failure or breach of IT systems. As FIs increasingly rely on third-party service providers, vendor-related risks proliferate.</p>
+</div>
+
+<h3>9.2 Economies of Scale and Scope</h3>
+
+<div class="interpretation">
+  <p>The major objectives of technological expansion are to lower operating costs, increase profits, and capture new markets. Formally, <i>economies of scale</i> refer to an FI's ability to lower its average unit costs of producing financial services as its output of services increases. <i>Economies of scope</i> refer to an FI's ability to generate cost synergies by producing more than one output with the same inputs. For example, an FI could use the same customer information (age, job, family size, income) stored in its computers to expand sales of both loan products and insurance products.</p>
+</div>
+
+<h3>9.3 Operational Risk</h3>
+
+<div class="interpretation">
+  <p>Operational risk is partly related to technology risk and arises whenever existing technology malfunctions or back-office support systems break down. In August 2018, the FBI alerted banks that cybercriminals were preparing a global fraud scheme known as an "ATM cash-out." Thieves use a bank or payment card processor and cloned cards to withdraw millions of dollars in a few hours. Just before executing the cash-out, cybercriminals remove fraud controls such as maximum ATM withdrawal amounts and daily transaction limits. The FBI urged banks to implement strong password requirements and two-factor authentication.</p>
+  <p>Operational risk is not exclusively technological. Employee fraud and errors constitute operational risk that negatively affects an FI's reputation. The Federal Reserve defines reputational risk as the potential that negative publicity regarding an institution's business practices, whether true or not, will cause a decline in the customer base, costly litigation, or revenue reductions.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The 2012 JPMorgan Chase "London Whale" incident involved trader Bruno Iksil taking large credit default swap (CDS) positions expecting the European financial crisis to cause market anxiety. Instead, bailouts and interventions prevented major events. The CDS market was too small and Iksil's positions too large for secrecy. Once hedge funds learned of the positions, they traded to exploit the trades Iksil had to make to maintain his position, negatively altering prices. Iksil was forced to close the position at a $6.2 billion loss. This incident illustrates how employee actions can produce operational losses and reputational damage.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Technology and operational risk are like a bank building's electrical and plumbing systems. You rarely notice them when they work, but when wiring fails (cyber attack) or pipes burst (system breakdown), the damage spreads quickly. Investing in newer wiring may lower energy costs (economies of scale), but choosing the wrong system or having it poorly maintained creates new failure risks.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Technology is a double-edged sword: it enables economies of scale and scope, but it also creates cyber risk, third-party dependence, and operational fragility.</strong> The Covid-19 pandemic amplified these risks by shifting FIs to remote working, which increased cyber attacks and dependencies on third-party providers. Payment firms, insurers, and credit unions were especially affected by a significant increase in hacks.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Operational risk is the risk of loss from inadequate or failed internal processes, people, systems, or external events.</li>
+    <li>Technology risk encompasses strategic technology choices, cyber risk, vendor risk, and ineffective risk management.</li>
+    <li>Economies of scale lower average costs as output increases; economies of scope generate synergies from producing multiple outputs with the same inputs.</li>
+    <li>Cyber attacks, such as ATM cash-outs and data breaches, pose growing threats to FIs.</li>
+    <li>Employee fraud and errors are operational risks that can also trigger reputational losses.</li>
+  </ul>
+</div>
+
+<h2 id="section10">10. Risk of Digital Disruption and Fintech</h2>
+
+<div class="interpretation">
+  <p>Digital innovation is transforming financial services. <i>Fintech</i> refers to the use of technology to deliver financial solutions in a manner that competes with traditional financial methods. The Financial Stability Board defines fintech as "technology-enabled innovation in financial services that could result in new business models, applications, processes or products with an associated material effect on the provision of financial services." Examples include mobile money, peer-to-peer (P2P) or marketplace lending, robo-advice, insurance technology (insurtech), and digital currencies.</p>
+  <p>A <i>fintech firm</i> specializes in offering digital financial services to consumers or enables other providers to offer such services. A <i>big tech firm</i> is a large company whose primary activity is digital services — search engines, social media platforms, e-commerce platforms, ride-hailing platforms, and mobile network operators. Emerging technologies such as digital currencies (e.g., Bitcoin, Ether) and blockchain support the exchange of value between parties unknown to each other without financial intermediaries, potentially making many existing organizational forms redundant.</p>
+</div>
+
+<div class="interpretation">
+  <p>Clients may choose to conduct business with market participants who offer products traditional FIs find too speculative or risky. However, investing in fintech may enable incumbents such as JPMorgan Chase, Citigroup, and Credit Suisse to do more with less, streamline their businesses, and reduce risk. Adoption of new technologies requires substantial expenditures to adapt to evolving industry standards and consumer preferences. The SEC has noted that digital currencies limit banks' ability to track fund movements and comply with anti-money-laundering regulations.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The largest fintech companies by valuation include Stripe ($95 billion), which provides an online payment platform; Klarna ($31 billion), which powers financing for customers at stores such as IKEA, H&amp;M, and Etsy; and Kraken ($20 billion), a cryptocurrency exchange. Leading banks are rapidly closing gaps in digitization to compete with fintechs and big tech firms that have entered financial services. Big tech firms deepen their inroads into core financial products because economies of scale and network effects are strong in digital platforms and cloud computing.</p>
+</div>
+
+<div class="interpretation">
+  <p>The risk landscape for fintech firms differs from that of traditional FIs. Traditional FIs have large teams of highly skilled, experienced employees and risk management processes refined over many years. Fintech firms typically have small teams using risk management processes developed over a short time, untested in major risk events. A risk event at a fintech firm can result in losses substantially damaging to firm value because there is less history to establish protocols for managing through a problem. Meanwhile, FIs face increasing regulatory oversight of fintech and an urgent need to update technological operating models, cut costs by simplifying outdated systems, build technology capabilities to understand customer needs, and employ the talent needed to execute successful fintech strategies.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>The risk of digital disruption is like a traditional taxi company facing ride-sharing apps. The taxi company has experienced drivers and regulatory compliance built over decades, but the new apps offer convenience and lower costs. If the taxi company fails to innovate, it loses market share. If it embraces the new technology, it risks large capital expenditures and operational changes. Meanwhile, the ride-sharing apps lack the taxi company's experience in handling rare safety incidents.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The risk of digital disruption is not merely about technology adoption — it is about redefining how an FI creates, delivers, and captures value.</strong> Financial institutions with legacy risk management expertise have an advantage over fintech startups, but that advantage erodes if they fail to modernize their technological operating models and compete against new disruptive players.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Fintech refers to technology-enabled innovation in financial services with material effects on service provision.</li>
+    <li>Big tech firms leverage economies of scale and network effects to enter core financial products.</li>
+    <li>Fintech firms have shorter risk management track records than traditional FIs, making risk events potentially more damaging.</li>
+    <li>FIs must update technological operating models, simplify outdated systems, and employ talent to execute fintech strategies.</li>
+    <li>Digital currencies and blockchain reduce transaction costs but create regulatory challenges such as anti-money-laundering compliance.</li>
+  </ul>
+</div>
+
+<h2 id="section11">11. Insolvency Risk</h2>
+
+<div class="interpretation">
+  <p>Insolvency risk is the risk that an FI may not have enough capital to offset a sudden decline in the value of its assets relative to its liabilities. Technically, insolvency occurs when the capital or equity resources of an FI's owners are driven to, or near to, zero because of losses incurred from one or more of the other risks described in this chapter. Insolvency risk is thus best understood not as an independent risk but as a consequence or outcome of all prior risk categories.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Washington Mutual (WaMu) incurred heavy losses from its on- and off-balance-sheet holdings during the financial crisis. By early September 2008, WaMu's market capital was worth only $3.5 billion, down from $43 billion at the end of 2006. In September 2008, the bank was taken over by the FDIC and sold to JPMorgan Chase. In contrast, Citigroup's stock price fell below $1 per share in March 2009, and the once-largest bank in the United States was near failure. Proving that some banks are considered too big to fail, Citigroup received a substantial government guarantee against losses (up to $306 billion) and a $20 billion cash injection. Between October 2008 and December 2009, more than 700 banks received a total of $205 billion in federal government funds through the Capital Purchase Program.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Solvency Condition</span>
+  <div class="formula">\[ \text{Capital} \geq \text{Losses from Risk Exposures} \]</div>
+</div>
+
+<div class="interpretation">
+  <p>The more equity capital an FI has relative to borrowed funds — that is, the lower its leverage — the better able it is to withstand losses, whether from adverse interest rate changes, unexpected credit losses, or other causes. This is why both management and regulators focus on an FI's capital and capital adequacy as a key measure of its ability to remain solvent and grow in the face of multiple risk exposures. A higher capital buffer means a larger cushion before losses exhaust equity and trigger insolvency.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Insolvency risk is like a car's airbag system. The airbag (capital) does not prevent the collision (risk realization), but it determines whether the driver (the FI) survives the crash. A car with a robust airbag system and crumple zones (high capital adequacy) can withstand a severe accident, while a car with minimal safety features (highly leveraged) is destroyed by the same impact.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Insolvency risk is the terminal outcome of all other risks — whether interest rate, credit, liquidity, foreign exchange, sovereign, market, off-balance-sheet, technology, operational, or fintech-related.</strong> The interaction of multiple risks amplifying one another is what ultimately threatens an FI's survival, not any single risk in isolation.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Insolvency risk occurs when capital is driven to or near zero by losses from other risk categories.</li>
+    <li>Higher capital relative to borrowed funds (lower leverage) increases resilience to losses.</li>
+    <li>WaMu's failure and Citigroup's near-failure illustrate how risk accumulation can destroy market capital.</li>
+    <li>Regulators focus on capital adequacy as the primary safeguard against insolvency.</li>
+  </ul>
+</div>
+
+<h2 id="section12">12. Interaction of Risks and Additional Risk Dimensions</h2>
+
+<div class="interpretation">
+  <p>Although the chapter treats each risk independently for exposition, in reality these risks are interdependent. When interest rates rise, corporations and consumers find it more difficult to maintain promised payments on their debt. Thus, over some range of interest rate movements, credit risk, interest rate risk, and off-balance-sheet risk are positively correlated. Furthermore, an FI may have been counting on promised loan payments for liquidity management purposes, so liquidity risk is also correlated with interest rate and credit risks. The inability of a customer to make promised payments affects the FI's income and profits, and consequently its equity or capital position — connecting all risks ultimately to insolvency risk.</p>
+</div>
+
+<h3>12.1 Discrete and Event Risks</h3>
+
+<div class="interpretation">
+  <p>Various discrete or event risks also impact FI profitability, although many view them as part of operational risk. Discrete risks include external events such as sudden regulatory changes: the 1994 regulatory change allowing interstate branching, the 1999 Financial Services Modernization Act, and the Wall Street Reform and Consumer Protection Act of 2010 are examples. Other discrete risks include sudden changes in financial market conditions due to war, revolution, or market collapse, such as the 1929 and 2008 stock market crashes or the September 2001 terrorist attacks. Event risks also include fraud, theft, earthquakes, storms, malfeasance, and breach of fiduciary trust — all of which can severely harm or fail an FI but are difficult to model and predict.</p>
+</div>
+
+<h3>12.2 Macroeconomic and Systemic Risks</h3>
+
+<div class="interpretation">
+  <p>General macroeconomic or systemic risks — such as increased inflation, inflation volatility, and unemployment — directly and indirectly affect an FI's level of interest rate, credit, and liquidity risk exposure. The U.S. unemployment rate exceeded 10% in the fall of 2009, the highest since September 1992. During the Great Recession (December 2007 to June 2009), the U.S. economy lost approximately 8 million jobs, and credit risk exposure increased dramatically as borrowers struggled to keep up with loan payments. The labor market did not return to the pre-recession unemployment rate of under 5% until 2016. During the early phase of the Covid-19 pandemic, more than twice as many jobs were lost between March and April 2020 as during the entire 2007–2009 period. Mortgage forbearance increased nearly 3,000% from March 2020 to May 2020, auto loan modification requests increased nearly 10-fold, and U.S. banks increased loss provisions by three to four times in the first quarter of 2020 compared to the fourth quarter of 2019.</p>
+</div>
+
+<h3>12.3 Climate-Related Financial Risk</h3>
+
+<div class="interpretation">
+  <p>Climate risk is increasingly recognized as relevant to FI balance sheets and financial stability. Mark Carney, former Governor of the Bank of England and chairman of the Financial Stability Board, identified three channels through which climate change affects the financial sector:</p>
+  <p><i>Physical risks</i> relate to extreme weather events or changing climate conditions. Floods and heavy storms can cause severe damage to physical assets. If losses are insured, the insurance industry is exposed; if uninsured, banks and other FIs are exposed because households are more likely to default on loans and mortgages while the collateral securing those loans is damaged. Credit risk rises for corporations facing reduced profitability and deteriorated balance sheets. Average weather-related losses per year worldwide have roughly tripled over the past 30 years, and the share of uninsured losses has increased.</p>
+  <p><i>Liability risks</i> relate to impacts on financial institutions if parties who have suffered loss or damage from climate change seek compensation from those they hold responsible. If losses are insured, insurers bear the cost; if uninsured, banks and other financial institutions are exposed.</p>
+  <p><i>Transition risks</i> relate to the two-degree goal under the Paris Agreement. The financial sector's exposure becomes apparent when considering the tendency of insurers, pension funds, and other investors to align their portfolios with capital market indices, which often contain large portions of fossil fuel and energy industries affected by the transition to a low-carbon economy. Lenders are exposed through reduced collateral values or the risk that borrowers' once-profitable business models become unprofitable.</p>
+</div>
+
+<div class="interpretation">
+  <p>Climate-related risks may cause abrupt increases in risk premia across a broad range of assets, alter asset price comovement across sectors or jurisdictions, amplify credit, liquidity, and counterparty risks, and challenge financial risk management in ways that are hard to predict. On October 21, 2021, the Financial Stability Oversight Council (FSOC) recognized climate change as an emerging and increasing threat to U.S. financial stability. Regulatory responses include the SEC evaluating disclosure rules, the Federal Reserve Board establishing committees on climate-related risks, the CFTC's Market Risk Advisory Committee issuing recommendations on managing climate risk, and the FHFA and Treasury's Federal Insurance Office requesting public information on climate-related risks.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>During the Covid-19 pandemic, mortgage forbearance increased nearly 3,000% from March 2020 to May 2020, and auto loan modification requests increased nearly 10 times. U.S. banks increased loss provisions by three to four times in the first quarter of 2020 relative to the fourth quarter of 2019, reflecting expectations of impending defaults and charge-offs. This demonstrates how a macroeconomic shock rapidly transmits into credit, liquidity, and ultimately insolvency risk across the financial system.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Risks are like inter
+    </div>
 </body>
 </html>

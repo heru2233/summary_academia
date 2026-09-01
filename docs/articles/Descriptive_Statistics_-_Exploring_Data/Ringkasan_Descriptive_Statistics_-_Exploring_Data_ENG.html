@@ -21,6 +21,28 @@
     </style>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 <h3>Introduction</h3>
 <p>This guide provides a step‑by‑step walkthrough of how to explore and summarize data using <b>Stata</b>. The focus is on descriptive statistics, which allow the researcher to understand the shape, central tendency, dispersion, and relationships among variables before moving on to inferential analysis. The tutorial uses the built‑in dataset <code>nlsw88</code> (National Longitudinal Survey of Women, 1988 extract) and demonstrates a series of Stata commands: <b>describe</b>, <b>summarize</b> (or its abbreviation <b>su</b>), <b>codebook</b>, frequency commands (<b>tab</b>, <b>tab1</b>, <b>crosstab</b>), and two customized table commands (<b>tabstat</b> and <b>table</b>). Each section explains the purpose of the command, shows the exact syntax, presents the output that Stata returns, and offers an interpretation of the results. By following the examples, users can replicate the analysis on their own datasets stored as <code>.dta</code> files.</p>
 

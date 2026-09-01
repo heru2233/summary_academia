@@ -24,6 +24,28 @@
     </style>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 <h3>Introduction</h3>
 <p>The study <b>Enterprise risk management, ESG disclosure and firm performance: evidence from the manufacturing sector in Vietnam</b> investigates how enterprise risk management (ERM) influences firm value and profitability, and whether environmental, social, and governance (ESG) disclosure moderates these relationships. The research is motivated by contradictory findings in the existing literature regarding the impact of ERM on corporate performance, especially in emerging economies where ERM adoption is uneven and institutional contexts differ markedly from developed markets. By focusing on Vietnam’s manufacturing sector—a cornerstone of the national economy contributing roughly 34–35 % of GDP and highly exposed to supply‑chain disruptions, energy volatility, and environmental pressures—the authors aim to fill several gaps: (1) the lack of consistent evidence on ERM‑performance links in emerging markets; (2) the scarcity of sector‑specific studies in manufacturing; (3) the limited exploration of the interplay between ERM and ESG; and (4) the reliance on outdated ERM frameworks rather than the latest COSO 2017 guidelines. The study poses two research questions: (RQ1) How does ERM, measured according to the COSO 2017 framework, affect firm value and profitability in Vietnam’s manufacturing sector? (RQ2) Does ESG performance moderate the relationship between ERM and corporate performance, thereby enhancing ERM’s effectiveness? To answer these questions, the authors construct a COSO 2017‑based ERM index and an ESG disclosure index derived from the S&P Global Corporate Sustainability Assessment (CSA), and employ a two‑stage <i>regression</i> with a control function approach to address endogeneity.</p>
 

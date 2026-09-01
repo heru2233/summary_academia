@@ -21,6 +21,28 @@
     </style>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 <h3>Pendahuluan</h3>
 <p>Panduan ini memberikan walkthrough langkah demi langkah tentang cara menjelajah dan meringkas data menggunakan <b>Stata</b>. Fokusnya adalah statistik deskriptif, yang memungkinkan peneliti untuk memahami bentuk, tendensi pusat, penyebaran, dan hubungan antar variabel sebelum beralih ke analisis inferensial. Tutorial ini menggunakan kumpulan data bawaan <code>nlsw88</code> (ekstrak National Longitudinal Survey of Women, 1988) dan menunjukkan serangkaian perintah Stata: <b>describe</b>, <b>summarize</b> (atau singkatannya <b>su</b>), <b>codebook</b>, perintah frekuensi (<b>tab</b>, <b>tab1</b>, <b>crosstab</b>), dan dua perintah tabel khusus (<b>tabstat</b> dan <b>table</b>). Setiap bagian menjelaskan tujuan perintah, menampilkan sintaks yang tepat, menyajikan output yang dikembalikan Stata, dan memberikan interpretasi hasilnya. Dengan mengikuti contoh, pengguna dapat mereplikasi analisis pada kumpulan data mereka sendiri yang disimpan sebagai file <code>.dta</code>.</p>
 

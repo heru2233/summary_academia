@@ -1,546 +1,533 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Ringkasan Chapter 2 - Jasa Keuangan dan Lembaga Depositori (Indonesia)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Services and Depository Institutions</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
-
-<div class="toolbar">
-  <button onclick="window.print()">Cetak / Simpan sebagai PDF</button>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Financial Services and Depository Institutions</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction to Depository Institutions</a></li>
+    <li><a href="#section2">2. Commercial Banks</a></li>
+    <li><a href="#section3">3. Savings Institutions</a></li>
+    <li><a href="#section4">4. Credit Unions</a></li>
+    <li><a href="#section5">5. Global Financial Performance</a></li>
+    <li><a href="#section6">6. Practical Cautions and Common Errors</a></li>
+  </ul>
 </div>
 
-<h1>Ringkasan Chapter 2</h1>
-<p class="subtitle">Jasa Keuangan dan Lembaga Depositori</p>
-<p class="bookinfo">Sumber, Saunders, A. dan Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, Edisi 11, Chapter 2. Disusun sebagai bahan belajar mandiri.</p>
+<h2 id="section1">1. Introduction to Depository Institutions</h2>
 
-<h2>1. Pendahuluan</h2>
-<p>Tema utama buku ini adalah bahwa produk yang dijual dan risiko yang dihadapi lembaga keuangan (FI) modern semakin serupa, begitu pula teknik yang digunakan untuk mengukur dan mengelola risiko tersebut. Pada tahun 1999, Kongres AS mengesahkan <i>Financial Services Modernization Act</i> (FSMA) yang mencabut regulasi pembatas antara perbankan komersial, asuransi, dan perbankan investasi, serta memungkinkan pembentukan <i>financial services holding companies</i> yang dapat menjalankan aktivitas perbankan, asuransi, dan sekuritas sekaligus.</p>
+<div class="interpretation">
+  <p>Depository institutions (DIs) are financial intermediaries that accept deposits from customers as a primary source of funding and use those funds to make loans and invest in securities. The three major groups of depository institutions are commercial banks, savings institutions, and credit unions. The defining characteristic of DIs is that a significant proportion of their funding comes from customer deposits, creating a joint-product structure on their balance sheets: they offer products on both sides—loans (assets) and deposits (liabilities). This joint-product nature creates special management challenges, particularly in dealing with interest rate risk, liquidity risk, and credit risk.</p>
+</div>
 
-<p class="tabcap">Tabel 2-1. Perbandingan Produk Industri Jasa Keuangan AS, 1950 versus 2021</p>
-<table>
-  <tr>
-    <th>Jenis Lembaga</th>
-    <th>Tahun 1950</th>
-    <th>Tahun 2021</th>
-  </tr>
-  <tr>
-    <td>Lembaga depositori</td>
-    <td>Jasa pembayaran, produk tabungan, jasa fidusia, pinjaman bisnis dan konsumen</td>
-    <td>Semua fungsi, jasa pembayaran, tabungan, fidusia, pinjaman bisnis dan konsumen, underwriting ekuitas dan utang, produk asuransi dan manajemen risiko</td>
-  </tr>
-  <tr>
-    <td>Perusahaan asuransi</td>
-    <td>Produk tabungan (kecil), produk asuransi dan manajemen risiko</td>
-    <td>Produk asuransi dan manajemen risiko, produk tabungan</td>
-  </tr>
-  <tr>
-    <td>Perusahaan pembiayaan</td>
-    <td>Pinjaman konsumen, pinjaman bisnis (kecil)</td>
-    <td>Pinjaman bisnis dan konsumen</td>
-  </tr>
-  <tr>
-    <td>Perusahaan sekuritas</td>
-    <td>Jasa pembayaran, produk tabungan, underwriting ekuitas dan utang</td>
-    <td>Underwriting ekuitas dan utang, jasa pembayaran</td>
-  </tr>
-  <tr>
-    <td>Dana pensiun</td>
-    <td>Produk tabungan</td>
-    <td>Produk tabungan, produk asuransi dan manajemen risiko</td>
-  </tr>
-  <tr>
-    <td>Reksa dana</td>
-    <td>Produk tabungan</td>
-    <td>Produk tabungan, produk asuransi dan manajemen risiko</td>
-  </tr>
-</table>
-<p>Bab ini membahas tiga kelompok FI utama yang disebut lembaga depositori, yaitu bank komersial, lembaga simpanan (savings institutions), dan credit union. Untuk tiap kelompok dibahas empat hal, yaitu ukuran, struktur, dan komposisi industri, neraca dan tren terkini, regulasi, serta kinerja industri.</p>
+<div class="formula-box">
+  <span class="label">Simple Depository Institution Balance Sheet Identity</span>
+  <div class="formula">\[ \text{Assets} = \text{Liabilities} + \text{Equity} \]</div>
+</div>
 
-<h2>2. Bank Komersial (Commercial Banks)</h2>
+<div class="interpretation">
+  <p><strong>Symbols:</strong> Assets include loans and other assets. Liabilities include deposits and other borrowed funds. Equity represents the owners' capital contribution plus retained earnings.</p>
+  <p><strong>Interpretation:</strong> For a depository institution, the balance sheet identity reflects the fundamental intermediation function: the institution transforms deposits (liabilities) into loans (assets). The equity cushion absorbs losses and protects depositors.</p>
+  <p><strong>Practical Use:</strong> This identity is used to assess the financial health, leverage, and risk exposure of a DI. Regulators monitor the ratio of equity to assets as a measure of solvency.</p>
+  <p><strong>Assumption:</strong> The balance sheet is recorded at book value; market values may differ significantly, especially for loans and securities.</p>
+</div>
 
-<h3>2.1 Ukuran, Struktur, dan Komposisi Industri</h3>
-<p>Bank komersial adalah kelompok lembaga depositori terbesar berdasarkan ukuran aset. Mereka menerima deposito (liabilitas) dan menyalurkan pinjaman (aset), dengan komposisi aset dan liabilitas yang jauh lebih beragam dibandingkan lembaga simpanan dan credit union. Pada Desember 2021, jumlah bank komersial di AS adalah <b>4.231 bank</b>, menurun drastis dari 14.416 bank pada 1985 dan 12.744 bank pada 1989, terutama akibat merger dan akuisisi.</p>
-<p>Jumlah cabang bank meningkat dari 43.293 pada 1985 menjadi rekor 85.005 pada 2009, lalu menurun menjadi 74.583 pada Desember 2020 karena konsolidasi. Beberapa merger terbesar dalam sejarah terjadi, misalnya akuisisi Chase Manhattan oleh J.P. Morgan ($33,6 miliar, 2000), FleetBoston oleh Bank of America ($49,3 miliar, 2003), Bank One oleh JPMorgan Chase ($60,0 miliar, 2004), dan Mellon Financial oleh Bank of New York ($18,3 miliar, 2007).</p>
-<p>Konsolidasi mengubah konsentrasi aset. Pangsa aset bank kecil (di bawah $1 miliar) menurun dari 36,6 persen pada 1984 menjadi hanya 4,7 persen pada 2021, sementara pangsa bank besar (di atas $1 miliar) naik dari 63,4 persen menjadi 95,3 persen. Bank-bank kecil atau <i>community banks</i> cenderung berspesialisasi pada perbankan ritel dan konsumen, seperti KPR dan pinjaman konsumen. Bank regional dan superregional melayani nasabah korporasi besar secara regional dan nasional, sementara <i>money center banks</i> seperti Bank of New York Mellon, Citigroup, JPMorgan Chase, dan HSBC Bank USA sangat mengandalkan dana nondeposito atau pinjaman, serta aktif di pasar valuta asing sehingga menghadapi risiko nilai tukar.</p>
-<p>Struktur portofolio pinjaman berbeda menurut ukuran bank. Bank kecil (aset di bawah $1 miliar) menyalurkan 74,49 persen pinjamannya dalam bentuk pinjaman real estate dan hanya 14,29 persen dalam pinjaman komersial dan industri (C&amp;I), sedangkan bank besar (aset $1 miliar atau lebih) memiliki portofolio lebih seimbang, yaitu real estate 43,83 persen, C&amp;I 21,88 persen, konsumen 9,44 persen, dan kartu kredit 7,82 persen.</p>
+<div class="example">
+  <h4>Example</h4>
+  <p>In 2021, U.S. commercial banks had total assets of $22,195.2 billion, total liabilities of $19,982.8 billion, and total equity capital of $2,212.4 billion. The equity-to-assets ratio was 9.97%, indicating that 90.03% of assets were funded by debt (deposits and borrowings).</p>
+</div>
 
-<h3>2.2 Neraca dan Tren Terkini</h3>
-<p>Pinjaman dan sekuritas investasi tetap menjadi aset utama industri perbankan. Pinjaman real estate adalah aset terbesar di neraca bank antara 1984 dan 2019, tetapi mulai kuartal pertama 2020 proporsinya menurun akibat pandemi COVID-19. Sebaliknya, proporsi sekuritas dan kas meningkat karena program bantuan pemerintah dan lonjakan tabungan masyarakat mendorong arus masuk deposito yang membanjiri bank, sehingga bank menggeser komposisi neracanya ke aset berjangka pendek dan berimbal hasil rendah.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A depository institution is like a reservoir: deposits flow in from many sources (rainfall/streams), and loans flow out to borrowers (irrigation channels). The reservoir must maintain enough water (liquidity) to meet withdrawal demands while also generating returns through controlled releases (loans). The equity is like the dam's structural integrity—if too many loans go bad (cracks form), the equity absorbs the damage before the reservoir collapses.</p>
+</div>
 
-<p class="tabcap">Tabel 2-2. Neraca Bank Komersial AS, 31 Desember 2021 (ringkas)</p>
-<table>
-  <tr>
-    <th>Pos</th>
-    <th>Miliar Dolar</th>
-    <th>Persen Aset</th>
-  </tr>
-  <tr>
-    <td>Kas</td>
-    <td>$3.420,4</td>
-    <td>15,41</td>
-  </tr>
-  <tr>
-    <td>Sekuritas</td>
-    <td>$5.587,1</td>
-    <td>25,17</td>
-  </tr>
-  <tr>
-    <td>Pinjaman dan sewa bersih, terdiri atas real estate $4.813,8 (21,69), C&amp;I $2.266,0 (10,21), individu $1.744,7 (7,86), lainnya $1.667,5 (7,51)</td>
-    <td>$10.396,6</td>
-    <td>46,84</td>
-  </tr>
-  <tr>
-    <td>Aset lainnya</td>
-    <td>$2.791,1</td>
-    <td>12,58</td>
-  </tr>
-  <tr>
-    <td><b>Total aset</b></td>
-    <td><b>$22.195,2</b></td>
-    <td><b>100,00</b></td>
-  </tr>
-</table>
-<p>Dari sisi liabilitas, deposito mencapai $18.410,3 miliar atau 82,9 persen dari total liabilitas dan ekuitas. Rekening transaksi (transaction accounts) sebesar 31,2 persen dari deposito ($5.735,6 miliar), mencakup giro tanpa bunga (demand deposits) dan rekening giro berbunga (terutama <i>NOW accounts</i>). Rekening nontransaksi sebesar 60,6 persen ($11.162,8 miliar), mencakup <i>money market deposit accounts (MMDAs)</i> sebagai sumber deposito terbesar, simpanan tabungan lain, dan deposito berjangka (<i>certificates of deposit</i>, CD). Pinjaman (borrowings) dan liabilitas lain berjumlah sekitar 7,9 persen dari seluruh liabilitas bank ($1.572,5 miliar), termasuk pembelian federal funds dan repurchase agreements.</p>
-<p>Ekuitas bank komersial sekitar 10,0 persen dari total liabilitas dan ekuitas pada 2021, artinya 90,0 persen aset dibiayai utang. Karena leverage yang tinggi ini, bahkan sejumlah kecil gagal bayar pinjaman dapat menghapus ekuitas bank dan membuatnya insolven. Regulator mewajibkan bank memegang modal minimum sebagai penyangga kerugian. Struktur liabilitas bank umumnya berjangka lebih pendek daripada struktur asetnya, sehingga risiko ketidakcocokan jatuh tempo (risiko suku bunga) dan risiko likuiditas menjadi perhatian utama manajer bank.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The joint-product nature of depository institutions—offering both deposits (liabilities) and loans (assets)—creates inherent maturity mismatch risk.</strong> Deposits are typically short-term and liquid, while loans are long-term and illiquid. This structural mismatch exposes DIs to interest rate risk, liquidity risk, and credit risk simultaneously.</p>
+</div>
 
-<h3>2.3 Program Bantuan Modal dan Stress Test</h3>
-<p>Bagian dari <i>Troubled Asset Relief Program (TARP)</i> 2008-2009 adalah <i>Capital Purchase Program (CPP)</i>, di mana Treasury membeli lebih dari $200 miliar saham preferen senior. TARP juga memberi dana darurat kepada Citigroup ($25 miliar) dan Bank of America ($20 miliar). Hingga Desember 2009, $204,9 miliar injeksi modal TARP dialokasikan, dan hingga 31 Desember 2021, $196,62 miliar telah dibayar kembali ditambah $30,16 miliar dividen dan hasil lainnya.</p>
-<p>Berdasarkan <i>Wall Street Reform and Consumer Protection Act</i> 2010, bank-bank terbesar menjalani <i>stress test</i> tahunan, dengan skenario dari ringan hingga sangat berat. Skenario ekstrem mencakup penurunan produk domestik bruto (PDB) 5 persen, tingkat pengangguran 12 persen, dan pasar saham yang kehilangan separuh nilainya. Pada stress test pertama (Februari 2009), 10 dari 19 lembaga depositori terbesar perlu menambah modal total $74,6 miliar, dan dalam sebulan setelah pengumuman 7 Mei 2009 mereka berhasil menghimpun $149,45 miliar. Hasil <i>Dodd-Frank Act Stress Test (DFAST)</i> 2021 menunjukkan 23 bank besar memiliki modal yang cukup untuk menyerap kerugian dalam skenario sangat berat.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Depository institutions (commercial banks, savings institutions, credit unions) are defined by their reliance on customer deposits as a primary funding source.</li>
+    <li>The balance sheet identity (Assets = Liabilities + Equity) is the fundamental framework for analyzing DI financial health.</li>
+    <li>The joint-product nature of DIs creates unique risk management challenges.</li>
+    <li>Regulatory evolution (e.g., Financial Services Modernization Act of 1999, Volcker Rule) has shaped the structure and activities of DIs.</li>
+  </ul>
+</div>
 
-<h3>2.4 Aktivitas Off-Balance-Sheet</h3>
-<p>Neraca tidak mencerminkan seluruh cakupan aktivitas bank. Banyak aktivitas berbasis biaya (fee) dilakukan di luar neraca, yaitu <i>off-balance-sheet (OBS)</i>. Suatu pos disebut aset OBS jika, ketika peristiwa kontingen terjadi, pos tersebut pindah ke sisi aset neraca atau menghasilkan pendapatan, dan disebut liabilitas OBS jika pindah ke sisi liabilitas atau menimbulkan beban. Aktivitas OBS meliputi penerbitan jaminan seperti letter of credit, komitmen pinjaman di masa depan, dan transaksi derivatif (futures, forwards, options, swaps).</p>
-<p>Bank melakukan aktivitas OBS untuk memperoleh pendapatan biaya tambahan guna melengkapi margin yang menyempit, sekaligus menghindari beban regulasi karena giro wajib minimum dan premi asuransi deposito tidak dikenakan pada aktivitas OBS. Namun aktivitas OBS juga menambah risiko insolvensi. Nilai nosional aktivitas OBS bank komersial tumbuh dari $10.236,7 miliar pada 1992 menjadi puncak $228.467,4 miliar pada 2012, lalu menurun menjadi $188.189,6 miliar pada 2021, sementara total aset di neraca tumbuh dari $3.506,2 miliar menjadi $22.195,2 miliar. Perlu dicatat bahwa nilai nosional melebih-lebihkan risiko, karena potensi untung atau rugi didasarkan pada perubahan nilai pasar kontrak yang biasanya kurang dari 3 persen dari nilai nosional.</p>
-<p><i>Volcker Rule</i>, bagian dari undang-undang 2010, melarang lembaga depositori AS melakukan <i>proprietary trading</i> (perdagangan untuk kepentingan bank sendiri). Aturan ini mulai berlaku April 2014 dan bank wajib mematuhinya paling lambat 21 Juli 2015, yang mendorong penurunan derivatif yang dipegang di luar neraca. Bagian pendapatan nonbunga terhadap total pendapatan operasional bank meningkat dari 22,66 persen pada 1979 menjadi 30,14 persen pada 2018.</p>
-<p>Dua aktivitas penghasil biaya lainnya adalah jasa perwalian (<i>trust services</i>), di mana bank mengelola aset untuk individu (sekitar separuh dari seluruh aset perwalian) dan dana pensiun, serta <i>correspondent banking</i>, yaitu penyediaan jasa seperti kliring cek dan perdagangan valuta asing untuk bank lain yang tidak memiliki staf untuk melakukannya sendiri.</p>
+<h2 id="section2">2. Commercial Banks</h2>
 
-<h3>2.5 Regulasi</h3>
-<p>Tidak seperti bank di negara lain yang memiliki satu atau dua regulator, bank AS dapat diawasi hingga empat regulator sekaligus, yaitu FDIC, OCC, Federal Reserve System (FRS), dan regulator negara bagian. Ini mencerminkan <i>dual banking system</i>, di mana bank dapat memilih piagam nasional atau negara bagian. Pada Desember 2021, terdapat 747 bank berpiagam nasional dan 3.484 bank berpiagam negara bagian, dengan pangsa aset masing-masing sekitar 66 persen dan 34 persen.</p>
-<ul>
-  <li><b>FDIC</b> memberikan jaminan deposito untuk mencegah <i>bank runs</i> dan penularan kepanikan, memungut premi asuransi, mengelola dana asuransi deposito (DIF), memeriksa bank, serta bertindak sebagai penerima dan likuidator saat bank ditutup. Contoh nyata pentingnya asuransi, <i>Bear Stearns</i> (bank investasi) mengalami run pertama pada FI AS sejak Great Depression pada Maret 2008 karena liabilitasnya tidak diasuransikan federal</li>
-  <li><b>OCC</b> adalah regulator bank tertua, didirikan 1863 sebagai subagen Treasury, yang memberi piagam nasional, memeriksa, dan menutup bank nasional</li>
-  <li><b>Federal Reserve</b> selain menjalankan kebijakan moneter juga mengatur bank anggota dan <i>holding companies</i> bank, dengan keunggulan keanggotaan berupa akses ke jaringan transfer federal funds (Fedwire) dan diskonto window sebagai lender of last resort. Sejak 1980 semua bank dikenai giro wajib minimum yang sama</li>
-  <li><b>Otoritas negara bagian</b> menjalankan fungsi serupa OCC untuk bank berpiagam negara bagian</li>
-</ul>
+<h3>2.1 Industry Structure and Composition</h3>
 
-<p class="tabcap">Tabel 2-3. Undang-Undang Perbankan Utama AS</p>
-<table>
-  <tr>
-    <th>Tahun</th>
-    <th>Undang-Undang</th>
-    <th>Fitur Utama</th>
-  </tr>
-  <tr>
-    <td>1927</td>
-    <td>McFadden Act</td>
-    <td>Membatasi branching antar negara bagian untuk bank nasional</td>
-  </tr>
-  <tr>
-    <td>1933</td>
-    <td>Banking Acts (Glass-Steagall)</td>
-    <td>Memisahkan bank komersial dari bank investasi, mendirikan FDIC, melarang bunga atas giro</td>
-  </tr>
-  <tr>
-    <td>1956</td>
-    <td>Bank Holding Company Act</td>
-    <td>Membatasi akuisisi multibank holding companies, memberi kewenangan pengaturan ke Federal Reserve</td>
-  </tr>
-  <tr>
-    <td>1980</td>
-    <td>DIDMCA</td>
-    <td>Menghapus batas bunga Regulation Q, mengizinkan NOW accounts, giro wajib seragam, menaikkan asuransi deposito $40.000 menjadi $100.000</td>
-  </tr>
-  <tr>
-    <td>1982</td>
-    <td>Garn-St Germain (DIA)</td>
-    <td>Memperkenalkan MMDAs dan super NOW accounts, memperluas kekuasaan pinjaman thrift</td>
-  </tr>
-  <tr>
-    <td>1989</td>
-    <td>FIRREA</td>
-    <td>Menghapus FSLIC, membentuk SAIF di bawah FDIC, membuat RTC, menetapkan QTL test 65 persen</td>
-  </tr>
-  <tr>
-    <td>1991</td>
-    <td>FDICIA</td>
-    <td>Memperkenalkan prompt corrective action dan premi asuransi berbasis risiko (1993)</td>
-  </tr>
-  <tr>
-    <td>1994</td>
-    <td>Riegle-Neal Act</td>
-    <td>Mempermudah branching dan akuisisi antar negara bagian</td>
-  </tr>
-  <tr>
-    <td>1999</td>
-    <td>Financial Services Modernization Act</td>
-    <td>Mencabut Glass-Steagall, memungkinkan financial services holding companies</td>
-  </tr>
-  <tr>
-    <td>2010</td>
-    <td>Dodd-Frank Act</td>
-    <td>Membentuk Consumer Financial Protection Bureau, Volcker Rule, stress test tahunan untuk bank besar</td>
-  </tr>
-  <tr>
-    <td>2018</td>
-    <td>EGRRCPA</td>
-    <td>Keringanan regulasi untuk bank komunitas, menyesuaikan ambang pengawasan pruden</td>
-  </tr>
-</table>
+<div class="interpretation">
+  <p>Commercial banks are the largest group of depository institutions by asset size. They accept deposits (liabilities) and make loans (assets) with a broader range of loan types than savings institutions or credit unions, including consumer, commercial, and real estate loans. The U.S. banking system is unique in having both very large money center banks and a large number of small community banks, a structure largely resulting from historical legal restrictions on geographic diversification.</p>
+  <p>Key distinctions among bank types:</p>
+  <ul>
+    <li><strong>Community banks</strong> (assets under $1 billion): Specialize in retail or consumer banking, providing residential mortgages and consumer loans, accessing local deposit bases. They focus on relationship banking, using personal knowledge of customers' creditworthiness.</li>
+    <li><strong>Regional or superregional banks</strong> ($1 billion to several hundred billion in assets): Engage in a complete array of wholesale commercial banking activities, including consumer, residential, commercial, and industrial lending (C&I loans) regionally and nationally.</li>
+    <li><strong>Money center banks</strong> (e.g., Bank of New York Mellon, Citigroup, JPMorgan Chase): Characterized by heavy reliance on nondeposit or borrowed sources of funds, few retail branches, major participation in foreign currency markets, and headquarters in New York or Chicago.</li>
+  </ul>
+  <p>The number of U.S. commercial banks declined from 14,416 in 1985 to 4,231 in 2021, driven by mergers, failures, and regulatory changes. The Riegle-Neal Act of 1994 eased interstate branching, and the Financial Services Modernization Act of 1999 allowed banks to enter investment banking and insurance. Despite the decline in number of banks, the number of branches increased from 43,293 in 1985 to 85,005 in 2009 before declining to 74,583 in 2020.</p>
+</div>
 
-<h3>2.6 Kinerja Industri</h3>
-<p>Kinerja bank komersial sangat dipengaruhi siklus ekonomi. Pada 1999 laba bank mencapai rekor $71,6 miliar dengan ROA rata-rata 1,31 persen. Pada 2003 laba naik menjadi $106,3 miliar dengan ROA 1,40 persen dan ROE 15,34 persen, keduanya tertinggi sepanjang sejarah, didukung pemotongan suku bunga Federal Reserve (13 kali), booming perumahan, dan instrumen keuangan baru seperti credit derivatives dan mortgage-backed securities. Pada 2006 ROA dan ROE masing-masing 1,33 persen dan 13,02 persen, dan tidak ada bank yang gagal (bandingkan dengan 206 kegagalan pada 1989).</p>
-<p>Krisis 2007-2009 menghantam keras. Laba 2007 turun menjadi $105,5 miliar (turun 27,4 persen dari 2006), dan pada 2008 laba anjlok menjadi hanya $10,2 miliar (turun 89,8 persen) dengan ROA 0,13 persen, terendah sejak 1987, dan 23,6 persen institusi tidak menguntungkan. Kerugian dari sekuritas OBS mencapai lebih dari $1 triliun di seluruh dunia hingga 2009. Setelah ekonomi pulih, ROA dan ROE kembali mendekati tingkat sebelum krisis.</p>
+<div class="example">
+  <h4>Example: Asset Concentration by Bank Size</h4>
+  <p>In 1984, banks with assets under $1 billion held 36.6% of total industry assets. By 2021, this share had fallen to 4.7%. Conversely, banks with assets over $10 billion increased their share from 34.5% (1984) to 86.9% (2021). The number of banks in the largest category increased from 24 to 142 over the same period. This dramatic consolidation reflects the trend toward larger, more complex banking organizations.</p>
+</div>
 
-<p class="tabcap">Tabel 2-4. Return on Assets Bank Komersial Berdasarkan Ukuran (persen, tahun terpilih)</p>
-<table>
-  <tr>
-    <th>Tahun</th>
-    <th>Semua Bank</th>
-    <th>$0-100 Juta</th>
-    <th>$100 Juta-1 Miliar</th>
-    <th>$1-10 Miliar</th>
-    <th>$10 Miliar+</th>
-  </tr>
-  <tr>
-    <td>1990</td>
-    <td>0,49</td>
-    <td>0,79</td>
-    <td>0,78</td>
-    <td>0,76</td>
-    <td>0,38</td>
-  </tr>
-  <tr>
-    <td>1995</td>
-    <td>1,17</td>
-    <td>1,18</td>
-    <td>1,25</td>
-    <td>1,28</td>
-    <td>1,10</td>
-  </tr>
-  <tr>
-    <td>2000</td>
-    <td>1,19</td>
-    <td>1,01</td>
-    <td>1,28</td>
-    <td>1,29</td>
-    <td>1,16</td>
-  </tr>
-  <tr>
-    <td>2006</td>
-    <td>1,33</td>
-    <td>0,95</td>
-    <td>1,24</td>
-    <td>1,35</td>
-    <td>1,35</td>
-  </tr>
-  <tr>
-    <td>2008</td>
-    <td>0,16</td>
-    <td>0,36</td>
-    <td>0,38</td>
-    <td>-0,10</td>
-    <td>0,16</td>
-  </tr>
-  <tr>
-    <td>2009</td>
-    <td>0,09</td>
-    <td>0,06</td>
-    <td>-0,01</td>
-    <td>-0,35</td>
-    <td>0,15</td>
-  </tr>
-  <tr>
-    <td>2010</td>
-    <td>0,66</td>
-    <td>0,36</td>
-    <td>0,34</td>
-    <td>0,19</td>
-    <td>0,75</td>
-  </tr>
-  <tr>
-    <td>2015</td>
-    <td>1,04</td>
-    <td>0,87</td>
-    <td>1,07</td>
-    <td>1,16</td>
-    <td>1,02</td>
-  </tr>
-  <tr>
-    <td>2021</td>
-    <td>1,24</td>
-    <td>1,00</td>
-    <td>1,26</td>
-    <td>1,46</td>
-    <td>1,21</td>
-  </tr>
-</table>
-<p>ROE untuk semua bank pada tahun-tahun terpilih adalah 7,64 persen (1990), 14,68 persen (1995), 14,07 persen (2000), 13,06 persen (2006), 9,29 persen (2008), 1,62 persen (2009), 0,85 persen (2010), 5,99 persen (2013), dan 9,60 persen (2015). Karena bank besar memegang lebih sedikit ekuitas per dolar aset, ROE mereka umumnya lebih besar daripada bank kecil.</p>
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>The banking industry structure is like a forest ecosystem: community banks are the undergrowth—numerous, locally adapted, and providing essential services to the immediate environment. Regional banks are the mid-sized trees, and money center banks are the dominant canopy trees that influence conditions across the entire forest. While the undergrowth has thinned, the largest trees have grown taller and spread their branches wider.</p>
+</div>
 
-<h2>3. Lembaga Simpanan (Savings Institutions)</h2>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Asset size does not determine whether a bank is a money center bank.</strong> Bank of America ($2,427.5 billion in assets) is not a money center bank, while Bank of New York Mellon ($416.6 billion) is. The defining characteristics are location (New York or Chicago), heavy reliance on nondeposit/borrowed funds, and major participation in foreign currency markets.</p>
+</div>
 
-<h3>3.1 Sejarah, Struktur, dan Krisis 1980-an</h3>
-<p>Lembaga simpanan pertama didirikan pada awal 1800-an untuk melayani kebutuhan individu membeli rumah, karena bank komersial fokus pada kebutuhan bisnis. Lembaga simpanan terdiri dari dua kelompok, yaitu <i>savings associations</i> (SA) yang secara historis fokus pada KPR hunian, dan <i>savings banks</i> (SB) yang lebih terdiversifikasi dengan sebagian aset pada pinjaman komersial, obligasi korporasi, dan saham, serta lebih mengandalkan deposito. Banyak savings banks didirikan sebagai <i>mutual organizations</i> di mana deposan sekaligus pemilik sah bank.</p>
-<p>Pada akhir 1970-an terdapat hampir 4.000 savings associations dengan aset sekitar $0,6 triliun. Antara Oktober 1979 dan Oktober 1982, kebijakan moneter ketat Federal Reserve mendorong suku bunga T-bills hingga 16 persen. Lembaga simpanan menghadapi margin bunga negatif karena mendanai KPR berbunga tetap jangka panjang dengan deposito jangka pendek, dan terhambat oleh batas suku bunga Regulation Q sehingga terjadi <i>disintermediation</i>, yaitu penarikan deposito yang dipindahkan ke reksa dana pasar uang. Untuk mengatasinya, DIDMCA (1980) dan DIA (1982) memberi kekuasaan baru, seperti NOW accounts, MMDAs, KPR dengan suku bunga dapat disesuaikan (ARM), dan pinjaman komersial serta konsumen terbatas.</p>
-<p>Namun pada pertengahan 1980-an harga real estate di Texas dan Barat Daya runtuh, diikuti resesi di Timur Laut dan negara bagian Barat. Banyak peminjam gagal bayar, dan perilaku pengambilan risiko (<i>moral hazard</i>) diperparah oleh FSLIC yang tidak mampu menutup lembaga yang insolven (kebijakan <i>regulator forbearance</i>). Jumlah savings associations menurun dari 4.000 (1980) menjadi 2.600 (1989) atau minus 35 persen, meskipun asetnya justru berlipat ganda dari $600 miliar menjadi $1,2 triliun. Krisis real estate New England 1990-1991 kemudian banyak menjatuhkan savings banks.</p>
-<p>Krisis ini memunculkan dua undang-undang penting. <b>FIRREA (1989)</b> menghapus FSLIC dan menggantinya dengan SAIF di bawah FDIC, membentuk <i>Resolution Trust Corporation (RTC)</i> yang hingga pembubarannya pada 1995 menutup lebih dari 700 lembaga dengan biaya sekitar $200 miliar, serta menetapkan <i>Qualified Thrift Lender (QTL) test</i> yang mewajibkan thrift memegang minimal 65 persen asetnya dalam aset terkait KPR. <b>FDICIA (1991)</b> memperkenalkan premi asuransi deposito berbasis risiko (mulai 1993) dan <i>prompt corrective action (PCA)</i>, di mana lembaga dengan rasio ekuitas terhadap aset di bawah 2 persen wajib ditutup atau direkapitalisasi dalam tiga bulan. Akibatnya industri menyusut dari 3.677 lembaga (1989) menjadi 2.262 (1993) atau minus 38 persen, dengan aset turun dari $1,427 triliun menjadi $1,001 triliun (minus 30 persen).</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Commercial banks are the largest DI group, with a broader range of loan types than other DIs.</li>
+    <li>The U.S. banking system has a unique dual structure: many small community banks and a few very large money center/regional banks.</li>
+    <li>Industry consolidation has dramatically reduced the number of banks from 14,416 (1985) to 4,231 (2021).</li>
+    <li>Small banks focus on relationship banking; large banks rely on centralized decision making and computer models.</li>
+  </ul>
+</div>
 
-<h3>3.2 Neraca 2021</h3>
-<p>Pada 2021 total aset lembaga simpanan sekitar $1,524 triliun. Pinjaman real estate mencapai 29,17 persen dari total aset, lebih tinggi daripada bank komersial yang 21,69 persen. Kas dan sekuritas pemerintah AS mencapai 47,06 persen aset (dibandingkan 35,53 persen di bank komersial) untuk keperluan likuiditas dan giro wajib. Deposito merupakan sumber dana utama dengan porsi 84,73 persen dari total liabilitas dan kekayaan bersih, diikuti pinjaman dari Federal Home Loan Banks (FHLB, berjumlah 12 bank yang dimiliki oleh lembaga simpanan itu sendiri). Kekayaan bersih (net worth) mencapai 9,66 persen dari total aset pada 2021, dibandingkan 9,97 persen di bank komersial.</p>
+<h3>2.2 Balance Sheet and Recent Trends</h3>
 
-<h3>3.3 Regulasi</h3>
-<p>Regulator utama lembaga simpanan adalah OCC dan FDIC. FIRREA (1989) membentuk Office of Thrift Supervision (OTS) untuk memberi piagam dan memeriksa lembaga simpanan federal. Karena kinerjanya dinilai lemah selama krisis keuangan, <i>Wall Street Reform and Consumer Protection Act</i> memerintahkan penggabungan OTS ke dalam OCC, yang efektif pada 21 Juli 2011 dan OTS resmi berakhir pada 19 Oktober 2011. Di sisi asuransi, SAIF dan Bank Insurance Fund (BIF) digabung menjadi <i>Deposit Insurance Fund (DIF)</i> pada Januari 2007, sehingga thrift kini beroperasi di bawah struktur regulasi yang sama dengan bank komersial.</p>
+<div class="interpretation">
+  <p>The commercial bank balance sheet reveals the core risks and strategic focus of the institution. As of December 31, 2021, total assets for all U.S. commercial banks were $22,195.2 billion.</p>
+  <p><strong>Assets:</strong></p>
+  <ul>
+    <li>Net loans and leases: $10,396.6 billion (46.84% of total assets)</li>
+    <li>Securities: $5,587.1 billion (25.17%)</li>
+    <li>Cash assets: $3,420.4 billion (15.41%)</li>
+    <li>Other assets: $2,791.1 billion (12.58%)</li>
+  </ul>
+  <p>Loan composition: Real estate loans ($4,813.8 billion, 21.69% of total assets), C&I loans ($2,266.0 billion, 10.21%), loans to individuals ($1,744.7 billion, 7.86%), and other loans ($1,667.5 billion, 7.51%).</p>
+  <p><strong>Liabilities:</strong></p>
+  <ul>
+    <li>Total deposits: $18,410.3 billion (82.95% of total liabilities and equity)</li>
+    <li>Borrowings: $591.5 billion (2.67%)</li>
+    <li>Other liabilities: $981.0 billion (4.42%)</li>
+    <li>Total equity capital: $2,212.4 billion (9.97%)</li>
+  </ul>
+  <p>Deposit composition: Transaction accounts ($5,735.6 billion, 31.2% of deposits) including demand deposits and NOW accounts; nontransaction accounts ($11,162.8 billion, 60.6% of deposits) including money market deposit accounts (MMDAs), savings deposits, and time deposits (certificates of deposit).</p>
+  <p><strong>Critical inference:</strong> The liability structure has a shorter maturity than the asset portfolio. Liquid deposits and interbank borrowings fund illiquid loans, creating maturity mismatch. This exposes banks to interest rate risk and liquidity risk. Additionally, because banks are highly leveraged (equity is only ~10% of assets), even a small number of loan defaults can wipe out equity, leaving the bank insolvent.</p>
+</div>
 
-<h3>3.4 Kinerja Industri</h3>
-<p>Kinerja lembaga simpanan menyerupai siklus bank komersial. Pada 1999 mereka mencatat laba $10,7 miliar dengan ROA 1,00 persen. Pada 2007 laba turun menjadi $6,0 miliar dengan ROA 0,13 persen, dan pada 2008 laba menjadi negatif $8,6 miliar dengan ROA -0,72 persen, tahun rugi pertama sejak 1991, sementara hanya enam lembaga yang gagal atau dibantu, termasuk Washington Mutual, lembaga simpanan terbesar dengan aset lebih dari $300 miliar. Setelah pemulihan, pada 2021 ROA dan ROE masing-masing 1,11 persen dan 11,29 persen, dengan jumlah lembaga menyusut menjadi 608.</p>
+<div class="formula-box">
+  <span class="label">Return on Assets (ROA)</span>
+  <div class="formula">\[ \text{ROA} = \frac{\text{Net Income}}{\text{Total Assets}} \]</div>
+</div>
 
-<p class="tabcap">Tabel 2-5. Indikator Terpilih Lembaga Simpanan AS</p>
-<table>
-  <tr>
-    <th>Tahun</th>
-    <th>Jumlah Lembaga</th>
-    <th>ROA (%)</th>
-    <th>ROE (%)</th>
-  </tr>
-  <tr>
-    <td>1989</td>
-    <td>3.677</td>
-    <td>-0,39</td>
-    <td>-8,06</td>
-  </tr>
-  <tr>
-    <td>1999</td>
-    <td>1.642</td>
-    <td>1,00</td>
-    <td>11,73</td>
-  </tr>
-  <tr>
-    <td>2006</td>
-    <td>1.279</td>
-    <td>0,99</td>
-    <td>8,68</td>
-  </tr>
-  <tr>
-    <td>2007</td>
-    <td>1.251</td>
-    <td>0,13</td>
-    <td>1,08</td>
-  </tr>
-  <tr>
-    <td>2008</td>
-    <td>1.219</td>
-    <td>-0,72</td>
-    <td>-7,75</td>
-  </tr>
-  <tr>
-    <td>2009</td>
-    <td>1.172</td>
-    <td>0,14</td>
-    <td>1,31</td>
-  </tr>
-  <tr>
-    <td>2010</td>
-    <td>1.128</td>
-    <td>0,65</td>
-    <td>5,76</td>
-  </tr>
-  <tr>
-    <td>2015</td>
-    <td>844</td>
-    <td>1,12</td>
-    <td>9,93</td>
-  </tr>
-  <tr>
-    <td>2021</td>
-    <td>608</td>
-    <td>1,11</td>
-    <td>11,29</td>
-  </tr>
-</table>
-<p>Konsolidasi juga terjadi. Lembaga simpanan terbesar (aset di atas $10 miliar) bertambah dari 8 lembaga pada 1992 menjadi 18 pada 2021, dan penguasaan aset industrinya tumbuh dari 17,8 persen menjadi 67,3 persen.</p>
+<div class="interpretation">
+  <p><strong>Symbols:</strong> Net Income is the bank's profit after all expenses, provisions, and taxes. Total Assets is the book value of all assets.</p>
+  <p><strong>Interpretation:</strong> ROA measures the earnings generated per dollar of assets. It reflects the efficiency of asset utilization and overall profitability.</p>
+  <p><strong>Practical Use:</strong> ROA is used to compare profitability across banks of different sizes. A higher ROA indicates more efficient use of assets.</p>
+  <p><strong>Assumption:</strong> ROA uses book value of assets, which may differ from market value, especially for loans and securities.</p>
+</div>
 
-<h2>4. Credit Unions</h2>
+<div class="formula-box">
+  <span class="label">Return on Equity (ROE)</span>
+  <div class="formula">\[ \text{ROE} = \frac{\text{Net Income}}{\text{Total Equity}} \]</div>
+</div>
 
-<h3>4.1 Karakteristik dan Struktur</h3>
-<p>Credit unions (CU) adalah lembaga depositori nirlaba yang dimiliki secara mutual oleh anggotanya (deposan). CU pertama di AS didirikan pada awal 1900-an di Massachusetts sebagai organisasi swadaya. Berbeda dengan bank komersial dan lembaga simpanan, CU dilarang melayani masyarakat umum dan hanya melayani anggota yang memiliki <i>common bond</i>, yaitu ikatan pekerjaan (misalnya CU kepolisian), asosiasi (misalnya CU universitas), atau komunitas, wilayah, dan distrik pedesaan tertentu. Tujuan utama CU adalah memenuhi kebutuhan deposito dan pinjaman anggotanya, dan karena bersifat nirlaba, pendapatan bersihnya tidak dikenai pajak dan tidak tunduk pada persyaratan investasi lokal <i>Community Reinvestment Act</i>. Status bebas pajak ini memungkinkan CU menawarkan suku bunga deposito lebih tinggi dan suku bunga pinjaman lebih rendah daripada bank dan lembaga simpanan.</p>
-<p>CU adalah lembaga depositori yang paling banyak jumlahnya, yaitu 4.942 pada 2021, dengan lebih dari 129,6 juta anggota. Secara tradisional lebih dari 60 persen aset CU berbentuk pinjaman konsumen kecil, sering di bawah $10.000, dan CU memegang banyak sekuritas pemerintah (14,2 persen aset pada 2021) serta relatif sedikit KPR. Karena itu CU lebih tahan terhadap krisis, misalnya pada 2008 ROA CU rata-rata 0,31 persen, lebih baik daripada bank komersial (0,13 persen) dan lembaga simpanan (-0,72 persen). Pada 2021 pinjaman bisnis hanya 5,9 persen dari total pinjaman CU.</p>
-<p>Sistem CU nasional terdiri dari tiga tingkat, yaitu U.S. Central Credit Union di tingkat nasional, corporate credit unions (11 lembaga) di tingkat negara bagian atau regional yang melayani CU anggota dengan menginvestasikan dan meminjamkan dana berlebih, dan credit unions lokal di tingkat bawah.</p>
+<div class="interpretation">
+  <p><strong>Symbols:</strong> Net Income is the bank's profit. Total Equity is the book value of common equity including retained earnings.</p>
+  <p><strong>Interpretation:</strong> ROE measures the return to common stockholders per dollar of equity invested. It reflects the bank's ability to generate profits from shareholders' capital.</p>
+  <p><strong>Practical Use:</strong> ROE is the key metric for shareholders. It can be decomposed via DuPont analysis as ROE = ROA × (Assets/Equity), where the equity multiplier captures financial leverage.</p>
+  <p><strong>Assumption:</strong> ROE is sensitive to leverage. Banks with lower equity per dollar of assets (higher leverage) will have higher ROE for the same ROA.</p>
+</div>
 
-<h3>4.2 Neraca 2021</h3>
-<p>Pada Desember 2021, 4.942 CU memiliki aset total $2.060,4 miliar, dibandingkan $155 miliar pada 1987. Ukuran rata-rata CU adalah $416,9 juta, jauh lebih kecil daripada rata-rata bank sebesar $5.245,9 juta, dan total aset semua CU kurang dari separuh aset JPMorgan Chase. Kas dan setara kas mencapai 12,6 persen aset, sekuritas investasi 22,0 persen, dan total pinjaman 60,9 persen. Pinjaman anggota berupa KPR 26,7 persen dan pinjaman konsumen kecil 23,1 persen, sehingga bersama-sama pinjaman anggota mencapai 49,8 persen dari total aset. Pendanaan terutama berasal dari deposito anggota (89,7 persen), dengan komposisi regular shares 35,5 persen, rekening pasar uang 22,0 persen, share drafts 19,9 persen, dan share certificates (CD) 13,4 persen. Rasio modal terhadap aset CU pada Desember 2021 adalah 10,27 persen, dibandingkan 9,66 persen untuk lembaga simpanan dan 9,97 persen untuk bank komersial.</p>
+<div class="example">
+  <h4>Example: ROA and ROE by Bank Size (2021)</h4>
+  <p>For banks with assets under $100 million: ROA = 1.00%, ROE = 7.62%. For banks with assets over $10 billion: ROA = 1.21%, ROE = 12.18%. The equity multiplier (Assets/Equity) is higher for large banks (implied by the ratio ROE/ROA = 12.18/1.21 ≈ 10.07) than for small banks (7.62/1.00 ≈ 7.62). Large banks operate with less equity per dollar of assets, which amplifies ROE but also increases financial risk.</p>
+</div>
 
-<h3>4.3 Regulasi dan Kinerja</h3>
-<p>CU dapat berpiagam federal atau negara bagian. Pada 2021, 62,7 persen dari 4.942 CU berpiagam federal, diawasi <i>National Credit Union Administration (NCUA)</i>, mencakup 52,6 persen anggota dan 50,5 persen aset. NCUA juga memberikan jaminan deposito hingga $250.000 melalui <i>National Credit Union Share Insurance Fund (NCUSIF)</i> yang kini mencakup 98 persen seluruh deposito CU.</p>
-<p>Aset industri CU tumbuh lebih dari 6,9 persen per tahun dari 1999 hingga 2021, dan keanggotaan meningkat dari 77,5 juta (1999) menjadi lebih dari 129,6 juta (2018). ROA industri pada 2021 adalah 1,07 persen, dengan CU terbesar mencapai 1,20 persen sementara CU terkecil (aset di bawah $10 juta) hanya 0,18 persen. Karena kepemilikan mutual, pertumbuhan laba bukan tujuan utama CU, melainkan pelayanan kebutuhan deposito dan pinjaman anggota selama modal cukup melindungi dari kerugian tak terduga.</p>
-<p>Namun corporate credit unions nyaris runtuh saat krisis. Mereka melaporkan kerugian belum terealisasi $18 miliar pada November 2008, dan deposito CU lokal di corporate credit unions turun hampir 49 persen antara 31 Maret 2008 dan 30 September 2008, dari $44,7 miliar menjadi $22,9 miliar, sementara mereka mengumpulkan $50 miliar mortgage-backed securities beracun. Pada Maret 2009 NCUA menempatkan U.S. Central dan WesCorp dalam konservatorship, dan pada kuartal ketiga 2010 NCUA memegang sekitar 70 persen aset sistem corporate credit union. Akhirnya lima corporate credit unions terbesar dinyatakan insolven.</p>
+<div class="formula-box">
+  <span class="label">Net Interest Margin (NIM)</span>
+  <div class="formula">\[ \text{NIM} = \frac{\text{Interest Income} - \text{Interest Expense}}{\text{Earning Assets}} \]</div>
+</div>
 
-<h2>5. Kinerja Keuangan Global</h2>
-<p>Krisis keuangan AS dengan cepat menyebar ke seluruh dunia. Pada 2008 bank terbesar di Belanda, Swiss, dan Inggris mencatat rugi bersih, sementara bank di Irlandia, Spanyol, dan Inggris paling terpukul karena investasi besar pada KPR dan mortgage-backed securities. Berbagai negara merespons, misalnya Jerman menjamin seluruh deposito konsumen dan menyelamatkan Hypo Real Estate, Inggris menasionalisasi Bradford &amp; Bingley dan menaikkan jaminan deposito dari $62.220 menjadi $88.890 per rekening, Irlandia menjamin deposito dan utang enam lembaga keuangan utama, Islandia menyelamatkan bank terbesarnya dengan $860 juta, serta Belanda, Belgia, dan Luksemburg menyuntik $16,37 miliar ke Fortis NV. Bank of England menurunkan suku bunga ke rekor 1 persen.</p>
-<p>Krisis utang Yunani kemudian mengancam sistem keuangan Eropa. Pada Maret 2010 rencana bailout Yunani senilai hingga $41 miliar mulai disusun, namun pada akhir April 2010 harga obligasi Yunani merosot setelah defisit anggaran 2009 ternyata lebih buruk dari perkiraan dan Moody's menurunkan peringkat utang Yunani. Terjadi bank run di Yunani dengan penarikan hingga 750 juta per hari, hampir 0,5 persen dari basis deposito 170 miliar. Paparan bank-bank AS terhadap Yunani, Irlandia, Portugal, dan Spanyol masing-masing $43,1 miliar, $113,9 miliar, $47,1 miliar, dan $187,5 miliar, dan paparan bank di seluruh dunia terhadap keempat negara itu mencapai $2.512,3 miliar. Pada 9 Mei 2010, para menteri keuangan Eropa dan IMF menyetujui paket penyelamatan $147 miliar dengan jaring pengaman $1 triliun. Situasi mulai stabil setelah 2012, dan pada 18 Desember 2012 Standard &amp; Poor's menaikkan peringkat utang Yunani enam notch menjadi B minus.</p>
-<p>Pada Juni 2016 Inggris memilih keluar dari Uni Eropa (Brexit) dengan suara 17,4 juta berbanding 16,1 juta. Inggris resmi keluar pada 31 Januari 2020 dan masa transisi berakhir 31 Desember 2020. Brexit memperlambat pertumbuhan Inggris dari 2,4 persen (2015) menjadi 1,6 persen (2019), dengan estimasi penurunan hingga 6,7 persen selama 15 tahun, pound melemah dari $1,48 menjadi $1,36 sehari setelah referendum, dan investasi bisnis turun 11 persen antara 2016 dan 2019.</p>
+<div class="interpretation">
+  <p><strong>Symbols:</strong> Interest Income is revenue from loans, securities, and other earning assets. Interest Expense is the cost of deposits and borrowings. Earning Assets are assets that generate interest income (loans, securities, federal funds sold).</p>
+  <p><strong>Interpretation:</strong> NIM measures the spread between what the bank earns on its interest-bearing assets and what it pays on its interest-bearing liabilities, relative to the size of earning assets.</p>
+  <p><strong>Practical Use:</strong> NIM is a key indicator of profitability from core intermediation activities. A declining NIM may indicate increased competition or a flattening yield curve.</p>
+  <p><strong>Assumption:</strong> NIM does not capture noninterest income (fees, trading income) or noninterest expenses (operating costs).</p>
+</div>
 
-<h2>6. Perhitungan dan Rumus Kunci</h2>
-<p>Bagian ini merangkum rumus-rumus penting yang digunakan untuk menilai kinerja lembaga depositori.</p>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The maturity mismatch between short-term liabilities (deposits) and long-term assets (loans) is both a source of profit and a source of risk.</strong> Banks earn a positive spread by paying low rates on deposits and charging higher rates on loans. However, when short-term interest rates rise sharply, funding costs increase faster than loan yields, compressing NIM and potentially causing losses—as happened to savings institutions in 1979-1982.</p>
+</div>
 
-<h3>6.1 Return on Assets (ROA)</h3>
-<p>ROA mengukur laba per dolar aset, dihitung sebagai laba bersih dibagi total aset.</p>
-<div class="eq">\[ ROA = \frac{NI}{TA} \]</div>
-<p>dengan \( NI \) adalah laba bersih (net income) dan \( TA \) adalah total aset.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Commercial bank balance sheets are dominated by loans (46.8% of assets) and deposits (82.9% of liabilities and equity).</li>
+    <li>Credit risk is a major exposure because high leverage means even a small proportion of loan defaults can wipe out equity.</li>
+    <li>Maturity mismatch between short-term deposits and long-term loans creates interest rate risk and liquidity risk.</li>
+    <li>ROA, ROE, and NIM are the primary performance metrics used to evaluate bank profitability.</li>
+  </ul>
+</div>
 
-<h3>6.2 Return on Equity (ROE)</h3>
-<p>ROE mengukur imbal hasil bagi pemegang saham, dihitung sebagai laba bersih dibagi ekuitas, yang setara dengan ROA dikali rasio aset terhadap ekuitas (equity multiplier).</p>
-<div class="eq">\[ ROE = \frac{NI}{E} = ROA \times \frac{TA}{E} \]</div>
-<p>dengan \( E \) adalah ekuitas. Karena bank besar memegang lebih sedikit ekuitas per dolar aset, laba per dolar ekuitas (ROE) mereka umumnya lebih besar.</p>
+<h3>2.3 Off-Balance-Sheet Activities</h3>
 
-<h3>6.3 Dekomposisi DuPont</h3>
-<p>ROE dapat diuraikan menjadi tiga komponen melalui analisis DuPont, yaitu margin laba bersih, pemanfaatan aset, dan pengganda ekuitas.</p>
-<div class="eq">\[ ROE = \frac{NI}{S} \times \frac{S}{TA} \times \frac{TA}{E} \]</div>
-<p>dengan \( S \) adalah penjualan (pendapatan). Dekomposisi ini membantu menelusuri sumber profitabilitas bank.</p>
+<div class="interpretation">
+  <p>Off-balance-sheet (OBS) activities are contingent commitments and guarantees that do not appear on the balance sheet under current accounting standards but generate fee income and expose the bank to risk. An OBS asset moves onto the asset side when a contingent event occurs; an OBS liability moves onto the liability side when a contingent event occurs.</p>
+  <p>Types of OBS activities:</p>
+  <ul>
+    <li><strong>Derivatives:</strong> Interest rate swaps, futures, forwards, options, foreign exchange contracts, credit derivatives.</li>
+    <li><strong>Letters of credit:</strong> Financial standby letters of credit, performance standby letters of credit, commercial letters of credit.</li>
+    <li><strong>Unused commitments:</strong> Commitments to lend in the future.</li>
+  </ul>
+  <p>The notional value of OBS activities at U.S. commercial banks grew from $10,236.7 billion in 1992 to $228,467.4 billion in 2012 before declining to $188,189.6 billion in 2021. The decline after 2012 reflects the Volcker Rule (2014), which prohibits proprietary trading by depository institutions.</p>
+  <p><strong>Critical caveat:</strong> The notional (face) value of OBS activities does not accurately reflect the risk to the bank. The potential gain or loss is based on the possible change in market value over the life of the contract, which is normally less than 3% of the notional value.</p>
+</div>
 
-<h3>6.4 Leverage dan Aturan PCA</h3>
-<p>Rasio ekuitas terhadap aset bank komersial pada 2021 sekitar 10,0 persen, artinya 90,0 persen aset dibiayai utang. Sebagai perbandingan, rasio modal terhadap aset credit union 10,27 persen, lembaga simpanan 9,66 persen, dan bank komersial 9,97 persen (Desember 2021).</p>
-<div class="eq">\[ \frac{E}{TA} \lt 2\% \quad \Rightarrow \quad \text{tutup atau rekapitalisasi dalam 3 bulan} \]</div>
-<p>Ini adalah ambang prompt corrective action (PCA) yang mewajibkan regulator menutup atau merekapitalisasi lembaga simpanan dalam tiga bulan jika rasio ekuitas terhadap asetnya jatuh di bawah 2 persen.</p>
+<div class="example">
+  <h4>Example: OBS Activity Growth</h4>
+  <p>In 1992, the notional value of interest rate swaps was $2,122.4 billion. By 2007, this had grown to $99,376.4 billion, and by 2021 it stood at $91,829.5 billion. The notional value of credit derivatives grew from $0 in 1992 to $15,862.8 billion in 2007 before declining to $3,539.1 billion in 2021 due to post-crisis regulation. The total OBS notional value was 8.5 times total on-balance-sheet assets in 2021.</p>
+</div>
 
-<h3>6.5 Data Kunci Lainnya</h3>
-<ul>
-  <li>Jumlah bank komersial, 4.231 (2021) versus 14.416 (1985)</li>
-  <li>Total aset bank komersial, $22.195,2 miliar (2021), deposito 82,9 persen, ekuitas 10,0 persen</li>
-  <li>Nilai nosional OBS, $188.189,6 miliar versus aset di neraca $22.195,2 miliar (2021)</li>
-  <li>Stress test 2009, kebutuhan modal $74,6 miliar dan dana terhimpun $149,45 miliar</li>
-  <li>TARP, $204,9 miliar dialokasikan, $196,62 miliar dikembalikan plus $30,16 miliar dividen</li>
-  <li>QTL test, minimal 65 persen aset thrift dalam aset terkait KPR</li>
-  <li>Batas asuransi deposito, hingga $250.000 per orang per bank (termasuk CU melalui NCUSIF)</li>
-</ul>
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Off-balance-sheet activities have both risk-reducing and risk-increasing attributes.</strong> When used appropriately, derivatives can hedge interest rate, credit, and foreign exchange risks. However, OBS activities can also add to overall insolvency exposure, as demonstrated by the financial crisis of 2007-2009, when losses on OBS mortgage-backed securities reached over $1 trillion worldwide.</p>
+</div>
 
-<h2>7. Ringkasan dan Kesimpulan</h2>
-<p>Bab ini memberikan gambaran aktivitas utama tiga kelompok lembaga depositori, yaitu bank komersial, lembaga simpanan, dan credit union, beserta regulatornya. Semua lembaga ini sangat mengandalkan deposito sebagai sumber dana, meskipun dana pinjaman semakin penting bagi lembaga terbesar. Secara historis bank komersial fokus pada pinjaman bisnis dan investasi sekuritas, lembaga simpanan fokus pada KPR, dan credit union fokus pada pinjaman konsumen, namun perbedaan ini semakin terkikis oleh kekuatan persaingan, regulasi, dan perubahan teknologi keuangan.</p>
-<p>Pelajaran penting dari bab ini adalah bahwa struktur industri berubah drastis melalui merger dan konsolidasi, regulasi berkembang dari pemisahan ketat (Glass-Steagall) menuju integrasi (FSMA) dan pengawasan pruden yang lebih ketat (Dodd-Frank, stress test, PCA), serta kinerja sangat dipengaruhi siklus ekonomi dan krisis, dari krisis S&amp;L 1980-an hingga krisis keuangan global 2008-2009 dan krisis utang Eropa. Ukuran kinerja seperti ROA, ROE, dan dekomposisi DuPont menjadi alat penting untuk menilai kesehatan lembaga depositori.</p>
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>OBS activities include derivatives, letters of credit, and unused loan commitments that generate fee income.</li>
+    <li>Banks have both earnings incentives and regulatory tax-avoidance incentives to move activities off the balance sheet.</li>
+    <li>The notional value of OBS activities far exceeds on-balance-sheet assets, but actual risk exposure is typically much smaller.</li>
+    <li>The Volcker Rule (2014) prohibits proprietary trading and has reduced OBS derivative activity.</li>
+  </ul>
+</div>
 
-<h2>8. Pertanyaan Konsep untuk Latihan</h2>
-<ol>
-  <li>Apa perbedaan antara community banks, regional banks, dan money center banks?</li>
-  <li>Mengapa ROA bank kecil umumnya lebih besar daripada ROA bank besar, tetapi ROE bank besar umumnya lebih besar?</li>
-  <li>Apa tiga segmen utama pendanaan deposito dan bagaimana perubahannya dari waktu ke waktu?</li>
-  <li>Apa saja aktivitas yang digolongkan sebagai off-balance-sheet, dan apa manfaat serta risikonya bagi bank?</li>
-  <li>Siapa saja regulator utama bank komersial AS dan apa peran masing-masing?</li>
-  <li>Bagaimana FIRREA (1989) dan FDICIA (1991) mengubah industri lembaga simpanan?</li>
-  <li>Apa yang dimaksud dengan common bond pada credit union dan bagaimana pengaruhnya terhadap tujuan operasional CU?</li>
-  <li>Mengapa credit unions lebih tahan terhadap krisis dibandingkan bank dan lembaga simpanan?</li>
-</ol>
+<h3>2.4 Regulation</h3>
 
-<p class="note">Catatan teknis, persamaan matematis pada halaman ini dirender dengan MathJax dan membutuhkan koneksi internet saat pertama kali dibuka. Untuk mencetak atau menyimpan sebagai PDF, gunakan tombol Cetak di bagian atas. Istilah asing dimiringkan. Dokumen ini adalah ringkasan belajar mandiri dan bukan pengganti buku teks asli.</p>
+<div class="interpretation">
+  <p>U.S. commercial banks may be subject to up to four separate regulators:</p>
+  <ul>
+    <li><strong>Federal Deposit Insurance Corporation (FDIC):</strong> Insures deposits up to $250,000 to prevent contagious runs. Levies insurance premiums, manages the Deposit Insurance Fund (DIF), and examines banks. In 2021, 4,231 commercial banks were FDIC-insured.</li>
+    <li><strong>Office of the Comptroller of the Currency (OCC):</strong> Charters and examines national banks. In 2021, 747 banks were nationally chartered (66% of total commercial bank assets).</li>
+    <li><strong>Federal Reserve System (FRS):</strong> Regulates bank holding companies and state-chartered member banks (663 in 2021). Provides access to the discount window and federal funds wire transfer network.</li>
+    <li><strong>State authorities:</strong> Regulate state-chartered banks (3,484 in 2021, 34% of assets).</li>
+  </ul>
+  <p>The dual banking system allows banks to choose between national and state charters. Most large banks (e.g., Bank of America) choose national charters, though some (e.g., Morgan Guaranty) choose state charters.</p>
+  <p>Key regulatory milestones include the McFadden Act (1927, restricted interstate branching), Glass-Steagall Act (1933, separated commercial and investment banking), DIDMCA (1980, phased out deposit rate ceilings), FIRREA (1989, responded to thrift crisis), FDICIA (1991, introduced prompt corrective action and risk-based deposit insurance premiums), Riegle-Neal Act (1994, eased interstate branching), Financial Services Modernization Act (1999, repealed Glass-Steagall barriers), Wall Street Reform and Consumer Protection Act (2010, created Financial Services Oversight Council, Consumer Financial Protection Bureau, Volcker Rule), and the Economic Growth, Regulatory Relief, and Consumer Protection Act (2018, provided regulatory relief for community banks).</p>
+</div>
 
+<div class="interpretation">
+  <p><strong>Deposit insurance and contagious runs:</strong> The FDIC's guarantee program deters depositor runs by assuring depositors that their claims are secure even if the DI is in trouble. Without deposit insurance, rumors of a bank's liquidity crisis can become a self-fulfilling prophecy, as happened with Bear Stearns in March 2008. Bear Stearns, an investment bank without federal deposit insurance, experienced a run that forced its sale to JPMorgan Chase. In contrast, during the financial crisis, investors deposited funds in FDIC-insured institutions as a safe haven.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Regulation is a double-edged sword: it protects depositors and prevents runs, but it can also create moral hazard.</strong> Deposit insurance reduces depositors' incentive to monitor bank risk-taking. The FDICIA (1991) addressed this by introducing risk-based deposit insurance premiums and prompt corrective action (PCA), requiring mandatory regulatory intervention when a bank's capital falls below specified thresholds.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>U.S. commercial banks are regulated by up to four agencies: FDIC, OCC, Federal Reserve, and state authorities.</li>
+    <li>The dual banking system allows banks to choose between national and state charters.</li>
+    <li>Deposit insurance deters contagious runs but creates moral hazard.</li>
+    <li>Key legislation has evolved from restricting geographic expansion (McFadden Act) to allowing nationwide branching (Riegle-Neal Act) and full-service financial institutions (FSMA 1999).</li>
+    <li>Post-crisis regulation (2010 Act) introduced systemic risk oversight, the Consumer Financial Protection Bureau, and the Volcker Rule.</li>
+  </ul>
+</div>
+
+<h3>2.5 Industry Performance</h3>
+
+<div class="interpretation">
+  <p>Commercial bank performance has varied significantly over the past three decades, reflecting macroeconomic conditions, regulatory changes, and industry dynamics.</p>
+  <p><strong>1990s:</strong> Strong performance driven by economic expansion, falling interest rates, and improved risk management. ROA rose from 0.49% (1990) to 1.31% (1999). ROE rose from 7.64% to 15.31% over the same period.</p>
+  <p><strong>Early 2000s:</strong> A brief downturn in 2000-2001 due to economic recession was followed by record performance. The Federal Reserve cut interest rates 13 times, making debt cheaper and fueling the housing boom. ROA reached an all-time high of 1.40% in 2003, and ROE reached 15.34%.</p>
+  <p><strong>2007-2009 financial crisis:</strong> Performance deteriorated sharply. Net income fell from $105.5 billion (2007) to $10.2 billion (2008). ROA fell to 0.13% (2008) and -0.10% (2009). ROE fell to 1.33% (2008) and -0.93% (2009). Twenty banks failed in 2008, 120 in 2009. Losses on mortgage-backed securities and OBS activities exceeded $1 trillion worldwide.</p>
+  <p><strong>2010-2021 recovery:</strong> Gradual improvement following the crisis. ROA recovered to 1.24% and ROE to 12.27% by 2021. The COVID-19 pandemic caused a temporary dip in Q1-Q2 2020 (ROA fell to 0.38%, ROE to 3.50%), but recovery was swift due to government assistance programs, record deposit inflows, and declining loan loss provisions.</p>
+</div>
+
+<div class="example">
+  <h4>Example: Provision for Loan Losses During the Crisis</h4>
+  <p>In 2006, provision for loan losses to total assets was 0.26%. By 2008, it had risen to 1.30%, and in 2009 it peaked at 1.94%. Net charge-offs to loans rose from 0.41% (2006) to 2.60% (2009). These figures reflect the dramatic deterioration in credit quality during the recession. By 2021, provision for loan losses was negative (-0.15%) for the first time ever, as charge-offs declined and delinquency rates fell.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The relationship between bank size and profitability has reversed over time.</strong> In the 1990s, small banks had higher ROA than large banks due to less competition in localized markets. By 2006, large banks (ROA = 1.35%) outperformed the smallest banks (0.95%). Large banks now generate more noninterest income from OBS activities and benefit from economies of scale in technology investments.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Commercial bank performance is cyclical and closely tied to macroeconomic conditions.</li>
+    <li>The 2007-2009 financial crisis was the most severe since the Great Depression, with ROA and ROE turning negative.</li>
+    <li>Post-crisis recovery has been gradual, with capital levels significantly strengthened through stress tests and regulatory requirements.</li>
+    <li>Technology investment and competition from fintech firms are reshaping the competitive landscape.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Savings Institutions</h2>
+
+<h3>3.1 Industry Structure</h3>
+
+<div class="interpretation">
+  <p>Savings institutions (historically called savings and loan associations, or S&Ls) were created in the early 1800s to serve the needs of individuals purchasing homes, filling a gap left by commercial banks that focused on business enterprises. They comprise two groups: savings associations (SAs) and savings banks (SBs). Savings associations concentrate more on residential mortgages; savings banks are more diversified, holding some commercial loans, corporate bonds, and stock.</p>
+  <p>The industry experienced a severe crisis in the 1980s due to:</p>
+  <ul>
+    <li><strong>Interest rate risk:</strong> The Federal Reserve's restrictive monetary policy (October 1979-October 1982) drove short-term rates as high as 16%. Savings institutions held long-term fixed-rate mortgages funded by short-term deposits, creating negative net interest margins.</li>
+    <li><strong>Disintermediation:</strong> Regulation Q ceilings limited the rates savings associations could pay on deposits, causing depositors to move funds to money market mutual funds.</li>
+    <li><strong>Moral hazard:</strong> The DIDMCA (1980) and DIA (1982) expanded savings institutions' asset powers, allowing riskier investments. The FSLIC (the insurer) lacked funds to close insolvent institutions and maintained flat insurance premiums regardless of risk, encouraging risk-taking.</li>
+    <li><strong>Credit risk:</strong> Real estate and land prices collapsed in Texas, the Southwest, the Northeast, and Western states in the mid-1980s, causing widespread mortgage defaults.</li>
+  </ul>
+  <p>The number of savings institutions declined from 3,677 (1989) to 608 (2021). The FIRREA (1989) abolished the FSLIC, created the Resolution Trust Corporation (RTC) to close insolvent institutions, strengthened capital requirements, and imposed the Qualified Thrift Lender (QTL) test requiring 65% of assets to be mortgage-related.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The savings institution crisis of the 1980s is a textbook example of how deregulation, moral hazard, and inadequate supervision can combine to create a systemic crisis.</strong> The interaction of interest rate spikes, expanded asset powers, flat-rate deposit insurance, and regulatory forbearance led to catastrophic losses. The crisis cost U.S. taxpayers an estimated $200 billion and led to the closure of more than 700 institutions by the RTC.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Savings institutions were created to serve residential mortgage lending needs.</li>
+    <li>The 1980s crisis was caused by interest rate spikes, deregulation, moral hazard, and real estate price collapses.</li>
+    <li>The number of savings institutions declined from 3,677 (1989) to 608 (2021).</li>
+    <li>The QTL test requires 65% of assets to be mortgage-related, reinforcing the focus on mortgage lending.</li>
+  </ul>
+</div>
+
+<h3>3.2 Balance Sheet and Regulation</h3>
+
+<div class="interpretation">
+  <p>As of December 31, 2021, savings institutions had total assets of $1,524.1 billion. Key balance sheet features:</p>
+  <p><strong>Assets:</strong></p>
+  <ul>
+    <li>Real estate loans: $444.6 billion (29.17% of total assets), compared to 21.69% for commercial banks.</li>
+    <li>Securities: $658.8 billion (43.23%), reflecting higher liquidity needs.</li>
+    <li>Cash: $138.7 billion (9.10%).</li>
+    <li>Net loans: $672.1 billion (44.10%).</li>
+  </ul>
+  <p><strong>Liabilities:</strong></p>
+  <ul>
+    <li>Total deposits: $1,291.3 billion (84.73% of total liabilities and equity).</li>
+    <li>Borrowings: $63.7 billion (4.18%), primarily from Federal Home Loan Banks (FHLBs).</li>
+    <li>Equity capital: $147.2 billion (9.66%).</li>
+  </ul>
+  <p><strong>Regulation:</strong> The Office of Thrift Supervision (OTS) was consolidated into the OCC on July 21, 2011, as mandated by the Wall Street Reform and Consumer Protection Act. The FDIC manages the Deposit Insurance Fund (DIF), which merged the Bank Insurance Fund and the Savings Association Insurance Fund in 2007. State-chartered savings institutions are regulated by state agencies.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Savings institutions hold a higher proportion of real estate loans (29.17%) and securities (43.23%) than commercial banks, reflecting their traditional focus on mortgage lending and their need for liquidity to manage the inherent interest rate risk of long-term mortgages.</strong> The higher securities holdings provide a buffer against interest rate shocks but also expose the institutions to reinvestment risk and market risk.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Savings institutions have a higher proportion of real estate loans and securities than commercial banks.</li>
+    <li>Deposits remain the dominant funding source (84.73% of total liabilities and equity).</li>
+    <li>Regulation of savings institutions was consolidated under the OCC in 2011.</li>
+    <li>Equity capital (9.66%) is slightly lower than for commercial banks (9.97%).</li>
+  </ul>
+</div>
+
+<h3>3.3 Industry Performance</h3>
+
+<div class="interpretation">
+  <p>Savings institution performance has followed patterns similar to commercial banks but with greater volatility:</p>
+  <ul>
+    <li><strong>1990s:</strong> Record profits in the mid- to late-1990s. ROA reached 1.00% in 1999, ROE reached 11.73%.</li>
+    <li><strong>Early 2000s:</strong> ROA and ROE increased to record levels (1.28% and 13.66% in 2003).</li>
+    <li><strong>Mid-2000s:</strong> A flat yield curve and increased funding costs compressed margins. ROA declined to 0.99% (2006), ROE to 8.68%.</li>
+    <li><strong>2007-2009 crisis:</strong> Net income turned negative for the first time since 1991. ROA was -0.72% in 2008. Washington Mutual, the largest savings institution (over $300 billion in assets), failed.</li>
+    <li><strong>2010-2021 recovery:</strong> Gradual improvement. ROA reached 1.11% and ROE 11.29% by 2021.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <h4>Example: Asset Concentration in Savings Institutions</h4>
+  <p>In 1992, 8 savings institutions with over $10 billion in assets held 17.8% of industry assets. By 2021, 18 institutions in this category held 67.3% of assets. The number of institutions with under $100 million declined from 1,109 (46.4% of total) to 105 (17.3% of total), but their share of industry assets fell from 5.4% to 0.4%. This dramatic consolidation reflects the closure of weak institutions and the growth of larger, more diversified savings banks.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Savings institution performance is more volatile than commercial banks due to greater concentration in mortgage lending.</li>
+    <li>The 2008 crisis was severe for savings institutions, with ROA turning negative (-0.72%).</li>
+    <li>Industry consolidation has been dramatic, with the largest institutions (over $10 billion) now controlling 67.3% of industry assets.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Credit Unions</h2>
+
+<h3>4.1 Industry Structure</h3>
+
+<div class="interpretation">
+  <p>Credit unions (CUs) are nonprofit depository institutions mutually organized and owned by their members (depositors). They were first established in the United States in the early 1900s as self-help organizations to alleviate poverty. Members are required to have a common bond of occupation, association, or community. Unlike commercial banks and savings institutions, CUs are prohibited from serving the general public.</p>
+  <p>Key characteristics:</p>
+  <ul>
+    <li><strong>Nonprofit status:</strong> Net income is not taxed. Earnings are used to pay higher rates on member deposits, charge lower rates on member loans, or attract new members.</li>
+    <li><strong>Mutual ownership:</strong> Members are legally the owners. CUs do not issue common stock.</li>
+    <li><strong>Common bond requirement:</strong> Members must share a common occupation, association, or geographic community.</li>
+    <li><strong>Tax-exempt status:</strong> CUs are not subject to the Community Reinvestment Act and pay no federal income tax, allowing them to offer more favorable rates than banks.</li>
+  </ul>
+  <p>In 2021, there were 4,942 credit unions with total assets of $2,060.4 billion and 129.6 million members. The average CU size was $416.9 million, compared to $5,245.9 million for commercial banks. The CU system has three tiers: U.S. Central Credit Union (national), corporate credit unions (state/regional), and local credit unions.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The tax-exempt status of credit unions gives them a significant cost advantage over commercial banks and savings institutions.</strong> As shown in Figure 2-7, credit unions consistently offer lower rates on new car loans and higher rates on 1-year CDs than banks. This has led to ongoing controversy, with banks arguing that CUs have an unfair competitive advantage.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Credit unions are nonprofit, member-owned, tax-exempt depository institutions with a common bond requirement.</li>
+    <li>There were 4,942 CUs with 129.6 million members and $2,060.4 billion in assets in 2021.</li>
+    <li>Tax exemption allows CUs to offer more favorable rates than banks.</li>
+    <li>The common bond requirement limits the customer base but also reduces credit risk.</li>
+  </ul>
+</div>
+
+<h3>4.2 Balance Sheet and Performance</h3>
+
+<div class="interpretation">
+  <p><strong>Assets (December 2021):</strong> Total loans: $1,255.3 billion (60.9% of total assets). Home mortgages: $551.1 billion (26.7%), auto loans: $404.5 billion (19.6%), credit cards: $64.2 billion (3.1%), commercial loans: $111.7 billion (5.4%). Investment securities: $452.6 billion (22.0%). Cash: $259.9 billion (12.6%).</p>
+  <p><strong>Liabilities:</strong> Total deposits: $1,848.8 billion (89.7% of total liabilities and equity). Net worth: $211.6 billion (10.27%).</p>
+  <p>Deposit composition: Regular share accounts (35.5%), money market accounts (22.0%), share draft accounts (19.9%), share certificate accounts/CDs (13.4%).</p>
+  <p><strong>Performance:</strong> ROA was 1.07% in 2021. Larger CUs significantly outperform smaller ones: the largest CUs (over $1 billion) had ROA of 1.20%, while the smallest (under $10 million) had ROA of 0.18%. Smaller CUs have a smaller customer base for quality loans and higher overhead expenses per dollar of assets.</p>
+  <p>During the 2008 crisis, CUs performed better than banks and savings institutions. While commercial banks' ROA fell to 0.13% and savings institutions' to -0.72%, CUs maintained an ROA of 0.31%. This resilience was due to their traditional focus on small consumer loans and government securities, and their limited exposure to subprime mortgages and mortgage-backed securities.</p>
+</div>
+
+<div class="example">
+  <h4>Example: Corporate Credit Union Crisis</h4>
+  <p>While local credit unions survived the 2008 crisis relatively well, corporate credit unions (which invest excess funds from member CUs) did not. Some corporate CUs invested in higher-risk mortgage-backed securities. By November 2008, they reported $18 billion in unrealized losses. Local CUs withdrew deposits from corporate CUs (deposits fell from $44.7 billion to $22.9 billion between March and September 2008). The NCUA placed U.S. Central and WesCorp into conservatorship in March 2009, ultimately declaring five of the largest corporate CUs insolvent. The NCUA purchased $50 billion in toxic assets.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Because credit unions are mutual organizations, maximizing profit (ROA) is not the primary goal. The primary objective is serving the deposit and lending needs of members.</strong> As long as capital levels are sufficient to protect against unexpected losses, a CU is meeting its mission. This contrasts sharply with the profit orientation of stockholder-owned banks and savings institutions.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Credit union assets are dominated by consumer loans (auto loans, credit cards) and home mortgages.</li>
+    <li>CUs were more resilient during the 2008 crisis than banks or savings institutions.</li>
+    <li>Corporate credit unions, however, suffered severe losses from mortgage-backed securities investments.</li>
+    <li>Larger CUs significantly outperform smaller CUs in terms of ROA.</li>
+    <li>Profit maximization is not the primary goal; member service is paramount.</li>
+  </ul>
+</div>
+
+<h3>4.3 Regulation</h3>
+
+<div class="interpretation">
+  <p>Credit unions can be federally or state chartered. As of 2021, 62.7% of the 4,942 CUs were federally chartered, accounting for 52.6% of total membership and 50.5% of total assets. The National Credit Union Administration (NCUA) regulates federally chartered CUs and administers the National Credit Union Share Insurance Fund (NCUSIF), which provides deposit insurance guarantees up to $250,000 (covering 98% of all credit union deposits). State-chartered CUs are regulated by state agencies.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Credit unions are regulated by the NCUA (federal) or state agencies.</li>
+    <li>Deposit insurance is provided by the NCUSIF up to $250,000.</li>
+    <li>62.7% of CUs are federally chartered.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. Global Financial Performance</h2>
+
+<div class="interpretation">
+  <p>The financial crisis of 2007-2009 spread rapidly from the United States to the global banking system. Banks worldwide suffered losses on structured finance products and securitized subprime mortgage exposures, magnified by illiquidity in those markets.</p>
+  <p><strong>European banks:</strong> Net income fell sharply in 2008. The largest banks in the Netherlands, Switzerland, and the United Kingdom had net losses. Irish, Spanish, and U.K. banks were especially hard hit due to large investments in mortgages and mortgage-backed securities. French and Italian banks were less affected due to their focus on domestic retail banking. Several European banks averted bankruptcy through direct central bank and government support.</p>
+  <p><strong>European sovereign debt crisis (2010-2012):</strong> Greece's debt crisis spread to Portugal, Spain, and Italy. Greek banks experienced a run, with deposit withdrawals reaching €750 million per day (0.5% of the €170 billion deposit base). The crisis threatened the world's financial system, with U.S. banks having sovereign risk exposure to Greece ($43.1 billion), Ireland ($113.9 billion), Portugal ($47.1 billion), and Spain ($187.5 billion). Worldwide exposure to these four countries totaled $2,512.3 billion.</p>
+  <p><strong>Brexit (2016-2020):</strong> The United Kingdom voted to leave the EU on June 23, 2016. The U.K. formally left on January 31, 2020, with a transition period ending December 31, 2020. Brexit has damaged U.K. economic growth, with growth slowing from 2.4% (2015) to 1.6% (2019). Business investment fell by 11% between 2016 and 2019. International banks shifted operations: Barclay's moved 5,000 clients to its Irish subsidiary; Goldman Sachs, JPMorgan Chase, and Morgan Stanley switched 10% of their clients; Bank of America transferred 100 bankers to Dublin and 400 to Paris.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The 2008 financial crisis demonstrated that banking systems are globally interconnected. Losses from U.S. subprime mortgages cascaded through international financial markets, and the Greek sovereign debt crisis (2010-2012) showed that a default by a small country could threaten the entire global financial system.</strong> The crisis led to unprecedented government interventions, including bailouts, deposit guarantees, and stimulus packages across Europe, Asia, and North America.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The financial crisis spread globally, causing severe losses in European banks.</li>
+    <li>The Greek sovereign debt crisis (2010-2012) threatened the stability of the entire eurozone.</li>
+    <li>Brexit has damaged U.K. economic growth and led to a shift of banking operations from London to other EU financial centers.</li>
+    <li>Global financial systems remain highly interconnected, with systemic risk requiring coordinated international regulatory responses.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Practical Cautions and Common Errors</h2>
+
+<div class="interpretation">
+  <p><strong>1. Confusing association with causality:</strong> A high ROA or ROE does not necessarily indicate good management. It may result from high leverage, risk-taking, or favorable macroeconomic conditions. Similarly, a low ROA may reflect conservative risk management rather than poor performance.</p>
+  <p><strong>2. Ignoring the difference between book value and market value:</strong> Balance sheet values are recorded at book value. For loans and securities, market values may differ significantly, especially during periods of interest rate volatility or credit stress. A bank that appears well-capitalized on a book value basis may be insolvent on a market value basis.</p>
+  <p><strong>3. Misinterpreting the equity multiplier:</strong> ROE = ROA × (Assets/Equity). A high ROE achieved through high leverage (low equity) is risky because it amplifies losses as well as gains. The equity multiplier must be evaluated in the context of capital adequacy requirements.</p>
+  <p><strong>4. Confusing notional value with risk exposure:</strong> The notional value of OBS derivatives vastly overstates actual risk. The potential gain or loss is based on changes in market value (typically less than 3% of notional value), not the notional amount itself.</p>
+  <p><strong>5. Overlooking the impact of off-balance-sheet activities:</strong> OBS activities can create significant risk, as demonstrated by the financial crisis. Credit derivatives, mortgage-backed securities, and loan commitments can all generate losses that are not immediately visible on the balance sheet.</p>
+  <p><strong>6. Assuming that deposit insurance eliminates all risk:</strong> Deposit insurance protects depositors, not the institution itself. Banks can still fail, and shareholders can lose their entire investment. The FDIC's prompt corrective action (PCA) framework requires closure when capital falls below 2% of assets.</p>
+  <p><strong>7. Ignoring the common bond requirement for credit unions:</strong> Credit unions cannot serve the general public. The common bond requirement limits the customer base and affects diversification. This is a fundamental constraint on CU growth and risk management.</p>
+  <p><strong>8. Confusing the QTL test with safety:</strong> The Qualified Thrift Lender test requires 65% of assets to be mortgage-related, which actually increases concentration risk in real estate. A savings institution that passes the QTL test may be more, not less, risky than a diversified commercial bank.</p>
+  <p><strong>9. Misinterpreting the spread:</strong> The spread between lending and deposit rates is not the same as the net interest margin. NIM is calculated as (Interest Income - Interest Expense) / Earning Assets, which accounts for the fact that not all assets are earning assets and not all liabilities are interest-bearing.</p>
+  <p><strong>10. Forgetting that "too big to fail" is not a guarantee:</strong> The FDICIA (1991) limited the use of too-big-to-fail bailouts, and the 2010 Wall Street Reform Act gave the government power to break up FIs that pose systemic risk. However, the 2008 crisis showed that large institutions may still receive government support in extreme circumstances.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Do not confuse association with causality when interpreting financial ratios.</li>
+    <li>Book values and market values can differ significantly for loans and securities.</li>
+    <li>High ROE achieved through high leverage is risky and must be evaluated in the context of capital adequacy.</li>
+    <li>Notional values of OBS derivatives overstate actual risk exposure.</li>
+    <li>Deposit insurance protects depositors, not institutions or shareholders.</li>
+    <li>The QTL test may increase rather than decrease risk by forcing concentration in mortgage lending.</li>
+  </ul>
+</div>
+    </div>
 </body>
 </html>

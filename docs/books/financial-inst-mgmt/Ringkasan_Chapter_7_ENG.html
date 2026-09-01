@@ -1,432 +1,726 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/responsive.css">
-<title>Chapter 7 Summary - Risks of Financial Institutions (English)</title>
-<style>
-  @page {
-    size: A4;
-    margin: 2.54cm 3.18cm;
-  }
-  body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0 auto;
-    max-width: 210mm;
-    padding: 20px 3.18cm;
-    color: #000;
-  }
-  h1 {
-    font-size: 16pt;
-    text-align: center;
-    margin: 0 0 4px 0;
-  }
-  .subtitle {
-    text-align: center;
-    font-size: 12pt;
-    font-style: italic;
-    margin: 0 0 6px 0;
-  }
-  .bookinfo {
-    text-align: center;
-    font-size: 11pt;
-    margin: 0 0 16px 0;
-  }
-  h2 {
-    font-size: 14pt;
-    margin: 22px 0 8px 0;
-    border-bottom: 1px solid #000;
-    padding-bottom: 3px;
-  }
-  h3 {
-    font-size: 12pt;
-    margin: 14px 0 6px 0;
-  }
-  h4 {
-    font-size: 12pt;
-    font-style: italic;
-    margin: 12px 0 4px 0;
-  }
-  p {
-    margin: 0 0 8px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 10px 0 14px 0;
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 5px 7px;
-    vertical-align: top;
-    text-align: left;
-  }
-  th {
-    background-color: #eee;
-  }
-  .tabcap {
-    font-size: 11pt;
-    font-weight: bold;
-    margin: 12px 0 2px 0;
-    text-align: left;
-  }
-  .eq {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 12pt;
-  }
-  ul, ol {
-    margin: 0 0 10px 0;
-    padding-left: 28px;
-  }
-  li {
-    margin-bottom: 4px;
-  }
-  .note {
-    font-size: 10pt;
-    font-style: italic;
-    color: #333;
-    margin-top: 24px;
-    border-top: 1px solid #999;
-    padding-top: 8px;
-  }
-  .toolbar {
-    text-align: center;
-    margin-bottom: 14px;
-  }
-  .toolbar button {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-    padding: 6px 16px;
-    cursor: pointer;
-  }
-  @media print {
-    .toolbar { display: none; }
-    body { padding: 0; }
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['\\[', '\\]']]
-    }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risks of Financial Institutions</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
 </head>
 <body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Risks of Financial Institutions</h1>
+<div class="container">
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="#section1">1. Introduction and Overview of FI Risks</a></li>
+      <li><a href="#section2">2. Interest Rate Risk</a></li>
+      <li><a href="#section3">3. Credit Risk</a></li>
+      <li><a href="#section4">4. Liquidity Risk</a></li>
+      <li><a href="#section5">5. Foreign Exchange Risk</a></li>
+      <li><a href="#section6">6. Country or Sovereign Risk</a></li>
+      <li><a href="#section7">7. Market Risk</a></li>
+      <li><a href="#section8">8. Off-Balance-Sheet Risk</a></li>
+      <li><a href="#section9">9. Technology and Operational Risk</a></li>
+      <li><a href="#section10">10. Risk of Digital Disruption and Fintech</a></li>
+      <li><a href="#section11">11. Insolvency Risk</a></li>
+      <li><a href="#section12">12. Other Risks, Interaction of Risks, and Climate Risk</a></li>
+      <li><a href="#section13">13. Practical Cautions, Common Errors, and Summary</a></li>
+    </ul>
+  </div>
 
-<div class="toolbar">
-  <button onclick="window.print()">Print / Save as PDF</button>
-</div>
+  <h2 id="section1">1. Introduction and Overview of FI Risks</h2>
 
-<h1>Chapter 7 Summary</h1>
-<p class="subtitle">Risks of Financial Institutions</p>
-<p class="bookinfo">Source, Saunders, A. and Cornett, M. M. <i>Financial Institutions Management, A Risk Management Approach</i>, 11th Edition, Chapter 7. Prepared as self-study material.</p>
+  <div class="interpretation">
+    <p>The primary objective of financial institution (FI) management is to increase returns for the FI's owners. This objective, however, is typically pursued at the cost of increased risk exposure. The central business of modern FIs can be understood as the active management of a complex portfolio of interrelated risks. This chapter provides a foundational overview of the major risk categories that FI managers must identify, measure, monitor, and control. These risks include: <strong>interest rate risk</strong>, <strong>credit risk</strong>, <strong>liquidity risk</strong>, <strong>foreign exchange risk</strong>, <strong>country or sovereign risk</strong>, <strong>market risk</strong>, <strong>off-balance-sheet risk</strong>, <strong>technology risk</strong>, <strong>operational risk</strong>, <strong>risk of digital disruption and fintech</strong>, and <strong>insolvency risk</strong>.</p>
+  </div>
 
-<h2>1. Introduction</h2>
-<p>A major objective of FI management is to increase the FI's returns for its owners, but this often comes at the cost of increased risk. This chapter overviews the various risks facing FIs, namely interest rate risk, credit risk, liquidity risk, foreign exchange risk, country or sovereign risk, market risk, off-balance-sheet risk, technology and operational risk, risk of digital disruption and fintech, and insolvency risk. The effective management of these risks is central to an FI's performance, and it can be argued that the main business of FIs is to manage these risks. Over the past decade, U.S. financial institution profitability has generally been robust, but the risks of financial intermediation have increased as the U.S. and overseas economies have become more integrated, for example uncertainty associated with international events such as Brexit and tariff wars has presented great risks for those FIs that operate in and lend to foreign markets. Even FIs without foreign customers can be exposed to foreign exchange and sovereign risk if their domestic customers have business dealings with foreign countries.</p>
+  <div class="interpretation">
+    <p>Over the past decade, U.S. financial institution profitability has generally been robust, but the risks of financial intermediation have increased as economies have become more integrated. Uncertainty from international events such as Brexit and tariff wars has created significant risks for FIs operating in foreign markets. Even domestically focused FIs can be exposed to foreign exchange and sovereign risk if their domestic customers have business dealings with foreign countries. Consequently, FI managers must devote substantial resources to understanding and managing the diverse risks to which their institutions are exposed.</p>
+  </div>
 
-<p class="tabcap">Table 7-1. Risks Faced by Financial Intermediaries</p>
-<table>
-  <tr>
-    <th>Risk</th>
-    <th>Definition</th>
-  </tr>
-  <tr>
-    <td>Interest rate risk</td>
-    <td>The risk incurred by an FI when the maturities of its assets and liabilities are mismatched</td>
-  </tr>
-  <tr>
-    <td>Credit risk</td>
-    <td>The risk that promised cash flows from loans and securities held by FIs may not be paid in full</td>
-  </tr>
-  <tr>
-    <td>Liquidity risk</td>
-    <td>The risk that a sudden surge in liability withdrawals may require an FI to liquidate assets in a very short period of time and at less than fair market prices</td>
-  </tr>
-  <tr>
-    <td>Foreign exchange risk</td>
-    <td>The risk that exchange rate changes can affect the value of an FI's assets and liabilities denominated in nondomestic currencies</td>
-  </tr>
-  <tr>
-    <td>Country or sovereign risk</td>
-    <td>The risk that repayments from foreign borrowers may be interrupted because of restrictions, intervention, or interference from foreign governments</td>
-  </tr>
-  <tr>
-    <td>Market risk</td>
-    <td>The risk incurred from assets and liabilities in an FI's trading book due to changes in interest rates, exchange rates, and other prices</td>
-  </tr>
-  <tr>
-    <td>Off-balance-sheet risk</td>
-    <td>The risk incurred by an FI as the result of activities related to its contingent assets and liabilities held off the balance sheet</td>
-  </tr>
-  <tr>
-    <td>Technology risk</td>
-    <td>Risks such as the strategic risk of not investing in the right technology, cyber risk, and data management risk incurred by an FI</td>
-  </tr>
-  <tr>
-    <td>Operational risk</td>
-    <td>The risk that existing technology, auditing, monitoring, and other support systems may malfunction or break down</td>
-  </tr>
-  <tr>
-    <td>Risk of digital disruption and fintech</td>
-    <td>The risk that an FI fails to redefine and innovate how it creates, delivers, and captures value, and to compete against new disruptive players in the sector</td>
-  </tr>
-  <tr>
-    <td>Insolvency risk</td>
-    <td>The risk that an FI may not have enough capital to offset a sudden decline in the value of its assets</td>
-  </tr>
-</table>
+  <div class="table-wrap">
+    <table>
+      <caption>Table 7–1: Risks Faced by Financial Intermediaries (Summary from Source)</caption>
+      <thead>
+        <tr><th>Risk</th><th>Definition</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Interest Rate Risk</td><td>Risk incurred when maturities of assets and liabilities are mismatched.</td></tr>
+        <tr><td>Credit Risk</td><td>Risk that promised cash flows from loans and securities may not be paid in full.</td></tr>
+        <tr><td>Liquidity Risk</td><td>Risk that a sudden surge in liability withdrawals may require liquidation of assets at less than fair market prices.</td></tr>
+        <tr><td>Foreign Exchange Risk</td><td>Risk that exchange rate changes affect the value of assets and liabilities denominated in nondomestic currencies.</td></tr>
+        <tr><td>Country or Sovereign Risk</td><td>Risk that repayments from foreign borrowers may be interrupted due to foreign government restrictions.</td></tr>
+        <tr><td>Market Risk</td><td>Risk incurred from trading book assets and liabilities due to changes in interest rates, exchange rates, and other prices.</td></tr>
+        <tr><td>Off-Balance-Sheet Risk</td><td>Risk incurred from activities related to contingent assets and liabilities held off the balance sheet.</td></tr>
+        <tr><td>Technology Risk</td><td>Risks including strategic risk of not investing in the right technology, cyber risk, and data management risk.</td></tr>
+        <tr><td>Operational Risk</td><td>Risk that existing technology, auditing, monitoring, and support systems may malfunction or break down.</td></tr>
+        <tr><td>Risk of Digital Disruption and Fintech</td><td>Risk that an FI fails to innovate how it creates, delivers, and captures value, and fails to compete against disruptive players.</td></tr>
+        <tr><td>Insolvency Risk</td><td>Risk that an FI may not have enough capital to offset a sudden decline in the value of its assets relative to its liabilities.</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-<h2>2. Interest Rate Risk</h2>
-<p>Chapter 1 discussed asset transformation as a key special function of FIs, which involves an FI's buying primary securities or assets and issuing secondary securities or liabilities to fund asset purchases. The primary securities purchased by FIs often have maturity and liquidity characteristics different from those of the secondary securities FIs sell. In mismatching the maturities of assets and liabilities as part of their asset-transformation function, FIs potentially expose themselves to interest rate risk, the risk incurred by an FI when the maturities of its assets and liabilities are mismatched.</p>
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>The effective management of these risks is central to an FI's performance. Indeed, it can be argued that the main business of FIs is to manage these risks.</strong> The variety and complexity of these risks require a systematic approach to measurement and management, which is developed in subsequent chapters of the source text.</p>
+  </div>
 
-<h4>Example 7-1. Impact of an Interest Rate Increase on an FI's Profits When the Maturity of Its Assets Exceeds the Maturity of Its Liabilities</h4>
-<p>Consider an FI that issues $100 million of liabilities of one-year maturity to finance the purchase of $100 million of assets with a two-year maturity. The FI can be viewed as short-funded, that is, the maturity of its liabilities is less than the maturity of its assets. Suppose the cost of funds (liabilities) for the FI is 9 percent per year and the return on assets is 10 percent per year. Over the first year, the FI can lock in a profit spread of 1 percent (10 percent minus 9 percent) times $100 million by borrowing short term and lending long term, so its profit is $1 million.</p>
-<div class="eq">\[ \text{Profit spread} = r_{\text{assets}} - r_{\text{liabilities}} = 10\% - 9\% = 1\% \]</div>
-<div class="eq">\[ \text{Profit} = 0.01 \times \$100 \text{ million} = \$1 \text{ million} \]</div>
-<p>However, its profits for the second year are uncertain. If interest rates were to rise and the FI can borrow new one-year liabilities only at 11 percent in the second year, its profit spread would be negative, that is, 10 percent minus 11 percent equals minus 1 percent, or the FI suffers a loss of $1 million. By holding longer-term assets relative to liabilities, the FI potentially exposes itself to <b>refinancing risk</b>, the risk that the cost of rolling over or reborrowing funds could be more than the return earned on asset investments. As interest rates rose in the mid-2010s, good examples were provided by banks that borrowed short-term deposits while investing in fixed-rate loans.</p>
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>FIs face a complex array of at least 11 major risk categories that are often interdependent.</li>
+      <li>Risk management is a core function of FI management, not merely a support activity.</li>
+      <li>Global economic integration has increased the complexity and magnitude of risks facing FIs.</li>
+      <li>Each risk category requires specific measurement and management techniques developed in later chapters.</li>
+    </ul>
+  </div>
 
-<h4>Example 7-2. Impact of an Interest Rate Decrease When the Maturity of an FI's Liabilities Exceeds the Maturity of Its Assets</h4>
-<p>An alternative balance sheet structure would have the FI borrowing $100 million for a longer term than the $100 million of assets in which it invests, so the FI is long-funded, with the maturity of its liabilities longer than the maturity of its assets. Suppose the FI borrows funds at 9 percent per year for two years and invests the funds in assets that yield 10 percent for one year. The FI locks in a one-year profit spread of 1 percent, or $1 million, but at the end of the first year the assets mature and the funds that have been borrowed for two years have to be reinvested. If interest rates fall so that the return on new one-year assets is 8 percent in the second year, the FI faces a loss, or negative spread, of 1 percent (8 percent asset return minus 9 percent cost of funds), or loses $1 million. By holding shorter-term assets relative to liabilities, the FI is exposed to <b>reinvestment risk</b>, the risk that the return on funds to be reinvested will fall below the cost of funds. As interest rates fell in the 2000s, good examples were provided by banks that borrowed fixed-rate deposits while investing in floating-rate loans.</p>
+  <h2 id="section2">2. Interest Rate Risk</h2>
 
-<p>In addition to refinancing or reinvestment risk, an FI faces <b>market value risk</b>. The market (or fair) value of an asset or liability is conceptually equal to the present value of current and future cash flows from that asset or liability, so rising interest rates increase the discount rate on those cash flows and reduce the market value, while falling interest rates increase market values. Moreover, mismatching maturities by holding longer-term assets than liabilities means that when interest rates rise, the market value of the FI's assets falls by a greater amount than its liabilities, exposing the FI to the risk of economic loss and, potentially, the risk of insolvency. Unlike refinancing or reinvestment risk, market value risk reflects economic reality or the true value of assets or liabilities if the FI's portfolio were to be liquidated at today's securities prices, and it considers the degree of leverage on an FI's balance sheet as well as the timing of cash flows.</p>
-<p>If holding assets and liabilities with mismatched maturities exposes FIs to reinvestment (or refinancing) and market value risks, FIs can seek to hedge by matching the maturity of their assets and liabilities. However, matching maturities is not necessarily consistent with an active asset-transformation function, since FIs cannot be asset transformers (for example transforming short-term deposits into long-term loans) and direct balance sheet matchers or hedgers at the same time. While reducing exposure to interest rate risk, matching maturities may also reduce profitability. For example, depository institutions traditionally hold longer-term assets than liabilities, whereas life insurers tend to match the long-term nature of their liabilities with long-term assets. Finally, matching maturities hedges interest rate risk only in a very approximate rather than complete fashion, relating to the difference between the average life (or duration) and maturity of an asset or liability and whether the FI partly funds its assets with equity capital as well as liabilities. The causes of interest rate risk and methods to measure it are discussed in detail in Chapters 8 and 9, and the methods and instruments used to hedge it in Chapters 23 through 25.</p>
+  <div class="interpretation">
+    <p><strong>Interest Rate Risk</strong>: The risk incurred by an FI when the maturities of its assets and liabilities are mismatched. This risk arises fundamentally from the <strong>asset transformation</strong> function of FIs, which involves buying primary securities (assets) with certain maturity and liquidity characteristics and issuing secondary securities (liabilities) with different characteristics. When an FI mismatches the maturities of its assets and liabilities as part of this function, it exposes itself to potential losses from changes in interest rates.</p>
+  </div>
 
-<h2>3. Credit Risk</h2>
-<p><b>Credit risk</b> arises because of the possibility that promised cash flows on financial claims held by FIs, such as loans or bonds, will not be paid in full. Virtually all types of FIs face this risk, but in general, FIs that make loans or buy bonds with long maturities are more exposed than those with short maturities. For example, depository institutions and life insurers are more exposed to credit risk than are money market mutual funds and property-casualty insurers. If the <i>principal</i> on all financial claims was paid in full on maturity and interest payments were made on the promised dates, FIs would face no credit risk. If a borrower defaults, however, both the <i>principal</i> loaned and the interest payments expected to be received are at risk. As a result, many financial claims issued by corporations promise a limited or fixed upside return (<i>principal</i> and interest payments) with a high probability and a large downside risk (loss of loan <i>principal</i> and promised interest) with a much smaller probability, for example fixed-income coupon bonds and bank loans, where in the event of default the FI earns zero interest and may lose all or part of the <i>principal</i>, depending on its ability to lay claim to some of the borrower's assets through bankruptcy proceedings. A key role of FIs involves screening and monitoring loan applicants (Chapter 10).</p>
-<p>Firm-specific credit risk is the risk of default of the borrowing firm associated with the specific types of project risk taken by that firm, while systematic credit risk is the risk of default associated with general economywide or macro conditions affecting all borrowers, such as an economic recession. One of the advantages FIs have over individual household investors is the ability to diversify some credit risk from a single asset away by exploiting the law of large numbers in their asset investment portfolios. Diversification reduces individual firm-specific credit risk while leaving the FI still exposed to systematic credit risk. The effects of credit risk are evident in the high rate of charge-offs experienced on credit card loans by commercial banks throughout 1984 to 2021, surging in the early 2000s and during the recession from 2007 to 2010. Total credit card loans grew from $227.497 billion (December 1999) to $444.692 billion (December 2008), fell to $403.071 billion (March 2009), recovered as the economy improved, reached a peak of $941.557 billion (December 2019), then fell to $791.990 billion (June 2021). Methods to measure the default risk of individual corporate claims are described in Chapter 10, methods of measuring portfolio risk in Chapter 11, and methods to manage and control credit risk exposures, including the role of credit derivative markets, in Chapters 23, 24, 25, 26, and 27.</p>
+  <div class="interpretation">
+    <p>Interest rate risk manifests in two primary forms: <strong>refinancing risk</strong> and <strong>reinvestment risk</strong>, as well as through <strong>market value risk</strong>. These are distinct but related channels through which interest rate changes affect an FI's profitability and economic value.</p>
+  </div>
 
-<h2>4. Liquidity Risk</h2>
-<p><b>Liquidity risk</b> arises when an FI's liability holders, such as depositors or insurance policyholders, demand immediate cash for the financial claims they hold, or when holders of off-balance-sheet loan commitments (or credit lines) suddenly exercise their right to borrow. When liability holders demand cash immediacy, the FI must either borrow additional funds or sell assets to meet the demand for withdrawals. The most liquid asset of all is cash, but FIs limit their cash holdings because cash earns no interest. Day-to-day withdrawals are generally predictable, and FIs can normally expect to borrow additional funds to meet any sudden shortfalls of cash on the money and financial markets.</p>
-<p>However, there are times when an FI can face a liquidity crisis, when because of a lack of confidence or some unexpected need for cash, liability holders demand larger withdrawals than normal. When all, or many, FIs face abnormally large cash demands, the cost of additional purchased funds rises and the supply becomes restricted, so FIs may have to sell some of their less liquid assets to meet withdrawal demands. This results in a more serious liquidity risk, especially as some assets with thin markets generate lower prices when the asset sale is immediate than when the FI has more time to negotiate. The liquidation of some assets at low or fire-sale prices (the price an FI receives if an asset must be liquidated immediately at less than its fair market value) could threaten an FI's profitability and solvency. For example, in the summer of 2008, IndyMac bank failed, in part due to a bank run that continued for several days even after being taken over by the FDIC, after the bank announced its mortgage operations would stop, and depositors rushed to withdraw money even though their deposits were insured up to $100,000 by the FDIC.</p>
+  <h3>2.1 Refinancing Risk</h3>
 
-<h4>Example 7-3. Impact of Liquidity Risk on an FI's Equity Value</h4>
-<p>Consider the simple FI balance sheet, before deposit withdrawals the FI has $10 million in cash assets and $90 million in nonliquid assets (such as small business loans), funded with $90 million in deposits and $10 million in owner's equity. Suppose depositors unexpectedly withdraw $15 million in deposits and the FI receives no new deposits to replace them. To meet these withdrawals, the FI first uses the $10 million it has in cash assets and then seeks to sell some of its nonliquid assets to raise an additional $5 million in cash. Because the FI cannot borrow any more funds and cannot wait to get better prices, it has to sell nonliquid assets at 50 cents on the dollar. To cover the remaining $5 million in withdrawals, the FI must sell $10 million in nonliquid assets, incurring a loss of $5 million from the face value of those assets. Because its capital was only $10 million before the withdrawal, the loss on the fire-sale of assets of $5 million leaves the FI with only $5 million in equity.</p>
-<div class="eq">\[ \text{Fire-sale loss} = \text{Assets sold} \times (1 - \text{fire-sale price}) = \$10 \text{ million} \times (1 - 0.5) = \$5 \text{ million} \]</div>
-<div class="eq">\[ \text{Final equity} = \text{Initial equity} - \text{Loss} = \$10 \text{ million} - \$5 \text{ million} = \$5 \text{ million} \]</div>
+  <div class="interpretation">
+    <p><strong>Refinancing Risk</strong>: The risk that the cost of rolling over or reborrowing funds will rise above the returns being earned on asset investments. This risk arises when an FI holds longer-term assets relative to its liabilities (i.e., the FI is "short-funded" because the maturity of its liabilities is less than the maturity of its assets).</p>
+  </div>
 
-<p class="tabcap">Table 7-2. Adjusting to a Deposit Withdrawal Using Asset Sales ($ millions)</p>
-<table>
-  <tr>
-    <th colspan="2">Before the Withdrawal</th>
-    <th colspan="2">After the Withdrawal</th>
-  </tr>
-  <tr>
-    <th>Assets</th>
-    <th>Liabilities/Equity</th>
-    <th>Assets</th>
-    <th>Liabilities/Equity</th>
-  </tr>
-  <tr>
-    <td>Cash assets, $10</td>
-    <td>Deposits, $90</td>
-    <td>Cash assets, $0</td>
-    <td>Deposits, $75</td>
-  </tr>
-  <tr>
-    <td>Nonliquid assets, $90</td>
-    <td>Equity, $10</td>
-    <td>Nonliquid assets, $80</td>
-    <td>Equity, $5</td>
-  </tr>
-  <tr>
-    <td>Total, $100</td>
-    <td>Total, $100</td>
-    <td>Total, $80</td>
-    <td>Total, $80</td>
-  </tr>
-</table>
+  <div class="example">
+    <h4>Example 7–1 (Source): Impact of an Interest Rate Increase on an FI's Profits When the Maturity of Its Assets Exceeds the Maturity of Its Liabilities</h4>
+    <p><strong>Setup:</strong> An FI issues $100 million of liabilities with one-year maturity to finance the purchase of $100 million of assets with a two-year maturity. The cost of funds (liabilities) is 9% per year, and the return on assets is 10% per year.</p>
+    <p><strong>Year 1:</strong> The FI locks in a profit spread of 1% (10% – 9%) × $100 million = $1 million profit.</p>
+    <p><strong>Year 2 (if rates rise):</strong> If interest rates rise and the FI can borrow new one-year liabilities only at 11% in the second year, the profit spread becomes negative: 10% – 11% = –1%, resulting in a loss of $1 million.</p>
+    <p><strong>Interpretation:</strong> The positive spread earned in the first year is offset by a negative spread in the second year. If rates rise by more than 1%, the FI would suffer net losses over the two-year period as a whole.</p>
+    <p><strong>Practical Lesson:</strong> When an FI holds longer-term assets relative to liabilities, it is exposed to refinancing risk—the risk that the cost of rolling over funds will exceed the return on assets. This was exemplified by banks that borrowed short-term deposits with frequently adjusting rates while investing in fixed-rate loans with infrequently adjusting rates.</p>
+  </div>
 
-<p>The nature of normal, abnormal, and run-type liquidity risks and their impact are examined in more detail in Chapter 12, ways to better manage liquidity and liability risk exposures in Chapter 19, and the roles of deposit insurance and other liability guarantee schemes in Chapter 20.</p>
+  <div class="formula-box">
+    <span class="label">Profit Spread and Dollar Profit (Refinancing Risk Context)</span>
+    <div class="formula">\[ \text{Profit Spread} = \text{Return on Assets} - \text{Cost of Funds} \]</div>
+    <div class="formula">\[ \text{Dollar Profit} = \text{Profit Spread} \times \text{Amount of Assets} \]</div>
+  </div>
 
-<h2>5. Foreign Exchange Risk</h2>
-<p>Increasingly, FIs have recognized that both direct foreign investment and foreign portfolio investments can extend the operational and financial benefits available from purely domestic investments. U.S. pension funds that held approximately 5 percent of their assets in foreign securities in the early 1990s now hold over 24 percent, and many large U.S. banks, investment banks, and mutual funds have become more global. To the extent that the returns on domestic and foreign investments are imperfectly correlated, there are potential gains for an FI that expands its asset holdings and liability funding beyond the domestic borders. The returns are not perfectly correlated for two reasons, the first being that the underlying technologies of various economies differ (one economy may be based on agriculture while another is industry based, so one economy could be expanding while another is contracting), and the second being that exchange rate changes are not perfectly correlated across countries (the dollar-euro exchange rate may be appreciating while the dollar-yen exchange rate may be falling).</p>
-<p><b>Foreign exchange risk</b> is the risk that exchange rate changes can adversely affect the value of an FI's assets and liabilities denominated in foreign currencies. For example, if a U.S. FI makes a loan to a British company in pounds, and the pound depreciates in value relative to the U.S. dollar, the <i>principal</i> and interest payments received by U.S. investors would be devalued in dollar terms, and if the pound fell far enough, the overall return could be negative when cash flows are converted back into dollars. In general, an FI can hold assets denominated in a foreign currency and/or issue foreign liabilities. A U.S. FI that holds 100 million pounds in pound loans as assets and funds 80 million pounds of them with pound certificates of deposit is net long 20 million pounds in pound assets, and suffers losses if the exchange rate for pounds falls or depreciates against the dollar. Instead, if the FI had 20 million pounds more pound liabilities than assets, it would be holding a net short position in pound assets, exposed to foreign exchange risk if the pound appreciates against the dollar. To be approximately hedged, the FI must match its assets and liabilities in each foreign currency.</p>
-<p>Note that the FI is fully hedged only if we assume it holds foreign assets and liabilities of exactly the same maturity. If the FI matches the size of its foreign currency book (pound assets equals pound liabilities, for example 100 million pounds) but mismatches the maturities, for example pound assets of six-month maturity and liabilities of three-month maturity, the FI would be exposed to foreign interest rate risk, the risk that British interest rates would rise when it has to roll over its pound CD liabilities at the end of the third month. An FI that matches both the size and maturities of its exposure in assets and liabilities of a given currency is hedged, or immunized, against foreign currency and foreign interest rate risk. Because foreign exchange rate and interest rate changes are not perfectly correlated across countries, an FI can diversify away part, if not all, of its foreign currency risk. The measurement and evaluation of an FI's foreign currency risk exposure is discussed in depth in Chapter 13.</p>
+  <div class="interpretation">
+    <p><strong>Symbols and Interpretation:</strong> <em>Return on Assets</em> is the percentage yield earned on the FI's asset investments (e.g., 10%). <em>Cost of Funds</em> is the percentage cost of the FI's liabilities (e.g., 9%). <em>Profit Spread</em> is the difference (e.g., 1%). <em>Dollar Profit</em> is the spread multiplied by the amount of assets (e.g., 0.01 × $100 million = $1 million).</p>
+    <p><strong>Practical Use:</strong> This simple calculation is used to evaluate the immediate profitability of the asset transformation function. It is a static measure that does not account for future uncertainty.</p>
+    <p><strong>Assumption:</strong> The calculation assumes no change in the cost of funds or return on assets within the period. The risk is that these rates change when the liability is refinanced.</p>
+  </div>
 
-<h2>6. Country or Sovereign Risk</h2>
-<p><b>Country or sovereign risk</b> is a different type of credit risk faced by an FI that purchases assets such as the bonds and loans of foreign corporations, namely the risk that repayments from foreign borrowers may be interrupted because of restrictions, intervention, or interference from foreign governments. When a domestic corporation is unable or unwilling to repay a loan, an FI usually has recourse to the domestic bankruptcy courts and eventually may recoup at least a portion of its original investment. By comparison, a foreign corporation may be unable to repay even if it would like to, most commonly because the government of the country in which the corporation is headquartered may prohibit or limit debt payments because of foreign currency shortages and adverse political reasons.</p>
-<p>An extreme example is Argentina, which had pegged its peso to the dollar on a one-to-one basis since the early 1990s, but in December 2001 ended up defaulting on $130 billion in government-issued debt, largely because of an overvalued peso and its adverse effect on exports and foreign currency earnings, and in 2002 passed legislation that led to defaults on $30 billion of corporate debt owed to foreign creditors. Argentina later defaulted on a $3 billion loan repayment to the IMF in September 2003. Another case of extreme sovereign risk is the European crisis of the 2010s, where in March 2012 Greek government debtholders lost 53.5 percent of their $265 billion investment as Greece restructured much of its sovereign debt, producing the largest-ever sovereign debt default. In the event of such restrictions, reschedulings, or outright prohibitions on the payment of debt obligations by sovereign governments, the FI claimholder has little, if any, recourse to the local bankruptcy courts or an international civil claims court. The major leverage available to an FI to ensure or increase repayment probabilities and amounts is its control over the future supply of loans or funds to the country concerned, but such leverage may be very weak in the face of a country's collapsing currency and government. Chapter 14 discusses how country or sovereign risk is measured and considers possible financial market solutions to the country risk exposure problems of a globally oriented FI.</p>
+  <h3>2.2 Reinvestment Risk</h3>
 
-<h2>7. Market Risk</h2>
-<p><b>Market risk</b> arises when FIs actively trade assets and liabilities (and derivatives) rather than hold them for longer-term investment, funding, or hedging purposes. Market risk is closely related to interest rate risk, credit risk, and foreign exchange risk, but adds another dimension resulting from trading activity, namely the incremental risk incurred by an FI when interest rate, foreign exchange, and credit risks are combined with an active trading strategy, especially one that involves short trading horizons such as a day. Conceptually, an FI's trading portfolio can be differentiated from its investment portfolio on the basis of time horizon and secondary market liquidity. The trading portfolio contains assets, liabilities, and derivative contracts that can be quickly bought or sold on organized financial markets, while the investment portfolio (or in the case of banks, the so-called banking book) contains assets and liabilities that are relatively illiquid and held for longer holding periods.</p>
+  <div class="interpretation">
+    <p><strong>Reinvestment Risk</strong>: The risk that the return on funds to be reinvested will fall below the cost of funds. This risk arises when an FI holds shorter-term assets relative to its liabilities (i.e., the FI is "long-funded" because the maturity of its liabilities exceeds the maturity of its assets).</p>
+  </div>
 
-<p class="tabcap">Table 7-3. The Investment (Banking) Book and Trading Book of a Commercial Bank (hypothetical)</p>
-<table>
-  <tr>
-    <th>Banking book</th>
-    <th colspan="2">Assets</th>
-    <th colspan="2">Liabilities</th>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Cash</td>
-    <td></td>
-    <td>Deposits</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Loans</td>
-    <td></td>
-    <td>Other illiquid borrowed funds</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Premises and equipment</td>
-    <td></td>
-    <td>Capital</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Other illiquid assets</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Trading book</td>
-    <td>Bonds (long)</td>
-    <td></td>
-    <td>Bonds (short)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Commodities (long)</td>
-    <td></td>
-    <td>Commodities (short)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>FX (long)</td>
-    <td></td>
-    <td>FX (short)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Equities (long)</td>
-    <td></td>
-    <td>Equities (short)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Derivatives (long)</td>
-    <td></td>
-    <td>Derivatives (short)</td>
-    <td></td>
-  </tr>
-</table>
+  <div class="example">
+    <h4>Example 7–2 (Source): Impact of an Interest Rate Decrease When the Maturity of an FI's Liabilities Exceeds the Maturity of Its Assets</h4>
+    <p><strong>Setup:</strong> An FI borrows $100 million at 9% per year for two years and invests the funds in assets that yield 10% for one year.</p>
+    <p><strong>Year 1:</strong> The FI locks in a profit spread of 1%, or $1 million.</p>
+    <p><strong>Year 2 (if rates fall):</strong> At the end of the first year, the assets mature. The funds borrowed for two years must be reinvested. If interest rates fall to 8%, the FI faces a negative spread of 1% (8% asset return – 9% cost of funds), resulting in a loss of $1 million.</p>
+    <p><strong>Interpretation:</strong> The positive spread in the first year is offset by a negative spread in the second year. The FI is exposed to reinvestment risk—the uncertainty about the interest rate at which it can reinvest funds borrowed for a longer period.</p>
+    <p><strong>Practical Lesson:</strong> This was exemplified by banks that borrowed fixed-rate deposits while investing in floating-rate loans whose interest rates adjusted frequently.</p>
+  </div>
 
-<p>With the increasing securitization of bank loans (for example mortgages), more and more assets have become liquid and tradable. While bank regulators have normally viewed tradable assets as those being held for horizons of less than one year, private FIs take an even shorter-term view, concerned about the fluctuation in the value of their trading account assets and liabilities for periods as short as one day, especially if such fluctuations pose a threat to solvency. An extreme case of market risk is the financial crisis of 2008 to 2009, when investment banks and securities firms were major purchasers and traders of mortgages in the early 2000s, and rising interest rates in the mid-2000s resulted in significant increases in mortgage defaults, so the securitized mortgage market froze up and FIs were left holding toxic assets at deeply reduced market values. Market risk is present whenever an FI takes an open or unhedged long (buy) or short (sell) position in bonds, equities, foreign exchange, and derivative products, and prices change in a direction opposite to that expected. The more volatile are asset prices in the markets in which these instruments trade, the greater are the market risks faced by FIs that adopt open trading positions, requiring FI management and regulators to establish controls to limit positions taken by traders as well as to develop models to measure the market risk exposure on a day-to-day basis. These market risk measurement models are discussed in Chapter 15.</p>
+  <div class="formula-box">
+    <span class="label">Profit Spread and Dollar Profit (Reinvestment Risk Context)</span>
+    <div class="formula">\[ \text{Profit Spread} = \text{Return on Reinvested Assets} - \text{Cost of Funds} \]</div>
+    <div class="formula">\[ \text{Dollar Profit} = \text{Profit Spread} \times \text{Amount of Assets} \]</div>
+  </div>
 
-<h2>8. Off-Balance-Sheet Risk</h2>
-<p>One of the most striking trends for many modern FIs has been the growth in their off-balance-sheet activities and thus their off-balance-sheet risk. An off-balance-sheet activity, by definition, does not appear on an FI's current balance sheet since it does not involve holding a current primary claim (asset) or the issuance of a current secondary claim (liability). Instead, off-balance-sheet activities affect the future, rather than the current, shape of an FI's balance sheet, involving the creation of contingent assets and liabilities that give rise to their potential (future) placement on the balance sheet, with a direct impact on the FI's future profitability and performance. Thus, accountants place them below the bottom line of an FI's asset and liability balance sheet.</p>
-<p>A good example of an off-balance-sheet activity is the issuance of standby letter of credit guarantees by insurance companies and banks to back the issuance of municipal bonds. Many state and local governments could not issue such securities without bank or insurance company letter of credit guarantees that promise <i>principal</i> and interest payments to investors should the municipality default on its future obligations. If a municipal government's cash flow is sufficiently strong so as to pay off the <i>principal</i> and interest on the debt it issues, the letter of credit guarantee issued by the FI expires unused, and nothing appears on the FI's balance sheet today or in the future, but the fee earned for issuing the guarantee appears on the FI's income statement. The ability to earn fee income while not loading up or expanding the balance sheet has become an important <i>motivation</i> for FIs to pursue off-balance-sheet business. Unfortunately, this activity is not risk free, because if the municipal government defaults, the contingent liability or guaranty the FI issued becomes an actual liability that appears on the FI's balance sheet, and the FI has to use its own equity to compensate investors in municipal bonds.</p>
-<p>Letters of credit are just one example of off-balance-sheet activities. Others include loan commitments by banks, mortgage servicing contracts by depository institutions, and positions in forwards, futures, swaps, and other derivative securities by almost all large FIs. While some of these activities are structured to reduce an FI's exposure to credit, interest rate, or foreign exchange risks, mismanagement or speculative use of these instruments can result in major losses. Indeed, as seen during the financial crisis of 2008 to 2009, significant losses in off-balance-sheet (OBS) activities (for example credit default swaps) can cause an FI to fail, just as major losses due to balance sheet default and interest rate risks can. The specific nature of the risks of off-balance-sheet activities is detailed more fully in Chapter 16, and how some of these instruments (forwards, futures, options, and swaps) can be used to manage risks in Chapters 23, 24, 25, and 27.</p>
+  <div class="interpretation">
+    <p><strong>Symbols and Interpretation:</strong> <em>Return on Reinvested Assets</em> is the yield on new assets purchased with the proceeds of maturing assets. <em>Cost of Funds</em> remains the fixed cost of the longer-term liabilities. The risk is that the reinvestment rate falls below the cost of funds.</p>
+    <p><strong>Practical Use:</strong> This calculation helps FIs assess the sensitivity of their profitability to changes in reinvestment rates. It is particularly relevant for FIs that fund long-term liabilities with short-term assets.</p>
+    <p><strong>Important Distinction:</strong> Refinancing risk is about the cost of new liabilities rising; reinvestment risk is about the return on new assets falling.</p>
+  </div>
 
-<h4>Example 7-4. Impact of Off-Balance-Sheet Risk on an FI's Equity Value</h4>
-<p>In panel A, the value of the FI's net worth (E) is calculated in the traditional way as the difference between the market values of its on-balance-sheet assets (A) and liabilities (L)</p>
-<div class="eq">\[ E = A - L \]</div>
-<div class="eq">\[ 10 = 100 - 90 \]</div>
-<p>Under this calculation, the market value of the stockholders' equity stake in the FI is 10 and the ratio of the FI's capital to assets is 10 percent. A more accurate picture of the FI's economic solvency should consider the market values of both its on-balance-sheet and OBS activities. In panel B, the current market value of the FI's contingent assets (CA) is 50 and the current market value of its contingent liabilities (CL) is 55. Since CL exceed CA by 5, this difference is an additional obligation, or claim, on the FI's net worth, so stockholders' true net worth (E) is really</p>
-<div class="eq">\[ E = (A - L) + (CA - CL) \]</div>
-<div class="eq">\[ E = (100 - 90) + (50 - 55) = 5 \]</div>
-<p>rather than 10 when off-balance-sheet activities are ignored. Economically speaking, contingent assets and liabilities are contractual claims that directly impact the economic value of the equity holders' stake in an FI, and from both the stockholders' and regulators' perspectives, large increases in the value of OBS liabilities can render the FI economically insolvent just as effectively as losses due to mismatched interest rate gaps and default or credit losses from on-balance-sheet activities.</p>
+  <h3>2.3 Market Value Risk</h3>
 
-<h2>9. Technology and Operational Risks</h2>
-<p>Technology and operational risks are closely related and in recent years have caused great concern to FI managers and regulators alike. The Bank for International Settlements (BIS) defines operational risk (inclusive of technological risk) as the risk of loss resulting from inadequate or failed internal processes, people, and systems or from external events. A number of FIs add reputational risk and strategic risk (for example due to a failed merger) as part of a broader definition of operational risk. Technological innovation was a major growth area of FIs in the 1990s and 2000s, with banks, insurance companies, and investment companies seeking to improve operational efficiency with major investments in internal and external communications, computers, and an expanded technological infrastructure, for example depositors can check account balances, transfer funds, manage finances, and pay bills from their personal electronic devices, and electronic transfer of funds through automated clearing houses (ACH) and wire transfer payment networks such as the Clearing House Interbank Payments Systems (CHIPS) have been developed.</p>
-<p>The major objectives of technological expansion are to lower operating costs, increase profits, and capture new markets, exploiting to the fullest extent possible <i>economies of scale</i> (an FI's ability to lower its average costs of operations by expanding its output of financial services) and <i>economies of scope</i> (an FI's ability to generate cost synergies by producing more than one output with the same inputs, for example using the same information on the quality of customers to expand the sale of both loan products and insurance products). Technology risks in financial services include the strategic risk of not embracing new technology, not investing in the right technology, as well as cybersecurity risk, technology vendor and third-party risk, and ineffective risk management. Many FIs are going through major legacy-to-digital transformations by moving their systems to the cloud and investing in new technologies such as blockchain, virtual reality, artificial intelligence, and machine learning. During the COVID-19 pandemic, FIs temporarily shifted to remote working, increasing the risk of cyber attacks and dependencies on third-party service providers, and the financial sector has been hit relatively more often by cyber attacks than most other sectors since the pandemic started, with payment firms, insurers, and credit unions especially affected by a significant increase in hacks.</p>
-<p><b>Operational risk</b> is partly related to technology risk and can arise whenever existing technology malfunctions or back-office support systems break down. For example, in August 2018 the FBI sent out an alert to banks that cybercriminals were preparing to carry out a global fraud scheme known as an ATM cash-out, where thieves use a bank or payment card processor and cloned cards at cash machines to potentially withdraw millions of dollars in a few hours after removing many fraud controls at the financial institution. Another notable instance is Target Stores in 2013, when hackers infected the company's payment card readers, making off with 110 million records at the height of the Christmas shopping season. Operational risk is not exclusively the result of technological failure, since employee fraud and errors constitute a type of operational risk that often negatively affects the reputation of an FI. A good example involves $6.2 billion in losses incurred in 2012 by JPMorgan Chase's trader Bruno Iksil, also known as the London Whale, who had taken large credit default swap (CDS) positions in expectation that the financial crisis in Europe would cause anxiety in financial markets, but bailouts, austerity measures, and interventions prevented any major events in Europe, and the CDS position eventually had to be closed at a loss when hedge fund traders took positions designed to gain from the trades Iksil had to make to keep the position going. These activities result in an overall loss of reputation and, in turn, business for the FI. The Federal Reserve defines reputational risk as the potential that negative publicity regarding an institution's business practices, whether true or not, will cause a decline in the customer base, costly litigation, or revenue reductions. Technology risks are described in more detail in Chapter 17.</p>
+  <div class="interpretation">
+    <p><strong>Market Value Risk</strong>: The risk that changes in interest rates affect the market (fair) values of assets and liabilities differently due to maturity mismatches. The market value of an asset or liability equals the present value of its current and future cash flows. Rising interest rates increase the discount rate on those cash flows, reducing market values; falling rates increase market values. When an FI holds longer-term assets than liabilities, a rise in interest rates causes the market value of assets to fall by a greater amount than the market value of liabilities, potentially threatening solvency.</p>
+  </div>
 
-<h2>10. Risk of Digital Disruption and Fintech</h2>
-<p>Digital innovation is transforming the financial services sector. <i>Fintech</i> refers to the use of technology to deliver financial solutions in a manner that competes with traditional financial methods, and the Financial Stability Board defines fintech as technology-enabled innovation in financial services that could result in new business models, applications, processes or products with an associated material effect on the provision of financial services. Examples include mobile money, peer-to-peer (P2P) or marketplace lending, robo-advice, insurance technology (insurtech), and digital currencies. A fintech firm specializes in offering digital financial services to consumers, or enables other providers to offer digital financial services, while a big tech firm is a large company whose primary activity is digital services (search engines, social media platforms, e-commerce platforms, ride-hailing platforms, and mobile network operators).</p>
-<p>Emerging technologies such as digital currencies (for example bitcoin, ether) and blockchain provide a system that supports the exchange of value between two parties unknown to each other in a swift and effective way, without the need for financial intermediaries. By reducing <i>transaction costs</i> among all participants in the economy, fintech supports models of peer-to-peer mass collaboration that could make many existing organizational forms redundant. However, investing in fintech may enable incumbents such as JPMorgan Chase, Citigroup, and Credit Suisse to do more with less, streamline their businesses, and reduce risk in the process. Adoption of new technologies in financial services would require substantial expenditures in order to adapt to evolving industry standards and consumer preferences, and the SEC noted that digital currencies limit the bank's ability to track movement of funds and comply with laws such as antimoney laundering regulation.</p>
-<p>The largest fintech companies by valuation include Stripe ($95 billion), a company that provides online payment platform, Klarna ($31 billion), a company that powers financing for customers at stores like IKEA, H&amp;M, and Etsy, and Kraken ($20 billion), a cryptocurrency exchange. Leading banks are rapidly closing gaps in digitization of internal processes and customer offerings to compete with fintechs and the big tech firms, which are able to deepen their inroads to core financial products as economies of scale and network effects are strong in digital platforms and cloud computing. While fintech firms face increased regulatory oversight, financial institutions face an increasing need to update their technological operating models. That said, traditional financial institutions have used risk management in a certain way for many years, with large teams of highly skilled and experienced employees, while fintech firms tend to have small teams using risk management processes developed over a relatively short time frame and untested in dealing with major risk events, and a risk event at a fintech firm can result in losses that are substantially damaging to firm value because there is less history to create a protocol. Chapter 18 summarizes the opportunities and risks of digital disruption and fintech in detail.</p>
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Market value risk reflects economic reality—the true value of assets and liabilities if the FI's portfolio were liquidated at today's securities prices—rather than at historical purchase prices.</strong> It considers the degree of leverage on the balance sheet as well as the timing of cash flows. Unlike refinancing or reinvestment risk, which focus on income flows, market value risk focuses on the economic value of the FI's net worth.</p>
+  </div>
 
-<h2>11. Insolvency Risk</h2>
-<p><b>Insolvency risk</b> is a consequence or outcome of one or more of the risks described above, namely interest rate, credit, liquidity, foreign exchange, sovereign, market, off-balance-sheet, technology risks, and risk of digital disruption and fintech. Technically, insolvency occurs when the capital or equity resources of an FI's owners are driven to, or near to, zero because of losses incurred as the result of one or more of these risks. Consider the case of Washington Mutual (WaMu), which incurred heavy losses from its on- and off-balance-sheet holdings during the financial crisis, with its market capital worth only $3.5 billion by early September 2008, down from $43 billion at the end of 2006, before being taken over by the FDIC and sold to JPMorgan Chase in September 2008. In contrast, in March 2009 Citigroup's stock price fell to below $1 per share and the once largest bank in the United States was near failure, but it received a substantial government guarantee against losses (up to $306 billion) and a $20 billion injection of cash to prevent failure. Between October 2008 and December 2009, more than 700 banks received a total of $205 billion in federal government funds through the Capital Purchase Program in an effort to prop up capital and support lending.</p>
-<p>In general, the more equity capital to borrowed funds an FI has, that is, the lower its leverage, the better able it is to withstand losses, whether due to adverse interest rate changes, unexpected credit losses, or other reasons. Thus, both management and regulators of FIs focus on an FI's capital (and adequacy) as a key measure of its ability to remain solvent and grow in the face of a multitude of risk exposures. The issue of what is an adequate level of capital to manage an FI's overall risk exposure is discussed in Chapter 21.</p>
+  <h3>2.4 Maturity Matching as a Hedge</h3>
 
-<h2>12. Other Risks and the Interaction of Risks</h2>
-<p>This chapter concentrates on 11 major risks continuously affecting an FI manager's decision-making process. Even though the discussion generally described each independently, in reality these risks are often interdependent. For example, when interest rates rise, corporations and consumers find maintaining promised payments on their debt more difficult, so over some range of interest rate movements, credit, interest rate, and off-balance-sheet risks are positively correlated. The FI may also have been counting on the funds from promised payments on its loans for liquidity management purposes, so liquidity risk is also correlated with interest rate and credit risks. The inability of a customer to make promised payments affects the FI's income and profits and, consequently, its equity or capital position, so each risk and its interaction with other risks ultimately affect insolvency risk. Foreign exchange rate changes and interest rate changes are also highly correlated, since when the Federal Reserve changes a key interest rate through its monetary policy actions, exchange rates are also likely to change.</p>
-<p>Various other risks, often of a more discrete or event type, also impact an FI's profitability and risk exposure, although many view discrete or event risks as part of operational risks. Discrete risks might include events external to the FI, such as a sudden change in regulation policy, including lifting the regulatory barriers to lending or to entry or on products offered (for example the 1994 regulatory change allowing interstate branching after 1997, the 1999 Financial Services Modernization Act, and the Wall Street Reform and Consumer Protection Act of 2010), as well as sudden and unexpected changes in financial market conditions due to war, revolution, or sudden market collapse, such as the 1929 and 2008 stock market crashes or the September 2001 terrorist attacks. Other event risks include fraud, theft, earthquakes, storms, malfeasance, and breach of fiduciary trust, all of which can ultimately cause an FI to fail or be severely harmed, yet each is difficult to model and predict.</p>
-<p>More general macroeconomic or systemic risks, such as increased inflation, inflation volatility, and unemployment, can directly and indirectly impact an FI's level of interest rate, credit, and liquidity risk exposure. During the Great Recession (December 2007 to June 2009), the U.S. economy lost some 8 million jobs, most of which were lost in the period November 2008 through June 2009, and with so many people out of work, credit risk exposure of FIs increased dramatically as borrowers had trouble keeping up with their loan payments after losing their jobs. It took more than five years for the labor market to recover after the end of the Great Recession, and the 2007 unemployment rate of less than 5 percent was not seen again until 2016. However, the magnitude of job loss in the early phase of the COVID-19 pandemic had no precedent since the end of World War II, with more than twice as many jobs lost between March and April 2020 as were lost during the entire 2007 to 2009 period. As a result, mortgage forbearance increased sharply, showing nearly a 3,000 percent increase from March 2020 to May 2020, auto loan modification requests increased nearly 10 times since the pandemic began, and U.S. banks increased their loss provisions by three to four times for the first quarter of 2020 compared to the fourth quarter of 2019.</p>
-<p>In addition to the above-mentioned risks, there are increasing concerns that <b>climate risk</b> may adversely affect the balance sheet of FIs and therefore may be relevant for financial stability. In his 2015 speech at Lloyd's of London, the governor of the Bank of England and then chairman of the Financial Stability Board (FSB) Mark Carney discussed three broad channels through which climate change affects the financial sector, namely (1) <i>physical risks</i>, related to extreme weather events or changing climate conditions, where floods and heavy storms can cause severe damage to physical assets even for the financial sector, (2) <i>liability risks</i>, related to the impacts on financial institutions if parties who have suffered loss or damage from the effects of climate change seek compensation from those they hold responsible, where if losses are insured the insurance industry is exposed, and if uninsured, banks and other financial institutions are exposed because households are more likely to default on their loans and mortgages while the collateral they provided is no longer available to cover these losses, and (3) <i>transition risks</i>, related to the two-degree goal under the Paris Agreement, where the exposure of the financial sector becomes apparent when taking into account the tendency of insurers, pension funds, and other investors to align their portfolios with capital market indices which often contain large portions of the industries (for example fossil fuel and energy industries) that will be affected by the transition to a low-carbon economy. Average weather-related losses per year worldwide have roughly tripled over the past 30 years, while the share of uninsured losses has increased. Climate-related risks may give rise to abrupt increases in risk premia across a wide range of assets, alter asset price comovement, amplify credit, liquidity, and counterparty risks, and challenge financial risk management in ways that are hard to predict. FIs are taking various actions to reduce or manage their exposure to climate-related risks, such as negative screening in lending, investing, or underwriting processes and exclusion policies for carbon-intensive industries, although these actions are not being systematically applied by most firms. On October 21, 2021, the Financial Stability Oversight Council (FSOC) released its report on climate-related financial risk, and for the first time recognized that climate change is an emerging and increasing threat to U.S. financial stability, recommending new actions on climate change data, disclosure, and scenario analysis, while the SEC has begun to evaluate its disclosure rules, the Federal Reserve Board has established two committees to develop a better understanding of climate-related risks, and the CFTC has engaged on climate-related financial risk issues through its Market Risk Advisory Committee.</p>
+  <div class="interpretation">
+    <p>If holding assets and liabilities with mismatched maturities exposes FIs to reinvestment (or refinancing) and market value risks, FIs can seek to hedge interest rate risk by matching the maturity of their assets and liabilities. However, <strong>matching maturities is not necessarily consistent with an active asset-transformation function</strong>. FIs cannot be asset transformers (e.g., transforming short-term deposits into long-term loans) and direct balance sheet matchers at the same time. While reducing interest rate risk, maturity matching may reduce profitability because returns from acting as specialized risk-bearing asset transformers are reduced.</p>
+  </div>
 
-<h2>13. Key Formulas and Calculations</h2>
+  <div class="interpretation">
+    <p>Furthermore, matching maturities hedges interest rate risk only in an approximate rather than complete fashion. The reasons are technical, relating to the difference between the average life (or <strong>duration</strong>) and maturity of an asset or liability, and whether the FI partly funds its assets with equity capital in addition to liabilities. When assets and liabilities are not equal, hedging risk (i.e., insulating stockholders' equity values) may be achieved by not exactly matching maturities.</p>
+  </div>
 
-<h3>13.1 Profit Spread and FI Profit</h3>
-<div class="eq">\[ \text{Profit spread} = r_{\text{assets}} - r_{\text{liabilities}} \]</div>
-<div class="eq">\[ \text{Profit} = \text{Profit spread} \times \text{Amount of funds} \]</div>
-<p>Example 7-1, a spread of 10 percent minus 9 percent equals 1 percent, a profit of $1 million in year 1, but if interest rates rise to 11 percent in year 2, the spread becomes minus 1 percent or a loss of $1 million (refinancing risk). Example 7-2, if the asset return falls to 8 percent in year 2 with a 9 percent cost of funds, the FI loses $1 million (reinvestment risk).</p>
+  <div class="analogy">
+    <h4>Analogy</h4>
+    <p>Interest rate risk is like walking a tightrope with a long pole that is unevenly balanced. If the pole (assets) is longer on one side than the other (liabilities), a gust of wind (interest rate change) will twist the pole and destabilize you. Matching the lengths creates balance, but it also prevents you from reaching farther (the asset transformation function).</p>
+  </div>
 
-<h3>13.2 Fire-Sale Loss and Final Equity</h3>
-<div class="eq">\[ \text{Fire-sale loss} = \text{Face value of assets sold} \times (1 - \text{fire-sale price}) \]</div>
-<div class="eq">\[ \text{Final equity} = \text{Initial equity} - \text{Loss} \]</div>
-<p>Example 7-3, selling $10 million of nonliquid assets at 50 cents on the dollar produces a loss of $5 million, so equity falls from $10 million to $5 million.</p>
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Maturity matching is a trade-off: it reduces interest rate risk but also reduces the profitability potential from asset transformation.</strong> Different types of FIs make different choices on this spectrum. Depository institutions traditionally hold longer-term assets than liabilities, while life insurers tend to match the long-term nature of their liabilities with long-term assets.</p>
+  </div>
 
-<h3>13.3 Net Worth with Off-Balance-Sheet Activities</h3>
-<div class="eq">\[ E = A - L \]</div>
-<div class="eq">\[ E = (A - L) + (CA - CL) \]</div>
-<p>Example 7-4, E = (100 minus 90) + (50 minus 55) = 5, not 10 when off-balance-sheet activities are ignored.</p>
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Interest rate risk arises from mismatched maturities of assets and liabilities; it is inherent in the asset transformation function of FIs.</li>
+      <li>Refinancing risk occurs when long-term assets are funded by short-term liabilities and rates rise.</li>
+      <li>Reinvestment risk occurs when short-term assets are funded by long-term liabilities and rates fall.</li>
+      <li>Market value risk reflects the impact of rate changes on the present value of assets and liabilities, directly affecting economic net worth.</li>
+      <li>Maturity matching can hedge interest rate risk but limits asset transformation profitability.</li>
+      <li>Perfect hedging requires matching durations (average lives), not just maturities, and accounting for leverage.</li>
+    </ul>
+  </div>
 
-<h3>13.4 Net Foreign Exchange Position</h3>
-<div class="eq">\[ \text{Net position} = \text{Foreign currency assets} - \text{Foreign currency liabilities} \]</div>
-<p>A net long position in pound assets (pound assets of 100 million minus pound liabilities of 80 million, net long 20 million pounds) suffers losses if the pound depreciates, while a net short position (pound liabilities of 100 million minus pound assets of 80 million) suffers losses if the pound appreciates.</p>
+  <h2 id="section3">3. Credit Risk</h2>
 
-<h3>13.5 Other Key Data</h3>
-<ul>
-  <li>Commercial bank credit card loans, from $227.497 billion (December 1999) to a peak of $941.557 billion (December 2019) and $791.990 billion (June 2021)</li>
-  <li>IndyMac, summer 2008 bank run, failed even though deposits were insured up to $100,000 (now $250,000)</li>
-  <li>Argentina, defaulted on $130 billion of government debt (2001) and $30 billion of corporate debt (2002), and $3 billion to the IMF (2003)</li>
-  <li>Greece, debtholders lost 53.5 percent of their $265 billion investment (March 2012), the largest-ever sovereign debt default</li>
-  <li>WaMu, market capital fell from $43 billion (2006) to $3.5 billion (2008), taken over by the FDIC and sold to JPMorgan Chase</li>
-  <li>Citigroup, government guarantee of up to $306 billion and a $20 billion cash injection (2009), and more than 700 banks received $205 billion through the Capital Purchase Program</li>
-  <li>London Whale (Bruno Iksil), $6.2 billion loss at JPMorgan Chase (2012), and Target Stores, 110 million records stolen (2013)</li>
-  <li>Largest fintech companies, Stripe $95 billion, Klarna $31 billion, Kraken $20 billion</li>
-  <li>U.S. pension funds, foreign security holdings rose from about 5 percent to over 24 percent</li>
-</ul>
+  <div class="interpretation">
+    <p><strong>Credit Risk</strong>: The risk that promised cash flows from loans and securities held by FIs may not be paid in full. This is the risk of default by borrowers on their contractual obligations, including both principal and interest payments. Virtually all types of FIs face this risk, but those that make loans or buy bonds with long maturities are more exposed than those with short maturities. For example, depository institutions and life insurers are more exposed to credit risk than money market mutual funds and property–casualty insurers.</p>
+  </div>
 
-<h2>14. Summary and Conclusions</h2>
-<p>This chapter provided an introductory view of 11 major risks faced by modern FIs. They face interest rate risk when the maturities of their assets and liabilities are mismatched, credit risk or default risk if their clients default on their loans and other obligations, liquidity risk as a result of excessive withdrawals or problems in refinancing liabilities, and foreign exchange and sovereign risks if they conduct foreign business. They incur market risk on their trading assets and liabilities if adverse movements in interest rates, exchange rates, or other asset prices occur, and engage in significant off-balance-sheet activities that expose them to off-balance-sheet risks, namely contingent asset and liability risks. The advent of sophisticated technology and automation exposes FIs to both technological and operational risks, as well as the risk of digital disruption and fintech, which is a failure to successfully implement a digital transformation in their attempt to compete against new disruptive players. FIs face insolvency risk when their capital is insufficient to withstand the losses they incur as a result of such risks.</p>
-<p>The interaction of the various risks means that FI managers face making trade-offs among them, since as they take actions in an attempt to affect one type of risk, they must consider the possible impact on other risks. Discrete or event risks, macroeconomic risks such as inflation and unemployment, and climate risk increasingly recognized as a threat to financial stability all add to the complexity. The effective management of these risks determines a modern FI's success or failure, and the chapters that follow analyze each of these risks in greater detail.</p>
+  <div class="interpretation">
+    <p>If all borrowers paid principal and interest in full on the promised dates, FIs would face no credit risk. However, when a borrower defaults, both the principal loaned and the expected interest payments are at risk. Financial claims such as corporate bonds and bank loans have a limited or fixed upside return (principal and interest payments) with a high probability and a large downside risk (loss of principal and promised interest) with a much smaller probability.</p>
+  </div>
 
-<h2>15. Concept Questions for Practice</h2>
-<ol>
-  <li>What is the process of asset transformation performed by a financial institution, and why does this process often lead to the creation of interest rate risk?</li>
-  <li>What is refinancing risk, and how is it part of interest rate risk? If an FI funds long-term assets with short-term liabilities, what will be the impact on earnings of an increase in the rate of interest?</li>
-  <li>What is reinvestment risk, and how is it part of interest rate risk? If an FI funds short-term assets with long-term liabilities, what will be the impact on earnings of a decrease in the rate of interest?</li>
-  <li>How can interest rate risk adversely affect the economic or market value of an FI?</li>
-  <li>What is credit risk, and which types of FIs are more susceptible to this type of risk and why?</li>
-  <li>What is the difference between firm-specific credit risk and systematic credit risk, and how can an FI alleviate firm-specific credit risk?</li>
-  <li>What is liquidity risk, and what market reality can create severe financial difficulty for an FI in times of extreme liquidity crises?</li>
-  <li>What is foreign exchange risk? What does it mean for an FI to be net long in foreign assets and net short in foreign assets, and what must happen to the foreign exchange rate to cause the FI to suffer losses in each case?</li>
-  <li>What is country or sovereign risk, and what remedy does an FI realistically have in the event of a collapsing country or currency?</li>
-  <li>What is market risk, and how does this risk affect the operating performance of financial institutions?</li>
-  <li>What is the nature of an off-balance-sheet activity, and how does an FI benefit from such activities?</li>
-  <li>What is the difference between economies of scale and economies of scope, and between technology risk and operational risk?</li>
-  <li>What is fintech, and how does risk in fintech companies differ from that in traditional FIs?</li>
-  <li>Why can insolvency risk be classified as a consequence or outcome of any or all of the other types of risks?</li>
-  <li>Discuss the interrelationships among the different sources of FI risk exposure, and why would the construction of an FI risk management model to measure and manage only one type of risk be incomplete?</li>
-  <li>What is meant by the term event risk, and what are some examples of event and general macroeconomic risks that impact FIs?</li>
-</ol>
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>A key role of FIs involves screening and monitoring loan applicants to ensure that FIs fund the most creditworthy loans.</strong> Managerial monitoring efficiency and credit risk management strategies directly affect the return and risk of the loan portfolio.</p>
+  </div>
 
-<p class="note">Technical note, mathematical equations on this page are rendered with MathJax and require an internet connection when first opened. To print or save as PDF, use the Print button at the top. This document is a self-study summary and not a substitute for the original textbook.</p>
+  <h3>3.1 Firm-Specific vs. Systematic Credit Risk</h3>
 
+  <div class="interpretation">
+    <p><strong>Firm-Specific Credit Risk</strong>: The risk of default of the borrowing firm associated with the specific types of project risk taken by that firm. This risk is unique to individual borrowers or industries.</p>
+    <p><strong>Systematic Credit Risk</strong>: The risk of default associated with general economywide or macro conditions affecting all borrowers. Factors such as an economic recession increase the default risk of all firms simultaneously.</p>
+  </div>
+
+  <div class="interpretation">
+    <p>One of the advantages FIs have over individual investors is the ability to diversify some credit risk by exploiting the law of large numbers in their asset portfolios. Diversification across assets reduces the overall credit risk in the portfolio, increasing the probability of partial or full repayment of principal and interest. The effect of diversification is to truncate the probabilities of bad outcomes. However, diversification reduces only firm-specific credit risk; systematic credit risk remains.</p>
+  </div>
+
+  <div class="example">
+    <h4>Empirical Evidence: Charge-Off Rates (Figure 7–1 from Source)</h4>
+    <p>Commercial bank charge-off rates for various loan types from 1984 to 2021 show that credit card loans consistently had the highest charge-off rates, with peaks during the early 2000s recession and the 2007–2010 financial crisis. The data illustrate the cyclical nature of credit risk, with charge-offs rising during economic downturns and falling during recoveries.</p>
+    <p><strong>Interpretation:</strong> Credit risk is not static; it varies with economic conditions, borrower behavior, and regulatory changes. FIs must continuously monitor and adjust their credit risk management strategies.</p>
+  </div>
+
+  <div class="analogy">
+    <h4>Analogy</h4>
+    <p>Credit risk is like lending an umbrella to a friend. If the weather is good (strong economy), you get the umbrella back. If a storm comes (recession), the friend might lose the umbrella or be unable to return it. Diversifying across many friends in different locations reduces the chance that all umbrellas are lost simultaneously.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Diversification reduces firm-specific credit risk but does not eliminate systematic credit risk.</strong> Even a well-diversified loan portfolio will experience losses during an economywide recession. The maximum dollar return occurs when all loans pay off; the mean return is lower due to defaults, and diversification limits the probability of extreme losses.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Credit risk is the risk of default on promised cash flows from loans and bonds.</li>
+      <li>FIs with longer-maturity assets are more exposed to credit risk.</li>
+      <li>Firm-specific credit risk can be reduced through diversification; systematic credit risk cannot.</li>
+      <li>Screening and monitoring are essential tools for managing credit risk.</li>
+      <li>Credit risk is cyclical, with charge-off rates rising during economic downturns.</li>
+    </ul>
+  </div>
+
+  <h2 id="section4">4. Liquidity Risk</h2>
+
+  <div class="interpretation">
+    <p><strong>Liquidity Risk</strong>: The risk that a sudden surge in liability withdrawals may require an FI to liquidate assets in a very short period of time and at less than fair market prices. Liquidity risk also arises when holders of off-balance-sheet loan commitments (credit lines) suddenly exercise their right to borrow. The most liquid asset is cash, but FIs limit cash holdings because cash earns no interest. Day-to-day withdrawals are generally predictable and can be met through normal borrowing.</p>
+  </div>
+
+  <div class="interpretation">
+    <p>A liquidity crisis occurs when liability holders demand abnormally large withdrawals due to a lack of confidence in the FI or some unexpected need for cash. When many FIs face abnormally large cash demands, the cost of purchased funds rises and the supply of such funds becomes restricted. FIs may then have to sell less liquid assets at <strong>fire-sale prices</strong>—prices received when an asset must be liquidated immediately at less than its fair market value—which can threaten profitability and solvency.</p>
+  </div>
+
+  <div class="example">
+    <h4>Example 7–3 (Source): Impact of Liquidity Risk on an FI's Equity Value</h4>
+    <p><strong>Setup:</strong> An FI has $10 million in cash assets and $90 million in nonliquid assets (small business loans), funded by $90 million in deposits and $10 million in equity.</p>
+    <p><strong>Event:</strong> Depositors unexpectedly withdraw $15 million in deposits. The FI first uses its $10 million in cash, then must sell nonliquid assets to raise an additional $5 million. Because it cannot borrow more funds and needs cash immediately, the FI must sell nonliquid assets at 50 cents on the dollar. To raise $5 million, it must sell $10 million in face value of nonliquid assets, incurring a $5 million loss.</p>
+    <p><strong>Result:</strong> The loss is written off against equity, reducing equity from $10 million to $5 million.</p>
+    <p><strong>Interpretation:</strong> Liquidity risk can directly impair an FI's capital position when assets must be sold at fire-sale prices to meet withdrawal demands.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Table 7–2 (Source): Adjusting to a Deposit Withdrawal Using Asset Sales ($ millions)</caption>
+      <thead>
+        <tr><th>Before Withdrawal</th><th>Assets</th><th>Liabilities/Equity</th><th>After Withdrawal</th><th>Assets</th><th>Liabilities/Equity</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cash</td><td>$10</td><td>Deposits $90</td><td>Cash</td><td>$0</td><td>Deposits $75</td></tr>
+        <tr><td>Nonliquid</td><td>$90</td><td>Equity $10</td><td>Nonliquid</td><td>$80</td><td>Equity $5</td></tr>
+        <tr><td>Total</td><td>$100</td><td>$100</td><td>Total</td><td>$80</td><td>$80</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Liquidity risk can trigger a solvency crisis even if the FI is otherwise profitable.</strong> The forced sale of assets at fire-sale prices destroys capital. The IndyMac bank failure in July 2008 is a real-world example: a bank run persisted even after the FDIC took over, because depositors feared losing access to their funds despite deposit insurance.</p>
+  </div>
+
+  <div class="analogy">
+    <h4>Analogy</h4>
+    <p>Liquidity risk is like having most of your wealth tied up in a house and needing to sell it quickly to pay an unexpected large bill. If you have only a few days to sell, you will likely have to accept a much lower price than if you could wait for the right buyer.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Liquidity risk arises from sudden large withdrawals or drawdowns of loan commitments.</li>
+      <li>Forced sale of illiquid assets at fire-sale prices can destroy capital and threaten solvency.</li>
+      <li>Even insured deposits may not prevent a bank run if depositors fear delays in accessing funds.</li>
+      <li>Liquidity risk is closely related to confidence: loss of confidence can trigger a crisis.</li>
+    </ul>
+  </div>
+
+  <h2 id="section5">5. Foreign Exchange Risk</h2>
+
+  <div class="interpretation">
+    <p><strong>Foreign Exchange Risk</strong>: The risk that exchange rate changes can adversely affect the value of an FI's assets and liabilities denominated in foreign currencies. As FIs have become more global, they hold increasing proportions of foreign assets and liabilities. The returns on domestic and foreign investments are not perfectly correlated because (1) the underlying technologies and economic structures of different economies vary, and (2) exchange rate changes are not perfectly correlated across countries.</p>
+  </div>
+
+  <div class="interpretation">
+    <p>Foreign exchange risk arises from holding assets and liabilities denominated in a foreign currency. A U.S. FI that makes a loan in British pounds (£) will find that if the pound depreciates against the dollar, the principal and interest payments are devalued in dollar terms. If the pound falls far enough, the overall return could be negative—foreign exchange losses can offset the promised local currency interest payments.</p>
+  </div>
+
+  <h3>5.1 Net Long and Net Short Foreign Asset Positions</h3>
+
+  <div class="interpretation">
+    <p><strong>Net Long Position in Foreign Assets:</strong> When an FI holds more foreign assets than foreign liabilities in a given currency. For example, a U.S. FI holds £100 million in pound loans and funds £80 million with pound CDs, with the remaining £20 million funded by dollar CDs. The FI is net long £20 million in pound assets. The FI suffers losses if the pound depreciates against the dollar—the value of pound assets falls more than the value of pound liabilities.</p>
+    <p><strong>Net Short Position in Foreign Assets:</strong> When an FI holds more foreign liabilities than foreign assets in a given currency. For example, a U.S. FI has £20 million more pound liabilities than assets. The FI is exposed to foreign exchange risk if the pound appreciates against the dollar—the value of pound liabilities rises faster than the return on pound assets.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>To be approximately hedged against foreign exchange risk, an FI must match the size of its assets and liabilities in each foreign currency.</strong> However, even if the size is matched, the FI may still be exposed to foreign interest rate risk if the maturities are mismatched. For example, if pound assets have six-month maturity and pound liabilities have three-month maturity, the FI faces the risk that British interest rates will rise when it rolls over the liabilities. Full hedging requires matching both the size and the maturities (or durations) of assets and liabilities in each currency.</p>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">Net Foreign Asset Exposure (Example)</span>
+    <div class="formula">\[ \text{Net Exposure (Long)} = \text{Foreign Assets} - \text{Foreign Liabilities} \]</div>
+  </div>
+
+  <div class="interpretation">
+    <p><strong>Symbols and Interpretation:</strong> <em>Foreign Assets</em> are the total value of assets denominated in a foreign currency (e.g., £100 million). <em>Foreign Liabilities</em> are the total value of liabilities denominated in that currency (e.g., £80 million). A positive net exposure (long position) means the FI gains if the foreign currency appreciates and loses if it depreciates. A negative net exposure (short position) means the opposite.</p>
+    <p><strong>Practical Use:</strong> FIs monitor their net exposure in each foreign currency to assess potential gains or losses from exchange rate movements. Hedging strategies involve matching asset and liability amounts in each currency and, ideally, their maturities.</p>
+  </div>
+
+  <div class="analogy">
+    <h4>Analogy</h4>
+    <p>Foreign exchange risk is like having a savings account in a foreign currency. If the exchange rate moves against you, the dollar value of your savings decreases even though the local currency amount stays the same. Mismatching assets and liabilities in different currencies is like having a loan in one currency and savings in another—you are exposed to exchange rate movements between the two.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Foreign exchange risk arises from holding assets and liabilities in nondomestic currencies.</li>
+      <li>A net long position in a foreign currency means the FI gains if that currency appreciates and loses if it depreciates.</li>
+      <li>A net short position means the FI gains if the currency depreciates and loses if it appreciates.</li>
+      <li>Full hedging requires matching both the size and maturities of foreign currency assets and liabilities.</li>
+      <li>Diversification across currencies can reduce overall foreign exchange risk if exchange rate movements are not perfectly correlated.</li>
+    </ul>
+  </div>
+
+  <h2 id="section6">6. Country or Sovereign Risk</h2>
+
+  <div class="interpretation">
+    <p><strong>Country or Sovereign Risk</strong>: The risk that repayments from foreign borrowers may be interrupted because of restrictions, intervention, or interference from foreign governments. This is a special type of credit risk faced by FIs that purchase assets such as bonds and loans of foreign corporations or governments. Unlike domestic defaults, where the FI has recourse to domestic bankruptcy courts, foreign borrowers may be unable or unwilling to repay even if they desire to do so, because their government may prohibit or limit debt payments due to foreign currency shortages or adverse political reasons.</p>
+  </div>
+
+  <div class="example">
+    <h4>Historical Examples (Source)</h4>
+    <p><strong>Argentina (2001–2002):</strong> Argentina defaulted on $130 billion in government-issued debt and passed legislation that led to defaults on $30 billion of corporate debt owed to foreign creditors. The country's economic problems continued into the 2000s and 2010s.</p>
+    <p><strong>Greece (2012):</strong> Greek government debtholders lost 53.5% of their $265 billion investment as Greece restructured its sovereign debt, producing the largest-ever sovereign debt default.</p>
+    <p><strong>Interpretation:</strong> In such events, the FI claimholder has little recourse to local bankruptcy courts or international civil claims courts. The major leverage available to an FI is its control over the future supply of loans or funds to the country, but this leverage may be very weak in the face of a collapsing currency and government.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Sovereign risk is distinct from ordinary credit risk because the borrower's government can unilaterally restrict or prohibit debt payments, and the FI has limited legal recourse.</strong> This risk is particularly acute when the borrowing country faces foreign currency shortages or political instability.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Sovereign risk is the risk that a foreign government will restrict or prohibit debt repayments.</li>
+      <li>Legal recourse is limited compared to domestic defaults.</li>
+      <li>An FI's primary leverage is the future supply of credit, which may be insufficient.</li>
+      <li>Sovereign risk can lead to massive losses, as seen in Argentina and Greece.</li>
+    </ul>
+  </div>
+
+  <h2 id="section7">7. Market Risk</h2>
+
+  <div class="interpretation">
+    <p><strong>Market Risk</strong>: The risk incurred in the trading of assets and liabilities due to changes in interest rates, exchange rates, and other asset prices. Market risk is closely related to interest rate risk, credit risk, and foreign exchange risk, but it adds another dimension arising from active trading activity, especially over short trading horizons such as a day. Market risk is the incremental risk incurred when these risks are combined with an active trading strategy.</p>
+  </div>
+
+  <h3>7.1 Trading Book vs. Banking Book</h3>
+
+  <div class="interpretation">
+    <p><strong>Trading Book:</strong> Contains assets, liabilities, and derivative contracts that can be quickly bought or sold on organized financial markets. These are held for short-term trading purposes. Examples include long and short positions in bonds, commodities, foreign exchange, equities, and derivatives.</p>
+    <p><strong>Banking Book (Investment Portfolio):</strong> Contains assets and liabilities that are relatively illiquid and held for longer holding periods. For banks, this includes the majority of loans and deposits plus other illiquid assets.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption>Table 7–3 (Source): The Investment (Banking) Book and Trading Book of a Commercial Bank</caption>
+      <thead>
+        <tr><th>Banking Book (Assets)</th><th>Banking Book (Liabilities)</th><th>Trading Book</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cash</td><td>Deposits</td><td>Bonds (long/short)</td></tr>
+        <tr><td>Loans</td><td>Other illiquid borrowed funds</td><td>Commodities (long/short)</td></tr>
+        <tr><td>Premises and equipment</td><td>Capital</td><td>FX (long/short)</td></tr>
+        <tr><td>Other illiquid assets</td><td></td><td>Equities (long/short)</td></tr>
+        <tr><td></td><td></td><td>Derivatives (long/short)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="interpretation">
+    <p>With the increasing securitization of bank loans, more assets have become liquid and tradable. While bank regulators have traditionally viewed tradable assets as those held for horizons of less than one year, private FIs take an even shorter-term view, focusing on daily fluctuations in the value of trading account assets and liabilities. The more volatile the asset prices, the greater the market risk faced by FIs that adopt open trading positions.</p>
+  </div>
+
+  <div class="example">
+    <h4>Extreme Case: Financial Crisis of 2008–2009</h4>
+    <p>Investment banks and securities firms were major purchasers and traders of mortgages in the early 2000s. Rising interest rates in the mid-2000s led to significant increases in mortgage defaults, freezing the securitized mortgage market. FIs were left holding "toxic" assets at deeply reduced market values. This illustrates that market risk is present whenever an FI takes an open or unhedged long or short position and prices move in the opposite direction.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Market risk is the risk of losses from adverse price movements in actively traded positions.</strong> It requires FI management to establish controls to limit trader positions and to develop models to measure market risk exposure on a day-to-day basis.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Market risk arises from active trading of assets, liabilities, and derivatives over short horizons.</li>
+      <li>The trading book contains liquid, short-term positions; the banking book contains illiquid, long-term holdings.</li>
+      <li>Market risk is magnified by asset price volatility and open (unhedged) positions.</li>
+      <li>The 2008–2009 financial crisis is an extreme example of market risk realization.</li>
+      <li>Risk measurement models and position limits are essential for managing market risk.</li>
+    </ul>
+  </div>
+
+  <h2 id="section8">8. Off-Balance-Sheet Risk</h2>
+
+  <div class="interpretation">
+    <p><strong>Off-Balance-Sheet Risk</strong>: The risk incurred by an FI due to activities related to contingent assets and liabilities held off the balance sheet. Off-balance-sheet (OBS) activities do not appear on the current balance sheet because they do not involve holding a current primary claim (asset) or issuing a current secondary claim (liability). Instead, they affect the future shape of the balance sheet by creating contingent assets and liabilities that may become actual assets and liabilities in the future.</p>
+  </div>
+
+  <div class="interpretation">
+    <p><strong>Contingent Assets and Liabilities:</strong> Assets and liabilities off the balance sheet that potentially produce positive or negative cash flows for an FI. These are contractual claims that directly impact the economic value of the equity holders' stake in the FI.</p>
+    <p><strong>Letter of Credit:</strong> A credit guarantee issued by an FI for a fee, on which payment is contingent on some future event occurring. For example, a standby letter of credit backs the issuance of municipal bonds. If the municipality defaults, the FI must pay the bondholders. The fee income appears on the income statement, but the contingent liability is off the balance sheet until triggered.</p>
+  </div>
+
+  <div class="example">
+    <h4>Example 7–4 (Source): Impact of Off-Balance-Sheet Risk on an FI's Equity Value</h4>
+    <p><strong>Panel A (Traditional Valuation):</strong> E = A – L = 100 – 90 = 10. The FI's net worth is 10, and the capital-to-assets ratio is 10%.</p>
+    <p><strong>Panel B (Valuation with OBS):</strong> E = (A – L) + (CA – CL) = (100 – 90) + (50 – 55) = 5. The contingent assets (CA) are 50, and contingent liabilities (CL) are 55. Because CL exceed CA by 5, this difference is an additional claim on the FI's net worth, reducing true economic net worth from 10 to 5.</p>
+    <p><strong>Interpretation:</strong> Economically, contingent assets and liabilities are contractual claims that directly impact the equity holders' stake. Large increases in OBS liabilities can render the FI economically insolvent just as effectively as losses from on-balance-sheet activities.</p>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">Net Worth with Off-Balance-Sheet Activities</span>
+    <div class="formula">\[ E = (A - L) + (CA - CL) \]</div>
+  </div>
+
+  <div class="interpretation">
+    <p><strong>Symbols and Interpretation:</strong> <em>E</em> is the economic net worth (equity) of the FI. <em>A</em> is the market value of on-balance-sheet assets. <em>L</em> is the market value of on-balance-sheet liabilities. <em>CA</em> is the current market value of contingent assets (off-balance-sheet). <em>CL</em> is the current market value of contingent liabilities (off-balance-sheet).</p>
+    <p><strong>Practical Use:</strong> This formula provides a more complete picture of the FI's economic solvency than the traditional balance sheet alone. Regulators and FI managers should consider both on- and off-balance-sheet activities when assessing capital adequacy.</p>
+    <p><strong>Important Assumption:</strong> The market values of contingent assets and liabilities must be estimated, which can be complex and subjective. The example assumes CA = 50 and CL = 55 for illustration.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Off-balance-sheet activities generate fee income without expanding the balance sheet, but they carry real risk.</strong> The ability to earn fee income without loading up the balance sheet motivates FIs to pursue OBS business, but mismanagement or speculative use of these instruments (e.g., credit default swaps) can lead to major losses and even failure, as seen during the 2008–2009 financial crisis.</p>
+  </div>
+
+  <div class="analogy">
+    <h4>Analogy</h4>
+    <p>Off-balance-sheet risk is like cosigning a loan for a friend. The loan does not appear on your balance sheet, but if the friend defaults, you are liable. The fee you charge for cosigning is income, but the risk is real and can become a large liability if the friend fails to pay.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Off-balance-sheet activities create contingent assets and liabilities that affect future balance sheets.</li>
+      <li>Economic net worth must consider both on- and off-balance-sheet items: E = (A – L) + (CA – CL).</li>
+      <li>Large off-balance-sheet liabilities can render an FI economically insolvent.</li>
+      <li>OBS activities generate fee income but carry real risk, as demonstrated in the 2008–2009 crisis.</li>
+      <li>Examples of OBS activities include letters of credit, loan commitments, and derivative positions.</li>
+    </ul>
+  </div>
+
+  <h2 id="section9">9. Technology and Operational Risk</h2>
+
+  <div class="interpretation">
+    <p><strong>Technology Risk</strong>: Risks including the strategic risk of not embracing new technology, not investing in the right technology, cybersecurity risk, technology vendor and third-party risk, and ineffective risk management. The major objectives of technological expansion are to lower operating costs, increase profits, and capture new markets.</p>
+    <p><strong>Operational Risk</strong>: The risk that existing technology, auditing, monitoring, and other support systems may malfunction or break down. The Bank for International Settlements (BIS) defines operational risk (inclusive of technological risk) as "the risk of loss resulting from inadequate or failed internal processes, people, and systems or from external events." Some FIs add reputational risk and strategic risk as part of a broader definition.</p>
+  </div>
+
+  <h3>9.1 Economies of Scale and Scope</h3>
+
+  <div class="interpretation">
+    <p><strong>Economies of Scale:</strong> The degree to which an FI's average unit costs of producing financial services fall as its output of services increases. Technology enables larger-scale operations at lower per-unit cost.</p>
+    <p><strong>Economies of Scope:</strong> The degree to which an FI can generate cost synergies by producing multiple financial service products. For example, an FI could use the same customer information stored in its computers to expand the sale of both loan products and insurance products.</p>
+  </div>
+
+  <div class="interpretation">
+    <p>Technology risks include cybersecurity risk (cyber risk), which is an umbrella term for a wide range of risks resulting from the failure or breach of IT systems. As FIs embrace third-party service providers, risks associated with these vendors proliferate. During the Covid-19 pandemic, the shift to remote working increased the risk of cyber attacks and dependencies on third-party providers. The financial sector has been hit relatively more often by cyber attacks than most other sectors since the pandemic began.</p>
+  </div>
+
+  <div class="example">
+    <h4>Examples of Operational Risk Events (Source)</h4>
+    <p><strong>FBI Alert (August 2018):</strong> The FBI warned banks that cybercriminals were preparing to carry out a global "ATM cash-out" fraud scheme, where thieves use cloned cards to withdraw millions of dollars in hours. The FBI urged banks to review security measures such as strong password requirements and two-factor authentication.</p>
+    <p><strong>Target Stores (2013):</strong> Hackers infected the company's payment card readers, stealing 110 million records during the Christmas shopping season.</p>
+    <p><strong>JPMorgan Chase "London Whale" (2012):</strong> Trader Bruno Iksil took large credit default swap positions that resulted in $6.2 billion in losses. The trades were too large for the market, and when the position was discovered, hedge funds traded against it, forcing JPMorgan to close at a loss. This event damaged the bank's reputation and led to losses.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Operational risk is not exclusively the result of technological failure; employee fraud and errors constitute a major type of operational risk that often negatively affects the reputation of an FI.</strong> The Federal Reserve defines reputational risk as the potential that negative publicity regarding an institution's business practices, whether true or not, will cause a decline in the customer base, costly litigation, or revenue reductions.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Technology risk includes strategic risk, cybersecurity risk, vendor risk, and data management risk.</li>
+      <li>Operational risk encompasses failures in internal processes, people, systems, and external events.</li>
+      <li>Economies of scale and scope are key benefits of technological expansion.</li>
+      <li>Cyber risk is growing in importance, especially with remote work and third-party dependencies.</li>
+      <li>Employee fraud and errors, as in the London Whale case, are significant operational risks.</li>
+    </ul>
+  </div>
+
+  <h2 id="section10">10. Risk of Digital Disruption and Fintech</h2>
+
+  <div class="interpretation">
+    <p><strong>Risk of Digital Disruption and Fintech</strong>: The risk that an FI fails to successfully redefine and innovate how it creates, delivers, and captures value; and to compete against new disruptive players in the sector. This risk arises from the rapid evolution of financial technology (fintech) and the entry of new competitors, including fintech firms and big tech companies, that offer digital financial services.</p>
+  </div>
+
+  <div class="interpretation">
+    <p><strong>Fintech (Financial Technology):</strong> Technology-enabled innovation in financial services that could result in new business models, applications, processes, or products with an associated material effect on the provision of financial services. Examples include mobile money, peer-to-peer (P2P) or marketplace lending, robo-advice, insurance technology (insurtech), and digital currencies.</p>
+    <p><strong>Big Tech Firm:</strong> A large company whose primary activity is digital services (e.g., search engines, social media platforms, e-commerce platforms, ride-hailing platforms, and mobile network operators).</p>
+  </div>
+
+  <div class="interpretation">
+    <p>Emerging technologies such as digital currencies (e.g., bitcoin, ether) and blockchain provide systems that support the exchange of value between parties unknown to each other without the need for financial intermediaries. By reducing transaction costs, fintech supports models of peer-to-peer mass collaboration that could make many existing organizational forms redundant. However, investing in fintech may enable incumbent FIs to do more with less, streamline their businesses, and reduce risk.</p>
+  </div>
+
+  <div class="example">
+    <h4>Examples of Fintech Companies (Source)</h4>
+    <p><strong>Stripe:</strong> Online payment platform, valued at $95 billion. <strong>Klarna:</strong> Financing for customers at stores like IKEA, H&M, and Etsy, valued at $31 billion. <strong>Kraken:</strong> Cryptocurrency exchange, valued at $20 billion.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Traditional FIs have large teams of highly skilled employees with years of experience in risk management, while fintech firms tend to have small teams using risk management processes developed over a relatively short time frame that are untested in dealing with major risk events.</strong> A risk event at a fintech firm can result in losses that are substantially damaging to firm value. There is less history to create a protocol for a risk event and to provide confidence that the firm can manage through a problem.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Digital disruption risk is the risk of failing to innovate and compete against fintech and big tech firms.</li>
+      <li>Fintech includes mobile money, P2P lending, robo-advice, insurtech, and digital currencies.</li>
+      <li>Big tech firms leverage economies of scale and network effects in digital platforms.</li>
+      <li>Traditional FIs have more experienced risk management teams; fintech firms have less tested processes.</li>
+      <li>Adoption of new technologies requires substantial expenditures and adaptation to evolving standards.</li>
+    </ul>
+  </div>
+
+  <h2 id="section11">11. Insolvency Risk</h2>
+
+  <div class="interpretation">
+    <p><strong>Insolvency Risk</strong>: The risk that an FI may not have enough capital to offset a sudden decline in the value of its assets relative to its liabilities. Insolvency occurs when the capital or equity resources of an FI's owners are driven to, or near to, zero because of losses incurred as a result of one or more of the other risks described in this chapter. Insolvency risk is a consequence or outcome of the interaction of interest rate, credit, liquidity, foreign exchange, sovereign, market, off-balance-sheet, technology, operational, and digital disruption risks.</p>
+  </div>
+
+  <div class="example">
+    <h4>Examples of Insolvency Risk (Source)</h4>
+    <p><strong>Washington Mutual (WaMu):</strong> Incurred heavy losses from on- and off-balance-sheet holdings during the financial crisis. By early September 2008, WaMu's market capital was worth only $3.5 billion, down from $43 billion at the end of 2006. In September 2008, the bank was taken over by the FDIC and sold to JPMorgan Chase.</p>
+    <p><strong>Citigroup (2009):</strong> Citigroup's stock price fell below $1 per share, and the once-largest bank in the United States was near failure. It received a substantial government guarantee against losses (up to $306 billion) and a $20 billion injection of cash to prevent failure, illustrating the "too big to fail" phenomenon.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>The more equity capital relative to borrowed funds an FI has (i.e., the lower its leverage), the better able it is to withstand losses from any source.</strong> Both management and regulators focus on an FI's capital adequacy as a key measure of its ability to remain solvent and grow in the face of multiple risk exposures.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>Insolvency risk is the ultimate risk that arises when capital is insufficient to absorb losses from other risks.</li>
+      <li>It is a consequence of the interaction of all other risk types.</li>
+      <li>Higher capital (lower leverage) provides greater resilience against insolvency.</li>
+      <li>Regulators monitor capital adequacy as a key measure of FI solvency.</li>
+      <li>Examples like WaMu and Citigroup show how risk accumulation can lead to near-insolvency.</li>
+    </ul>
+  </div>
+
+  <h2 id="section12">12. Other Risks, Interaction of Risks, and Climate Risk</h2>
+
+  <h3>12.1 Interaction of Risks</h3>
+
+  <div class="interpretation">
+    <p>Although the 11 major risks are described independently, in reality they are often interdependent. For example:</p>
+    <ul>
+      <li>When interest rates rise, corporations and consumers find it more difficult to maintain promised payments on debt, so <strong>credit risk, interest rate risk, and off-balance-sheet risk are positively correlated</strong> over some range.</li>
+      <li>Funds from promised loan payments are often used for liquidity management, so <strong>liquidity risk is correlated with interest rate and credit risks</strong>.</li>
+      <li>The inability of a customer to make promised payments affects the FI's income and profits, and consequently its equity or capital position, so <strong>each risk and its interaction ultimately affect insolvency risk</strong>.</li>
+      <li>Foreign exchange rate changes and interest rate changes are highly correlated—when the Federal Reserve changes a key interest rate, exchange rates are also likely to change.</li>
+    </ul>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>The interaction of risks means that FI managers face making trade-offs among them. As they take actions to affect one type of risk, they must consider the possible impact on other risks.</strong> The effective management of these risks determines a modern FI's success or failure.</p>
+  </div>
+
+  <h3>12.2 Event Risk and Macroeconomic Risk</h3>
+
+  <div class="interpretation">
+    <p><strong>Event Risk:</strong> Discrete or unexpected events that impact an FI's profitability and risk exposure. Examples include sudden changes in regulatory policy (e.g., the 1994 regulatory change allowing interstate branching, the 1999 Financial Services Modernization Act, the Wall Street Reform and Consumer Protection Act of 2010), sudden market collapses (1929, 2008), terrorist attacks (September 2001), fraud, theft, earthquakes, and storms.</p>
+    <p><strong>Macroeconomic or Systemic Risk:</strong> General economic conditions such as inflation, inflation volatility, and unemployment directly and indirectly impact an FI's level of interest rate, credit, and liquidity risk exposure. For example, the U.S. unemployment rate exceeded 10% in the fall of 2009, and the economy lost 8 million jobs during the Great Recession. With so many people out of work, credit risk exposure increased dramatically. During the Covid-19 pandemic, more than twice as many jobs were lost between March and April 2020 as during the entire 2007–2009 period, leading to sharp increases in mortgage forbearance and auto loan modification requests.</p>
+  </div>
+
+  <h3>12.3 Climate Risk</h3>
+
+  <div class="interpretation">
+    <p>There are increasing concerns that climate risk may adversely affect the balance sheet of FIs and thus be relevant for financial stability. In his 2015 speech at Lloyd's of London, Mark Carney, then Governor of the Bank of England and Chairman of the Financial Stability Board (FSB), discussed three broad channels through which climate change affects the financial sector:</p>
+    <ol>
+      <li><strong>Physical Risks:</strong> Related to extreme weather events or changing climate conditions. Floods and storms can cause severe damage to physical assets. If losses are insured, the insurance industry is exposed; if uninsured, banks and other FIs are exposed as households default on loans and mortgages, and collateral values decline.</li>
+      <li><strong>Liability Risks:</strong> Related to the impacts on FIs if parties who have suffered loss or damage from climate change seek compensation from those they hold responsible. Credit risk for banks can rise vis-à-vis corporations facing reduced profitability.</li>
+      <li><strong>Transition Risks:</strong> Related to the shift to a low-carbon economy. FIs are exposed because their portfolios often contain large portions of industries (e.g., fossil fuel and energy) that will be affected by the transition. Lenders face reduced collateral values and borrowers whose business models may become unprofitable.</li>
+    </ol>
+  </div>
+
+  <div class="interpretation">
+    <p>Climate-related risks may cause abrupt increases in risk premia across a wide range of assets, alter asset price comovement across sectors, amplify credit, liquidity, and counterparty risks, and challenge financial risk management in ways that are hard to predict. On October 21, 2021, the Financial Stability Oversight Council (FSOC) released its report on climate-related financial risk, recognizing for the first time that climate change is an emerging and increasing threat to U.S. financial stability. The FSOC report recommended actions on climate change data, disclosure, and scenario analysis, and noted steps being taken by the SEC, the Federal Reserve Board, the CFTC, the FHFA, and the Treasury's Federal Insurance Office.</p>
+  </div>
+
+  <div class="insight">
+    <h4>Key Insight</h4>
+    <p><strong>Climate risk is a newly recognized, systemic risk that interacts with credit, liquidity, market, and operational risks.</strong> Physical and liability risks relate directly to climate change, while transition risks relate to society's response to it. These risks may affect the global financial system's ability to respond to shocks and could lead to reductions in bank lending and insurance provision.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>Key Takeaways</h4>
+    <ul>
+      <li>All risks are interdependent: changes in one risk often affect others, creating complex trade-offs.</li>
+      <li>Event risk includes discrete events like regulatory changes, market crashes, and natural disasters.</li>
+      <li>Macroeconomic conditions (unemployment, inflation) significantly affect credit and liquidity risks.</li>
+      <li>Climate risk operates through physical, liability, and transition channels, and is a growing focus of regulators.</li>
+      <li>FSOC (2021) recognized climate change as an emerging threat to U.S. financial stability.</li>
+    </ul>
+  </div>
+
+  <h2 id="section13">13. Practical Cautions, Common Errors, and Summary</h2>
+
+  <div class="interpretation">
+    <p>The following practical cautions are derived from the source material and are essential for the correct application of the concepts presented in this chapter. These cautions highlight common mistakes, limitations, and misinterpretations that FI managers, analysts, and students should avoid.</p>
+  </div>
+
+  <div class="interpretation">
+    <h4>1. Incorrect Interpretation of Profit Spread</h4>
+    <p>The profit spread (return on assets minus cost of funds) is a <strong>static, one-period</strong> measure. A positive spread in the current period does not guarantee future profitability. The risk is that rates will change when liabilities are refinanced or assets are reinvested. <strong>Common mistake:</strong> Assuming that the current spread will persist indefinitely.</p>
+  </div>
+
+  <div class="interpretation">
+    <h4>2. Confusing Association with Causality</h4>
+    <p>Obtaining a positive profit spread in the first year of a mismatched maturity position does not imply that the FI's strategy is sound. The positive spread may be offset by negative spreads in future periods if rates move adversely. <strong>Never imply that a single period's result establishes a sustainable advantage.</strong></p>
+  </div>
+
+  <div class="interpretation">
+    <h4>3. Ignoring Model Assumptions in Maturity Matching</h4>
+    <p>Matching maturities is only an approximate hedge against interest rate risk. Perfect hedging requires matching <strong>durations</strong> (average lives), not just maturities, and accounting for the FI's leverage (equity capital). <strong>Common mistake:</strong> Believing that equal maturities eliminate all interest rate risk.</p>
+  </div>
+
+  <div class="interpretation">
+    <h4>4. Misinterpreting the Intercept in Net Worth Calculations</h4>
+    <p>The traditional net worth calculation E = A – L ignores off-balance-sheet items. The true economic net worth is E = (A – L) + (CA – CL). Ignoring contingent assets and liabilities can lead to a <strong>material overstatement of solvency</strong>.</p>
+  </div>
+
+  <div class="interpretation">
+    <h4>5. Ignoring Units of Measurement in Foreign Exchange Risk</h4>
+    <p>Net foreign asset exposure is measured in the foreign currency. A net long position of £20 million means the FI gains $2 million if the pound appreciates by 10 cents, but loses $2 million if the pound depreciates by 10 cents. <strong>Always convert to domestic currency to assess actual dollar impact.</strong></p>
+  </div>
+
+  <div class="interpretation">
+    <h4>6. Confusing Error and Residual in Risk Measurement</h4>
+    <p>In risk measurement models, the <strong>error</strong> is the true unobservable deviation from the expected value, while the <strong>residual</strong> is the estimated deviation from the fitted model. These are not the same. The residual is an estimate of the error, and the difference matters for inference.</p>
+  </div>
+
+  <div class="interpretation">
+    <h4>7. Omitted-Variable Problems in Risk Assessment</h4>
+    <p>When assessing credit risk, focusing only on borrower-specific factors while ignoring macroeconomic conditions (systematic risk) can lead to a <strong>severe underestimation of default risk</strong> during recessions. Similarly, ignoring the interaction of risks (e.g., interest rate changes affecting credit risk) can lead to incomplete risk assessment.</p>
+  </div>
+
+  <div class="interpretation">
+    <h4>8. Assuming Diversification Eliminates All Credit Risk</h4>
+    <p>Diversification reduces <strong>firm-specific</strong> credit risk but does not eliminate <strong>systematic</strong> credit risk. Even a well-diversified loan portfolio will experience losses during an economywide recession. <strong>Common mistake:</strong> Believing that a diversified portfolio is immune to credit losses.</p>
+  </div>
+
+  <div class="interpretation">
+    <h4>9. Overlooking the Trade-Off Between Risk and Profitability</h4>
+    <p>Matching maturities reduces interest rate risk but also reduces the profitability potential from asset transformation. FIs must choose their position on the risk-return spectrum. <strong>There is no free lunch: reducing risk typically reduces expected returns.</strong></p>
+  </div>
+
+  <div class="interpretation">
+    <h4>10. Underestimating the Impact of Off-Balance-Sheet Risk</h4>
+    <p>Off-balance-sheet activities generate fee income but can create large contingent liabilities that, when triggered, can render an FI economically insolvent. The 2008–2009 financial crisis demonstrated that losses from OBS activities (e.g., credit default swaps) can be just as damaging as on-balance-sheet losses.</p>
+  </div>
+
+  <div class="interpretation">
+    <h4>11. Confusing Refinancing Risk with Reinvestment Risk</h4>
+    <p>Refinancing risk is the risk that the cost of new liabilities rises (affects FIs with long assets and short liabilities). Reinvestment risk is the risk that the return on new assets falls (affects FIs with short assets and long liabilities). <strong>These are opposite sides of the same coin and must be distinguished.</strong></p>
+  </div>
+
+  <div class="interpretation">
+    <h4>12. Ignoring the Distinction Between Market Value Risk and Income Risk</h4>
+    <p>Market value risk reflects the impact of interest rate changes on the <strong>present value</strong> of assets and
+    </div>
 </body>
 </html>
