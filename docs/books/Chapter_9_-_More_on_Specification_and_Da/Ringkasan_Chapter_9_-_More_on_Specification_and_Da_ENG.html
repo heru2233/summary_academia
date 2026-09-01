@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9   More on Specification and Data Issues</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 9   More on Specification and Data Issues</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Functional Form Misspecification</a></li>
+    <li><a href="#section2">2. Proxy Variables for Unobserved Explanatory Variables</a></li>
+    <li><a href="#section3">3. Models with Random Slopes</a></li>
+    <li><a href="#section4">4. Properties of OLS under Measurement Error</a></li>
+    <li><a href="#section5">5. Practical Cautions</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Functional Form Misspecification</h2>
+
+<div class="interpretation">
+  <p>A multiple regression model suffers from <b>functional form misspecification</b> when it does not properly account for the relationship between the dependent variable and the observed explanatory variables. This is one of the three major reasons why an explanatory variable can be endogenous, meaning that the error term <i>u</i> is correlated with the explanatory variable. Unlike heteroskedasticity, which does not cause bias or inconsistency in OLS estimators, functional form misspecification generally leads to biased and inconsistent estimators of all slope parameters.</p>
+
+  <p>The source illustrates the basic problem with a wage equation. Suppose the true model is \(\log(wage)=b_0+b_1educ+b_2exper+b_3exper^2+u\), but the researcher omits the squared experience term \(exper^2\). Omitting this function of an explanatory variable is a functional form misspecification. In general, this omission leads to biased estimators of \(b_0\), \(b_1\), and \(b_2\). The magnitude of the bias depends on the size of \(b_3\) and on the correlations among \(educ\), \(exper\), and \(exper^2\). More seriously, the return to experience is not a constant: it equals \(b_2+2b_3exper\) in decimal form. Even if one could unbiasedly estimate \(b_2\), using only \(b_2\) to measure the return to experience would be misleading, especially at extreme values of \(exper\).</p>
+
+  <p>Functional form problems are not limited to omitting powers of an independent variable. Omitting an interaction term, such as \(female \cdot educ\) in a wage equation, also constitutes misspecification and prevents unbiased estimation of the other parameters. Similarly, if the true model uses \(\log(wage)\) but the researcher estimates the model with <i>wage</i> as the dependent variable, the partial effects will be neither unbiased nor consistent. The key distinction is that functional form misspecification is a problem about the functional relationship itself; in principle, all relevant variables are observed and available.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Quadratic Wage Equation</span>
+  <div class="formula">\[ \log(wage) = b_0 + b_1 educ + b_2 exper + b_3 exper^2 + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here \(\log(wage)\) is the natural logarithm of hourly wage; \(educ\) is years of education; \(exper\) is years of labor market experience; \(exper^2\) is the square of experience; \(u\) is the error term; and \(b_0,b_1,b_2,b_3\) are parameters. The inclusion of \(exper^2\) permits a nonlinear relationship between experience and log wage. The partial effect of experience is obtained by differentiating with respect to \(exper\): \(\partial \log(wage)/\partial exper = b_2 + 2b_3 exper\). Thus the effect of another year of experience is not constant but depends on the current level of experience. If \(b_3\) is negative, the return to experience diminishes as experience accumulates. Omitting \(exper^2\) forces the effect to be constant and therefore produces a biased estimator of \(b_2\) and of the return to education. In practice, researchers test whether quadratic terms are jointly significant before adopting a linear specification.</p>
+</div>
+
+<div class="example">
+  <h4>Example 9.1 — Economic Model of Crime</h4>
+  <p><b>Model/result:</b> The dependent variable is \(narr86\), the number of arrests in 1986. Column (1) estimates a linear model. Column (2) adds squares of \(pcnv\), \(ptime86\), and \(inc86\). The squared terms are individually significant and jointly very significant: \(F=31.37\), with numerator df=3 and denominator df=2,713, and p-value essentially zero.</p>
+
+  <p><b>Interpretation:</b> The quadratic terms reveal nonlinear relationships. For \(pcnv\) (proportion of prior arrests that led to conviction), the relationship between \(narr86\) and \(pcnv\) is positive until \(pcnv=0.365\), then negative. Thus there is little deterrent effect at low conviction rates; the deterrent effect appears only at higher prior conviction rates. For \(ptime86\) (months spent in prison in 1986), the relationship is positive until \(ptime86=4.85\) months, then negative. For \(inc86\) (legal income, in hundreds of dollars), the effect is negative until income equals $24,285; only 46 men in the sample have incomes above this level.</p>
+
+  <p><b>Practical lesson:</b> Adding quadratics is a useful first check for functional form misspecification. But significant quadratic terms may also indicate other functional form problems, such as using levels when logarithms are more appropriate. The resulting model can be hard to interpret, and conclusions about deterrent effects should be drawn cautiously, especially because variables like \(pcnv\) may not be entirely exogenous.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Functional form misspecification is like trying to draw a straight line through a curve. A linear approximation may be adequate over a short segment, but it will be seriously wrong beyond that segment. Adding a quadratic term is like allowing the line to bend; if the bend is statistically important, the straight-line model was missing an essential feature of the relationship.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Omitting functions of independent variables—such as quadratic or interaction terms—biases all OLS estimators, not just the coefficient on the omitted function.</b> The bias is driven by the true coefficient on the omitted term and the partial correlations between included regressors and the omitted term. Functional form tests such as RESET are designed to detect this kind of misspecification.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Functional form misspecification occurs when the model does not correctly represent the conditional mean relationship.</li>
+    <li>Omitting squares, interactions, or using the wrong dependent-variable transformation causes bias and inconsistency in OLS.</li>
+    <li>Return to experience in a quadratic model is \(b_2+2b_3exper\), not a single constant.</li>
+    <li>Adding quadratic terms and testing joint significance is a simple detection strategy.</li>
+  </ul>
+</div>
+
+<h3>1.1 RESET as a General Test for Functional Form Misspecification</h3>
+
+<div class="interpretation">
+  <p><b>RESET</b> (Regression Specification Error Test) is a general test for functional form misspecification. The idea is simple: if the original model \(y=b_0+b_1x_1+\cdots+b_kx_k+u\) satisfies MLR.4, then nonlinear functions of the independent variables should be insignificant when added to the model. Rather than adding many squares and cross-products, RESET adds polynomials in the OLS fitted values, \(\hat y\). The squared and cubed fitted values have proven most useful.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">RESET Expanded Regression</span>
+  <div class="formula">\[ y = b_0 + b_1x_1 + \cdots + b_kx_k + \delta_1\hat y^2 + \delta_2\hat y^3 + \text{error} \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Let \(\hat y\) denote the OLS fitted values from the original regression. In the expanded equation, \(\hat y^2\) and \(\hat y^3\) are simply nonlinear functions of the \(x_j\). The null hypothesis is that the original model is correctly specified: \(H_0:\delta_1=0,\delta_2=0\). RESET is the F statistic for these joint restrictions. Under the null hypothesis and the Gauss-Markov assumptions, the statistic is approximately distributed as \(F_{2,n-k-3}\) in large samples. An LM version uses a \(\chi^2_2\) distribution. The test can also be made robust to heteroskedasticity using methods from Section 8-2.</p>
+
+  <p>RESET detects neglected nonlinearities because if the original model omits important nonlinear terms, functions of the fitted values will be correlated with those omitted terms. If the F statistic is significant, the model suffers from some kind of functional form problem. A major drawback is that RESET gives no direction about how to respecify the model. It is also not a general test for omitted variables or heteroskedasticity. RESET has no power for detecting omitted variables whose expectations are linear in the included regressors, and it has no power for detecting heteroskedasticity when the functional form is correct.</p>
+</div>
+
+<div class="example">
+  <h4>Example 9.2 — Housing Price Equation</h4>
+  <p><b>Model/result:</b> For \(n=88\) houses, the level-level model \(price=b_0+b_1lotsize+b_2sqrft+b_3bdrms+u\) has a RESET statistic of \(4.67\), which is an \(F_{2,82}\) random variable with p-value \(0.012\), rejecting the model at the 5% level. The log-log model \(\log(price)=b_0+b_1\log(lotsize)+b_2\log(sqrft)+b_3bdrms+u\) has a RESET statistic of \(2.56\), with p-value \(0.084\), so it is not rejected at the 5% level.</p>
+
+  <p><b>Interpretation:</b> RESET suggests that the linear-in-levels model is misspecified, while the log-log model is acceptable at conventional significance levels. The log-log model is also attractive because it provides constant elasticity estimates.</p>
+
+  <p><b>Practical lesson:</b> RESET can discriminate between competing specifications by indicating which model fails to capture relevant nonlinearities. However, rejection by RESET does not automatically imply that the next specification tried is correct.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>RESET is like a doctor checking whether a simple blood-pressure reading is enough to describe a patient’s condition. If the squared and cubed versions of the fitted values are significant, the simple reading is not capturing the full pattern—something more is going on.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>RESET is a functional form test, and nothing more.</b> It should not be interpreted as a general test for omitted variables, because omitted variables with linear conditional expectations will not be detected. A significant RESET should prompt respecification, not a claim about unobserved heterogeneity.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>RESET adds \(\hat y^2\) and \(\hat y^3\) to the original model and tests whether they are jointly significant.</li>
+    <li>The test statistic is approximately \(F_{2,n-k-3}\) under the null.</li>
+    <li>RESET detects functional form misspecification but not omitted variables or heteroskedasticity.</li>
+    <li>RESET does not suggest a specific alternative specification.</li>
+  </ul>
+</div>
+
+<h3>1.2 Tests against Nonnested Alternatives</h3>
+
+<div class="interpretation">
+  <p>Sometimes the researcher must choose between models with different functional forms, such as \(y=b_0+b_1x_1+b_2x_2+u\) versus \(y=b_0+b_1\log(x_1)+b_2\log(x_2)+u\). These models are <b>nonnested</b>: neither model is a special case of the other, so a standard F test cannot be used. Two approaches are discussed.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Comprehensive Model</span>
+  <div class="formula">\[ y = g_0 + g_1x_1 + g_2x_2 + g_3\log(x_1) + g_4\log(x_2) + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p>The comprehensive model contains both specifications as special cases. To test the linear model, test \(H_0:g_3=0,g_4=0\). To test the logarithmic model, test \(H_0:g_1=0,g_2=0\). This is the Mizon–Richard approach. An alternative is the Davidson–MacKinnon test. If model (9.6) is correct, then fitted values from the other model, call them \(\check y\), should be insignificant when added to model (9.6). A significant t statistic on \(\check y\) is evidence against the linear model. Conversely, fitted values from the linear model, \(\hat y\), can be added to the logarithmic model; a significant t statistic rejects the logarithmic model.</p>
+
+  <p>These tests have limitations. First, a clear winner need not emerge: both models might be rejected, or neither might be rejected. If neither is rejected, the adjusted R-squared can be used to choose between them. If both are rejected, more work is needed. Second, rejecting one model does not establish that the other is correct. Third, when competing models have different dependent variables, such as \(y\) versus \(\log(y)\), comparing goodness of fit requires special care, and nonnested tests are more difficult.</p>
+
+  <p>In practice, researchers should ask whether the choice of functional form materially changes the estimated effects of key explanatory variables. If the qualitative conclusions are similar, the functional form issue may be less important.</p>
+</div>
+
+<div class="example">
+  <h4>Example — Choosing between Levels and Logs</h4>
+  <p><b>Model/result:</b> The comprehensive model can be used to test \(y=b_0+b_1x_1+b_2x_2+u\) against \(y=b_0+b_1\log(x_1)+b_2\log(x_2)+u\) by testing the appropriate exclusion restrictions. The Davidson–MacKinnon test proceeds by adding the fitted values from the competing model to the current model.</p>
+  <p><b>Interpretation:</b> A significant coefficient on the added fitted values implies the current model omits relevant nonlinear structure represented by the competitor.</p>
+  <p><b>Practical lesson:</b> Nonnested tests can be sensitive and may not always select a unique model. Use them as diagnostic tools rather than definitive arbiters.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Choosing between two nonnested models is like comparing two maps of the same city drawn with different projections. Each map may fit some neighborhoods well and fail in others; the comprehensive model overlays both maps, but neither map necessarily represents the true terrain perfectly.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Rejecting one nonnested model does not validate the other.</b> The alternative model may also be misspecified. The practical focus should be on whether the key partial effects are sensitive to the functional form choice.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Nonnested models cannot be compared with a simple F test.</li>
+    <li>The comprehensive model nests both specifications and allows joint tests of restrictions.</li>
+    <li>The Davidson–MacKinnon test adds fitted values from one model to the other and tests their significance.</li>
+    <li>Nonnested tests may reject both models or neither; use adjusted R-squared as a supplementary criterion.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Proxy Variables for Unobserved Explanatory Variables</h2>
+
+<div class="interpretation">
+  <p>A more difficult problem than functional form misspecification arises when a key variable is omitted because data on that variable are unavailable. The standard example is a wage equation with unobserved ability. Consider \(\log(wage)=b_0+b_1educ+b_2exper+b_3abil+u\). If \(educ\) is correlated with \(abil\), then placing \(abil\) in the error term causes OLS estimators of \(b_1\) and \(b_2\) to be biased. The researcher’s primary interest is usually in \(b_1\) and \(b_2\), not in the intercept or in \(b_3\), since ability is a vague concept and is not observed.</p>
+
+  <p>A <b>proxy variable</b> is something that is related to the unobserved variable that the researcher would like to control for. In the wage equation, IQ score is a proxy for ability. The proxy need not be the same as the unobserved variable; it only needs to be correlated with it. The general model with three independent variables, two of which are observed, is \(y=b_0+b_1x_1+b_2x_2+b_3x_3^*+u\), where \(x_3^*\) is unobserved and \(x_3\) is the proxy.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">General Proxy-Variable Model</span>
+  <div class="formula">\[ y = b_0 + b_1x_1 + b_2x_2 + b_3x_3^* + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here \(y\) is the dependent variable; \(x_1\) and \(x_2\) are observed explanatory variables; \(x_3^*\) is the unobserved explanatory variable; \(x_3\) is the available proxy for \(x_3^*\); \(u\) is the error term. The relationship between the unobserved variable and its proxy is modeled by \(x_3^*=d_0+d_3x_3+v_3\), where \(d_3>0\) if the proxy is positively related to the unobserved variable, and \(v_3\) is the error in this proxy relationship. The intercept \(d_0\) allows the proxy and the unobserved variable to be measured on different scales.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Proxy Relationship</span>
+  <div class="formula">\[ x_3^* = d_0 + d_3x_3 + v_3 \]</div>
+</div>
+
+<div class="interpretation">
+  <p>If \(d_3=0\), then \(x_3\) is not a suitable proxy. The assumptions needed for the <b>plug-in solution</b>—simply regressing \(y\) on \(x_1,x_2,x_3\)—to yield consistent estimators of \(b_1\) and \(b_2\) are:</p>
+  <p>(1) The error \(u\) is uncorrelated with \(x_1,x_2,x_3^*,x_3\). This is natural because \(x_3^*\) directly affects \(y\), while \(x_3\) is irrelevant once \(x_3^*\) is included.</p>
+  <p>(2) The error \(v_3\) is uncorrelated with \(x_1,x_2,x_3\). This is equivalent to \(E(x_3^*|x_1,x_2,x_3)=E(x_3^*|x_3)=d_0+d_3x_3\). The key requirement is that, once \(x_3\) is controlled for, the expected value of \(x_3^*\) does not depend on \(x_1\) or \(x_2\). In the wage example, this means \(E(abil|educ,exper,IQ)=E(abil|IQ)=d_0+d_3IQ\): average ability changes only with IQ, not with education or experience. This may be approximately true even if not exactly true.</p>
+
+  <p>Substituting the proxy relationship into the original model gives \(y=(b_0+b_3d_0)+b_1x_1+b_2x_2+b_3d_3x_3+u+b_3v_3\). The composite error \(e=u+b_3v_3\) has zero mean and is uncorrelated with \(x_1,x_2,x_3\) under the two assumptions. Therefore OLS provides unbiased or consistent estimators of the new intercept \(a_0=b_0+b_3d_0\), the slope \(a_3=b_3d_3\), and crucially \(b_1\) and \(b_2\). The original intercept \(b_0\) and the coefficient on the unobserved variable \(b_3\) are not separately identified.</p>
+</div>
+
+<div class="example">
+  <h4>Example 9.3 — IQ as a Proxy for Ability</h4>
+  <p><b>Model/result:</b> Using data from Blackburn and Neumark (1992) on 935 men, the estimated return to education is 6.5% without IQ. When IQ is added, the return to education falls to 5.4%. The coefficient on IQ is \(0.0036\), meaning each additional IQ point raises predicted monthly earnings by about 0.36%; a 10-point IQ increase is associated with a 3.6% increase in earnings, and a one-standard-deviation increase (15 points) is associated with a 5.4% increase. The R-squared rises from 0.253 to 0.263.</p>
+
+  <p><b>Interpretation:</b> The reduction in the education coefficient from 0.065 to 0.054 is consistent with positive omitted ability bias: individuals with more education tend to have higher ability, so models without ability overstate the return to education. The IQ coefficient is statistically significant. The black–white earnings gap remains substantial and statistically significant after controlling for IQ: a black man with the same IQ, education, experience, and other characteristics is predicted to earn about 14.3% less.</p>
+
+  <p><b>Practical lesson:</b> Including a proxy variable can mitigate omitted variable bias, but it may not eliminate it. In column (3), adding the interaction \(educ\cdot IQ\) yields insignificant coefficients on both \(educ\) and \(IQ\) and does not improve the model; the simpler specification in column (2) is preferred.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Using a proxy variable is like estimating the effect of practice time on piano performance while only knowing the number of pieces a student has memorized. The number of pieces is not the same as ability, but it is related to ability, and controlling for it reduces the distortion caused by not observing talent directly.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>The plug-in solution yields unbiased estimates of the coefficients on the observed regressors only if the proxy is “good”—that is, after controlling for the proxy, the unobserved variable is mean independent of the other regressors.</b> If the proxy is imperfect because the unobserved variable also depends on \(x_1\) and \(x_2\), then the OLS estimators remain inconsistent.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>A proxy variable is related to the unobserved variable but is not identical to it.</li>
+    <li>The plug-in solution replaces the unobserved variable with the proxy in the OLS regression.</li>
+    <li>Two conditions are needed: \(u\) uncorrelated with all variables, and \(v_3\) uncorrelated with \(x_1,x_2,x_3\).</li>
+    <li>OLS consistently estimates \(b_1,b_2\) and \(b_3d_3\), but not \(b_0\) or \(b_3\) separately.</li>
+  </ul>
+</div>
+
+<h3>2.1 Imperfect Proxies and Remaining Bias</h3>
+
+<div class="formula-box">
+  <span class="label">Imperfect Proxy Model</span>
+  <div class="formula">\[ x_3^* = d_0 + d_1x_1 + d_2x_2 + d_3x_3 + v_3 \]</div>
+</div>
+
+<div class="interpretation">
+  <p>If the unobserved variable is related to all observed variables, so that \(d_1\neq 0\) or \(d_2\neq 0\), then plugging the proxy equation into the structural model yields \(y=(b_0+b_3d_0)+(b_1+b_3d_1)x_1+(b_2+b_3d_2)x_2+b_3d_3x_3+u+b_3v_3\). The probability limits of the OLS estimators become \(\mathrm{plim}(\hat b_1)=b_1+b_3d_1\) and \(\mathrm{plim}(\hat b_2)=b_2+b_3d_2\). If \(d_1>0\), \(b_3>0\), then \(\hat b_1\) has an upward inconsistency. In the ability example, if ability has positive partial correlation with education even after controlling for IQ, the proxy is imperfect and the return to education remains upward biased. Nevertheless, the bias may be smaller than if the proxy were omitted entirely.</p>
+</div>
+
+<div class="example">
+  <h4>Example — Imperfect Proxy in Wage Equation</h4>
+  <p><b>Model/result:</b> With \(x_1=educ\), \(x_3^*=abil\), and \(x_3=IQ\), suppose \(abil=d_0+d_1educ+d_2exper+d_3IQ+v_3\). Then the plim of the OLS coefficient on education is \(b_1+b_3d_1\). If \(b_3>0\) and \(d_1>0\), the estimated return to education is still too high.</p>
+  <p><b>Interpretation:</b> Even after controlling for IQ, education may be correlated with the part of ability not captured by IQ.</p>
+  <p><b>Practical lesson:</b> The hope is that including IQ reduces the omitted-variable bias relative to a model that ignores ability entirely, even if it does not eliminate the bias.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>An imperfect proxy is like using outside temperature to predict heating costs when you do not observe insulation quality. Temperature is related to insulation, but two houses with the same temperature and different insulation will still have different heating costs; the proxy does not fully control for insulation.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Imperfect proxies reduce, but do not necessarily eliminate, omitted variable bias.</b> The sign of the remaining bias depends on the signs of \(b_3\) and the partial correlation between the omitted variable and the regressor of interest after partialling out the proxy.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>If the proxy equation includes \(x_1\) and \(x_2\), the OLS estimators are inconsistent.</li>
+    <li>The asymptotic bias is \(b_3d_j\) for the coefficient on \(x_j\).</li>
+    <li>A proxy that is only moderately good can still reduce bias compared with omitting the variable altogether.</li>
+    <li>Multicollinearity induced by the proxy is the price paid for bias reduction.</li>
+  </ul>
+</div>
+
+<h3>2.2 Using Lagged Dependent Variables as Proxy Variables</h3>
+
+<div class="interpretation">
+  <p>When the omitted variable is vague or no obvious proxy exists, a lagged value of the dependent variable can be included as a control. This is especially useful in policy analysis. For example, a city crime model may be \(crime=b_0+b_1unem+b_2expend+b_3crime_{-1}+u\), where \(crime_{-1}\) is the crime rate from an earlier year. The lagged crime rate captures historical factors and inertia, and it helps account for omitted variables that are correlated with current law-enforcement spending.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Crime Model with Lagged Dependent Variable</span>
+  <div class="formula">\[ crime = b_0 + b_1unem + b_2expend + b_3crime_{-1} + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here \(crime\) is the current per capita crime rate, \(unem\) is the city unemployment rate, \(expend\) is per capita spending on law enforcement, \(crime_{-1}\) is the crime rate measured in an earlier year, and \(u\) is the error term. The coefficient \(b_3\) is expected to be positive because crime has inertia. The main purpose of including \(crime_{-1}\) is to control for unobserved historical factors that make cities with high past crime rates spend more on crime prevention. With \(crime_{-1}\) included, \(b_2\) can be interpreted as the effect of an additional dollar of law-enforcement spending on crime for two cities with the same previous crime rate and current unemployment rate.</p>
+</div>
+
+<div class="example">
+  <h4>Example 9.4 — City Crime Rates</h4>
+  <p><b>Model/result:</b> Using data on 46 cities for 1987, with the 1982 crime rate as the lagged variable, the estimated equation is \(\log(crmrte87)=b_0+0.009\,unem87-0.140\log(lawexpc87)+1.194\log(crmrte82)\). Without the lagged crime rate, the coefficient on \(\log(lawexpc87)\) is \(0.203\) with t=1.17, and unemployment has a negative but insignificant effect. With the lagged crime rate, the expenditure elasticity becomes \(-0.140\) with t=-1.28. The R-squared rises from 0.057 to 0.680.</p>
+
+  <p><b>Interpretation:</b> Controlling for past crime changes the sign of the expenditure effect, suggesting that a simple cross-sectional analysis is misleading because high-crime cities tend to spend more on law enforcement. The lagged crime rate is strongly significant: a 1% higher crime rate in 1982 is associated with about a 1.19% higher crime rate in 1987. The hypothesis that the elasticity of current crime with respect to past crime is unity cannot be rejected, because \(t=(1.194-1)/0.132\approx1.47\).</p>
+
+  <p><b>Practical lesson:</b> Including a lagged dependent variable is not a perfect solution, but it can improve estimation of policy effects when unobserved historical factors are important.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Using a lagged dependent variable is like evaluating whether a new teaching method improves test scores while controlling for last year’s test scores. Students with strong past performance tend to score well regardless, so controlling for the past score isolates the change attributable to the intervention.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>A lagged dependent variable absorbs many hard-to-measure historical and inertial factors.</b> It does not solve all endogeneity problems, but it often provides a better estimate of the causal effect of a policy variable in a cross section.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Lagged dependent variables can proxy for omitted historical factors.</li>
+    <li>The coefficient on the lagged variable captures inertia and persistence.</li>
+    <li>Including the lag can change the sign and magnitude of policy coefficients.</li>
+    <li>Additional lags can be included when data permit.</li>
+  </ul>
+</div>
+
+<h3>2.3 A Different Slant on Multiple Regression</h3>
+
+<div class="interpretation">
+  <p>The proxy-variable discussion suggests an alternative way to interpret multiple regression. Rather than specifying a model with an unobservable like “ability,” the researcher can model the conditional mean of \(y\) given the observed explanatory variables directly. For example, one can estimate \(E(\log(wage)|educ,exper,tenure,south,urban,black,IQ)\). This question does not require deciding whether IQ is a suitable proxy for ability; it simply asks: if two people have the same IQ and other observed characteristics but differ by one year of education, what is the expected difference in log wages?</p>
+
+  <p>This approach is often more modest but more defensible. In a school-level regression of test scores on spending, controlling for the poverty rate may only crudely capture differences in student and parent backgrounds. But it is better to control for an imperfect observable than to omit it and risk confounding the spending effect. For prediction purposes, omitted-variable “bias” is not the relevant concern; the goal is to predict \(y\) as accurately as possible using variables that are observable at the time of prediction. An admissions officer predicting college GPA would not include college attendance, since that is not known at application time.</p>
+</div>
+
+<div class="example">
+  <h4>Example — Conditional Mean Interpretation</h4>
+  <p><b>Model/result:</b> The estimated relation \(E(\log(wage)|educ,exper,tenure,south,urban,black,IQ)\) is exactly the regression reported in Table 9.2.</p>
+  <p><b>Interpretation:</b> The coefficient on education measures the expected difference in log wage for individuals with the same IQ and other controls but different education.</p>
+  <p><b>Practical lesson:</b> This interpretation avoids the need to define or defend “ability” as an unobserved variable.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>This approach is like giving directions based on landmarks rather than on an invisible underlying coordinate system. The landmarks are what we observe; we do not need to know the exact coordinates to get from one place to another.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Multiple regression can be viewed as modeling the conditional mean of \(y\) given observable controls, without the need to invoke unobservable constructs.</b> This narrows the research question but often provides a more credible answer.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Specify the model in terms of observed variables and conditional expectations.</li>
+    <li>The coefficients answer ceteris paribus questions with respect to included controls.</li>
+    <li>For prediction, avoid including variables that are not observable at the prediction time.</li>
+    <li>Imperfect controls are better than no controls, but they should be interpreted cautiously.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Models with Random Slopes</h2>
+
+<div class="interpretation">
+  <p>Standard regression assumes that slope coefficients are the same for all individuals or that they differ only by measurable characteristics (through interactions). A <b>random coefficient model</b>, also called a <b>random slope model</b>, allows the slope to depend on unobserved, unit-specific factors. For a random draw \(i\) from the population, the simple regression model is \(y_i=a_i+b_i x_i\), where \(a_i\) is the unit-specific intercept and \(b_i\) is the unit-specific slope. In a log-wage equation with \(x_i=educ_i\), this formulation allows the return to education to vary across people. If ability is unmeasured and affects the return to education, then \(b_i\) contains that unobserved heterogeneity.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Random Slope Model</span>
+  <div class="formula">\[ y_i = a_i + b_i x_i \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Here \(a_i\) is the intercept for individual \(i\), \(b_i\) is the slope for individual \(i\), \(x_i\) is the explanatory variable, and \(y_i\) is the dependent variable. With a random sample, we draw \(n\) values of \(a_i\) and \(b_i\) along with the observed data. We cannot estimate a separate intercept and slope for each individual. Instead, the goal is to estimate the population averages \(a=E(a_i)\) and \(b=E(b_i)\). The quantity \(b\) is the average partial effect (APE), also called the average marginal effect (AME), of \(x\) on \(y\). In the log-wage example, \(b\) is the average return to a year of schooling in the population
+    </div>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9   More on Specification and Data Issues</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 9   More on Specification and Data Issues</h1>
+<div class="toc">
+  <h3>Daftar Isi</h3>
+  <ul>
+    <li><a href="#section1">1. Kesalahan Spesifikasi Bentuk Fungsional</a></li>
+    <li><a href="#section2">2. Variabel Proksi untuk Variabel Penjelas yang Tidak Teramati</a></li>
+    <li><a href="#section3">3. Model dengan Kemiringan Acak</a></li>
+    <li><a href="#section4">4. Sifat-Sifat OLS di Bawah Kesalahan Pengukuran</a></li>
+    <li><a href="#section5">5. Peringatan Praktis</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Kesalahan Spesifikasi Bentuk Fungsional</h2>
+
+<div class="interpretation">
+  <p>Suatu model <i>regression</i> berganda mengalami <b>kesalahan spesifikasi bentuk fungsional</b> ketika model tersebut tidak memperhitungkan secara tepat hubungan antara variabel dependen dan variabel penjelas yang teramati. Ini adalah salah satu dari tiga alasan utama mengapa suatu variabel penjelas dapat menjadi endogen, yang berarti bahwa suku kesalahan <i>u</i> berkorelasi dengan variabel penjelas. Tidak seperti <i>heteroskedasticity</i>, yang tidak menyebabkan bias atau inkonsistensi dalam estimator OLS, kesalahan spesifikasi bentuk fungsional umumnya menghasilkan estimator yang bias dan inkonsisten untuk semua parameter <i>slope</i>.</p>
+
+  <p>Sumber ilustrasi menunjukkan masalah dasar dengan persamaan upah. Misalkan model yang benar adalah \(\log(wage)=b_0+b_1educ+b_2exper+b_3exper^2+u\), tetapi peneliti menghilangkan suku pengalaman kuadrat \(exper^2\). Menghilangkan fungsi dari variabel penjelas ini merupakan kesalahan spesifikasi bentuk fungsional. Secara umum, pengabaian ini menghasilkan estimator yang bias untuk \(b_0\), \(b_1\), dan \(b_2\). Besarnya bias tergantung pada besarnya \(b_3\) dan pada korelasi antara \(educ\), \(exper\), dan \(exper^2\). Yang lebih serius, <i>return</i> terhadap pengalaman bukanlah suatu konstanta: ia sama dengan \(b_2+2b_3exper\) dalam bentuk desimal. Bahkan jika seseorang dapat mengestimasi \(b_2\) secara tidak bias, menggunakan hanya \(b_2\) untuk mengukur <i>return</i> terhadap pengalaman akan menyesatkan, terutama pada nilai-nilai ekstrem dari \(exper\).</p>
+
+  <p>Masalah bentuk fungsional tidak terbatas pada menghilangkan pangkat dari suatu variabel independen. Menghilangkan suku interaksi, seperti \(female \cdot educ\) dalam persamaan upah, juga merupakan kesalahan spesifikasi dan mencegah estimasi yang tidak bias dari parameter lainnya. Demikian pula, jika model yang benar menggunakan \(\log(wage)\) tetapi peneliti mengestimasi model dengan <i>wage</i> sebagai variabel dependen, efek parsial tidak akan tidak bias maupun konsisten. Perbedaan utamanya adalah bahwa kesalahan spesifikasi bentuk fungsional adalah masalah tentang hubungan fungsional itu sendiri; pada prinsipnya, semua variabel yang relevan teramati dan tersedia.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Persamaan Upah Kuadratik</span>
+  <div class="formula">\[ \log(wage) = b_0 + b_1 educ + b_2 exper + b_3 exper^2 + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Di sini \(\log(wage)\) adalah logaritma natural dari upah per jam; \(educ\) adalah tahun pendidikan; \(exper\) adalah tahun pengalaman di pasar tenaga kerja; \(exper^2\) adalah kuadrat dari pengalaman; \(u\) adalah suku kesalahan; dan \(b_0,b_1,b_2,b_3\) adalah parameter. Dimasukkannya \(exper^2\) memungkinkan hubungan nonlinier antara pengalaman dan log upah. Efek parsial dari pengalaman diperoleh dengan mendiferensiasikan terhadap \(exper\): \(\partial \log(wage)/\partial exper = b_2 + 2b_3 exper\). Dengan demikian, efek dari satu tahun pengalaman tambahan tidak konstan tetapi tergantung pada tingkat pengalaman saat ini. Jika \(b_3\) negatif, <i>return</i> terhadap pengalaman berkurang seiring dengan akumulasi pengalaman. Menghilangkan \(exper^2\) memaksa efek tersebut menjadi konstan dan oleh karena itu menghasilkan estimator yang bias untuk \(b_2\) dan untuk <i>return</i> terhadap pendidikan. Dalam praktiknya, peneliti menguji apakah suku kuadratik signifikan secara bersama-sama sebelum mengadopsi spesifikasi linier.</p>
+</div>
+
+<div class="example">
+  <h4>Example 9.1 — Model Ekonomi Kejahatan</h4>
+  <p><b>Model/hasil:</b> Variabel dependen adalah \(narr86\), jumlah penangkapan pada tahun 1986. Kolom (1) mengestimasi model linier. Kolom (2) menambahkan kuadrat dari \(pcnv\), \(ptime86\), dan \(inc86\). Suku-suku kuadratik tersebut signifikan secara individual dan sangat signifikan secara bersama-sama: \(F=31.37\), dengan df pembilang=3 dan df penyebut=2,713, dan p-value mendekati nol.</p>
+
+  <p><b>Interpretasi:</b> Suku kuadratik mengungkapkan hubungan nonlinier. Untuk \(pcnv\) (proporsi penangkapan sebelumnya yang mengakibatkan hukuman), hubungan antara \(narr86\) dan \(pcnv\) positif hingga \(pcnv=0.365\), kemudian negatif. Jadi, hampir tidak ada efek jera pada tingkat hukuman yang rendah; efek jera muncul hanya pada tingkat hukuman sebelumnya yang lebih tinggi. Untuk \(ptime86\) (bulan yang dihabiskan di penjara pada tahun 1986), hubungan positif hingga \(ptime86=4.85\) bulan, kemudian negatif. Untuk \(inc86\) (pendapatan legal, dalam ratusan dolar), efeknya negatif hingga pendapatan mencapai $24,285; hanya 46 pria dalam sampel yang memiliki pendapatan di atas tingkat ini.</p>
+
+  <p><b>Pelajaran praktis:</b> Menambahkan kuadratik adalah pemeriksaan awal yang berguna untuk kesalahan spesifikasi bentuk fungsional. Namun, suku kuadratik yang signifikan juga dapat mengindikasikan masalah bentuk fungsional lainnya, seperti menggunakan level ketika logaritma lebih tepat. Model yang dihasilkan bisa sulit diinterpretasikan, dan kesimpulan tentang efek jera harus ditarik secara hati-hati, terutama karena variabel seperti \(pcnv\) mungkin tidak sepenuhnya eksogen.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Kesalahan spesifikasi bentuk fungsional bagaikan mencoba menggambar garis lurus melalui kurva. Pendekatan linier mungkin memadai untuk segmen pendek, tetapi akan sangat salah di luar segmen tersebut. Menambahkan suku kuadratik seperti mengizinkan garis untuk membengkok; jika tekukan tersebut signifikan secara statistik, model garis lurus telah melewatkan fitur esensial dari hubungan tersebut.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Menghilangkan fungsi dari variabel independen—seperti suku kuadratik atau interaksi—membiaskan semua estimator OLS, bukan hanya koefisien pada fungsi yang dihilangkan.</b> Bias tersebut didorong oleh koefisien sebenarnya dari suku yang dihilangkan dan korelasi parsial antara regressor yang disertakan dan suku yang dihilangkan. Uji bentuk fungsional seperti RESET dirancang untuk mendeteksi jenis kesalahan spesifikasi ini.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Kesalahan spesifikasi bentuk fungsional terjadi ketika model tidak merepresentasikan hubungan rata-rata bersyarat dengan benar.</li>
+    <li>Menghilangkan kuadratik, interaksi, atau menggunakan transformasi variabel dependen yang salah menyebabkan bias dan inkonsistensi dalam OLS.</li>
+    <li><i>Return</i> terhadap pengalaman dalam model kuadratik adalah \(b_2+2b_3exper\), bukan suatu konstanta tunggal.</li>
+    <li>Menambahkan suku kuadratik dan menguji signifikansi bersama adalah strategi deteksi sederhana.</li>
+  </ul>
+</div>
+
+<h3>1.1 RESET sebagai Uji Umum untuk Kesalahan Spesifikasi Bentuk Fungsional</h3>
+
+<div class="interpretation">
+  <p><b>RESET</b> (Regression Specification Error Test) adalah uji umum untuk kesalahan spesifikasi bentuk fungsional. Idenya sederhana: jika model asli \(y=b_0+b_1x_1+\cdots+b_kx_k+u\) memenuhi MLR.4, maka fungsi nonlinear dari variabel independen seharusnya tidak signifikan ketika ditambahkan ke model. Daripada menambahkan banyak kuadrat dan produk silang, RESET menambahkan polinomial dari nilai <i>fitted</i> OLS, \(\hat y\). Nilai <i>fitted</i> kuadrat dan kubik terbukti paling berguna.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Regresi yang Diperluas untuk RESET</span>
+  <div class="formula">\[ y = b_0 + b_1x_1 + \cdots + b_kx_k + \delta_1\hat y^2 + \delta_2\hat y^3 + \text{error} \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Misalkan \(\hat y\) menyatakan nilai <i>fitted</i> OLS dari regresi asli. Dalam persamaan yang diperluas, \(\hat y^2\) dan \(\hat y^3\) hanyalah fungsi nonlinear dari \(x_j\). Hipotesis nolnya adalah bahwa model asli dispesifikasikan dengan benar: \(H_0:\delta_1=0,\delta_2=0\). RESET adalah statistik F untuk restriksi bersama ini. Di bawah hipotesis nol dan asumsi Gauss-Markov, statistik tersebut berdistribusi kira-kira \(F_{2,n-k-3}\) dalam sampel besar. Versi LM menggunakan distribusi \(\chi^2_2\). Uji ini juga dapat dibuat robust terhadap <i>heteroskedasticity</i> menggunakan metode dari Bagian 8-2.</p>
+
+  <p>RESET mendeteksi nonlinearitas yang terabaikan karena jika model asli menghilangkan suku nonlinear yang penting, fungsi dari nilai <i>fitted</i> akan berkorelasi dengan suku yang dihilangkan tersebut. Jika statistik F signifikan, model mengalami beberapa jenis masalah bentuk fungsional. Kelemahan utama adalah RESET tidak memberikan arahan tentang bagaimana menspesifikasi ulang model. Ia juga bukan uji umum untuk variabel yang dihilangkan atau <i>heteroskedasticity</i>. RESET tidak memiliki kekuatan untuk mendeteksi variabel yang dihilangkan yang ekspektasinya linier dalam regressor yang disertakan, dan tidak memiliki kekuatan untuk mendeteksi <i>heteroskedasticity</i> ketika bentuk fungsionalnya benar.</p>
+</div>
+
+<div class="example">
+  <h4>Example 9.2 — Persamaan Harga Rumah</h4>
+  <p><b>Model/hasil:</b> Untuk \(n=88\) rumah, model level-level \(price=b_0+b_1lotsize+b_2sqrft+b_3bdrms+u\) memiliki statistik RESET sebesar \(4.67\), yang merupakan variabel acak \(F_{2,82}\) dengan p-value \(0.012\), menolak model pada tingkat 5%. Model log-log \(\log(price)=b_0+b_1\log(lotsize)+b_2\log(sqrft)+b_3bdrms+u\) memiliki statistik RESET sebesar \(2.56\), dengan p-value \(0.084\), sehingga tidak ditolak pada tingkat 5%.</p>
+
+  <p><b>Interpretasi:</b> RESET menunjukkan bahwa model linier-dalam-level adalah misspecified, sementara model log-log dapat diterima pada tingkat signifikansi konvensional. Model log-log juga menarik karena memberikan estimasi <i>elasticity</i> yang konstan.</p>
+
+  <p><b>Pelajaran praktis:</b> RESET dapat membedakan antara spesifikasi yang bersaing dengan menunjukkan model mana yang gagal menangkap nonlinearitas yang relevan. Namun, penolakan oleh RESET tidak secara otomatis menyiratkan bahwa spesifikasi berikutnya yang dicoba adalah benar.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>RESET bagaikan dokter yang memeriksa apakah pembacaan tekanan darah sederhana cukup untuk menggambarkan kondisi pasien. Jika versi kuadrat dan kubik dari nilai <i>fitted</i> signifikan, pembacaan sederhana tidak menangkap pola penuh—ada sesuatu yang lebih terjadi.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>RESET adalah uji bentuk fungsional, dan tidak lebih.</b> Ia tidak boleh diinterpretasikan sebagai uji umum untuk variabel yang dihilangkan, karena variabel yang dihilangkan dengan ekspektasi bersyarat linier tidak akan terdeteksi. RESET yang signifikan harus mendorong spesifikasi ulang, bukan klaim tentang heterogenitas yang tidak teramati.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>RESET menambahkan \(\hat y^2\) dan \(\hat y^3\) ke model asli dan menguji apakah keduanya signifikan secara bersama-sama.</li>
+    <li>Statistik uji berdistribusi kira-kira \(F_{2,n-k-3}\) di bawah hipotesis nol.</li>
+    <li>RESET mendeteksi kesalahan spesifikasi bentuk fungsional tetapi bukan variabel yang dihilangkan atau <i>heteroskedasticity</i>.</li>
+    <li>RESET tidak menyarankan spesifikasi alternatif tertentu.</li>
+  </ul>
+</div>
+
+<h3>1.2 Uji terhadap Alternatif Nonnested</h3>
+
+<div class="interpretation">
+  <p>Kadang-kadang peneliti harus memilih antara model dengan bentuk fungsional yang berbeda, seperti \(y=b_0+b_1x_1+b_2x_2+u\) versus \(y=b_0+b_1\log(x_1)+b_2\log(x_2)+u\). Model-model ini <b>nonnested</b>: tidak ada model yang merupakan kasus khusus dari model lainnya, sehingga uji F standar tidak dapat digunakan. Dua pendekatan dibahas.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model Komprehensif</span>
+  <div class="formula">\[ y = g_0 + g_1x_1 + g_2x_2 + g_3\log(x_1) + g_4\log(x_2) + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Model komprehensif memuat kedua spesifikasi sebagai kasus khusus. Untuk menguji model linier, uji \(H_0:g_3=0,g_4=0\). Untuk menguji model logaritmik, uji \(H_0:g_1=0,g_2=0\). Ini adalah pendekatan Mizon–Richard. Alternatifnya adalah uji Davidson–MacKinnon. Jika model (9.6) benar, maka nilai <i>fitted</i> dari model lain, sebut saja \(\check y\), seharusnya tidak signifikan ketika ditambahkan ke model (9.6). Statistik t yang signifikan pada \(\check y\) adalah bukti melawan model linier. Sebaliknya, nilai <i>fitted</i> dari model linier, \(\hat y\), dapat ditambahkan ke model logaritmik; statistik t yang signifikan menolak model logaritmik.</p>
+
+  <p>Uji-uji ini memiliki keterbatasan. Pertama, pemenang yang jelas belum tentu muncul: kedua model mungkin ditolak, atau tidak ada yang ditolak. Jika tidak ada yang ditolak, R-squared yang disesuaikan dapat digunakan untuk memilih di antara keduanya. Jika keduanya ditolak, diperlukan lebih banyak pekerjaan. Kedua, menolak satu model tidak menetapkan bahwa model lainnya benar. Ketiga, ketika model yang bersaing memiliki variabel dependen yang berbeda, seperti \(y\) versus \(\log(y)\), membandingkan kebaikan kesesuaian memerlukan perhatian khusus, dan uji nonnested lebih sulit.</p>
+
+  <p>Dalam praktiknya, peneliti harus bertanya apakah pilihan bentuk fungsional secara material mengubah estimasi efek dari variabel penjelas kunci. Jika kesimpulan kualitatifnya serupa, masalah bentuk fungsional mungkin kurang penting.</p>
+</div>
+
+<div class="example">
+  <h4>Example — Memilih antara Level dan Log</h4>
+  <p><b>Model/hasil:</b> Model komprehensif dapat digunakan untuk menguji \(y=b_0+b_1x_1+b_2x_2+u\) terhadap \(y=b_0+b_1\log(x_1)+b_2\log(x_2)+u\) dengan menguji restriksi eksklusi yang sesuai. Uji Davidson–MacKinnon dilakukan dengan menambahkan nilai <i>fitted</i> dari model yang bersaing ke model saat ini.</p>
+  <p><b>Interpretasi:</b> Koefisien yang signifikan pada nilai <i>fitted</i> yang ditambahkan menyiratkan bahwa model saat ini menghilangkan struktur nonlinear relevan yang diwakili oleh pesaing.</p>
+  <p><b>Pelajaran praktis:</b> Uji nonnested bisa sensitif dan mungkin tidak selalu memilih model yang unik. Gunakan sebagai alat diagnostik, bukan sebagai penengah definitif.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Memilih antara dua model nonnested bagaikan membandingkan dua peta kota yang sama yang digambar dengan proyeksi berbeda. Setiap peta mungkin cocok untuk beberapa lingkungan dan gagal di lingkungan lain; model komprehensif menumpuk kedua peta, tetapi tidak ada peta yang secara sempurna mewakili medan yang sebenarnya.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Menolak satu model nonnested tidak memvalidasi model lainnya.</b> Model alternatif juga mungkin misspecified. Fokus praktis harus pada apakah efek parsial kunci sensitif terhadap pilihan bentuk fungsional.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Model nonnested tidak dapat dibandingkan dengan uji F sederhana.</li>
+    <li>Model komprehensif mencakup kedua spesifikasi dan memungkinkan uji bersama terhadap restriksi.</li>
+    <li>Uji Davidson–MacKinnon menambahkan nilai <i>fitted</i> dari satu model ke model lainnya dan menguji signifikansinya.</li>
+    <li>Uji nonnested dapat menolak kedua model atau tidak ada; gunakan R-squared yang disesuaikan sebagai kriteria tambahan.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Variabel Proksi untuk Variabel Penjelas yang Tidak Teramati</h2>
+
+<div class="interpretation">
+  <p>Masalah yang lebih sulit daripada kesalahan spesifikasi bentuk fungsional muncul ketika suatu variabel kunci dihilangkan karena data untuk variabel tersebut tidak tersedia. Contoh standar adalah persamaan upah dengan kemampuan yang tidak teramati. Pertimbangkan \(\log(wage)=b_0+b_1educ+b_2exper+b_3abil+u\). Jika \(educ\) berkorelasi dengan \(abil\), maka menempatkan \(abil\) dalam suku kesalahan menyebabkan estimator OLS dari \(b_1\) dan \(b_2\) menjadi bias. Minat utama peneliti biasanya pada \(b_1\) dan \(b_2\), bukan pada <i>intercept</i> atau pada \(b_3\), karena kemampuan adalah konsep yang samar dan tidak teramati.</p>
+
+  <p><b>Variabel proksi</b> adalah sesuatu yang berhubungan dengan variabel tidak teramati yang ingin dikendalikan oleh peneliti. Dalam persamaan upah, skor IQ adalah proksi untuk kemampuan. Proksi tidak harus sama dengan variabel tidak teramati; ia hanya perlu berkorelasi dengannya. Model umum dengan tiga variabel independen, dua di antaranya teramati, adalah \(y=b_0+b_1x_1+b_2x_2+b_3x_3^*+u\), di mana \(x_3^*\) tidak teramati dan \(x_3\) adalah proksi.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model Proksi-Variabel Umum</span>
+  <div class="formula">\[ y = b_0 + b_1x_1 + b_2x_2 + b_3x_3^* + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Di sini \(y\) adalah variabel dependen; \(x_1\) dan \(x_2\) adalah variabel penjelas yang teramati; \(x_3^*\) adalah variabel penjelas yang tidak teramati; \(x_3\) adalah proksi yang tersedia untuk \(x_3^*\); \(u\) adalah suku kesalahan. Hubungan antara variabel tidak teramati dan proksinya dimodelkan oleh \(x_3^*=d_0+d_3x_3+v_3\), di mana \(d_3>0\) jika proksi berhubungan positif dengan variabel tidak teramati, dan \(v_3\) adalah kesalahan dalam hubungan proksi ini. <i>Intercept</i> \(d_0\) memungkinkan proksi dan variabel tidak teramati diukur pada skala yang berbeda.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Hubungan Proksi</span>
+  <div class="formula">\[ x_3^* = d_0 + d_3x_3 + v_3 \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Jika \(d_3=0\), maka \(x_3\) bukan proksi yang sesuai. Asumsi yang diperlukan untuk <b>solusi plug-in</b>—hanya meregresikan \(y\) pada \(x_1,x_2,x_3\)—untuk menghasilkan estimator yang konsisten dari \(b_1\) dan \(b_2\) adalah:</p>
+  <p>(1) Kesalahan \(u\) tidak berkorelasi dengan \(x_1,x_2,x_3^*,x_3\). Ini wajar karena \(x_3^*\) secara langsung mempengaruhi \(y\), sementara \(x_3\) tidak relevan begitu \(x_3^*\) disertakan.</p>
+  <p>(2) Kesalahan \(v_3\) tidak berkorelasi dengan \(x_1,x_2,x_3\). Ini setara dengan \(E(x_3^*|x_1,x_2,x_3)=E(x_3^*|x_3)=d_0+d_3x_3\). Persyaratan utamanya adalah, setelah mengendalikan \(x_3\), nilai harapan dari \(x_3^*\) tidak bergantung pada \(x_1\) atau \(x_2\). Dalam contoh upah, ini berarti \(E(abil|educ,exper,IQ)=E(abil|IQ)=d_0+d_3IQ\): rata-rata kemampuan hanya berubah dengan IQ, bukan dengan pendidikan atau pengalaman. Ini mungkin kira-kira benar meskipun tidak sepenuhnya benar.</p>
+
+  <p>Mensubstitusikan hubungan proksi ke dalam model asli menghasilkan \(y=(b_0+b_3d_0)+b_1x_1+b_2x_2+b_3d_3x_3+u+b_3v_3\). Kesalahan komposit \(e=u+b_3v_3\) memiliki rata-rata nol dan tidak berkorelasi dengan \(x_1,x_2,x_3\) di bawah kedua asumsi tersebut. Oleh karena itu OLS menyediakan estimator yang tidak bias atau konsisten dari <i>intercept</i> baru \(a_0=b_0+b_3d_0\), <i>slope</i> \(a_3=b_3d_3\), dan yang terpenting \(b_1\) dan \(b_2\). <i>Intercept</i> asli \(b_0\) dan koefisien pada variabel tidak teramati \(b_3\) tidak teridentifikasi secara terpisah.</p>
+</div>
+
+<div class="example">
+  <h4>Example 9.3 — IQ sebagai Proksi untuk Kemampuan</h4>
+  <p><b>Model/hasil:</b> Menggunakan data dari Blackburn dan Neumark (1992) terhadap 935 pria, estimasi <i>return</i> terhadap pendidikan adalah 6,5% tanpa IQ. Ketika IQ ditambahkan, <i>return</i> terhadap pendidikan turun menjadi 5,4%. Koefisien pada IQ adalah \(0,0036\), yang berarti setiap tambahan poin IQ meningkatkan prediksi pendapatan bulanan sekitar 0,36%; peningkatan IQ 10 poin dikaitkan dengan peningkatan pendapatan sebesar 3,6%, dan peningkatan satu standar deviasi (15 poin) dikaitkan dengan peningkatan sebesar 5,4%. R-squared meningkat dari 0,253 menjadi 0,263.</p>
+
+  <p><b>Interpretasi:</b> Penurunan koefisien pendidikan dari 0,065 menjadi 0,054 konsisten dengan bias kemampuan yang dihilangkan positif: individu dengan lebih banyak pendidikan cenderung memiliki kemampuan lebih tinggi, sehingga model tanpa kemampuan melebih-lebihkan <i>return</i> terhadap pendidikan. Koefisien IQ signifikan secara statistik. Kesenjangan pendapatan kulit hitam-putih tetap substansial dan signifikan secara statistik setelah mengendalikan IQ: seorang pria kulit hitam dengan IQ, pendidikan, pengalaman, dan karakteristik lain yang sama diprediksi memperoleh sekitar 14,3% lebih sedikit.</p>
+
+  <p><b>Pelajaran praktis:</b> Menyertakan variabel proksi dapat mengurangi bias variabel yang dihilangkan, tetapi mungkin tidak menghilangkannya. Di kolom (3), menambahkan interaksi \(educ\cdot IQ\) menghasilkan koefisien yang tidak signifikan pada \(educ\) dan \(IQ\) dan tidak memperbaiki model; spesifikasi yang lebih sederhana di kolom (2) lebih disukai.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Menggunakan variabel proksi bagaikan mengestimasi efek waktu latihan pada performa piano sambil hanya mengetahui jumlah lagu yang telah dihafal seorang siswa. Jumlah lagu tidak sama dengan kemampuan, tetapi terkait dengan kemampuan, dan mengendalikannya mengurangi distorsi yang disebabkan oleh tidak mengamati bakat secara langsung.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Solusi plug-in menghasilkan estimasi yang tidak bias dari koefisien pada regressor yang teramati hanya jika proksinya “baik”—yaitu, setelah mengendalikan proksi, variabel tidak teramati independen rata-rata dari regressor lainnya.</b> Jika proksi tidak sempurna karena variabel tidak teramati juga bergantung pada \(x_1\) dan \(x_2\), maka estimator OLS tetap inkonsisten.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Variabel proksi berhubungan dengan variabel tidak teramati tetapi tidak identik dengannya.</li>
+    <li>Solusi plug-in menggantikan variabel tidak teramati dengan proksi dalam regresi OLS.</li>
+    <li>Dua kondisi diperlukan: \(u\) tidak berkorelasi dengan semua variabel, dan \(v_3\) tidak berkorelasi dengan \(x_1,x_2,x_3\).</li>
+    <li>OLS secara konsisten mengestimasi \(b_1,b_2\) dan \(b_3d_3\), tetapi tidak \(b_0\) atau \(b_3\) secara terpisah.</li>
+  </ul>
+</div>
+
+<h3>2.1 Proksi Tidak Sempurna dan Sisa Bias</h3>
+
+<div class="formula-box">
+  <span class="label">Model Proksi Tidak Sempurna</span>
+  <div class="formula">\[ x_3^* = d_0 + d_1x_1 + d_2x_2 + d_3x_3 + v_3 \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Jika variabel tidak teramati berhubungan dengan semua variabel yang teramati, sehingga \(d_1\neq 0\) atau \(d_2\neq 0\), maka memasukkan persamaan proksi ke dalam model struktural menghasilkan \(y=(b_0+b_3d_0)+(b_1+b_3d_1)x_1+(b_2+b_3d_2)x_2+b_3d_3x_3+u+b_3v_3\). Limit probabilitas dari estimator OLS menjadi \(\mathrm{plim}(\hat b_1)=b_1+b_3d_1\) dan \(\mathrm{plim}(\hat b_2)=b_2+b_3d_2\). Jika \(d_1>0\), \(b_3>0\), maka \(\hat b_1\) memiliki inkonsistensi ke atas. Dalam contoh kemampuan, jika kemampuan memiliki korelasi parsial positif dengan pendidikan bahkan setelah mengendalikan IQ, proksi tersebut tidak sempurna dan <i>return</i> terhadap pendidikan tetap bias ke atas. Namun demikian, bias mungkin lebih kecil daripada jika proksi dihilangkan sama sekali.</p>
+</div>
+
+<div class="example">
+  <h4>Example — Proksi Tidak Sempurna dalam Persamaan Upah</h4>
+  <p><b>Model/hasil:</b> Dengan \(x_1=educ\), \(x_3^*=abil\), dan \(x_3=IQ\), misalkan \(abil=d_0+d_1educ+d_2exper+d_3IQ+v_3\). Maka plim dari koefisien OLS pada pendidikan adalah \(b_1+b_3d_1\). Jika \(b_3>0\) dan \(d_1>0\), estimasi <i>return</i> terhadap pendidikan masih terlalu tinggi.</p>
+  <p><b>Interpretasi:</b> Bahkan setelah mengendalikan IQ, pendidikan mungkin berkorelasi dengan bagian kemampuan yang tidak ditangkap oleh IQ.</p>
+  <p><b>Pelajaran praktis:</b> Harapannya adalah bahwa menyertakan IQ mengurangi bias variabel yang dihilangkan relatif terhadap model yang mengabaikan kemampuan sama sekali, meskipun tidak menghilangkan bias tersebut.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Proksi yang tidak sempurna bagaikan menggunakan suhu luar untuk memprediksi biaya pemanasan ketika Anda tidak mengamati kualitas isolasi. Suhu terkait dengan isolasi, tetapi dua rumah dengan suhu yang sama dan isolasi yang berbeda akan tetap memiliki biaya pemanasan yang berbeda; proksi tidak sepenuhnya mengendalikan isolasi.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Proksi yang tidak sempurna mengurangi, tetapi tidak serta merta menghilangkan, bias variabel yang dihilangkan.</b> Tanda dari sisa bias tergantung pada tanda \(b_3\) dan korelasi parsial antara variabel yang dihilangkan dan regressor yang diminati setelah mengeluarkan proksi.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Jika persamaan proksi mencakup \(x_1\) dan \(x_2\), estimator OLS menjadi inkonsisten.</li>
+    <li>Bias asimptotiknya adalah \(b_3d_j\) untuk koefisien pada \(x_j\).</li>
+    <li>Proksi yang hanya cukup baik masih dapat mengurangi bias dibandingkan dengan menghilangkan variabel sama sekali.</li>
+    <li><i>Multicollinearity</i> yang disebabkan oleh proksi adalah harga yang dibayar untuk pengurangan bias.</li>
+  </ul>
+</div>
+
+<h3>2.2 Menggunakan Variabel Dependen Terlambat sebagai Variabel Proksi</h3>
+
+<div class="interpretation">
+  <p>Ketika variabel yang dihilangkan bersifat samar atau tidak ada proksi yang jelas, nilai lag dari variabel dependen dapat disertakan sebagai kontrol. Ini sangat berguna dalam analisis kebijakan. Misalnya, model kejahatan kota mungkin \(crime=b_0+b_1unem+b_2expend+b_3crime_{-1}+u\), di mana \(crime_{-1}\) adalah tingkat kejahatan dari tahun sebelumnya. Tingkat kejahatan yang terlambat menangkap faktor historis dan inersia, dan membantu memperhitungkan variabel yang dihilangkan yang berkorelasi dengan pengeluaran penegakan hukum saat ini.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model Kejahatan dengan Variabel Dependen Terlambat</span>
+  <div class="formula">\[ crime = b_0 + b_1unem + b_2expend + b_3crime_{-1} + u \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Di sini \(crime\) adalah tingkat kejahatan per kapita saat ini, \(unem\) adalah tingkat pengangguran kota, \(expend\) adalah pengeluaran per kapita untuk penegakan hukum, \(crime_{-1}\) adalah tingkat kejahatan yang diukur pada tahun sebelumnya, dan \(u\) adalah suku kesalahan. Koefisien \(b_3\) diharapkan positif karena kejahatan memiliki inersia. Tujuan utama menyertakan \(crime_{-1}\) adalah untuk mengendalikan faktor historis yang tidak teramati yang membuat kota dengan tingkat kejahatan masa lalu yang tinggi menghabiskan lebih banyak untuk pencegahan kejahatan. Dengan \(crime_{-1}\) disertakan, \(b_2\) dapat diinterpretasikan sebagai efek dari satu dolar tambahan pengeluaran penegakan hukum pada kejahatan untuk dua kota dengan tingkat kejahatan sebelumnya dan tingkat pengangguran saat ini yang sama.</p>
+</div>
+
+<div class="example">
+  <h4>Example 9.4 — Tingkat Kejahatan Kota</h4>
+  <p><b>Model/hasil:</b> Menggunakan data pada 46 kota untuk tahun 1987, dengan tingkat kejahatan tahun 1982 sebagai variabel lag, persamaan yang diestimasi adalah \(\log(crmrte87)=b_0+0.009\,unem87-0.140\log(lawexpc87)+1.194\log(crmrte82)\). Tanpa tingkat kejahatan yang terlambat, koefisien pada \(\log(lawexpc87)\) adalah \(0.203\) dengan t=1.17, dan pengangguran memiliki efek negatif tetapi tidak signifikan. Dengan tingkat kejahatan yang terlambat, <i>elasticity</i> pengeluaran menjadi \(-0.140\) dengan t=-1.28. R-squared meningkat dari 0.057 menjadi 0.680.</p>
+
+  <p><b>Interpretasi:</b> Mengendalikan kejahatan masa lalu mengubah tanda efek pengeluaran, menunjukkan bahwa analisis cross-sectional sederhana menyesatkan karena kota dengan tingkat kejahatan tinggi cenderung menghabiskan lebih banyak untuk penegakan hukum. Tingkat kejahatan yang terlambat sangat signifikan: tingkat kejahatan 1% lebih tinggi pada tahun 1982 dikaitkan dengan tingkat kejahatan sekitar 1,19% lebih tinggi pada tahun 1987. Hipotesis bahwa <i>elasticity</i> kejahatan saat ini terhadap kejahatan masa lalu adalah satu tidak dapat ditolak, karena \(t=(1.194-1)/0.132\approx1.47\).</p>
+
+  <p><b>Pelajaran praktis:</b> Menyertakan variabel dependen yang terlambat bukanlah solusi yang sempurna, tetapi dapat meningkatkan estimasi efek kebijakan ketika faktor historis yang tidak teramati penting.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Menggunakan variabel dependen yang terlambat bagaikan mengevaluasi apakah metode pengajaran baru meningkatkan nilai tes sambil mengendalikan nilai tes tahun lalu. Siswa dengan kinerja masa lalu yang kuat cenderung mendapat nilai baik terlepas dari itu, jadi mengendalikan nilai masa lalu mengisolasi perubahan yang disebabkan oleh intervensi.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Variabel dependen yang terlambat menyerap banyak faktor historis dan inersia yang sulit diukur.</b> Ia tidak menyelesaikan semua masalah endogenitas, tetapi seringkali memberikan estimasi yang lebih baik dari efek kausal dari suatu variabel kebijakan dalam cross section.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Variabel dependen yang terlambat dapat menjadi proksi untuk faktor historis yang dihilangkan.</li>
+    <li>Koefisien pada variabel lag menangkap inersia dan persistensi.</li>
+    <li>Menyertakan lag dapat mengubah tanda dan besaran koefisien kebijakan.</li>
+    <li>Lag tambahan dapat disertakan ketika data memungkinkan.</li>
+  </ul>
+</div>
+
+<h3>2.3 Sudut Pandang yang Berbeda tentang Regresi Berganda</h3>
+
+<div class="interpretation">
+  <p>Diskusi variabel proksi menyarankan cara alternatif untuk menginterpretasikan regresi berganda. Daripada menspesifikasikan model dengan yang tidak teramati seperti “kemampuan”, peneliti dapat memodelkan rata-rata bersyarat dari \(y\) yang diberikan variabel penjelas yang teramati secara langsung. Misalnya, seseorang dapat mengestimasi \(E(\log(wage)|educ,exper,tenure,south,urban,black,IQ)\). Pertanyaan ini tidak memerlukan keputusan apakah IQ adalah proksi yang cocok untuk kemampuan; ia hanya bertanya: jika dua orang memiliki IQ dan karakteristik teramati lainnya yang sama tetapi berbeda satu tahun pendidikan, berapa perbedaan yang diharapkan dalam log upah?</p>
+
+  <p>Pendekatan ini seringkali lebih sederhana tetapi lebih dapat dipertahankan. Dalam regresi tingkat sekolah dari nilai tes pada pengeluaran, mengendalikan tingkat kemiskinan mungkin hanya secara kasar menangkap perbedaan dalam latar belakang siswa dan orang tua. Tetapi lebih baik mengendalikan variabel teramati yang tidak sempurna daripada menghilangkannya dan berisiko mengacaukan efek pengeluaran. Untuk tujuan prediksi, “bias” variabel yang dihilangkan bukanlah perhatian yang relevan; tujuannya adalah untuk memprediksi \(y\) seakurat mungkin menggunakan variabel yang teramati pada saat prediksi. Seorang petugas admisi yang memprediksi IPK kuliah tidak akan menyertakan kehadiran di perguruan tinggi, karena itu tidak diketahui pada saat aplikasi.</p>
+</div>
+
+<div class="example">
+  <h4>Example — Interpretasi Rata-Rata Bersyarat</h4>
+  <p><b>Model/hasil:</b> Hubungan estimasi \(E(\log(wage)|educ,exper,tenure,south,urban,black,IQ)\) persis seperti regresi yang dilaporkan dalam Tabel 9.2.</p>
+  <p><b>Interpretasi:</b> Koefisien pada pendidikan mengukur perbedaan yang diharapkan dalam log upah untuk individu dengan IQ dan kontrol lainnya yang sama tetapi pendidikan yang berbeda.</p>
+  <p><b>Pelajaran praktis:</b> Interpretasi ini menghindari kebutuhan untuk mendefinisikan atau membela “kemampuan” sebagai variabel yang tidak teramati.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Pendekatan ini bagaikan memberikan petunjuk arah berdasarkan landmark, bukan berdasarkan sistem koordinat yang tidak terlihat. Landmark adalah apa yang kita amati; kita tidak perlu mengetahui koordinat yang tepat untuk pergi dari satu tempat ke tempat lain.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Regresi berganda dapat dipandang sebagai pemodelan rata-rata bersyarat dari \(y\) yang diberikan kontrol yang teramati, tanpa perlu melibatkan konstruk yang tidak teramati.</b> Ini mempersempit pertanyaan penelitian tetapi seringkali memberikan jawaban yang lebih kredibel.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Spesifikasikan model dalam bentuk variabel yang teramati dan ekspektasi bersyarat.</li>
+    <li>Koefisien menjawab pertanyaan <i>ceteris paribus</i> sehubungan dengan kontrol yang disertakan.</li>
+    <li>Untuk prediksi, hindari menyertakan variabel yang tidak teramati pada saat prediksi.</li>
+    <li>Kontrol yang tidak sempurna lebih baik daripada tidak ada kontrol, tetapi harus diinterpretasikan secara hati-hati.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Model dengan Kemiringan Acak</h2>
+
+<div class="interpretation">
+  <p>Regresi standar mengasumsikan bahwa koefisien <i>slope</i> adalah sama untuk semua individu atau hanya berbeda berdasarkan karakteristik yang terukur (melalui interaksi). <b>Model koefisien acak</b>, juga disebut <b>model <i>slope</i> acak</b>, memungkinkan <i>slope</i> bergantung pada faktor spesifik unit yang tidak teramati. Untuk suatu pengambilan acak \(i\) dari populasi, model regresi sederhana adalah \(y_i=a_i+b_i x_i\), di mana \(a_i\) adalah <i>intercept</i> spesifik unit dan \(b_i\) adalah <i>slope</i> spesifik unit. Dalam persamaan log-upah dengan \(x_i=educ_i\), formulasi ini memungkinkan <i>return</i> terhadap pendidikan bervariasi antar individu. Jika kemampuan tidak terukur dan mempengaruhi <i>return</i> terhadap pendidikan, maka \(b_i\) mengandung heterogenitas yang tidak teramati tersebut.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Model <i>Slope</i> Acak</span>
+  <div class="formula">\[ y_i = a_i + b_i x_i \]</div>
+</div>
+
+<div class="interpretation">
+  <p>Di sini \(a_i\) adalah <i>intercept</i> untuk individu \(i\), \(b_i\) adalah <i>slope</i> untuk individu \(i\), \(x_i\) adalah variabel penjelas, dan \(y_i\) adalah variabel dependen. Dengan sampel acak, kita mengambil \(n\) nilai dari \(a_i\) dan \(b_i\) bersama dengan data yang teramati. Kita tidak dapat mengestimasi <i>intercept</i> dan <i>slope</i> yang terpisah untuk setiap individu. Sebaliknya, tujuannya adalah untuk mengestimasi rata-rata populasi \(a=E(a_i)\) dan \(b=E(b_i)\). Kuantitas \(b\) adalah rata-rata efek parsial (APE), juga disebut rata-rata efek marjinal (AME), dari \(x\) pada \(y\). Dalam contoh log-upah, \(b\) adalah rata-rata <i>return</i> untuk satu tahun sekolah dalam populasi.</p>
+</div>
+    </div>
+</body>
+</html>
