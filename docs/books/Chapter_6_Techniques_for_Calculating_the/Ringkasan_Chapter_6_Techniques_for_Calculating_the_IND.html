@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6 Techniques for Calculating the Efficient Frontier</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 6 Techniques for Calculating the Efficient Frontier</h1>
+<div class="container">
+<div class="toc">
+  <h3>Daftar Isi</h3>
+  <ul>
+    <li><a href="#section1">1. Gambaran Umum Perhitungan <i>Efficient Frontier</i></a></li>
+    <li><a href="#section2">2. <i>Short Sales</i> Diperbolehkan dengan Pinjam-Meminjam Bebas Risiko</a></li>
+    <li><a href="#section3">3. <i>Short Sales</i> Diperbolehkan tanpa Pinjam-Meminjam Bebas Risiko</a></li>
+    <li><a href="#section4">4. Tanpa <i>Short Sales</i> dengan Pinjam-Meminjam Bebas Risiko</a></li>
+    <li><a href="#section5">5. Tanpa <i>Short Sales</i> dan Tanpa Pinjam-Meminjam Bebas Risiko</a></li>
+    <li><a href="#section6">6. Memasukkan Kendala Tambahan</a></li>
+    <li><a href="#section7">7. Contoh Kerja: Alokasi Aset antar Kelas Aset</a></li>
+    <li><a href="#section8">8. Kewaspadaan Praktis dan Kesalahan Umum</a></li>
+    <li><a href="#section9">9. Kesimpulan</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Gambaran Umum Perhitungan <i>Efficient Frontier</i></h2>
+
+<div class="interpretation">
+<p>Konsep utama bab ini adalah seperangkat teknik komputasi untuk menyusun <i>efficient frontier</i>—kumpulan portofolio yang menawarkan <i>expected return</i> tertinggi untuk tingkat risiko tertentu, atau secara ekuivalen risiko terendah untuk <i>expected return</i> tertentu. Sumber menjelaskan bahwa pada Bab 4 dan 5 sifat teoritis <i>efficient frontier</i> telah dijelaskan; bab ini beralih ke pertanyaan praktis tentang bagaimana menghitung portofolio efisien tersebut. Pilihan teknik bergantung secara kritis pada dua asumsi: apakah <i>short sales</i> diperbolehkan, dan apakah pinjam-meminjam bebas risiko tersedia pada satu tingkat bunga. Kedua asumsi ini mendefinisikan empat tipe masalah berbeda, yang masing-masing membutuhkan metode penyelesaian matematis yang berbeda.</p>
+</div>
+
+<div class="interpretation">
+<p>Bab ini sengaja mengurutkan metode dari yang paling sederhana hingga yang paling kompleks. Kasus paling sederhana terjadi ketika <i>short sales</i> diperbolehkan dan terdapat tingkat pinjam-meminjam bebas risiko; masalah ini tereduksi menjadi penyelesaian sistem persamaan linear simultan. Ketika tingkat bebas risiko dihilangkan tetapi <i>short sales</i> tetap diperbolehkan, solusi dapat diperoleh dengan menyelesaikan masalah untuk dua tingkat bebas risiko sembarang dan kemudian menggabungkan portofolio yang dihasilkan. Ketika <i>short sales</i> dilarang, masalah menjadi masalah <i>quadratic programming</i> karena adanya kendala nonnegativitas pada bobot investasi. Kendala tambahan—seperti <i>dividend yield</i> minimum atau ukuran posisi maksimum—dapat dimasukkan ke dalam kerangka <i>quadratic programming</i> selama kendala tersebut merupakan fungsi linear dari bobot investasi.</p>
+</div>
+
+<div class="interpretation">
+<p>Sumber menekankan bahwa teknik-teknik ini tidak hanya bersifat akademis; teknik-teknik tersebut digunakan dalam aplikasi nyata, dan program komputer telah tersedia untuk setiap metode. Namun, kebutuhan datanya sangat besar, dan data masukan sering kali sulit diestimasi atau diinterpretasikan oleh praktisi. Hal ini memotivasi prosedur penyederhanaan yang dibahas pada bab-bab berikutnya. Oleh karena itu, memahami teknik penyelesaian merupakan prasyarat untuk memahami program komputer dan jalan pintas praktis yang diperkenalkan kemudian.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li><i>Efficient frontier</i> dapat dihitung dalam empat kombinasi asumsi mengenai <i>short sales</i> dan pinjam-meminjam bebas risiko.</li>
+    <li><i>Short sales</i> diperbolehkan + aset bebas risiko → sistem persamaan linear.</li>
+    <li><i>Short sales</i> diperbolehkan + tanpa aset bebas risiko → menelusuri <i>frontier</i> dengan memvariasikan tingkat bebas risiko artifisial.</li>
+    <li><i>Short sales</i> dilarang → <i>quadratic programming</i>.</li>
+    <li>Kendala linear tambahan secara alami dapat dimasukkan ke dalam formulasi <i>quadratic programming</i>.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. <i>Short Sales</i> Diperbolehkan dengan Pinjam-Meminjam Bebas Risiko</h2>
+
+<h3>2.1 Rumusan Masalah dan Tujuan</
+    </div>
+</body>
+</html>

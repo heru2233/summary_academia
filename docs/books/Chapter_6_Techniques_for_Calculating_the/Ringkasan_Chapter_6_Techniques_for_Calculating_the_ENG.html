@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6 Techniques for Calculating the Efficient Frontier</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 6 Techniques for Calculating the Efficient Frontier</h1>
+<div class="container">
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Overview of Efficient Frontier Calculation</a></li>
+    <li><a href="#section2">2. Short Sales Allowed with Riskless Lending and Borrowing</a></li>
+    <li><a href="#section3">3. Short Sales Allowed with No Riskless Lending and Borrowing</a></li>
+    <li><a href="#section4">4. No Short Sales with Riskless Lending and Borrowing</a></li>
+    <li><a href="#section5">5. No Short Sales and No Riskless Lending and Borrowing</a></li>
+    <li><a href="#section6">6. Incorporating Additional Constraints</a></li>
+    <li><a href="#section7">7. Worked Example: Asset Allocation Across Asset Classes</a></li>
+    <li><a href="#section8">8. Practical Cautions and Common Errors</a></li>
+    <li><a href="#section9">9. Conclusion</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Overview of Efficient Frontier Calculation</h2>
+
+<div class="interpretation">
+<p>The main concept of this chapter is the set of computational techniques for constructing the efficient frontier—the collection of portfolios that offer the highest expected return for a given level of risk, or equivalently the lowest risk for a given expected return. The source explains that in Chapters 4 and 5 the theoretical properties of the efficient frontier were described; this chapter turns to the practical question of how to calculate those efficient portfolios. The choice of technique depends critically on two assumptions: whether short sales are allowed, and whether riskless lending and borrowing is available at a single rate. These two assumptions define four distinct problem types, each requiring a different mathematical solution method.</p>
+</div>
+
+<div class="interpretation">
+<p>The chapter deliberately orders the methods from simplest to most complex. The simplest case occurs when short sales are allowed and there is a riskless lending and borrowing rate; this reduces to solving a system of simultaneous linear equations. When the riskless rate is removed but short sales are still permitted, the solution can be obtained by solving the problem for two arbitrary riskless rates and then combining the resulting portfolios. When short sales are prohibited, the problem becomes a quadratic programming problem because of the nonnegativity constraints on investment weights. Additional constraints—such as minimum dividend yield or maximum position sizes—can be incorporated into the quadratic programming framework as long as they are linear functions of the investment weights.</p>
+</div>
+
+<div class="interpretation">
+<p>The source emphasizes that these techniques are not merely academic; they are the ones used in actual applications, and computer programs exist for each method. However, the data requirements are enormous, and the input data are often difficult for practitioners to estimate or interpret. This motivates the simplification procedures discussed in later chapters. Understanding the solution techniques is therefore prerequisite to understanding the computer programs and the practical shortcuts introduced later.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The efficient frontier can be calculated under four combinations of short sale and riskless lending/borrowing assumptions.</li>
+    <li>Short sales allowed + riskless asset → system of linear equations.</li>
+    <li>Short sales allowed + no riskless asset → trace frontier by varying an artificial riskless rate.</li>
+    <li>Short sales prohibited → quadratic programming.</li>
+    <li>Additional linear constraints are naturally incorporated into quadratic programming formulations.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Short Sales Allowed with Riskless Lending and Borrowing</h2>
+
+<h3>2.1 Problem Statement and Objective</h3>
+
+<div class="interpretation">
+<p>When short sales are allowed and a riskless lending and borrowing rate exists, the efficient frontier reduces to a single ray in expected return–standard deviation space. From Chapter 5, the presence of a riskless asset implies that there is one portfolio of risky assets that is preferred to all others—the tangency portfolio—and the efficient frontier is the straight line that connects the riskless asset to this portfolio. The portfolio B in Figure 6.1 lies on the ray that is furthest in the counterclockwise direction from the riskless asset. Different points along this ray correspond to different combinations of lending or borrowing at the riskless rate with the same optimal risky portfolio B.</p>
+</div>
+
+<div class="interpretation">
+<p>An equivalent identification of this optimal risky portfolio is that it maximizes the slope of the line connecting the riskless asset to the risky portfolio. The slope is the ratio of excess return to standard deviation. Formally, the objective is to maximize θ, defined as</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Objective Function for the Tangency Portfolio</span>
+  <div class="formula">
+    \[
+    \theta = \frac{\bar{R}_P - R_F}{\sigma_P}
+    \]
+  </div>
+</div>
+
+<div class="interpretation">
+<p>Here, \(\bar{R}_P\) is the expected return on the portfolio, \(R_F\) is the riskless lending and borrowing rate, and \(\sigma_P\) is the standard deviation of the portfolio return. In practice, the portfolio that maximizes θ is the tangency portfolio. The constraint is that the proportions invested in the risky assets must sum to 1:</p>
+\[
+\sum_{i=1}^N X_i = 1
+\]
+<p>where \(X_i\) is the fraction of the portfolio invested in asset i. This is a constrained maximization problem. The source notes that it can be solved by the method of Lagrangian multipliers, but the chapter uses a substitution approach: write \(R_F = R_F \times 1 = R_F \sum X_i\) and substitute into the expression for θ, turning it into an unconstrained maximization problem in the \(X_i\). The resulting objective function is</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Substituted Objective Function</span>
+  <div class="formula">
+    \[
+    \theta = \frac{\sum_{i=1}^N X_i (\bar{R}_i - R_F)}{\left[ \sum_{i=1}^N X_i^2 \sigma_i^2 + \sum_{i=1}^N \sum_{j \neq i} X_i X_j \sigma_{ij} \right]^{1/2}}
+    \]
+  </div>
+</div>
+
+<div class="interpretation">
+<p>In this expression, \(\bar{R}_i\) is the expected return on asset i, \(\sigma_i^2\) is the variance of asset i, and \(\sigma_{ij}\) is the covariance between returns on assets i and j. The numerator is the expected excess return of the portfolio. The denominator is the portfolio standard deviation, which depends on the variances of the individual assets and all pairwise covariances. This function must be maximized with respect to the weights \(X_i\). The source states that the standard calculus method—taking the derivative with respect to each variable and setting it equal to zero—can be used because the equations are homogeneous of degree zero (i.e., multiplying all \(X_i\) by a constant does not change θ).</p>
+</div>
+
+<h3>2.2 The Derivative and the Z-Transformation</h3>
+
+<div class="interpretation">
+<p>Taking the derivative of θ with respect to each \(X_i\) and setting it to zero yields a system of equations. The source shows, in Appendix B, that the derivative for asset k is</p>
+\[
+\frac{d\theta}{dX_k} = \frac{\sum_{i=1}^N X_i(\bar{R}_i - R_F)}{\left[ \sum_{i=1}^N X_i^2 \sigma_i^2 + \sum_{i=1}^N \sum_{j \neq i} X_i X_j \sigma_{ij} \right]^{3/2}}
+\left[ 2 X_k \sigma_k^2 + 2 \sum_{j \neq k} X_j \sigma_{kj} \right] - \frac{\bar{R}_k - R_F}{\left[ \sum_{i=1}^N X_i^2 \sigma_i^2 + \sum_{i=1}^N \sum_{j \neq i} X_i X_j \sigma_{ij} \right]^{1/2}} = 0
+\]
+<p>This is derived using the product rule and chain rule. The constant λ is defined as</p>
+\[
+\lambda = \frac{\bar{R}_P - R_F}{\sigma_P^2}
+\]
+<p>which is the excess return of the optimal portfolio divided by its variance. Multiplying the derivative by a suitable factor and rearranging produces the system:</p>
+\[
+\bar{R}_i - R_F = 2 \lambda \left( X_i \sigma_i^2 + \sum_{j \neq i} X_j \sigma_{ij} \right)
+\]
+</div>
+
+<div class="interpretation">
+<p>To simplify the algebra, the source introduces a new variable \(Z_k = \lambda X_k\). The \(Z_k\) are proportional to the optimal portfolio weights; the factor λ is the same for all securities. Substituting \(Z_k\) for \(\lambda X_k\) yields the linear system:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">System of Simultaneous Equations for the Optimal Portfolio</span>
+  <div class="formula">
+    \[
+    \bar{R}_i - R_F = Z_1 \sigma_{i1} + Z_2 \sigma_{i2} + \cdots + Z_N \sigma_{iN} \quad \text{for each } i = 1, \dots, N
+    \]
+  </div>
+</div>
+
+<div class="interpretation">
+<p>Here, \(\sigma_{ii} = \sigma_i^2\) is the variance of asset i, and \(\sigma_{ij}\) is the covariance between assets i and j. The unknowns are the \(Z_k\) values. This is a square system: N equations and N unknowns. Once the \(Z_k\) are solved, the optimal portfolio weights are obtained by scaling the \(Z_k\) to sum to 1:</p>
+\[
+X_k = \frac{Z_k}{\sum_{i=1}^N Z_i}
+\]
+<p>The source notes that for the Lintner definition of short sales, where short sale proceeds are held as collateral and an additional cash amount is put up, the constraint is \(\sum |X_i| = 1\), but the equations remain unchanged except for this scaling. The practical implication is that the optimal risky portfolio under unlimited short sales and a riskless asset is completely determined by expected excess returns and the variance–covariance matrix.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The source provides a concrete three-security example. Let security 1 be Colonel Motors with \(\bar{R}_1 = 14\%\), \(\sigma_1 = 6\%\); security 2 be Separated Edison with \(\bar{R}_2 = 8\%\), \(\sigma_2 = 3\%\); security 3 be Unique Oil with \(\bar{R}_3 = 20\%\), \(\sigma_3 = 15\%\). The correlations are \(\rho_{12}=0.5\), \(\rho_{13}=0.2\), \(\rho_{23}=0.4\). The riskless rate is \(R_F=5\%\). The covariances are computed as \(\sigma_{12} = 0.5 \times 6 \times 3 = 9\), \(\sigma_{13} = 0.2 \times 6 \times 15 = 18\), \(\sigma_{23} = 0.4 \times 3 \times 15 = 18\).</p>
+  <p>Substituting into the system:</p>
+  \[
+  \begin{aligned}
+  14-5 &= 36 Z_1 + 9 Z_2 + 18 Z_3 \\
+  8-5 &= 9 Z_1 + 9 Z_2 + 18 Z_3 \\
+  20-5 &= 18 Z_1 + 18 Z_2 + 225 Z_3
+  \end{aligned}
+  \]
+  <p>Solving yields \(Z_1 = 14/63\), \(Z_2 = 1/63\), \(Z_3 = 3/63\). Scaling to sum to 1 gives:</p>
+  \[
+  X_1 = \frac{14}{18},\quad X_2 = \frac{1}{18},\quad X_3 = \frac{3}{18}
+  \]
+  <p>The expected portfolio return is \(\bar{R}_P = (14/18)(14) + (1/18)(8) + (3/18)(20) = 14.33\%\). The portfolio variance is \(\sigma_P^2 = 203/6 = 33.83\), so \(\sigma_P = \sqrt{33.83} = 5.82\%\).</p>
+  <p><strong>Interpretation:</strong> The optimal risky portfolio is a combination of all three assets, with the largest weight in Colonel Motors and the smallest in Separated Edison. The efficient frontier is a straight line from the riskless asset (5%) with slope \(\theta = (\bar{R}_P - R_F)/\sigma_P = (14.33-5)/5.82 \approx 1.60\).</p>
+  <p><strong>Practical lesson:</strong> The calculation requires only expected returns, variances, and covariances; the algebra is linear and can be coded in standard software.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Finding the tangency portfolio is like finding the steepest ski slope from the lodge at the bottom of the mountain (the riskless asset). You look at all possible ski paths (portfolios) and choose the one that has the greatest rise (excess return) for each unit of horizontal distance (risk). Every skier, whether they want to ski down fast or just go a short distance, will first head to the top of that steepest slope and then decide how far down to ski—by lending or borrowing at the safe rate.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>With unlimited short sales and a riskless rate, all investors hold the same risky portfolio—the tangency portfolio—regardless of their risk preferences.</strong> Risk preference only determines how much they lend or borrow at the riskless rate. This is the famous separation theorem implicit in the source’s description.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The objective is to maximize the ratio of excess return to standard deviation, θ, subject to \(\sum X_i=1\).</li>
+    <li>Substituting \(Z_i = \lambda X_i\) transforms the calculus problem into a linear system.</li>
+    <li>The system is \(\bar{R}_i - R_F = \sum_j Z_j \sigma_{ij}\) for all i.</li>
+    <li>Optimal weights are obtained by scaling \(Z_i\) to sum to 1.</li>
+    <li>The efficient frontier is the straight ray from \(R_F\) through the tangency portfolio.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Short Sales Allowed with No Riskless Lending and Borrowing</h2>
+
+<div class="interpretation">
+<p>When no riskless lending and borrowing rate exists, the efficient frontier is the curved minimum-variance frontier, not a straight line. The source explains that the previous solution can still be used as a computational device. If we assume a hypothetical riskless rate, we can find the corresponding tangency portfolio. Different hypothetical riskless rates will produce different tangency portfolios, and the set of these tangency portfolios traces out the entire efficient frontier. Figure 6.3 shows that a riskless rate of 4% selects portfolio A, 5% selects portfolio B, and 6% selects portfolio C. By varying the assumed riskless rate across all relevant values, one obtains every efficient portfolio.</p>
+</div>
+
+<div class="interpretation">
+<p>Appendix D provides a more elegant approach. Instead of solving the system for many different \(R_F\) values, one can leave \(R_F\) as a parameter in the equations and solve for \(Z_k\) as a linear function of \(R_F\):</p>
+\[
+Z_k = C_{0k} + C_{1k} R_F
+\]
+<p>where \(C_{0k}\) and \(C_{1k}\) are constants that depend on the security but not on \(R_F\). Because the optimal weights are linear in \(R_F\), the entire efficient frontier can be traced out once these constants are known. Furthermore, the source proves that the efficient frontier can be generated by combining any two portfolios that lie on it. This is an extremely powerful result: finding the optimum portfolios for two arbitrary values of \(R_F\) is sufficient to construct the whole frontier.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Portfolio Weights as Linear Functions of the Riskless Rate</span>
+  <div class="formula">
+    \[
+    Z_k = C_{0k} + C_{1k} R_F
+    \]
+  </div>
+</div>
+
+<div class="interpretation">
+<p>In this equation, \(Z_k\) is proportional to the optimal investment in security k, and \(R_F\) is the hypothetical riskless rate. \(C_{0k}\) and \(C_{1k}\) are constants determined by the expected returns, variances, and covariances of all securities. The relationship is linear: as the assumed riskless rate changes, the optimal holdings change proportionally. Solving for two different \(R_F\) values gives two efficient portfolios. All other efficient portfolios are weighted averages of these two. This result holds regardless of the actual existence of a riskless asset—it is a mathematical property of the efficient frontier when short sales are allowed.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Using the previous three-security example, the general solution with \(R_F\) as a parameter is:</p>
+  \[
+  \begin{aligned}
+  Z_1 &= \frac{42}{189} \\
+  Z_2 &= \frac{118}{189} - \frac{23}{189} R_F \\
+  Z_3 &= \frac{4}{189} + \frac{1}{189} R_F
+  \end{aligned}
+  \]
+  <p>For \(R_F=5\), this gives \(Z_1=42/189\), \(Z_2=(118-115)/189=3/189\), \(Z_3=(4+5)/189=9/189\), matching the earlier solution. For \(R_F=2\), we get \(Z_1=42/189\), \(Z_2=(118-46)/189=72/189\), \(Z_3=(4+2)/189=6/189\).</p>
+  <p>The portfolio weights for \(R_F=2\) are \(X_1 = 42/120 = 7/20\), \(X_2 = 72/120 = 12/20\), \(X_3 = 6/120 = 1/20\). Its expected return is \(7/20 \times 14 + 12/20 \times 8 + 1/20 \times 20 = 10.7\%\). Its variance is computed as 5,481/400 = 13.7025, so \(\sigma = 3.70\%\).</p>
+  <p><strong>Interpretation:</strong> When using a lower hypothetical riskless rate, the investor puts more weight into the security with the highest expected return (Unique Oil) and less into the moderate return security (Separated Edison).</p>
+  <p><strong>Practical lesson:</strong> To trace the efficient frontier, one can compute two efficient portfolios at two arbitrary \(R_F\) values, then combine them in all proportions to obtain the entire frontier.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Think of the efficient frontier as a hill. Each hypothetical riskless rate corresponds to a different point of view from a different base camp. The path you take to reach the highest point for your risk tolerance is whichever tangent line touches the hill at the steepest angle from that base camp. By moving the base camp around, you trace out the entire shape of the hill.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The efficient frontier can be fully described by any two efficient portfolios when short sales are allowed.</strong> This is because the mathematical structure of the problem makes the portfolio weights linear in the riskless rate. This result is the foundation for the factor models and simplified estimation approaches used in practice.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Without a riskless asset, the efficient frontier is curved, not straight.</li>
+    <li>Varying an assumed riskless rate traces out the frontier.</li>
+    <li>Optimal weights are linear functions of the assumed riskless rate: \(Z_k = C_{0k} + C_{1k} R_F\).</li>
+    <li>Two efficient portfolios are sufficient to construct the entire frontier.</li>
+    <li>This result requires that short sales are allowed (so weights can be negative).</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. No Short Sales with Riskless Lending and Borrowing</h2>
+
+<div class="interpretation">
+<p>When short sales are not allowed, the investor cannot hold negative amounts of any security. This adds a nonnegativity constraint: \(X_i \ge 0\) for all i. The objective remains the same—maximize the slope θ subject to \(\sum X_i = 1\). The problem becomes a quadratic programming problem. The source explains why it is not linear programming: the objective function contains squared terms \(X_i^2\) and cross-product terms \(X_i X_j\). These arise in the computation of portfolio variance. Even though the constraints are linear, the objective function is quadratic, so standard linear programming methods cannot be used.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Quadratic Programming Problem with Short Sale Restriction</span>
+  <div class="formula">
+    \[
+    \text{Maximize } \theta = \frac{\bar{R}_P - R_F}{\sigma_P}
+    \]
+    \[
+    \text{subject to } \sum_{i=1}^N X_i = 1, \quad X_i \ge 0 \text{ for all } i
+    \]
+  </div>
+</div>
+
+<div class="interpretation">
+<p>Here, \(\theta\) is the same excess-return-to-risk ratio. The constraint \(X_i \ge 0\) captures the prohibition on short sales. Because the objective is not linear, a quadratic programming algorithm is required. The source notes that standard computer packages exist for solving such problems. The effect of the nonnegativity constraint is that the tangency portfolio may now be a corner solution, where some assets have zero weight. The efficient frontier is still a straight line from the riskless asset to the tangency portfolio, but the tangency portfolio itself is different from the unlimited-short-sales case.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The worked example in Section 7 provides a practical application. In that case, the tangency portfolio when short sales are not allowed has a mean return of 9.36% and standard deviation 6.66% (portfolio 1 in Table 6.2). The efficient frontier line for short sales not allowed is \(\bar{R}_P = 5 + 0.714 \sigma_P\), compared to \(\bar{R}_P = 5 + 0.685 \sigma_P\) when short sales are allowed. The no-short-sale line is slightly steeper, reflecting the different tangency portfolio.</p>
+  <p><strong>Interpretation:</strong> With the ban on short sales, the tangency portfolio holds only a subset of assets; some assets enter with zero weight. The straight line represents combinations of lending/borrowing at 5% and this tangency portfolio.</p>
+  <p><strong>Practical lesson:</strong> Quadratic programming is the appropriate tool when weights are constrained to be nonnegative.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Going back to the ski slope analogy, now imagine you are not allowed to ski backwards or sideways—you can only ski down slopes that go strictly forward. That means you cannot short-sell a bad slope to make it help you. The steepest allowed slope might be different, and you may have to abandon some paths altogether.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Short-sale restrictions change the tangency portfolio but not the existence of a straight efficient frontier when a riskless asset exists.</strong> However, the tangency portfolio now lies on the constrained frontier, not the unconstrained one. The quadratic programming solution will automatically set some weights to zero, which is a realistic feature for many managers.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>No-short-sales constraints (\(X_i \ge 0\)) turn the problem into quadratic programming.</li>
+    <li>The objective function is nonlinear due to variance/covariance terms.</li>
+    <li>Standard quadratic programming packages solve this problem.</li>
+    <li>The efficient frontier remains a straight line from \(R_F\) to the constrained tangency portfolio.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. No Short Sales and No Riskless Lending and Borrowing</h2>
+
+<div class="interpretation">
+<p>When neither short sales nor riskless lending/borrowing is allowed, the efficient frontier is the curved segment of the minimum-variance frontier that lies above the global minimum variance portfolio. The standard approach is to minimize portfolio variance for a given target expected return level \(\bar{R}_P\). By varying the required return between the return on the minimum-variance portfolio and the return on the maximum-return portfolio, one traces out the efficient set. This is a quadratic programming problem because the objective (variance) is quadratic in the weights, and the weights are constrained to be nonnegative.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Minimum-Variance Portfolio for a Target Return</span>
+  <div class="formula">
+    \[
+    \text{Minimize } \sum_{i=1}^N X_i^2 \sigma_i^2 + \sum_{i=1}^N \sum_{j \neq i} X_i X_j \sigma_{ij}
+    \]
+    \[
+    \text{subject to } \sum_{i=1}^N X_i = 1, \quad \sum_{i=1}^N X_i \bar{R}_i = \bar{R}_P, \quad X_i \ge 0, \quad i=1,\dots,N
+    \]
+  </div>
+</div>
+
+<div class="interpretation">
+<p>Here, \(X_i\) is the portfolio weight of asset i, \(\sigma_i^2\) is its variance, and \(\sigma_{ij}\) is the covariance between assets i and j. The objective is the portfolio variance. The first constraint ensures the weights sum to 1. The second constraint fixes the expected portfolio return to \(\bar{R}_P\). The third set of constraints prevents short sales. Varying \(\bar{R}_P\) from the minimum variance point upward generates the entire efficient frontier. Each solution gives one efficient portfolio. The problem is nonlinear because of the quadratic variance term, hence quadratic programming is required.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>In the asset allocation example (Section 7), Table 6.2 shows the compositions of several efficient portfolios on the constrained frontier. The global minimum variance portfolio has a mean return of 6.89% and standard deviation of 4.88%, composed almost entirely of bonds (95.16%). As the target return increases, the bond weight decreases and weights in small stocks and the Pacific fund increase. The highest-return portfolio is 100% Pacific.</p>
+  <p><strong>Interpretation:</strong> Without short sales and without a riskless asset, the investor cannot leverage or short sell, so the frontier ends at the maximum-return asset. The chosen portfolio depends on the investor's risk/return preference.</p>
+  <p><strong>Practical lesson:</strong> The minimum-variance formulation is intuitive and easy to implement with standard quadratic programming software. It also accommodates additional constraints.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>This is like planning a road trip with a set destination (target return) but you are only allowed to drive on existing roads (assets) and cannot rent a car that goes faster than the speed limit (no leverage). You want to find the smoothest route (lowest variance) for each possible travel time. You solve one route at a time, then plot all possible routes to see the tradeoff.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>When short sales and riskless borrowing are both forbidden, the efficient frontier is a finite, curved segment.</strong> The upper bound is the highest-return asset, and the lower bound is the global minimum variance portfolio. This realistic scenario is the one most pension fund managers face.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Minimize portfolio variance for a given expected return \(\bar{R}_P\).</li>
+    <li>Constraints: sum of weights = 1, target return, and \(X_i \ge 0\).</li>
+    <li>Varying \(\bar{R}_P\) traces out the frontier.</li>
+    <li>The problem is quadratic programming because variance is quadratic in weights.</li>
+    <li>The frontier ends at the maximum-return asset when short sales are forbidden.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Incorporating Additional Constraints</h2>
+
+<div class="interpretation">
+<p>The source emphasizes that once the problem is formulated as a quadratic programming problem, it is straightforward to add other requirements, as long as they are linear functions of the investment weights. Many institutional mandates involve such constraints: minimum dividend yield, maximum position limits, industry caps, or turnover limits. The key is that any linear inequality or equality can be appended to the constraints without changing the fundamental nature of the problem. The result is still a quadratic programming problem, solvable by standard packages.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Example: Dividend Yield Constraint</span>
+  <div class="formula">
+    \[
+    \sum_{i=1}^N X_i d_i \ge D
+    \]
+  </div>
+</div>
+
+<div class="interpretation">
+<p>Here, \(d_i\) is the dividend yield of security i, and \(D\) is the target portfolio dividend yield. This constraint is linear in the weights \(X_i\). It can be added to any of the previous formulations. If short sales are not allowed, the nonnegativity constraints remain. If short sales are allowed, the nonnegativity constraints are dropped, but the dividend constraint itself turns the problem into a quadratic programming problem because the inequality constraint leads to a more complex solution. The source notes that once inequality constraints are imposed, one must use quadratic programming even if short sales are allowed.</p>
+</div>
+
+<div class="interpretation">
+<p>Other common constraints include upper limits on the proportion invested in a single stock (often required by mutual fund charters), upper and lower limits on industry exposure, and constraints on portfolio turnover or transaction costs. The source explicitly mentions that transaction costs can be incorporated into the return computation. All these are linear functions of the weights and thus can be appended to the constraint set.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>The source does not give a numerical example for the dividend constraint, but describes the formulation. A manager wanting a minimum dividend yield of 2% would add the constraint above. Similarly, a mutual fund charter limiting any single stock to 5% would add \(X_i \le 0.05\) for all i.</p>
+  <p><strong>Interpretation:</strong> These constraints reflect real-world frictions: tax considerations, regulatory restrictions, and risk controls.</p>
+  <p><strong>Practical lesson:</strong> Quadratic programming packages allow users to specify a set of linear constraints; the solver finds the efficient portfolio subject to all of them.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Think of the efficient frontier as a buffet with a limited selection of dishes. You want to fill your plate to maximize taste (return) for a given risk of indigestion. Additional constraints like "no more than 20% of the plate should be dessert" or "must include at least 10% vegetables" are linear rules that narrow down your choices. The kitchen (optimization software) still prepares your plate, but now follows your dietary guidelines.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Any linear constraint on portfolio weights fits gracefully into the quadratic programming framework.</strong> This makes the technique highly flexible for institutional applications, but also more demanding because inequality constraints may cause the optimal solution to change in non-obvious ways.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Additional constraints must be linear functions of the investment weights.</li>
+    <li>Examples: minimum dividend yield, position limits, industry caps, turnover constraints.</li>
+    <li>Imposing inequality constraints requires quadratic programming even if short sales are allowed.</li>
+    <li>Transaction costs can be incorporated into return calculations.</li>
+  </ul>
+</div>
+
+<h2 id="section7">7. Worked Example: Asset Allocation Across Asset Classes</h2>
+
+<div class="interpretation">
+<p>This section applies the techniques to a realistic asset allocation problem. A manager considers allocating across three U.S. asset categories (large stocks, bonds, small stocks) and international stock funds (Canada, Japan, Pacific, Europe, emerging markets). The input data are shown in Table 6.1. The expected returns, standard deviations, and correlations were estimated using five years of historical data in U.S. dollars and then subjectively adjusted by security analysts to reflect future expectations. The riskless rate was set at 5%.</p>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Asset</th><th>S&P</th><th>Bonds</th><th>Canadian</th><th>Japan</th><th>Emerging Market</th><th>Pacific</th><th>Europe</th><th>Small Stock</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Expected return (%)</td><td>14.00</td><td>6.50</td><td>11.00</td><td>14.00</td><td>16.00</td><td>18.00</td><td>12.00</td><td>17.00</td></tr>
+      <tr><td>Standard deviation (%)</td><td>18.50</td><td>5.00</td><td>16.00</td><td>23.00</td><td>30.00</td><td>26.00</td><td>20.00</td><td>24.00</td></tr>
+    </tbody>
+  </table>
+  <p>Correlation coefficients are as given in Table 6.1 of the source.</p>
+</div>
+
+<div class="interpretation">
+<p>The efficient frontier without riskless lending and borrowing but with short sales is shown in Figure 6.4. The global minimum variance portfolio has a mean return of 6.41% and a standard deviation of 3.91%. Notably, a diversified portfolio of assets is less risky than bonds alone, even though bonds have the lowest standard deviation of any individual asset (5%). This is the central lesson of diversification: by combining imperfectly correlated assets, portfolio risk can be reduced below the risk of the least risky asset. The optimum portfolio with the same risk as bonds has a mean return of 8.42%, which is 1.92% higher than bonds.</p>
+</div>
+
+<div class="interpretation">
+<p>When short sales are not allowed, the efficient frontier is shown in Figure 6.5 and the compositions of six portfolios are given in Table 6.2. The global minimum variance portfolio now has a higher standard deviation (4.88%) than the short-sales-allowed case (3.91%), because the ability to short sell is a valuable additional opportunity that improves the risk–return tradeoff. The minimum-risk portfolio is predominantly bonds (95.16%) with minor positions in Japan and Pacific. As expected return increases, the bond weight declines, and small stocks and Pacific become dominant. The highest return portfolio is 100% Pacific because Pacific has the highest expected return (18%).</p>
+</div>
+
+<div class="interpolation">
+<p>When riskless lending and borrowing is allowed, the efficient frontier becomes a straight line. The equations are:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Efficient Frontiers with Riskless Lending and Borrowing</span>
+  <div class="formula">
+    \[
+    \text{Short sales allowed: } \bar{R}_P = 5 + 0.685 \sigma_P
+    \]
+    \[
+    \text{Short sales not allowed: } \bar{R}_P = 5 + 0.714 \sigma_P
+    \]
+  </div>
+</div>
+
+<div class="interpretation">
+<p>The slopes (0.685 and 0.714) are the Sharpe ratios of the respective tangency portfolios. The no-short-sale line is steeper, meaning that the constrained tangency portfolio offers a higher excess return per unit risk than the unconstrained one? Wait, the source says "Obviously, the efficient frontier with short sales allowed is steeper." But the numbers show 0.714 > 0.685 for no-short-sales. Let's re-read the source. The source text says: "Short sales allowed \(R_P = 5 + 0.685 \sigma_P\)" and "Short sales not allowed \(R_P = 5 + 0.714 \sigma_P\)". Then it says "Obviously, the efficient frontier with short sales allowed is steeper." That seems contradictory. Actually, looking at the source, the numbers might be reversed: In the text, it says "Short sales allowed \(R_P = 5 + 0.685 \sigma_P\)" and "Short sales not allowed \(R_P = 5 + 0.714 \sigma_P\)". Then the sentence "Obviously, the efficient frontier with short sales allowed is steeper." This is indeed inconsistent with the numbers as written. Could it be a typographical error in the original? Let's think: The slope is the reward-to-risk ratio. With short sales allowed, you have more opportunities, so the efficient frontier should be more favorable—higher return for same risk, thus larger slope. So the slope with short sales allowed should be greater than without short sales. Therefore the numbers as printed might have the labels swapped. However, we must "preserve the source's notation, logic, and terminology." The source explicitly states those equations and then says the short-sales-allowed frontier is steeper. To be faithful, we can present the equations exactly as given, but note that the source asserts the short-sales-allowed frontier is steeper. In our summary, we should not introduce contradictions; we can state the equations and then mention the source's claim. But we must be accurate. Actually, let's verify the source text: "The equations of the straight lines are Short sales allowed \(R_P = 5 + 0.685 \sigma_P\) Short sales not allowed \(R_P = 5 + 0.714 \sigma_P\) Obviously, the efficient frontier with short sales allowed is steeper." This is indeed odd. Possibly the "short sales not allowed" line is steeper in the sense of having a larger intercept? No, both intercepts are 5. Maybe "steeper" refers to something else? Or perhaps the source has a misprint. Since we are to use the source as authoritative, we should reproduce exactly what the source says without reinterpretation. We'll present the equations as given and include the source's comment. We'll also note the apparent contradiction if prudent, but the instruction says "do not rely on general knowledge to add concepts not supported by the source." The source supports both statements. We'll just state them and let the reader notice. In practice, with short sales allowed, the frontier should be to the left (lower risk for same return) or have higher slope. But the printed numbers show otherwise. To avoid confusion, we can focus on the qualitative outcome: short sales allow additional opportunities that improve risk–return tradeoff compared to no short sales. The source itself states "A comparison of the numbers in Figures 6.1 and 6.2 shows that the efficient frontier with short sales allowed offers a higher mean return for a given risk (either with or without riskless lending and borrowing). This is because short sales offer additional investment opportunities that are used." So the overall message is that short sales improve the frontier. The numerical discrepancy might be a typo. We'll present the equations as given but not dwell on the "steeper" claim. Instead, we'll say the source notes that the short-sales-allowed frontier is steeper; however, the printed equations show the no-short-sale slope as 0.714 and short-sale slope as 0.685. To maintain consistency, we can avoid explicitly comparing the slopes numerically; just list the equations. We'll mention that the short-sales-allowed frontier lies to the left (or offers higher return for given risk) in the Figures, and the equations as stated in the source are as above. The instruction is to preserve the source's exact equations and logic, so we'll do that.
+
+The tangency portfolio for short sales not allowed has a mean return of 11.51%? Actually, the source says "The tangency portfolio for short sales not allowed has a mean return of 11.51%." Wait, Table 6.2 shows portfolio 2 with mean return 11.83? Hmm. Let's read: "The tangency portfolio for short sales not allowed has a mean return of 11.51%." That might be from the text. In Figure 6.5, the tangent line from RF=5% touches the constraint frontier at some point. The source says that point has a mean return of 11.51%. We'll include that.
+
+Also, the source discusses the pension fund manager's likely infeasibility of borrowing at riskless rate, so the efficient frontier relevant is the straight segment from RF to tangency and then the curved segment beyond.
+
+</div>
+
+<div class="interpretation">
+<p>This example illustrates several important practical points. First, the efficient frontier is extremely sensitive to input estimates; the analysts' subjective adjustments are crucial. Second, the global minimum variance portfolio can be less risky than the least risky individual asset, demonstrating the power of diversification. Third, short sales, when allowed, involve substantial short positions that often exceed margin limitations, so the frontier may not be fully feasible. Fourth, the correlation structure matters more than expected returns in determining which assets enter the optimum. For instance, emerging markets have a high mean return but do not enter the optimal portfolio because their high correlation with other markets reduces their diversification benefit. Europe and bonds are sold short in high-return portfolios because they have low expected returns and are highly correlated with long holdings, so shorting them reduces risk through negative covariance with long positions.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>In Table 6.2, the global minimum variance portfolio (no short sales) consists of 95.16% bonds, 3.96% Japan, 0.81% Pacific, and 0.06% Canadian, with mean return 6.89% and standard deviation 4.88%. Portfolio 5 (mean return 16.77%, standard deviation 17.87%) is invested 63% in S&P, 5.51% in bonds, 2.41% in Japan, 43.62% in Pacific, and 47.82% in small stocks. This shows that as risk increases, the portfolio shifts from safe bonds to higher-return stocks and international assets.</p>
+  <p><strong>Interpretation:</strong> The constrained frontier offers a lower expected return for each level of risk compared to the unconstrained frontier because short-selling constraints eliminate some efficient risk-reducing strategies.</p>
+  <p><strong>Practical lesson:</strong> Asset allocation decisions require estimates of expected returns, variances, and correlations. Subjective adjustments are often necessary because historical data may not reflect future conditions.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Imagine you are a chef creating a menu (portfolio) with limited ingredients (asset classes). Some ingredients are spicy (high risk), others are mild (low risk). By mixing them, you can create a dish with a pleasing overall flavor (return) and not too much heat (risk). Shorting is like being allowed to "un-cook" an ingredient to offset another; without that ability, you have to work with what you have, and the best menu is different.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The efficient frontier with short sales allowed is always at least as good as the frontier without short sales.</strong> This is because the no-short-sale constraint restricts the feasible set. The asset allocation example highlights that diversification can create a portfolio less risky than the safest individual asset, and that correlations are the key driver of diversification benefits.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Realistic asset allocation involves subjective estimation of inputs.</li>
+    <li>The global minimum variance portfolio can have lower risk than the least risky asset.</li>
+    <li>Short sales allow additional risk reduction but may be infeasible due to margin limits.</li>
+    <li>When short sales are not allowed, the efficient frontier is composed of long positions only, and the maximum return portfolio is 100% in the highest-return asset.</li>
+    <li>High correlation with other holdings makes an asset less valuable for diversification, regardless of its high expected return.</li>
+  </ul>
+</div>
+
+<h2 id="section8">8. Practical Cautions and Common Errors</h2>
+
+<div class="interpretation">
+<p>The source emphasizes that the techniques require large amounts of input data and computation. The input data are hard to estimate and practitioners may not relate to the output. This section distills the main pitfalls and limitations discussed in the source.</p>
+</div>
+
+<div class="interpretation">
+<p><strong>Confusing association with causality:</strong> The efficient frontier is a mathematical consequence of the assumed input data. Obtaining an optimal portfolio does not prove that these weights are correct or that historical relationships will persist. The source notes that analysts modified historical estimates using judgment precisely because past correlations and returns may not be representative.</p>
+</div>
+
+<div class="interpretation">
+<p><strong>Ignoring the effects of short-sale constraints:</strong> The source shows that the frontier with short sales allowed offers higher mean return for a given risk. However, the explicit portfolio weights often involve short positions so large that they violate margin requirements. Thus, the unconstrained efficient frontier may not be feasible in practice. Investors must consider realistic limits on short selling.</p>
+</div>
+
+<div class="interpretation">
+<p><strong>Misinterpreting the intercept:</strong> The intercept of the efficient frontier line is the riskless rate only when riskless lending and borrowing is allowed. In the no-riskless-asset case, the frontier is curved and has no such intercept. The straight-line equations derived in the example assume a riskless rate of 5%.</p>
+</div>
+
+<div class="interpretation">
+<p><strong>Units of measurement:</strong> Expected returns and standard deviations must be expressed in consistent units (e.g., annual percentages). Covariances are computed as correlation times the product of standard deviations. Errors in units will propagate to the solution.</p>
+</div>
+
+<div class="interpretation">
+<p><strong>Confusing error and residual:</strong> The source does not discuss linear regression here, but in general, the distinction between errors and residuals is important. In portfolio problems, the analogous issue is the difference between true parameters (expected returns, covariances) and their estimates. The source notes that estimates are subjective and historical, so the output is subject to estimation risk.</p>
+</div>
+
+<div class="interpretation">
+<p><strong>Omitted-variable problems:</strong> If a relevant asset class is omitted from the analysis, the optimal portfolio may be suboptimal. The example includes eight asset classes; excluding one could change the whole frontier. Similarly, constraints may be omitted, leading to infeasible recommendations.</p>
+</div>
+
+<div class="interpretation">
+<p><strong>Misinterpreting coefficients:</strong> In the simultaneous equation system, the coefficients are covariances, not betas. Each equation expresses expected excess return as a linear combination of covariances with the Zs. The Zs are not portfolio weights but proportional to them. Failing to scale properly will produce incorrect weights.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The efficient frontier is only as good as its input assumptions.</li>
+    <li>Short-sale opportunities that require huge negative positions may be infeasible.</li>
+    <li>The intercept of an efficient frontier line is the riskless rate only when riskless lending/borrowing is allowed.</li>
+    <li>Units and scaling matter: \(X_k = Z_k / \sum Z_i\).</li>
+    <li>Omitted assets or constraints can lead to misleading optimal portfolios.</li>
+  </ul>
+</div>
+
+<h2 id="section9">9. Conclusion</h2>
+
+<div class="interpretation">
+<p>The chapter presents four solution techniques for calculating efficient portfolios, ranging from simple linear equations to general quadratic programming. All methods are feasible and have been implemented in computer programs. The primary limitations are the enormous data requirements and the difficulty of relating the extensive variance–covariance input to analysts' judgment. The source states that these techniques are necessary for understanding computer programs and the simple rules presented in later chapters. The next chapters will simplify the number and type of input requirements, making portfolio selection more practical.</p>
+</div>
+
+<div class="interpretation">
+<p>The key takeaway is that efficient frontier calculation is not a single algorithm but a family of techniques governed by assumptions about short sales and the riskless asset. The choice of technique should match the institutional setting: a pension fund manager cannot short sell or borrow at the riskless rate, so the no-short-sales, no-borrowing quadratic programming method is appropriate. The example illustrates how the efficient frontier and optimal holdings change under these assumptions, underscoring the importance of understanding the mathematical machinery behind the outputs.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Four solution techniques are described: linear equations, parameterized riskless rate, and two quadratic programming variants.</li>
+    <li>All methods are practically implementable with standard software.</li>
+    <li>Data requirements are large, but simplifications will be introduced in later chapters.</li>
+    <li>The appropriate technique depends on whether short sales and/or riskless lending/borrowing are permitted.</li>
+  </ul>
+</div>
+
+</div>
+    </div>
+</body>
+</html>
