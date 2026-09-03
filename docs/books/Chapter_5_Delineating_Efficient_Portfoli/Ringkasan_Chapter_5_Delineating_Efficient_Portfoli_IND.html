@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5 Delineating Efficient Portfolios</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 5 Delineating Efficient Portfolios</h1>
+<div class="toc">
+  <h3>Daftar Isi</h3>
+  <ul>
+    <li><a href="#section1">1. Kombinasi Dua Aset Berisiko</a></li>
+    <li><a href="#section2">2. Bentuk Kurva Kemungkinan Portofolio</a></li>
+    <li><a href="#section3">3. <i>Efficient Frontier</i> Tanpa <i>Short Sales</i></a></li>
+    <li><a href="#section4">4. <i>Efficient Frontier</i> dengan <i>Short Sales</i> Diperbolehkan</a></li>
+    <li><a href="#section5">5. <i>Efficient Frontier</i> dengan <i>Riskless Lending and Borrowing</i></a></li>
+    <li><a href="#section6">6. Pertimbangan Praktis dalam Estimasi Input</a></li>
+    <li><a href="#section7">7. Contoh Perhitungan</a></li>
+    <li><a href="#section8">8. Kewaspadaan Praktis</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Kombinasi Dua Aset Berisiko</h2>
+
+<h3>1.1 <i>Expected Return</i> Portofolio</h3>
+
+<div class="interpretation">
+  <p><i>Expected return</i> pada portofolio yang terdiri dari dua aset berisiko adalah rata-rata tertimbang sederhana dari <i>expected return</i> masing-masing aset, dengan bobot yang berjumlah 1. Hubungan ini bersifat linear dan berlaku terlepas dari korelasi antar aset. <i>Expected return</i> portofolio merupakan komponen paling sederhana dalam analisis portofolio karena tidak melibatkan suku interaksi—bersifat murni aditif.</p>
+  <p>Dalam praktiknya, kombinasi dua aset akan menghasilkan <i>expected return</i> yang terletak di antara <i>expected return</i> kedua aset individual ketika kedua bobot bernilai positif dan berjumlah 1. Jika <i>short sales</i> diperbolehkan dan bobot dapat bernilai negatif atau melebihi 1, <i>expected return</i> portofolio dapat melampaui rentang <i>expected return</i> aset individual.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label"><i>Expected Return</i> Portofolio</span>
+  <div class="formula">\[
+  \bar{R}_P = X_A \bar{R}_A + X_B \bar{R}_B
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> $\bar{R}_P$ adalah <i>expected return</i> portofolio; $X_A$ adalah proporsi portofolio yang diinvestasikan pada aset A; $X_B$ adalah proporsi pada aset B; $\bar{R}_A$ dan $\bar{R}_B$ masing-masing adalah <i>expected return</i> aset A dan B. Kendala $X_A + X_B = 1$ memastikan investasi penuh. Substitusi $X_B = 1 - X_A$ menghasilkan $\bar{R}_P = X_A \bar{R}_A + (1 - X_A) \bar{R}_B$.</p>
+  <p><strong>Interpretasi:</strong> <i>Expected return</i> portofolio meningkat secara linear terhadap $X_A$ ketika $\bar{R}_A > \bar{R}_B$. Untuk setiap kenaikan satu satuan $X_A$, <i>expected return</i> portofolio berubah sebesar $(\bar{R}_A - \bar{R}_B)$.</p>
+  <p><strong>Penggunaan praktis:</strong> Rumus ini digunakan untuk menghitung <i>expected return</i> untuk setiap alokasi yang diusulkan antara dua aset. Ini adalah langkah pertama dalam menyusun kurva kemungkinan portofolio.</p>
+  <p><strong>Asumsi:</strong> <i>Expected return</i> $\bar{R}_A$ dan $\bar{R}_B$ diasumsikan diketahui atau diestimasi. Rumus ini tidak memperhitungkan <i>estimation error</i> pada input tersebut.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Colonel Motors (C): $\bar{R}_C = 14\%$, $\sigma_C = 6\%$; Separated Edison (S): $\bar{R}_S = 8\%$, $\sigma_S = 3\%$. Untuk $X_C = 0.4$, $\bar{R}_P = 0.4(14) + 0.6(8) = 10.4\%$.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Expected return</i> portofolio selalu merupakan rata-rata tertimbang dari <i>expected return</i> aset individual.</strong> Risiko, bagaimanapun, tidak selalu merupakan rata-rata tertimbang—asimetri ini merupakan fondasi manfaat diversifikasi.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li><i>Expected return</i> portofolio adalah kombinasi linear dari <i>expected return</i> aset individual.</li>
+    <li>Bobot harus berjumlah 1 (kendala investasi penuh).</li>
+    <li>Rumus ini berlaku untuk semua nilai koefisien korelasi antara dua aset.</li>
+  </ul>
+</div>
+
+<h3>1.2 <i>Variance</i> dan <i>Standard Deviation</i> Portofolio</h3>
+
+<div class="interpretation">
+  <p><i>Standard deviation</i> portofolio dua aset secara umum bukanlah rata-rata tertimbang dari <i>standard deviation</i> masing-masing aset. Sebaliknya, rumus ini mencakup suku hasil kali silang yang melibatkan <i>covariance</i> antara kedua aset. Ini adalah fakta matematis kritis yang membuat diversifikasi berpotensi menguntungkan: ketika <i>return</i> aset tidak bergerak secara sempurna bersamaan, risiko portofolio dapat lebih kecil daripada rata-rata tertimbang risiko individual.</p>
+  <p>Suku <i>covariance</i> $\sigma_{AB}$ dapat dinyatakan sebagai $\rho_{AB} \sigma_A \sigma_B$, di mana $\rho_{AB}$ adalah koefisien korelasi. Koefisien korelasi terletak di antara $-1$ dan $+1$, dan nilainya menentukan sejauh mana diversifikasi mengurangi risiko. Semakin rendah korelasi, semakin besar potensi pengurangan risiko.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label"><i>Standard Deviation</i> Portofolio (Bentuk Umum)</span>
+  <div class="formula">\[
+  \sigma_P = \left[ X_A^2 \sigma_A^2 + X_B^2 \sigma_B^2 + 2 X_A X_B \sigma_{AB} \right]^{1/2}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> $\sigma_P$ adalah <i>standard deviation</i> portofolio; $\sigma_A^2$ dan $\sigma_B^2$ adalah <i>variance</i> aset A dan B; $\sigma_{AB}$ adalah <i>covariance</i> antara A dan B. Dengan menggunakan $X_B = 1 - X_A$ dan $\sigma_{AB} = \rho_{AB} \sigma_A \sigma_B$, diperoleh:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label"><i>Standard Deviation</i> Portofolio (Bentuk Diperluas)</span>
+  <div class="formula">\[
+  \sigma_P = \left[ X_A^2 \sigma_A^2 + (1 - X_A)^2 \sigma_B^2 + 2 X_A (1 - X_A) \rho_{AB} \sigma_A \sigma_B \right]^{1/2}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretasi:</strong> <i>Standard deviation</i> portofolio bergantung pada tiga komponen: <i>variance</i> masing-masing aset dibobot oleh kuadrat bobot portofolionya, dan suku <i>covariance</i>. Ketika $\rho_{AB} = +1$, ekspresi ini menyederhanakan menjadi $\sigma_P = X_A \sigma_A + (1 - X_A) \sigma_B$, yang merupakan rata-rata tertimbang—tidak ada manfaat diversifikasi. Ketika $\rho_{AB} = -1$, ekspresi ini menyederhanakan menjadi $\sigma_P = |X_A \sigma_A - (1 - X_A) \sigma_B|$, yang dapat dibuat nol pada bobot tertentu. Untuk korelasi antara ($-1 < \rho < +1$), <i>standard deviation</i> portofolio terletak di antara dua ekstrem ini.</p>
+  <p><strong>Penggunaan praktis:</strong> Rumus ini digunakan untuk menghitung risiko portofolio untuk setiap alokasi dan estimasi korelasi yang diberikan. Ini penting untuk menelusuri kurva kemungkinan portofolio dan mengidentifikasi portofolio <i>variance</i> minimum.</p>
+  <p><strong>Asumsi:</strong> <i>Variance</i> dan <i>covariance</i> (atau korelasi) diasumsikan diketahui. Dalam praktik, keduanya diestimasi dari data historis, sehingga menimbulkan <i>estimation error</i>.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Untuk Colonel Motors ($\sigma_C = 6\%$) dan Separated Edison ($\sigma_S = 3\%$), dengan $\rho_{CS} = 0$ dan $X_C = 0.2$: $\sigma_P = [0.2^2(36) + 0.8^2(9) + 2(0.2)(0.8)(0)(6)(3)]^{1/2} = [1.44 + 5.76]^{1/2} = 2.68\%$. Perhatikan bahwa ini lebih rendah dari $\sigma_S = 3\%$ dan $\sigma_C = 6\%$, yang menunjukkan manfaat diversifikasi.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Menggabungkan dua aset dengan korelasi tidak sempurna seperti mencampur dua bahan yang kadang saling meniadakan efek ekstremnya. Jika satu bahan kadang terlalu panas dan bahan lain terlalu dingin, mencampurnya menghasilkan suhu yang lebih konsisten dan moderat. Semakin tidak sinkron pergerakan kedua bahan, semakin stabil campurannya.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Standard deviation</i> portofolio bukanlah rata-rata tertimbang dari <i>standard deviation</i> individual, kecuali dalam kasus khusus korelasi positif sempurna ($\rho = +1$).</strong> Untuk setiap $\rho < +1$, <i>standard deviation</i> portofolio lebih kecil daripada rata-rata tertimbang, dan perbedaan ini merupakan ukuran manfaat diversifikasi.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>Risiko portofolio bergantung pada <i>variance</i>, <i>covariance</i>, dan bobot.</li>
+    <li>Korelasi yang lebih rendah menghasilkan pengurangan risiko yang lebih besar.</li>
+    <li>Koefisien korelasi terletak di antara $-1$ dan $+1$.</li>
+  </ul>
+</div>
+
+<h3>1.3 Kasus Khusus Korelasi</h3>
+
+<h4>1.3.1 Korelasi Positif Sempurna ($\rho = +1$)</h4>
+
+<div class="interpretation">
+  <p>Ketika $\rho = +1$, kedua aset bergerak secara sempurna bersamaan. <i>Standard deviation</i> portofolio menyederhanakan menjadi rata-rata tertimbang: $\sigma_P = X_A \sigma_A + (1 - X_A) \sigma_B$. Baik risiko maupun <i>return</i> adalah kombinasi linear dari nilai aset individual. Semua kombinasi dari dua aset terletak pada garis lurus yang menghubungkan kedua aset dalam ruang <i>expected return</i>–<i>standard deviation</i>. Tidak ada pengurangan risiko dari diversifikasi—tidak ada yang diperoleh dengan memegang kedua aset dibandingkan hanya satu.</p>
+  <p>Dalam praktiknya, korelasi positif sempurna sangat jarang terjadi, tetapi beberapa aset mungkin memiliki korelasi yang sangat tinggi (misalnya, dua saham dalam industri yang sama dengan kapitalisasi pasar serupa). Dalam kasus seperti ini, manfaat diversifikasi sangat kecil.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label"><i>Standard Deviation</i> Portofolio ($\rho = +1$)</span>
+  <div class="formula">\[
+  \sigma_P = X_A \sigma_A + (1 - X_A) \sigma_B
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretasi:</strong> Hubungan antara $\bar{R}_P$ dan $\sigma_P$ adalah linear. Menyelesaikan $X_A$ dari $\sigma_P$ dan mensubstitusikannya ke dalam $\bar{R}_P$ menghasilkan garis lurus yang menghubungkan kedua aset. Semua portofolio terletak pada garis ini; tidak ada portofolio yang menawarkan risiko lebih rendah daripada yang ditunjukkan garis.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Ketika $\rho = +1$, diversifikasi tidak memberikan manfaat apa pun.</strong> Investor sebaiknya memegang satu aset dengan trade-off risiko–<i>return</i> yang lebih baik.</p>
+</div>
+
+<h4>1.3.2 Korelasi Negatif Sempurna ($\rho = -1$)</h4>
+
+<div class="interpretation">
+  <p>Ketika $\rho = -1$, kedua aset bergerak dalam arah yang berlawanan secara sempurna. <i>Standard deviation</i> portofolio menyederhanakan menjadi $\sigma_P = |X_A \sigma_A - (1 - X_A) \sigma_B|$. Ekspresi ini dapat dibuat nol dengan memilih $X_A = \sigma_B / (\sigma_A + \sigma_B)$. Pada bobot spesifik ini, risiko kedua aset saling meniadakan secara sempurna, menghasilkan portofolio dengan risiko nol. Ini adalah hasil diversifikasi yang paling kuat: penghapusan seluruh risiko dari kombinasi dua aset yang masing-masing berisiko.</p>
+  <p>Dalam praktiknya, korelasi negatif sempurna sama jarangnya dengan korelasi positif sempurna. Namun, beberapa aset mungkin memiliki korelasi negatif (misalnya, emas dan ekuitas pada rezim pasar tertentu), yang memberikan pengurangan risiko substansial.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label"><i>Standard Deviation</i> Portofolio ($\rho = -1$)</span>
+  <div class="formula">\[
+  \sigma_P = |X_A \sigma_A - (1 - X_A) \sigma_B|
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretasi:</strong> Hubungan antara $\bar{R}_P$ dan $\sigma_P$ terdiri dari dua segmen linear yang bertemu pada titik di mana $\sigma_P = 0$. Untuk bobot di bawah titik risiko nol, satu ekspresi berlaku; untuk bobot di atasnya, ekspresi lainnya berlaku. Portofolio risiko nol selalu melibatkan investasi positif pada kedua sekuritas ketika $\sigma_A > 0$ dan $\sigma_B > 0$.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Untuk Colonel Motors ($\sigma_C = 6\%$) dan Separated Edison ($\sigma_S = 3\%$) dengan $\rho = -1$, portofolio risiko nol terjadi pada $X_C = 3/(3+6) = 1/3$. Pada $X_C = 1/3$, $\sigma_P = |(1/3)(6) - (2/3)(3)| = |2 - 2| = 0\%$. <i>Expected return</i>-nya adalah $\bar{R}_P = (1/3)(14) + (2/3)(8) = 10\%$.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Korelasi negatif sempurna memungkinkan penghapusan total risiko portofolio.</strong> Ini adalah batas teoretis atas dari manfaat diversifikasi. Bahkan korelasi negatif yang sederhana dapat mengurangi risiko secara substansial.</p>
+</div>
+
+<h4>1.3.3 Korelasi Nol ($\rho = 0$)</h4>
+
+<div class="interpretation">
+  <p>Ketika $\rho = 0$, suku <i>covariance</i> hilang, dan <i>standard deviation</i> portofolio menjadi $\sigma_P = [X_A^2 \sigma_A^2 + (1 - X_A)^2 \sigma_B^2]^{1/2}$. Ini adalah hubungan melengkung dalam ruang <i>expected return</i>–<i>standard deviation</i>, terletak di antara kasus ekstrem $\rho = +1$ dan $\rho = -1$. Portofolio <i>variance</i> minimum terjadi pada bobot spesifik yang dapat ditemukan dengan kalkulus.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Bobot Portofolio <i>Variance</i> Minimum ($\rho = 0$)</span>
+  <div class="formula">\[
+  X_A^* = \frac{\sigma_B^2}{\sigma_A^2 + \sigma_B^2}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretasi:</strong> Bobot yang meminimalkan <i>variance</i> portofolio ketika $\rho = 0$ sebanding dengan <i>variance</i> aset lainnya. Aset dengan <i>variance</i> lebih rendah menerima bobot lebih besar dalam portofolio <i>variance</i> minimum.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Untuk Colonel Motors ($\sigma_C = 6\%$) dan Separated Edison ($\sigma_S = 3\%$) dengan $\rho = 0$: $X_C^* = 9/(36+9) = 9/45 = 0.20$. Pada $X_C = 0.20$, $\sigma_P = [0.04(36) + 0.64(9)]^{1/2} = [1.44 + 5.76]^{1/2} = 2.68\%$.</p>
+</div>
+
+<h4>1.3.4 Korelasi Antara ($\rho = 0.5$)</h4>
+
+<div class="interpretation">
+  <p>Ketika $\rho = 0.5$, korelasi positif tetapi tidak sempurna. Kurva kemungkinan portofolio terletak di antara kurva $\rho = 0$ dan $\rho = +1$. Untuk contoh Colonel Motors dan Separated Edison dengan $\rho = 0.5$, portofolio <i>variance</i> minimum terjadi pada $X_C = 0$ (100% pada Separated Edison), artinya tidak ada kombinasi dari kedua saham yang menghasilkan risiko lebih rendah daripada aset paling tidak berisiko sendirian. Ambang korelasi di bawah mana manfaat diversifikasi muncul adalah $\rho = \sigma_S / \sigma_C = 3/6 = 0.5$.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Bobot Portofolio <i>Variance</i> Minimum Umum</span>
+  <div class="formula">\[
+  X_A^* = \frac{\sigma_B^2 - \sigma_A \sigma_B \rho_{AB}}{\sigma_A^2 + \sigma_B^2 - 2 \sigma_A \sigma_B \rho_{AB}}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> $X_A^*$ adalah proporsi portofolio yang diinvestasikan pada aset A yang meminimalkan <i>variance</i> portofolio; $\sigma_A$ dan $\sigma_B$ adalah <i>standard deviation</i> aset A dan B; $\rho_{AB}$ adalah koefisien korelasi antara keduanya.</p>
+  <p><strong>Interpretasi:</strong> Rumus ini memberikan bobot yang menghasilkan portofolio dengan risiko serendah mungkin untuk setiap korelasi yang diberikan. Ketika $\rho_{AB} = 0$, rumus ini menyederhanakan menjadi $X_A^* = \sigma_B^2 / (\sigma_A^2 + \sigma_B^2)$. Ketika $\rho_{AB} = \sigma_B / \sigma_A$, portofolio <i>variance</i> minimum adalah 100% pada aset B yang lebih tidak berisiko.</p>
+  <p><strong>Penggunaan praktis:</strong> Rumus ini digunakan untuk mengidentifikasi alokasi risiko minimum antara dua aset, yang merupakan titik referensi kunci pada kurva kemungkinan portofolio.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>$\rho = +1$: tidak ada manfaat diversifikasi; hubungan risiko–<i>return</i> linear.</li>
+    <li>$\rho = -1$: diversifikasi maksimum; portofolio risiko nol dimungkinkan.</li>
+    <li>$\rho = 0$: pengurangan risiko substansial; hubungan melengkung.</li>
+    <li>Untuk setiap $\rho < +1$, risiko portofolio lebih kecil daripada rata-rata tertimbang risiko individual.</li>
+    <li>Rumus bobot portofolio <i>variance</i> minimum berlaku umum untuk semua nilai korelasi.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Bentuk Kurva Kemungkinan Portofolio</h2>
+
+<div class="interpretation">
+  <p>Kurva kemungkinan portofolio menelusuri semua kombinasi dua aset dalam ruang <i>expected return</i>–<i>standard deviation</i>. Sifat geometris yang penting adalah bahwa bagian kurva di atas portofolio <i>variance</i> minimum bersifat cekung, sedangkan bagian di bawahnya bersifat cembung. Ini bukan artefak dari contoh spesifik, melainkan sifat umum dari semua masalah portofolio.</p>
+  <p>Untuk memahami alasannya, pertimbangkan kombinasi portofolio <i>variance</i> minimum (MV) dengan aset atau portofolio lain. Jika kurva cembung di atas MV, maka akan ada dua portofolio U dan V sehingga kombinasi U dan V terletak di bawah garis lurus yang menghubungkan keduanya. Tetapi ini mustahil karena kombinasi dua portofolio harus terletak pada atau di atas garis lurus yang menghubungkannya (garis tersebut berkorespondensi dengan $\rho = +1$). Oleh karena itu, kurva tidak mungkin cembung di atas MV—ia harus cekung. Demikian pula, kurva di bawah MV harus cembung.</p>
+  <p>Sifat geometris ini memiliki implikasi penting bagi bentuk <i>efficient frontier</i>: <i>efficient frontier</i>, yang merupakan bagian atas dari kurva kemungkinan portofolio, selalu cekung.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Kurva kemungkinan portofolio cekung di atas portofolio <i>variance</i> minimum dan cembung di bawahnya.</strong> Ini adalah sifat matematis yang diperlukan yang muncul dari fakta bahwa kombinasi dua portofolio tidak dapat menghasilkan lebih banyak risiko daripada garis lurus yang menghubungkannya.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>Kurva kemungkinan portofolio cekung di atas portofolio <i>variance</i> minimum.</li>
+    <li>Kurva cembung di bawah portofolio <i>variance</i> minimum.</li>
+    <li>Sifat-sifat geometris ini mengikuti sifat fundamental <i>variance</i> portofolio.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. <i>Efficient Frontier</i> Tanpa <i>Short Sales</i></h2>
+
+<div class="interpretation">
+  <p><i>Efficient frontier</i> adalah himpunan portofolio yang mendominasi semua portofolio lain dalam hal menawarkan <i>expected return</i> tertinggi untuk tingkat risiko tertentu, atau risiko terendah untuk tingkat <i>expected return</i> tertentu. Dalam alam semesta yang terdiri dari banyak aset berisiko, ketika <i>short sales</i> tidak diperbolehkan, <i>efficient frontier</i> adalah selubung atas dari semua portofolio yang layak, memanjang dari portofolio <i>variance</i> minimum global hingga portofolio <i>return</i> maksimum.</p>
+  <p>Untuk mengonstruksi <i>efficient frontier</i>, mulailah dengan memplot semua portofolio yang mungkin (semua kombinasi semua aset dalam semua bobot yang mungkin) dalam ruang <i>expected return</i>–<i>standard deviation</i>. Kemudian eliminasi portofolio yang didominasi oleh portofolio lain: suatu portofolio didominasi jika terdapat portofolio lain dengan <i>return</i> lebih tinggi untuk risiko yang sama, atau risiko lebih rendah untuk <i>return</i> yang sama. Portofolio yang tersisa membentuk himpunan efisien. Portofolio <i>variance</i> minimum global adalah portofolio dengan risiko terendah di antara semua portofolio yang layak. Portofolio <i>return</i> maksimum biasanya adalah aset tunggal dengan <i>expected return</i> tertinggi.</p>
+  <p><i>Efficient frontier</i> bersifat cekung, sebagaimana ditetapkan pada bagian sebelumnya. Ia tidak dapat mengandung wilayah cembung karena setiap dua portofolio pada <i>frontier</i>, ketika dikombinasikan, harus terletak pada atau di atas garis lurus yang menghubungkannya—dan jika <i>frontier</i> cembung, kombinasi akan terletak di bawah garis, yang mustahil.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Efficient frontier</i> adalah selubung cekung dari semua portofolio yang layak, memanjang dari portofolio <i>variance</i> minimum global hingga portofolio <i>return</i> maksimum.</strong> Semua investor rasional yang menghindari risiko dan menyukai <i>return</i> yang lebih tinggi akan memilih portofolio pada <i>frontier</i> ini.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li><i>Efficient frontier</i> terdiri dari semua portofolio yang tidak didominasi.</li>
+    <li>Ia memanjang dari portofolio <i>variance</i> minimum global hingga portofolio <i>return</i> maksimum.</li>
+    <li><i>Frontier</i> bersifat cekung (tidak memiliki wilayah cembung).</li>
+    <li>Portofolio interior dan portofolio yang didominasi dikeluarkan.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. <i>Efficient Frontier</i> dengan <i>Short Sales</i> Diperbolehkan</h2>
+
+<div class="interpretation">
+  <p><i>Short selling</i> memungkinkan investor untuk mengambil posisi negatif dalam suatu sekuritas. Dalam konteks analisis portofolio, <i>short selling</i> diperlakukan sebagai kemampuan untuk menjual sekuritas tanpa memilikinya, menggunakan hasil penjualan untuk membeli sekuritas lain. Ini memungkinkan bobot portofolio menjadi negatif (untuk posisi pendek) atau lebih besar dari 1 (untuk posisi panjang dengan <i>leverage</i>).</p>
+  <p>Ketika <i>short sales</i> diperbolehkan, <i>efficient frontier</i> melampaui portofolio <i>return</i> maksimum. Seorang investor dapat menjual pendek sekuritas dengan <i>expected return</i> rendah dan menggunakan hasilnya (ditambah modal awal) untuk berinvestasi pada sekuritas dengan <i>expected return</i> tinggi, berpotensi mencapai <i>expected return</i> yang lebih tinggi daripada aset tunggal mana pun. Namun, ini disertai dengan risiko yang lebih tinggi secara sepadan. <i>Efficient frontier</i> dengan <i>short sales</i> yang diperbolehkan tetap cekung, tetapi tidak memiliki batas atas yang terbatas—ia berlanjut tanpa batas ke atas dan ke kanan.</p>
+  <p>Portofolio <i>variance</i> minimum tetap ada dan merupakan titik awal dari <i>efficient frontier</i>. Himpunan efisien, dengan <i>short sales</i> diperbolehkan, adalah bagian atas dari hiperbola (Merton, 1972).</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Dengan Colonel Motors ($\bar{R}_C = 14\%$, $\sigma_C = 6\%$) dan Separated Edison ($\bar{R}_S = 8\%$, $\sigma_S = 3\%$), $\rho = 0.5$, dan <i>short sales</i> diperbolehkan: jika $X_C = 2.0$ (200% pada Colonel Motors, dibiayai dengan menjual pendek Separated Edison pada $X_S = -1.0$), maka $\bar{R}_P = 2(14) + (-1)(8) = 20\%$ dan $\sigma_P = [4(36) + 1(9) + 2(2)(-1)(0.5)(6)(3)]^{1/2} = [144 + 9 - 36]^{1/2} = 10.82\%$.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Short sales</i> memungkinkan investor mencapai <i>expected return</i> di luar aset tunggal mana pun, tetapi dengan risiko yang lebih tinggi secara proporsional.</strong> <i>Efficient frontier</i> menjadi hiperbola tanpa batas atas.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li><i>Short sales</i> memungkinkan bobot negatif dan bobot lebih besar dari 1.</li>
+    <li><i>Efficient frontier</i> tidak memiliki batas atas yang terbatas ketika <i>short sales</i> diperbolehkan.</li>
+    <li><i>Frontier</i> tetap cekung dan dimulai dari portofolio <i>variance</i> minimum.</li>
+    <li>Sebagian besar investor institusional menghadapi kendala pada <i>short selling</i>.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. <i>Efficient Frontier</i> dengan <i>Riskless Lending and Borrowing</i></h2>
+
+<h3>5.1 Menggabungkan Aset Bebas Risiko dengan Portofolio Berisiko</h3>
+
+<div class="interpretation">
+  <p>Kehadiran aset bebas risiko (dengan <i>return</i> $R_F$ dan $\sigma_F = 0$) secara dramatis menyederhanakan analisis portofolio. Ketika seorang investor dapat meminjamkan (berinvestasi pada aset bebas risiko) atau meminjam (menjual pendek aset bebas risiko) pada tingkat yang sama $R_F$, semua kombinasi aset bebas risiko dengan portofolio berisiko A terletak pada garis lurus dalam ruang <i>expected return</i>–<i>standard deviation</i>. Garis tersebut melewati $(0, R_F)$ dan $(\sigma_A, \bar{R}_A)$.</p>
+  <p>Persamaan garis ini adalah $\bar{R}_C = R_F + [(\bar{R}_A - R_F)/\sigma_A] \sigma_C$, di mana kemiringan $(\bar{R}_A - R_F)/\sigma_A$ adalah rasio imbalan-terhadap-risiko (<i>Sharpe ratio</i>) portofolio A. Investor dapat memilih titik mana pun pada garis ini dengan menyesuaikan proporsi kekayaan yang dialokasikan ke aset bebas risiko versus portofolio berisiko.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Kombinasi Aset Bebas Risiko dan Portofolio Berisiko</span>
+  <div class="formula">\[
+  \bar{R}_C = R_F + \frac{\bar{R}_A - R_F}{\sigma_A} \sigma_C
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Simbol:</strong> $\bar{R}_C$ adalah <i>expected return</i> portofolio gabungan; $\sigma_C$ adalah <i>standard deviation</i> portofolio gabungan; $R_F$ adalah tingkat bebas risiko; $\bar{R}_A$ dan $\sigma_A$ adalah <i>expected return</i> dan <i>standard deviation</i> portofolio berisiko A.</p>
+  <p><strong>Interpretasi:</strong> Hubungannya linear. <i>Intercept</i>-nya adalah $R_F$, dan kemiringannya adalah <i>Sharpe ratio</i> portofolio A. Untuk setiap tingkat risiko $\sigma_C$, <i>expected return</i> meningkat secara linear dengan kemiringan. Titik di sebelah kiri A berkorespondensi dengan <i>lending</i> (memegang sebagian aset bebas risiko); titik di sebelah kanan berkorespondensi dengan <i>borrowing</i> (<i>leverage</i> pada portofolio berisiko).</p>
+  <p><strong>Penggunaan praktis:</strong> Rumus ini memungkinkan investor menghitung <i>expected return</i> untuk setiap tingkat risiko yang diinginkan ketika mencampur aset bebas risiko dengan portofolio berisiko.</p>
+</div>
+
+<h3>5.2 Portofolio Titik Singgung dan <i>Separation Theorem</i></h3>
+
+<div class="interpretation">
+  <p>Di antara semua portofolio berisiko yang mungkin, portofolio yang memaksimalkan kemiringan garis dari $R_F$ adalah portofolio titik singgung G—titik di mana sinar dari $R_F$ menyinggung <i>efficient frontier</i> aset berisiko. Semua investor, tanpa memandang preferensi risiko mereka, akan memegang portofolio aset berisiko yang sama (portofolio G) ketika mereka dapat meminjamkan dan meminjam pada tingkat bebas risiko yang sama. Ini adalah <i>separation theorem</i>: masalah pemilihan portofolio terpisah menjadi (1) mengidentifikasi portofolio berisiko optimal G (yang hanya bergantung pada karakteristik aset dan $R_F$, bukan pada preferensi investor) dan (2) memilih campuran antara G dan aset bebas risiko berdasarkan toleransi risiko individu.</p>
+  <p><i>Separation theorem</i> adalah hasil yang kuat. Ini berarti komposisi optimal portofolio berisiko tidak bergantung pada tingkat keengganan risiko investor. Investor yang menghindari risiko akan memegang sebagian aset bebas risiko dan sebagian portofolio G; investor yang toleran terhadap risiko akan meminjam pada $R_F$ untuk berinvestasi lebih dari 100% pada portofolio G. Tetapi semua investor memegang proporsi relatif aset berisiko yang sama dalam portofolio G.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Separation theorem</i> menyatakan bahwa portofolio berisiko optimal adalah sama untuk semua investor, tanpa memandang toleransi risiko mereka.</strong> Portofolio titik singgung G memaksimalkan <i>Sharpe ratio</i> dan merupakan satu-satunya portofolio berisiko yang akan dikombinasikan semua investor dengan aset bebas risiko.</p>
+</div>
+
+<h3>5.3 <i>Lending</i> dan <i>Borrowing</i> pada Tingkat yang Berbeda</h3>
+
+<div class="interpretation">
+  <p>Ketika tingkat <i>lending</i> (biasanya lebih rendah) berbeda dari tingkat <i>borrowing</i> (biasanya lebih tinggi), <i>efficient frontier</i> menjadi patah (<i>kinked</i>). Investor dapat meminjamkan pada $R_F$ (tingkat lebih rendah) tetapi harus meminjam pada $R_F'$ (tingkat lebih tinggi). <i>Efficient frontier</i> terdiri dari tiga segmen: (1) dari $R_F$ ke titik singgung G (segmen <i>lending</i>), (2) sepanjang <i>efficient frontier</i> berisiko dari G ke H, dan (3) dari H sepanjang sinar dari $R_F'$ (segmen <i>borrowing</i>). Ini menciptakan rentang kecil portofolio berisiko (G ke H) yang dapat menjadi optimal bagi investor yang berbeda, tergantung pada toleransi risiko mereka. Jika kedua tingkat tersebut berdekatan, asumsi tingkat tunggal memberikan aproksimasi yang wajar.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>Kombinasi aset bebas risiko dan portofolio berisiko terletak pada garis lurus.</li>
+    <li>Portofolio titik singgung G memaksimalkan <i>Sharpe ratio</i>.</li>
+    <li><i>Separation theorem</i>: semua investor memegang portofolio berisiko G yang sama, hanya berbeda dalam campuran dengan aset bebas risiko.</li>
+    <li>Ketika tingkat <i>lending</i> dan <i>borrowing</i> berbeda, <i>efficient frontier</i> memiliki patahan, dan rentang portofolio berisiko dapat menjadi optimal.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Pertimbangan Praktis dalam Estimasi Input</h2>
+
+<h3>6.1 Input yang Disesuaikan dengan Inflasi</h3>
+
+<div class="interpretation">
+  <p>Untuk cakrawala investasi jangka panjang (misalnya, dana pensiun), investor peduli pada daya beli riil portofolio mereka, bukan hanya <i>return</i> nominal. Menerapkan kerangka <i>efficient frontier</i> pada <i>return</i> yang disesuaikan dengan inflasi adalah salah satu pendekatan. Data historis menunjukkan bahwa <i>Treasury bills</i> berkorelasi dengan inflasi dan berfungsi sebagai lindung nilai inflasi parsial, sementara saham dan obligasi memiliki sensitivitas inflasi yang berbeda. Sekuritas yang terkait inflasi (misalnya, TIPS di AS) menyediakan lindung nilai inflasi yang hampir sempurna dan semakin penting sebagai kelas aset dalam optimasi portofolio.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Data historis (1926–sekarang) tanpa penyesuaian inflasi: saham rata-rata 11.8%, <i>std dev</i> 20.3%; obligasi rata-rata 6.4%, <i>std dev</i> 8.4%; T-bills rata-rata 3.6%, <i>std dev</i> 3.1%. Setelah penyesuaian inflasi: saham rata-rata 8.6%, <i>std dev</i> 20.3%; obligasi rata-rata 3.4%, <i>std dev</i> 9.5%; T-bills rata-rata 0.6%, <i>std dev</i> 3.9%. Korelasi antara T-bills dan inflasi adalah 0.41, menunjukkan lindung nilai parsial.</p>
+</div>
+
+<h3>6.2 Ketidakpastian Estimasi Input</h3>
+
+<div class="interpretation">
+  <p>Input yang andal sangat penting untuk optimasi mean–<i>variance</i>. Data historis umumnya digunakan sebagai titik awal, tetapi terdapat trade-off yang penting. Seri waktu yang lebih panjang meningkatkan presisi estimasi rata-rata (<i>standard error</i> rata-rata menurun seiring $\sqrt{N}$), tetapi karakteristik sekuritas berubah seiring waktu, sehingga data yang lebih lama menjadi kurang relevan. Prediksi <i>variance return</i> mencakup baik <i>variance</i> yang melekat maupun ketidakpastian dari tidak diketahuinya rata-rata sebenarnya: $\sigma^2_{Pred} = \sigma^2 + \sigma^2 / T$, di mana $T$ adalah jumlah periode waktu. Dengan demikian prediksi <i>variance</i> selalu lebih besar daripada <i>variance</i> historis.</p>
+  <p>Ketika kelas aset baru dengan sejarah terbatas ditambahkan, analis harus memilih antara menggunakan semua data yang tersedia (seri yang lebih panjang untuk aset yang mapan, lebih pendek untuk aset baru) atau hanya menggunakan periode yang sama. Pilihan ini secara signifikan memengaruhi estimasi input dan portofolio optimal yang dihasilkan.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Ketidakpastian input berarti bahwa prediksi <i>variance return</i> selalu lebih besar daripada <i>variance</i> historis.</strong> Ukuran sampel yang terbatas menimbulkan <i>estimation risk</i>, yang sangat parah untuk <i>expected return</i> (yang memiliki <i>standard error</i> besar) dan untuk korelasi ketika seri waktu pendek.</p>
+</div>
+
+<h3>6.3 Cakrawala Waktu dan <i>Variance</i></h3>
+
+<div class="interpretation">
+  <p>Untuk aset dengan <i>return</i> yang tidak berkorelasi antar waktu, <i>variance</i> dari <i>return</i> kumulatif berskala linear dengan cakrawala. Namun, beberapa aset (misalnya, <i>Treasury bills</i>) menunjukkan autokorelasi positif, yang berarti <i>standard deviation</i> tahunan meningkat seiring cakrawala. Untuk T-bills, <i>standard deviation</i> tahunan selama cakrawala 10 tahun sekitar 6%, dibandingkan dengan 3.2% pada cakrawala 1 tahun. Ini membuat T-bills secara efektif lebih berisiko dalam cakrawala panjang, yang memiliki implikasi untuk alokasi portofolio jangka panjang.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li><i>Return</i> yang disesuaikan dengan inflasi relevan bagi investor jangka panjang.</li>
+    <li>Ketidakpastian estimasi input meningkatkan prediksi <i>variance</i> melampaui <i>variance</i> historis.</li>
+    <li>Seri waktu yang lebih panjang meningkatkan presisi tetapi dapat mencakup data yang usang.</li>
+    <li>Autokorelasi dalam <i>return</i> memengaruhi bagaimana risiko berskala dengan cakrawala investasi.</li>
+  </ul>
+</div>
+
+<h2 id="section7">7. Contoh Perhitungan</h2>
+
+<h3>7.1 Alokasi Ekuitas dan Utang</h3>
+
+<div class="interpretation">
+  <p>Pertimbangkan alokasi antara saham (S&P 500) dan obligasi. Estimasi input: $\bar{R}_S = 11.8\%$, $\sigma_S = 20.3\%$, $\bar{R}_B = 6.4\%$, $\sigma_B = 8.4\%$, $\rho_{SB} = 0.01$. Bobot portofolio <i>variance</i> minimum untuk saham adalah $X_S^* = (\sigma_B^2 - \sigma_S \sigma_B \rho_{SB}) / (\sigma_S^2 + \sigma_B^2 - 2 \sigma_S \sigma_B \rho_{SB}) = (70.56 - 0.01 \cdot 20.3 \cdot 8.4) / (412.09 + 70.56 - 2 \cdot 0.01 \cdot 20.3 \cdot 8.4) = 0.144$. Jadi portofolio <i>variance</i> minimum adalah 14.4% saham, 85.6% obligasi, dengan $\sigma_P = 7.8\%$.</p>
+  <p>Dengan tingkat bebas risiko 1%, portofolio titik singgung T memiliki $\bar{R}_T = 7.75\%$ dan $\sigma_T = 8.13\%$, menghasilkan <i>Sharpe ratio</i> sebesar $(7.75 - 1)/8.13 = 0.83$. Komposisi T adalah 25% saham dan 75% obligasi. <i>Efficient frontier</i> dengan <i>riskless lending and borrowing</i> adalah $\bar{R}_P = 1 + 0.83 \sigma_P$.</p>
+</div>
+
+<h3>7.2 Alokasi Saham Domestik dan Internasional</h3>
+
+<div class="interpretation">
+  <p>Pertimbangkan indeks saham domestik ($\bar{R}_S = 11.8\%$, $\sigma_S = 20.3\%$) dan portofolio saham internasional ($\bar{R}_{int} = 9.2\%$, $\sigma_{int} = 18.4\%$, $\rho_{S,int} = 0.66$). Bobot portofolio <i>variance</i> minimum untuk saham domestik adalah $X_S^* = (18.4^2 - 0.66 \cdot 20.3 \cdot 18.4) / (20.3^2 + 18.4^2 - 2 \cdot 0.66 \cdot 20.3 \cdot 18.4) = 0.36$. Jadi 36% domestik, 64% internasional, dengan $\sigma_P = 17.5\%$—lebih rendah dari kedua <i>standard deviation</i> individual, yang menunjukkan manfaat diversifikasi.</p>
+  <p>Portofolio internasional saja (risiko 18.4%, <i>return</i> 9.2%) tidak efisien: seorang investor yang menerima risiko 18.4% dapat mencapai <i>return</i> 10.2% dengan menggunakan 37% domestik dan 63% internasional—peningkatan <i>return</i> sebesar 1% tanpa risiko tambahan. Dengan tingkat bebas risiko 1%, portofolio titik singgung adalah 70% domestik, 30% internasional, dengan $\bar{R}_T = 11\%$, $\sigma_T = 18.3\%$, dan <i>Sharpe ratio</i> sebesar 0.552.</p>
+</div>
+
+<h3>7.3 Alokasi Tiga Aset</h3>
+
+<div class="interpretation">
+  <p>Menggabungkan obligasi, saham AS, dan saham internasional (dengan $\rho_{B,int} = 0.05$), portofolio titik singgung pada tingkat bebas risiko 1% memiliki proporsi: 73% obligasi, 21% saham AS, 6% saham internasional. <i>Expected return</i>-nya adalah 9.5%, <i>standard deviation</i> 10.5%, dan <i>Sharpe ratio</i> 0.905. <i>Efficient frontier</i> tiga aset ini mendominasi <i>frontier</i> dua aset (saham–obligasi dan saham–internasional) karena menawarkan <i>Sharpe ratio</i> yang lebih tinggi (0.905 vs. 0.83 vs. 0.552).</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Menambahkan lebih banyak kelas aset ke <i>efficient frontier</i> hanya dapat meningkatkan (atau membiarkan tidak berubah) <i>Sharpe ratio</i> maksimum yang dapat dicapai.</strong> <i>Frontier</i> tiga aset mendominasi <i>frontier</i> dua aset, yang menggambarkan manfaat diversifikasi yang lebih luas.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>Rumus bobot portofolio <i>variance</i> minimum digunakan untuk menemukan alokasi berisiko terendah.</li>
+    <li>Portofolio titik singgung memaksimalkan <i>Sharpe ratio</i> dan merupakan portofolio berisiko optimal berdasarkan <i>separation theorem</i>.</li>
+    <li>Memperluas himpunan aset meningkatkan <i>efficient frontier</i>.</li>
+  </ul>
+</div>
+
+<h2 id="section8">8. Kewaspadaan Praktis</h2>
+
+<div class="interpretation">
+  <p>Beberapa peringatan penting berlaku untuk penggunaan praktis kerangka <i>efficient frontier</i>:</p>
+  <ul>
+    <li><strong><i>Input estimation risk</i>:</strong> <i>Efficient frontier</i> hanya sebaik inputnya. <i>Expected return</i>, <i>variance</i>, dan korelasi diestimasi dengan kesalahan, dan portofolio optimal dapat sangat sensitif terhadap estimasi ini. Perubahan kecil pada input dapat menghasilkan perubahan besar pada alokasi optimal.</li>
+    <li><strong>Mengaitkan asosiasi dengan kausalitas:</strong> Memperoleh posisi pada <i>efficient frontier</i> tidak menetapkan kausalitas antara bobot aset dan hasil. <i>Frontier</i> adalah alat deskriptif berdasarkan input yang diasumsikan, bukan model kausal.</li>
+    <li><strong>Mengabaikan asumsi model:</strong> Kerangka mean–<i>variance</i> mengasumsikan bahwa investor hanya peduli pada rata-rata dan <i>variance</i> (atau bahwa <i>return</i> terdistribusi normal). Jika <i>return</i> memiliki <i>skewness</i>, <i>kurtosis</i>, atau fitur lain, <i>efficient frontier</i> mungkin tidak menangkap seluruh himpunan risiko yang relevan.</li>
+    <li><strong>Menginterpretasikan <i>intercept</i> secara keliru:</strong> Tingkat bebas risiko $R_F$ diasumsikan konstan dan diketahui. Dalam praktiknya, tingkat bebas risiko berubah seiring waktu, dan meminjam pada tingkat bebas risiko mungkin tidak tersedia bagi semua investor.</li>
+    <li><strong>Satuan pengukuran:</strong> Semua input harus dinyatakan dalam satuan yang konsisten (misalnya, <i>return</i> dan <i>standard deviation</i> tahunan). Mencampur angka bulanan dan tahunan menghasilkan hasil yang tidak benar.</li>
+    <li><strong>Mengacaukan kesalahan dan <i>residual</i>:</strong> Dalam konteks analisis portofolio, istilah "kesalahan" dan "<i>residual</i>" memiliki makna spesifik. <i>Residual</i> adalah selisih antara <i>return</i> aktual dan <i>return</i> prediksi; kesalahan adalah selisih antara <i>return</i> aktual dan <i>return</i> yang diharapkan. Keduanya tidak dapat dipertukarkan.</li>
+    <li><strong>Masalah variabel yang dihilangkan:</strong> Analisis <i>efficient frontier</i> hanya mempertimbangkan aset yang dimasukkan dalam optimasi. Jika kelas aset penting dihilangkan, <i>frontier</i> yang dihasilkan mungkin suboptimal dibandingkan dengan himpunan yang lebih lengkap.</li>
+    <li><strong>Parameter yang berubah seiring waktu:</strong> Korelasi dan <i>variance</i> berubah seiring waktu. Menggunakan rata-rata historis tanpa menyesuaikan dengan kondisi saat ini dapat menghasilkan alokasi yang usang.</li>
+  </ul>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong><i>Efficient frontier</i> adalah alat teoretis yang kuat, tetapi penerapan praktisnya memerlukan perhatian cermat pada estimasi input, asumsi model, dan perbedaan antara perhitungan dan interpretasi.</strong> Memperoleh koefisien atau bobot portofolio tidak secara otomatis menetapkan bahwa alokasi tersebut optimal dalam kondisi dunia nyata.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li><i>Input estimation risk</i> adalah keterbatasan praktis paling signifikan dari optimasi mean–<i>variance</i>.</li>
+    <li><i>Efficient frontier</i> sensitif terhadap perubahan kecil pada <i>expected return</i>.</li>
+    <li>Asumsi model (normalitas, korelasi konstan, tingkat bebas risiko diketahui) sering dilanggar dalam praktik.</li>
+    <li>Manfaat diversifikasi nyata tetapi bergantung pada estimasi korelasi yang akurat.</li>
+    <li>Selalu validasi <i>frontier</i> dengan pengujian di luar sampel dan analisis sensitivitas.</li>
+  </ul>
+</div>
+    </div>
+</body>
+</html>

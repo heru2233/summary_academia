@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5 Delineating Efficient Portfolios</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>Chapter 5 Delineating Efficient Portfolios</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Combinations of Two Risky Assets</a></li>
+    <li><a href="#section2">2. Shape of the Portfolio Possibilities Curve</a></li>
+    <li><a href="#section3">3. Efficient Frontier with No Short Sales</a></li>
+    <li><a href="#section4">4. Efficient Frontier with Short Sales Allowed</a></li>
+    <li><a href="#section5">5. Efficient Frontier with Riskless Lending and Borrowing</a></li>
+    <li><a href="#section6">6. Practical Considerations in Input Estimation</a></li>
+    <li><a href="#section7">7. Worked Examples</a></li>
+    <li><a href="#section8">8. Practical Cautions</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Combinations of Two Risky Assets</h2>
+
+<h3>1.1 Portfolio Expected Return</h3>
+
+<div class="interpretation">
+  <p>The expected return on a portfolio of two risky assets is a simple weighted average of the expected returns of the individual assets, where the weights sum to 1. This relationship is linear and holds regardless of the correlation between the assets. The portfolio expected return is the most straightforward component of portfolio analysis because it involves no interaction terms—it is purely additive.</p>
+  <p>In practice, this means that any combination of two assets will yield an expected return that lies between the expected returns of the two individual assets when both weights are positive and sum to 1. If short sales are allowed and weights can be negative or exceed 1, the portfolio expected return can extend beyond the range of the individual asset returns.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Portfolio Expected Return</span>
+  <div class="formula">\[
+  \bar{R}_P = X_A \bar{R}_A + X_B \bar{R}_B
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> $\bar{R}_P$ is the expected return on the portfolio; $X_A$ is the fraction of the portfolio held in asset A; $X_B$ is the fraction held in asset B; $\bar{R}_A$ and $\bar{R}_B$ are the expected returns on assets A and B, respectively. The constraint $X_A + X_B = 1$ ensures full investment. Substituting $X_B = 1 - X_A$ yields $\bar{R}_P = X_A \bar{R}_A + (1 - X_A) \bar{R}_B$.</p>
+  <p><strong>Interpretation:</strong> The portfolio expected return increases linearly with $X_A$ when $\bar{R}_A > \bar{R}_B$. For every unit increase in $X_A$, the portfolio expected return changes by $(\bar{R}_A - \bar{R}_B)$.</p>
+  <p><strong>Practical use:</strong> This formula is used to compute the expected return for any proposed allocation between two assets. It is the first step in constructing the portfolio possibilities curve.</p>
+  <p><strong>Assumption:</strong> The expected returns $\bar{R}_A$ and $\bar{R}_B$ are assumed to be known or estimated. The formula does not account for estimation error in these inputs.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Colonel Motors (C): $\bar{R}_C = 14\%$, $\sigma_C = 6\%$; Separated Edison (S): $\bar{R}_S = 8\%$, $\sigma_S = 3\%$. For $X_C = 0.4$, $\bar{R}_P = 0.4(14) + 0.6(8) = 10.4\%$.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The expected return of a portfolio is always a weighted average of the individual asset expected returns.</strong> Risk, however, is not necessarily a weighted average—this asymmetry is the foundation of diversification benefits.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Portfolio expected return is a linear combination of individual asset expected returns.</li>
+    <li>The weights must sum to 1 (full investment constraint).</li>
+    <li>This formula holds for any correlation coefficient between the two assets.</li>
+  </ul>
+</div>
+
+<h3>1.2 Portfolio Variance and Standard Deviation</h3>
+
+<div class="interpretation">
+  <p>The standard deviation of a two-asset portfolio is not generally a weighted average of the individual standard deviations. Instead, it includes a cross-product term involving the covariance between the two assets. This is the critical mathematical fact that makes diversification potentially beneficial: when asset returns do not move perfectly together, the portfolio risk can be less than the weighted average of the individual risks.</p>
+  <p>The covariance term $\sigma_{AB}$ can be expressed as $\rho_{AB} \sigma_A \sigma_B$, where $\rho_{AB}$ is the correlation coefficient. The correlation coefficient is bounded between $-1$ and $+1$, and its value determines the extent to which diversification reduces risk. The lower the correlation, the greater the potential risk reduction.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Portfolio Standard Deviation (General Form)</span>
+  <div class="formula">\[
+  \sigma_P = \left[ X_A^2 \sigma_A^2 + X_B^2 \sigma_B^2 + 2 X_A X_B \sigma_{AB} \right]^{1/2}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> $\sigma_P$ is the portfolio standard deviation; $\sigma_A^2$ and $\sigma_B^2$ are the variances of assets A and B; $\sigma_{AB}$ is the covariance between A and B. Using $X_B = 1 - X_A$ and $\sigma_{AB} = \rho_{AB} \sigma_A \sigma_B$, we obtain:</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Portfolio Standard Deviation (Expanded Form)</span>
+  <div class="formula">\[
+  \sigma_P = \left[ X_A^2 \sigma_A^2 + (1 - X_A)^2 \sigma_B^2 + 2 X_A (1 - X_A) \rho_{AB} \sigma_A \sigma_B \right]^{1/2}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretation:</strong> The portfolio standard deviation depends on three components: the variance of each asset weighted by the square of its portfolio weight, and the covariance term. When $\rho_{AB} = +1$, the expression simplifies to $\sigma_P = X_A \sigma_A + (1 - X_A) \sigma_B$, which is a weighted average—no diversification benefit. When $\rho_{AB} = -1$, the expression simplifies to $\sigma_P = |X_A \sigma_A - (1 - X_A) \sigma_B|$, which can be driven to zero at a specific weight. For intermediate correlations ($-1 < \rho < +1$), the portfolio standard deviation lies between these two extremes.</p>
+  <p><strong>Practical use:</strong> This formula is used to compute portfolio risk for any given allocation and correlation estimate. It is essential for tracing out the portfolio possibilities curve and identifying the minimum variance portfolio.</p>
+  <p><strong>Assumption:</strong> The variances and covariance (or correlation) are assumed to be known. In practice, these are estimated from historical data, introducing estimation error.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>For Colonel Motors ($\sigma_C = 6\%$) and Separated Edison ($\sigma_S = 3\%$), with $\rho_{CS} = 0$ and $X_C = 0.2$: $\sigma_P = [0.2^2(36) + 0.8^2(9) + 2(0.2)(0.8)(0)(6)(3)]^{1/2} = [1.44 + 5.76]^{1/2} = 2.68\%$. Note that this is lower than both $\sigma_S = 3\%$ and $\sigma_C = 6\%$, demonstrating diversification benefit.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Combining two assets with imperfect correlation is like mixing two ingredients that sometimes offset each other's extreme effects. If one ingredient is occasionally too hot and the other too cold, mixing them yields a more consistently moderate temperature. The less the two ingredients move in sync, the more stable the mixture.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The portfolio standard deviation is not a weighted average of the individual standard deviations except in the special case of perfect positive correlation ($\rho = +1$).</strong> For any $\rho < +1$, the portfolio standard deviation is less than the weighted average, and this difference is the measure of diversification benefit.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>Portfolio risk depends on variances, covariance, and weights.</li>
+    <li>Lower correlation yields greater risk reduction.</li>
+    <li>The correlation coefficient is bounded between $-1$ and $+1$.</li>
+  </ul>
+</div>
+
+<h3>1.3 Special Cases of Correlation</h3>
+
+<h4>1.3.1 Perfect Positive Correlation ($\rho = +1$)</h4>
+
+<div class="interpretation">
+  <p>When $\rho = +1$, the two assets move in perfect unison. The portfolio standard deviation simplifies to a weighted average: $\sigma_P = X_A \sigma_A + (1 - X_A) \sigma_B$. Both risk and return are linear combinations of the individual asset values. All combinations of the two assets lie on a straight line connecting the two assets in expected return–standard deviation space. There is no reduction in risk from diversification—nothing is gained by holding both assets rather than one.</p>
+  <p>In practice, perfect positive correlation is extremely rare, but some assets may be very highly correlated (e.g., two stocks in the same industry with similar market capitalizations). In such cases, diversification benefits are minimal.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Portfolio Standard Deviation ($\rho = +1$)</span>
+  <div class="formula">\[
+  \sigma_P = X_A \sigma_A + (1 - X_A) \sigma_B
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretation:</strong> The relationship between $\bar{R}_P$ and $\sigma_P$ is linear. Solving for $X_A$ from $\sigma_P$ and substituting into $\bar{R}_P$ yields a straight line connecting the two assets. All portfolios lie on this line; no portfolio offers lower risk than the line implies.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>When $\rho = +1$, diversification provides no benefit whatsoever.</strong> The investor might as well hold the single asset with the better risk–return trade-off.</p>
+</div>
+
+<h4>1.3.2 Perfect Negative Correlation ($\rho = -1$)</h4>
+
+<div class="interpretation">
+  <p>When $\rho = -1$, the two assets move in exactly opposite directions. The portfolio standard deviation simplifies to $\sigma_P = |X_A \sigma_A - (1 - X_A) \sigma_B|$. This expression can be driven to zero by choosing $X_A = \sigma_B / (\sigma_A + \sigma_B)$. At this specific weight, the risks of the two assets perfectly offset each other, yielding a portfolio with zero risk. This is the most powerful possible result of diversification: the elimination of all risk from a combination of two individually risky assets.</p>
+  <p>In practice, perfect negative correlation is as rare as perfect positive correlation. However, some assets may have negative correlations (e.g., gold and equities during certain market regimes), providing substantial risk reduction.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Portfolio Standard Deviation ($\rho = -1$)</span>
+  <div class="formula">\[
+  \sigma_P = |X_A \sigma_A - (1 - X_A) \sigma_B|
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretation:</strong> The relationship between $\bar{R}_P$ and $\sigma_P$ consists of two linear segments meeting at the point where $\sigma_P = 0$. For weights below the zero-risk point, one expression holds; for weights above, the other holds. The zero-risk portfolio always involves positive investment in both securities when $\sigma_A > 0$ and $\sigma_B > 0$.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>For Colonel Motors ($\sigma_C = 6\%$) and Separated Edison ($\sigma_S = 3\%$) with $\rho = -1$, the zero-risk portfolio occurs at $X_C = 3/(3+6) = 1/3$. At $X_C = 1/3$, $\sigma_P = |(1/3)(6) - (2/3)(3)| = |2 - 2| = 0\%$. The expected return is $\bar{R}_P = (1/3)(14) + (2/3)(8) = 10\%$.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Perfect negative correlation allows complete elimination of portfolio risk.</strong> This is the theoretical upper bound of diversification benefit. Even modest negative correlation can substantially reduce risk.</p>
+</div>
+
+<h4>1.3.3 Zero Correlation ($\rho = 0$)</h4>
+
+<div class="interpretation">
+  <p>When $\rho = 0$, the covariance term drops out, and the portfolio standard deviation becomes $\sigma_P = [X_A^2 \sigma_A^2 + (1 - X_A)^2 \sigma_B^2]^{1/2}$. This is a curved relationship in expected return–standard deviation space, lying between the extreme cases of $\rho = +1$ and $\rho = -1$. The minimum variance portfolio occurs at a specific weight that can be found by calculus.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Minimum Variance Portfolio Weight ($\rho = 0$)</span>
+  <div class="formula">\[
+  X_A^* = \frac{\sigma_B^2}{\sigma_A^2 + \sigma_B^2}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Interpretation:</strong> The weight that minimizes portfolio variance when $\rho = 0$ is proportional to the variance of the other asset. The asset with lower variance receives a larger weight in the minimum variance portfolio.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>For Colonel Motors ($\sigma_C = 6\%$) and Separated Edison ($\sigma_S = 3\%$) with $\rho = 0$: $X_C^* = 9/(36+9) = 9/45 = 0.20$. At $X_C = 0.20$, $\sigma_P = [0.04(36) + 0.64(9)]^{1/2} = [1.44 + 5.76]^{1/2} = 2.68\%$.</p>
+</div>
+
+<h4>1.3.4 Intermediate Correlation ($\rho = 0.5$)</h4>
+
+<div class="interpretation">
+  <p>When $\rho = 0.5$, the correlation is positive but imperfect. The portfolio possibilities curve lies between the $\rho = 0$ and $\rho = +1$ curves. For the Colonel Motors and Separated Edison example with $\rho = 0.5$, the minimum variance portfolio occurs at $X_C = 0$ (100% in Separated Edison), meaning no combination of the two stocks produces a risk lower than the least risky asset alone. The threshold correlation below which diversification benefits appear is $\rho = \sigma_S / \sigma_C = 3/6 = 0.5$.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">General Minimum Variance Portfolio Weight</span>
+  <div class="formula">\[
+  X_A^* = \frac{\sigma_B^2 - \sigma_A \sigma_B \rho_{AB}}{\sigma_A^2 + \sigma_B^2 - 2 \sigma_A \sigma_B \rho_{AB}}
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> $X_A^*$ is the fraction of the portfolio invested in asset A that minimizes portfolio variance; $\sigma_A$ and $\sigma_B$ are the standard deviations of assets A and B; $\rho_{AB}$ is the correlation coefficient between them.</p>
+  <p><strong>Interpretation:</strong> This formula gives the weight that produces the portfolio with the lowest possible risk for any given correlation. When $\rho_{AB} = 0$, it reduces to the simpler form $X_A^* = \sigma_B^2 / (\sigma_A^2 + \sigma_B^2)$. When $\rho_{AB} = \sigma_B / \sigma_A$, the minimum variance portfolio is 100% in the lower-risk asset B.</p>
+  <p><strong>Practical use:</strong> This formula is used to identify the minimum risk allocation between any two assets, which is a key reference point on the portfolio possibilities curve.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>$\rho = +1$: no diversification benefit; linear risk–return relationship.</li>
+    <li>$\rho = -1$: maximum diversification; zero-risk portfolio possible.</li>
+    <li>$\rho = 0$: substantial risk reduction; curved relationship.</li>
+    <li>For any $\rho < +1$, portfolio risk is less than the weighted average of individual risks.</li>
+    <li>The minimum variance portfolio weight formula is general across all correlation values.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Shape of the Portfolio Possibilities Curve</h2>
+
+<div class="interpretation">
+  <p>The portfolio possibilities curve traces all combinations of two assets in expected return–standard deviation space. A critical geometric property is that the portion of the curve above the minimum variance portfolio is concave, while the portion below is convex. This is not an artifact of specific examples but a general property of all portfolio problems.</p>
+  <p>To see why, consider combinations of the minimum variance portfolio (MV) with any other asset or portfolio. If the curve were convex above MV, then there would exist two portfolios U and V such that combinations of U and V would lie below the straight line connecting them. But this is impossible because combinations of two portfolios must lie on or above the straight line connecting them (the line corresponds to $\rho = +1$). Therefore, the curve cannot be convex above MV—it must be concave. Similarly, the curve below MV must be convex.</p>
+  <p>This geometric property has important implications for the shape of the efficient frontier: the efficient frontier, which is the upper portion of the portfolio possibilities curve, is always concave.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The portfolio possibilities curve is concave above the minimum variance portfolio and convex below it.</strong> This is a necessary mathematical property arising from the fact that combinations of any two portfolios cannot produce more risk than the straight line connecting them.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>The portfolio possibilities curve is concave above the minimum variance portfolio.</li>
+    <li>The curve is convex below the minimum variance portfolio.</li>
+    <li>These geometric properties follow from the fundamental properties of portfolio variance.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Efficient Frontier with No Short Sales</h2>
+
+<div class="interpretation">
+  <p>The efficient frontier is the set of portfolios that dominate all others in terms of offering the highest expected return for a given level of risk, or the lowest risk for a given level of expected return. In a universe of many risky assets, when short sales are not allowed, the efficient frontier is the upper envelope of all feasible portfolios, extending from the global minimum variance portfolio to the maximum return portfolio.</p>
+  <p>To construct the efficient frontier, begin by plotting all possible portfolios (all combinations of all assets in all possible weights) in expected return–standard deviation space. Then eliminate any portfolio that is dominated by another: a portfolio is dominated if there exists another portfolio with higher return for the same risk, or lower risk for the same return. The remaining portfolios form the efficient set. The global minimum variance portfolio is the portfolio with the lowest possible risk among all feasible portfolios. The maximum return portfolio is typically the single asset with the highest expected return.</p>
+  <p>The efficient frontier is concave, as established in the previous section. It cannot contain convex regions because any two portfolios on the frontier, when combined, must lie on or above the straight line connecting them—and if the frontier were convex, combinations would lie below the line, which is impossible.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The efficient frontier is the concave envelope of all feasible portfolios, extending from the global minimum variance portfolio to the maximum return portfolio.</strong> All rational risk-averse investors who prefer more return to less will choose a portfolio on this frontier.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>The efficient frontier consists of all undominated portfolios.</li>
+    <li>It extends from the global minimum variance portfolio to the maximum return portfolio.</li>
+    <li>The frontier is concave (no convex regions).</li>
+    <li>Interior portfolios and dominated portfolios are excluded.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Efficient Frontier with Short Sales Allowed</h2>
+
+<div class="interpretation">
+  <p>Short selling allows an investor to take a negative position in a security. In the context of portfolio analysis, short selling is treated as the ability to sell a security without owning it, using the proceeds to purchase other securities. This allows portfolio weights to be negative (for short positions) or greater than 1 (for leveraged long positions).</p>
+  <p>When short sales are allowed, the efficient frontier extends beyond the maximum return portfolio. An investor can short sell a low-expected-return security and use the proceeds (plus original capital) to invest in a high-expected-return security, potentially achieving expected returns higher than any single asset. However, this comes with commensurately higher risk. The efficient frontier with short sales allowed is still concave, but it has no finite upper bound—it continues indefinitely upward and to the right.</p>
+  <p>The minimum variance portfolio still exists and is the starting point of the efficient frontier. The efficient set, with short sales allowed, is the upper half of a hyperbola (Merton, 1972).</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>With Colonel Motors ($\bar{R}_C = 14\%$, $\sigma_C = 6\%$) and Separated Edison ($\bar{R}_S = 8\%$, $\sigma_S = 3\%$), $\rho = 0.5$, and short sales allowed: if $X_C = 2.0$ (200% in Colonel Motors, financed by short selling Separated Edison at $X_S = -1.0$), then $\bar{R}_P = 2(14) + (-1)(8) = 20\%$ and $\sigma_P = [4(36) + 1(9) + 2(2)(-1)(0.5)(6)(3)]^{1/2} = [144 + 9 - 36]^{1/2} = 10.82\%$.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Short sales allow investors to achieve expected returns beyond those of any single asset, but with proportionally higher risk.</strong> The efficient frontier becomes a hyperbola with no upper bound.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>Short sales allow negative weights and weights greater than 1.</li>
+    <li>The efficient frontier has no finite upper bound when short sales are allowed.</li>
+    <li>The frontier is still concave and starts at the minimum variance portfolio.</li>
+    <li>Most institutional investors face constraints on short selling.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. Efficient Frontier with Riskless Lending and Borrowing</h2>
+
+<h3>5.1 Combining a Riskless Asset with a Risky Portfolio</h3>
+
+<div class="interpretation">
+  <p>The introduction of a riskless asset (with return $R_F$ and $\sigma_F = 0$) dramatically simplifies portfolio analysis. When an investor can lend (invest in the riskless asset) or borrow (sell the riskless asset short) at the same rate $R_F$, all combinations of the riskless asset with any risky portfolio A lie on a straight line in expected return–standard deviation space. The line passes through $(0, R_F)$ and $(\sigma_A, \bar{R}_A)$.</p>
+  <p>The equation of this line is $\bar{R}_C = R_F + [(\bar{R}_A - R_F)/\sigma_A] \sigma_C$, where the slope $(\bar{R}_A - R_F)/\sigma_A$ is the reward-to-risk ratio (Sharpe ratio) of portfolio A. The investor can choose any point on this line by adjusting the fraction of wealth allocated to the riskless asset versus the risky portfolio.</p>
+</div>
+
+<div class="formula-box">
+  <span class="label">Combination of Riskless Asset and Risky Portfolio</span>
+  <div class="formula">\[
+  \bar{R}_C = R_F + \frac{\bar{R}_A - R_F}{\sigma_A} \sigma_C
+  \]</div>
+</div>
+
+<div class="interpretation">
+  <p><strong>Symbols:</strong> $\bar{R}_C$ is the expected return on the combined portfolio; $\sigma_C$ is the standard deviation of the combined portfolio; $R_F$ is the riskless rate; $\bar{R}_A$ and $\sigma_A$ are the expected return and standard deviation of the risky portfolio A.</p>
+  <p><strong>Interpretation:</strong> The relationship is linear. The intercept is $R_F$, and the slope is the Sharpe ratio of portfolio A. For any level of risk $\sigma_C$, the expected return increases linearly with the slope. Points to the left of A correspond to lending (holding some riskless assets); points to the right correspond to borrowing (leveraging the risky portfolio).</p>
+  <p><strong>Practical use:</strong> This formula allows investors to compute the expected return for any desired risk level when mixing a riskless asset with a risky portfolio.</p>
+</div>
+
+<h3>5.2 The Tangency Portfolio and the Separation Theorem</h3>
+
+<div class="interpretation">
+  <p>Among all possible risky portfolios, the one that maximizes the slope of the line from $R_F$ is the tangency portfolio G—the point where a ray from $R_F$ is tangent to the efficient frontier of risky assets. All investors, regardless of their risk preferences, will hold the same portfolio of risky assets (portfolio G) when they can lend and borrow at the same riskless rate. This is the separation theorem: the portfolio choice problem separates into (1) identifying the optimal risky portfolio G (which depends only on asset characteristics and $R_F$, not on investor preferences) and (2) choosing the mix between G and the riskless asset based on individual risk tolerance.</p>
+  <p>The separation theorem is a powerful result. It means that the optimal composition of the risky portfolio is independent of the investor's risk aversion. Risk-averse investors will hold some riskless assets and some of portfolio G; risk-tolerant investors will borrow at $R_F$ to invest more than 100% in portfolio G. But all investors hold the same relative proportions of risky assets within portfolio G.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The separation theorem states that the optimal risky portfolio is the same for all investors, regardless of their risk tolerance.</strong> The tangency portfolio G maximizes the Sharpe ratio and is the unique risky portfolio that all investors will combine with the riskless asset.</p>
+</div>
+
+<h3>5.3 Lending and Borrowing at Different Rates</h3>
+
+<div class="interpretation">
+  <p>When the lending rate (typically lower) differs from the borrowing rate (typically higher), the efficient frontier becomes kinked. The investor can lend at $R_F$ (lower rate) but must borrow at $R_F'$ (higher rate). The efficient frontier consists of three segments: (1) from $R_F$ to the tangency point G (lending segment), (2) along the risky efficient frontier from G to H, and (3) from H along the ray from $R_F'$ (borrowing segment). This creates a small range of risky portfolios (G to H) that could be optimal for different investors, depending on their risk tolerance. If the two rates are close, the assumption of a single rate provides a reasonable approximation.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>Combinations of a riskless asset and a risky portfolio lie on a straight line.</li>
+    <li>The tangency portfolio G maximizes the Sharpe ratio.</li>
+    <li>The separation theorem: all investors hold the same risky portfolio G, differing only in the mix with the riskless asset.</li>
+    <li>When lending and borrowing rates differ, the efficient frontier has a kink, and a range of risky portfolios may be optimal.</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Practical Considerations in Input Estimation</h2>
+
+<h3>6.1 Inflation-Adjusted Inputs</h3>
+
+<div class="interpretation">
+  <p>For long-term investment horizons (e.g., pension funds), investors care about the real purchasing power of their portfolios, not just nominal returns. Applying the efficient frontier framework to inflation-adjusted returns is one approach. Historical data show that Treasury bills are correlated with inflation and serve as a partial inflation hedge, while stocks and bonds have different inflation sensitivities. Inflation-linked securities (e.g., TIPS in the U.S.) provide a near-perfect inflation hedge and are increasingly important as an asset class in portfolio optimization.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Historical data (1926–present) without inflation adjustment: stocks 11.8% mean, 20.3% std dev; bonds 6.4% mean, 8.4% std dev; T-bills 3.6% mean, 3.1% std dev. After inflation adjustment: stocks 8.6% mean, 20.3% std dev; bonds 3.4% mean, 9.5% std dev; T-bills 0.6% mean, 3.9% std dev. The correlation between T-bills and inflation is 0.41, indicating a partial hedge.</p>
+</div>
+
+<h3>6.2 Input Estimation Uncertainty</h3>
+
+<div class="interpretation">
+  <p>Reliable inputs are crucial for mean–variance optimization. Historical data are commonly used as a starting point, but there are important trade-offs. Longer time series improve the precision of mean estimates (the standard error of the mean decreases with $\sqrt{N}$), but security characteristics change over time, making older data less relevant. The predicted variance of returns includes both the inherent variance and the uncertainty from not knowing the true mean: $\sigma^2_{Pred} = \sigma^2 + \sigma^2 / T$, where $T$ is the number of time periods. Thus predicted variance is always greater than historical variance.</p>
+  <p>When a new asset class with limited history is added, the analyst must choose between using all available data (longer series for established assets, shorter for the new asset) or using only the common period. This choice significantly affects the estimated inputs and the resulting optimal portfolio.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Input uncertainty means that the predicted variance of returns is always greater than the historical variance.</strong> The finite sample size introduces estimation risk, which is particularly severe for expected returns (which have a large standard error) and for correlations when the time series is short.</p>
+</div>
+
+<h3>6.3 Time Horizon and Variance</h3>
+
+<div class="interpretation">
+  <p>For assets with returns that are uncorrelated over time, the variance of cumulative returns scales linearly with the horizon. However, some assets (e.g., Treasury bills) exhibit positive autocorrelation, meaning that the annualized standard deviation increases with the horizon. For T-bills, the annualized standard deviation over a 10-year horizon is about 6%, compared to 3.2% at a 1-year horizon. This makes T-bills effectively riskier over long horizons, which has implications for long-term portfolio allocation.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>Inflation-adjusted returns are relevant for long-term investors.</li>
+    <li>Input estimation uncertainty increases predicted variance beyond historical variance.</li>
+    <li>Longer time series improve precision but may include outdated data.</li>
+    <li>Autocorrelation in returns affects how risk scales with the investment horizon.</li>
+  </ul>
+</div>
+
+<h2 id="section7">7. Worked Examples</h2>
+
+<h3>7.1 Equity and Debt Allocation</h3>
+
+<div class="interpretation">
+  <p>Consider the allocation between stocks (S&P 500) and bonds. Estimated inputs: $\bar{R}_S = 11.8\%$, $\sigma_S = 20.3\%$, $\bar{R}_B = 6.4\%$, $\sigma_B = 8.4\%$, $\rho_{SB} = 0.01$. The minimum variance portfolio weight for stocks is $X_S^* = (\sigma_B^2 - \sigma_S \sigma_B \rho_{SB}) / (\sigma_S^2 + \sigma_B^2 - 2 \sigma_S \sigma_B \rho_{SB}) = (70.56 - 0.01 \cdot 20.3 \cdot 8.4) / (412.09 + 70.56 - 2 \cdot 0.01 \cdot 20.3 \cdot 8.4) = 0.144$. Thus the minimum variance portfolio is 14.4% stocks, 85.6% bonds, with $\sigma_P = 7.8\%$.</p>
+  <p>With a riskless rate of 1%, the tangency portfolio T has $\bar{R}_T = 7.75\%$ and $\sigma_T = 8.13\%$, yielding a Sharpe ratio of $(7.75 - 1)/8.13 = 0.83$. The composition of T is 25% stocks and 75% bonds. The efficient frontier with riskless lending and borrowing is $\bar{R}_P = 1 + 0.83 \sigma_P$.</p>
+</div>
+
+<h3>7.2 Domestic and International Stock Allocation</h3>
+
+<div class="interpretation">
+  <p>Consider a domestic stock index ($\bar{R}_S = 11.8\%$, $\sigma_S = 20.3\%$) and an international stock portfolio ($\bar{R}_{int} = 9.2\%$, $\sigma_{int} = 18.4\%$, $\rho_{S,int} = 0.66$). The minimum variance portfolio weight for domestic stocks is $X_S^* = (18.4^2 - 0.66 \cdot 20.3 \cdot 18.4) / (20.3^2 + 18.4^2 - 2 \cdot 0.66 \cdot 20.3 \cdot 18.4) = 0.36$. Thus 36% domestic, 64% international, with $\sigma_P = 17.5\%$—lower than both individual standard deviations, demonstrating diversification benefit.</p>
+  <p>The international portfolio alone (18.4% risk, 9.2% return) is inefficient: an investor accepting 18.4% risk could achieve 10.2% return by using 37% domestic and 63% international—a 1% increase in return at no additional risk. With a riskless rate of 1%, the tangency portfolio is 70% domestic, 30% international, with $\bar{R}_T = 11\%$, $\sigma_T = 18.3\%$, and a Sharpe ratio of 0.552.</p>
+</div>
+
+<h3>7.3 Three-Asset Allocation</h3>
+
+<div class="interpretation">
+  <p>Combining bonds, U.S. stocks, and international stocks (with $\rho_{B,int} = 0.05$), the tangency portfolio at a 1% riskless rate has proportions: 73% bonds, 21% U.S. stocks, 6% international stocks. The expected return is 9.5%, standard deviation 10.5%, and Sharpe ratio 0.905. This three-asset efficient frontier dominates the two-asset frontiers (stocks–bonds and stocks–international) because it offers a higher Sharpe ratio (0.905 vs. 0.83 vs. 0.552).</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>Adding more asset classes to the efficient frontier can only improve (or leave unchanged) the maximum attainable Sharpe ratio.</strong> The three-asset frontier dominates the two-asset frontiers, illustrating the benefit of broader diversification.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>The minimum variance portfolio weight formula is used to find the lowest-risk allocation.</li>
+    <li>The tangency portfolio maximizes the Sharpe ratio and is the optimal risky portfolio under the separation theorem.</li>
+    <li>Broadening the asset set improves the efficient frontier.</li>
+  </ul>
+</div>
+
+<h2 id="section8">8. Practical Cautions</h2>
+
+<div class="interpretation">
+  <p>Several important warnings apply to the practical use of the efficient frontier framework:</p>
+  <ul>
+    <li><strong>Input estimation risk:</strong> The efficient frontier is only as good as the inputs. Expected returns, variances, and correlations are estimated with error, and the optimal portfolio can be highly sensitive to these estimates. Small changes in inputs can produce large changes in the optimal allocation.</li>
+    <li><strong>Confusing association with causality:</strong> Obtaining a position on the efficient frontier does not establish causality between asset weights and outcomes. The frontier is a descriptive tool based on assumed inputs, not a causal model.</li>
+    <li><strong>Ignoring model assumptions:</strong> The mean–variance framework assumes that investors care only about mean and variance (or that returns are normally distributed). If returns have skewness, kurtosis, or other features, the efficient frontier may not capture the full set of relevant risks.</li>
+    <li><strong>Misinterpreting the intercept:</strong> The riskless rate $R_F$ is assumed to be constant and known. In practice, the riskless rate changes over time, and borrowing at the riskless rate may not be possible for all investors.</li>
+    <li><strong>Units of measurement:</strong> All inputs must be expressed in consistent units (e.g., annualized returns and standard deviations). Mixing monthly and annual figures leads to incorrect results.</li>
+    <li><strong>Confusing error and residual:</strong> In the context of portfolio analysis, the terms "error" and "residual" have specific meanings. The residual is the difference between actual and predicted returns; the error is the difference between actual and expected returns. These are not interchangeable.</li>
+    <li><strong>Omitted-variable problems:</strong> The efficient frontier analysis considers only the assets included in the optimization. If important asset classes are omitted, the resulting frontier may be suboptimal relative to a more complete set.</li>
+    <li><strong>Time-varying parameters:</strong> Correlations and variances change over time. Using historical averages without adjusting for current conditions can lead to outdated allocations.</li>
+  </ul>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><strong>The efficient frontier is a powerful theoretical tool, but its practical application requires careful attention to input estimation, model assumptions, and the distinction between calculation and interpretation.</strong> Obtaining a coefficient or portfolio weight does not automatically establish that the allocation is optimal in real-world conditions.</p>
+</div>
+
+<div class="key-takeaway">
+  <ul>
+    <li>Input estimation risk is the most significant practical limitation of mean–variance optimization.</li>
+    <li>The efficient frontier is sensitive to small changes in expected returns.</li>
+    <li>Model assumptions (normality, constant correlations, known riskless rate) are often violated in practice.</li>
+    <li>Diversification benefits are real but depend on accurate correlation estimates.</li>
+    <li>Always validate the frontier with out-of-sample testing and sensitivity analysis.</li>
+  </ul>
+</div>
+    </div>
+</body>
+</html>
