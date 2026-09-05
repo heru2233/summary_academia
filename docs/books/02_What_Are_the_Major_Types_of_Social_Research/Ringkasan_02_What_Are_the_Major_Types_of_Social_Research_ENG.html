@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 What Are the Major Types of Social Research</title>
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('mobile-mode');
+            const btn = document.querySelector('.mode-toggle');
+            if (document.body.classList.contains('mobile-mode')) {
+                btn.textContent = '🖥️ Desktop Mode';
+                localStorage.setItem('viewMode', 'mobile');
+            } else {
+                btn.textContent = '📱 Mobile Mode';
+                localStorage.setItem('viewMode', 'desktop');
+            }
+        }
+        window.onload = function() {
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                document.body.classList.add('mobile-mode');
+                document.querySelector('.mode-toggle').textContent = '🖥️ Desktop Mode';
+            }
+        };
+    </script>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📥 Download PDF</button>
+    <button class="mode-toggle" onclick="toggleMode()">📱 Mobile Mode</button>
+    <div class="container">
+        <a href="index.html" class="back">← Back to Index</a>
+        <h1>02 What Are the Major Types of Social Research</h1>
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section1">1. Introduction: Dimensions of Social Research</a></li>
+    <li><a href="#section2">2. Use and Audience of Research: Basic vs. Applied</a></li>
+    <li><a href="#section3">3. Three Types of Applied Research</a></li>
+    <li><a href="#section4">4. Tools in Applied Research: Needs Assessment and Cost-Benefit Analysis</a></li>
+    <li><a href="#section5">5. Moving Beyond the Basic–Applied Dichotomy</a></li>
+    <li><a href="#section6">6. Purpose of Research: Explore, Describe, Explain</a></li>
+    <li><a href="#section7">7. Within or Across Cases</a></li>
+    <li><a href="#section8">8. Single or Multiple Points in Time</a></li>
+    <li><a href="#section9">9. Data Collection Techniques</a></li>
+    <li><a href="#section10">10. Practical Cautions</a></li>
+  </ul>
+</div>
+
+<h2 id="section1">1. Introduction: Dimensions of Social Research</h2>
+
+<h3>1.1 The Conceptual Framework</h3>
+
+<div class="interpretation">
+  <p>Social research can be organized along five interrelated dimensions. These dimensions serve a dual purpose: they help readers understand and evaluate research reports they encounter, and they function as decision points that researchers must navigate when designing a study. Recognizing these dimensions allows a researcher to quickly grasp what a study says, how it was conducted, and why particular methodological choices were made.</p>
+
+  <p>The five dimensions are: (1) the use and audience of the research findings, (2) the purpose or goal of the research, (3) whether the research examines within or across cases, (4) whether the research incorporates a single or multiple points in time, and (5) the data collection techniques employed. Each dimension represents a set of trade-offs with distinct strengths and weaknesses. Importantly, the dimensions are interrelated—certain combinations tend to co-occur (e.g., a particular study purpose may naturally align with a specific data collection technique). Understanding these interrelationships is essential for constructing a coherent research design.</p>
+
+  <p>As the source illustrates through the example of Sharon's work at Social Data, Inc., a single study can be positioned on every dimension simultaneously. Her project is a cross-sectional survey (time dimension), of teachers (case dimension), using quantitative data collection (technique dimension), for an applied evaluation study (purpose and use dimensions). This multi-dimensional positioning is the key to understanding any research project.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Sharon describes her project as "a cross-sectional survey of teachers as part of an applied research project on six day care centers to provide descriptive data that we can use in an evaluation study being prepared for a nonprofit foundation." This single sentence references multiple dimensions: applied use (evaluation for a nonprofit), descriptive purpose, across-case design (six centers), cross-sectional time frame, and survey technique. <b>Practical lesson:</b> Any research project can and should be characterized along all five dimensions to understand its full design logic.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Think of the five dimensions as the five coordinates on a map. Just as a geographic location requires latitude, longitude, elevation, and other data to be fully specified, a research study requires positioning on all five dimensions to be fully understood. Knowing only one dimension (e.g., "it's a survey") is like knowing only the latitude—you know something, but not enough to find the place.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>The dimensions are not merely classificatory—they are decision points.</b> When designing a study, a researcher must make deliberate choices at each dimension. These choices are interdependent: selecting a particular purpose (e.g., exploration) constrains or favors certain techniques (e.g., qualitative field research) and temporal designs (e.g., cross-sectional). Understanding these interdependencies is what separates competent research design from ad hoc methodological choices.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Social research can be organized along five dimensions: use/audience, purpose, case structure, time, and data collection technique.</li>
+    <li>These dimensions serve as both an analytical framework for reading research and a decision framework for designing research.</li>
+    <li>The dimensions are interrelated; choices on one dimension constrain or facilitate choices on others.</li>
+    <li>Every research study can be positioned on each of the five dimensions simultaneously.</li>
+  </ul>
+</div>
+
+<h2 id="section2">2. Use and Audience of Research: Basic vs. Applied</h2>
+
+<h3>2.1 Basic Research</h3>
+
+<div class="interpretation">
+  <p>Basic research (also called academic research or pure research) is designed to advance fundamental knowledge about how the social world works. Its primary audience is the scientific community—other professional researchers. Basic research supports or refutes theories about how the social world operates and changes, what causes events, and why social relations take particular forms. It addresses the "why" question and focuses on building and testing theoretical explanations.</p>
+
+  <p>A critical characteristic of basic research is its long-term orientation. Basic researchers may devote years to answering questions that reshape thinking for decades. The source emphasizes that much basic research lacks immediate practical applications, but it builds a foundation for knowledge that has broad impact. Basic research is also the primary source of the tools—methods, theories, and ideas—that all researchers, including applied researchers, use. Nearly all major breakthroughs and significant advances in knowledge originated in basic research.</p>
+
+  <p>The source provides a compelling example: Alec Jeffreys, a geneticist studying gene evolution in 1984, accidentally developed a technique for producing human DNA "fingerprints." This was not his intent—he stated he would never have thought of the technique if creating DNA fingerprints had been his goal. By the mid-1990s, applied uses had been developed, and today DNA analysis is widely used in criminal investigations. This illustrates a fundamental principle: <b>practical applications of basic research often emerge indirectly, after diverse basic knowledge advances accumulate over long periods, and may address problems that did not exist when the original study was conducted.</b></p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Jeffreys's basic research on gene evolution (1984) accidentally produced DNA fingerprinting technology. By the mid-1990s, this had become a standard tool in criminal investigations. <b>Practical lesson:</b> Basic research that appears impractical may generate transformative applications years or decades later. Dismissing basic research because it lacks immediate utility is short-sighted.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Basic research is like planting an oak tree. It takes years to grow, and during that time it may seem to serve no practical purpose. But once mature, it provides shade, timber, acorns, and habitat—benefits that were unimaginable when the seed was planted. Applied research, by contrast, is like planting a vegetable garden: the harvest comes quickly and addresses an immediate need.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Basic research and applied research are not in competition—they are complementary.</b> Applied research depends on the methods, theories, and foundational knowledge generated by basic research. Without basic research, applied research would lack the conceptual and methodological infrastructure needed to address practical problems effectively.</p>
+</div>
+
+<h3>2.2 Applied Research</h3>
+
+<div class="interpretation">
+  <p>Applied research addresses a specific concern or offers solutions to a concrete problem raised by an employer, community, or social cause. Unlike basic research, applied research rarely attempts to build, test, or connect to theory. Most applied studies are short-term and small-scale, offering practical results usable within a year or less. The primary audience consists of active practitioners—teachers, doctors, nurses, counselors, judges, managers, city officials—who are nonresearchers and often lack a background in research methodology.</p>
+
+  <p>This audience mismatch creates a significant complication. Applied researchers must translate scientific-technical findings into the language of lay decision makers, highlighting both strengths and limitations of a study's design. The source warns that nonscientists (e.g., judges, jurors, lawyers) may evaluate research methodology on a nonscientific basis, potentially accepting findings from weak studies while rejecting findings from rigorous ones. A researcher might prepare a brief summary for a decision maker who is uninterested in methodological details, but should also prepare a complete, detailed report for others who can evaluate quality or for future disputes.</p>
+
+  <p>Applied research can generate controversy because findings are put into practice and affect real interests. The source documents historical examples: Ellwood's 1903 study of jails and poorhouses generated public indignation but also accusations of slandering his employer. William Whyte encountered conflict when management was more interested in defeating a union than learning about employment relations, and restaurant owners wanted to make the industry look good rather than reveal operational details. A related issue is that officials sometimes commission applied studies as a delaying tactic—deflecting criticism or postponing decisions until political pressure subsides—with no real interest in the results.</p>
+
+  <p>Applied and basic research weigh methodology differently. In applied research, researchers must make more trade-offs, sometimes compromising scientific rigor to obtain fast, usable results. However, the source is clear: <b>compromise is no excuse for sloppy research.</b> Applied researchers must learn to balance rigor against practical needs, which requires in-depth knowledge of research methods and awareness of the consequences of compromising standards.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>A student government at University X wants to reduce alcohol abuse and asks whether sponsoring alcohol-free parties would reduce arrests for driving while intoxicated. An applied research study would be designed to answer this specific, time-bound question with practical results. <b>Practical lesson:</b> Applied research is driven by a concrete decision need, not by theoretical curiosity. The research question is defined by the practitioner's problem, not by gaps in the scientific literature.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Applied research is like a doctor ordering a specific diagnostic test for a patient with chest pain. The test is not designed to advance medical science in general—it is designed to answer a specific clinical question so that a treatment decision can be made. Basic research, by contrast, is like a physiologist studying the fundamental mechanisms of cardiac muscle contraction—knowledge that may eventually inform all cardiac diagnostics and treatments.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>The primary tension in applied research is between scientific rigor and practical utility.</b> Applied researchers operate under constraints (time, money, political pressure, audience limitations) that basic researchers typically do not face. The skill of applied research lies not in ignoring these constraints but in making informed trade-offs while maintaining methodological integrity.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>Basic research advances fundamental knowledge and targets the scientific community; applied research addresses specific practical problems and targets practitioners.</li>
+    <li>Basic research is the primary source of methods, theories, and foundational knowledge used by all researchers.</li>
+    <li>Practical applications of basic research often emerge indirectly and after long delays.</li>
+    <li>Applied research requires translating findings for non-scientific audiences and balancing rigor against practical constraints.</li>
+    <li>Applied research can generate controversy because findings affect real interests and power relations.</li>
+    <li>Compromising on rigor for practical reasons is sometimes necessary but never an excuse for sloppy research.</li>
+  </ul>
+</div>
+
+<h2 id="section3">3. Three Types of Applied Research</h2>
+
+<h3>3.1 Evaluation Research</h3>
+
+<div class="interpretation">
+  <p>Evaluation research is the most widely used type of applied research. Large bureaucratic organizations—businesses, schools, hospitals, governments, nonprofit agencies—frequently use it to determine whether a program, policy, marketing campaign, or new procedure is effective. The central question is: "Does it work?" Evaluation research expanded dramatically in the 1960s when the U.S. federal government created many new social programs, and by the 1970s most government social programs required evaluation studies to determine their effectiveness.</p>
+
+  <p>Evaluation research measures the effectiveness of a program, policy, or procedure against its stated goals and objectives. Multiple techniques can be used (survey, ethnographic field research, etc.), but if an experiment can be employed, the result is most effective. The source distinguishes two subtypes: <b>formative evaluation</b>, which provides built-in monitoring or continuous feedback for program management, and <b>summative evaluation</b>, which reviews final program outcomes. Both are usually necessary.</p>
+
+  <p>Ethical and political tensions frequently arise because findings affect who is hired, who builds political popularity, or which program is advanced. Displeased stakeholders may criticize the researcher or pressure them to rig a study, especially on controversial issues. The source emphasizes that the possibility of controversy makes it especially important for evaluation researchers to be honest, open, and to carefully adhere to proper research procedures.</p>
+
+  <p>Despite their value, evaluation studies have significant limitations. Few go through rigorous peer review, and raw data are rarely publicly available for scrutiny or replication. Policy makers can selectively use or ignore evaluation reports. Many studies adopt a narrow focus, examining select inputs and outputs rather than the entire process or broader ramifications of a program. The source provides the example of 1996 U.S. welfare reform: evaluation studies focused on whether programs reduced welfare caseloads and administrative costs, but few considered impacts on unfulfilled family obligations or rising distress among children. Policy makers used the evidence selectively to justify the new programs.</p>
+
+  <p>The Planning, Programming, and Budgeting System (PPBS), first used by the U.S. Department of Defense in the 1960s, exemplifies institutionalized evaluation research. PPBS rests on the idea that a program can be evaluated by measuring accomplishments against stated goals and objectives, dividing the program into components and analyzing each with regard to costs and accomplishments.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Wysong, Aniskiewicz, and Wright (1994) evaluated the D.A.R.E. (Drug Abuse Resistance Education) program found in 10,000 U.S. schools and 42 other countries. The program uses police officers to deliver antidrug talks in early grades. The researchers compared two groups of high school seniors—those who had participated in D.A.R.E. in seventh grade and those who had not. They found no lasting differences in age of first drug use, frequency of drug use, or self-esteem. The authors suggested the program's popularity may stem from its political-symbolic impact—it may be effective for latent goals (helping officials feel morally involved) but ineffective for official goals (reducing teen drug use). <b>Practical lesson:</b> Evaluation research can reveal that widely popular and well-funded programs do not achieve their stated objectives, and that the distinction between official and latent goals is critical for interpreting results.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Evaluation research is like a financial audit of a company. The auditor examines whether the company's actual performance matches its stated objectives, identifies where resources were spent, and reports on whether the investment produced the promised returns. Just as an audit can reveal that a profitable-looking company has hidden liabilities, evaluation research can reveal that a popular program has hidden ineffectiveness.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Evaluation research is inherently political because its findings have material consequences for stakeholders.</b> The most rigorous evaluation may be ignored if it contradicts powerful interests, while a weak study may be embraced if it supports preferred conclusions. This means that evaluation researchers must be especially vigilant about methodological rigor and transparent about limitations—precisely because the stakes are high and the temptation to manipulate findings is real.</p>
+</div>
+
+<h3>3.2 Action Research</h3>
+
+<div class="interpretation">
+  <p>Action research treats knowledge as a form of power. It blends acquiring new knowledge with using that knowledge to achieve a specific purpose, closing the gap between studying an issue and engaging in social-political action to influence it. Unlike basic research, action researchers do not remain detached from their subjects.</p>
+
+  <p>The source identifies five shared characteristics of action research: (1) the people studied are active participants in the research process, (2) the study incorporates the popular knowledge and concerns of ordinary people, (3) the study examines power relations and documents social inequality or injustice, (4) findings are shared to raise awareness and empower ordinary people, and (5) the research is tied directly to social-political action and achieving social goals. Action research tries to equalize power relations between researchers and participants, avoiding the control, status, and authority that researchers typically hold over those they study.</p>
+
+  <p><b>Participatory action research</b> is a subtype that emphasizes democratizing the knowledge-creation process, revealing injustices, highlighting social inequality and conflict, and engaging in collective action. A key belief is that knowledge grows out of directly experiencing social-political activism—as participants engage in direct action, they become more informed and empowered. In participatory action research, participants take an active role in formulating, designing, and carrying out the research, co-generating findings with professional researchers. The trained researcher acts as a consultant or collaborator who provides expertise in study design, data gathering, and analysis.</p>
+
+  <p>Action researchers must balance professional standards with practical limits of local conditions and participant concerns. Involvement and control by local participants means joint ownership of findings—a researcher who wants to publish in a professional outlet may find that participants feel the researcher is only trying to advance their career. Getting permission and cooperation before releasing findings is critical. Additionally, organizations opposed to participants' interests may challenge visible and successful action research, making it essential for action researchers to have in-depth knowledge of proper procedures and to carefully document methods.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Williams and associates (2007) used participatory action research to study quality of life in Saskatoon, Canada. They developed a "hybrid" research organization—both university-based and community-based—with co-leaders from each. Community leaders were active throughout the study. They used four knowledge-translation strategies: engaging local media, conducting community forums, creating a steering committee with community organizations, and employing a policy entrepreneur. Findings were treated as a learning tool for the community, communicated through briefing papers, posters, and community forums. Discussing findings was not an endpoint but a stage toward creating new policies and actions.</p>
+  <p>Quach and associates (2008) studied Vietnamese nail salon workers in California using action research. A Community Advisory Committee of Vietnamese community members oversaw the study. The study documented that over half of workers reported acute health problems (eye irritation, headaches, breathing difficulties) that started after beginning work in the industry, and less than half of salons had exhaust ventilation. Findings were used to educate the community and develop strategies to reduce hazardous occupational exposure. <b>Practical lesson:</b> Action research is distinguished by the active involvement of research participants in all stages and by the explicit goal of translating findings into social change.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Action research is like a community health worker who doesn't just diagnose a disease but also teaches the community about prevention, advocates for clean water, and organizes collective action to improve sanitation. The knowledge and the action are inseparable—the research is both the investigation and the intervention.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Action research fundamentally challenges the traditional separation between researcher and subject.</b> In this model, knowledge is not something extracted from participants and published for the scientific community—it is co-created with participants and returned to them as a tool for empowerment and social change. This has profound implications for research ethics, ownership of findings, and the criteria by which research quality is judged.</p>
+</div>
+
+<h3>3.3 Social Impact Assessment Research</h3>
+
+<div class="interpretation">
+  <p>Social impact assessment (SIA) research estimates the likely social consequences in advance of a planned change. It is often part of a larger environmental impact statement (EIS) required by government agencies. In the United States, the 1969 National Environmental Policy Act (NEPA) requires an EIS before a federal agency may take "actions significantly affecting the quality of the human environment." SIA evaluates both positive and negative impacts of proposed actions such as building schools, hospitals, prisons, housing developments, shopping centers, factories, landfills, highways, airports, reservoirs, parks, and power plants.</p>
+
+  <p>SIA examines consequences across multiple domains: availability and quality of housing, population characteristics (age structure, racial-ethnic diversity, income and education levels), distribution of power-authority, attitudes and perceptions, family bonds, friendship networks, community resources (health, police, fire, sanitation services, employment, school and recreational opportunities), vitality of nonprofit organizations, and impacts on distinct communities with established historical and cultural roots. Researchers conducting SIA often work in interdisciplinary teams.</p>
+
+  <p>The source identifies several reasons why SIA is seriously underutilized despite well-established tools and effectiveness: (1) most EISs do not require SIA, and officials rarely request it before approving major projects; (2) SIA requires time and money, and officials resist spending funds or slowing decision-making; (3) the political-cultural climate in many places is wary of planning and distrustful of expert advice; (4) promoters and investors oppose SIA because findings may create delays, force costly alterations, or derail plans; and (5) officials often ignore SIA results due to overriding political concerns and entrenched interests.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>When a new casino was proposed for downtown Rochester, New York, Kent (2004) conducted a social impact study. The report estimated the casino would add 1,300 new jobs, earn New York state $23 million per year, and generate $11 million in city tax revenues. The study compared data from gambling versus nongambling cities and considered past studies on gambling addiction. It found that pathological gambling increases with proximity to casino gambling and has costs for individuals and families (increased divorce, child abuse). The report estimated social costs could reach $10 million annually. <b>Practical lesson:</b> SIA weighs both economic benefits and social costs, but the people receiving benefits (business owners, taxpayers, casino employees) are often not the same people paying the social costs (families affected by compulsive gambling, communities with increased drug use).</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Social impact assessment is like a weather forecast for a community. Before a major change arrives (like a storm), the assessment predicts what will happen—who will be affected, how severely, and what preparations are needed. Just as ignoring a weather forecast can lead to disaster, ignoring SIA can lead to unintended social consequences that could have been anticipated and mitigated.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>The underutilization of SIA reflects a systematic bias toward short-term economic considerations over long-term social consequences.</b> Decision makers operate within political and economic incentive structures that favor rapid action and visible benefits, while the social costs of major projects are often diffuse, delayed, and borne by less powerful populations. SIA is a tool designed to correct this imbalance, but its effectiveness depends on political will to use it.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li><b>Evaluation research</b> determines whether a program or policy achieves its stated goals; it is the most widely used type of applied research and includes formative (ongoing monitoring) and summative (final outcomes) subtypes.</li>
+    <li><b>Action research</b> blends knowledge creation with social-political action; participants are active co-creators of knowledge, and findings are used to empower and create change.</li>
+    <li><b>Social impact assessment</b> estimates the likely social consequences of a planned change before it occurs, examining both positive and negative impacts across multiple domains.</li>
+    <li>All three types face political and ethical tensions because findings affect real interests and power relations.</li>
+    <li>Evaluation research is limited by narrow focus, selective use of findings, and lack of peer review.</li>
+    <li>Action research requires balancing professional standards with participant ownership and local conditions.</li>
+    <li>SIA is well-established but seriously underutilized due to political, economic, and cultural barriers.</li>
+  </ul>
+</div>
+
+<h2 id="section4">4. Tools in Applied Research: Needs Assessment and Cost-Benefit Analysis</h2>
+
+<h3>4.1 Needs Assessment</h3>
+
+<div class="interpretation">
+  <p>A needs assessment is an applied research tool that gathers descriptive information about a need, issue, or concern, including its magnitude, scope, and severity. It is often a preliminary step before a government agency or charity decides on a strategy to help people or conduct further study. Needs assessments frequently become entangled in complex community relations, and the source identifies several dilemmas that researchers must navigate.</p>
+
+  <p>The first dilemma is prioritization: a community may have a dozen issues (domestic abuse, preteen drug abuse, homelessness, gambling addiction, executive alcohol abuse), and the most visible need may not be the most serious or the one that mobilizes public outcry. The second dilemma is identifying information sources: should the researcher consult business owners, service providers, law enforcement, advocates, or the people themselves? Ideally all sources would be included, but identifying the full range may not be easy or time-efficient.</p>
+
+  <p>The third dilemma concerns hidden needs: explicit, immediate needs may not reveal the full range of less visible issues or their root causes. For example, people who are homeless may say they need housing, but housing would be available if they had jobs, which in turn may require skills training, a living wage, and specific types of businesses. Surface needs are often rooted in deeper conditions of which many people are unaware. The fourth dilemma is political controversy: the needs assessment may suggest solutions beyond local control, document unreported problems that embarrass officials, or reveal that one group's needs are linked to the actions of others who benefit from creating that need.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>A needs assessment for a program to aid people who are homeless might consult business owners who complain about homeless people on their street, current service providers (social workers, shelters, food pantries), law enforcement, advocates, and the homeless people themselves. Each source provides a different perspective, and the apparent need (housing) may mask deeper needs (jobs, skills, living wage, business development). <b>Practical lesson:</b> A needs assessment that stops at surface-level needs without investigating root causes will produce solutions that address symptoms rather than underlying conditions.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>A needs assessment is like a doctor taking a patient's medical history. The patient may report a headache (the surface need), but the doctor must investigate whether the cause is stress, dehydration, a brain tumor, or eye strain. Treating only the headache without understanding the cause could miss a life-threatening condition.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>The most serious needs are often the least visible.</b> A needs assessment that relies solely on the most vocal or visible stakeholders will systematically undercount the needs of marginalized populations and overlook structural causes. Effective needs assessment requires multiple information sources and a willingness to investigate root causes rather than surface symptoms.</p>
+</div>
+
+<h3>4.2 Cost-Benefit Analysis</h3>
+
+<div class="interpretation">
+  <p>Cost-benefit analysis is an applied research tool developed by economists in which a monetary value is assigned to the inputs and outcomes of a process, and the researcher examines the balance between them. The procedure involves four steps: (1) identify all consequences, including tangibles (job creation, business formation, graduation rates) and intangibles (clean air, political freedom, scenic beauty, low stress levels); (2) assign each consequence a monetary value—some negative (costs), some positive (benefits), some neutral; (3) calculate a probability or likelihood for each consequence; and (4) compare all costs to benefits and decide whether they balance.</p>
+
+  <p>The source describes two methods for assigning monetary values. <b>Contingency evaluation</b> asks people how much something is worth to them subjectively. For example, to estimate the cost of air pollution on health, researchers might ask: "How much is it worth to you not to cough and miss work 10 days a year?" If the average value is $150 in a town of 20,000, the subjective benefit of health is $150 × 20,000 = $3 million. The problem is that few people give accurate estimates, and different people assign very different values—an impoverished person might value avoiding illness at $150, while a wealthy person might value it at $150,000. This creates a systematic bias: polluting companies will locate in towns with low-income residents who assign lower costs, worsening conditions in lower-income areas.</p>
+
+  <p><b>Actual cost evaluation</b> estimates the real medical and job-loss costs. For example, if medical treatment averages $150 per person and a replacement worker costs an extra $300 per lost day, the cost of treating 10,000 people is $1,500,000, and the cost of hiring 1,000 replacement workers for 2 days is $600,000, totaling $2.1 million. This method ignores pain and suffering, inconvenience, and indirect costs (e.g., a parent staying home with a sick child).</p>
+
+  <p>The source raises several fundamental criticisms of cost-benefit analysis. First, it rests on the assumption that everything can be assigned a monetary value (a child's learning, health, love, happiness, human dignity) and that people assign similar valuations—assumptions that are questionable. Second, the people paying the costs may not be the ones receiving the benefits. Third, cost-benefit analysis tends to favor wealthy, high-income people over poor, low-income people because a high-income person's time is worth more. Fourth, cost-benefit analysis tends to conceal the moral-political dimension of decisions. For example, deciding whether to extend a seriously ill elderly person's life for 6 months at $200,000 has both an economic and a moral dimension, but the moral dimension becomes less visible when the decision is made for an anonymous member of a group by distant officials.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>In the Rochester casino SIA, the report weighed economic benefits (profits, jobs, tax revenues) against social costs (crime, gambling addiction, family breakup, illegal drug use) and concluded that benefits outweighed costs. However, the people receiving economic benefits (local business owners, taxpayers, casino employees) were not the same people paying the social costs (families affected by compulsive gambling, communities with increased drug use, women who become prostitutes). <b>Practical lesson:</b> Cost-benefit analysis can produce a technically "positive" net benefit while distributing costs and benefits inequitably across populations. The aggregate balance masks distributional injustice.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Cost-benefit analysis is like a household budget that counts income and expenses but ignores who in the family earns the money and who bears the costs. If one family member works two jobs while another spends freely, the household budget may "balance," but the distribution of burden is deeply unequal. The aggregate number hides the lived experience of individuals.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Cost-benefit analysis appears to be a neutral, rational, technical tool, but it embeds moral and political assumptions in its structure.</b> The decision to assign monetary values to all consequences, the method of valuation chosen, and the aggregation of costs and benefits across populations all involve value judgments. Cost-benefit analysis does not eliminate politics from decision-making—it conceals it behind a veneer of technical objectivity.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li><b>Needs assessment</b> gathers descriptive information about the magnitude, scope, and severity of social needs; it faces dilemmas of prioritization, source selection, hidden needs, and political controversy.</li>
+    <li>Surface needs often mask deeper structural causes; effective needs assessment investigates root causes, not just symptoms.</li>
+    <li><b>Cost-benefit analysis</b> assigns monetary values to all consequences and compares total costs to total benefits.</li>
+    <li>Two valuation methods exist: contingency evaluation (subjective worth) and actual cost evaluation (real monetary costs).</li>
+    <li>Cost-benefit analysis assumes all consequences can be monetized and that people assign similar valuations—assumptions that are questionable.</li>
+    <li>Cost-benefit analysis systematically favors wealthy populations and can conceal the moral-political dimension of decisions.</li>
+    <li>The people receiving benefits are often not the same people paying the costs—a fact that aggregate cost-benefit calculations obscure.</li>
+  </ul>
+</div>
+
+<h2 id="section5">5. Moving Beyond the Basic–Applied Dichotomy</h2>
+
+<h3>5.1 Forms of Knowledge, Audiences, and Researcher Autonomy</h3>
+
+<div class="interpretation">
+  <p>The source argues that the basic versus applied research dichotomy is overly simplistic and elaborates three additional distinctions to create a more nuanced typology: (1) the form of knowledge a study creates, (2) the range of audiences that can use research findings, and (3) who initiates, designs, and controls a study.</p>
+
+  <p><b>Forms of knowledge.</b> Social researchers produce two forms of knowledge. <i>Instrumental knowledge</i> is means-ends or task-oriented knowledge—narrowly focused to answer a specific research question with an outcome orientation. It advances the frontiers of understanding and can avoid direct engagement in moral or value-directed concerns. Most studies published in scholarly journals and most applied studies build instrumental knowledge. <i>Reflexive knowledge</i> is self-aware, value-oriented knowledge—principled and oriented toward an ultimate value or end in itself. It is created to build on specific moral commitments, consciously reflect on the context and processes of knowledge creation, and emphasize implications. When creating reflexive knowledge, researchers ask: Why and how are we creating this knowledge? What is its relevance and for whom? What are its implications for justice, truth, fairness, freedom, or equality?</p>
+
+  <p><b>Audiences.</b> Beyond the basic distinction between the scientific community and practitioners, the source expands practitioner audiences into four types: (1) the general public, with a general interest learned through schooling or mass media; (2) activists and community advocates, with direct, immediate interest in results relevant to their concerns; (3) generalist practitioners—high-level decision makers or policy specialists who want to integrate broad practical knowledge for many decisions; and (4) narrow practitioners who want targeted findings for a specific, pressing problem.</p>
+
+  <p><b>Researcher autonomy.</b> The idealized image of research features complete freedom to pursue knowledge without restriction. The opposite is commissioned research, where someone else provides funds and specifies the scope, methods, and dissemination of findings. Commissioned research may restrict which issues can be examined, impose strict time limits, dictate techniques, or specify contacts. Most commissioned studies limit researcher autonomy to some degree.</p>
+
+  <p>Combining these three distinctions produces an expanded typology (see Table 2 in the source). Basic research for the scientific community can produce reflexive knowledge (critical research) or instrumental knowledge (professional research). A foundation or agency might commission basic research (basic contract research). Researchers may assume a public intellectual role (reflexive knowledge for the general public) or a dedicated policy role (instrumental knowledge for policy debate). For participants, researchers may be public educators (reflexive), consultants (instrumental), or participatory researchers (instrumental and collaborative). For practitioners, knowledge may serve democratic deliberation, democratic applied research, dedicated deliberation, or dedicated applied research, depending on the form of knowledge and degree of autonomy.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>A researcher studying gender inequality might produce <b>reflexive knowledge</b> by examining the moral assumptions underlying workplace policies and sharing findings with feminist activists (public educator role). The same researcher might produce <b>instrumental knowledge</b> by measuring the gender pay gap using survey data and reporting to a corporate HR department (consultant role). Both are valid research activities, but they differ in form of knowledge, audience, and purpose. <b>Practical lesson:</b> The form of knowledge produced is a deliberate choice that shapes the entire research design, from question formulation to dissemination strategy.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Instrumental knowledge is like a map that tells you how to get from point A to point B—it is task-oriented and efficient. Reflexive knowledge is like asking why you are going to point B in the first place, whether the journey is just, and whether the map itself reflects the interests of those who drew it. Both are valuable, but they serve fundamentally different purposes.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>The expanded typology reveals that research is never truly "neutral."</b> Even instrumental knowledge, which appears value-free and task-oriented, is produced within a context of audience expectations, autonomy constraints, and implicit assumptions about what counts as a worthwhile question. The distinction between instrumental and reflexive knowledge makes these contextual factors explicit rather than leaving them hidden.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li>The basic–applied dichotomy is overly simplistic; three additional distinctions (form of knowledge, audience, researcher autonomy) create a richer typology.</li>
+    <li><i>Instrumental knowledge</i> is task-oriented and focused on answering specific questions; <i>reflexive knowledge</i> is value-oriented and examines the assumptions and implications of research.</li>
+    <li>Practitioner audiences can be expanded into four types: general public, activists, generalist practitioners, and narrow practitioners.</li>
+    <li>Researcher autonomy ranges from fully independent to heavily commissioned, with most studies falling somewhere in between.</li>
+    <li>Combining these distinctions produces an expanded set of research types and researcher roles (e.g., critical researcher, professional researcher, public intellectual, consultant, participatory researcher).</li>
+  </ul>
+</div>
+
+<h2 id="section6">6. Purpose of Research: Explore, Describe, Explain</h2>
+
+<h3>6.1 Exploratory Research</h3>
+
+<div class="interpretation">
+  <p>Exploratory research is used when the subject is very new, little is known about it, and no one has yet explored it systematically. Its goal is to formulate more precise questions that can be addressed in future research. As a first stage of inquiry, the researcher wants to know enough after the exploratory study to design and execute a second, more systematic and extensive study. Exploratory research rarely yields definitive answers. It addresses the "what" question: What is this social activity really about?</p>
+
+  <p>Exploratory research is difficult to conduct because it has few guidelines, everything is potentially important, steps are not well defined, and the direction of inquiry changes frequently. Researchers must be creative, open-minded, and flexible; adopt an investigative stance; and explore all sources of information. They ask creative questions and take advantage of serendipity—unexpected or chance factors that have large implications.</p>
+
+  <p>Most exploratory research uses qualitative data because qualitative research tends to be more open to using a wide range of evidence and discovering new issues. However, some exploratory studies use quantitative techniques, particularly when analyzing existing survey data to discover patterns that were not anticipated.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Troshynski and Blank (2008) conducted an exploratory study of men who engage in illegal sex trafficking—an unusual study because participants had actively engaged in illegal activity. Through a chance meeting, the authors conducted open-ended interviews with five traffickers over 3 months to explore how they saw their business and learn about their backgrounds.</p>
+  <p>Gavlee (2005) conducted an exploratory ethnographic study of racial classification in Puerto Rico, motivated by findings that Latin American racial classification differs from mainland U.S. approaches. He conducted open-ended interviews with 24 people and asked 42 people to organize pictures of faces. He discovered that local people organize primarily by appearance rather than race, using five shades of color as categories.</p>
+  <p>Krysan (2008) used survey data in an exploratory study of how people of different races search for housing in the Detroit area. She found that people tended to use an agent of their own race, Whites were more likely to use the Internet and restrict searches to White-majority neighborhoods, and Blacks searched a wider range of locations with longer searches and more applications. <b>Practical lesson:</b> Exploratory research can use either qualitative or quantitative methods; the defining feature is its purpose—to discover and formulate questions, not to answer them definitively.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Exploratory research is like a scout sent ahead into unknown territory. The scout does not conquer the territory or build settlements—that comes later. The scout's job is to map the terrain, identify obstacles, note resources, and report back so that a more systematic expedition can be planned. Without the scout's initial exploration, the expedition would be盲目 and inefficient.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Exploratory research is undervalued because it does not produce definitive answers, but it is essential for generating the questions that drive all subsequent research.</b> Without exploration, researchers risk studying the wrong questions or missing important phenomena entirely. The source's example of immigration impact on children illustrates this: the unexpected finding that children aged 6–11 are most vulnerable could not have been anticipated without exploratory inquiry.</p>
+</div>
+
+<h3>6.2 Descriptive Research</h3>
+
+<div class="interpretation">
+  <p>Descriptive research presents a picture of the specific details of a situation, social setting, or relationship. Much of the social research found in scholarly journals or used for policy decisions is descriptive. A descriptive study starts with a well-defined issue or question and tries to describe it accurately. The outcome is a detailed picture of the issue or an answer to the research question. Descriptive research focuses on "how" and "who" questions: How often does it happen? Who is involved?</p>
+
+  <p>Descriptive and exploratory research blur together in practice. The key distinction is that descriptive research begins with a more clearly defined issue, whereas exploratory research works with a poorly understood phenomenon. Descriptive research can present a picture of types of people or social activities, create a set of categories or classify types, clarify a sequence of steps or stages, document a causal process or mechanism, or report on the background or context of a situation.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>A descriptive study might examine the relationship between parents who are heavy alcohol drinkers and child abuse. Results could show that 25 percent of heavy-drinking parents had physically or sexually abused their children compared to 5 percent of parents who never drink or drink very little. <b>Practical lesson:</b> Descriptive research provides the detailed profiles, distributions, and patterns that form the empirical foundation for explanatory research. Without accurate description, explanation is impossible.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>If exploratory research is the scout, descriptive research is the cartographer. The cartographer takes what the scout has discovered and creates a detailed, accurate map—showing elevations, rivers, roads, and settlements. The map does not explain why the river flows south or why the mountain is there, but it provides the precise picture that makes such explanations possible.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>Descriptive research is the workhorse of social science.</b> It provides the empirical profiles, distributions, and classifications that both practitioners and theorists rely on. However, description alone cannot establish causality—a finding that 25 percent of heavy-drinking parents abuse their children describes an association, not a causal mechanism. The temptation to read causality into descriptive findings is one of the most common errors in social research.</p>
+</div>
+
+<h3>6.3 Explanatory Research</h3>
+
+<div class="interpretation">
+  <p>Explanatory research goes beyond description to answer "why" questions. It tests a theory's predictions or principles, elaborates and enriches a theory's explanation, extends a theory to new issues or topics, supports or refutes an explanation or prediction, links issues to a general principle, or determines which of several explanations is best. Explanatory research is the most ambitious form of social research because it seeks to identify causal mechanisms and test theoretical propositions.</p>
+
+  <p>The source notes that studies may have multiple purposes (e.g., both to explore and to describe), but one purpose is usually dominant. The progression from exploration to description to explanation represents a deepening of inquiry: exploration identifies what is worth studying, description provides the detailed picture, and explanation identifies why things are the way they are.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Building on the descriptive finding that 25 percent of heavy-drinking parents abuse their children, an explanatory study might test the theory that alcohol impairs impulse control, leading to violent behavior. The study would need to rule out alternative explanations (e.g., that a third variable such as poverty causes both heavy drinking and child abuse). <b>Practical lesson:</b> Explanatory research requires explicit theoretical propositions and systematic attempts to rule out alternative explanations. It is the most demanding form of research but also the most powerful for informing policy and practice.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>If descriptive research is the cartographer, explanatory research is the geologist. The geologist does not merely map the mountain—she explains why it is there (tectonic forces, volcanic activity, erosion). The explanation allows prediction: if the same forces are at work elsewhere, similar mountains should form. This predictive power is what makes explanation the ultimate goal of science.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>The three purposes form a logical sequence, but they are not a strict hierarchy.</b> Exploratory findings can challenge existing explanations. Descriptive research can reveal patterns that contradict theoretical predictions. And explanatory research often generates new questions that require further exploration. The relationship among the three purposes is iterative, not linear.</p>
+</div>
+
+<div class="key-takeaway">
+  <h4>Key Takeaways</h4>
+  <ul>
+    <li><b>Exploratory research</b> examines little-understood phenomena to formulate precise questions for future research; it addresses "what" questions and rarely yields definitive answers.</li>
+    <li><b>Descriptive research</b> presents a detailed picture of a situation, social setting, or relationship; it addresses "who," "when," "where," and "how" questions.</li>
+    <li><b>Explanatory research</b> tests theories and identifies causal mechanisms; it addresses "why" questions and is the most ambitious form of social research.</li>
+    <li>The three purposes form an iterative sequence: exploration identifies questions, description provides the empirical picture, and explanation identifies causes.</li>
+    <li>Studies may have multiple purposes, but one is usually dominant.</li>
+    <li>Descriptive findings describe associations, not causality—reading causality into descriptive results is a common error.</li>
+  </ul>
+</div>
+
+<h2 id="section7">7. Within or Across Cases</h2>
+
+<h3>7.1 Case Study Research</h3>
+
+<div class="interpretation">
+  <p>The third dimension of social research concerns whether the researcher examines a single case in depth or compares across multiple cases. A "case" is a bounded unit—a person, organization, community, event, or nation—that the researcher treats as the object of study. The choice between within-case and across-case research involves fundamental trade-offs between depth and breadth, detail and generalizability.</p>
+
+  <p><b>Case study research</b> involves the intensive study of a single case or a small number of cases. The researcher examines the case in great detail, often using multiple data sources, to understand its internal dynamics, context, and complexity. Case study research is particularly valuable when the researcher wants to understand a phenomenon in its natural context, when the boundaries between the phenomenon and its context are not clear, and when the researcher wants to capture the perspectives of participants.</p>
+
+  <p>Case study research has several strengths. It provides rich, detailed data that can capture the complexity of social life. It allows the researcher to examine processes, mechanisms, and contexts that would be lost in cross-case analysis. It is particularly useful for exploratory and descriptive purposes. However, case study research has limitations: findings from a single case may not be generalizable to other cases, and the researcher's close involvement with the case may introduce bias.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Sharon's project at Social Data, Inc. involves six day care centers—a form of across-case research that compares multiple cases. A case study alternative would involve the intensive study of a single day care center, examining its internal dynamics, staff relationships, child development outcomes, and organizational culture in great detail. <b>Practical lesson:</b> The choice between case study and across-case research depends on the research question. If the question is "How does this particular day care center operate?" a case study is appropriate. If the question is "Do day care centers with higher staff-to-child ratios produce better outcomes?" across-case comparison is needed.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Case study research is like a portrait painter who spends weeks with a single subject, capturing every detail of their face, posture, expression, and environment. Across-case research is like a photographer who takes a quick snapshot of each person in a crowd, then compares the photos to identify patterns. The portrait reveals depth; the photographs reveal breadth.</p>
+</div>
+
+<div class="insight">
+  <h4>Key Insight</h4>
+  <p><b>The case study vs. across-case distinction is not a quality judgment—it is a design choice driven by the research question.</b> Case study research sacrifices breadth for depth; across-case research sacrifices depth for breadth. Neither is inherently superior. The most sophisticated research designs often combine both approaches, using case studies to generate hypotheses and across-case analysis to test them.</p>
+</div>
+
+<h3>7.2 Across-Case Research</h3>
+
+<div class="interpretation">
+  <p>Across-case research compares multiple cases to identify patterns, test hypotheses, or estimate relationships. It is the dominant approach in quantitative social research, where the researcher analyzes data from many cases (e.g., survey respondents, organizations, countries) simultaneously. Across-case research is particularly valuable for testing theories that make predictions about relationships between variables across populations.</p>
+
+  <p>The primary strength of across-case research is generalizability—findings from a large number of cases are more likely to be applicable to other cases. However, across-case research sacrifices the depth and contextual detail that case study research provides. The researcher works with standardized measures that may not capture the full complexity of each case.</p>
+</div>
+
+<div class="example">
+  <h4>Example</h4>
+  <p>Krysan's (2008) exploratory study of housing search strategies compared data from several hundred people in the Detroit area—Whites and Blacks, renters and buyers. This across-case design allowed her to identify patterns (e.g., Whites were more likely to use the Internet and restrict searches to White-majority neighborhoods) that would not be visible from studying a single person's housing search. <b>Practical lesson:</b> Across-case research is essential for identifying patterns that hold across populations, but the patterns identified are statistical regularities, not universal laws.</p>
+</div>
+
+<div class="analogy">
+  <h4>Analogy</h4>
+  <p>Across-case research is like a meteorologist studying climate patterns by analyzing temperature data from hundreds of weather stations over decades. The individual station data may miss local peculiarities, but the aggregate patterns reveal trends (global warming, seasonal cycles[req_683f3e09] [mimo-v2.5] **Request exceeded 316s limit:** Your prompt took too long to process, likely due to a large context window or heavy reasoning required by the AI provider; to fix this, optimize your prompt by shortening it, start a fresh session to clear accumulated tokens, and avoid repeatedly retrying the exact same request to prevent continuous timeouts and wasted quota. Our AI provider still counts every request as a successful request. That is why we enforce a policy where any timed-out, bad request, or other failed request is subject to a minimum charge equivalent to 1,000 prompt tokens, 1,000 completion tokens, and 1,000 cached tokens (1,000/1,000/1,000). We implemented this rule because there have been numerous attempts to exploit our system to bypass charges and hit the AI provider for free. Furthermore, this measure protects our infrastructure from exhausting TPM and RPM limits. If an attacker spams 1 million bad requests simultaneously, our capacity would be depleted, preventing legitimate users from accessing the service. Please do not send this same request repeatedly — every request will still be billed based on its prompt tokens.
+    </div>
+</body>
+</html>
